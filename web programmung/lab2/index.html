@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Лабораторная работа №2</title>
+</head>
+<body>
+    <style>
+        .list {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-bottom: 15px;
+        }
+    </style>
+    <!-- ol
+        start - начало списка
+        type - A a I i 1 -->
+    <!-- ul 
+        type - disk circle square -->
+    <ol style="max-width: 200px; margin: 0 auto; box-sizing: border-box ;">
+        <li class="first">Капуста</li>
+        <li class="second">Томат</li>
+        <li class="third">Рыба</li>
+        <li class="fourth">Мясо</li>
+        <li class="fifth">Овощи</li>
+        <li class="sixth">Картошка</li>
+    </ol>
+
+    <ul>
+        <li><sub>Капуста</sub></li>
+        <li><sup>Томат</sup></li>
+        <li><big>Рыба</big></li>
+        <li><font size="48" color="pink">Мясо</font></li>
+        <li><q>Овощи</q></li>
+        <li><del>Картошка</del></li>
+    </ul>
+
+    <ul>        
+        <li class="list">
+            <ol type="A">
+                <li>Капуста</li>
+                <li>Томат</li>
+                <li>Рыба</li>
+                <li>Мясо</li>
+                <li>Овощи</li>
+                <li>Картошка</li>
+            </ol>
+        </li>
+        <li class="list">
+            <ol type="I">
+                <li>Языки программирования</li>
+                <li>C++</li>
+                <li>C</li>
+                <li>Python</li>
+                <li>JS</li>
+                <li>ALGOL</li>
+            </ol>
+        </li>
+        <li class="list">
+            <ul type="square">
+                <li>Капуста</li>
+                <li>Томат</li>
+                <li>Рыба</li>
+                <li>Мясо</li>
+                <li>Овощи</li>
+                <li>Картошка</li>
+            </ul>
+        </li>
+        <li class="list">
+            <ul type="disk">
+                <li>Капуста</li>
+                <li>Томат</li>
+                <li>Рыба</li>
+                <li>Мясо</li>
+                <li>Овощи</li>
+                <li>Картошка</li>
+            </ul>
+        </li>
+    </ul>
+    <dl>
+        <dt>
+            Данил
+            <dd>
+                Овощекапуста
+            </dd>
+        </dt>
+        <dt>
+            Кирилл
+            <dd>
+                Картошкатомат
+            </dd>
+        </dt>
+        <dt>
+            Ваня
+            <dd>
+                Мясорыба
+            </dd>
+        </dt>
+    </dl>
+</body>
+</html>
