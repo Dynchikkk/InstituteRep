@@ -1,3 +1,11 @@
+.list {
+    margin-bottom: 10px;
+}
+
+ul {
+    margin-bottom: 15px;
+}
+
 .first {
     font-style: italic;
 }
@@ -21,3 +29,4 @@
 .sixth {
     text-decoration: wavy underline;
 }
+
