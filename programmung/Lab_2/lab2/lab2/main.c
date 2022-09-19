@@ -39,7 +39,7 @@ void n2()
 	getchar();
 	fgets(wrd, 50, stdin);
 	printf("Your line: ");
-	puts(wrd);
+	printf("%s", wrd);
 
 	int wrdLen = strlen(wrd) - 1;
 	printf("Your line len: %d\n", wrdLen);
