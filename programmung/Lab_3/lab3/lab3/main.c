@@ -17,17 +17,21 @@ int main()
 void var1()
 {
 	int a, b, c, d;
+	printf("Insert num1: ");
 	scanf("%d", &a);
 	getchar();
+	printf("Insert num2: ");
 	scanf("%d", &b);
 	getchar();
+	printf("Insert num3: ");
 	scanf("%d", &c);
 	getchar();
+	printf("Insert num4: ");
 	scanf("%d", &d);
 
 	int n1, n2, n3, n4, n5, n6, x;
 
-
+	printf("Calculation....\n");
 	n1 = fabs(a - b);
 	n2 = fabs(a - c);
 	n3 = fabs(a - d);
@@ -62,25 +66,33 @@ void var1()
 		x = n6;
 	}
 
+	printf("Minimum difference: ");
 	printf("%d\n", x);
 }
 
 void var2()
 {
-
 	int a, b, c, d;
+	printf("Insert num1: ");
 	scanf("%d", &a);
 	getchar();
+	printf("Insert num2: ");
 	scanf("%d", &b);
 	getchar();
+	printf("Insert num3: ");
 	scanf("%d", &c);
 	getchar();
+	printf("Insert num4: ");
 	scanf("%d", &d);
 
 	int k1, k2;
+	printf("Insert dop num1: ");
 	scanf("%d", &k1);
+	getchar();
+	printf("Insert dop num1: ");
 	scanf("%d", &k2);
 
+	printf("Calculation....\n");
 	int counter = 0;
 
 	if (a > 0)
@@ -115,6 +127,6 @@ void var2()
 		}
 	}
 
+	printf("Count of numbers that % dop num1 == 0 and % dop num2 != 0: ");
 	printf("%d\n", counter);
-
 }
