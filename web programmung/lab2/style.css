@@ -30,3 +30,15 @@ ul {
     text-decoration: wavy underline;
 }
 
+.list-1 li {
+ position: relative;
+}
+
+.list-1 li:before {
+ content: ' - ';
+ position: relative;
+ left: 0;
+ top: 50%;8:19 20.09.20228:19 20.09.2022
+}
+
+
