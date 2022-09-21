@@ -127,6 +127,6 @@ void var2()
 		}
 	}
 
-	printf("Count of numbers that % dop num1 == 0 and % dop num2 != 0: ");
+	printf("Count of numbers that:\ndivisible by dop num1 without remainder and by dop num2 with remainder: ");
 	printf("%d\n", counter);
 }
