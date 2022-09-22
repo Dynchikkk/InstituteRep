@@ -53,8 +53,9 @@ void n3()
 	getchar();
 	printf("Insert negative number: ");
 	scanf("%d", &num2);
-	printf("Numbers in:\n10cc: %d, %d\n16cc: %x, %x\n16cc (8 num): %8x, %8x, %08x, %08x\n", 
-		num1, num2, num1, num2, num1, num2, num1, num2);
+	printf("Numbers in:\n l16cc, r16cc, st\n");
+	printf("%-8x, %8x,\t%d\n", num1, num1, num1);
+	printf("%-8x, %8x,\t%d\n", num2, num2, num2);
 }
 
 void n4()
