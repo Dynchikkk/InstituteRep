@@ -7,7 +7,7 @@ void var2();
 
 int main() 
 {
-	var1();
+	//var1();
 	printf("------\n");
 	var2();
 
@@ -41,27 +41,27 @@ void var1()
 
 	x = n1;
 
-	if (x > n2)
+	if (x < n2)
 	{
 		x = n2;
 	}
 
-	if (x > n3)
+	if (x < n3)
 	{
 		x = n3;
 	}
 
-	if (x > n4)
+	if (x < n4)
 	{
 		x = n4;
 	}
 
-	if (x > n5)
+	if (x < n5)
 	{
 		x = n5;
 	}
 
-	if (x > n6)
+	if (x < n6)
 	{
 		x = n6;
 	}
@@ -99,6 +99,7 @@ void var2()
 	{
 		if (a % k1 == 0 && a % k2 != 0)
 		{
+			printf("%d\n", a);
 			counter++;
 		}
 	}
@@ -107,6 +108,7 @@ void var2()
 	{
 		if (b % k1 == 0 && b % k2 != 0)
 		{
+			printf("%d\n", b);
 			counter++;
 		}
 	}
@@ -115,6 +117,7 @@ void var2()
 	{
 		if (c % k1 == 0 && c % k2 != 0)
 		{
+			printf("%d\n", c);
 			counter++;
 		}
 	}
@@ -123,6 +126,7 @@ void var2()
 	{
 		if (d % k1 == 0 && d % k2 != 0)
 		{
+			printf("%d\n", d);
 			counter++;
 		}
 	}

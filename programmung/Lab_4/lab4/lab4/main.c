@@ -38,8 +38,8 @@ void number1()
 		a[i] = random();
 		printf("%d ", a[i]);
 	}
-	printf("\nInsert dop number: ");
 
+	printf("\nInsert dop number: ");
 	int k = 0;
 	scanf("%d", &k);
 
