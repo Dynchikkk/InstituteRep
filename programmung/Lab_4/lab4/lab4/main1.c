@@ -19,7 +19,7 @@ void number1_1()
 	// заменяем эдементы кратные k на 0
 	for (int i = 0; i < lenA; i++)
 	{
-		if (true)
+		if (sign == true)
 			sum += a[i];
 		else
 			sum += -a[i];
