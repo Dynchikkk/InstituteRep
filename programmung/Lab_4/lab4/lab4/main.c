@@ -9,6 +9,7 @@ void number2_2();
 
 int main()
 {
+	srand(time(NULL));
 	printf("Var1\n\n");
 	number1_1();
 	printf("\n--------\n");
