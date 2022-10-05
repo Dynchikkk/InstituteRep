@@ -65,5 +65,23 @@ void number2_2()
 		}
 	}
 	printf("\nRow with max sum - %d (%d)\n", rowNum + 1, maxSum);
+
+	int maxSumCOl = 0;
+	int colNum = 0;
+	for (int i = 0; i < colC; i++)
+	{
+		int colSum = 0;
+		for (int j = 0; j < colR; j++)
+		{
+			colSum += n[j][i];
+		}
+
+		if (maxSumCOl < colSum)
+		{
+			maxSumCOl = colSum;
+			colNum = i;
+		}
+	}
+	printf("\nCol with max sum - %d (%d)\n", colNum + 1, maxSumCOl);
 }
 

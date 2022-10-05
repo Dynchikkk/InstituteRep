@@ -1,40 +1,35 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <stdbool.h>
 
-void number1_1()
+int num_1a()
 {
 	// создаем массив и задаем значения элемантам
 	int a[20];
 	int lenA = sizeof(a) / sizeof(int);
-	printf("Array before: ");
-	for (int i = 0; i < lenA; i++)
+	printf("Array before:\n");
+	for (int *pArr = a; pArr < &a[lenA]; pArr++)
 	{
-		a[i] = random();
-		printf("%d ", a[i]);
+		int n = random();
+		*pArr = n;
+		printf("%d ", n);
 	}
 
-	printf("\n");
-	
+	printf("%d", *(a + 1));
+
 	int sum = 0;
-	bool sign = true;
-	// заменяем элементы кратные k на 0
-	for (int i = 0; i < lenA; i += 3)
+	int n = 1;
+
+	for (int* pArr = a; pArr < &a[lenA]; pArr++)
 	{
-		sum += a[i];
-		printf("%d %d\n", a[i], i);
-		/*if (sign == true)
-			sum += a[i];
-		else
-			sum += -a[i];
-
-		sign = !sign;*/
+		sum += n * *pArr;
+		n *= -1;
 	}
+	printf("\nSum: %d", sum);
 
-	printf("\nTotal: %d", sum);
+	return 0;
 }
 
-void number1_2()
+int num_1b()
 {
 	// создаем массив и задаем значения элемантам
 	int x[6][8];
@@ -72,4 +67,6 @@ void number1_2()
 
 	printf("The sum of matrix elements whose sum of\n");
 	printf("indices is equal to dop num: %d", sum);
+
+	return 0;
 }
