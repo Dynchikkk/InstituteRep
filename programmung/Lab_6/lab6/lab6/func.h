@@ -11,3 +11,16 @@ int random()
 	int r = n + rand() % (m - n + 1);
 	return r;
 }
+
+int summ(int *pLocalArr, int len)
+{
+	int *pFinal = pLocalArr + len;
+	int sum = 0;
+
+	for (pLocalArr; pLocalArr < pFinal; pLocalArr++)
+	{
+		sum += *pLocalArr;
+	}
+
+	return sum;
+}
