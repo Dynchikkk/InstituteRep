@@ -9,7 +9,7 @@ int main()
 {
 	var1();
 	printf("---------\n");
-	var2();
+	//var2();
 
 	return 0;
 }
