@@ -9,12 +9,9 @@ int num_1a()
 	printf("Array before:\n");
 	for (int *pArr = a; pArr < &a[lenA]; pArr++)
 	{
-		int n = random();
-		*pArr = n;
-		printf("%d ", n);
+		*pArr = random();
+		printf("%d ", *pArr);
 	}
-
-	printf("%d", *(a + 1));
 
 	int sum = 0;
 	int n = 1;
@@ -36,15 +33,16 @@ int num_1b()
 	int colR = sizeof(x) / sizeof(x[0]);
 	int colC = sizeof(x[0]) / sizeof(x[0][0]);
 
+	int *finEl = x[0] + colC * colR - 1;
+
 	printf("Array:\n");
-	for (int i = 0; i < colR; i++)
+	for (int *pArr = x[0], i = 1; pArr <= finEl; pArr++, i++)
 	{
-		for (int j = 0; j < colC; j++)
-		{
-			x[i][j] = random();
-			printf("%d ", x[i][j]);
-		}
-		printf("\n");
+		*pArr = random();
+		printf("%d ", *pArr);
+
+		if (i % colC == 0)
+			printf("\n");
 	}
 
 	int k = 0;
@@ -52,21 +50,25 @@ int num_1b()
 	scanf("%d", &k);
 
 	int sum = 0;
+	int j = 0, i = 0;
 
-	for (int i = 0; i < colR; i++)
+	for (int* pArr = x[0]; pArr <= finEl; pArr++)
 	{
-		for (int j = 0; j < colC; j++)
+		if ((i + j) % k == 0)
 		{
-			if ((i + j + 2) % k == 0)
-			{
-				sum += x[i][j];
-				printf("%d", x[i][j]);
-			}
+			sum += *pArr;
+			printf("%d ", *pArr);
 		}
+
+		j++;
+		if (j < colC)
+			continue;
+
+		j = 0;
+		i++;	
 	}
 
-	printf("The sum of matrix elements whose sum of\n");
-	printf("indices is equal to dop num: %d", sum);
+	printf("\nSum: %d", sum);
 
 	return 0;
 }
