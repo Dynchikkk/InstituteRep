@@ -14,9 +14,9 @@ int random()
 }
 
 // find sum of array
-int summ(int *pLocalArr, int len)
+int summ(int* pLocalArr, int len)
 {
-	int *pFinal = pLocalArr + len;
+	int* pFinal = pLocalArr + len;
 	int sum = 0;
 
 	for (pLocalArr; pLocalArr < pFinal; pLocalArr++)
@@ -25,4 +25,11 @@ int summ(int *pLocalArr, int len)
 	}
 
 	return sum;
+}
+
+int clean()
+{
+	fseek(stdin, 0, SEEK_SET);
+
+	return 0;
 }
