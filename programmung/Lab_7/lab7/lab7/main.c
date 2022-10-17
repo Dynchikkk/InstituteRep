@@ -10,7 +10,7 @@ int var12();
 int main()
 {
 	printf("Var1\n\n");
-	//var1();
+	var1();
 	printf("\n---------------\n");
 	printf("Var12\n\n");
 	var12();
