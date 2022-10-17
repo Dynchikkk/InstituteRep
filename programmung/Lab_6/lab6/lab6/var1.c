@@ -54,7 +54,7 @@ int num_1b()
 
 	for (int* pArr = x[0]; pArr <= finEl; pArr++)
 	{
-		if ((i + j) % k == 0)
+		if ((i + j) == k)
 		{
 			sum += *pArr;
 			printf("%d ", *pArr);
