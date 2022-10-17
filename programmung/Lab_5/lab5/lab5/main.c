@@ -9,7 +9,7 @@ int main()
 {
 	var1();
 	printf("---------\n");
-	//var2();
+	var2();
 
 	return 0;
 }
@@ -22,17 +22,13 @@ void var1()
 
 	float res = 0;
 	int counter = 1;
-	while (true)
+	for (;res < n;)
 	{
 		res += 1.0 / counter;
-		if (res > n)
-		{
-			printf("Number that satisfies condition: %.3f\n", res);
-			return;
-		}
 
 		counter++;
 	}
+	printf("Number that satisfies condition: %.3f\n", res);
 }
 
 void var2()
@@ -42,16 +38,13 @@ void var2()
 	scanf("%d", &a);
 
 	float res = 0;
-	int counter = 1;
-	while (true)
+	int counter = 0;
+	while (res < a)
 	{
-		res += 1.0 / counter;
-		if (res > a)
-		{
-			printf("Number that satisfies condition: %d\n", counter);
-			return;
-		}
-
 		counter++;
+		res += 1.0 / counter;
+
 	}
+
+	printf("Number that satisfies condition: %d\n", counter);
 }

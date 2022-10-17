@@ -33,7 +33,7 @@ int num_1b()
 	int colR = sizeof(x) / sizeof(x[0]);
 	int colC = sizeof(x[0]) / sizeof(x[0][0]);
 
-	int *finEl = x[0] + colC * colR - 1;
+	int *finEl = *x + colC * colR - 1;
 
 	printf("Array:\n");
 	for (int *pArr = x[0], i = 1; pArr <= finEl; pArr++, i++)

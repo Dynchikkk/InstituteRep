@@ -31,14 +31,27 @@ ul {
 }
 
 .list-1 li {
- position: relative;
+    position: relative;
 }
 
-.list-1 li:before {
- content: ' - ';
- position: relative;
- left: 0;
- top: 50%;8:19 20.09.20228:19 20.09.2022
+.list-1 li::after {
+    content: ' ■ ';
+    position: relative;
+    right: 0;
+    top: 50%;
 }
+
+/* .ol {
+    list-style-type: "- ";
+} */
+
+.ol {
+    list-style: none;
+    counter-reset: li;
+ }
+ .ol li:before {
+    counter-increment: li;
+    content: counters(li, ".") ". ";
+ }
 
 

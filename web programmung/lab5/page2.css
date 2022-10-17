@@ -27,3 +27,16 @@ img {
     border: 1px solid black;
     box-sizing: border-box;
 }
+
+.link:hover {
+    color: green;
+}
+
+.link:focus {
+    background-color: black;
+    color: white;
+}
+
+.link:active {
+    color: red;
+}
