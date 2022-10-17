@@ -61,6 +61,7 @@ int num_1b()
 		}
 
 		j++;
+
 		if (j < colC)
 			continue;
 
