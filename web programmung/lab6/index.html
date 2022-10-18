@@ -5,8 +5,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <title>RitmStyle</title>
 </head>
 <body>
@@ -29,7 +32,7 @@
     </header>
 
     <section class="hero container">
-        <p class="hero__">Укрепление здоровья</p>
+        <p class="hero__description">Укрепление здоровья</p>
         <h1 class="hero__heading">
             Акватерапия RitmStyle
         </h1>
@@ -39,16 +42,53 @@
         <h2 class="sessions__heading">Сеансы RitmStyle</h2>
         <div class="sessions__container">
             <article class="container__card-ver">
-                <img src="./img/sessions-background-vertical.jpg" alt="">
-                <h4>Стандартный RitmStyle</h4>
+                <img class="card__img" src="./img/sessions-background-vertical.jpg" alt="">
+                <h4 class="card__heading">Стандартный RitmStyle</h4>
             </article>
-            <div class="container">
+            <div class="container__container">
+                <article class="container__card-hor">
+                    <img class="card__img" src="img/sessions-background-horizontal.jpg" alt="">
+                    <h4 class="card__heading-hor">RitmStyle для пар</h4>
+                </article>
+                <article class="container__card-hor">
+                    <img class="card__img" src="img/sessions-background-horizontal.jpg" alt="">
+                    <h4 class="card__heading-hor">RitmStyle с полным погружением под воду</h4>
 
+                </article>
+                <article class="container__card-hor">
+                    <img class="card__img" src="img/sessions-background-horizontal.jpg" alt="">
+                    <h4 class="card__heading-hor">RitmStyle для беременных</h4>
+                    
+                </article>
+                <article class="container__card-hor">
+                    <img class="card__img" src="img/sessions-background-horizontal.jpg" alt="">
+                    <h4 class="card__heading-hor">RitmStyle + красочная подводная фотосессия</h4>
+                    
+                </article>
             </div>
         </div>
     </section>
 
     <section class="reviews">
+        <h2 class="reviews__heading">Отзывы</h2>
+
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <h3>Кира Иванова</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus diam risus morbi nulla dictum. Urna mi orci gravida placerat amet, eu, aliquet facilisis aliquet. Dolor praesent nam ornare fringilla enim nibh donec sit imperdiet. Amet, diam duis eu sit et. Volutpat vestibulum a lectus sed blandit. Venenatis urna mattis eu enim molestie iaculis et aliquet. Velit in pellentesque vestibulum phasellus orci. Fermentum sed phasellus aliquam nulla non aenean. Quisque id nunc, mauris potenti a massa. Fermentum at elit, convallis leo dolor aliquet id elementum. Ullamcorper sociis et cum bibendum in egestas. Diam, urna, sed tempus mollis aliquam elit. Facilisi nam nulla pulvinar mauris vel lacinia venenatis. </p>
+                </div>
+                <div class="swiper-slide">
+                    <h3>Яна Жернова</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus diam risus morbi nulla dictum. Urna mi orci gravida placerat amet, eu, aliquet facilisis aliquet. Dolor praesent nam ornare fringilla enim nibh donec sit imperdiet. Amet, diam duis eu sit et. Volutpat vestibulum a lectus sed blandit. Venenatis urna mattis eu enim molestie iaculis et aliquet. Velit in pellentesque vestibulum phasellus orci. Fermentum sed phasellus aliquam nulla non aenean. Quisque id nunc, mauris potenti a massa. Fermentum at elit, convallis leo dolor aliquet id elementum. Ullamcorper sociis et cum bibendum in egestas. Diam, urna, sed tempus mollis aliquam elit. Facilisi nam nulla pulvinar mauris vel lacinia venenatis. </p>
+                </div>
+                <div class="swiper-slide">
+                    <h3>Александра Дмитриева</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus diam risus morbi nulla dictum. Urna mi orci gravida placerat amet, eu, aliquet facilisis aliquet. Dolor praesent nam ornare fringilla enim nibh donec sit imperdiet. Amet, diam duis eu sit et. Volutpat vestibulum a lectus sed blandit. Venenatis urna mattis eu enim molestie iaculis et aliquet. Velit in pellentesque vestibulum phasellus orci. Fermentum sed phasellus aliquam nulla non aenean. Quisque id nunc, mauris potenti a massa. Fermentum at elit, convallis leo dolor aliquet id elementum. Ullamcorper sociis et cum bibendum in egestas. Diam, urna, sed tempus mollis aliquam elit. Facilisi nam nulla pulvinar mauris vel lacinia venenatis. </p>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
 
     </section>
 
@@ -67,5 +107,7 @@
     <footer class="footer container">
 
     </footer>
+
+    <script defer src="js/script.js"></script>
 </body>
 </html>

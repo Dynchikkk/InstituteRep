@@ -13,7 +13,7 @@ int main()
 	var1();
 	printf("\n---------------\n");
 	printf("Var12\n\n");
-	var12();
+	//var12();
 
 	return 0;
 }
@@ -33,24 +33,38 @@ int var1()
 	
 	// Основной код
 	char sep[] = " ,/?!.:";
+	char wrdWithStart[] = "a";
+	int wrdWithLen = 5;
+
+	char* wrdLen = 0;
+	char* wrdStart = 0;
+
+	int wasInStart = 0;
+	int wasInLen = 0;
+
 	char* pPart;
-
-	int counter = 0;
-	char wrdStart = 'a';
-
 	pPart = strtok(row, sep);
-	printf("word(s) that start with %c: ", wrdStart);
+	//printf("word(s) that start with %c: ", wrdStart);
 	while (pPart != NULL)
 	{
-		if (*pPart == wrdStart)
+		if (*pPart == *wrdWithStart && wasInStart == 0)
 		{
-			counter++;
-			printf("%s ", pPart);
+			wrdStart = pPart;
+			wasInStart++;
 		}
+
+		if (strlen(pPart) == wrdWithLen && wasInLen <= 1)
+		{
+			wrdLen = pPart;
+			wasInLen++;
+		}
+
 		pPart = strtok(NULL, sep);
 	}
 
-	printf("\nThere are/is '%d' word(s) that start with '%c'", counter, wrdStart);
+	printf("%s %s\n", wrdLen, wrdStart);
+
+	//printf("\nThere are/is '%d' word(s) that start with '%c'", counter, wrdStart);
 
 	return 0;
 }
