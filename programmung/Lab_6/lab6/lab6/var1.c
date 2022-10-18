@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
+
 int num_1a()
 {
 	// создаем массив и задаем значения элемантам
@@ -29,7 +30,7 @@ int num_1a()
 int num_1b()
 {
 	// создаем массив и задаем значения элемантам
-	int x[6][8];
+	int x[6][6];
 	int colR = sizeof(x) / sizeof(x[0]);
 	int colC = sizeof(x[0]) / sizeof(x[0][0]);
 
@@ -44,6 +45,8 @@ int num_1b()
 		if (i % colC == 0)
 			printf("\n");
 	}
+	int* pArr = x[0];
+	printf("%d", *(*(x + 1)+2));
 
 	int k = 0;
 	printf("\nInsert dop num: ");
@@ -52,7 +55,20 @@ int num_1b()
 	int sum = 0;
 	int j = 0, i = 0;
 
-	for (int* pArr = x[0]; pArr <= finEl; pArr++)
+	for (int i = 0; i < colR; i++)
+	{
+		for (int j = 0; j < colC; j++)
+		{
+			if (i == j)
+			{
+				int el = *(*(x + i) + j);
+				//sum += el;
+				printf("%d ", el);
+			}
+		}
+	}
+
+	/*for (int* pArr = x[0]; pArr <= finEl; pArr++)
 	{
 		if ((i + j) == k)
 		{
@@ -67,9 +83,9 @@ int num_1b()
 
 		j = 0;
 		i++;	
-	}
+	}*/
 
-	printf("\nSum: %d", sum);
+	//printf("\nSum: %d", sum);
 
 	return 0;
 }
