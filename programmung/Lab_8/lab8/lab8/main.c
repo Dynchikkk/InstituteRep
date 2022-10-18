@@ -6,26 +6,17 @@ int main()
 {
 	srand(time(NULL));
 
-	printf("Var1\n\n");
+	printf("==Var1==\n\n");
 	num1_1();
 	printf("\n-------------\n");
 	num1_2();
 
-	printf("\n\n");
+	printf("\n\n-------------\n-------------\n\n");
 
-	printf("Var2\n\n");
+	printf("==Var2==\n\n");
 	num2_1();
 	printf("\n-------------\n");
 	num2_2();
-
-	/*int a[20];
-	fillArray(a, 20);
-	writeOneArray(a, 20);
-
-	int b[5][5];
-	fillArray(b, 25);
-	writeTwoArray(b, 5, 5);*/
-
 
 	return 0;
 }
