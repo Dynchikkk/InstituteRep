@@ -239,3 +239,19 @@ h1, h2, h3, h4 {
     transform: scale(-1, 1);
     background-size: 28px 14px;
 }
+
+.swiper-slide {
+    padding: 50px 60px 56px;
+    background-color: #018ABE;
+}
+
+.slide__heading {
+    font-family: 'Proxima Nova', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.slide__description {
+    max-width: 516px;
+}
