@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
     const swiper = new Swiper('.swiper', {
         direction: 'horizontal',
-        loop: false,
-        spaceBetween: 50,
-        slidesPerView: 2,
-      
+        loop: true,
+        spaceBetween: 100,
+        slidesPerView: 3,
+        centeredSlides: true,
+              
         pagination: {
           el: '.swiper-pagination',
         },

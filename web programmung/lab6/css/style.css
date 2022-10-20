@@ -3,7 +3,7 @@
 	font-style: normal;
 	font-weight: 400;
 	src: local('proximanova_regular'),
-		url('/fonts/proximanova_regular.ttf') format('ttf'),
+		url('/fonts/proxima-nova/proximanova_regular.ttf') format('ttf'),
 }
 
 @font-face {
@@ -11,7 +11,7 @@
 	font-style: normal;
 	font-weight: 700;
 	src: local('proximanova_bold'),
-		url('/fonts/proximanova_bold.otf') format('otf'),
+		url('/fonts/proxima-nova/proximanova_bold.otf') format('otf'),
 }
 
 @font-face {
@@ -19,12 +19,13 @@
 	font-style: normal;
 	font-weight: 300;
 	src: local('proximanova_light'),
-		url('/fonts/proximanova_light.otf') format('otf'),
+		url('/fonts/proxima-nova/proximanova_light.otf') format('otf'),
 }
 
 body {
     padding-bottom: 30px;
     font-family: "Proxima Nova", sans-serif;
+    font-weight: 400;
     background-color: #162831;
     color: white;
 }
@@ -240,18 +241,43 @@ h1, h2, h3, h4 {
     background-size: 28px 14px;
 }
 
+.swiper-wrapper {
+    padding-top: 37px;
+    padding-bottom: 37px;
+}
+
 .swiper-slide {
     padding: 50px 60px 56px;
     background-color: #018ABE;
+    transition: 0.5s;
+    box-sizing: border-box;
+}
+
+.swiper-slide-active {
+    transition: 0.5s;
+}
+
+.swiper-backface-hidden .swiper-slide-active {
+    transform: scale(1.2);
 }
 
 .slide__heading {
+    margin-bottom: 20px;
     font-family: 'Proxima Nova', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
+    text-align: left;
 }
 
 .slide__description {
     max-width: 516px;
+    font-family: "Proxima Nova", sans-serif;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: left;
+}
+
+.slide__description:first-child {
+    margin-bottom: 15px;
 }
