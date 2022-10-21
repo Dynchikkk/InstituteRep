@@ -15,3 +15,4 @@ int removeTransition(char* string)
 	if (pTr != NULL)
 		*pTr = NULL;
 }
+
