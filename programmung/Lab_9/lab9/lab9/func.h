@@ -14,5 +14,7 @@ int removeTransition(char* string)
 	int* pTr = strchr(string, '\n');
 	if (pTr != NULL)
 		*pTr = NULL;
+
+	return 0;
 }
 

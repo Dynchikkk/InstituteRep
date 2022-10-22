@@ -30,7 +30,7 @@ int main1()
 
 	Wear wears[3];
 
-	for (Wear* pWear = wears; pWear < &wears[2]; pWear++)
+	for (Wear* pWear = wears; pWear < &wears[3]; pWear++)
 	{
 		*pWear = fillWearStruct();
 	}

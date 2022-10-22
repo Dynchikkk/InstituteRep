@@ -31,7 +31,7 @@ int main12()
 {
 	Car cars[3];
 	
-	for (Car *pCars = cars; pCars < &cars[2]; pCars++)
+	for (Car *pCars = cars; pCars < &cars[3]; pCars++)
 	{
 		*pCars = fillCarStruct();
 	}
