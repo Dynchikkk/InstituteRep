@@ -23,6 +23,9 @@ typedef struct
 #pragma endregion
 
 Car fillCarStruct();
+int printInfoCar(Car car);
+int replaceTwoObjectsCar(Car arr[]);
+
 
 int main12()
 {
@@ -48,11 +51,11 @@ int main12()
 			int numEl = 1;
 			printf("Choose car number: ");
 			scanf("%d", &numEl);
-			printInfo(cars[numEl]);
+			printInfoCar(cars[numEl]);
 		}
 		else if(step == 2)
 		{
-			replaceTwoObjects(cars);
+			replaceTwoObjectsCar(cars);
 		}
 		else
 		{
@@ -82,7 +85,6 @@ Car fillCarStruct()
 	removeTransition(localCar.color);
 
 	printf("Enter car milleage: ");
-	//getchar();
 	scanf("%f", &localCar.milleage);
 
 	printf("Enter car horsepower: ");
@@ -100,7 +102,7 @@ Car fillCarStruct()
 	return localCar;
 }
 
-int printInfo(Car car)
+int printInfoCar(Car car)
 {
 	printf("------------\n");
 
@@ -108,14 +110,14 @@ int printInfo(Car car)
 	printf("Car color: %s\n", car.color);
 	printf("Car milleage: %f\n", car.milleage);
 	printf("Car horsepower: %d\n", car.engine.horsepower);
-	printf("Car horsepower: %s\n", car.engine.engineType);
+	printf("Car engineType: %s\n", car.engine.engineType);
 
 	printf("------------\n");
 
 	return 0;
 }
 
-int replaceTwoObjects(Car arr[])
+int replaceTwoObjectsCar(Car arr[])
 {
 	int first = 0;
 	int second = 0;
@@ -134,8 +136,6 @@ int replaceTwoObjects(Car arr[])
 
 	arr[first] = arr[second];
 	arr[second] = dop;
-
-	
 
 	return 0;
 }
