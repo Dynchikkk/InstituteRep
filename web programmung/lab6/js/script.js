@@ -8,11 +8,15 @@ document.addEventListener("DOMContentLoaded", function() {
               
         pagination: {
           el: '.swiper-pagination',
+          clickable: true,
         },
-      
-        // navigation: {
-        //   nextEl: '.swiper-button-next',
-        //   prevEl: '.swiper-button-prev',
-        // },
     });
+
+    ymaps.ready(init);
+    function init(){
+        var myMap = new ymaps.Map("map", {
+            center: [55.76, 37.64],
+            zoom: 7
+        });
+    }
 })
