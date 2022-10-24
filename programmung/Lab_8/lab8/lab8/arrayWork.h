@@ -12,7 +12,7 @@ int fillArray(int* pLocalArr, int len)
 		*pInt = random();
 	}
 
-	return 0;
+	return 0;					
 }
 
 int writeOneArray(int* pLocalArr, int colC)
