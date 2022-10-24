@@ -48,7 +48,7 @@ int main1()
 		else if (step == 1)
 		{
 			int numEl = 1;
-			printf("Choose car number: ");
+			printf("Choose wear number: ");
 			scanf("%d", &numEl);
 			printInfoWear(wears[numEl]);
 		}
