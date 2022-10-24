@@ -6,12 +6,12 @@ int main()
 {
 	srand(time(NULL));
 
-	/*printf("==Var1==\n\n");
+	printf("==Var1==\n\n");
 	num1_1();
 	printf("\n-------------\n");
 	num1_2();
 
-	printf("\n\n-------------\n-------------\n\n");*/
+	printf("\n\n-------------\n-------------\n\n");
 
 	printf("==Var2==\n\n");
 	num2_1();
