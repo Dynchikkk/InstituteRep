@@ -26,7 +26,6 @@ Car fillCarStruct();
 int printInfoCar(Car car);
 int replaceTwoObjectsCar(Car arr[]);
 
-
 int main12()
 {
 	Car cars[3];
@@ -108,7 +107,7 @@ int printInfoCar(Car car)
 
 	printf("Car name: %s\n", car.name);
 	printf("Car color: %s\n", car.color);
-	printf("Car milleage: %f\n", car.milleage);
+	printf("Car milleage: %.2f\n", car.milleage);
 	printf("Car horsepower: %d\n", car.engine.horsepower);
 	printf("Car engineType: %s\n", car.engine.engineType);
 
