@@ -13,3 +13,11 @@ int random()
 	int r = n + rand() % (m - n + 1);
 	return r;
 }
+
+int clean()
+{
+	fseek(stdin, 0, SEEK_SET);
+
+	return 0;
+}
+
