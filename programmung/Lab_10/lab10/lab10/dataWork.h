@@ -52,7 +52,7 @@ int reworkDataToInt(char from[], int* to)
 		}
 	}
 
-	char sep[] = " ";
+	char sep[] = " \n";
 	char* pPart;
 	pPart = strtok(from, sep);
 	int i = 0;
