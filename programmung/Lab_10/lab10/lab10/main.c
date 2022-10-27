@@ -21,18 +21,18 @@ int main()
 	//int n[2][3];
 	//reworkData(f, n[0]);
 
-	/*srand(time(NULL));
+	//srand(time(NULL));
 
 	printf("==Var1==\n\n");
 	num1_1();
 	printf("\n-------------\n");
 	num1_2();
 
-	printf("\n\n-------------\n-------------\n\n");*/
+	printf("\n\n-------------\n-------------\n\n");
 
-	printf("==Var2==\n\n");
+	/*printf("==Var2==\n\n");
 	num2_1();
-	/*printf("\n-------------\n");
+	printf("\n-------------\n");
 	num2_2();*/
 
 	return 0;

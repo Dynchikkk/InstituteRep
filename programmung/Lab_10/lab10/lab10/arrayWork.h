@@ -51,10 +51,10 @@ int writeTwoArray(int* pLocalArr, int colR, int colC)
 // find sum of array
 int arraySum(int* pLocalArr, int len)
 {
-	int* pFinal = pLocalArr + len;
+	int* pFinal = pLocalArr + len - 1;
 	int sum = 0;
 
-	for (pLocalArr; pLocalArr < pFinal; pLocalArr++)
+	for (pLocalArr; pLocalArr <= pFinal; pLocalArr++)
 	{
 		sum += *pLocalArr;
 	}
