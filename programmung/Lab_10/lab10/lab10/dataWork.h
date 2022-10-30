@@ -42,16 +42,6 @@ int readData(char line[], int len, int row)
 
 int reworkDataToInt(char from[], int* to)
 {
-	int numCount = 1;
-	int fromLen = sizeof(from) / sizeof(char);
-	for (int i = 0; i < fromLen; i++)
-	{
-		if (from[i] == ' ')
-		{
-			numCount += 1;
-		}
-	}
-
 	char sep[] = " \n";
 	char* pPart;
 	pPart = strtok(from, sep);

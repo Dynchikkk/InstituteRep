@@ -85,7 +85,7 @@ int num2_2()
 	int i = 0;
 
 	int* finEl = n[0] + colC * colR - 1;
-	for (int* pArr = n[0]; pArr <= finEl; pArr += colC)
+	for (int* pArr = n[0]; pArr <= finEl; pArr += colC, i++)
 	{
 		int rowSum = arraySum(pArr, colC);
 
@@ -94,8 +94,6 @@ int num2_2()
 			maxSum = rowSum;
 			rowNum = i;
 		}
-
-		i++;
 	}
 
 	// Преобразуем для data
