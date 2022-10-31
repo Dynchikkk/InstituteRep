@@ -27,7 +27,7 @@ Car fillCarStruct();
 int printInfoCar(Car car);
 int replaceTwoObjectsCar(Car arr[]);
 
-int main()
+void main()
 {
 	Car* cars = NULL;
 	cars = (Car*)malloc(sizeof(Car) * 1);
@@ -84,7 +84,7 @@ int main()
 
 	free(cars);
 
-	return 0;
+	//return 0;
 }
 
 Car fillCarStruct()
