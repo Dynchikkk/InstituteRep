@@ -5,6 +5,6 @@
 
 int main()
 {
-	main1();
-	//main12();
+	//main1();
+	main12();
 }

@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
-#define MAX_STR_LEN 20
+#define MAX_STR_LEN 8
 
 #pragma region Struct
 
@@ -47,10 +47,20 @@ int main12()
 		}
 		else if(step == 1)
 		{
-			int numEl = 1;
-			printf("Choose car number: ");
-			scanf("%d", &numEl);
-			printInfoCar(cars[numEl]);
+			printf("----------------------------------------------\n");
+			printf("|  name  |  color |milleage|     engine      |\n");
+			printf("|        |        |        | horpow | enType |\n");
+			printf("----------------------------------------------\n");
+
+			for (int i = 0; i < 3; i++)
+			{
+				printf("|%8s|", cars[i].name);
+				printf("%8s|", cars[i].color);
+				printf("%8.2f|", cars[i].milleage);
+				printf("%8d|", cars[i].engine.horsepower);
+				printf("%8s|\n", cars[i].engine.engineType);
+				printf("-----------------------------------------------\n");
+			}
 		}
 		else if(step == 2)
 		{
@@ -101,18 +111,22 @@ Car fillCarStruct()
 	return localCar;
 }
 
-int printInfoCar(Car car)
+int printInfoCar(Car arr[])
 {
-	printf("------------\n");
+	printf("----------------------------------------------\n");
+	printf("|  name  |  color |milleage|     engine      |\n");
+	printf("|        |        |        | horpow | enType |\n");
+	printf("----------------------------------------------\n");
 
-	printf("Car name: %s\n", car.name);
-	printf("Car color: %s\n", car.color);
-	printf("Car milleage: %.2f\n", car.milleage);
-	printf("Car horsepower: %d\n", car.engine.horsepower);
-	printf("Car engineType: %s\n", car.engine.engineType);
-
-	printf("------------\n");
-
+	for (int i = 0; i < 3; i++)
+	{
+		printf("|\t%s|", arr[i].name);
+		printf("\t%s|", arr[i].color);
+		printf("\t%.2f|", arr[i].milleage);
+		printf("\t%d|", arr[i].engine.horsepower);
+		printf("\t%s|\n", arr[i].engine.engineType);
+		printf("------------------------------------------\n");
+	}
 	return 0;
 }
 
