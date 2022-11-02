@@ -10,10 +10,10 @@ int var12();
 int main()
 {
 	printf("Var1\n\n");
-	var1();
+	//var1();
 	printf("\n---------------\n");
 	printf("Var12\n\n");
-	//var12();
+	var12();
 
 	return 0;
 }
@@ -86,22 +86,23 @@ int var12()
 	char sep[] = " ,/?!.:";
 	char* pPart;
 
-	int counter = 0;
-	int wrdLen = 5;
+	char wrd[100];
+	int wrdLen = 0;
 
 	pPart = strtok(row, sep);
-	printf("word(s) that len is %d: ", wrdLen);
+	//printf("word(s) that len is %d: ", wrdLen);
 	while (pPart != NULL)
 	{
-		if (strlen(pPart) == wrdLen)
+		if (strlen(pPart) > wrdLen)
 		{
-			counter++;
+			wrdLen = strlen(pPart);
+			strcpy(wrd,pPart);
 			printf("%s ", pPart);
 		}
 		pPart = strtok(NULL, sep);
 	}
 
-	printf("\nThere are/is '%d' word(s) that len is '%d'", counter, wrdLen);
+	printf("\nThere are/is '%d' word(s) that len is '%s'", wrdLen, wrd);
 
 	return 0;
 }
