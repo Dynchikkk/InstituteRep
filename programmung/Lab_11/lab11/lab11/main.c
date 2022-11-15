@@ -55,6 +55,7 @@ void main()
 
 	while (1 == 1)
 	{
+		clean();
 		printf("=============\n");
 		int step = 1;
 		printf("Choose next step\n	1 - print info about car\n	2 - replace elements\n	0 - break\nNext step: ");
@@ -65,10 +66,26 @@ void main()
 		}
 		else if (step == 1)
 		{
-			int numEl = 1;
+			/*int numEl = 1;
 			printf("Choose car number: ");
-			scanf("%d", &numEl);
-			printInfoCar(cars[numEl]);
+			scanf("%d", &numEl);*/
+			//printInfoCar(cars[numEl]);
+			printf("----------------------------------------------\n");
+			printf("|  name  |  color |milleage|     engine      |\n");
+			printf("|        |        |        | horpow | enType |\n");
+			printf("----------------------------------------------\n");
+
+			for (int i = 0; i < count; i++)
+			{
+				Car localCar = *(cars + i);
+				printf("|%8s|", localCar.name);
+				printf("%8s|", localCar.color);
+				printf("%8.2f|", localCar.milleage);
+				printf("%8d|", localCar.engine.horsepower);
+				printf("%8s|\n", localCar.engine.engineType);
+				printf("----------------------------------------------\n");
+			}
+			clean();
 		}
 		else if (step == 2)
 		{

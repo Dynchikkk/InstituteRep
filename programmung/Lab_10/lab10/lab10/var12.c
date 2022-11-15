@@ -112,4 +112,6 @@ int num2_2()
 	reworkDataToInt(getsLineDop, res);
 	
 	printf("Max sum: %d - %d\n", res[0] + 1, res[1]);
+
+	return 0;
 }

@@ -1,6 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include <stdlib.h>
+#include "func.h"
 #include "arrayWork.h"
 #include "dataWork.h"
 

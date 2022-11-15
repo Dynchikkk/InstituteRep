@@ -24,6 +24,9 @@
     <ClCompile Include="var12.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="funcLib.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="func.h">
