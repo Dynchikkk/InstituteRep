@@ -15,14 +15,14 @@ int main()
 	printf("\n--------\n");
 	number1_2();
 
-	printf("\n");
+	/*printf("\n");
 	printf("\n--------\n");
 	printf("\n");
 
 	printf("Var2\n\n");
 	number2_1();
 	printf("\n--------\n");
-	number2_2();
+	number2_2();*/
 
 	return 0;
 }

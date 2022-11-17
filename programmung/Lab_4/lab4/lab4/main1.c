@@ -19,16 +19,14 @@ void number1_1()
 	int sum = 0;
 	bool sign = true;
 	// заменяем элементы кратные k на 0
-	for (int i = 0; i < lenA; i += 3)
+	for (int i = 0; i < lenA; i++)
 	{
-		sum += a[i];
-		printf("%d %d\n", a[i], i);
-		/*if (sign == true)
+		if (sign == true)
 			sum += a[i];
 		else
 			sum += -a[i];
 
-		sign = !sign;*/
+		sign = !sign;
 	}
 
 	printf("\nTotal: %d", sum);
@@ -65,7 +63,7 @@ void number1_2()
 			if ((i + j + 2) % k == 0)
 			{
 				sum += x[i][j];
-				printf("%d", x[i][j]);
+				/*printf("%d", x[i][j]);*/
 			}
 		}
 	}
