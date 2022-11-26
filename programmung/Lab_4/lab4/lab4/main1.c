@@ -54,20 +54,23 @@ void number1_2()
 	printf("\nInsert dop num: ");
 	scanf("%d", &k);
 
-	int sum = 0;
+	//int sum = 0;
 
 	for (int i = 0; i < colR; i++)
 	{
-		for (int j = 0; j < colC; j++)
-		{
-			if ((i + j + 2) % k == 0)
-			{
-				sum += x[i][j];
-				/*printf("%d", x[i][j]);*/
-			}
+		int sum= 0;
+		for (int j = 0; j < colC; j+=3)
+		{ 
+			sum += x[i][j];
+			//if ((i + j + 2) % k == 0)
+			//{
+			//	//sum += x[i][j];
+			//	/*printf("%d", x[i][j]);*/
+			//}
 		}
+		printf("%d\n", sum);
 	}
 
-	printf("The sum of matrix elements whose sum of\n");
-	printf("indices is equal to dop num: %d", sum);
+	//printf("The sum of matrix elements whose sum of\n");
+	//printf("indices is equal to dop num: %d", sum);
 }
