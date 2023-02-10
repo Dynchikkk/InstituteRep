@@ -1,0 +1,36 @@
+body {
+    max-width: 960px; 
+    padding: 50px;
+    margin: 0 auto;
+}
+
+a {
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 14px;
+}
+
+pre {
+    font-size: 14px;
+}
+
+.main {
+    /* height: 1050px; */
+    padding: 25px;
+    padding-top: 50px;
+    padding-left: 70px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    /* background-image: url(https://images-ext-2.discordapp.net/external/AKodbdCxOYNKYMke9kMN8Hixi864nXcoWI92S7ydklU/https/64.media.tumblr.com/1f2d3ab7f54fb0d48c69af1409e3ebd8/b3d1b3798d853d24-89/s400x600/598775bfc7b6c740420938a3072bc521146de870.gif);
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+li {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,57 @@
+.list {
+    margin-bottom: 10px;
+}
+
+ul {
+    margin-bottom: 15px;
+}
+
+.first {
+    font-style: italic;
+}
+
+.second {
+    font-style: oblique;
+}
+
+.third {
+    font-weight: 700;
+}
+
+.fourth {
+    text-decoration: line-through;
+}
+
+.fifth {
+    text-decoration: underline;
+}
+
+.sixth {
+    text-decoration: wavy underline;
+}
+
+.list-1 li {
+    position: relative;
+}
+
+.list-1 li::after {
+    content: ' ■ ';
+    position: relative;
+    right: 0;
+    top: 50%;
+}
+
+/* .ol {
+    list-style-type: "- ";
+} */
+
+.ol {
+    list-style: none;
+    counter-reset: li;
+ }
+ .ol li:before {
+    counter-increment: li;
+    content: counters(li, ".") ". ";
+ }
+
+

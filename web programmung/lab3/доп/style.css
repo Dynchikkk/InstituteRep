@@ -1,0 +1,43 @@
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 500px;
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+td, th {
+    text-align: center;
+    padding: 10px;
+}
+
+table caption {
+    font-weight: 700;
+    /* padding-bottom: 10px; */
+    font-size: 24px;
+}
+
+.table_dop {
+    font-family: Arial;
+    text-align: center;
+    background-color: aquamarine;
+    border-spacing: 10px;
+    border-collapse: separate;
+    border: 16px;
+    border-radius: 14px;
+}
+
+.table_dop td {
+    padding: 10px;
+    background-color: white;
+    border-radius: 18px;
+}
+
+.zagolovok {
+    font-size: 24px; 
+    padding: 4px;
+    background-color: white;
+    border-radius: 18px;
+}
