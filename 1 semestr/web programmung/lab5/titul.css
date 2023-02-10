@@ -1,0 +1,40 @@
+body {
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    max-width: 960px;
+    padding: 50px;
+    margin: 0 auto;
+}
+
+a {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.main {
+    padding: 25px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    /* background-image: url(https://cdn.basicdecor.ru/files/media/product_photos/b4/2098522/original/seneir11462ir160x220_1.jpg);
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    color: white; */
+}
+
+.header {
+    margin-bottom: 150px;
+    text-align: center;
+}
+
+.header__last-p {
+    margin-bottom: 100px;
+}
+
+.info {
+    margin-bottom: 300px;
+    text-align: right;
+}
+
+.footer {
+    text-align: center;
+}
