@@ -26,7 +26,7 @@ int main()
 		
 		// c * d
 		mov eax, c;
-		imul d;
+		mul d;
 
 		// c*d/e
 		mov edx, 0;
