@@ -2,7 +2,6 @@
 #include <stdio.h>
 
 int a, b, c, d, e, y;
-int boolean;
 
 // (a>b)and(c<>d)
 // y=a+b-c*d/e
