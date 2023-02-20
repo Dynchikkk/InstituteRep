@@ -13,7 +13,7 @@ def add_num_razr(sign, num):
                 else:
                     return ("1" * (2 ** i - len(m[0]))) + num + ("0" * (2 ** i - len(m[1])))
     else:
-        for i in range(3, 31):
+        for i in range(1, 31):
             if 2 ** i - len(num) >= 0:
                 if sign == "+":
                     return ("0" * (2 ** i - len(num))) + num
@@ -82,7 +82,9 @@ def translate_dot(num):
     ml_int_abs = float("0." + str(abs(ml_int)))
     ml_int_list = list()
     counter = 0
-    while int(str(ml_int_abs).split(".")[1]) > 0 and counter < 20:
+    checker = int(str(ml_int_abs).split(".")[1]) > 0
+    while checker and counter < 20:
+        checker = int(str(ml_int_abs).split(".")[1]) > 0
         ml_int_abs *= 2
         ml_int_list.append(str(ml_int_abs).split(".")[0])
         ml_int_abs = float("0." + str(ml_int_abs).split(".")[1])
