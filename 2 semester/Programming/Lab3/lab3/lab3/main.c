@@ -45,7 +45,7 @@ int main()
 		mov y, eax;
 
 		// fill array
-		mov eax, [externalLevel];
+		mov eax, externalLevel;
 		mov ebx, INTERNAL_RES_SIZE;
 		cdq;
 		imul ebx;
@@ -60,12 +60,11 @@ int main()
 		mov eax, a;
 		add eax, h;
 		mov a, eax;
-		// externalLevel++
-		mov eax, externalLevel;
-		add eax, 1;
-		mov externalLevel, eax;
-		dec cx;
 
+		// externalLevel++
+		inc externalLevel;
+
+		dec cx;
 		jnz FOR;
 	}
 
