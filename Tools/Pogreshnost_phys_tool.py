@@ -42,14 +42,14 @@ def calc_sist_pogr(name, cd):
 
 
 def calc_absolut_pogr(name, sist_pogr, slych_pogr):
-    absolut_pogr = (sist_pogr ** 2 + slych_pogr ** 2) ** 0.5
+    absolut_pogr = round((sist_pogr ** 2 + slych_pogr ** 2) ** 0.5, 3)
     print(f"Δ{name} = √({sist_pogr} ^ 2 + {slych_pogr} ^ 2) = {absolut_pogr}")
     return absolut_pogr
 
 
 def calc_otnos_pogr(name, absolut_pogr, sr_znach):
-    otnos_pogr = round(absolut_pogr / sr_znach, 3)
-    print(f"δ{name} = {absolut_pogr} / {sr_znach} = {otnos_pogr}")
+    otnos_pogr = round(absolut_pogr / sr_znach, 3) * 100
+    print(f"δ{name} = {absolut_pogr} / {sr_znach} = {otnos_pogr}%")
     return otnos_pogr
 
 
@@ -62,4 +62,4 @@ slych_pogr = calc_slych_pogr(name, n, znach, sr_znach)
 sist_pogr = calc_sist_pogr(name, cd)
 absolut_pogr = calc_absolut_pogr(name, sist_pogr, slych_pogr)
 otnos_pogr = calc_otnos_pogr(name, absolut_pogr, sr_znach)
-print(f"{name} = {sr_znach} +- {round(absolut_pogr, 2)}; δ{name} = {round(otnos_pogr, 2)}")
+print(f"{name} = {sr_znach} +- {round(absolut_pogr, 2)}; δ{name} = {round(otnos_pogr, 2)}%")
