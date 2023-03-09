@@ -26,54 +26,58 @@ int main()
 	scanf("%d", &e);
 #pragma endregion
 
-	_asm
-	{
-		mov eax, a;
-		cmp eax, b;
-		seta ebx; // if a > b => ebx = 1
-		mov eax, c;
-		cmp eax, d;
-		setne edx; // if c != d => edx = 1
-		and ebx, edx; // if ebx and edx => ebx = 1
-
-		cmp ebx, 1;
-		je UR1; // if ebx == 1 => jmp UR1
-		
-		jmp UR2; // else
-
-	UR1: // y=a+b-c*d/e
-		mov eax, c;
-		cdq;
-		imul c;
-		xor edx, edx;
-		cdq;
-		idiv e;
-		push eax;
-		mov eax, a;
-		add eax, b;
-		pop ebx;
-		sub eax, ebx;
-		mov y, eax;
-		jmp EXIT;
-
-	UR2: // y=a*b+c-d/e
-		mov eax, a;
-		cdq;
-		imul b;
-		add eax, c;
-		push eax;
-		mov eax, d;
-		xor edx, edx;
-		cdq;
-		idiv e;
-		pop ecx;
-		sub ecx, eax;
-		mov y, ecx;
-
-	EXIT:
+	char ac = (char)a;
+	_asm {
+		mov al, ac;
 	}
+	//_asm
+	//{
+	//	mov eax, a;
+	//	cmp eax, b;
+	//	seta ebx; // if a > b => ebx = 1
+	//	mov eax, c;
+	//	cmp eax, d;
+	//	setne edx; // if c != d => edx = 1
+	//	and ebx, edx; // if ebx and edx => ebx = 1
 
-	printf("Result: %d", y);
+	//	cmp ebx, 1;
+	//	je UR1; // if ebx == 1 => jmp UR1
+	//	
+	//	jmp UR2; // else
+
+	//UR1: // y=a+b-c*d/e
+	//	mov eax, c;
+	//	cdq;
+	//	imul c;
+	//	xor edx, edx;
+	//	cdq;
+	//	idiv e;
+	//	push eax;
+	//	mov eax, a;
+	//	add eax, b;
+	//	pop ebx;
+	//	sub eax, ebx;
+	//	mov y, eax;
+	//	jmp EXIT;
+
+	//UR2: // y=a*b+c-d/e
+	//	mov eax, a;
+	//	cdq;
+	//	imul b;
+	//	add eax, c;
+	//	push eax;
+	//	mov eax, d;
+	//	xor edx, edx;
+	//	cdq;
+	//	idiv e;
+	//	pop ecx;
+	//	sub ecx, eax;
+	//	mov y, ecx;
+
+	//EXIT:
+	//}
+
+	//printf("Result: %d", y);
 
 	return 0;
 }

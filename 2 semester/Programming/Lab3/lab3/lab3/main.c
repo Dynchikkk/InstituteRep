@@ -9,7 +9,6 @@ int a, b, c, d, e, y;
 int h = 5;
 int res[EXTERNAL_RES_SIZE][INTERNAL_RES_SIZE] = {0};
 int externalLevel = 0;
-//int internalLevel = 0;
 
 int main()
 {
@@ -33,7 +32,10 @@ int main()
 	_asm
 	{
 		mov cx, EXTERNAL_RES_SIZE;
+		lea eax, res;
+		push eax;
 	FOR:
+
 		// calculating
 		mov eax, a;
 		add eax, b;
@@ -45,16 +47,20 @@ int main()
 		mov y, eax;
 
 		// fill array
-		mov eax, externalLevel;
-		mov ebx, INTERNAL_RES_SIZE;
-		cdq;
-		imul ebx;
+		pop eax;
+		// fill counter
 		mov edx, externalLevel;
-		mov[res + 4 * eax + 0], edx;
+		mov [eax], edx;
+		add eax, 4;
+		// fill a
 		mov edx, a;
-		mov[res + 4 * eax + 4], edx;
+		mov [eax], edx;
+		add eax, 4;
+		// fill y
 		mov edx, y;
-		mov[res + 4 * eax + 8], edx;
+		mov [eax], edx;
+		add eax, 4;
+		push eax;
 
 		// a += h
 		mov eax, a;
@@ -64,8 +70,8 @@ int main()
 		// externalLevel++
 		inc externalLevel;
 
-		dec cx;
-		jnz FOR;
+		loopz FOR;
+		pop eax;
 	}
 
 	for (int i = 0; i < EXTERNAL_RES_SIZE; i++)
