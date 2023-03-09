@@ -83,7 +83,7 @@ def translate_dot(num):
     ml_int_list = list()
     counter = 0
     checker = int(str(ml_int_abs).split(".")[1]) > 0
-    while checker and counter < 20:
+    while checker and counter < 16:
         checker = int(str(ml_int_abs).split(".")[1]) > 0
         ml_int_abs *= 2
         ml_int_list.append(str(ml_int_abs).split(".")[0])
