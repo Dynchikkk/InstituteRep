@@ -1,9 +1,9 @@
 data segment
-	a16 dw 46h
-	a32 dd 46h
+	f16 dw 3DCEh
+	f32 dd 3DC51EC1h
 
-	b16 dw 5h
-	b32 dd 5h
+	g16 dw 0B26Ch
+	g32 dd 0B263D70Fh
 data ends
 
 code segment
