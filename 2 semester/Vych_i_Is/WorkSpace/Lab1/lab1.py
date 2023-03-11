@@ -121,5 +121,5 @@ def translate_minus(num_bin_list):
     return "".join(num_bin_list)
 
 
-num = input("Insert num: ")
-print(translate(num))
+num = input("Insert num in 10cc: ")
+print(f"Num in 2cc: {translate(num)}")
