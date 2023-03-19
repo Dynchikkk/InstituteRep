@@ -12,7 +12,7 @@ char e[NUM_SIZE] = "-48";
 int aInt = 0, bInt = 0, cInt = 0, dInt = 0, eInt = 0;
 
 char y[NUM_SIZE * 2] = { 0 };
-int yInt = 0;
+int yInt = -15;
 
 int znak = 1;
 int razr = 1;
@@ -48,6 +48,8 @@ int main()
         pop e;
 #pragma endregion
 
+        call TO_ASCII;
+
         // Выход из программы 
         jmp EXIT;
 
@@ -71,48 +73,32 @@ int main()
         jmp END_FA_LOOP;
     PLUS_F:
         sub edx, 48; // вычитаем 48, чтобы полчить число в привычном виде
+        cdq;
         imul edx, razr; // умножаем число на разряд
         add ebx, edx; // приплюсовываем число к итоговому
     END_FA_LOOP:
         mov eax, razr; // умножаем разярд =>
+        cdq;
         imul eax, 10;  // на 10 =>
         mov razr, eax; //
         pop eax; // возваращем ссылку на строку из стека
         loop FROM_ASCII_LOOP;
+        cdq;
         imul ebx, znak; // умножаем число на знак
         mov razr, 1;
         mov znak, 1;
         pop ebp;
-        ret;
+        /*ret;*/
 
         // ------------------- //
-    TO_ASCII:
-        push ebp;
-        mov ebp, esp;
-        mov ecx, 0;
-    TO_ASCII_LOOP:
-        mov eax, yInt; // исходное число
-        cmp eax, 0;
-        jnl PLUS_T;
-        jmp MINUS_T;
-    PLUS_T:
-
-    MINUS_T:
-        imul -1;
-    END_TA_LOOP:
-        inc ecx;
-        test ecx, ecx;
-        jnz TO_ASCII_LOOP;
-
-
-        pop ebp;
-        ret;
+    
 #pragma endregion
 
     EXIT:
     }
 
     printf("%d, %d, %d, %d, %d", aInt, bInt, cInt, dInt, eInt);
+    printf("\n%s", y);
 
 	return 0;
 }
