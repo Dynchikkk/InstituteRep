@@ -1,8 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#define SIZE 12
+#define SIZE 11
 
-char wrd[SIZE] = "-11101001010";
+char wrd[SIZE] = "11101001010";
 int prom[SIZE] = {0};
 char res[SIZE] = {0};
 
@@ -36,4 +36,6 @@ int main()
 	for (int i = 0; i < SIZE; i++)
 		printf("%d ", prom[i]);
 	printf("\nResult (ASCII): %s\n", res);
+
+	return 0;
 }
