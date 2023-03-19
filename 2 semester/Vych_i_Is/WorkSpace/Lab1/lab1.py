@@ -1,3 +1,8 @@
+from tkinter import*
+from tkinter import ttk
+import tkinter.font as font
+
+
 def add_num_razr(sign, num):
     if("." in num):
         m = num.split(".")
@@ -121,5 +126,33 @@ def translate_minus(num_bin_list):
     return "".join(num_bin_list)
 
 
-num = input("Insert num in 10cc: ")
-print(f"Num in 2cc: {translate(num)}")
+def show_message():
+    num = translate(entry.get())
+    label["text"] =  num # получаем введенный текст
+
+
+root = Tk()
+root.title("Best lab")
+
+root.geometry("500x200")
+MyFont = font.Font(family="Arial", size=16)
+
+label = ttk.Label(text="Insert num in 10cc", font=MyFont)
+label.pack(anchor=NW, padx=6, pady=6)
+
+entry = ttk.Entry(font=MyFont)
+entry.pack(anchor=NW, padx=6, pady=6)
+
+btn = ttk.Button(text="-> Translate ->", command=show_message)
+btn.pack(anchor=NW, padx=6, pady=6)
+
+label = ttk.Label(text="Result in 2cc:", font=MyFont)
+label.pack(anchor=NW, padx=6, pady=6)
+
+label = ttk.Label(font=MyFont)
+label.pack(anchor=NW, padx=6, pady=6)
+
+root.mainloop()
+
+# num = input("Insert num in 10cc: ")
+# print(f"Num in 2cc: {translate(num)}")
