@@ -4,11 +4,11 @@
 #define NUM_SIZE 3
 
 // y=a/b+c*d-e
-char a[NUM_SIZE] = "-13";
-char b[NUM_SIZE] = "124";
-char c[NUM_SIZE] = "-24";
-char d[NUM_SIZE] = "-41";
-char e[NUM_SIZE] = "-48";
+char a[NUM_SIZE] = { 0 };
+char b[NUM_SIZE] = { 0 };
+char c[NUM_SIZE] = { 0 };
+char d[NUM_SIZE] = { 0 };
+char e[NUM_SIZE] = { 0 };
 int aInt = 0, bInt = 0, cInt = 0, dInt = 0, eInt = 0;
 
 char y[NUM_SIZE * 2] = { 0 };
@@ -19,6 +19,28 @@ int razr = 1;
 
 int main()
 {
+#pragma region Read Values
+    printf("Insert a (-99, +99): ");
+    fgets(a, 4, stdin);
+    getchar();
+
+    printf("Insert b (-99, +99): ");
+    fgets(b, 4, stdin);
+    getchar();
+
+    printf("Insert c (-99, +99): ");
+    fgets(c, 4, stdin);
+    getchar();
+
+    printf("Insert d (-99, +99): ");
+    fgets(d, 4, stdin);
+    getchar();
+
+    printf("Insert e (-99, +99): ");
+    fgets(e, 4, stdin);
+    getchar();
+#pragma endregion
+
     _asm
     {
 #pragma region From ASCII
@@ -61,28 +83,37 @@ int main()
         mov ebp, esp;
         mov ecx, NUM_SIZE; // Кладем в ecx размер строки
         lea eax, [ebp + 8]; // кладем в eax ссылку на строку
-        mov ebx, 0; //  Итоговое число
-    FROM_ASCII_LOOP:
-        movzx edx, [eax + ecx - 1]; // конвертируем символ из ASCII в нормальный вид
-        push eax; // кладем ссылку на строку, чтобы освободить регистр
-        mov eax, '-';  // кладем в eax "-" в нормальном виде =>
-        cmp edx, eax; // и сравниваем, не является ли текущий символ "-"
-        je MINUS_F; // если да то преходим по метке MINUS
-        jmp PLUS_F; // если нет, то переходим по метке PLUS
+        inc eax;
+        cmp [eax - 1], '-'; // сравниваем, не является ли текущий символ "-"
+        jz MINUS_F; // если да то преходим по метке MINUS
+        jmp SEPARATE;
     MINUS_F:
         mov znak, -1; // меняем знак на отрицательный
-        jmp END_FA_LOOP;
-    PLUS_F:
+    SEPARATE:
+        cmp[eax], '\0'; // смотрим, не закончилась ли строка
+        je END_FA;      //
+        cmp[eax], '\n'; //
+        je END_FA;      // если да, то вызодим из цикла
+        movzx edx, [eax]; // конвертируем символ из ASCII в нормальный вид
         sub edx, 48; // вычитаем 48, чтобы полчить число в привычном виде
-        imul edx, razr; // умножаем число на разряд
-        add ebx, edx; // приплюсовываем число к итоговому
+        push edx;
     END_FA_LOOP:
-        mov eax, razr; // умножаем разярд =>
-        cdq;
-        imul eax, 10;  // на 10 =>
-        mov razr, eax; //
-        pop eax; // возваращем ссылку на строку из стека
-        loop FROM_ASCII_LOOP;
+        inc eax;
+        loop SEPARATE;
+    END_FA:
+        mov ebx, 0; //  Итоговое число
+        mov edx, NUM_SIZE; // считаем счетчик 
+        sub edx, ecx;      //
+        mov ecx, edx;      //
+    TO_INT:
+        pop eax; // Забираем цифру из массива
+        imul eax, razr; // Умножаем ее на разряд
+        add ebx, eax; // Приавляем к итоговому числу
+        mov eax, razr; // повышаем разряд
+        mov edx, 10;   //
+        imul edx;      //  
+        mov razr, eax; // 
+        loop TO_INT;
         cdq;
         imul ebx, znak; // умножаем число на знак
         mov razr, 1;
@@ -123,7 +154,7 @@ int main()
         mov ebx, 10; // делим число на 10, 
         idiv ebx;    // чтобы получить отдельную цифру 
         add edx, 48;
-        push edx;     // заносим 16 младших бит в стек
+        push edx;
         jmp END_TA_LOOP;
     MINUS_T:
         mov znak, -1;
