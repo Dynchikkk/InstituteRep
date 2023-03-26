@@ -5,15 +5,13 @@
 {                    \
 		__asm mov eax, num \
 		__asm inc eax      \
-		__asm mov ebx, 5   \
-		__asm imul ebx     \
+		__asm imul eax, 5     \
 }
 
 #define ahigh(num)    \
 {                        \
 		__asm mov eax, num \
-		__asm mov ebx, 2   \
-		__asm imul ebx     \
+		__asm imul eax, 2     \
 		__asm dec eax     \
 }
 
@@ -25,8 +23,7 @@
 		__asm add eax, b         \
 		__asm push eax          \
 		__asm mov eax, c         \
-		__asm mov ebx, d        \
-		__asm imul ebx           \
+		__asm imul eax, d           \
 		__asm mov ebx, e         \
 		__asm cdq               \
 		__asm xor edx, edx       \
@@ -55,7 +52,6 @@ int main()
 		push eax;
 		push ebx;
 		func([dannye], [dannye + 4], [dannye + 8], [dannye + 12], [dannye + 16], ebx);// считаем функцию
-		
 		pop ebx;
 		pop eax;
 		pop ecx;
@@ -84,16 +80,9 @@ int main()
 		loop CALCULATION;
 	}
 
-	printf("a: ");
 	for (int i = 0; i < 10; i++)
 	{
-		printf("%d ", izmenArg[i]);
-	}
-
-	printf("\ny: ");
-	for (int i = 0; i < 10; i++)
-	{
-		printf("%d ", y[i]);
+		printf("a = %d => y=%d+%d-%d*%d/%d => y = %d\n", izmenArg[i], izmenArg[i], dannye[1], dannye[2], dannye[3], dannye[4], y[i]);
 	}
 
 	return 0;
