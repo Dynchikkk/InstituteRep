@@ -1,9 +1,9 @@
 data segment
-	a1 dd 42FA0000h
-	b1 dd 0C29A0000h
+	a1 dd 42771478h
+	b1 dd 0C29B3850h
 
-	a2 dd 46FA0000h
-	b2 dd 0C69A0000h
+	a2 dd 46771478h
+	b2 dd 0C69B3850h
 data ends
 
 code segment
