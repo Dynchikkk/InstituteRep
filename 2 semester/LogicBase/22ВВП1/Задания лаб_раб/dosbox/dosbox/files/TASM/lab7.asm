@@ -17,11 +17,6 @@ start:	mov ax, data
 	mov cl, 2
 	sar bx, cl; B/4
 	jo ANOTHERWAY;
-;==== FuncCall
-	push bx
-	call RoundProc
-	mov bx, di
-;====
 	add bx, B; B/4 + B
 	mov y, bx
 	jo ANOTHERWAY
@@ -34,12 +29,6 @@ start:	mov ax, data
 	mov bx, C
 	mov cl, 2
 	sar bx, cl; C/4
-	;==== FuncCall
-	push bx
-	call RoundProc
-	mov di, bx
-	;====
-	mov bx, di
 	add ax, bx; // A - B/4 - B + C/4
 	mov y, ax;
 	jo ANOTHERWAY;
@@ -75,24 +64,7 @@ ALLGOOD:
 	inc good;
 
 	mov y, ax;
-	jmp EXIT
-	
-RoundProc proc
-	mov di, [si]
-	cmp di, 0
-	jge MINUS
-PLUS:
-	adc di, 0
-	jmp ENDPROC
-MINUS:
-	neg di
-	adc di, 0
-	neg di
-ENDPROC:
-	ret 2
-RoundProc endp
-
-EXIT:
+	EXIT:
 ;=============
 quit:	mov ax,4c00h
 	int 21
