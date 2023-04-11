@@ -1,8 +1,8 @@
 data segment
 ;=============
-	A dw 03F4h
-	B dw 03EDh
-	C dw 03EBh
+	A dw 64ECh
+	B dw 03F0h
+	C dw 0400h
 	Y dw ?
 	good db ?
 ;=============
@@ -16,6 +16,7 @@ start:	mov ax, data
 	mov bx, B
 	mov cl, 2
 	sar bx, cl; B/4
+	;mov y, bx
 	jo ANOTHERWAY;
 	add bx, B; B/4 + B
 	mov y, bx
@@ -29,7 +30,8 @@ start:	mov ax, data
 	mov bx, C
 	mov cl, 2
 	sar bx, cl; C/4
-	add ax, bx; // A - B/4 - B + C/4
+	jo ANOTHERWAY
+	add ax, bx; A - B/4 - B + C/4
 	mov y, ax;
 	jo ANOTHERWAY;
 
@@ -42,23 +44,38 @@ ANOTHERWAY:
 	mov bx, B
 	mov cl, 4
 	sar bx, cl; B/16
+	jo EXIT
+	mov y, bx
 	mov ax, B
-	mov cl, 3
-	sar ax, cl; B/8
-	add bx, B; B/16 + B/8
+	mov cl, 2
+	sar ax, cl; B/4
+	jo EXIT
+	mov y, ax
+	add bx, ax; B/16 + B/4
+	jo EXIT
+	mov y, bx
 	
 	mov ax, A
 	mov cl, 2
 	sar ax, cl
-	sub ax, bx; A/4 - B/16 - B/8
+	jo EXIT
+	mov y, ax
+	sub ax, bx; A/4 - B/16 - B/4
+	jo EXIT
+	mov y, ax
 
 	mov bx, C
 	mov cl, 4
 	sar bx, cl; C/16
-	add ax, bx; // A/4 - B/16 - B/5 + C/16
+	jo EXIT
+	mov y, bx
+	add ax, bx; // A/4 - B/16 - B/4 + C/16
+	jo EXIT
+	mov y, ax
 
 	mov cl, 4
-	sal ax, cl; // 16(A/4 - B/16 - B/5 + C/16)
+	sal ax, cl; // 16(A/4 - B/16 - B/4 + C/16)
+	jo EXIT
 
 ALLGOOD:
 	inc good;
