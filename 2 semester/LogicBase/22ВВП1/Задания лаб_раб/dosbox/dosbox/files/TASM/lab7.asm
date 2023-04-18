@@ -1,8 +1,8 @@
 data segment
 ;=============
-	A dw 64ECh
-	B dw 03F0h
-	C dw 0400h
+	A dw -20200d
+	B dw -10200d
+	C dw -1020d
 	Y dw ?
 	good db ?
 ;=============
@@ -30,6 +30,7 @@ start:	mov ax, data
 	mov bx, C
 	mov cl, 2
 	sar bx, cl; C/4
+	mov y, ax
 	jo ANOTHERWAY
 	add ax, bx; A - B/4 - B + C/4
 	mov y, ax;
