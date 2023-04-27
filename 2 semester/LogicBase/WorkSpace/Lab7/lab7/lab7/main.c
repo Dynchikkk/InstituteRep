@@ -12,59 +12,21 @@ short good = 0;
 
 void main()
 {
-	_asm {
-#pragma region StandartWay
-		mov ax, a;
-		mov bx, b;
-		mov cx, c;
+    int result;
+    int damage = 10;
+    int resist = 10;
 
-		sar bx, 2; // B/4
-		jo ANOTHERWAY;
-		add bx, b; // B/4 + B
-		jo ANOTHERWAY;
+    __asm
+    {
+        mov ebx, resist
+        mov eax, 100
+        sub eax, ebx
+        imul eax, damage
+        mov ebx, 100
+        cdq
+        div ebx
+        mov result, eax
+    }
 
-		sub ax, bx; // A - B/4 - B
-		jo ANOTHERWAY;
-
-		sar cx, 2; // C/4
-		add ax, cx; // A - B/4 - B + C/4
-		jo ANOTHERWAY;
-
-		sal ax, 2;
-		jo ANOTHERWAY;
-		jmp ALLGOOD;
-#pragma endregion
-
-#pragma region AnotherWay
-	ANOTHERWAY:
-		mov ax, a;
-		mov bx, b;
-		mov cx, c;
-
-		sar bx, 4;
-		mov dx, b;
-		sar dx, 2;
-		add bx, dx;
-		xor dx, dx;
-
-		sar ax, 2;
-		sub ax, bx;
-
-		sar cx, 4;
-		add ax, cx;
-
-		sal ax, 4;
-
-#pragma endregion
-
-	ALLGOOD:
-		inc good;
-
-	mov y, ax;
-
-	EXIT:
-
-	}
-
-	printf("%d %d", y, good);
+	printf("%d", result);
 }
