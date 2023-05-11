@@ -1,9 +1,9 @@
 ; Y=((4*(А−5/4*В+С/4))*C)/(5*B)
 data segment
 ;=============
-	A dw 500d
-	B dw -100d
-	C dw 40d
+	A dw 5000d
+	B dw -2000d
+	C dw -600d
 	Y1 dw ?
 	Y2 dw ?
 	chast dw ?
