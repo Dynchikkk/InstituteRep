@@ -57,9 +57,9 @@ N5:
 	jmp ALARM
 N6:
 	
-	; Умножение
+	; пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	mov bx, C
-	; проверка знака суммы
+	; пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	mov dx, mask
 	mov cx, dx
 	and dx, ax
@@ -67,7 +67,7 @@ N6:
 	neg ax
 	mov dx, 1
 PLUS_LAST_STEP:
-	; проверка знака C
+	; пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ C
 	and cx, bx
 	jz PLUS_C
 	neg bx
@@ -75,7 +75,7 @@ PLUS_LAST_STEP:
 PLUS_C:
 	xor dx, cx
 	push dx
-	; Цикл умножения
+	; пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	xor dx, dx
 	mov cx, 15
 MUL_NUM:
@@ -90,7 +90,7 @@ a_1:
 	rcr dx, 1
 	rcr bx, 1
 	
-	; Возврат знака
+	; пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	pop cx
 	test cl, 1
 	jz EXIT_MUL
@@ -98,8 +98,8 @@ a_1:
 	neg bx
 	
 EXIT_MUL:
-	mov Y1, dx; старшая часть
-	mov Y2, bx; младшая часть
+	mov Y1, dx; пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	mov Y2, bx; пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	
 	;
 	mov dx, B
@@ -159,7 +159,6 @@ DELENIE:
 	jmp NOT_PLUS
 PLUS:
 	add ax, del
-
 NOT_PLUS:
 	pushf
 	loop SAVE_FLAGS
@@ -183,12 +182,10 @@ CHASTNOE_PLUS:
 	cmp di, 1
 	jne RESULT
 	neg bx
-
 RESULT:
 	mov chast, bx
 	mov ost, ax
 	jmp ALLGOOD
-
 ALARM:
 	mov err, 1
 	
