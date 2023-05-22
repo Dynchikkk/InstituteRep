@@ -1,7 +1,6 @@
-; Y=((4*(А−5/4*В+С/4))*C)/(5*B)
 data segment
 ;=============
-	A dw 5000d
+	A dw 10000d
 	B dw -2000d
 	C dw -600d
 	Y1 dw ?
@@ -27,40 +26,40 @@ start:	mov ax, data
 	mov bx, B
 	mov cl, 2
 	sar bx, cl; B/4
-	jno N1;
+	jno N1
 	jmp ALARM
 N1:
 	add bx, B; B/4 + B
-	jno N2;
+	jno N2
 	jmp ALARM
 N2:
 	
 	mov ax, A
 	sub ax, bx; A - B/4 - B
-	jno N3;
+	jno N3
 	jmp ALARM
 N3:
 
 	mov bx, C
 	mov cl, 2
 	sar bx, cl; C/4
-	jno N4;
+	jno N4
 	jmp ALARM
 N4:
 	add ax, bx; A - B/4 - B + C/4
-	jno N5;
+	jno N5
 	jmp ALARM
 N5:
 
 	mov cl, 2
 	sal ax, cl; 4(A - B/4 - B + C/4)
-	jno N6;
+	jno N6
 	jmp ALARM
 N6:
 	
-	; Умножение
+	; ���������
 	mov bx, C
-	; проверка знака суммы
+	; �������� ����� �����
 	mov dx, mask
 	mov cx, dx
 	and dx, ax
@@ -68,7 +67,7 @@ N6:
 	neg ax
 	mov dx, 1
 PLUS_LAST_STEP:
-	; проверка знака C
+	; �������� ����� C
 	and cx, bx
 	jz PLUS_C
 	neg bx
@@ -76,7 +75,7 @@ PLUS_LAST_STEP:
 PLUS_C:
 	xor dx, cx
 	push dx
-	; Цикл умножения
+	; ���� ���������
 	xor dx, dx
 	mov cx, 15
 MUL_NUM:
@@ -91,7 +90,7 @@ a_1:
 	rcr dx, 1
 	rcr bx, 1
 	
-	; Возврат знака
+	; ������� �����
 	pop cx
 	test cl, 1
 	jz EXIT_MUL
@@ -99,23 +98,23 @@ a_1:
 	neg bx
 	
 EXIT_MUL:
-	mov Y1, dx; старшая часть
-	mov Y2, bx; младшая часть
+	mov Y1, dx; ������� �����
+	mov Y2, bx; ������� �����
 	
-	; Вычисление делителя
+	;
 	mov dx, B
 	mov ax, B
 	mov cl, 2
-	sal ax, cl ; B*4
-	add dx, ax ; B*4 + B = B*5
-	jno N7;
+	sal ax, cl ;
+	add dx, ax
+	jno N7
 	jmp ALARM
 N7:
 	cmp dx, 0
 	jne CHECK_DELIMOE
 	jmp ALARM
-	
-	; Проверка знака делимого
+
+	;
 CHECK_DELIMOE:
 	xor si, si
 	xor di, di
@@ -128,16 +127,17 @@ CHECK_DELIMOE:
 	add bx, 1
 	adc ax, 0
 	add si, 1
-	; Проверка знака делителя
+
+	;
 CHECK_DELITEL:
 	test dx, mask
 	jz PRED_DIV
 	neg dx
 	add si, 2
-	; si = 1 отрицательно делимое
-	; si = 2 отрицателен делитель
-	; si = 3 отрицательны делитель и делимое
-	
+	;
+	;
+	;
+
 PRED_DIV:
 	mov cx, 16
 	mov del, dx
@@ -175,19 +175,17 @@ OSTATOK2:
 	neg ax
 	add di, 1
 OSTATOK_PLUS:
-    test si, 2
+	test si, 2
 	jz CHASTNOE_PLUS
 	add di, 1
 CHASTNOE_PLUS:
 	cmp di, 1
 	jne RESULT
 	neg bx
-	
 RESULT:
 	mov chast, bx
 	mov ost, ax
 	jmp ALLGOOD
-	
 ALARM:
 	mov err, 1
 	
