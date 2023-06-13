@@ -50,110 +50,188 @@ http://cito-web.yspu.org/link1/lab/lab_op8/node3.html
 
 Билет 6
 1. Момент импульса, момент силы относительно точки и оси, закон сохранения момента импульса. 
+http://phys.bspu.by/static/lib/phys/bmstu/tom1/ch6/texthtml/ch6_1.htm
 2. Энергия уединенного проводника, конденсатора. Объемная плотность энергии. 
+http://edu.tltsu.ru/er/book_view.php?book_id=14d4&page_id=11948
 3. Дифракционная решетка. Дифракция на дифракционной решетке. Дифракционная решетка как спектральный прибор. Характеристики оптических приборов.
+https://www.booksite.ru/fulltext/1/001/008/029/516.htm
+https://opticdevices.ru/article_9.html
 
 Билет 7
 1. Момент инерции тела твердого тела относительно оси. Вычисление моментов инерции твердых тел. Теорема Штейнера. 
+https://edu.tltsu.ru/er/book_view.php?book_id=554&page_id=3634
 2. Электрический ток и его характеристики. Электродвижущая сила и напряжение. 
+https://www.yaklass.ru/p/fizika/8-klass/elektricheskie-iavleniia-12351/elektricheskii-tok-elektricheskaia-tcep-galvanicheskie-elementy-12359/re-74a97d55-2db7-45a6-947f-a227ea083058
 3. Дифракция рентгеновских лучей. Формула Вульфа-Брэггов. Изучение структуры кристаллов.
+http://fn.bmstu.ru/data-physics/library/physbook/tom4/ch5/texthtml/ch5_6.htm
 
 Билет 8
 1. Работа силы. Консервативные и неконсервативные силы. Работа силы тяготения и упругости. 
+https://foxford.ru/wiki/fizika/konservativnye-i-nekonservativnye-sily
+https://interneturok.ru/lesson/physics/10-klass/bzakony-sohraneniya-v-mehanikeb/rabota-sily-uprugosti-potentsialnaya-energiya-uprugo-deformirovannogo-tela
 2. Закон Ома. Закон Джоуля – Ленца. Работа и мощность тока. Правила Кирхгофа. 
+https://portal.tpu.ru/SHARED/e/EKATPOST/rabota/phusich_2/Tab2/lke8.pdf
 3. Принцип голографии.
+https://www.booksite.ru/fulltext/1/001/008/011/360.htm
 
 Билет 9
 1. Кинетическая энергия поступательного и вращательного движения твердого тела. Работа силы при вращении. 
+https://edu.tltsu.ru/er/book_view.php?book_id=554&page_id=3635
 2. Индукция магнитного поля. Линии и поток магнитной индукции. 
+https://www.bsut.by/images/MainMenuFiles/Obrazovanie/Studentam/eumkd/et/euk_45_001/ch1/ch1_2/ch1_2_4.html#:~:text=%D0%98%D0%BD%D0%B4%D1%83%D0%BA%D1%86%D0%B8%D1%8F%20%D0%BC%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D0%BB%D1%8F%20%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%20%D1%80%D0%B0%D0%B2%D0%BD%D0%B0,%D1%81%D0%BE%D0%B2%D0%BF%D0%B0%D0%B4%D0%B0%D0%B5%D1%82%20%D1%81%20%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%20%D0%BC%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D0%BB%D1%8F.
 3. Тепловое излучение и его характеристики. Абсолютно черное тело.
+https://portal.tpu.ru/SHARED/s/SVETVIL/files/Tab1/Teplovoe_izluchenie.pdf
 
 Билет 10
 1. Потенциальная энергия материальной точки во внешнем силовом поле и ее связь с силой, действующей на материальную точку. 
+https://studfile.net/preview/2714183/page:10/
 2. Закон Био – Савара – Лапласа. Примеры расчета магнитных полей. 
+https://studme.org/130222/matematika_himiya_fizik/zakon_savara_laplasa_primenenie_raschetu_magnitnyh_poley
 3. Законы излучения абсолютно черного тела
+https://www.4glaza.ru/articles/zakon-absolyutnogo-chernogo-tela/#:~:text=%D0%90%D0%B1%D1%81%D0%BE%D0%BB%D1%8E%D1%82%D0%BD%D0%BE%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B5%20%D1%82%D0%B5%D0%BB%D0%BE%20%D0%BF%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%20%D1%81%D0%BE%D0%B1%D0%BE%D0%B9,%D0%B8%D1%81%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D1%82%D0%B5%D0%BB%D0%BE%D0%BC%2C%20%D0%BF%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81.
 
 Билет 11
 1. Законы изменения и сохранения механической энергии. 
+https://foxford.ru/wiki/fizika/zakon-sohraneniya-mehanicheskoy-energii#:~:text=%D0%97%D0%B0%D0%BA%D0%BE%D0%BD%20%D1%81%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F%20%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%B8%D0%B8%3A%20%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%B8%D1%8F%20%D0%BD%D0%B5,%D0%BD%D0%B0%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%2C%20%D0%B8%D0%B7%2D%D0%B7%D0%B0%20%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D1%8F.
 2. Закон полного тока для магнитного поля в вакууме. 
+https://studfile.net/preview/6180522/page:4/
 3. Противоречия классической физики (формула Рэлея-Джинса). Квантовая гипотеза и формула Планка.
+https://studfile.net/preview/376731/page:15/
 
 Билет 12
 1. Удар двух тел. 
+https://www.yaklass.ru/p/fizika/9-klass/mekhanicheskie-iavleniia-zakony-sokhraneniia-v-mekhanike-90005/zakon-sokhraneniia-impulsa-vidy-vzaimodeistvii-105698/re-360b746b-2e80-45ed-9945-1f8ae9b26d90#:~:text=%D0%A3%D0%B4%D0%B0%D1%80%20%E2%80%94%20%D1%82%D0%BE%D0%BB%D1%87%D0%BE%D0%BA%2C%20%D0%BA%D1%80%D0%B0%D1%82%D0%BA%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5%20%D0%B2%D0%B7%D0%B0%D0%B8%D0%BC%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D0%B5%20%D1%82%D0%B5%D0%BB,%D1%83%D0%B4%D0%B0%D1%80%D0%B5%20%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D1%8F%D0%B5%D1%82%D1%81%D1%8F%20%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD%20%D1%81%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B8%D0%BC%D0%BF%D1%83%D0%BB%D1%8C%D1%81%D0%B0.
 2. Действие магнитного поля на проводник с током. Закон Ампера. Взаимодействие токов. Контур с током в магнитном поле. Работа перемещения проводника с током в магнитном поле. Сила Лоренца. 
+https://portal.tpu.ru/SHARED/r/RASPOPOVANI/Teaching/Tab4/%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F%2011%20_%20%D0%97%D0%B0%D0%BA%D0%BE%D0%BD%20%D0%90%D0%BC%D0%BF%D0%B5%D1%80%D0%B0.%20%D0%A1%D0%B8%D0%BB%D0%B0%20%D0%9B%D0%BE.pdf
+https://edu.tltsu.ru/er/book_view.php?book_id=14d6&page_id=11975
+https://edu.tltsu.ru/er/book_view.php?book_id=14d6&page_id=11976
 3. Фотоэффект и его законы. Формула Эйнштейна для фотоэффекта. Квантовая теория фотоэффекта.
+https://fmclass.ru/phys.php?id=485f919b28c07
 
 Билет 13
 1. Специальная теория относительности. Постулаты Эйнштейна. Преобразования Лоренца и их следствия. 
+https://www.eduspb.com/node/1994
 2. Магнитное поле в веществе. Магнитные моменты электронов и атомов. Типы магнетиков. Намагниченность. Закон полного тока для магнитного поля в веществе. Напряжённость магнитного поля. Магнитная проницаемость среды. 
+https://mipt.ru/education/chair/physics/kmf/mPh_5/lectures2011/9.pdf
 3. Фотон и его характеристики.
+https://www.eduspb.com/node/1998
 
 Билет 14
 1. Релятивистское правило преобразования скоростей. Основной закон релятивистской динамики. 
+https://studfile.net/preview/6022825/
 2. Ферромагнетики. Кривая намагничивания. Магнитный гистерезис. Теория ферромагнетизма. 
+https://www.booksite.ru/fulltext/1/001/008/115/893.htm
 3. Эффект Комптона.
+http://nuclphys.sinp.msu.ru/enc/e077.htm
 
 Билет 15
 1. Релятивистское выражение для кинетической энергии. Взаимосвязь массы и энергии. 
+https://online.mephi.ru/courses/physics/osnovi_mehaniki/data/lecture/6/p8.html
+https://edu.tltsu.ru/er/book_view.php?book_id=554&page_id=3643#:~:text=%D1%8D%D1%82%D0%BE%20%D1%83%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B0%D0%B5%D1%82%20%D1%84%D1%83%D0%BD%D0%B4%D0%B0%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD,%D0%BA%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82%20%D1%81%D0%BA%D0%BE%D1%80%D0%BE%D1%81%D1%82%D0%B8%20%D1%81%D0%B2%D0%B5%D1%82%D0%B0%20%D0%B2%20%D0%B2%D0%B0%D0%BA%D1%83%D1%83%D0%BC%D0%B5.&text=%D0%98%D1%82%D0%B0%D0%BA%2C%20%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9%20%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%20%D0%A1%D0%A2%D0%9E%20%D1%81%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D1%81%D1%8F,%D1%81%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B8%20%E2%80%93%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%82%D0%B2%D0%BE%2D%D0%B2%D1%80%D0%B5%D0%BC%D1%8F.
 2. Явление электромагнитной индукции. Основной закон электромагнитной индукции. Правило Ленца. 
+https://physics.ru/courses/op25part2/content/chapter1/section/paragraph20/theory.html
 3. Единство корпускулярных и волновых свойств электромагнитных излучений. Корпускулярно-волновой дуализм микрочастиц. Гипотеза де Бройля.
+http://nuclphys.sinp.msu.ru/spargalka/a02.htm
 
 Билет 16
-1. Основные положения и уравнения молекулярно-кинетической теории газов. Молекулярно-кинетический смысл температуры. Закон о равномерном распределении энергии по степеням свободы молекул. 
+1. Основные положения и уравнения молекулярно-кинетической теории газов. Молекулярно-кинетический смысл температуры. Закон о равномерном распределении энергии по степеням свободы молекул.
+http://fn.bmstu.ru/data-physics/library/physbook/tom2/ch2/texthtml/ch2_2.htm 
+https://studfile.net/preview/2953170/page:7/
 2. Явление самоиндукции. Индуктивность. Взаимная индукция. Энергия магнитного поля. 
+http://profil.adu.by/mod/book/view.php?id=3232
 3. Опытное обоснование корпускулярно-волнового дуализма частиц. Дифракция электронов. Свойства волн де Бройля.
+https://studfile.net/preview/2714862/page:11/
 
 Билет 17
 1. Распределение Максвелла. Скорости газовых молекул. 
+http://fn.bmstu.ru/data-physics/library/physbook/tom2/ch5/texthtml/ch5_4.htm
 2. Уравнения Максвелла. 
+https://tsput.ru/res/fizika/1/KR_ELEC/l24.htm
 3. Соотношение неопределенностей для координат и импульса, энергии и времени.
+http://fn.bmstu.ru/data-physics/library/physbook/tom5/ch2/texthtml/ch2_3.htm
 
 Билет 18
 1. Распределение Больцмана. 
+http://fn.bmstu.ru/data-physics/library/physbook/tom2/ch5/texthtml/ch5_2.htm
 2. Гармонические колебания и их характеристики. Гармонический осциллятор. 
+https://www.bsut.by/images/MainMenuFiles/Obrazovanie/Studentam/eumkd/et/euk_45_001/ch1/ch1_2/ch1_2_3.html
 3. Волновая функция. Статистический смысл волновой функции. Временное и стационарное уравнения Шредингера.
+https://studfile.net/preview/9589921/page:3/
 
 Билет 19
 1. Внутренняя энергия термодинамической системы, работа газа при изменении его объёма, количество теплоты. Первое начало термодинамики. Теплоёмкость. 
+http://files.school-collection.edu.ru/dlrstore/939ca5f3-2937-c563-cd19-94fd745294db/00119626264601308.htm
+https://resh.edu.ru/subject/lesson/5897/conspect/150903/
 2. Затухающие колебания. 
+https://www.yaklass.ru/p/fizika/9-klass/mekhanicheskie-kolebaniia-i-volny-18755/vynuzhdennye-kolebaniia-rezonans-158009/re-9bcce91b-d3d7-4a6e-88a6-4b4be6250934
 3. Электрон в потенциальном «ящике».
+http://alexandr4784.narod.ru/Detlaf_3/Detlaf_3_gl12_7.pdf
 
 Билет 20
 1. Применение первого начала термодинамики к изопроцессам и адиабатному процессу идеального газа. 
+http://files.school-collection.edu.ru/dlrstore/45b8f4a4-8d15-832e-0c2f-0417bcd32ea4/00149789751523993.htm
 2. Вынужденные колебания. Резонанс. 
+https://physics.ru/courses/op25part1/content/chapter2/section/paragraph5/theory.html
 3. Прохождение частицы сквозь потенциальный барьер.
+https://studfile.net/preview/5965710/page:7/
 
 Билет 21
 1. Тепловые двигатели. Холодильные машины. Цикл Карно. 
+https://studfile.net/preview/604023/page:15/
 2. Сложение колебаний одного направления, сложение взаимно перпендикулярных колебаний. 
+https://siblec.ru/estestvennye-nauki/kolebaniya/2-slozhenie-garmonicheskikh-kolebanij
 3. Модель атома Резерфорда. Теория Бора для водородоподобных атомов. Опыты Франка и Герца.
+http://files.school-collection.edu.ru/dlrstore/9f74fb44-d2e1-b92f-4616-53a53d9451c9/00145618886887456.htm
+http://nuclphys.sinp.msu.ru/sem2/sem03.html
 
 Билет 22
 1. Обратимые и необратимые процессы. Энтропия. 
+https://studfile.net/preview/956885/page:5/
 2. Электромагнитные волны. 
+https://www.booksite.ru/fulltext/1/001/008/126/043.htm
 3. Водородоподобная система в квантовой механике. Квантовые числа.
+https://studfile.net/preview/5333222/page:20/
 
 Билет 23
 1. Второе начало термодинамики и его статистический смысл. Третье начало термодинамики. 
+https://spravochnick.ru/koncepciya_sovremennogo_estestvoznaniya/vtoroe_nachalo_termodinamiki_entropiya_i_ee_statisticheskiy_smysl/
+http://fn.bmstu.ru/data-physics/library/physbook/tom2/ch3/texthtml/ch3_10.htm
 2. Природа света. Когерентность и монохроматичность света. 
+https://studfile.net/preview/7791557/page:2/
 3. Пространственное квантование. Спин. Опыты Штерна и Герлаха.
+https://studfile.net/preview/7732289/page:12/
 
 Билет 24
 1. Среднее число столкновений и средняя длина свободного пробега молекул. 
+https://studfile.net/preview/9448196/page:11/
 2. Опыт Юнга. 
+http://files.school-collection.edu.ru/dlrstore/aeb1c392-82a6-9372-9b26-60e693144267/00144676015753818.htm
 3. Принцип запрета Паули. Периодическая система элементов Д.И. Менделеева.
+https://studfile.net/preview/2384676/page:5/
 
 Билет 25
 1. Явления переноса в термодинамических неравновесных системах. Опытные законы диффузии, теплопроводности и внутреннего трения. Молекулярно-кинетическая теория этих явлений. 
+https://studfile.net/preview/4574599/page:37/
+https://studfile.net/preview/8681506/
 2. Временная и пространственная когерентность. 
+https://studfile.net/preview/6231797/page:3/
 3. Спектры излучения атома водорода и водородоподобных ионов.
+https://studme.org/130284/matematika_himiya_fizik/spektry_atoma_vodoroda_vodorodopodobnyh_ionov_nedostatki_teorii_bora
 
 Билет 26
 1. Электрический заряд. Электрическое поле в вакууме. Взаимодействие электрических зарядов. 
+https://studfile.net/preview/2867617/
+http://www.sxemotehnika.ru/vzaimodeystvie-elektricheskich-zaryadov.html
 2. Интерференция света в тонких пленках. 
+https://online.mephi.ru/courses/physics/optics/data/course/4/4.5.html
 3. Состав и характеристики атомного ядра. Ядерные силы. Энергия связи. Дефект масс.
+https://www.yaklass.ru/p/fizika/9-klass/kvantovye-iavleniia-344899/protonno-neitronnaia-model-iadra-energiia-sviazi-chastitc-v-iadre-344902/re-3ee71a5b-590d-4b71-a5fc-27b7fffe0bf6
+https://www.bsuir.by/m/12_104571_1_98876.pdf
 
 Билет 27
 1. Напряженность электростатического поля в вакууме. Напряженность поля точечного заряда. Принцип суперпозиции электрических полей. Линии и поток вектора напряженности электрического поля. Теорема Остроградского – Гаусса для электростатического поля в вакууме. 
+http://fn.bmstu.ru/data-physics/library/physbook/tom3/ch1/texthtml/ch1_4.htm
 2. Методы наблюдения интерференции. 
+https://online.mephi.ru/courses/physics/optics/data/course/4/4.4.html#:~:text=%D0%9A%D0%BB%D0%B0%D1%81%D1%81%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%BC%20%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%BE%D0%BC%2C%20%D0%BF%D0%BE%D0%B7%D0%B2%D0%BE%D0%BB%D1%8F%D1%8E%D1%89%D0%B8%D0%BC%20%D0%BD%D0%B0%D0%B1%D0%BB%D1%8E%D0%B4%D0%B0%D1%82%D1%8C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8E,4.6).&text=%D0%A1%D0%B2%D0%B5%D1%82%2C%20%D0%B8%D0%B7%D0%BB%D1%83%D1%87%D0%B0%D0%B5%D0%BC%D1%8B%D0%B9%20%D0%B8%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%BE%D0%BC%20S%2C%20%D0%BE%D1%82%D1%80%D0%B0%D0%B6%D0%B0%D0%B5%D1%82%D1%81%D1%8F,%C2%B0%20(%D1%83%D0%B3%D0%BE%D0%BB%20%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D1%87%D0%BD%D0%BE%20%D0%BC%D0%B0%D0%BB).
 3. Естественная радиоактивность. Закон радиоактивного распада. Ядерные реакции.
+https://studfile.net/preview/3298736/page:4/

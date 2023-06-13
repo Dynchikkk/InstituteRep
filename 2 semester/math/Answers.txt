@@ -60,184 +60,168 @@ https://infotables.ru/matematika/61-integralnoe-ischislenie-funktsij/600-opredel
 https://matica.org.ua/metodichki-i-knigi-po-matematike/vysshaia-matematika-metodicheskie-ukazaniia-2-chast-kardanov-s-o/2-1-osnovnye-metody-vychisleniia-opredelennykh-integralov
 
 21. Первообразная
-
+https://umschool.net/library/matematika/pervoobraznaya/
 
 22. Неопределенный интеграл и его свойства
-
+https://studfile.net/preview/2981695/page:32/
 
 23. Таблицаосновных формул интегрирования
-
+https://www.webmath.ru/poleznoe/formules_9_3.php
 
 24. Интегрирование по частям и подстановкой
-
+https://function-x.ru/integral102.html
+https://it.rfei.ru/course/~Eyun/~chapter-5/~lesson-5-replacement
 
 25. Разложениеправильной рациональной дроби на простейшие
-
+https://www.webmath.ru/poleznoe/formules_9_9.php
+https://ya-znau.ru/znaniya/zn/238
 
 26. Интегрирование рациональных дробей
+https://ya-znau.ru/znaniya/zn/238
 
 
 27. Интегрирование простейших алгебраических иррациональностей
-
+https://studfile.net/preview/9912929/page:9/
 
 28. Интегрированиедифференциального бинома
-
+https://studfile.net/preview/5283746/page:14/
 
 29. Интегрирование выражений, содержащих тригонометрическиефункции
-
+https://studfile.net/preview/4497532/page:6/
 
 30. Интегрирование некоторых иррациональных функций с помощью тригонометрическихподстановок
-
+https://guimc.bmstu.ru/wp-content/uploads/2020/03/KTSD_DE_3.4.pdf
 
 31. Задачи, приводящие к понятию определенного интеграла
-
+https://studfile.net/preview/2981695/page:36/
 
 32. Понятие определенногоинтеграла и его свойства
-
+https://studfile.net/preview/5611079/page:2/
 
 33. Определенный интеграл с переменным верхним пределом
-
+https://univer-nn.ru/matematika/opredelennyj-integral-s-verxnim-predelom/
 
 34. ФормулаНьютона–Лейбница
-
+https://portal.tpu.ru/SHARED/k/KONVAL/Sites/Russian_sites/Calc1-ru/12/06.htm
 
 35. Методы вычисления определенного интеграла
-
+https://matica.org.ua/metodichki-i-knigi-po-matematike/vysshaia-matematika-metodicheskie-ukazaniia-2-chast-kardanov-s-o/2-1-osnovnye-metody-vychisleniia-opredelennykh-integralov
 
 36. Несобственные интегралы сбесконечными пределами и от неограниченных функций
-
+https://studfile.net/preview/2981695/page:39/
 
 37. Признаки сходимости несобственныхинтегралов
-
+https://studfile.net/preview/2981695/page:39/
 
 38. Приложения определенного интеграла к вычислению площадей плоских фигур,объемов тел, длин дуг кривых
-
+https://studfile.net/preview/6336004/page:7/
 
 39. Функции нескольких переменных
-
+http://vuz.exponenta.ru/PDF/Lecmatem13.html
 
 40. Область определения
-
+https://skysmart.ru/articles/mathematic/oblast-opredeleniya-funkcii
 
 41. Предел и непрерывностьфункции
-
+https://lms2.sseu.ru/courses/eresmat/course1/prakt1/razdpr1_7/teo1_7_3.htm
 
 42. Частные производные
-
+https://function-x.ru/derivative5.html
 
 43. Полный дифференциал первого порядка функции несколькихпеременных
-
+https://lms2.sseu.ru/courses/eresmat/course1/razd12z1/par12_4z1.htm
 
 44. Геометрический смысл дифференциала
-
+https://lms2.sseu.ru/courses/eresmat/metod/met1/razdmet1_4/parmet1_4_2.htm
 
 45. Применение к приближенным вычислениям
-
+https://studfile.net/preview/16449624/
 
 46. Производная по направлению и градиент функции
-
+http://ru.solverbook.com/spravochnik/proizvodnye/proizvodnaya-po-napravleniyu/
 
 47. Касательная плоскость и нормаль кповерхности
-
+http://mathportal.net/index.php/matematicheskij-analiz/kasatelnaya-ploskost-i-normal-k-yavno-zadannoj-poverkhnosti#:~:text=%D0%9A%D0%B0%D1%81%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D0%BF%D0%BB%D0%BE%D1%81%D0%BA%D0%BE%D1%81%D1%82%D1%8C%D1%8E%20%D0%BA%20%D0%BF%D0%BE%D0%B2%D0%B5%D1%80%D1%85%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%B2,%D0%B8%20%D0%BF%D1%80%D0%BE%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B0%D1%8F%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D1%82%D0%BE%D1%87%D0%BA%D1%83%20%D0%BA%D0%B0%D1%81%D0%B0%D0%BD%D0%B8%D1%8F.
 
 48. Производная сложной функции
-
+https://www.webmath.ru/poleznoe/formules_10_23.php#:~:text=%D0%9F%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D0%B9%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%20%D1%80%D0%B0%D0%B2%D0%BD%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D1%8E,%D0%BD%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%BD%D1%83%D1%8E%20%D0%BE%D1%82%20%D0%B2%D0%BD%D1%83%D1%82%D1%80%D0%B5%D0%BD%D0%BD%D0%B5%D0%B9%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8.
 
 49. Инвариантность формы записи полногодифференциала
-
+https://lms2.sseu.ru/courses/eresmat/metod/met1/razdmet1_4/parmet1_4_4.htm#:~:text=%D0%98%D1%82%D0%B0%D0%BA%2C%20%2C%20%D1%82.,%D0%B8%D0%BD%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D1%84%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D1%8B%20%D0%B8%D0%BB%D0%B8%20%D1%84%D0%BE%D1%80%D0%BC%D1%8B%20%D0%B4%D0%B8%D1%84%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D0%B0.
 
 50. Дифференцирование неявных функций
-
+https://portal.tpu.ru/SHARED/k/KONVAL/Sites/Russian_sites/Calc1-ru/4/17.htm#:~:text=%D0%9A%D0%BE%D0%BD%D0%B5%D0%B2%20%D0%92.,%D0%94%D0%B8%D1%84%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B9&text=%D0%A7%D1%82%D0%BE%D0%B1%D1%8B%20%D0%BD%D0%B0%D0%B9%D1%82%D0%B8%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%BD%D1%83%D1%8E%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8%20%2C%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%BD%D0%BE%D0%B9,%D1%80%D0%B0%D0%B7%D1%80%D0%B5%D1%88%D0%B8%D1%82%D1%8C%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5%20%D1%83%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BE%D1%82%D0%BD%D0%BE%D1%81%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%20y'.
 
 51. Производные и дифференциалы высшихпорядков
-
+https://pnu.edu.ru/media/filer_public/92/1b/921ba543-98f4-4c33-b76d-6faeedc76810/popova_lecture8.pdf
 
 52. Формула Тейлора для функции двух переменных
-
+https://edu.tltsu.ru/er/book_view.php?book_id=6fc&page_id=4368
 
 53. Безусловный экстремум и признакиего существования для функции нескольких переменных
-
+http://mathprofi.ru/extremumy_funkcij_dvuh_i_treh_peremennyh.html
 
 54. Метод наименьших квадратов
-
+http://mathprofi.ru/metod_naimenshih_kvadratov.html
 
 55. Условный экстремум, метод множителей Лагранжа
-
+https://amkbook.net/education/funct_sev_var/lagranj.html
 
 56. Наименьшее и наибольшее значения функцийнескольких переменных в замкнутой области
-
+https://matica.org.ua/metodichki-i-knigi-po-matematike/differentcialnoe-ischislenie-funktcii-neskolikh-peremennykh/4-3-naibolshee-i-naimenshee-znacheniia-funktcii-v-zamknutoi-oblasti
 
 57. Задачи, приводящие к понятию дифференциального уравнения
-
+https://matica.org.ua/metodichki-i-knigi-po-matematike/spravochnik-a-a-gusak-v-m-gusak/25-5-zadachi-privodiashchie-k-differentcialnym-uravneniiam
 
 58. Дифференциальныеуравнения первого порядка
-
+http://vm.tstu.tver.ru/math_exp/topic_exp/ode/lect_1/lect_1.html
 
 59. Задача Коши
-
+https://xn--24-6kcaa2awqnc8dd.xn--p1ai/zadacha-koshi.html
 
 60. Теорема существования и единственности решениязадачи Коши
-
+http://twt.mpei.ac.ru/math/ode/odef/ODEf_04070000.html
 
 61. Основные виды дифференциальных уравнений первого порядка
-
+http://twt.mpei.ac.ru/math/ode/odef/ODEf_04000000.html
 
 62. Уравнения сразделенными и разделяющимися переменными, а также приводящиеся к ним
-
+http://mathportal.net/index.php/differentsialnye-uravneniya/differentsialnye-uravneniya-s-razdelyayushchimisya-peremennymi
 
 63. Однородныедифференциальные уравнения и приводящиеся к ним
-
+https://mathhelpplanet.com/static.php?p=odnorodnye-differentsialnye-uravneniya
 
 64. Линейные дифференциальные уравненияпервого порядка и методы их решения (методы Бернулли и Лагранжа)
-
+https://1cov-edu.ru/differentsialnye-uravneniya/pervogo-poryadka/linejnye/metod-bernulli/
+https://studfile.net/preview/9054868/page:4/
 
 65. Уравнение Бернулли
-
+http://mathprofi.ru/differencialnoe_uravnenie_bernulli.html
 
 66. Дифференциальные уравнения высших порядков
-
+https://matica.org.ua/metodichki-i-knigi-po-matematike/teoriia-obyknovennykh-differentcialnykh-uravnenii/3-differentcialnye-uravneniia-vysshikh-poriadkov-3-1-osnovnye-poniatiia
 
 67. Задача Коши
-
+https://wiki.eduvdom.com/subjects/diffury/%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8_%D0%BA%D0%BE%D1%88%D0%B8
 
 68. Дифференциальные уравнения,допускающие понижение порядка
-
+https://mathhelpplanet.com/static.php?p=ponizhenie-poryadka-differentsialnogo-uravneniya
 
 69. Линейные однородные и неоднородные дифференциальныеуравнения высших порядков, структура общего решения
-
+http://twt.mpei.ac.ru/math/ode/odelin/ODElin_07070000.html
 
 70. Линейные однородныедифференциальные уравнения n-го порядка с постоянными коэффициентами
-
+https://online-matematika.ru/%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B/%D0%BB%D0%B8%D0%BD%D0%B5%D0%B9%D0%BD%D1%8B%D0%B5-%D0%BE%D0%B4%D0%BD%D0%BE%D1%80%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5-%D0%B4%D1%83-n-%D0%B3%D0%BE-%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B0
 
 71. Структура общегорешения
-
+http://twt.mpei.ac.ru/math/larb/Linsys/LA_05060300.html
 
 72. Линейные неоднородные дифференциальные уравнения с постояннымикоэффициентами
-
+https://function-x.ru/differential_equations8.html
 
 73. Метод вариации произвольных постоянных
-
+https://studfile.net/preview/7678319/page:2/
 
 74. Методы подбора частного решения
+https://studfile.net/preview/739628/page:3/
 
-
-75. Задача Коши для нормальной системы дифференциальных уравнений
-
-
-76. Теорема существования иединственности решения задачи Коши
-
-
-77. Метод исключения
-
-
-78. Метод интегрируемых комбинаций
-
-
-79. Нормальные системы линейных дифференциальных уравнений с постоянными коэффициентами
-
-
-80. Решение в случае простых корней характеристического уравнения
-
-
-
-Process finished with exit code 0
