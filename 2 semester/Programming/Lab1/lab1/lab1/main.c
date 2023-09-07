@@ -1,45 +1,60 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-int a = 0;
-int b = 0;
-int c = 0;
-int d = 0;
-int e = 0;
-int y = 0;
+int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-int prom1 = 0;
+int ind_max = 0;
+int ind_min = 0;
+
 
 int main()
 {
-	printf("Insert 5 num:\n");
-	scanf("%d %d %d %d %d", &a, &b, &c, &d, &e);
-
-	//y=a + b - c*d/e
-
 	_asm
 	{
-		// a + b
-		mov eax, a;
-		add eax, b;
-		mov prom1, eax;
+		//min
+		mov ecx, 0;
+		lea eax, [arr];
+		mov ebx, [eax]
+	MIN:
+		cmp ebx, [eax];
+		jl N1;
+		mov ebx, [eax];
+		mov ind_min, ecx;
+	N1:
+		add eax, 4;
+		inc ecx;
+		cmp ecx, 10;
+		jl MIN;
+
+		//max
+		mov ecx, 0;
+		lea eax, [arr];
+		mov ebx, [eax];
+	MAX:
+		cmp ebx, [eax];
+		jg N2;
+		mov ebx, [eax];
+		mov ind_max, ecx;
+	N2:
+		add eax, 4;
+		inc ecx;
+		cmp ecx, 10;
+		jl MAX;
 		
-		// c * d
-		mov eax, c;
-		mul d;
-
-		// c*d/e
-		mov edx, 0;
-		idiv e;
-
-		// a + b - c*d/e
-		mov ecx, prom1;
-		sub ecx, eax;
-
-		mov y, ecx;
+		//swap
+		lea eax, arr;
+		mov edi, ind_min;
+		mov esi, ind_max;
+		mov ebx, [eax + edi * 4];
+		mov edx, [eax + esi * 4];
+		mov [eax + edi * 4], edx;
+		mov[eax + esi * 4], ebx;
 	}
 
-	printf("Result: %d", y);
+	for (int i = 0; i < 10; i++)
+	{
+		printf("%d ", arr[i]);
+	}
 
 	return 0;
 }
