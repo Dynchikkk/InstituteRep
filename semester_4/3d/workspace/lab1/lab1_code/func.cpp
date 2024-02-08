@@ -82,49 +82,27 @@ double** GetCoordLink(double matrix[][3], int size)
 #pragma endregion
 
 #pragma region Move
-// Move one dot by multiplication to x, y
-double* MoveDot(double dot[3], double x, double y)
+// Move whole picture by moving all dots to x, y
+double** MovePicture(double** pic, int size, double x, double y)
 {
 	double** multMatrix = CreateEmptyMultMatrix(3, 3);
 	multMatrix[2][0] = x;
 	multMatrix[2][1] = y;
 
-	double** newDot = MatrixMult(GetDotLink(dot), multMatrix, 1, 3, 3);
-
-	return newDot[0];
-}
-
-// Move whole picture by moving all dots to x, y
-double** MovePicture(double** pic, int size, double x, double y)
-{
-	double** resPic = CreateEmptyMatrix(size, 3);
-	for (int i = 0; i < size; i++)
-		resPic[i] = MoveDot(pic[i], x, y);
-
+	double** resPic = MatrixMult(pic, multMatrix, size, 3, 3);
 	return resPic;
 }
 #pragma endregion
 
 #pragma region Scale
-// Scale one dot by multiplication to x, y
-double* ScaleDot(double dot[3], double x, double y)
+// Scale whole picture by scaling all dots to x, y
+double** ScalePicture(double** pic, int size, double x, double y)
 {
 	double** multMatrix = CreateEmptyMultMatrix(3, 3);
 	multMatrix[0][0] = x;
 	multMatrix[1][1] = y;
 
-	double** newDot = MatrixMult(GetDotLink(dot), multMatrix, 1, 3, 3);
-
-	return newDot[0];
-}
-
-// Scale whole picture by scaling all dots to x, y
-double** ScalePicture(double** pic, int size, double x, double y)
-{
-	double** resPic = CreateEmptyMatrix(size, 3);
-	for (int i = 0; i < size; i++)
-		resPic[i] = ScaleDot(pic[i], x, y);
-
+	double** resPic = MatrixMult(pic, multMatrix, size, 3, 3);
 	return resPic;
 }
 #pragma endregion
@@ -137,8 +115,8 @@ enum class Axis
 	YAxis = 1
 };
 
-// Mirror one dot by multiplication depends on choosen axis
-double* MirrorDot(double dot[3], Axis axis)
+// Mirror picture by mirror all dots depends on choosen axis
+double** MirrorPicture(double** pic, int size, Axis axis)
 {
 	double** multMatrix = CreateEmptyMultMatrix(3, 3);
 	switch (axis)
@@ -153,25 +131,14 @@ double* MirrorDot(double dot[3], Axis axis)
 		break;
 	}
 
-	double** newDot = MatrixMult(GetDotLink(dot), multMatrix, 1, 3, 3);
-
-	return newDot[0];
-}
-
-// Mirror picture by mirror all dots depends on choosen axis
-double** MirrorPicture(double** pic, int size, Axis axis)
-{
-	double** resPic = CreateEmptyMatrix(size, 3);
-	for (int i = 0; i < size; i++)
-		resPic[i] = MirrorDot(pic[i], axis);
-
+	double** resPic = MatrixMult(pic, multMatrix, size, 3, 3);
 	return resPic;
 }
 #pragma endregion
 
 #pragma region Rotate
-// Rotate one dot by multiplication depends on angle in degree
-double* RotateDot(double dot[3], double degreeAngle)
+// Rotate picture by rotate all dots depends on angle in degree
+double** RotatePicture(double** pic, int size, double degreeAngle)
 {
 	double radAngle = degreeAngle * M_PI / 180;
 
@@ -181,22 +148,10 @@ double* RotateDot(double dot[3], double degreeAngle)
 	multMatrix[1][0] = -sin(radAngle);
 	multMatrix[1][1] = cos(radAngle);
 
-	double** newDot = MatrixMult(GetDotLink(dot), multMatrix, 1, 3, 3);
-
-	return newDot[0];
-}
-
-// Rotate picture by rotate all dots depends on angle in degree
-double** RotatePicture(double** pic, int size, double degreeAngle)
-{
-	double** resPic = CreateEmptyMatrix(size, 3);
-	for (int i = 0; i < size; i++)
-		resPic[i] = RotateDot(pic[i], degreeAngle);
-
+	double** resPic = MatrixMult(pic, multMatrix, size, 3, 3);
 	return resPic;
 }
 #pragma endregion
-
 
 #pragma region ReturnOrigin
 // Return to default coordinates
