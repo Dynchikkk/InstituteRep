@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Пример программы</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<style type="text/css">
+<!--
+body {
+	background-image: url(Fon.jpg);
+}
+.style1 {
+	color: #009900;
+	font-weight: bold;
+	font-style: italic;
+}
+.style2 {font-style: italic}
+-->
+</style>
+</head>
+<body>
+<h2 align="center" class="style1">Пример программы</h2>
+<blockquote>
+  <p align="justify" class="style2">Program Lab1; <br>
+    
+  { Демонстрация основных приемов работы с графической библиотекой } <br>
+  
+  { Моделирование плоских геометрических объектов в мировых координатах } <br>
+  
+  { и отображение их на экран компьютера }<br>
+  
+  uses Crt, Graph;<br>
+  
+  Const <br>
+  
+  { размеры двухмерной области видимости } <br>
+  
+  { в мировых координатах } <br>
+  
+  Xmax : real = 700.5; <br>
+  
+  Ymax : real = 500.75;<br>
+  
+  var <br>
+  
+  { переменные для инициализации графического режима } <br>
+  
+  Gd, Gm: Integer; <br>
+  
+  { переменные для моделирования графических объектов } <br>
+  
+  { в мировых координатах } <br>
+  
+  PLine : array[1..2, 1..2] of real; { отрезок прямой } <br>
+  
+  PRect : array[1..2, 1..2] of real; { прямоугольник } <br>
+  
+  { коэффициенты преобразования мировых координат в экранные } <br>
+  
+  hx, { координаты X } <br>
+ 
+  hy : real; { координаты Y }<br>
+  
+  { функции преобразования мировых координат в экранные } <br>
+  
+  { преобразование координаты X } <br>
+  
+  function IX(x : real; hx : real) : integer; <br>
+  
+  begin <br>
+  
+  IX := Round(x*hx); <br>
+ 
+  end;<br>
+  
+  { преобразование координаты Y } <br>
+  
+  function IY(y : real; hy : real) : integer; <br>
+  
+  begin <br>
+  
+  IY := GetMaxY - Round(y*hy); <br>
+  
+  end; <br>
+  
+    begin <br>
+  
+  { инициализация графического режима } <br>
+  
+  Gd := Detect; <br>
+  
+  InitGraph(Gd, Gm, ''); <br>
+  
+  { неудачная инициализация } <br>
+  
+  if GraphResult &lt;&gt; grOk then <br>
+  
+  Halt(1); <br>
+  
+  { удачная инициализация } <br>
+ 
+  Randomize; <br>
+  
+  { Вычисление коэффициентов преобразования координат } <br>
+  
+  hx := Xmax/GetMaxX; <br>
+  
+  hy := Ymax/GetMaxY; <br>
+ 
+  repeat <br>
+  
+  Randomize; <br>
+  
+  { случайный выбор объекта } <br>
+  
+  { 0..10 - прямая , 11..20 - прямоугольник } <br>
+  
+  case Random(20) of <br>
+  
+  0..10 : begin <br>
+  
+  { случайный выбор цвета } <br>
+  
+  SetColor(Random(15)); <br>
+  
+  { определение мировых координат концов отрезка прямой } <br>
+ 
+  PLine[1,1] := Random(Round(Xmax)) + 0.5; { X1 } <br>
+ 
+  PLine[1,2] := Random(Round(Ymax)) + 0.5; { Y1 } <br>
+  
+  PLine[2,1] := Random(Round(Xmax)) + 0.5; { X2 } <br>
+  
+  PLine[2,2] := Random(Round(Ymax)) + 0.5; { Y2 } <br>
+  
+  { преобразование к экранным координатам и вывод } <br>
+  
+  Line(IX(PLine[1,1],hx), IY(PLine[1,2],hy), IX(PLine[2,1],hx), IX(PLine[2,2],hy)); <br>
+  
+  end; <br>
+  
+  11..20 : begin <br>
+  
+  { случайный выбор цвета } <br>
+  
+  SetColor(Random(15)); <br>
+  
+  { определение мировых координат вершин прямоугольника } <br>
+  
+  PRect[1,1] := Random(Round(Xmax)) + 0.5; { X1 } <br>
+  
+  PRect[1,2] := Random(Round(Ymax)) + 0.5; { Y1 } <br>
+  
+  PRect[2,1] := Random(Round(Xmax)) + 0.5; { X2 } <br>
+  
+  PRect[2,2] := Random(Round(Ymax)) + 0.5; { Y2 } <br>
+  
+  { преобразование к экранным координатам и вывод } <br>
+  
+  Rectangle(IX(PRect[1,1],hx), IY(PRect[1,2],hy), IX(PRect[2,1],hx), IX(PRect[2,2],hy)); <br>
+  
+  end; <br>
+  
+  end; <br>
+  
+  Delay(2000); <br>
+  
+  until KeyPressed; <br>
+ 
+  Readln; <br>
+ 
+  CloseGraph;<br>
+  
+  end.</p>
+</blockquote>
+
+</body>
+</html>
