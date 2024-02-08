@@ -206,11 +206,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         // Paint
         MoveToEx(hdc, coordLink[0][0] + offset[0], coordLink[0][1] + offset[1], 0);
         for (int i = 0; i < vertNumb; i++)
-        {
-            double a = coordLink[i][0];
             LineTo(hdc, coordLink[i][0] + offset[0], coordLink[i][1] + offset[1]);
-        }
-        //LineTo(hdc, coordLink[0][0] + offset[0], coordLink[0][1] + offset[1]);
 
         EndPaint(hWnd, &ps);
     }

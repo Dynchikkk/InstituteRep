@@ -48,25 +48,6 @@ double** CreateEmptyMultMatrix(int x, int y)
 	return arr;
 }
 
-// Clear matrix
-void ClearMatrix(double** matrix, int row)
-{
-	for (int i = 0; i < row; i++)
-		delete[] matrix[i];
-	delete[] matrix;
-}
-
-// Get link of dot array
-double** GetDotLink(double dot[3])
-{
-	double** dot2d = CreateEmptyMatrix(3, 1);
-	dot2d[0][0] = dot[0];
-	dot2d[0][1] = dot[1];
-	dot2d[0][2] = dot[2];
-
-	return dot2d;
-}
-
 // Get link of coordinates array
 double** GetCoordLink(double matrix[][3], int size)
 {
