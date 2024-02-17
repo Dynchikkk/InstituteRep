@@ -1,0 +1,3058 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./primer_prog.files/filelist.xml">
+<title>Program Lab1;</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Andrey K.</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Andrey K.</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>3</o:TotalTime>
+  <o:Created>2004-07-18T19:02:00Z</o:Created>
+  <o:LastSaved>2004-07-18T19:05:00Z</o:LastSaved>
+  <o:Pages>19</o:Pages>
+  <o:Words>4272</o:Words>
+  <o:Characters>24351</o:Characters>
+  <o:Company>Home</o:Company>
+  <o:Lines>202</o:Lines>
+  <o:Paragraphs>48</o:Paragraphs>
+  <o:CharactersWithSpaces>29904</o:CharactersWithSpaces>
+  <o:Version>9.2812</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=RU style='tab-interval:35.4pt'>
+
+<div class=Section1> 
+  <p class=MsoNormal><a name="6"></a></p>
+  <p class=MsoNormal><a href="#1">Демонстрация основных приемов работы с графической 
+    библиотекой</a></p>
+  <p class=MsoNormal><a href="#2">Демонстрация композиции двухмерных аффинных 
+    преобразований (вращение отрезка)</a></p>
+  <p class=MsoNormal><a href="#3">Демонстрация композиции двухмерных аффинных 
+    преобразований (вращение  прямоугольника)</a></p>
+  <p class=MsoNormal><a href="#4">Демонстрация композиции тpехмерных аффинных 
+    преобразований</a></p>
+  <p class=MsoNormal><a href="#5">Демонстрация алгоритма удаления невидимых линий 
+    </a></p>
+  <p class=MsoNormal>&nbsp;</p>
+  <p class=MsoNormal>&nbsp;</p>
+  <p class=MsoNormal><b><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><a name="1"></a>Program 
+    Lab1;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Демонстрация
+основных приемов работы с графической библиотекой }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Моделирование
+плоских геометрических объектов в мировых координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ и отображение их
+на экран компьютера }<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>uses Crt,
+Graph;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal>Const<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ размеры двухмерной
+области видимости }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ в мировых
+координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Xmax : real = 700.5;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>Ymax : real = 500.75;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal>var<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ переменные для
+инициализации графического режима }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Gd, Gm: Integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ переменные для моделирования
+графических объектов }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ в мировых
+координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>PLine<span style="mso-spacerun: yes">  
+</span>: array[1..2, 1..2] of real; { </span>отрезок<span style='mso-ansi-language:
+EN-US'> </span>прямой<span lang=EN-US style='mso-ansi-language:EN-US'> }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>PRect<span style="mso-spacerun: yes">  
+</span>: array[1..2, 1..2] of real; { </span>прямоугольник<span lang=EN-US
+style='mso-ansi-language:EN-US'><span style="mso-spacerun: yes">  </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ коэффициенты преобразования мировых
+координат в экранные }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>hx,<span
+style="mso-spacerun: yes">           </span>{ координаты X }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>hy : real;<span
+style="mso-spacerun: yes">    </span>{ координаты Y }<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ функции
+преобразования мировых координат в экранные }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ преобразование
+координаты X }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>function IX(x : real; hx : real) : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>IX := Round(x*hx);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span></span>end;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ преобразование
+координаты Y }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>function IY(y : real; hy : real) : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>IY := GetMaxY - Round(y*hy);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span></span>end;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>begin<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span>{ инициализация
+графического режима }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Gd := Detect;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>InitGraph(Gd, Gm, '');<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>{ </span>неудачная<span style='mso-ansi-language:
+EN-US'> </span>инициализация<span lang=EN-US style='mso-ansi-language:EN-US'> }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>if GraphResult &lt;&gt; grOk then<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Halt(1);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span></span>{ удачная инициализация }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span>Randomize;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span>{ Вычисление
+коэффициентов преобразования координат }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>hx := Xmax/GetMaxX;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>hy := Ymax/GetMaxY;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span></span>repeat<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>Randomize;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ случайный выбор
+объекта }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>{ 0..10 - </span>прямая<span lang=EN-US
+style='mso-ansi-language:EN-US'>, 11..20 - </span>прямоугольник<span
+lang=EN-US style='mso-ansi-language:EN-US'> }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>case Random(20) of<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>0..10 : begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">         </span></span>{ случайный выбор цвета }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        
+</span>SetColor(Random(15));<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         </span>{
+определение мировых координат концов отрезка прямой }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>PLine[1,1] := Random(Round(Xmax)) +
+0.5; { X1 }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">         </span>PLine[1,2] := Random(Round(Ymax)) +
+0.5; { Y1 }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">         </span>PLine[2,1] := Random(Round(Xmax)) +
+0.5; { X2 }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">         </span>PLine[2,2] := Random(Round(Ymax)) +
+0.5; { Y2 }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">         </span></span>{ преобразование к экранным
+координатам и вывод }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>Line(IX(PLine[1,1],hx),
+IY(PLine[1,2],hy), IX(PLine[2,1],hx), IX(PLine[2,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">        </span></span>end;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>11..20 : begin<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         </span>{ случайный
+выбор цвета }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        
+</span>SetColor(Random(15));<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         </span>{
+определение мировых координат вершин прямоугольника }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>PRect[1,1] := Random(Round(Xmax)) +
+0.5; { X1 }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">         </span>PRect[1,2] := Random(Round(Ymax)) +
+0.5; { Y1 }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">         </span>PRect[2,1] := Random(Round(Xmax)) +
+0.5; { X2 }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">         </span>PRect[2,2] := Random(Round(Ymax)) +
+0.5; { Y2 }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">         </span></span>{ преобразование к экранным
+координатам и вывод }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>Rectangle(IX(PRect[1,1],hx),
+IY(PRect[1,2],hy), IX(PRect[2,1],hx), IX(PRect[2,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">        </span>end;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>end;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>Delay(2000);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>until KeyPressed;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>Readln;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span></span>CloseGraph;<o:p></o:p></p>
+
+<p class=MsoNormal>end.<span lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'> 
+    <![if !supportEmptyParas]>
+    &nbsp; 
+    <![endif]>
+    <o:p><a href="#6">В начало...</a></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+  <p class=MsoNormal><b><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'><a name="2"></a>Program Rotate_Line;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ Демонстрация композиции двухмерных
+аффинных преобразований }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ на примере
+перемещения и вращения отрезка прямой }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Моделирование
+объекта и аффинные преобразования }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ задаются в
+матричном виде в однородных координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Uses Crt,
+Graph;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Const</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ размер матрицы
+фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>l</span> = 2; { количество точек<span
+style="mso-spacerun: yes">     </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>n</span> = 3; { количество координат }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>alpha</span> = 10/180; { угол поворота в
+радианах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ перемещение по
+координате <span lang=EN-US style='mso-ansi-language:EN-US'>X</span> и <span
+lang=EN-US style='mso-ansi-language:EN-US'>Y</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Dx</span> = 2.87;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Dy</span> = 0.5;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Type</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ тип матрицы фигуры
+в однородных мировых координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>TKoord_World = array[1..l, 1..n] of real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ тип матрицы аффинного преобразования
+в однородных координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>TMatrix = array[1..n, 1..n] of real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Const</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ мировые однородные
+координаты фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>K_W : TKoord_World = ((<span
+style="mso-spacerun: yes">  </span>45.5, 300.33, 1),<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                       </span></span>(105.75,<span
+style="mso-spacerun: yes">    </span>200, 1));<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ определение
+матрицы перемещения }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Trans : TMatrix = ((1,<span
+style="mso-spacerun: yes">  </span>0,<span style="mso-spacerun: yes"> 
+</span>0),<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                      </span></span>(0,<span
+style="mso-spacerun: yes">  </span>1,<span style="mso-spacerun: yes"> 
+</span>0),<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                     
+</span>(<span lang=EN-US style='mso-ansi-language:EN-US'>Dx</span>, <span
+lang=EN-US style='mso-ansi-language:EN-US'>Dy</span>, 1)<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                    
+</span>);<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ размеры двухмерной
+области видимости }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ в мировых
+координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Xw_max = 700.55;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>Yw_max = 500.7;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Var<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ матрица поворота в
+однородных координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Rotate : TMatrix;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ координаты центра поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>x0, y0 : real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ размеры области вывода на экране }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Xs_max, Ys_max : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ коэффициенты преобразования мировых
+координат в экранные }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>hx, hy : real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ переменные для инициализации
+графического режима }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>grDriver, grMode : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>ErrCode</span> : <span lang=EN-US
+style='mso-ansi-language:EN-US'>byte</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Процедура
+умножения матриц }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>procedure</span><span lang=EN-US> </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>MultMatrix</span>(<span lang=EN-US
+style='mso-ansi-language:EN-US'>f</span>:<span lang=EN-US style='mso-ansi-language:
+EN-US'>TKoord</span>_<span lang=EN-US style='mso-ansi-language:EN-US'>World</span>;<span
+style="mso-spacerun: yes">     </span>{ исходная матрица фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                     
+</span><span lang=EN-US style='mso-ansi-language:EN-US'>m</span>:<span
+lang=EN-US style='mso-ansi-language:EN-US'>TMatrix</span>;<span
+style="mso-spacerun: yes">          </span>{ матрица аффинного преобразования }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                     
+</span><span lang=EN-US style='mso-ansi-language:EN-US'>Var</span><span
+lang=EN-US> </span><span lang=EN-US style='mso-ansi-language:EN-US'>r</span>:<span
+lang=EN-US style='mso-ansi-language:EN-US'>TKoord</span>_<span lang=EN-US
+style='mso-ansi-language:EN-US'>World</span>);{ результирующая матрица фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>var<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>i,j,k : byte;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>t : TKoord_World;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>for i := 1 to l do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>for j := 1 to n do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">      </span>t[i,j] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">      </span>for k := 1 to n do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">       </span>t[i,j] := t[i,j] + f[i,k]*m[k,j];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>end;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>r := t;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ функции
+преобразования мировых координат в экранные }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ преобразование
+координаты <span lang=EN-US style='mso-ansi-language:EN-US'>X</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>function IX(x : real; hx : real) : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>IX := Round(x*hx);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ преобразование
+координаты <span lang=EN-US style='mso-ansi-language:EN-US'>Y</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>function IY(y : real; hy : real) : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>IY := GetMaxY - Round(y*hy);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Begin</span><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Инициализация
+графического режима }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>grDriver := Detect;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>InitGraph(grDriver, grMode, '');<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>ErrCode := GraphResult;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>if ErrCode<span style="mso-spacerun: yes"> 
+</span>= grOk then<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Вычисление
+коэффициентов преобразования координат }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Xs_max := GetmaxX;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>Ys_max := GetmaxY;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>hx := Xs_max/Xw_max;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>hy := Ys_max/Yw_max;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span></span>{ Определение матрицы поворота<span
+style="mso-spacerun: yes">      </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Определяются все
+элементы матрицы }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Кроме элементов
+последней строки<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Элементы
+последеней строки формируются с учетом }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ координат центра
+поворота<span style="mso-spacerun: yes">          </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Rotate[1,1] := Cos(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[1,2] := Sin(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[1,3] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,1] := -Sin(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,2] := Cos(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,3] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[3,3] := 1;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span></span>{ Задание пользовательского типа
+линии }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>setlinestyle(UserBitLn, 153, 3);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>{ Вывод текста }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>settextstyle(gothicFont, Horizdir, 3);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>setcolor(Yellow);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>OutTextXY(25, getmaxy - 40, ' Example 2-D
+Rotate&amp;Transform');<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>repeat</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Отображение
+линии }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>SetColor(Red);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[1,1],hx),IY(K_W[1,2],hy),IX(K_W[2,1],hx),IY(K_W[2,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Delay</span>(1500);<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Стирание линии
+}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Отрисовка линии
+цветом фона }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>SetColor(GetBkColor);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[1,1],hx),IY(K_W[1,2],hy),IX(K_W[2,1],hx),IY(K_W[2,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span><span style="mso-spacerun: yes">  </span></span>{
+Применение операции перемещения фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ реализуется
+умножением матрицы фигуры<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ на матрицу
+перемещения }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>MultMatrix(K_W, M_Trans, K_W);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Вычисление координат центра
+поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ в качестве
+центра выбирается середина отрезка}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>x0 := K_W[1,1]+(K_W[2,1]-K_W[1,1])/2; { X }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>y0 := K_W[1,2]+(K_W[2,2]-K_W[1,2])/2; { Y
+}<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Определение элементов последеней
+строки }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ матрицы
+поворота, исходя из координат центра поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Rotate[3,1] := -x0*Cos(alpha)+y0*Sin(alpha)+x0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>M_Rotate[3,2] :=
+-x0*Sin(alpha)-y0*Cos(alpha)+y0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Применение операции поворота
+фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ реализуется
+умножением матрицы фигуры<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ на матрицу
+поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>MultMatrix(K_W, M_Rotate, K_W);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Рисование следов от концов
+отрезка }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>PutPixel(IX(K_W[1,1],hx), IY(K_W[1,2],hy),
+Green);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>PutPixel(IX(K_W[2,1],hx), IY(K_W[2,2],hy),
+Blue);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Delay(1500);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>until KeyPressed;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>CloseGraph;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>else Writeln('Graphics error:', GraphErrorMsg(ErrCode));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>End.<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>
+    <![if !supportEmptyParas]>
+    &nbsp;
+    <![endif]>
+    <o:p><a href="#6">В начало...</a></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+  <p class=MsoNormal><b><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'><a name="3"></a>Program Rotate_Rect;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ Демонстрация композиции двухмерных
+аффинных преобразований }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ на примере
+перемещения и вращения прямоугольника }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Моделирование
+объекта и аффинные преобразования }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ задаются в
+матричном виде в однородных координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Uses Crt,
+Graph;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Const</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ размер матрицы
+фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>l</span> = 4; { количество точек<span
+style="mso-spacerun: yes">     </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>n</span> = 3; { количество координат }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>alpha</span> = 10/180; { угол поворота в
+радианах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ перемещение по
+координате <span lang=EN-US style='mso-ansi-language:EN-US'>X</span> и <span
+lang=EN-US style='mso-ansi-language:EN-US'>Y</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Dx</span> = 2.87;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Dy</span> = 0.5;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Шаблон
+&quot;кисти&quot; для закрашивания прямоугольника }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Pattern</span> : <span lang=EN-US
+style='mso-ansi-language:EN-US'>FillPatternType</span> = (134,<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun:
+yes">                              </span>134,<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun:
+yes">                              </span>134,<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun:
+yes">                              </span>134,<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun:
+yes">                              </span>134,<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun:
+yes">                              </span>134,<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun:
+yes">                              </span>134,<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun:
+yes">                              </span>134 );<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Type</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ тип матрицы фигуры
+в однородных мировых координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>TKoord_World = array[1..l, 1..n] of real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ тип матрицы аффинного преобразования
+в однородных координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>TMatrix = array[1..n, 1..n] of real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Const</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ мировые однородные
+координаты фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>K_W : TKoord_World = ((175, 175, 1),<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                       </span></span>(250, 175, 1),<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                      
+</span>(250, 100, 1),<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                      
+</span>(175, 100, 1)<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                     
+</span>);<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ определение
+матрицы перемещения }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Trans : TMatrix = ((1,<span
+style="mso-spacerun: yes">  </span>0,<span style="mso-spacerun: yes"> 
+</span>0),<span style="mso-spacerun: yes">    </span>{ Matrix Transform }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                      </span></span>(0,<span
+style="mso-spacerun: yes">  </span>1,<span style="mso-spacerun: yes"> 
+</span>0),<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                     
+</span>(<span lang=EN-US style='mso-ansi-language:EN-US'>Dx</span>, <span
+lang=EN-US style='mso-ansi-language:EN-US'>Dy</span>, 1)<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                    
+</span>);<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ размеры двухмерной
+области видимости }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ в мировых
+координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Xw_max = 700.55;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>Yw_max = 500.7;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Var</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ матрица поворота в
+однородных координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Rotate : TMatrix;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ координаты центра поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>x0, y0 : real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ коэффициенты преобразования мировых
+координат в экранные }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>hx, hy : real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ переменные для инициализации
+графического режима }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>grDriver, grMode : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>ErrCode</span> : <span lang=EN-US
+style='mso-ansi-language:EN-US'>byte</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Процедура
+умножения матриц }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>procedure</span><span lang=EN-US> </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>MultMatrix</span>(<span lang=EN-US
+style='mso-ansi-language:EN-US'>f</span>:<span lang=EN-US style='mso-ansi-language:
+EN-US'>TKoord</span>_<span lang=EN-US style='mso-ansi-language:EN-US'>World</span>;<span
+style="mso-spacerun: yes">     </span>{ исходная матрица фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                     
+</span><span lang=EN-US style='mso-ansi-language:EN-US'>m</span>:<span
+lang=EN-US style='mso-ansi-language:EN-US'>TMatrix</span>;<span
+style="mso-spacerun: yes">          </span>{ матрица аффинного преобразования }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                     
+</span><span lang=EN-US style='mso-ansi-language:EN-US'>Var</span><span
+lang=EN-US> </span><span lang=EN-US style='mso-ansi-language:EN-US'>r</span>:<span
+lang=EN-US style='mso-ansi-language:EN-US'>TKoord</span>_<span lang=EN-US
+style='mso-ansi-language:EN-US'>World</span>);{ результирующая матрица фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>var<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>i,j,k : byte;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>t : TKoord_World;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>for i := 1 to l do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>for j := 1 to n do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">      </span>t[i,j] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">      </span>for k := 1 to n do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">       </span>t[i,j] := t[i,j] + f[i,k]*m[k,j];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>end;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>r := t;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ функции
+преобразования мировых координат в экранные }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ преобразование
+координаты <span lang=EN-US style='mso-ansi-language:EN-US'>X</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>function IX(x : real; hx : real) : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>IX := Round(x*hx);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ преобразование
+координаты <span lang=EN-US style='mso-ansi-language:EN-US'>Y</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>function IY(y : real; hy : real) : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>IY := GetMaxY - Round(y*hy);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Begin</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Инициализация
+графического режима }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>grDriver := Detect;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>InitGraph(grDriver, grMode, '');<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>ErrCode := GraphResult;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>if ErrCode<span style="mso-spacerun: yes"> 
+</span>= grOk then<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Вычисление
+коэффициентов преобразования координат }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>hx := GetmaxX/Xw_max;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>hy := GetmaxY/Yw_max;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span></span>{ Определение матрицы поворота<span
+style="mso-spacerun: yes">      </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Определяются все
+элементы матрицы }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Кроме элементов
+последней строки<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Элементы
+последеней строки формируются с учетом }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ координат центра
+поворота<span style="mso-spacerun: yes">          </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Rotate[1,1] := Cos(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[1,2] := Sin(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[1,3] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,1] := -Sin(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,2] := Cos(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,3] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[3,3] := 1;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span></span>{ Вычисление координат центра
+поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ в качестве
+центра выбирается середина отрезка}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>x0 := K_W[1,1]+(K_W[2,1]-K_W[1,1])/2; { X }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>y0 := K_W[1,2]+(K_W[3,2]-K_W[1,2])/2; { Y }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>{ Вывод текста }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>settextstyle(gothicFont, Horizdir, 3);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>setcolor(Yellow);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>OutTextXY(25, getmaxy - 40, ' Example 2-D
+Rotate&amp;Transform');<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>repeat</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Отображение
+прямоугольника }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>SetColor(Red);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[1,1],hx),IY(K_W[1,2],hy),IX(K_W[2,1],hx),IY(K_W[2,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[2,1],hx),IY(K_W[2,2],hy),IX(K_W[3,1],hx),IY(K_W[3,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[3,1],hx),IY(K_W[3,2],hy),IX(K_W[4,1],hx),IY(K_W[4,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[4,1],hx),IY(K_W[4,2],hy),IX(K_W[1,1],hx),IY(K_W[1,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Закраска прямоугольника }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Задание
+пользовательского типа кисти }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>SetFillPattern(Pattern, Magenta);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>FloodFill(IX(x0,hx), IY(y0,hy), Red);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Delay</span>(1500);<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Стирание
+прямоугольника }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Закраска
+прямоугольника цветом фона<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Задание
+пользовательского типа кисти }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>SetFillPattern(Pattern, GetBkColor);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>FloodFill(IX(x0,hx), IY(y0,hy), Red);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Отрисовка прямоугольника цветом
+фона }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>SetColor(GetBkColor);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[1,1],hx),IY(K_W[1,2],hy),IX(K_W[2,1],hx),IY(K_W[2,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[2,1],hx),IY(K_W[2,2],hy),IX(K_W[3,1],hx),IY(K_W[3,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Line(IX(K_W[3,1],hx),IY(K_W[3,2],hy),IX(K_W[4,1],hx),IY(K_W[4,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[4,1],hx),IY(K_W[4,2],hy),IX(K_W[1,1],hx),IY(K_W[1,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Применение операции перемещения
+фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ реализуется
+умножением матрицы фигуры<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ на матрицу
+перемещения }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>MultMatrix(K_W, M_Trans, K_W);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Перемещение центра поворота -
+центра прямоугольника }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>x</span>0 := <span lang=EN-US style='mso-ansi-language:
+EN-US'>x</span>0 + <span lang=EN-US style='mso-ansi-language:EN-US'>Dx</span>;
+{ <span lang=EN-US style='mso-ansi-language:EN-US'>X</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>y0 := y0 + Dy; { Y }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Определение элементов последеней
+строки }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ матрицы
+поворота, исходя из координат центра поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Rotate[3,1] :=
+-x0*Cos(alpha)+y0*Sin(alpha)+x0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>M_Rotate[3,2] :=
+-x0*Sin(alpha)-y0*Cos(alpha)+y0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Применение операции поворота
+фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ реализуется
+умножением матрицы фигуры<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ на матрицу
+поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>MultMatrix(K_W, M_Rotate, K_W);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>until KeyPressed;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>CloseGraph;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>else Writeln('Graphics error:',
+GraphErrorMsg(ErrCode));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>End.<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>
+    <![if !supportEmptyParas]>
+    &nbsp;
+    <![endif]>
+    <o:p><a href="#6">В начало...</a></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+  <p class=MsoNormal><b><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'><a name="4"></a>Program Rotate_Piramide;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ Демонстрация композиции т<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>ехмерных аффинных
+преобразований }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ на примере
+перемещения и вращения пи<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>амиды
+}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Моделирование
+объекта и аффинные преобразования }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ задаются в
+матричном виде в однородных координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ П<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>оекция - о<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>тог<span lang=EN-US style='mso-ansi-language:
+EN-US'>p</span>афическая: наблюдатель находится }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ в бесконечности на
+положительном нап<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>авлении
+оси <span lang=EN-US style='mso-ansi-language:EN-US'>z</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Uses Crt,
+Graph;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Const</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ размер матрицы
+фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>l</span> = 5; { количество точек<span
+style="mso-spacerun: yes">     </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>n</span> = 4; { количество координат }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>alpha</span> = 10/180; { угол поворота в
+радианах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ перемещение по
+координате <span lang=EN-US style='mso-ansi-language:EN-US'>X</span>, <span
+lang=EN-US style='mso-ansi-language:EN-US'>Y</span> и <span lang=EN-US
+style='mso-ansi-language:EN-US'>Z</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Dx = 2.87;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>Dy = 0.5;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>Dz = 0.5;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Type</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ тип матрицы
+объекта в однородных мировых координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>TKoord_World = array[1..l, 1..n] of real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ тип матрицы аффинного преобразования
+в однородных координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>TMatrix = array[1..n, 1..n] of real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Const</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ мировые однородные
+координаты объекта }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>K_W : TKoord_World = ((100, 100, 0, <span
+style="mso-spacerun: yes">  </span>1),<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                       </span></span>(200, 100,
+0,<span style="mso-spacerun: yes">   </span>1),<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                      
+</span>(200,<span style="mso-spacerun: yes">  </span>50, 100, 1),<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                      
+</span>(100,<span style="mso-spacerun: yes">  </span>50, 100, 1),<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                      
+</span>(150, 200,<span style="mso-spacerun: yes">  </span>50, 1)<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                     
+</span>);<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ определение
+матрицы перемещения }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Trans : TMatrix = ((1,<span
+style="mso-spacerun: yes">  </span>0,<span style="mso-spacerun: yes"> 
+</span>0,<span style="mso-spacerun: yes">  </span>0),<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                      </span>(0,<span
+style="mso-spacerun: yes">  </span>1,<span style="mso-spacerun: yes"> 
+</span>0,<span style="mso-spacerun: yes">  </span>0),<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                      </span>(0,<span
+style="mso-spacerun: yes">  </span>0,<span style="mso-spacerun: yes"> 
+</span>1,<span style="mso-spacerun: yes">  </span>0),<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                      </span>(Dx, Dy, Dz, 1)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                     </span>);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ размеры двухмерной
+области видимости }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ в мировых
+координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Xw_max = 700.55;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>Yw_max = 500.7;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Var</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ матрица поворота в
+однородных координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Rotate : TMatrix;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ координаты центра поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>x0, y0, z0 : real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ коэффициенты преобразования мировых
+координат в экранные }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>hx, hy : real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ переменные для инициализации графического
+режима }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>grDriver, grMode : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>ErrCode</span> : <span lang=EN-US
+style='mso-ansi-language:EN-US'>byte</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Процедура
+умножения матриц }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>procedure</span><span lang=EN-US> </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>MultMatrix</span>(<span lang=EN-US
+style='mso-ansi-language:EN-US'>f</span>:<span lang=EN-US style='mso-ansi-language:
+EN-US'>TKoord</span>_<span lang=EN-US style='mso-ansi-language:EN-US'>World</span>;<span
+style="mso-spacerun: yes">     </span>{ исходная матрица объекта }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                     
+</span><span lang=EN-US style='mso-ansi-language:EN-US'>m</span>:<span
+lang=EN-US style='mso-ansi-language:EN-US'>TMatrix</span>;<span
+style="mso-spacerun: yes">          </span>{ матрица аффинного преобразования }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span><span
+style="mso-spacerun: yes">              </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Var</span><span lang=EN-US> </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>r</span>:<span lang=EN-US
+style='mso-ansi-language:EN-US'>TKoord</span>_<span lang=EN-US
+style='mso-ansi-language:EN-US'>World</span>);{ результирующая матрица объекта
+}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>var<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>i,j,k : byte;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>t : TKoord_World;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>for i := 1 to l do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>for j := 1 to n do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">      </span>t[i,j] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">      </span>for k := 1 to n do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">       </span>t[i,j] := t[i,j] + f[i,k]*m[k,j];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>end;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>r := t;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ функции
+преобразования мировых координат в экранные }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ преобразование
+координаты <span lang=EN-US style='mso-ansi-language:EN-US'>X</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>function IX(x : real; hx : real) : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>IX := Round(x*hx);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ преобразование
+координаты <span lang=EN-US style='mso-ansi-language:EN-US'>Y</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>function IY(y : real; hy : real) : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>IY := GetMaxY - Round(y*hy);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Begin</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Инициализация
+графического режима }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>grDriver := Detect;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>InitGraph(grDriver, grMode, '');<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>ErrCode := GraphResult;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>if ErrCode<span style="mso-spacerun: yes"> 
+</span>= grOk then<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Вычисление
+коэффициентов преобразования координат }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>hx := GetmaxX/Xw_max;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>hy := GetmaxY/Yw_max;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span></span>{ Определение матрицы поворота<span
+style="mso-spacerun: yes">      </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Определяются все
+элементы матрицы }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Кроме элементов
+последней строки<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Элементы
+последеней строки формируются с учетом }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ координат п<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>ямой, вок<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>уг кото<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>ой осуществляется поворот }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Rotate[1,1] := Cos(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[1,2] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[1,3] := -Sin(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[1,4] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,1] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,2] := 1;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,3] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,4] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[3,1] := Sin(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[3,2] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[3,3] := Cos(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[3,4] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[4,2] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M</span>_<span lang=EN-US style='mso-ansi-language:
+EN-US'>Rotate</span>[4,4] := 1;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Вычисление
+координат точки, че<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>ез
+кото<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>ую п<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>оходит п<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>ямая, }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ вок<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>уг кото<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>ой осуществляется пово<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>от }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ в качестве такой
+точки выбирается одна из ве<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>шин
+пи<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>амиды }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>x0 := K_W[5,1]; { X }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>y0 := K_W[5,2]; { Y }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>z0 := K_W[5,3]; { Z }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span></span>{ Задание типа линии }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>setlinestyle(SolidLn, 0, 3);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>{ Вывод текста }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>settextstyle(gothicFont, Horizdir, 3);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>setcolor(Yellow);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>OutTextXY(25, getmaxy - 40, ' Example 3-D
+Rotate&amp;Transform');<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>repeat</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Отображение пи<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>амиды }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>SetColor(Red);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Line(IX(K_W[1,1],hx),IY(K_W[1,2],hy),IX(K_W[2,1],hx),IY(K_W[2,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[2,1],hx),IY(K_W[2,2],hy),IX(K_W[3,1],hx),IY(K_W[3,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[3,1],hx),IY(K_W[3,2],hy),IX(K_W[4,1],hx),IY(K_W[4,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[4,1],hx),IY(K_W[4,2],hy),IX(K_W[1,1],hx),IY(K_W[1,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[1,1],hx),IY(K_W[1,2],hy),IX(K_W[5,1],hx),IY(K_W[5,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[2,1],hx),IY(K_W[2,2],hy),IX(K_W[5,1],hx),IY(K_W[5,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[3,1],hx),IY(K_W[3,2],hy),IX(K_W[5,1],hx),IY(K_W[5,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span><span style="mso-spacerun:
+yes"> </span>Line(IX(K_W[4,1],hx),IY(K_W[4,2],hy),IX(K_W[5,1],hx),IY(K_W[5,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Delay</span>(1500);<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Стирание пи<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>амиды }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ От<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>исовка <span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>ебе<span lang=EN-US style='mso-ansi-language:
+EN-US'>p</span> пи<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>амиды
+цветом фона<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>SetColor(GetBkColor);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[1,1],hx),IY(K_W[1,2],hy),IX(K_W[2,1],hx),IY(K_W[2,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[2,1],hx),IY(K_W[2,2],hy),IX(K_W[3,1],hx),IY(K_W[3,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[3,1],hx),IY(K_W[3,2],hy),IX(K_W[4,1],hx),IY(K_W[4,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[4,1],hx),IY(K_W[4,2],hy),IX(K_W[1,1],hx),IY(K_W[1,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[1,1],hx),IY(K_W[1,2],hy),IX(K_W[5,1],hx),IY(K_W[5,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[2,1],hx),IY(K_W[2,2],hy),IX(K_W[5,1],hx),IY(K_W[5,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(IX(K_W[3,1],hx),IY(K_W[3,2],hy),IX(K_W[5,1],hx),IY(K_W[5,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Line(IX(K_W[4,1],hx),IY(K_W[4,2],hy),IX(K_W[5,1],hx),IY(K_W[5,2],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Применение операции перемещения
+фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ реализуется
+умножением матрицы фигуры<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ на матрицу
+перемещения }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>MultMatrix(K_W, M_Trans, K_W);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Вычисление координат точки, че<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>ез кото<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>ую п<span lang=EN-US style='mso-ansi-language:
+EN-US'>p</span>оходит п<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>ямая,
+}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ вок<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>уг кото<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>ой осуществляется пово<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>от }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ в качестве
+такой точки выбирается одна из ве<span lang=EN-US style='mso-ansi-language:
+EN-US'>p</span>шин пи<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>амиды
+}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>x0 := K_W[5,1]; { X }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>y0 := K_W[5,2]; { Y }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>z0 := K_W[5,3]; { Z }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Определение элементов последеней
+строки }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ матрицы
+поворота, исходя из координат точки,<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ че<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>ез кото<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>ую п<span lang=EN-US style='mso-ansi-language:
+EN-US'>p</span>оходит ось поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Rotate[4,1] :=
+x0-x0*Cos(alpha)-z0*Sin(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>M_Rotate[4,3] :=
+z0+x0*Sin(alpha)-z0*Cos(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Применение операции поворота
+фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ реализуется
+умножением матрицы фигуры<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ на матрицу
+поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>MultMatrix(K_W, M_Rotate, K_W);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>until KeyPressed;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>CloseGraph;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>else Writeln('Graphics error:',
+GraphErrorMsg(ErrCode));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>End.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>
+    <![if !supportEmptyParas]>
+    &nbsp;
+    <![endif]>
+    <o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>{ Init Graph Regime }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>grDriver := Detect;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>InitGraph(grDriver, grMode,
+'c:\tpascal.71\bgi');<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>ErrCode := GraphResult;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>if ErrCode<span style="mso-spacerun: yes"> 
+</span>= grOk then<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>{ Max koord World }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>Xw_max := 700;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>Yw_max := 500;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>{ Max koord Screen }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>Xs_max := GetmaxX;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>Ys_max := GetmaxY;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>{ Koeff Change Koord World--&gt;Screen }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>hx := Xs_max/Xw_max;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>hy := Ys_max/Yw_max;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>repeat<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>{ Change Koord World--&gt;Screen }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Koord_Screen[1,1] :=
+Round(Koord_World[1,1]*hx);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Koord_Screen[1,2] := Ys_max - Round(Koord_World[1,2]*hy);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Koord_Screen[2,1] :=
+Round(Koord_World[2,1]*hx);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Koord_Screen[2,2] := Ys_max -
+Round(Koord_World[2,2]*hy);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Koord_Screen[3,1] :=
+Round(Koord_World[3,1]*hx);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Koord_Screen[3,2] := Ys_max -
+Round(Koord_World[3,2]*hy);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Koord_Screen[4,1] :=
+Round(Koord_World[4,1]*hx);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Koord_Screen[4,2] := Ys_max -
+Round(Koord_World[4,2]*hy);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Koord_Screen[5,1] :=
+Round(Koord_World[5,1]*hx);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Koord_Screen[5,2] := Ys_max -
+Round(Koord_World[5,2]*hy);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>{ Show Line }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>SetColor(Red);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[1,1],Koord_Screen[1,2],Koord_Screen[2,1],Koord_Screen[2,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[2,1],Koord_Screen[2,2],Koord_Screen[3,1],Koord_Screen[3,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[3,1],Koord_Screen[3,2],Koord_Screen[4,1],Koord_Screen[4,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Line(Koord_Screen[4,1],Koord_Screen[4,2],Koord_Screen[1,1],Koord_Screen[1,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[1,1],Koord_Screen[1,2],Koord_Screen[5,1],Koord_Screen[5,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[2,1],Koord_Screen[2,2],Koord_Screen[5,1],Koord_Screen[5,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Line(Koord_Screen[3,1],Koord_Screen[3,2],Koord_Screen[5,1],Koord_Screen[5,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[4,1],Koord_Screen[4,2],Koord_Screen[5,1],Koord_Screen[5,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Delay(2500);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>{ Rotate }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>Rotate(Koord_World, Matrix, Koord_World);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>SetColor(GetBkColor);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[1,1],Koord_Screen[1,2],Koord_Screen[2,1],Koord_Screen[2,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[2,1],Koord_Screen[2,2],Koord_Screen[3,1],Koord_Screen[3,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[3,1],Koord_Screen[3,2],Koord_Screen[4,1],Koord_Screen[4,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[4,1],Koord_Screen[4,2],Koord_Screen[1,1],Koord_Screen[1,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[1,1],Koord_Screen[1,2],Koord_Screen[5,1],Koord_Screen[5,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[2,1],Koord_Screen[2,2],Koord_Screen[5,1],Koord_Screen[5,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[3,1],Koord_Screen[3,2],Koord_Screen[5,1],Koord_Screen[5,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   
+</span>Line(Koord_Screen[4,1],Koord_Screen[4,2],Koord_Screen[5,1],Koord_Screen[5,2]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>until KeyPressed;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>CloseGraph;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>else Writeln('Graphics error:', GraphErrorMsg(ErrCode));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>End.<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>
+    <![if !supportEmptyParas]>
+    &nbsp;
+    <![endif]>
+    <o:p><a href="#6">В начало...</a></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+  <p class=MsoNormal><b><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'><a name="5"></a>Program Delete_No_Visual_Line;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ Демонстрация алгоритма удаления
+невидимых линий }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ методом
+определения нормали на примере пи<span lang=EN-US style='mso-ansi-language:
+EN-US'>p</span>амиды }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Моделирование
+объекта и аффинные преобразования }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ задаются в
+матричном виде в однородных координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ П<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>оекция - о<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>тог<span lang=EN-US style='mso-ansi-language:
+EN-US'>p</span>афическая: наблюдатель находится }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ в бесконечности на
+положительном нап<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>авлении
+оси <span lang=EN-US style='mso-ansi-language:EN-US'>z</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Uses Crt,
+Graph;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Const</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ константы для
+удобного обращения к соответствующим координатам }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ вершин пирамиды в
+матрицы объекта }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>x = 1;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>y = 2;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>z = 3;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ размер матрицы фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>l</span> = 4; { количество точек<span
+style="mso-spacerun: yes">     </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>n</span> = 4; { количество координат }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>alpha</span> = 10/180; { угол поворота в
+радианах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ перемещение по
+координате <span lang=EN-US style='mso-ansi-language:EN-US'>X</span>, <span
+lang=EN-US style='mso-ansi-language:EN-US'>Y</span> и <span lang=EN-US
+style='mso-ansi-language:EN-US'>Z</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Dx = 0.87;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>Dy = 0.5;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>Dz = 0.5;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Type</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ тип матрицы
+объекта в однородных мировых координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>TKoord_World = array[1..l, 1..n] of real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ тип матрицы аффинного преобразования
+в однородных координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>TMatrix = array[1..n, 1..n] of real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ тип матрицы граней объекта }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>TPoligon = array[1..l, 1..3] of integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Const</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ мировые однородные
+координаты объекта }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>K_W : TKoord_World = ((220, 100,<span
+style="mso-spacerun: yes">   </span>0, 1),<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                       </span></span>(400, 100,<span
+style="mso-spacerun: yes">   </span>0, 1),<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span
+style="mso-spacerun: yes">                      </span>(450,<span
+style="mso-spacerun: yes">  </span>50, 150, 1),<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                      
+</span>(350, 300,<span style="mso-spacerun: yes">  </span>50, 1));<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ определение
+матрицы перемещения }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Trans : TMatrix = ((1,<span
+style="mso-spacerun: yes">  </span>0,<span style="mso-spacerun: yes"> 
+</span>0,<span style="mso-spacerun: yes">  </span>0),<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                      </span>(0,<span
+style="mso-spacerun: yes">  </span>1,<span style="mso-spacerun: yes"> 
+</span>0,<span style="mso-spacerun: yes">  </span>0),<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                      </span>(0,<span
+style="mso-spacerun: yes">  </span>0,<span style="mso-spacerun: yes"> 
+</span>1,<span style="mso-spacerun: yes">  </span>0),<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                      </span>(Dx, Dy, Dz, 1)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                     </span></span>);<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ матрица граней,
+задающая номера вершин }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ из матрицы мировых
+однородных координат объекта, }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ образующих
+соответствующие граней }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Poligon</span> : <span lang=EN-US
+style='mso-ansi-language:EN-US'>TPoligon</span> = ((1, 2, 3),<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                      
+</span>(1, 2, 4),<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                      
+</span>(1, 3, 4),<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                      
+</span>(2, 3, 4)<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                      
+</span>);<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ размеры двухмерной
+области видимости }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ в мировых
+координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Xw_max = 700.55;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>Yw_max = 500.7;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Var<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ матрица поворота в
+однородных координатах }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Rotate : TMatrix;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ координаты центра поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>x0, y0, z0 : real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ коэффициенты преобразования мировых
+координат в экранные }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>hx, hy : real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ переменные для инициализации
+графического режима }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>grDriver, grMode : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>ErrCode</span> : <span lang=EN-US
+style='mso-ansi-language:EN-US'>byte</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Процедура
+умножения матриц }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>procedure</span><span lang=EN-US> </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>MultMatrix</span>(<span lang=EN-US
+style='mso-ansi-language:EN-US'>f</span>:<span lang=EN-US style='mso-ansi-language:
+EN-US'>TKoord</span>_<span lang=EN-US style='mso-ansi-language:EN-US'>World</span>;<span
+style="mso-spacerun: yes">     </span>{ исходная матрица объекта }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                     
+</span><span lang=EN-US style='mso-ansi-language:EN-US'>m</span>:<span
+lang=EN-US style='mso-ansi-language:EN-US'>TMatrix</span>;<span
+style="mso-spacerun: yes">          </span>{ матрица аффинного преобразования }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">                     
+</span><span lang=EN-US style='mso-ansi-language:EN-US'>Var</span><span
+lang=EN-US> </span><span lang=EN-US style='mso-ansi-language:EN-US'>r</span>:<span
+lang=EN-US style='mso-ansi-language:EN-US'>TKoord</span>_<span lang=EN-US
+style='mso-ansi-language:EN-US'>World</span>);{ результирующая матрица объекта
+}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>var<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>i,j,k : byte;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>t : TKoord_World;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>for i := 1 to l do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>for j := 1 to n do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">      </span>t[i,j] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">      </span>for k := 1 to n do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">       </span>t[i,j] := t[i,j] + f[i,k]*m[k,j];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>end;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>r := t;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ функции преобразования
+мировых координат в экранные }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ преобразование
+координаты <span lang=EN-US style='mso-ansi-language:EN-US'>X</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>function IX(x : real; hx : real) : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>IX := Round(x*hx);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ преобразование
+координаты <span lang=EN-US style='mso-ansi-language:EN-US'>Y</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>function IY(y : real; hy : real) : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>IY := GetMaxY - Round(y*hy);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ отображение
+пирамиды на экран с удалением невидимых линий }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>procedure</span><span lang=EN-US> </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>Show</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Const</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ вектор
+направления наблюдения }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Ez : array[1..n-1] of real = (0, 0, -1);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>Var</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ вектор нормали к
+текущей грани для определения видимости грани }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>normal : array[1..n-1] of real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span></span>{ координаты внутренней точки
+пирамиды, }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ в качестве
+которой выбран барицентр<span style="mso-spacerun: yes">   </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>p : array[1..n-1] of real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span></span>{ рабочие переменные, задающие
+номера вершин в матрице граней }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>v1, v2, v3 : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span></span>{ свободный член в уравнении
+плоскости, проходящей через грань }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>d</span>,<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ скалярное
+произведение вектора нормали и вектора направления взгляда }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Lf : real;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>i,j : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ определение
+координат внутренней точки }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>p[x] := 0; p[y] := 0; p[z] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>for i := 1 to l do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>p[x] := p[x] + K_W[i, x];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>p[y] := p[y] + K_W[i, y];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>p[z] := p[z] + K_W[i, z];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>end;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>p[x] := p[x]/l; p[y] := p[y]/l; p[z] :=
+p[z]/l;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span></span>{ определение вектора нормали }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>for i := 1 to l do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>v1 := Poligon[i,1];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>v2 := Poligon[i,2];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>v3 := Poligon[i,3];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>normal[x] :=
+(K_W[v1,y]-K_W[v2,y])*(K_W[v2,z]-K_W[v3,z])-<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                 
+</span>(K_W[v1,z]-K_W[v2,z])*(K_W[v2,y]-K_W[v3,y]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>normal[y] :=
+(K_W[v1,z]-K_W[v2,z])*(K_W[v2,x]-K_W[v3,x])-<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                 
+</span>(K_W[v1,x]-K_W[v2,x])*(K_W[v2,z]-K_W[v3,z]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>normal[z] :=
+(K_W[v1,x]-K_W[v2,x])*(K_W[v2,y]-K_W[v3,y])-<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">                 
+</span>(K_W[v1,y]-K_W[v2,y])*(K_W[v2,x]-K_W[v3,x]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span></span>{ определение верного направления
+вектора нормали }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">     </span>{ определение
+свободного члена уравнения плоскости, проходящей через грань }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">     </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>d :=
+-(normal[x]*K_W[v1,x]+normal[y]*K_W[v1,y]+normal[z]*K_W[v1,z]);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span></span>{ вычисление скалярного произведения
+вектора нормали и вектора направления взгляда }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">     </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>Lf :=
+normal[x]*p[x]+normal[y]*p[y]+normal[z]*p[z]+d;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span></span>{ определение знака скалярного
+произведения и, в случае необходимости }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">     </span>{ изменение
+направления нормали }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">     </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>if Lf &gt; 0 then<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span><span style="mso-spacerun:
+yes">  </span>normal[z] := -normal[z];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span></span>{ отрисовка ребер грани, если
+вектор нормали направлен на наблюдателя }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">     </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>if -normal[z] &lt; 0 then<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">      </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">       </span>setcolor(Red);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">      
+</span>Line(IX(K_W[v1,x],hx),IY(K_W[v1,y],hy),IX(K_W[v2,x],hx),IY(K_W[v2,y],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">      
+</span>Line(IX(K_W[v1,x],hx),IY(K_W[v1,y],hy),IX(K_W[v3,x],hx),IY(K_W[v3,y],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">      
+</span>Line(IX(K_W[v3,x],hx),IY(K_W[v3,y],hy),IX(K_W[v2,x],hx),IY(K_W[v2,y],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">      </span>end;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>end;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span></span>{ Удаление изображения пирамиды }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ отображение
+пирамиды на экран цветом фона }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>procedure Hidden;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>Var<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>v1, v2, v3 : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>i : integer;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>for i := 1 to l do<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>begin<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>v1 := Poligon[i,1];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>v2 := Poligon[i,2];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>v3 := Poligon[i,3];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>setcolor(GetBkColor);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">     </span>Line(IX(K_W[v1,x],hx),IY(K_W[v1,y],hy),IX(K_W[v2,x],hx),IY(K_W[v2,y],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    
+</span>Line(IX(K_W[v1,x],hx),IY(K_W[v1,y],hy),IX(K_W[v3,x],hx),IY(K_W[v3,y],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    
+</span>Line(IX(K_W[v3,x],hx),IY(K_W[v3,y],hy),IX(K_W[v2,x],hx),IY(K_W[v2,y],hy));<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>end</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>Begin</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>{ Инициализация
+графического режима }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>grDriver := Detect;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>InitGraph(grDriver, grMode, '');<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>ErrCode := GraphResult;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>if ErrCode<span style="mso-spacerun: yes"> 
+</span>= grOk then<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>begin</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Вычисление
+коэффициентов преобразования координат }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>hx := GetmaxX/Xw_max;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>hy := GetmaxY/Yw_max;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span></span>{ Определение матрицы поворота<span
+style="mso-spacerun: yes">      </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Определяются все
+элементы матрицы }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Кроме элементов
+последней строки<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Элементы
+последеней строки формируются с учетом }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ координат п<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>ямой, вок<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>уг кото<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>ой осуществляется поворот }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Rotate[1,1] := Cos(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[1,2] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[1,3] := -Sin(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[1,4] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,1] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,2] := 1;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,3] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[2,4] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[3,1] := Sin(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[3,2] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[3,3] := Cos(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[3,4] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M_Rotate[4,2] := 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>M</span>_<span lang=EN-US style='mso-ansi-language:
+EN-US'>Rotate</span>[4,4] := 1;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ Вычисление
+координат точки, че<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>ез
+кото<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>ую п<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>оходит п<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>ямая, }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span>{ вок<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>уг кото<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>ой осуществляется пово<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>от }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>X0 := 250;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>Y0 := 200;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>z0 := 50;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span></span>{ Задание типа линии }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>setlinestyle(SolidLn, 0, 3);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>{ Вывод текста }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>settextstyle(gothicFont, Horizdir, 3);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>setcolor(Yellow);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>OutTextXY(25, getmaxy - 40, ' Example 3-D
+Rotate&amp;Transform&amp;Delete_Line');<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>repeat</span><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Отображение
+пирамиды }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Show</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Delay</span>(1500);<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{Стирание<span
+style="mso-spacerun: yes">  </span>пирамиды }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>Hidden</span>;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Применение
+операции перемещения фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ реализуется
+умножением матрицы фигуры<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ на матрицу
+перемещения }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>MultMatrix(K_W, M_Trans, K_W);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Вычисление координат точки, че<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>ез кото<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>ую п<span lang=EN-US style='mso-ansi-language:
+EN-US'>p</span>оходит п<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>ямая,
+}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ вок<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>уг кото<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>ой осуществляется пово<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>от }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ в качестве
+такой точки выбирается одна из ве<span lang=EN-US style='mso-ansi-language:
+EN-US'>p</span>шин пи<span lang=EN-US style='mso-ansi-language:EN-US'>p</span>амиды
+}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>x</span>0 := <span lang=EN-US style='mso-ansi-language:
+EN-US'>x</span>0 + <span lang=EN-US style='mso-ansi-language:EN-US'>Dx</span>;
+{ <span lang=EN-US style='mso-ansi-language:EN-US'>X</span> }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>y0 := y0 + Dy; { Y }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>z0 := z0 + Dz; { Z }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span><span style="mso-spacerun: yes">   </span></span>{
+Определение элементов последеней строки }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ матрицы
+поворота, исходя из координат точки,<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ че<span
+lang=EN-US style='mso-ansi-language:EN-US'>p</span>ез кото<span lang=EN-US
+style='mso-ansi-language:EN-US'>p</span>ую п<span lang=EN-US style='mso-ansi-language:
+EN-US'>p</span>оходит ось поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>M_Rotate[4,1] :=
+x0-x0*Cos(alpha)-z0*Sin(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span>M_Rotate[4,3] :=
+z0+x0*Sin(alpha)-z0*Cos(alpha);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">    </span></span>{ Применение операции поворота
+фигуры }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ реализуется
+умножением матрицы фигуры<span style="mso-spacerun: yes">  </span>}<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ на матрицу
+поворота }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span><span lang=EN-US
+style='mso-ansi-language:EN-US'>MultMatrix(K_W, M_Rotate, K_W);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>until KeyPressed;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">   </span>CloseGraph;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes">  </span>end<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style="mso-spacerun: yes"> </span>else Writeln('Graphics error:',
+GraphErrorMsg(ErrCode));<o:p></o:p></span></p>
+
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>End.<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p><a href="#6">В 
+    начало...</a></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

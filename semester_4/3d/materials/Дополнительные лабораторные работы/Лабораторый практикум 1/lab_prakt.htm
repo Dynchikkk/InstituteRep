@@ -1,0 +1,2697 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./lab_prakt.files/filelist.xml">
+<title>Лабораторная  работа №1</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>ria</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Andrey K.</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>352</o:TotalTime>
+  <o:Created>2004-07-18T19:02:00Z</o:Created>
+  <o:LastSaved>2004-07-18T19:02:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>1081</o:Words>
+  <o:Characters>6165</o:Characters>
+  <o:Company>PrimatSoftLab</o:Company>
+  <o:Version>9.2812</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DoNotHyphenateCaps/>
+  <w:PunctuationKerning/>
+  <w:DrawingGridHorizontalSpacing>6 пт</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>6 пт</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>3</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Обычный;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;
+	font-weight:normal;}
+h2
+	{mso-style-next:Обычный;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:1.0cm;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:normal;}
+h3
+	{mso-style-next:Обычный;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:46.35pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	text-autospace:none;
+	font-size:14.0pt;
+	font-family:"Times New Roman";
+	font-weight:normal;}
+h4
+	{mso-style-next:Обычный;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	text-autospace:none;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-weight:normal;}
+h5
+	{mso-style-next:Обычный;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:1.0cm;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:5;
+	text-autospace:none;
+	font-size:14.0pt;
+	font-family:Arial;
+	mso-ansi-language:EN-US;
+	font-weight:normal;}
+h6
+	{mso-style-next:Обычный;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:6;
+	text-autospace:none;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-style:italic;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Обычный;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-indent:35.45pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:7;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-next:Обычный;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:8;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-next:Обычный;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:9;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 233.85pt right 467.75pt;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	tab-stops:21.3pt;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	text-autospace:none;
+	font-size:14.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	text-autospace:none;
+	font-size:14.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-indent:14.2pt;
+	mso-pagination:widow-orphan;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:35.45pt;
+	line-height:150%;
+	mso-pagination:widow-orphan;
+	text-autospace:none;
+	font-size:14.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:35.45pt 42.5pt 42.55pt 3.0cm;
+	mso-header-margin:35.45pt;
+	mso-footer-margin:35.45pt;
+	mso-page-numbers:86;
+	mso-header:url("./lab_prakt.files/header.htm") h1;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:21131046;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1525930462 676485062 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l0:level1
+	{mso-level-tab-stop:53.45pt;
+	mso-level-number-position:left;
+	margin-left:53.45pt;
+	text-indent:-18.0pt;}
+@list l0:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:89.45pt;
+	mso-level-number-position:left;
+	margin-left:89.45pt;
+	text-indent:-18.0pt;}
+@list l0:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:125.45pt;
+	mso-level-number-position:right;
+	margin-left:125.45pt;
+	text-indent:-9.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:161.45pt;
+	mso-level-number-position:left;
+	margin-left:161.45pt;
+	text-indent:-18.0pt;}
+@list l0:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:197.45pt;
+	mso-level-number-position:left;
+	margin-left:197.45pt;
+	text-indent:-18.0pt;}
+@list l0:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:233.45pt;
+	mso-level-number-position:right;
+	margin-left:233.45pt;
+	text-indent:-9.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:269.45pt;
+	mso-level-number-position:left;
+	margin-left:269.45pt;
+	text-indent:-18.0pt;}
+@list l0:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:305.45pt;
+	mso-level-number-position:left;
+	margin-left:305.45pt;
+	text-indent:-18.0pt;}
+@list l0:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:341.45pt;
+	mso-level-number-position:right;
+	margin-left:341.45pt;
+	text-indent:-9.0pt;}
+@list l1
+	{mso-list-id:55205867;
+	mso-list-type:hybrid;
+	mso-list-template-ids:513584354 265597340 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l1:level1
+	{mso-level-tab-stop:122.65pt;
+	mso-level-number-position:left;
+	margin-left:122.65pt;
+	text-indent:-51.75pt;}
+@list l1:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l1:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l1:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l2
+	{mso-list-id:177893479;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-886793546 68747265 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:71.45pt;
+	mso-level-number-position:left;
+	margin-left:71.45pt;
+	text-indent:-18.0pt;
+	font-family:Symbol;
+	mso-bidi-font-family:"Times New Roman";}
+@list l2:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:107.45pt;
+	mso-level-number-position:left;
+	margin-left:107.45pt;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l2:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:143.45pt;
+	mso-level-number-position:left;
+	margin-left:143.45pt;
+	text-indent:-18.0pt;
+	font-family:Wingdings;
+	mso-bidi-font-family:"Times New Roman";}
+@list l2:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:179.45pt;
+	mso-level-number-position:left;
+	margin-left:179.45pt;
+	text-indent:-18.0pt;
+	font-family:Symbol;
+	mso-bidi-font-family:"Times New Roman";}
+@list l2:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:215.45pt;
+	mso-level-number-position:left;
+	margin-left:215.45pt;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l2:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:251.45pt;
+	mso-level-number-position:left;
+	margin-left:251.45pt;
+	text-indent:-18.0pt;
+	font-family:Wingdings;
+	mso-bidi-font-family:"Times New Roman";}
+@list l2:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:287.45pt;
+	mso-level-number-position:left;
+	margin-left:287.45pt;
+	text-indent:-18.0pt;
+	font-family:Symbol;
+	mso-bidi-font-family:"Times New Roman";}
+@list l2:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:323.45pt;
+	mso-level-number-position:left;
+	margin-left:323.45pt;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l2:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:359.45pt;
+	mso-level-number-position:left;
+	margin-left:359.45pt;
+	text-indent:-18.0pt;
+	font-family:Wingdings;
+	mso-bidi-font-family:"Times New Roman";}
+@list l3
+	{mso-list-id:290863536;
+	mso-list-template-ids:68747295;}
+@list l3:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l3:level2
+	{mso-level-text:"%1\.%2\.";
+	mso-level-tab-stop:39.6pt;
+	mso-level-number-position:left;
+	margin-left:39.6pt;
+	text-indent:-21.6pt;}
+@list l3:level3
+	{mso-level-text:"%1\.%2\.%3\.";
+	mso-level-tab-stop:61.2pt;
+	mso-level-number-position:left;
+	margin-left:61.2pt;
+	text-indent:-25.2pt;}
+@list l3:level4
+	{mso-level-text:"%1\.%2\.%3\.%4\.";
+	mso-level-tab-stop:86.4pt;
+	mso-level-number-position:left;
+	margin-left:86.4pt;
+	text-indent:-32.4pt;}
+@list l3:level5
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.";
+	mso-level-tab-stop:111.6pt;
+	mso-level-number-position:left;
+	margin-left:111.6pt;
+	text-indent:-39.6pt;}
+@list l3:level6
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.";
+	mso-level-tab-stop:136.8pt;
+	mso-level-number-position:left;
+	margin-left:136.8pt;
+	text-indent:-46.8pt;}
+@list l3:level7
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
+	mso-level-tab-stop:162.0pt;
+	mso-level-number-position:left;
+	margin-left:162.0pt;
+	text-indent:-54.0pt;}
+@list l3:level8
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
+	mso-level-tab-stop:187.2pt;
+	mso-level-number-position:left;
+	margin-left:187.2pt;
+	text-indent:-61.2pt;}
+@list l3:level9
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	margin-left:216.0pt;
+	text-indent:-72.0pt;}
+@list l4
+	{mso-list-id:358051808;
+	mso-list-type:simple;
+	mso-list-template-ids:68747279;}
+@list l4:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l5
+	{mso-list-id:358705254;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2081273940 676485062 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l5:level1
+	{mso-level-tab-stop:53.45pt;
+	mso-level-number-position:left;
+	margin-left:53.45pt;
+	text-indent:-18.0pt;}
+@list l5:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:89.45pt;
+	mso-level-number-position:left;
+	margin-left:89.45pt;
+	text-indent:-18.0pt;}
+@list l5:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:125.45pt;
+	mso-level-number-position:right;
+	margin-left:125.45pt;
+	text-indent:-9.0pt;}
+@list l5:level4
+	{mso-level-tab-stop:161.45pt;
+	mso-level-number-position:left;
+	margin-left:161.45pt;
+	text-indent:-18.0pt;}
+@list l5:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:197.45pt;
+	mso-level-number-position:left;
+	margin-left:197.45pt;
+	text-indent:-18.0pt;}
+@list l5:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:233.45pt;
+	mso-level-number-position:right;
+	margin-left:233.45pt;
+	text-indent:-9.0pt;}
+@list l5:level7
+	{mso-level-tab-stop:269.45pt;
+	mso-level-number-position:left;
+	margin-left:269.45pt;
+	text-indent:-18.0pt;}
+@list l5:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:305.45pt;
+	mso-level-number-position:left;
+	margin-left:305.45pt;
+	text-indent:-18.0pt;}
+@list l5:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:341.45pt;
+	mso-level-number-position:right;
+	margin-left:341.45pt;
+	text-indent:-9.0pt;}
+@list l6
+	{mso-list-id:375937096;
+	mso-list-template-ids:282854770;}
+@list l6:level1
+	{mso-level-start-at:2;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l6:level2
+	{mso-level-text:"\.%1%2\.";
+	mso-level-tab-stop:39.6pt;
+	mso-level-number-position:left;
+	margin-left:39.6pt;
+	text-indent:-21.6pt;}
+@list l6:level3
+	{mso-level-text:"%1\.%2\.%3\.";
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	margin-left:61.2pt;
+	text-indent:-25.2pt;}
+@list l6:level4
+	{mso-level-text:"%1\.%2\.%3\.%4\.";
+	mso-level-tab-stop:86.4pt;
+	mso-level-number-position:left;
+	margin-left:86.4pt;
+	text-indent:-32.4pt;}
+@list l6:level5
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.";
+	mso-level-tab-stop:111.6pt;
+	mso-level-number-position:left;
+	margin-left:111.6pt;
+	text-indent:-39.6pt;}
+@list l6:level6
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.";
+	mso-level-tab-stop:136.8pt;
+	mso-level-number-position:left;
+	margin-left:136.8pt;
+	text-indent:-46.8pt;}
+@list l6:level7
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
+	mso-level-tab-stop:162.0pt;
+	mso-level-number-position:left;
+	margin-left:162.0pt;
+	text-indent:-54.0pt;}
+@list l6:level8
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
+	mso-level-tab-stop:187.2pt;
+	mso-level-number-position:left;
+	margin-left:187.2pt;
+	text-indent:-61.2pt;}
+@list l6:level9
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	margin-left:216.0pt;
+	text-indent:-72.0pt;}
+@list l7
+	{mso-list-id:444887120;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-19610912 -1353544970 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l7:level1
+	{mso-level-tab-stop:19.5pt;
+	mso-level-number-position:left;
+	margin-left:19.5pt;
+	text-indent:-19.5pt;}
+@list l7:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l7:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l7:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l7:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l7:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l7:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l7:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l7:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l8
+	{mso-list-id:639769325;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1097916312 140167536 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l8:level1
+	{mso-level-tab-stop:66.05pt;
+	mso-level-number-position:left;
+	margin-left:66.05pt;
+	text-indent:-23.5pt;
+	mso-ansi-font-weight:normal;
+	mso-ansi-font-style:normal;}
+@list l8:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l8:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l8:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l9
+	{mso-list-id:659230550;
+	mso-list-type:hybrid;
+	mso-list-template-ids:215009488 -1353544970 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l9:level1
+	{mso-level-tab-stop:19.5pt;
+	mso-level-number-position:left;
+	margin-left:19.5pt;
+	text-indent:-19.5pt;}
+@list l9:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l9:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l9:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l9:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l9:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l9:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l9:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l9:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l10
+	{mso-list-id:670450686;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1389851898 265597340 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l10:level1
+	{mso-level-tab-stop:122.65pt;
+	mso-level-number-position:left;
+	margin-left:122.65pt;
+	text-indent:-51.75pt;}
+@list l10:level2
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.";
+	mso-level-tab-stop:106.9pt;
+	mso-level-number-position:left;
+	margin-left:106.9pt;
+	text-indent:-36.0pt;}
+@list l10:level3
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.";
+	mso-level-tab-stop:106.9pt;
+	mso-level-number-position:left;
+	margin-left:106.9pt;
+	text-indent:-36.0pt;}
+@list l10:level4
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.";
+	mso-level-tab-stop:124.9pt;
+	mso-level-number-position:left;
+	margin-left:124.9pt;
+	text-indent:-54.0pt;}
+@list l10:level5
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.";
+	mso-level-tab-stop:124.9pt;
+	mso-level-number-position:left;
+	margin-left:124.9pt;
+	text-indent:-54.0pt;}
+@list l10:level6
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.";
+	mso-level-tab-stop:142.9pt;
+	mso-level-number-position:left;
+	margin-left:142.9pt;
+	text-indent:-72.0pt;}
+@list l10:level7
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
+	mso-level-tab-stop:160.9pt;
+	mso-level-number-position:left;
+	margin-left:160.9pt;
+	text-indent:-90.0pt;}
+@list l10:level8
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
+	mso-level-tab-stop:160.9pt;
+	mso-level-number-position:left;
+	margin-left:160.9pt;
+	text-indent:-90.0pt;}
+@list l10:level9
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
+	mso-level-tab-stop:178.9pt;
+	mso-level-number-position:left;
+	margin-left:178.9pt;
+	text-indent:-108.0pt;}
+@list l11
+	{mso-list-id:713234541;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1802440068 -1353544970 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l11:level1
+	{mso-level-tab-stop:19.5pt;
+	mso-level-number-position:left;
+	margin-left:19.5pt;
+	text-indent:-19.5pt;}
+@list l11:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l11:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l11:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l11:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l11:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l11:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l11:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l11:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l12
+	{mso-list-id:713963517;
+	mso-list-template-ids:68747295;}
+@list l12:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l12:level2
+	{mso-level-text:"%1\.%2\.";
+	mso-level-tab-stop:39.6pt;
+	mso-level-number-position:left;
+	margin-left:39.6pt;
+	text-indent:-21.6pt;}
+@list l12:level3
+	{mso-level-text:"%1\.%2\.%3\.";
+	mso-level-tab-stop:61.2pt;
+	mso-level-number-position:left;
+	margin-left:61.2pt;
+	text-indent:-25.2pt;}
+@list l12:level4
+	{mso-level-text:"%1\.%2\.%3\.%4\.";
+	mso-level-tab-stop:86.4pt;
+	mso-level-number-position:left;
+	margin-left:86.4pt;
+	text-indent:-32.4pt;}
+@list l12:level5
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.";
+	mso-level-tab-stop:111.6pt;
+	mso-level-number-position:left;
+	margin-left:111.6pt;
+	text-indent:-39.6pt;}
+@list l12:level6
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.";
+	mso-level-tab-stop:136.8pt;
+	mso-level-number-position:left;
+	margin-left:136.8pt;
+	text-indent:-46.8pt;}
+@list l12:level7
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
+	mso-level-tab-stop:162.0pt;
+	mso-level-number-position:left;
+	margin-left:162.0pt;
+	text-indent:-54.0pt;}
+@list l12:level8
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
+	mso-level-tab-stop:187.2pt;
+	mso-level-number-position:left;
+	margin-left:187.2pt;
+	text-indent:-61.2pt;}
+@list l12:level9
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	margin-left:216.0pt;
+	text-indent:-72.0pt;}
+@list l13
+	{mso-list-id:717434844;
+	mso-list-type:simple;
+	mso-list-template-ids:68747265;}
+@list l13:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;
+	font-family:Symbol;
+	mso-bidi-font-family:"Times New Roman";}
+@list l14
+	{mso-list-id:753472016;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1873967782 676485062 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l14:level1
+	{mso-level-tab-stop:53.45pt;
+	mso-level-number-position:left;
+	margin-left:53.45pt;
+	text-indent:-18.0pt;}
+@list l14:level2
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.";
+	mso-level-tab-stop:71.45pt;
+	mso-level-number-position:left;
+	margin-left:71.45pt;
+	text-indent:-36.0pt;}
+@list l14:level3
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.";
+	mso-level-tab-stop:71.45pt;
+	mso-level-number-position:left;
+	margin-left:71.45pt;
+	text-indent:-36.0pt;}
+@list l14:level4
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.";
+	mso-level-tab-stop:89.45pt;
+	mso-level-number-position:left;
+	margin-left:89.45pt;
+	text-indent:-54.0pt;}
+@list l14:level5
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.";
+	mso-level-tab-stop:89.45pt;
+	mso-level-number-position:left;
+	margin-left:89.45pt;
+	text-indent:-54.0pt;}
+@list l14:level6
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.";
+	mso-level-tab-stop:107.45pt;
+	mso-level-number-position:left;
+	margin-left:107.45pt;
+	text-indent:-72.0pt;}
+@list l14:level7
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
+	mso-level-tab-stop:125.45pt;
+	mso-level-number-position:left;
+	margin-left:125.45pt;
+	text-indent:-90.0pt;}
+@list l14:level8
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
+	mso-level-tab-stop:125.45pt;
+	mso-level-number-position:left;
+	margin-left:125.45pt;
+	text-indent:-90.0pt;}
+@list l14:level9
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
+	mso-level-tab-stop:143.45pt;
+	mso-level-number-position:left;
+	margin-left:143.45pt;
+	text-indent:-108.0pt;}
+@list l15
+	{mso-list-id:773599555;
+	mso-list-type:simple;
+	mso-list-template-ids:68747279;}
+@list l15:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l16
+	{mso-list-id:783234959;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1525071732 68747265 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;}
+@list l16:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:71.45pt;
+	mso-level-number-position:left;
+	margin-left:71.45pt;
+	text-indent:-18.0pt;
+	font-family:Symbol;
+	mso-bidi-font-family:"Times New Roman";}
+@list l16:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:107.45pt;
+	mso-level-number-position:left;
+	margin-left:107.45pt;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l16:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:143.45pt;
+	mso-level-number-position:left;
+	margin-left:143.45pt;
+	text-indent:-18.0pt;
+	font-family:Wingdings;
+	mso-bidi-font-family:"Times New Roman";}
+@list l16:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:179.45pt;
+	mso-level-number-position:left;
+	margin-left:179.45pt;
+	text-indent:-18.0pt;
+	font-family:Symbol;
+	mso-bidi-font-family:"Times New Roman";}
+@list l16:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:215.45pt;
+	mso-level-number-position:left;
+	margin-left:215.45pt;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l16:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:251.45pt;
+	mso-level-number-position:left;
+	margin-left:251.45pt;
+	text-indent:-18.0pt;
+	font-family:Wingdings;
+	mso-bidi-font-family:"Times New Roman";}
+@list l16:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:287.45pt;
+	mso-level-number-position:left;
+	margin-left:287.45pt;
+	text-indent:-18.0pt;
+	font-family:Symbol;
+	mso-bidi-font-family:"Times New Roman";}
+@list l16:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:323.45pt;
+	mso-level-number-position:left;
+	margin-left:323.45pt;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l16:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:359.45pt;
+	mso-level-number-position:left;
+	margin-left:359.45pt;
+	text-indent:-18.0pt;
+	font-family:Wingdings;
+	mso-bidi-font-family:"Times New Roman";}
+@list l17
+	{mso-list-id:798181270;
+	mso-list-template-ids:-1020129486;}
+@list l17:level1
+	{mso-level-start-at:2;
+	mso-level-text:"%1\.1";
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l17:level2
+	{mso-level-text:"%1\.%2\.";
+	mso-level-tab-stop:39.6pt;
+	mso-level-number-position:left;
+	margin-left:39.6pt;
+	text-indent:-21.6pt;}
+@list l17:level3
+	{mso-level-text:"%1\.%2\.%3\.";
+	mso-level-tab-stop:61.2pt;
+	mso-level-number-position:left;
+	margin-left:61.2pt;
+	text-indent:-25.2pt;}
+@list l17:level4
+	{mso-level-text:"%1\.%2\.%3\.%4\.";
+	mso-level-tab-stop:86.4pt;
+	mso-level-number-position:left;
+	margin-left:86.4pt;
+	text-indent:-32.4pt;}
+@list l17:level5
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.";
+	mso-level-tab-stop:111.6pt;
+	mso-level-number-position:left;
+	margin-left:111.6pt;
+	text-indent:-39.6pt;}
+@list l17:level6
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.";
+	mso-level-tab-stop:136.8pt;
+	mso-level-number-position:left;
+	margin-left:136.8pt;
+	text-indent:-46.8pt;}
+@list l17:level7
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
+	mso-level-tab-stop:162.0pt;
+	mso-level-number-position:left;
+	margin-left:162.0pt;
+	text-indent:-54.0pt;}
+@list l17:level8
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
+	mso-level-tab-stop:187.2pt;
+	mso-level-number-position:left;
+	margin-left:187.2pt;
+	text-indent:-61.2pt;}
+@list l17:level9
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	margin-left:216.0pt;
+	text-indent:-72.0pt;}
+@list l18
+	{mso-list-id:800655320;
+	mso-list-type:hybrid;
+	mso-list-template-ids:669144456 -302223366 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l18:level1
+	{mso-level-tab-stop:101.5pt;
+	mso-level-number-position:left;
+	margin-left:101.5pt;
+	text-indent:-23.5pt;}
+@list l18:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:107.45pt;
+	mso-level-number-position:left;
+	margin-left:107.45pt;
+	text-indent:-18.0pt;}
+@list l18:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:143.45pt;
+	mso-level-number-position:right;
+	margin-left:143.45pt;
+	text-indent:-9.0pt;}
+@list l18:level4
+	{mso-level-tab-stop:179.45pt;
+	mso-level-number-position:left;
+	margin-left:179.45pt;
+	text-indent:-18.0pt;}
+@list l18:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:215.45pt;
+	mso-level-number-position:left;
+	margin-left:215.45pt;
+	text-indent:-18.0pt;}
+@list l18:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:251.45pt;
+	mso-level-number-position:right;
+	margin-left:251.45pt;
+	text-indent:-9.0pt;}
+@list l18:level7
+	{mso-level-tab-stop:287.45pt;
+	mso-level-number-position:left;
+	margin-left:287.45pt;
+	text-indent:-18.0pt;}
+@list l18:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:323.45pt;
+	mso-level-number-position:left;
+	margin-left:323.45pt;
+	text-indent:-18.0pt;}
+@list l18:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:359.45pt;
+	mso-level-number-position:right;
+	margin-left:359.45pt;
+	text-indent:-9.0pt;}
+@list l19
+	{mso-list-id:811483676;
+	mso-list-type:simple;
+	mso-list-template-ids:68747279;}
+@list l19:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l20
+	{mso-list-id:962613750;
+	mso-list-type:simple;
+	mso-list-template-ids:68747279;}
+@list l20:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l21
+	{mso-list-id:999773208;
+	mso-list-type:simple;
+	mso-list-template-ids:68747265;}
+@list l21:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;
+	font-family:Symbol;
+	mso-bidi-font-family:"Times New Roman";}
+@list l22
+	{mso-list-id:1035736253;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1290802660 265597340 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l22:level1
+	{mso-level-tab-stop:87.2pt;
+	mso-level-number-position:left;
+	margin-left:87.2pt;
+	text-indent:-51.75pt;}
+@list l22:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:89.45pt;
+	mso-level-number-position:left;
+	margin-left:89.45pt;
+	text-indent:-18.0pt;}
+@list l22:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:125.45pt;
+	mso-level-number-position:right;
+	margin-left:125.45pt;
+	text-indent:-9.0pt;}
+@list l22:level4
+	{mso-level-tab-stop:161.45pt;
+	mso-level-number-position:left;
+	margin-left:161.45pt;
+	text-indent:-18.0pt;}
+@list l22:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:197.45pt;
+	mso-level-number-position:left;
+	margin-left:197.45pt;
+	text-indent:-18.0pt;}
+@list l22:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:233.45pt;
+	mso-level-number-position:right;
+	margin-left:233.45pt;
+	text-indent:-9.0pt;}
+@list l22:level7
+	{mso-level-tab-stop:269.45pt;
+	mso-level-number-position:left;
+	margin-left:269.45pt;
+	text-indent:-18.0pt;}
+@list l22:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:305.45pt;
+	mso-level-number-position:left;
+	margin-left:305.45pt;
+	text-indent:-18.0pt;}
+@list l22:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:341.45pt;
+	mso-level-number-position:right;
+	margin-left:341.45pt;
+	text-indent:-9.0pt;}
+@list l23
+	{mso-list-id:1155149090;
+	mso-list-type:simple;
+	mso-list-template-ids:1408036856;}
+@list l23:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l24
+	{mso-list-id:1158303161;
+	mso-list-type:simple;
+	mso-list-template-ids:-1353544970;}
+@list l24:level1
+	{mso-level-tab-stop:19.5pt;
+	mso-level-number-position:left;
+	margin-left:19.5pt;
+	text-indent:-19.5pt;}
+@list l25
+	{mso-list-id:1196576904;
+	mso-list-template-ids:-2124897022;}
+@list l25:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l25:level2
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2";
+	mso-level-tab-stop:46.35pt;
+	mso-level-number-position:left;
+	margin-left:46.35pt;
+	text-indent:-18.0pt;}
+@list l25:level3
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3";
+	mso-level-tab-stop:92.7pt;
+	mso-level-number-position:left;
+	margin-left:92.7pt;
+	text-indent:-36.0pt;}
+@list l25:level4
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4";
+	mso-level-tab-stop:121.05pt;
+	mso-level-number-position:left;
+	margin-left:121.05pt;
+	text-indent:-36.0pt;}
+@list l25:level5
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5";
+	mso-level-tab-stop:167.4pt;
+	mso-level-number-position:left;
+	margin-left:167.4pt;
+	text-indent:-54.0pt;}
+@list l25:level6
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6";
+	mso-level-tab-stop:195.75pt;
+	mso-level-number-position:left;
+	margin-left:195.75pt;
+	text-indent:-54.0pt;}
+@list l25:level7
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7";
+	mso-level-tab-stop:242.1pt;
+	mso-level-number-position:left;
+	margin-left:242.1pt;
+	text-indent:-72.0pt;}
+@list l25:level8
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8";
+	mso-level-tab-stop:270.45pt;
+	mso-level-number-position:left;
+	margin-left:270.45pt;
+	text-indent:-72.0pt;}
+@list l25:level9
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9";
+	mso-level-tab-stop:316.8pt;
+	mso-level-number-position:left;
+	margin-left:316.8pt;
+	text-indent:-90.0pt;}
+@list l26
+	{mso-list-id:1255241570;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1347780414 145013752 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l26:level1
+	{mso-level-tab-stop:91.7pt;
+	mso-level-number-position:left;
+	margin-left:91.7pt;
+	text-indent:-56.25pt;}
+@list l26:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:89.45pt;
+	mso-level-number-position:left;
+	margin-left:89.45pt;
+	text-indent:-18.0pt;}
+@list l26:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:125.45pt;
+	mso-level-number-position:right;
+	margin-left:125.45pt;
+	text-indent:-9.0pt;}
+@list l26:level4
+	{mso-level-tab-stop:161.45pt;
+	mso-level-number-position:left;
+	margin-left:161.45pt;
+	text-indent:-18.0pt;}
+@list l26:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:197.45pt;
+	mso-level-number-position:left;
+	margin-left:197.45pt;
+	text-indent:-18.0pt;}
+@list l26:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:233.45pt;
+	mso-level-number-position:right;
+	margin-left:233.45pt;
+	text-indent:-9.0pt;}
+@list l26:level7
+	{mso-level-tab-stop:269.45pt;
+	mso-level-number-position:left;
+	margin-left:269.45pt;
+	text-indent:-18.0pt;}
+@list l26:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:305.45pt;
+	mso-level-number-position:left;
+	margin-left:305.45pt;
+	text-indent:-18.0pt;}
+@list l26:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:341.45pt;
+	mso-level-number-position:right;
+	margin-left:341.45pt;
+	text-indent:-9.0pt;}
+@list l27
+	{mso-list-id:1351176567;
+	mso-list-type:hybrid;
+	mso-list-template-ids:508571902 -1461019610 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l27:level1
+	{mso-level-tab-stop:66.05pt;
+	mso-level-number-position:left;
+	margin-left:66.05pt;
+	text-indent:-23.5pt;}
+@list l27:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l27:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l27:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l27:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l27:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l27:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l27:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l27:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l28
+	{mso-list-id:1440879440;
+	mso-list-template-ids:-1292500770;}
+@list l28:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l28:level2
+	{mso-level-text:"%1\.%2\.";
+	mso-level-tab-stop:39.6pt;
+	mso-level-number-position:left;
+	margin-left:39.6pt;
+	text-indent:-21.6pt;}
+@list l28:level3
+	{mso-level-text:"%1\.%2\.%3\.";
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	margin-left:61.2pt;
+	text-indent:-25.2pt;}
+@list l28:level4
+	{mso-level-text:"%1\.%2\.%3\.%4\.";
+	mso-level-tab-stop:86.4pt;
+	mso-level-number-position:left;
+	margin-left:86.4pt;
+	text-indent:-32.4pt;}
+@list l28:level5
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.";
+	mso-level-tab-stop:111.6pt;
+	mso-level-number-position:left;
+	margin-left:111.6pt;
+	text-indent:-39.6pt;}
+@list l28:level6
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.";
+	mso-level-tab-stop:136.8pt;
+	mso-level-number-position:left;
+	margin-left:136.8pt;
+	text-indent:-46.8pt;}
+@list l28:level7
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
+	mso-level-tab-stop:162.0pt;
+	mso-level-number-position:left;
+	margin-left:162.0pt;
+	text-indent:-54.0pt;}
+@list l28:level8
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
+	mso-level-tab-stop:187.2pt;
+	mso-level-number-position:left;
+	margin-left:187.2pt;
+	text-indent:-61.2pt;}
+@list l28:level9
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	margin-left:216.0pt;
+	text-indent:-72.0pt;}
+@list l29
+	{mso-list-id:1468821354;
+	mso-list-template-ids:1248472748;}
+@list l29:level1
+	{mso-level-tab-stop:46.35pt;
+	mso-level-number-position:left;
+	margin-left:46.35pt;
+	text-indent:-18.0pt;}
+@list l29:level2
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.";
+	mso-level-tab-stop:70.65pt;
+	mso-level-number-position:left;
+	margin-left:70.65pt;
+	text-indent:-21.0pt;}
+@list l29:level3
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.";
+	mso-level-tab-stop:106.95pt;
+	mso-level-number-position:left;
+	margin-left:106.95pt;
+	text-indent:-36.0pt;}
+@list l29:level4
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.";
+	mso-level-tab-stop:128.25pt;
+	mso-level-number-position:left;
+	margin-left:128.25pt;
+	text-indent:-36.0pt;}
+@list l29:level5
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.";
+	mso-level-tab-stop:167.55pt;
+	mso-level-number-position:left;
+	margin-left:167.55pt;
+	text-indent:-54.0pt;}
+@list l29:level6
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.";
+	mso-level-tab-stop:188.85pt;
+	mso-level-number-position:left;
+	margin-left:188.85pt;
+	text-indent:-54.0pt;}
+@list l29:level7
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
+	mso-level-tab-stop:228.15pt;
+	mso-level-number-position:left;
+	margin-left:228.15pt;
+	text-indent:-72.0pt;}
+@list l29:level8
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
+	mso-level-tab-stop:249.45pt;
+	mso-level-number-position:left;
+	margin-left:249.45pt;
+	text-indent:-72.0pt;}
+@list l29:level9
+	{mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
+	mso-level-tab-stop:288.75pt;
+	mso-level-number-position:left;
+	margin-left:288.75pt;
+	text-indent:-90.0pt;}
+@list l30
+	{mso-list-id:1522937468;
+	mso-list-type:simple;
+	mso-list-template-ids:68747279;}
+@list l30:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l31
+	{mso-list-id:1668094843;
+	mso-list-type:hybrid;
+	mso-list-template-ids:180264362 -302223366 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l31:level1
+	{mso-level-tab-stop:66.05pt;
+	mso-level-number-position:left;
+	margin-left:66.05pt;
+	text-indent:-23.5pt;}
+@list l31:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:107.45pt;
+	mso-level-number-position:left;
+	margin-left:107.45pt;
+	text-indent:-18.0pt;}
+@list l31:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:143.45pt;
+	mso-level-number-position:right;
+	margin-left:143.45pt;
+	text-indent:-9.0pt;}
+@list l31:level4
+	{mso-level-tab-stop:179.45pt;
+	mso-level-number-position:left;
+	margin-left:179.45pt;
+	text-indent:-18.0pt;}
+@list l31:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:215.45pt;
+	mso-level-number-position:left;
+	margin-left:215.45pt;
+	text-indent:-18.0pt;}
+@list l31:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:251.45pt;
+	mso-level-number-position:right;
+	margin-left:251.45pt;
+	text-indent:-9.0pt;}
+@list l31:level7
+	{mso-level-tab-stop:287.45pt;
+	mso-level-number-position:left;
+	margin-left:287.45pt;
+	text-indent:-18.0pt;}
+@list l31:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:323.45pt;
+	mso-level-number-position:left;
+	margin-left:323.45pt;
+	text-indent:-18.0pt;}
+@list l31:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:359.45pt;
+	mso-level-number-position:right;
+	margin-left:359.45pt;
+	text-indent:-9.0pt;}
+@list l32
+	{mso-list-id:1674339239;
+	mso-list-type:simple;
+	mso-list-template-ids:68747281;}
+@list l32:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l33
+	{mso-list-id:1713387095;
+	mso-list-type:simple;
+	mso-list-template-ids:68747279;}
+@list l33:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l34
+	{mso-list-id:1713917437;
+	mso-list-type:simple;
+	mso-list-template-ids:970645954;}
+@list l34:level1
+	{mso-level-start-at:2;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:67.6pt;
+	mso-level-number-position:left;
+	margin-left:67.6pt;
+	text-indent:-18.0pt;}
+@list l35
+	{mso-list-id:1719671654;
+	mso-list-type:simple;
+	mso-list-template-ids:68747279;}
+@list l35:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l36
+	{mso-list-id:1734352499;
+	mso-list-type:simple;
+	mso-list-template-ids:68747279;}
+@list l36:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l37
+	{mso-list-id:1740252609;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1030536528 68747265 68747267 68747269 68747265 68747267 68747269 68747265 68747267 68747269;}
+@list l37:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;
+	mso-bidi-font-family:"Times New Roman";}
+@list l37:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l37:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;
+	mso-bidi-font-family:"Times New Roman";}
+@list l37:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;
+	mso-bidi-font-family:"Times New Roman";}
+@list l37:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l37:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;
+	mso-bidi-font-family:"Times New Roman";}
+@list l37:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;
+	mso-bidi-font-family:"Times New Roman";}
+@list l37:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l37:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;
+	mso-bidi-font-family:"Times New Roman";}
+@list l38
+	{mso-list-id:1923290519;
+	mso-list-template-ids:-1292500770;}
+@list l38:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l38:level2
+	{mso-level-text:"%1\.%2\.";
+	mso-level-tab-stop:39.6pt;
+	mso-level-number-position:left;
+	margin-left:39.6pt;
+	text-indent:-21.6pt;}
+@list l38:level3
+	{mso-level-text:"%1\.%2\.%3\.";
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	margin-left:61.2pt;
+	text-indent:-25.2pt;}
+@list l38:level4
+	{mso-level-text:"%1\.%2\.%3\.%4\.";
+	mso-level-tab-stop:86.4pt;
+	mso-level-number-position:left;
+	margin-left:86.4pt;
+	text-indent:-32.4pt;}
+@list l38:level5
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.";
+	mso-level-tab-stop:111.6pt;
+	mso-level-number-position:left;
+	margin-left:111.6pt;
+	text-indent:-39.6pt;}
+@list l38:level6
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.";
+	mso-level-tab-stop:136.8pt;
+	mso-level-number-position:left;
+	margin-left:136.8pt;
+	text-indent:-46.8pt;}
+@list l38:level7
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
+	mso-level-tab-stop:162.0pt;
+	mso-level-number-position:left;
+	margin-left:162.0pt;
+	text-indent:-54.0pt;}
+@list l38:level8
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
+	mso-level-tab-stop:187.2pt;
+	mso-level-number-position:left;
+	margin-left:187.2pt;
+	text-indent:-61.2pt;}
+@list l38:level9
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	margin-left:216.0pt;
+	text-indent:-72.0pt;}
+@list l39
+	{mso-list-id:1956792855;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1464090490 -1461019610 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l39:level1
+	{mso-level-tab-stop:66.05pt;
+	mso-level-number-position:left;
+	margin-left:66.05pt;
+	text-indent:-23.5pt;}
+@list l39:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l39:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l39:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l39:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l39:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l39:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l39:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l39:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l40
+	{mso-list-id:2001344662;
+	mso-list-template-ids:-1320011658;}
+@list l40:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l40:level2
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.";
+	mso-level-tab-stop:49.35pt;
+	mso-level-number-position:left;
+	margin-left:49.35pt;
+	text-indent:-21.0pt;}
+@list l40:level3
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.";
+	mso-level-tab-stop:92.7pt;
+	mso-level-number-position:left;
+	margin-left:92.7pt;
+	text-indent:-36.0pt;}
+@list l40:level4
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.";
+	mso-level-tab-stop:121.05pt;
+	mso-level-number-position:left;
+	margin-left:121.05pt;
+	text-indent:-36.0pt;}
+@list l40:level5
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.";
+	mso-level-tab-stop:167.4pt;
+	mso-level-number-position:left;
+	margin-left:167.4pt;
+	text-indent:-54.0pt;}
+@list l40:level6
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.";
+	mso-level-tab-stop:195.75pt;
+	mso-level-number-position:left;
+	margin-left:195.75pt;
+	text-indent:-54.0pt;}
+@list l40:level7
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.";
+	mso-level-tab-stop:242.1pt;
+	mso-level-number-position:left;
+	margin-left:242.1pt;
+	text-indent:-72.0pt;}
+@list l40:level8
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.";
+	mso-level-tab-stop:270.45pt;
+	mso-level-number-position:left;
+	margin-left:270.45pt;
+	text-indent:-72.0pt;}
+@list l40:level9
+	{mso-level-style-link:Обычный;
+	mso-level-legal-format:yes;
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9\.";
+	mso-level-tab-stop:316.8pt;
+	mso-level-number-position:left;
+	margin-left:316.8pt;
+	text-indent:-90.0pt;}
+@list l41
+	{mso-list-id:2046635861;
+	mso-list-type:simple;
+	mso-list-template-ids:-41354984;}
+@list l41:level1
+	{mso-level-tab-stop:46.35pt;
+	mso-level-number-position:left;
+	margin-left:46.35pt;
+	text-indent:-18.0pt;}
+@list l42
+	{mso-list-id:2060278611;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2004239390 -1353544970 68747289 68747291 68747279 68747289 68747291 68747279 68747289 68747291;}
+@list l42:level1
+	{mso-level-tab-stop:19.5pt;
+	mso-level-number-position:left;
+	margin-left:19.5pt;
+	text-indent:-19.5pt;}
+@list l42:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l42:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l42:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l42:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l42:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l42:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l42:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l42:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l43
+	{mso-list-id:2116754970;
+	mso-list-type:simple;
+	mso-list-template-ids:68747279;}
+@list l43:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l28:level1 lfo17
+	{mso-level-numbering:continue;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l28:level2 lfo17
+	{mso-level-numbering:continue;
+	mso-level-tab-stop:39.6pt;
+	mso-level-number-position:left;
+	margin-left:39.6pt;
+	text-indent:-21.6pt;}
+@list l28:level3 lfo17
+	{mso-level-numbering:continue;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	margin-left:61.2pt;
+	text-indent:-25.2pt;}
+@list l28:level4 lfo17
+	{mso-level-numbering:continue;
+	mso-level-tab-stop:86.4pt;
+	mso-level-number-position:left;
+	margin-left:86.4pt;
+	text-indent:-32.4pt;}
+@list l28:level5 lfo17
+	{mso-level-numbering:continue;
+	mso-level-tab-stop:111.6pt;
+	mso-level-number-position:left;
+	margin-left:111.6pt;
+	text-indent:-39.6pt;}
+@list l28:level6 lfo17
+	{mso-level-numbering:continue;
+	mso-level-tab-stop:136.8pt;
+	mso-level-number-position:left;
+	margin-left:136.8pt;
+	text-indent:-46.8pt;}
+@list l28:level7 lfo17
+	{mso-level-numbering:continue;
+	mso-level-tab-stop:162.0pt;
+	mso-level-number-position:left;
+	margin-left:162.0pt;
+	text-indent:-54.0pt;}
+@list l28:level8 lfo17
+	{mso-level-numbering:continue;
+	mso-level-tab-stop:187.2pt;
+	mso-level-number-position:left;
+	margin-left:187.2pt;
+	text-indent:-61.2pt;}
+@list l28:level9 lfo17
+	{mso-level-numbering:continue;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	margin-left:216.0pt;
+	text-indent:-72.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+</head>
+
+<body lang=RU style='tab-interval:36.0pt;text-justify-trim:punctuation'>
+
+<div class=Section1>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:120%'><b><span
+style='font-size:12.0pt'>ЛАБОРАТОРНЫЙ ПРАКТИКУМ<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><span style='font-size:12.0pt'>В качестве инструментальных средств для
+разработки графических программ под используется язык программирования Паскаль.
+В качестве среды программирования используется </span><span lang=EN-US
+style='font-size:12.0pt;mso-ansi-language:EN-US'>Borland</span><span
+lang=EN-US style='font-size:12.0pt'> </span><span lang=EN-US style='font-size:
+12.0pt;mso-ansi-language:EN-US'>Pascal</span><span style='font-size:12.0pt'>
+7.0 и библиотека драйверов </span><span lang=EN-US style='font-size:12.0pt;
+mso-ansi-language:EN-US'>BGI</span><span style='font-size:12.0pt'>. В папку
+«Примеры программ» включены примеры программ по всем темам лабораторных работ.
+В качестве драйвера-русификатора использовалась программа </span><span
+lang=EN-US style='font-size:12.0pt;mso-ansi-language:EN-US'>keyrus</span><span
+style='font-size:12.0pt'>.</span><span lang=EN-US style='font-size:12.0pt;
+mso-ansi-language:EN-US'>com</span><span style='font-size:12.0pt'>. Графический
+драйвер </span><span lang=EN-US style='font-size:12.0pt;mso-ansi-language:EN-US'>egavga</span><span
+style='font-size:12.0pt'>.</span><span lang=EN-US style='font-size:12.0pt;
+mso-ansi-language:EN-US'>bgi</span><span style='font-size:12.0pt'> при запуске
+программ должен находиться в текущей папке.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><span style='font-size:12.0pt'>Основные задачи, которая ставится перед
+студентами в процессе выполнения лабораторного практикума, определяются
+следующим образом:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:71.45pt;text-align:justify;text-indent:
+-18.0pt;line-height:120%;mso-list:l2 level1 lfo45;tab-stops:list 71.45pt'><![if !supportLists]><span
+style='font-size:12.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>глубокое усвоение
+графических моделей, методов и алгоритмов, рассмотренных в теоретическом
+разделе учебного пособия;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:71.45pt;text-align:justify;text-indent:
+-18.0pt;line-height:120%;mso-list:l2 level1 lfo45;tab-stops:list 71.45pt'><![if !supportLists]><span
+style='font-size:12.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>овладение технологией
+структурного программирования на языке Паскаль;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:71.45pt;text-align:justify;text-indent:
+-18.0pt;line-height:120%;mso-list:l2 level1 lfo45;tab-stops:list 71.45pt'><![if !supportLists]><span
+style='font-size:12.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>изучение графических
+инструментов и функций графической библиотеки языка </span><span lang=EN-US
+style='font-size:12.0pt;mso-ansi-language:EN-US'>Borland</span><span
+lang=EN-US style='font-size:12.0pt'> </span><span lang=EN-US style='font-size:
+12.0pt;mso-ansi-language:EN-US'>Pascal</span><span style='font-size:12.0pt'>
+7.0;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:71.45pt;text-align:justify;text-indent:
+-18.0pt;line-height:120%;mso-list:l2 level1 lfo45;tab-stops:list 71.45pt'><![if !supportLists]><span
+style='font-size:12.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>закрепление навыков
+построения различных структур данных, приобретенных в других учебных курсах;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:71.45pt;text-align:justify;text-indent:
+-18.0pt;line-height:120%;mso-list:l2 level1 lfo45;tab-stops:list 71.45pt'><![if !supportLists]><span
+style='font-size:12.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>приобретение
+практических навыков разработки графических программ, работающих под
+управлением ОС </span><span lang=EN-US style='font-size:12.0pt;mso-ansi-language:
+EN-US'>MS</span><span style='font-size:12.0pt'>-</span><span lang=EN-US
+style='font-size:12.0pt;mso-ansi-language:EN-US'>DOS</span><span
+style='font-size:12.0pt'>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><span style='font-size:12.0pt'>В лабораторном практикуме поддерживается
+преемственность работ и программных кодов.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><span style='font-size:12.0pt'>Результатами работы студентов должны
+являться отлаженные программы в соответствие с темами лабораторных работ и
+письменные отчеты. Студенты должны владеть теоретическими основами компьютерной
+графики в рамках изучаемых тем.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:120%'><i><span style='font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:120%'><b><span
+style='font-size:12.0pt'>Лабораторная работа 1. Графические средства </span></b><b><span
+lang=EN-US style='font-size:12.0pt;mso-ansi-language:EN-US'>Borland</span></b><b><span
+lang=EN-US style='font-size:12.0pt'> </span></b><b><span lang=EN-US
+style='font-size:12.0pt;mso-ansi-language:EN-US'>Pascal</span></b><b><span
+style='font-size:12.0pt'> 7.0<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Цель работы:</span></b><span
+style='font-size:12.0pt'> Изучение графических функций и примитивов графической
+библиотеки </span><span lang=EN-US style='font-size:12.0pt;mso-ansi-language:
+EN-US'>Borland</span><span lang=EN-US style='font-size:12.0pt'> </span><span
+lang=EN-US style='font-size:12.0pt;mso-ansi-language:EN-US'>Pascal</span><span
+style='font-size:12.0pt'> 7.0, а также основных приемов построения графических
+программ в среде </span><span lang=EN-US style='font-size:12.0pt;mso-ansi-language:
+EN-US'>Borland</span><span lang=EN-US style='font-size:12.0pt'> </span><span
+lang=EN-US style='font-size:12.0pt;mso-ansi-language:EN-US'>Pascal</span><span
+style='font-size:12.0pt'> 7.0.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Рассматриваемые вопросы:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:66.05pt;text-align:justify;text-indent:
+-23.5pt;line-height:120%;mso-list:l31 level1 lfo29;tab-stops:list 66.05pt'><![if !supportLists]><span
+style='font-size:12.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Графические функции </span><span
+lang=EN-US style='font-size:12.0pt;mso-ansi-language:EN-US'>Borland</span><span
+lang=EN-US style='font-size:12.0pt'> </span><span lang=EN-US style='font-size:
+12.0pt;mso-ansi-language:EN-US'>Pascal</span><span style='font-size:12.0pt'>
+7.0.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:66.05pt;text-align:justify;text-indent:
+-23.5pt;line-height:120%;mso-list:l31 level1 lfo29;tab-stops:list 66.05pt'><![if !supportLists]><span
+style='font-size:12.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Графические примитивы,
+их свойства и функции построения графических примитивов в </span><span
+lang=EN-US style='font-size:12.0pt;mso-ansi-language:EN-US'>Borland</span><span
+lang=EN-US style='font-size:12.0pt'> </span><span lang=EN-US style='font-size:
+12.0pt;mso-ansi-language:EN-US'>Pascal</span><span style='font-size:12.0pt'>
+7.0.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:66.05pt;text-align:justify;text-indent:
+-23.5pt;line-height:120%;mso-list:l31 level1 lfo29;tab-stops:list 66.05pt'><![if !supportLists]><span
+style='font-size:12.0pt'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Моделирование сцены в
+мировых координатах и преобразование мировых координат в экранные для
+отображение сцены на компьютере.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:66.05pt;text-align:justify;text-indent:
+-23.5pt;line-height:120%;mso-list:l31 level1 lfo29;tab-stops:list 66.05pt'><![if !supportLists]><span
+style='font-size:12.0pt'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Разработка программы
+отображения двухмерных сцен.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Задание к лабораторной работе:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><span style='font-size:12.0pt'>Смоделировать и отобразить на экране
+изображение, состоящее из нескольких графических объектов. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Контрольные вопросы:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:66.05pt;text-align:justify;text-indent:
+-23.5pt;line-height:120%;mso-list:l39 level1 lfo31;tab-stops:list 66.05pt'><![if !supportLists]><span
+style='font-size:12.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Опишите структуру
+графической программы, написанной в среде </span><span lang=EN-US
+style='font-size:12.0pt;mso-ansi-language:EN-US'>Borland</span><span
+lang=EN-US style='font-size:12.0pt'> </span><span lang=EN-US style='font-size:
+12.0pt;mso-ansi-language:EN-US'>Pascal</span><span style='font-size:12.0pt'>
+7.0.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:66.05pt;text-align:justify;text-indent:
+-23.5pt;line-height:120%;mso-list:l39 level1 lfo31;tab-stops:list 66.05pt'><![if !supportLists]><span
+style='font-size:12.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Опишите состав
+графической библиотеки </span><span lang=EN-US style='font-size:12.0pt;
+mso-ansi-language:EN-US'>Borland</span><span lang=EN-US style='font-size:12.0pt'>
+</span><span lang=EN-US style='font-size:12.0pt;mso-ansi-language:EN-US'>Pascal</span><span
+style='font-size:12.0pt'> 7.0 и ее функции.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:66.05pt;text-align:justify;text-indent:
+-23.5pt;line-height:120%;mso-list:l39 level1 lfo31;tab-stops:list 66.05pt'><![if !supportLists]><span
+style='font-size:12.0pt'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Перечислите графические
+примитивы и функции построения графических примитивов в </span><span
+lang=EN-US style='font-size:12.0pt;mso-ansi-language:EN-US'>Borland</span><span
+lang=EN-US style='font-size:12.0pt'> </span><span lang=EN-US style='font-size:
+12.0pt;mso-ansi-language:EN-US'>Pascal</span><span style='font-size:12.0pt'>
+7.0.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:66.05pt;text-align:justify;text-indent:
+-23.5pt;line-height:120%;mso-list:l39 level1 lfo31;tab-stops:list 66.05pt'><![if !supportLists]><span
+style='font-size:12.0pt'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Поясните организацию
+сцены и соответствующей структуры данных.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:66.05pt;text-align:justify;text-indent:
+-23.5pt;line-height:120%;mso-list:l39 level1 lfo31;tab-stops:list 66.05pt'><![if !supportLists]><span
+style='font-size:12.0pt'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Что такое мировые и
+оконные координаты? Каким образом выполняются преобразования мировых координат
+в оконные?<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:120%'><span style='font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:120%'><b><span
+style='font-size:12.0pt'>Лабораторная работа 2. Аффинные преобразования на
+плоскости<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><span style='font-size:12.0pt'>Цель работы: Изучение аффинных
+преобразований на плоскости и разработка программы, реализующей аффинные
+преобразования объектов на плоскости.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Рассматриваемые вопросы:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l10 level1 lfo28;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Аффинные преобразования
+на плоскости. Частные случаи аффинных преобразований на плоскости.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l10 level1 lfo28;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Разработать программу,
+реализующую аффинные преобразования двухмерных объектов и групп объектов.
+Программу, созданную в предыдущей работе, использовать в качестве прототипа.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Задание к лабораторной работе:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><span style='font-size:12.0pt'>Над объектами и группами объектов,
+состоящих из нескольких двухмерных объектов, заданных в мировых координатах,
+выполнить поочередно операции перемещения, отражения, поворота,
+масштабирования.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Контрольные вопросы:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Определение аффинных
+преобразований на плоскости.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Что сохраняется при
+аффинных преобразованиях.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Во что отображаются при
+аффинных преобразованиях следующие геометрические объекты: угол, параллельные
+прямые, пересекающие прямые, начало координат, точка в бесконечности.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Запишите уравнения,
+задающие общие аффинные преобразования на плоскости.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Запишите матрицу,
+задающую общие аффинные преобразования на плоскости.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Запишите уравнения,
+задающие перенос<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Запишите уравнения,
+задающие поворот<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Запишите уравнения,
+задающие масштаб.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Запишите матрицу,
+задающую перенос. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>10.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Запишите матрицу,
+задающую поворот. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>11.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Матрица, задающая
+масштаб.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>12.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Композиция аффинных
+преобразований. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>13.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Способ задания
+многоугольника (фигуры) матрицей.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l24 level1 lfo34;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>14.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Однородные координаты.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:120%'><span style='font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:120%'><b><span
+style='font-size:12.0pt'>Лабораторная работа 3. Аффинные преобразования в
+пространстве<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Цель работы:</span></b><i><span
+style='font-size:12.0pt'> </span></i><span style='font-size:12.0pt'>Изучение
+аффинных преобразований в пространстве. Разработка программы, реализующей
+аффинные преобразования объектов в пространстве.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Рассматриваемые вопросы:<o:p></o:p></span></b></p>
+
+<p class=MsoBodyTextIndent3 style='margin-left:66.05pt;text-indent:-23.5pt;
+line-height:120%;mso-list:l8 level1 lfo33;tab-stops:list 66.05pt'><![if !supportLists]><span
+style='font-size:12.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Трехмерные мировые
+координаты. Преобразование координат.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:66.05pt;text-align:justify;text-indent:
+-23.5pt;line-height:120%;mso-list:l8 level1 lfo33;tab-stops:list 66.05pt'><![if !supportLists]><span
+style='font-size:12.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Аффинные преобразования
+в пространстве. Частные случаи аффинных преобразований в пространстве.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:66.05pt;text-align:justify;text-indent:
+-23.5pt;line-height:120%;mso-list:l8 level1 lfo33;tab-stops:list 66.05pt'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-weight:bold'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Разработать программу,
+реализующую аффинные преобразования трехмерных объектов и групп объектов.<b><o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='margin-left:35.45pt;text-align:justify;line-height:
+120%'><b><span style='font-size:12.0pt'>Задание к лабораторной работе:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><span style='font-size:12.0pt'>Над трехмерными объектами и группами
+трехмерных объектов, заданных в мировых координатах, выполнить операции
+перемещения, отражения, поворота, масштабирования. Считать, что плоскость
+проецирования расположен параллельно плоскости </span><span lang=EN-US
+style='font-size:12.0pt;mso-ansi-language:EN-US'>XY</span><span
+style='font-size:12.0pt'>, при преобразовании из трехмерных координат в
+двухмерные координата </span><span lang=EN-US style='font-size:12.0pt;
+mso-ansi-language:EN-US'>z</span><span style='font-size:12.0pt'> отбрасывается.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Контрольные вопросы:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l9 level1 lfo35;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Определение аффинных
+преобразований в пространстве<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l9 level1 lfo35;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Что сохраняется при
+аффинных преобразованиях в пространстве?<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l9 level1 lfo35;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Запишите уравнения,
+задающие общие аффинные преобразования в пространстве.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l9 level1 lfo35;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Запишите матрицу,
+задающую общие аффинные преобразования в пространстве.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:2.0cm;text-align:justify;text-indent:
+-21.25pt;line-height:120%;mso-list:l9 level1 lfo35;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Способ задания
+многогранника<span style="mso-spacerun: yes">  </span>матрицей тела и
+преобразование матрицы тела.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:120%'><u><span style='font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></u></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:120%'><b><span
+style='font-size:12.0pt'>Лабораторная работа 4. Построение плоских проекций
+трехмерных объектов<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Цель работы: </span></b><span
+style='font-size:12.0pt'>Знакомство с<span style="mso-spacerun: yes"> 
+</span>основными видами центральных и параллельных<span style="mso-spacerun:
+yes">  </span>проекций.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.45pt;line-height:120%'><b><span
+style='font-size:12.0pt'>Рассматриваемые вопросы:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:49.65pt;text-align:justify;text-indent:
+-14.2pt;line-height:120%'><span style='font-size:12.0pt'>1. Способы построения
+плоских проекций. Параллельные и центральные проекции.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:49.65pt;text-align:justify;text-indent:
+-14.2pt;line-height:120%'><span style='font-size:12.0pt'>2. Параллельные
+проекции <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:49.65pt;text-align:justify;line-height:
+120%'><span style='font-size:12.0pt'>2.1. Ортографическая проекция.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:49.65pt;text-align:justify;line-height:
+120%'><span style='font-size:12.0pt'>2.2.. Косоугольная проекция.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:49.65pt;text-align:justify;line-height:
+120%'><span style='font-size:12.0pt'>2.3. Аксонометрическая проекция <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:78.0pt;text-align:justify;text-indent:
+-14.2pt;line-height:120%'><span style='font-size:12.0pt'>2.3.1. Изометрия<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:78.0pt;text-align:justify;text-indent:
+-14.2pt;line-height:120%'><span style='font-size:12.0pt'>2.3.2. Диметрия<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:99.25pt;text-align:justify;text-indent:
+-35.45pt;line-height:120%;tab-stops:3.0cm'><span style='font-size:12.0pt'>2.3.3.
+Триметрия<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:49.65pt;text-align:justify;text-indent:
+-14.2pt;line-height:120%'><span style='font-size:12.0pt'>3. Центральные
+проекции<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:49.65pt;text-align:justify;line-height:
+120%'><span style='font-size:12.0pt'>3.1.<span style="mso-spacerun: yes"> 
+</span>Перспективная проекция<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Задание к лабораторной работе:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><span style='font-size:12.0pt'>Построить для выбранных трехмерных
+объектов ортографическую проекцию.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Контрольные вопросы:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:63.8pt;text-align:justify;text-indent:
+-1.0cm;line-height:120%;mso-list:l11 level1 lfo36;tab-stops:list 49.65pt'><![if !supportLists]><span
+style='font-size:12.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Что такое проекция? В
+чем заключается процесс проецирования?<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.8pt;text-align:justify;text-indent:
+-1.0cm;line-height:120%;mso-list:l11 level1 lfo36;tab-stops:list 49.65pt 63.8pt'><![if !supportLists]><span
+style='font-size:12.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Что такое центр проекции
+и проекторы.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.8pt;text-align:justify;text-indent:
+-1.0cm;line-height:120%;mso-list:l11 level1 lfo36;tab-stops:list 49.65pt 63.8pt'><![if !supportLists]><span
+style='font-size:12.0pt'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Что такое проекционная
+плоскость.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.8pt;text-align:justify;text-indent:
+-1.0cm;line-height:120%;mso-list:l11 level1 lfo36;tab-stops:list 49.65pt 63.8pt'><![if !supportLists]><span
+style='font-size:12.0pt'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Какая проекция является
+центральной.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.8pt;text-align:justify;text-indent:
+-1.0cm;line-height:120%;mso-list:l11 level1 lfo36;tab-stops:list 49.65pt 63.8pt'><![if !supportLists]><span
+style='font-size:12.0pt'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Какая проекция является
+параллельной? Виды параллельных проекций.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.8pt;text-align:justify;text-indent:
+-1.0cm;line-height:120%;mso-list:l11 level1 lfo36;tab-stops:list 49.65pt 63.8pt'><![if !supportLists]><span
+style='font-size:12.0pt'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Что сохраняется при
+ортографической проекции.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.8pt;text-align:justify;text-indent:
+-1.0cm;line-height:120%;mso-list:l11 level1 lfo36;tab-stops:list 49.65pt 63.8pt'><![if !supportLists]><span
+style='font-size:12.0pt'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Что сохраняется при
+аксонометрической проекции.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.8pt;text-align:justify;text-indent:
+-1.0cm;line-height:120%;mso-list:l11 level1 lfo36;tab-stops:list 49.65pt 63.8pt'><![if !supportLists]><span
+style='font-size:12.0pt'>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Что такое косоугольная проекция?
+Типы косоугольных проекций.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.8pt;text-align:justify;text-indent:
+-1.0cm;line-height:120%;mso-list:l11 level1 lfo36;tab-stops:list 49.65pt 63.8pt'><![if !supportLists]><span
+style='font-size:12.0pt'>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Что сохраняется (не
+сохраняется) при косоугольных проекциях.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.8pt;text-align:justify;text-indent:
+-1.0cm;line-height:120%;mso-list:l11 level1 lfo36;tab-stops:list 49.65pt 63.8pt'><![if !supportLists]><span
+style='font-size:12.0pt'>10.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Что такое перспективная
+проекция.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.8pt;text-align:justify;text-indent:
+-1.0cm;line-height:120%;mso-list:l11 level1 lfo36;tab-stops:list 49.65pt 63.8pt'><![if !supportLists]><span
+style='font-size:12.0pt'>11.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Что такое перспективное
+преобразование.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.8pt;text-align:justify;text-indent:
+-1.0cm;line-height:120%;mso-list:l11 level1 lfo36;tab-stops:list 49.65pt 63.8pt'><![if !supportLists]><span
+style='font-size:12.0pt'>12.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>В какие точки
+отображаются при перспективной проекции начало координат, точка в
+бесконечности.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:63.8pt;text-align:justify;text-indent:
+-1.0cm;line-height:120%;mso-list:l11 level1 lfo36;tab-stops:list 49.65pt 63.8pt'><![if !supportLists]><span
+style='font-size:12.0pt'>13.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Что такое точки схода.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:120%'><i><span style='font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></i></p>
+
+<p class=MsoNormal align=center style='text-align:center;line-height:120%'><b><span
+style='font-size:12.0pt'>Лабораторная работа 5. Удаление невидимых линий и
+поверхностей<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Цель работы: </span></b><span
+style='font-size:12.0pt'>Изучение алгоритмов удаления невидимых линий и
+поверхностей.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:35.45pt;line-height:120%'><b><span
+style='font-size:12.0pt'>Рассматриваемые вопросы:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:19.5pt;text-align:justify;text-indent:
+15.95pt;line-height:120%;mso-list:l7 level1 lfo37;tab-stops:list 49.65pt'><![if !supportLists]><span
+style='font-size:12.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Картинные алгоритмы
+удаления невидимых линий и поверхностей.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:19.5pt;text-align:justify;text-indent:
+15.95pt;line-height:120%;mso-list:l7 level1 lfo37;tab-stops:list 49.65pt'><![if !supportLists]><span
+style='font-size:12.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Объектные удаления
+невидимых линий и поверхностей.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Задание к лабораторной работе:<o:p></o:p></span></b></p>
+
+<p class=MsoBodyTextIndent3 style='line-height:120%'><span style='font-size:
+12.0pt'>Разработать программу, реализующую удаление невидимых линий для
+каркасной модели трехмерных объектов на основе метода определения нормали к
+граням.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:35.45pt;line-height:
+120%'><b><span style='font-size:12.0pt'>Контрольные вопросы:<o:p></o:p></span></b></p>
+
+<p class=MsoBodyTextIndent3 style='margin-left:91.7pt;text-indent:-56.25pt;
+line-height:120%;mso-list:l26 level1 lfo40;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Когда применяются
+алгоритмы удаления невидимых линий и поверхностей?<o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent3 style='margin-left:91.7pt;text-indent:-56.25pt;
+line-height:120%;mso-list:l26 level1 lfo40;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'><span
+style="mso-spacerun: yes"> </span>Как классифицируются алгоритмы удаления
+невидимых линий и поверхностей?<o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent3 style='margin-left:91.7pt;text-indent:-56.25pt;
+line-height:120%;mso-list:l26 level1 lfo40;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Каким образом можно
+повысить быстродействие алгоритмов удаления невидимых линий и поверхностей?<o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent3 style='margin-left:91.7pt;text-indent:-56.25pt;
+line-height:120%;mso-list:l26 level1 lfo40;tab-stops:list 2.0cm'><![if !supportLists]><span
+style='font-size:12.0pt'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:12.0pt'>Какие структуры данных
+удобно применять при реализации алгоритмов удаления невидимых линий и
+поверхностей?<o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:120%'><span style='font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

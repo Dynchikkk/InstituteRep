@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+   <META NAME="Author" CONTENT="Ерёмин Алексей">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <TITLE>Пример</TITLE>
+</HEAD>
+<BODY>
+&nbsp;
+<HR SIZE=1 WIDTH="100%">
+<CENTER><TABLE BORDER COLS=1 WIDTH="100%" BGCOLOR="#33CCFF" >
+<TR ALIGN=CENTER VALIGN=CENTER>
+<TD>Текст программы описания параметризуемой модели матрицы резисторов</TD>
+</TR>
+</TABLE></CENTER>
+
+
+<P>Пример:
+
+<P>(defun c:R ()
+<BR>(setq BLIP (getvar “BLIPMODE”))
+<BR>(setq CMD (getvar “CMDECHO”))
+<BR>(setvar “BLIPMODE” 0 )
+<BR>&nbsp;
+<BR>(setvar «CMDECHO» 0)
+<BR>(ENTER_REZ)
+<BR>(ENTER_ARR)
+<BR>(REZ)
+<BR>(ARR)
+<BR>(setvar "BLIPMODE" BLIP)
+<BR>(setvar «CMDECHO» CMD)
+<BR>)
+<BR>(defun REZ()
+<BR>(command "REDRAW")
+<BR>(command "LIMITS" «» (list 500 500))
+<BR>(command "ZOOM ” “A”)
+<BR>(command "COLOR" "GREEN")
+<BR>(command "PLINE"
+<BR>(list X0 Y0)
+<BR>“W” “0.1” “”
+<BR>(list (+ ?0 SHREZ) Y0)
+<BR>(list (+ X0 SHREZ) (+ Y0 (- YHAB SHREZ)))
+<BR>(list (+ X0 (- (/ XHAB 2) (/ SHREZ 2)) (+ YO (- YHAB SHREZ)))
+<BR>(list (+ X0 (- (/ XHAB 2) (/ SHREZ 2)) Y0)
+<BR>(list (+ X0 XHAB) Y0)
+<BR>(list (+ X0 XHAB) (+ Y0 YHAB))
+<BR>(list (+ X0 (- XHAB SHREZ) (+ Y0 YHAB))
+<BR>(list (+ X0 (- XHAB SHREZ) (+ YO SHREZ))
+<BR>(list (+ X0 (+ (/ ?HA? 2) (/ SHREZ 2)) (+ Y0 SHREZ))
+<BR>(list (+ X0 (+ (/ XHAB 2) (/ SHREZ 2)) (+ YO YHAB))
+<BR>(list X0 (+ YO YHAB))
+<BR>“C”
+<BR>)
+<BR>(command “REDRAW”)
+<BR>(command “HATCH" "U" ".05" "N" "L" "")
+<BR>)
+
+<P>(defun ENTER_REZ ()
+<BR>(initget 4)
+<BR>(setq X0 (getdist "\n X0? &lt;0.0000> "))
+<BR>(if (= X0 nil) (setq XO 0.0))
+<BR>(initget 4)
+<BR>(setq Y0 (getdilst "\n Y0? &lt;0.0000>"))
+<BR>(If (= Y0 nil) (setq Y0 0.0))
+<BR>(initeet 4)
+<BR>(setq XHAB (getdist "\n XHAB? &lt;25.0000> “))
+<BR>(If (= XHAB nll) (setq XHAB 25.0))
+<BR>(initget 4)
+<BR>(setq Y?AB (getdlst "\n YHAB? &lt;10.0000> “))
+<BR>(If (= YHAB nil) (setq YHAB 10.0))
+<BR>(initget 4)
+<BR>(setq SHREZ (getdist "\n SHREZ? &lt;5.0000> "))
+<BR>&nbsp;(if SHREZ nil) (setq SHREZ 5.0))
+<BR>)
+<BR>(defun ENTER_ARR ()
+<BR>(initget 6)
+<BR>(setq ?N (getint "\n Number of column? &lt;1> "))
+<BR>(If (= CN nil) (setq CN 1))
+<BR>(initget 6)
+<BR>(setq RN (getint "\n Number of rows? &lt;1> “))
+<BR>(If (= RN nil) (setq RN 1 ))
+<BR>)
+<BR>(defun ARR ()
+<BR>(setq FL 0)
+<BR>(cond ((> RN 1) (setq FL 1)))
+<BR>(cond ((> CN 1) (setq FL (+ FL 2))))
+<BR>(cond
+<BR>&nbsp;&nbsp;&nbsp;&nbsp; ((= FL 1) (command "ARRAY" "L" “”&nbsp; "R"
+RN "1" DY))
+<BR>&nbsp;&nbsp;&nbsp;&nbsp; ((= FL 2) (command "ARRAY" "L" "" "R" "1"
+CN DX))
+<BR>&nbsp;&nbsp;&nbsp;&nbsp; ((= FL 3) (command "ARRAY" "L" "” "R" RN CN
+DY D?))
+<BR>)
+<BR>)
+
+<P>
+<HR SIZE=1 WIDTH="100%">
+</BODY>
+</HTML>
