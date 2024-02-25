@@ -48,7 +48,10 @@
     <Image Include="pic1.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="pic2.bmp">
+    <Image Include="pic3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bg.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

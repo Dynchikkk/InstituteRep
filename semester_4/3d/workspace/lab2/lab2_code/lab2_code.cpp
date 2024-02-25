@@ -1,6 +1,8 @@
 ﻿// lab2_code.cpp : Defines the entry point for the application.
 //
 #include <tchar.h>
+#include <thread>
+#include <chrono>
 
 #include "framework.h"
 #include "lab2_code.h"
@@ -22,31 +24,21 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int timerID = -1;
 
-int currSprite = -1;
+int currSprite = 0;
 int x = 0, y = 0;
+bool firstDraw = true;
 
 HBITMAP animSprites[SPRITE_COUNT];
 HBITMAP BG;
 
 void InstantiateSprites()
 {
-    HBITMAP pic1 = (HBITMAP)LoadImageW(NULL, L"C:\\Users\\maxim\\Documents\\GitHub\\InstituteRep\\semester_4\\3d\\workspace\\lab2\\lab2_code\\pic1.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
-    HBITMAP pic2 = (HBITMAP)LoadImageW(NULL, L"C:\\Users\\maxim\\Documents\\GitHub\\InstituteRep\\semester_4\\3d\\workspace\\lab2\\lab2_code\\pic3.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
-    BG = (HBITMAP)LoadImageW(NULL, L"C:\\Users\\maxim\\Documents\\GitHub\\InstituteRep\\semester_4\\3d\\workspace\\lab2\\lab2_code\\bg.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+    HBITMAP pic1 = (HBITMAP)LoadImageW(NULL, L"pic1.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+    HBITMAP pic2 = (HBITMAP)LoadImageW(NULL, L"pic3.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+    BG = (HBITMAP)LoadImageW(NULL, L"bg.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
  
     animSprites[0] = pic1;
     animSprites[1] = pic2;
-    //animSprites[2] = pic3;
-}
-
-void Clear(HDC hdc)
-{
-    HBITMAP pic = animSprites[currSprite % SPRITE_COUNT];
-
-    HDC memdc = CreateCompatibleDC(hdc);
-    SelectObject(memdc, pic);
-    BitBlt(hdc, x, y, 200, 200, memdc, 0, 0, SRCINVERT);
-    DeleteDC(memdc);
 }
 
 void Draw(HDC hdc)
@@ -65,16 +57,6 @@ void DrawBG(HDC hdc)
     SelectObject(memdc, BG);
     BitBlt(hdc, 0, 0, 1600, 1200, memdc, 0, 0, SRCCOPY);
     DeleteDC(memdc);
-}
-
-void Animation(HDC hdc)
-{
-    Clear(hdc);
-    DrawBG(hdc);
-    x += 10;
-    y += 10;
-    currSprite++;
-    Draw(hdc);
 }
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -184,9 +166,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
-    case WM_CREATE:
+   /* case WM_CREATE:
         SetTimer(hWnd, timerID = 1, REFRESH_TIME_MS, NULL);
-        break;
+        break;*/
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
@@ -209,7 +191,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: Add any drawing code that uses hdc here...
-            Animation(hdc);
+            DrawBG(hdc);
+            while (true)
+            {
+                Draw(hdc);
+                std::this_thread::sleep_for(std::chrono::milliseconds(REFRESH_TIME_MS));
+                Draw(hdc);
+                x += 10;
+                y += 10;
+                currSprite++;
+            }
 
             EndPaint(hWnd, &ps);
         }

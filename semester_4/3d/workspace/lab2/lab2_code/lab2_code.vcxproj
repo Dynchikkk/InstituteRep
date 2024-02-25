@@ -139,9 +139,10 @@
     <ResourceCompile Include="lab2_code.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="bg.bmp" />
     <Image Include="lab2_code.ico" />
     <Image Include="pic1.bmp" />
-    <Image Include="pic2.bmp" />
+    <Image Include="pic3.bmp" />
     <Image Include="small.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
