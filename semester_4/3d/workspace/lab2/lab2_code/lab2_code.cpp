@@ -6,6 +6,8 @@
 #include "lab2_code.h"
 
 #define MAX_LOADSTRING 100
+#define REFRESH_TIME_MS 200
+#define SPRITE_COUNT 2
 
 // Global Variables:
 HINSTANCE hInst;                                // current instance
@@ -18,14 +20,61 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
-HBITMAP bmw;
+int timerID = -1;
+
+int currSprite = -1;
+int x = 0, y = 0;
+
+HBITMAP animSprites[SPRITE_COUNT];
+HBITMAP BG;
+
+void InstantiateSprites()
+{
+    HBITMAP pic1 = (HBITMAP)LoadImageW(NULL, L"C:\\Users\\maxim\\Documents\\GitHub\\InstituteRep\\semester_4\\3d\\workspace\\lab2\\lab2_code\\pic1.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+    HBITMAP pic2 = (HBITMAP)LoadImageW(NULL, L"C:\\Users\\maxim\\Documents\\GitHub\\InstituteRep\\semester_4\\3d\\workspace\\lab2\\lab2_code\\pic3.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+    BG = (HBITMAP)LoadImageW(NULL, L"C:\\Users\\maxim\\Documents\\GitHub\\InstituteRep\\semester_4\\3d\\workspace\\lab2\\lab2_code\\bg.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+ 
+    animSprites[0] = pic1;
+    animSprites[1] = pic2;
+    //animSprites[2] = pic3;
+}
+
+void Clear(HDC hdc)
+{
+    HBITMAP pic = animSprites[currSprite % SPRITE_COUNT];
+
+    HDC memdc = CreateCompatibleDC(hdc);
+    SelectObject(memdc, pic);
+    BitBlt(hdc, x, y, 200, 200, memdc, 0, 0, SRCINVERT);
+    DeleteDC(memdc);
+}
+
 void Draw(HDC hdc)
 {
-    // Load pic
+    HBITMAP pic = animSprites[currSprite % SPRITE_COUNT];
+
     HDC memdc = CreateCompatibleDC(hdc);
-    SelectObject(memdc, bmw);
-    BitBlt(hdc, 0, 0, 100, 100, memdc, 0, 0, SRCCOPY);
+    SelectObject(memdc, pic);
+    BitBlt(hdc, x, y, 200, 200, memdc, 0, 0, SRCINVERT);
     DeleteDC(memdc);
+}
+
+void DrawBG(HDC hdc)
+{
+    HDC memdc = CreateCompatibleDC(hdc);
+    SelectObject(memdc, BG);
+    BitBlt(hdc, 0, 0, 1600, 1200, memdc, 0, 0, SRCCOPY);
+    DeleteDC(memdc);
+}
+
+void Animation(HDC hdc)
+{
+    Clear(hdc);
+    DrawBG(hdc);
+    x += 10;
+    y += 10;
+    currSprite++;
+    Draw(hdc);
 }
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -37,7 +86,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: Place code here.
-    bmw = (HBITMAP)LoadImage(NULL, L"pic3.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+    InstantiateSprites();
 
     // Initialize global strings
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -135,6 +184,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+    case WM_CREATE:
+        SetTimer(hWnd, timerID = 1, REFRESH_TIME_MS, NULL);
+        break;
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
@@ -157,13 +209,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: Add any drawing code that uses hdc here...
-            Draw(hdc);
+            Animation(hdc);
 
             EndPaint(hWnd, &ps);
         }
         break;
     case WM_DESTROY:
         PostQuitMessage(0);
+        break;
+    case WM_TIMER:
+        RedrawWindow(hWnd, NULL, NULL, RDW_ERASE | RDW_INVALIDATE);
         break;
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
