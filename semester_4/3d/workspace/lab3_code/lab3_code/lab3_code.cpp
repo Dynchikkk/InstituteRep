@@ -12,9 +12,13 @@
 int winSizeX = 800;
 int winSizeY = 800;
 
-int maxN = 30;
+bool looped = true;
+
 double step = 0.001;
-double minX = 0, maxY = 1, minI = -1.7, maxI = 1.7;
+int iterationsCount = 30;
+double minX = 0, maxY = 1;
+double minI = -2.84, maxI = 1;
+double zoomFactor = 2;
 
 // Global Variables:
 HINSTANCE hInst;                                // current instance
@@ -161,34 +165,50 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         PAINTSTRUCT ps;
         HDC hdc = BeginPaint(hWnd, &ps);
 
-        for (double x = minX; x < maxY; x += step)
+        int count = 0;
+        
+        while (true)
         {
-            for (double y = minX; y < maxY; y += step)
+            maxI -= 0.1 * zoomFactor;
+            minI += 0.15 * zoomFactor;
+            zoomFactor *= 0.99;
+            iterationsCount += 1;
+
+            if (count > 30)
+                iterationsCount *= 1.02;
+
+            for (double x = minX; x < maxY; x += step)
             {
-                int r, g, b;
-
-                double pointX = lerp(minI, maxI, x);
-                double pointY = lerp(minI, maxI, y);
-
-                int iters = IsInSet(std::complex<double>(pointX, pointY), maxN);
-                if (iters == 0)
+                for (double y = minX; y < maxY; y += step)
                 {
-                    r = 0;
-                    g = 0;
-                    b = 0;
+                    int r, g, b;
+
+                    double pointX = lerp(minI, maxI, x);
+                    double pointY = lerp(minI, maxI, y);
+
+                    int iters = IsInSet(std::complex<double>(pointX, pointY), iterationsCount);
+                    if (iters == 0)
+                    {
+                        r = 0;
+                        g = 0;
+                        b = 0;
+                    }
+                    else
+                    {
+                        /*r = 12 * iters % 255;
+                        g = 16 * iters % 255;
+                        b = 20 * iters % 255;*/
+                        r = ((int)(iters * sinf(iters)) % 256);
+                        g = ((iters * 10) % 256);
+                        b = iters % 256;
+                    }
+                    COLORREF col = RGB(r, g, b);
+                    SetPixel(hdc, x * winSizeX, y * winSizeX, col);
                 }
-                else
-                {
-                    /*r = 2 * iters % 255;
-                    g = 3 * iters % 255;
-                    b = 4 * iters % 255;*/
-                    r = ((int)(iters * sinf(iters)) % 256);
-                    g = ((iters * 10) % 256);
-                    b = (iters % 256);
-                }
-                COLORREF col = RGB(r, g, b);
-                SetPixel(hdc, x * winSizeX,y* winSizeX, col);
             }
+            if (!looped)
+                break;
+            count++;
         }
         break;
     }

@@ -8,7 +8,7 @@ int IsInSet(std::complex<double> c, int iterarions)
 	std::complex<double> z(0, 0);
 	for (size_t i = 0; i < iterarions; i++)
 	{
-		z = std::pow(z, 3) + std::pow(z, 2) + c;
+		z = std::pow(z, 4) + std::pow(z, 2) + c;
 		if (std::norm(z) > 8)
 			return i;
 	}
