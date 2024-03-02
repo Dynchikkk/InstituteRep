@@ -1,22 +1,21 @@
 #ifndef COMPLEX
 #define COMPLEX
 #include <complex>
-#include <numeric>
+#include <cmath>
 
-int IsInSet(std::complex<double> c, int iterarions)
+int mandelbroatComplex(std::complex<double> c, int limits)
 {
 	std::complex<double> z(0, 0);
-	for (size_t i = 0; i < iterarions; i++)
+	int iters = 0;
+	for (iters = 0; iters < limits; iters++)
 	{
-		z = std::pow(z, 4) + std::pow(z, 2) + c;
-		if (std::norm(z) > 8)
-			return i;
+		// norm(z) = z.real * z.real + z.imag * z.imag
+		if (std::norm(z) > 4)
+			return iters;
+		z = z * z/* * z * z + z * z*/ + c;
 	}
-	return 0;
-}
 
-double lerp(double start, double end, double amnt) {
-	return start + amnt * (end - start);
+	return limits;
 }
 #endif // !COMPLEX
 

@@ -9,16 +9,23 @@
 
 #define MAX_LOADSTRING 100
 
-int winSizeX = 800;
-int winSizeY = 800;
+const int WIN_SIZE_X = 1920;
+const int WIN_SIZE_Y = 1080;
 
-bool looped = true;
+const int MAX_ITERATIONS = 256;
 
-double step = 0.001;
-int iterationsCount = 30;
-double minX = 0, maxY = 1;
-double minI = -2.84, maxI = 1;
-double zoomFactor = 2;
+double offsetX = -0.3, offsetY = 0.3;
+double zoom = 0.5;
+
+// Coord
+double x_start = -2, x_fin = 2;
+double y_start = -2, y_fin = 2;
+//double x_start = -0.25, x_fin = 0.05;
+//double y_start = -0.95, y_fin = -0.75;
+//double x_start = -0.13, x_fin = -0.085;
+//double y_start = -0.91, y_fin = -0.88;
+//double x_start = -0.750222, x_fin = -0.749191;
+//double y_start = 0.031161, y_fin = 0.031752;
 
 // Global Variables:
 HINSTANCE hInst;                                // current instance
@@ -140,7 +147,23 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_SIZE:
-        SetWindowPos(hWnd, HWND_TOP, 0, 0, winSizeX, winSizeY, SWP_NOMOVE);
+        SetWindowPos(hWnd, HWND_TOP, 0, 0, WIN_SIZE_X, WIN_SIZE_Y, SWP_NOMOVE);
+        break;
+
+    case WM_KEYDOWN:
+        if (wParam == VK_PRIOR)
+            zoom *= 0.9;
+        else if (wParam == VK_NEXT)
+            zoom /= 0.9;
+        else if (wParam == VK_LEFT)
+            offsetX -= 0.5 * zoom;
+        else if (wParam == VK_RIGHT)
+            offsetX += 0.5 * zoom;
+        else if (wParam == VK_UP)
+            offsetY -= 0.5 * zoom;
+        else if (wParam == VK_DOWN)
+            offsetY += 0.5 * zoom;
+        RedrawWindow(hWnd, NULL, NULL, RDW_ERASE | RDW_INVALIDATE);
         break;
 
     case WM_COMMAND:
@@ -165,50 +188,28 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         PAINTSTRUCT ps;
         HDC hdc = BeginPaint(hWnd, &ps);
 
-        int count = 0;
-        
-        while (true)
+        int r = 0, g = 0, b = 0;
+        double size_x = static_cast<double>(WIN_SIZE_X);
+        double size_y = static_cast<double>(WIN_SIZE_Y);
+
+        for (size_t x = 0; x < WIN_SIZE_X; x++)
         {
-            maxI -= 0.1 * zoomFactor;
-            minI += 0.15 * zoomFactor;
-            zoomFactor *= 0.99;
-            iterationsCount += 1;
-
-            if (count > 30)
-                iterationsCount *= 1.02;
-
-            for (double x = minX; x < maxY; x += step)
+            for (size_t y = 0; y < WIN_SIZE_Y; y++)
             {
-                for (double y = minX; y < maxY; y += step)
-                {
-                    int r, g, b;
+                double c_real = x_start + (x / size_x) * (x_fin - x_start);
+                double c_img = y_start + (y / size_y) * (y_fin - y_start);
+                std::complex<double> c(c_real * zoom + offsetX, c_img * zoom + offsetY);
 
-                    double pointX = lerp(minI, maxI, x);
-                    double pointY = lerp(minI, maxI, y);
+                int value = mandelbroatComplex(c, MAX_ITERATIONS);
 
-                    int iters = IsInSet(std::complex<double>(pointX, pointY), iterationsCount);
-                    if (iters == 0)
-                    {
-                        r = 0;
-                        g = 0;
-                        b = 0;
-                    }
-                    else
-                    {
-                        /*r = 12 * iters % 255;
-                        g = 16 * iters % 255;
-                        b = 20 * iters % 255;*/
-                        r = ((int)(iters * sinf(iters)) % 256);
-                        g = ((iters * 10) % 256);
-                        b = iters % 256;
-                    }
-                    COLORREF col = RGB(r, g, b);
-                    SetPixel(hdc, x * winSizeX, y * winSizeX, col);
-                }
+
+                r = ((int)(value * sinf(value)) % 256);
+                g = ((value * 10) % 256);
+                b = value % 256;
+
+                COLORREF col = RGB(r, g, b);
+                SetPixel(hdc, x, y, col);
             }
-            if (!looped)
-                break;
-            count++;
         }
         break;
     }
