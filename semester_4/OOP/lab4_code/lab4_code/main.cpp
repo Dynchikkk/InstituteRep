@@ -57,7 +57,6 @@ private:
 	std::set<T> selfSet;
 };
 
-
 int main()
 {
 	OverloadSet<int> set1;
@@ -89,7 +88,7 @@ int main()
 	std::cout << "Set5 = set3 * set4: ";
 	set5.printD();
 
-	std::cout << "Power of set: " << set5() << std::endl;
+	std::cout << "Power of set5: " << set5() << std::endl;
 
 	return 0;
 }
