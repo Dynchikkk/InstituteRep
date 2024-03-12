@@ -1,0 +1,55 @@
+<!-- Get User Data-->
+<!-- Request -->
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+<soap:Body>
+	<GetUserDataRequest xmlns="http://example.org/kagyaniy">
+		<id>12345</id>
+	</GetUserDataRequest>
+</soap:Body>
+</soap:Envelope>
+<!-- Response -->
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<soap:Body>
+	<GetUserDataResponse xmlns=“http://example.org/kagyaniy”>
+		<UserData>
+			<icoLink>https://rick_roll_pic</icoLink>
+			<name>Vasyan</name>
+			<weight>150</weight>
+			<height>180</height>
+		</UserData>
+	</GetUserDataResponse>
+</soap:Body>
+</soap:Envelope>
+
+<!-- Get All Food-->
+<!-- Request -->
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+<soap:Body>
+	<GetFoodRequest xmlns="http://example.org/kagyaniy">
+		<type>dinner</type>
+	</GetFoodRequest>
+</soap:Body>
+</soap:Envelope>
+<!-- Response -->
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<soap:Body>
+	<GetFoodResponse xmlns=“http://example.org/kagyaniy”>
+		<FoodArray>
+			<SingleFood>
+				<icoLink>https://chicken</icoLink>
+				<name>chicken</name>
+				<kkal>250</kkal>
+			</SingleFood>
+			<SingleFood>
+				<icoLink>https://meat</icoLink>
+				<name>meat</name>
+				<kkal>300</kkal>
+			</SingleFood>
+		</FoodArray>
+	</GetFoodResponse>
+</soap:Body>
+</soap:Envelope>

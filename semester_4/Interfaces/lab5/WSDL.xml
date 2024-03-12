@@ -1,0 +1,56 @@
+<?xml version=“1.0” encoding=“UTF-8”?>
+<wsdl:definitions name=“KagYaniyAPI” targetNamespace=“http://kagyaniy.com/wsdl/”  xmlns:wsdl=“http://schemas.xmlsoap.org/wsdl/” xmlns:tns=“http://kag.yaniy.com/wsdl/”  xmlns:soap=“http://schemas.xmlsoap.org/wsdl/soap/” xmlns:xsd=“http://www.w3.org/2001/XMLSchema”>
+	<!-- Server Commands -->
+	<!-- Get user data -->
+	<wsdl:message name=“GetUserDataRequest”> <wsdl:part name=“id” type=“xsd:string”/> </wsdl:message>
+	<wsdl:message name=“GetUserDataResponse”> <wsdl:part name=“data” type=“tns:UserData”/> </wsdl.message>
+	<!-- Get all food -->
+	<wsdl:message name=“GetFoodRequest”> <wsdl:part name=“type” type=“xsd:string”/> </wsdl:message>
+	<wsdl:message name=“GetFoodResponse”> <wsdl:part name=“food” type=“tns:AllFood”/> </wsdl.message>
+
+	<wsdl:portType name=“KagYaniyCommand”>
+		<!-- Get user data -->
+		<wsdl:operation name=“GetUserData">
+			<wsdl.input message=“tns:GetUserDataRequest”/>
+			<wsdl:output message=“tns:GetUserDataResponse”/>
+		</wsdl:operation>
+		<!-- Get all food -->
+		<wsdl:operation name=“getAllFoodByTypeData">
+			<wsdl.input message=“tns:GetFoodRequest”/>
+			<wsdl:output message=“tns:GetFoodResponse”/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<!-- Server Types -->
+	<!-- UserData -->
+	<xsd:complexType name=“UserData”>
+		<xsd.sequence> 
+			<xsd:element name=“icoLink” type=“tns:string”/> 
+			<xsd:element name=“name” type=“tns:string”/> 
+			<xsd:element name=“weight” type=“tns:float”/> 
+			<xsd:element name=“height” type=“tns:float”/> 
+		</xsd:sequence>
+	</xsd.complexType>
+	
+	<!-- Food -->
+	<!-- Food Array -->
+	<xsd:complexType name=“FoodArray”>
+		<xsd.sequence> <xsd:element name=“food” type=“tns:SingleFood” minOccurs=“0”  maxOccurs=“32”/> </xsd:sequence> 
+	</xsd.complextType>
+	<!-- SingleFood -->
+	<xsd:complexType name=“SingleFood”>
+		<xsd.sequence> 
+			<xsd:element name=“icoLink” type=“tns:string”/> 
+			<xsd:element name=“name” type=“tns:string”/> 
+			<xsd:element name=“kkal” type=“tns:float”/>  
+		</xsd:sequence>
+	</xsd.complexType>
+	
+	<!-- Server commands descriprion -->
+	<wsdl:service name=“KagYaniyAPI”>
+		<wsdl:documentation xmlns=“http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity- secext-1.0.xsd”> Fitness Tracker Server Command Service. </wsdl:documentation>
+		<wsdl:port binding=“tns:KagYaniyBinding” name=“KagYaniyCommandPort”>
+			<soap:address location=“http://localhost/kagyaniy/commands.php”/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
