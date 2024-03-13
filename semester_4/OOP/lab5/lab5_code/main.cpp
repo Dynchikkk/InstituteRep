@@ -39,7 +39,7 @@ int main()
 
 	std::cout << DecToBase(143.367, 5) << std::endl;
 	std::cout << BaseToDec("1A3.367", 3) << std::endl;
-	std::cout << BaseToBase("1AAA3.367", 3) << std::endl;
+	std::cout << BaseToBase("1.AA3367", 3) << std::endl;
 
 	return 0;
 }
