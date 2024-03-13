@@ -8,16 +8,22 @@ template<typename T>
 class Set
 {
 public:
-	const int MAX_SIZE = 20;
+	const unsigned int MAX_SIZE = 20;
 	// Construct
 	Set()
 	{
 		_size = MAX_SIZE;
 		_set = new T[_size]{ (T)nullptr };
 	}
-	Set(T startVal)
+	Set(T startVal, unsigned int size)
 	{
-		_size = MAX_SIZE;
+		if (size <= 0 || size > MAX_SIZE)
+		{
+			std::cout << "Size too small or too big" << std::endl;
+			throw "Size too small or too big";
+		}
+
+		_size = size;
 		_set = new T[_size]{ (T)nullptr };
 		_set[0] = startVal;
 	}
@@ -38,6 +44,13 @@ public:
 			return;
 
 		int index = this->FindFreeSpace();
+
+		if (index == -1)
+		{
+			std::cout << "No free space" << std::endl;
+			throw "No free space";
+		}
+
 		_set[index] = val;
 	}
 
@@ -45,6 +58,19 @@ public:
 	{
 		if (!this->Contains(val))
 			return;
+
+		int counter = 0;
+		for (size_t i = 0; i < _size; i++)
+		{
+			if (_set[i] == (T)nullptr)
+				counter++;
+		}
+
+		if(counter == _size)
+		{
+			std::cout << "No space" << std::endl;
+			throw "No space";
+		}
 
 		for (size_t i = 0; i < _size; i++)
 		{
@@ -143,9 +169,18 @@ public:
 	{
 		return this->Size();
 	}
+	T& operator [](int index)
+	{
+		if (index < 0 || index > _size)
+		{ 
+			std::cout << "Index out of range" << std::endl;
+			throw "Index out of range";
+		}
+		return _set[index];
+	}
 
 private:
-	int _size = MAX_SIZE;
+	unsigned int _size = MAX_SIZE;
 	T* _set;
 
 	int FindFreeSpace()
