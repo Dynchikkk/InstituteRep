@@ -57,6 +57,17 @@ int main() {
 	set12.PrintData();
 	cout << "set123 = ";
 	set123.PrintData();
-	
+
+	cout << "\nDop" << endl;
+	cout << "Size of set12: " << set12.size() << endl;
+
+	set12.clear();
+	cout << "set12 after clear = ";
+	set12.PrintData();
+
+	set12.emplace(111);
+	cout << "set12 = ";
+	set12.PrintData();
+
 	return 0;
 }

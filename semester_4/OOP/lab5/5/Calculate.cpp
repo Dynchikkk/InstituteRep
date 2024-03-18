@@ -4,7 +4,7 @@
 #include <iostream>
 
 // private
-char digitToString[11] = { '0' , '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A'};
+char digitToString[11] = { '0' , '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A' };
 
 char DigitToString(int num)
 {
@@ -78,12 +78,8 @@ std::string DecToBase(float num, int accuracy)
 		fractal = DecToBaseFrac(num - (int)num, 9, accuracy);
 		res = integral + '.' + fractal;
 	}
-	catch (const char* err_message)
-	{
-		std::cout << "Can't convert dec to base: " << err_message << std::endl;
-		throw "Can't convert dec to base";
-	}
-	
+	catch (const char* err_message) { throw err_message;}
+
 	return res;
 }
 
@@ -92,7 +88,7 @@ float BaseToDec(std::string num, int accuracy)
 	float res = 0;
 	int iter = num.find('.');
 
-	if(iter == std::string::npos)
+	if (iter == std::string::npos)
 		throw "Incorrect num";
 	iter--;
 
@@ -133,11 +129,7 @@ std::string BaseToBase(std::string num, int accuracy)
 		baseToDec = BaseToDec(num, accuracy);
 		decToBase = DecToBase(baseToDec, accuracy);
 	}
-	catch (const char* err_message) 
-	{ 
-		std::cout << "Can't convert base to base: " << err_message << std::endl;
-		throw "Can't convert base to base";
-	}
+	catch (const char* err_message) { throw err_message; }
 
 	return decToBase;
 }
