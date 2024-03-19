@@ -1,0 +1,49 @@
+// POST /users/HTTP/1.1
+Host: kagyaniy.com
+Content-Type: application/json
+{
+	"id": 228,
+	"name": "Vasyan",
+	"height": 150,
+	"weight": 100
+}
+
+// 201 (Created)
+{
+	"id": 228,
+	"name": "Vasyan",
+	"height": 150,
+	"weight": 100
+}
+// 403 (Forbidden)
+{
+	"detail": "unauthorized"
+}
+// 400 (Bad request)
+{
+	"detail": "Validation Error"
+}
+
+// POST /food/HTTP/1.1
+Host: kagyaniy.com
+Content-Type: application/json
+{
+	"id": 1,
+	"name": "chicken",
+	"kkal": 200
+}
+
+// 201 (Created)
+{
+	"id": 1,
+	"name": "chicken",
+	"kkal": 200
+}
+// 403 (Forbidden)
+{
+	"detail": "unauthorized"
+}
+// 400 (Bad request)
+{
+	"detail": "Validation Error"
+}

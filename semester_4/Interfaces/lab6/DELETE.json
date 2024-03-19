@@ -1,0 +1,9 @@
+DELETE /users/228 HTTP/1.1
+Host: skiresort.com 
+
+// 200 (OK)
+// 204 (NO_CONTENT)
+// 403 (Forbidden)
+{
+	"detail": "unauthorized"
+}

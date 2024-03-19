@@ -1,0 +1,48 @@
+// GET /food/HTTP/1.1
+Host: kagyaniy.com
+Accept: application/json
+
+// 200 (OK)
+{
+	"food":
+	{
+		{
+			"id": 1,
+			"name": "chicken",
+			"kkal": 200
+		},
+		{
+			"id": 2,
+			"name": "meat",
+			"kkal": 300
+		},
+		{
+			"id": 3,
+			"name": "candy",
+			"kkal": 50
+		},
+	},
+	"metadata":
+	{
+		"total_count": 3
+	}
+}
+// 404 (Not found)
+{
+	"detail": "not found"
+}
+
+// GET /food?food_id=1/HTTP/1.1
+Host: kagyaniy.com
+Accept: application/json
+
+// 200 (OK)
+{
+	"id": 1,
+	"name": "chicken",
+	"kkal": 200
+}
+// 404 (Not found)
+{
+	"detail": "not found"
+}

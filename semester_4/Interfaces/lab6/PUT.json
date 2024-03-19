@@ -1,0 +1,29 @@
+// POST /users/228/HTTP/1.1
+Host: kagyaniy.com
+Content-Type: application/json
+{
+	"id": 228,
+	"name": "Vasyan Destroyer",
+	"height": 150,
+	"weight": 100
+}
+
+// 200 (OK)
+{
+	"id": 228,
+	"name": "Vasyan Destroyer",
+	"height": 150,
+	"weight": 100
+}
+// 403 (Forbidden)
+{
+	"detail": "unauthorized"
+}
+// 400 (Bad request)
+{
+	"detail": "bad request"
+}
+// 400 (Not found)
+{
+	"detail": "User with id=228 not found"
+}
