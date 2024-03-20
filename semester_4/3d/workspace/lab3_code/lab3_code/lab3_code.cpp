@@ -9,8 +9,8 @@
 
 #define MAX_LOADSTRING 100
 
-const int WIN_SIZE_X = 1920;
-const int WIN_SIZE_Y = 1080;
+const int WIN_SIZE_X = 800;
+const int WIN_SIZE_Y = 600;
 
 const int MAX_ITERATIONS = 256;
 

@@ -12,7 +12,7 @@ int mandelbroatComplex(std::complex<double> c, int limits)
 		// norm(z) = z.real * z.real + z.imag * z.imag
 		if (std::norm(z) > 4)
 			return iters;
-		z = z * z/* * z * z + z * z*/ + c;
+		z = z * z + c;
 	}
 
 	return limits;
