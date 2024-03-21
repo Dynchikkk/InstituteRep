@@ -200,8 +200,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 double c_img = y_start + (y / size_y) * (y_fin - y_start);
                 std::complex<double> c(c_real * zoom + offsetX, c_img * zoom + offsetY);
 
-                int value = mandelbroatComplex(c, MAX_ITERATIONS);
-
+                int value = mandelbroatComplex(c, MAX_ITERATIONS);  
 
                 r = ((int)(value * sinf(value)) % 256);
                 g = ((value * 10) % 256);
