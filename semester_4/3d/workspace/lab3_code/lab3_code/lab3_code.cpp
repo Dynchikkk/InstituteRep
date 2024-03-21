@@ -202,11 +202,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
                 int value = mandelbroatComplex(c, MAX_ITERATIONS);  
 
-                r = ((int)(value * sinf(value)) % 256);
-                g = ((value * 10) % 256);
-                b = value % 256;
-
-                COLORREF col = RGB(r, g, b);
+                COLORREF col = HSV(255 * value / MAX_ITERATIONS, 255, value < MAX_ITERATIONS ? 50 : 0);
                 SetPixel(hdc, x, y, col);
             }
         }
