@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conceptualgraph editor="CharGer" version="3.3b" created="Aug 14, 2004 10:25:00 AM" user="hsd">
+<graph id="35979485989" owner="0">
+    <type>
+        <label>aminus_fact_cg</label>
+    </type>
+    <layout>
+        <rectangle x="0" y="0" width="586" height="500"/>
+        <color foreground="0,0,175" background="0,0,175"/>
+    </layout>
+    <concept id="35979485994" owner="35979485989">
+        <type>
+            <label>Number</label>
+        </type>
+        <referent>
+            <label>-20</label>
+        </referent>
+        <layout>
+            <rectangle x="474" y="284" width="98" height="25"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <actor id="35979485993" owner="35979485989">
+        <type>
+            <label>minus</label>
+        </type>
+        <layout>
+            <rectangle x="337" y="213" width="54" height="25"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </actor>
+    <concept id="35979485992" owner="35979485989">
+        <type>
+            <label>Number</label>
+        </type>
+        <referent>
+            <label>20</label>
+        </referent>
+        <layout>
+            <rectangle x="85" y="56" width="98" height="25"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="35979485991" owner="35979485989">
+        <type>
+            <label>Number</label>
+        </type>
+        <referent>
+            <label>79</label>
+        </referent>
+        <layout>
+            <rectangle x="166" y="274" width="98" height="25"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <actor id="35979485996" owner="35979485989">
+        <type>
+            <label>minus</label>
+        </type>
+        <layout>
+            <rectangle x="185" y="150" width="60" height="25"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </actor>
+    <concept id="35979485995" owner="35979485989">
+        <type>
+            <label>Number</label>
+        </type>
+        <referent>
+            <label>99</label>
+        </referent>
+        <layout>
+            <rectangle x="315" y="60" width="98" height="25"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <arrow id="35979485999" owner="35979485989" label="2" from="35979485992" to="35979485996">
+        <layout>
+            <rectangle x="171" y="113" width="6" height="6"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979485998" owner="35979485989" label="-" from="35979485996" to="35979485991">
+        <layout>
+            <rectangle x="212" y="222" width="6" height="6"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486002" owner="35979485989" label="-" from="35979485993" to="35979485994">
+        <layout>
+            <rectangle x="440" y="258" width="6" height="6"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979485997" owner="35979485989" label="1" from="35979485995" to="35979485996">
+        <layout>
+            <rectangle x="286" y="115" width="6" height="6"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486001" owner="35979485989" label="1" from="35979485991" to="35979485993">
+        <layout>
+            <rectangle x="288" y="252" width="6" height="6"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486000" owner="35979485989" label="2" from="35979485995" to="35979485993">
+        <layout>
+            <rectangle x="361" y="146" width="6" height="6"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+</graph>
+
+</conceptualgraph>
+

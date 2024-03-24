@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conceptualgraph editor="CharGer" version="3.3b" created="Sep 16, 2004 12:26:30 PM" user="Harry Delugach">
+<graph id="35979486087" owner="0">
+    <type>
+        <label>Person_speaks_fact_cg</label>
+    </type>
+    <layout>
+        <rectangle x="0" y="0" width="1000" height="1000"/>
+        <color foreground="0,0,175" background="0,0,175"/>
+    </layout>
+    <graph id="38835743347" owner="35979486087" negated="true">
+        <type>
+            <label>Proposition</label>
+        </type>
+        <layout>
+            <rectangle x="161" y="109" width="454" height="116"/>
+            <color foreground="0,0,127" background="0,0,127"/>
+        </layout>
+        <concept id="38835743340" owner="38835743347">
+            <type>
+                <label>Raining</label>
+            </type>
+            <layout>
+                <rectangle x="169" y="136" width="61" height="25"/>
+                <color foreground="255,255,255" background="0,0,127"/>
+            </layout>
+        </concept>
+        <graph id="38835743346" owner="38835743347" negated="true">
+            <type>
+                <label>Proposition</label>
+            </type>
+            <layout>
+                <rectangle x="275" y="157" width="332" height="60"/>
+                <color foreground="0,0,127" background="0,0,127"/>
+            </layout>
+            <concept id="38835743341" owner="38835743346">
+                <type>
+                    <label>Ground</label>
+                </type>
+                <layout>
+                    <rectangle x="283" y="184" width="61" height="25"/>
+                    <color foreground="255,255,255" background="0,0,127"/>
+                </layout>
+            </concept>
+            <relation id="38835743342" owner="38835743346">
+                <type>
+                    <label>characteristic</label>
+                </type>
+                <layout>
+                    <rectangle x="409" y="184" width="104" height="25"/>
+                    <color foreground="0,0,0" background="255,231,100"/>
+                </layout>
+            </relation>
+            <concept id="38835743343" owner="38835743346">
+                <type>
+                    <label>Wet</label>
+                </type>
+                <layout>
+                    <rectangle x="564" y="184" width="35" height="25"/>
+                    <color foreground="255,255,255" background="0,0,127"/>
+                </layout>
+            </concept>
+        </graph>
+        <graph id="38835743346" owner="38835743347" negated="true">
+            <type>
+                <label>Proposition</label>
+            </type>
+            <layout>
+                <rectangle x="275" y="157" width="332" height="60"/>
+                <color foreground="0,0,127" background="0,0,127"/>
+            </layout>
+            <concept id="38835743341" owner="38835743346">
+                <type>
+                    <label>Ground</label>
+                </type>
+                <layout>
+                    <rectangle x="283" y="184" width="61" height="25"/>
+                    <color foreground="255,255,255" background="0,0,127"/>
+                </layout>
+            </concept>
+            <relation id="38835743342" owner="38835743346">
+                <type>
+                    <label>characteristic</label>
+                </type>
+                <layout>
+                    <rectangle x="409" y="184" width="104" height="25"/>
+                    <color foreground="0,0,0" background="255,231,100"/>
+                </layout>
+            </relation>
+            <concept id="38835743343" owner="38835743346">
+                <type>
+                    <label>Wet</label>
+                </type>
+                <layout>
+                    <rectangle x="564" y="184" width="35" height="25"/>
+                    <color foreground="255,255,255" background="0,0,127"/>
+                </layout>
+            </concept>
+        </graph>
+        <arrow id="38835743344" owner="38835743347" label="-" from="38835743341" to="38835743342">
+            <layout>
+                <rectangle x="374" y="193" width="6" height="6"/>
+                <color foreground="0,0,0" background="255,255,255"/>
+            </layout>
+        </arrow>
+        <arrow id="38835743345" owner="38835743347" label="-" from="38835743342" to="38835743343">
+            <layout>
+                <rectangle x="536" y="193" width="6" height="6"/>
+                <color foreground="0,0,0" background="255,255,255"/>
+            </layout>
+        </arrow>
+    </graph>
+    <graph id="38835743347" owner="35979486087" negated="true">
+        <type>
+            <label>Proposition</label>
+        </type>
+        <layout>
+            <rectangle x="161" y="109" width="454" height="116"/>
+            <color foreground="0,0,127" background="0,0,127"/>
+        </layout>
+        <concept id="38835743340" owner="38835743347">
+            <type>
+                <label>Raining</label>
+            </type>
+            <layout>
+                <rectangle x="169" y="136" width="61" height="25"/>
+                <color foreground="255,255,255" background="0,0,127"/>
+            </layout>
+        </concept>
+        <graph id="38835743346" owner="38835743347" negated="true">
+            <type>
+                <label>Proposition</label>
+            </type>
+            <layout>
+                <rectangle x="275" y="157" width="332" height="60"/>
+                <color foreground="0,0,127" background="0,0,127"/>
+            </layout>
+            <concept id="38835743341" owner="38835743346">
+                <type>
+                    <label>Ground</label>
+                </type>
+                <layout>
+                    <rectangle x="283" y="184" width="61" height="25"/>
+                    <color foreground="255,255,255" background="0,0,127"/>
+                </layout>
+            </concept>
+            <relation id="38835743342" owner="38835743346">
+                <type>
+                    <label>characteristic</label>
+                </type>
+                <layout>
+                    <rectangle x="409" y="184" width="104" height="25"/>
+                    <color foreground="0,0,0" background="255,231,100"/>
+                </layout>
+            </relation>
+            <concept id="38835743343" owner="38835743346">
+                <type>
+                    <label>Wet</label>
+                </type>
+                <layout>
+                    <rectangle x="564" y="184" width="35" height="25"/>
+                    <color foreground="255,255,255" background="0,0,127"/>
+                </layout>
+            </concept>
+        </graph>
+        <graph id="38835743346" owner="38835743347" negated="true">
+            <type>
+                <label>Proposition</label>
+            </type>
+            <layout>
+                <rectangle x="275" y="157" width="332" height="60"/>
+                <color foreground="0,0,127" background="0,0,127"/>
+            </layout>
+            <concept id="38835743341" owner="38835743346">
+                <type>
+                    <label>Ground</label>
+                </type>
+                <layout>
+                    <rectangle x="283" y="184" width="61" height="25"/>
+                    <color foreground="255,255,255" background="0,0,127"/>
+                </layout>
+            </concept>
+            <relation id="38835743342" owner="38835743346">
+                <type>
+                    <label>characteristic</label>
+                </type>
+                <layout>
+                    <rectangle x="409" y="184" width="104" height="25"/>
+                    <color foreground="0,0,0" background="255,231,100"/>
+                </layout>
+            </relation>
+            <concept id="38835743343" owner="38835743346">
+                <type>
+                    <label>Wet</label>
+                </type>
+                <layout>
+                    <rectangle x="564" y="184" width="35" height="25"/>
+                    <color foreground="255,255,255" background="0,0,127"/>
+                </layout>
+            </concept>
+        </graph>
+        <arrow id="38835743344" owner="38835743347" label="-" from="38835743341" to="38835743342">
+            <layout>
+                <rectangle x="374" y="193" width="6" height="6"/>
+                <color foreground="0,0,0" background="255,255,255"/>
+            </layout>
+        </arrow>
+        <arrow id="38835743345" owner="38835743347" label="-" from="38835743342" to="38835743343">
+            <layout>
+                <rectangle x="536" y="193" width="6" height="6"/>
+                <color foreground="0,0,0" background="255,255,255"/>
+            </layout>
+        </arrow>
+    </graph>
+</graph>
+
+</conceptualgraph>
+

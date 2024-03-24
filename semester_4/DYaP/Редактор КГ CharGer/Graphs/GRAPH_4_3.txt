@@ -1,0 +1,15 @@
+
+
+There is a Proposition where 
+x3 of a4 is a2
+x3 of a3 is a1
+x3 of a2 is a4
+x1 of a1 is a2
+x2 of a2 is a1
+x2 of a4 is a3
+x3 of a1 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x2 of a3 is a2 and 
+x1 of a2 is a3

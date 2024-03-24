@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conceptualgraph editor="CharGer" version="3.6" created="22.01.2023 22:37:44" user="Admin">
+<graph id="35979486033" owner="0">
+    <type>
+        <label>Proposition</label>
+    </type>
+    <layout>
+        <rectangle x="0.0" y="0.0" width="576.0" height="500.0"/>
+        <color foreground="0,0,175" background="0,0,175"/>
+    </layout>
+    <concept id="35979486039" owner="35979486033">
+        <type>
+            <label>Weight</label>
+        </type>
+        <referent>
+            <label>null</label>
+        </referent>
+        <layout>
+            <rectangle x="310.0" y="172.0" width="121.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="35979486038" owner="35979486033">
+        <type>
+            <label>Element</label>
+        </type>
+        <referent>
+            <label>null</label>
+        </referent>
+        <layout>
+            <rectangle x="452.0" y="256.0" width="143.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <actor id="35979486037" owner="35979486033">
+        <type>
+            <label>lookup</label>
+        </type>
+        <layout>
+            <rectangle x="70.0" y="127.0" width="58.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </actor>
+    <actor id="35979486036" owner="35979486033">
+        <type>
+            <label>lookup</label>
+        </type>
+        <layout>
+            <rectangle x="206.0" y="179.0" width="58.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </actor>
+    <actor id="35979486035" owner="35979486033">
+        <type>
+            <label>lookup</label>
+        </type>
+        <layout>
+            <rectangle x="350.0" y="249.0" width="58.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </actor>
+    <concept id="35979486042" owner="35979486033">
+        <type>
+            <label>Database</label>
+        </type>
+        <referent>
+            <label>DBElements.txt</label>
+        </referent>
+        <layout>
+            <rectangle x="26.0" y="284.0" width="190.0" height="32.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="35979486041" owner="35979486033">
+        <type>
+            <label>Element</label>
+        </type>
+        <referent>
+            <label>Hydrogen</label>
+        </referent>
+        <layout>
+            <rectangle x="36.0" y="67.0" width="143.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="35979486040" owner="35979486033">
+        <type>
+            <label>Symbol</label>
+        </type>
+        <referent>
+            <label>null</label>
+        </referent>
+        <layout>
+            <rectangle x="174.0" y="113.0" width="96.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <arrow id="35979486051" owner="35979486033" label="-" from="35979486041" to="35979486037">
+        <layout>
+            <rectangle x="100.65703" y="107.65625" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486050" owner="35979486033" label="-" from="35979486040" to="35979486036">
+        <layout>
+            <rectangle x="226.16158" y="156.82031" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486049" owner="35979486033" label="-" from="35979486036" to="35979486039">
+        <layout>
+            <rectangle x="282.46777" y="186.41864" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486048" owner="35979486033" label="-" from="35979486039" to="35979486035">
+        <layout>
+            <rectangle x="372.33105" y="221.23438" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486047" owner="35979486033" label="-" from="35979486035" to="35979486038">
+        <layout>
+            <rectangle x="425.76465" y="261.38654" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486046" owner="35979486033" label="-" from="35979486042" to="35979486037">
+        <layout>
+            <rectangle x="107.1513" y="214.70605" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486045" owner="35979486033" label="-" from="35979486042" to="35979486036">
+        <layout>
+            <rectangle x="179.7551" y="239.2002" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486044" owner="35979486033" label="-" from="35979486042" to="35979486035">
+        <layout>
+            <rectangle x="284.66602" y="272.70392" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486043" owner="35979486033" label="-" from="35979486037" to="35979486040">
+        <layout>
+            <rectangle x="145.03125" y="131.47612" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+</graph>
+
+</conceptualgraph>
+

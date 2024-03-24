@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conceptualgraph editor="CharGer" version="3.6" created="25.01.2023 20:42:44" user="Admin">
+<graph id="617815800117" owner="0">
+    <type>
+        <label>Proposition</label>
+    </type>
+    <layout>
+        <rectangle x="5.0" y="5.0" width="900.0" height="750.0"/>
+        <color foreground="0,0,175" background="0,0,175"/>
+    </layout>
+    <relation id="617907943264" owner="617815800117">
+        <type>
+            <label>x3</label>
+        </type>
+        <layout>
+            <rectangle x="697.0" y="534.5" width="40.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="617907943266" owner="617815800117">
+        <type>
+            <label>x3</label>
+        </type>
+        <layout>
+            <rectangle x="697.0" y="590.5" width="40.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="617907943268" owner="617815800117">
+        <type>
+            <label>x3</label>
+        </type>
+        <layout>
+            <rectangle x="780.0" y="589.5" width="40.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="617815801729" owner="617815800117">
+        <type>
+            <label>x1</label>
+        </type>
+        <layout>
+            <rectangle x="744.0" y="477.5" width="36.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="617815801730" owner="617815800117">
+        <type>
+            <label>x2</label>
+        </type>
+        <layout>
+            <rectangle x="747.0" y="428.5" width="36.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="617815801731" owner="617815800117">
+        <type>
+            <label>x2</label>
+        </type>
+        <layout>
+            <rectangle x="740.0" y="694.5" width="36.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="617907943262" owner="617815800117">
+        <type>
+            <label>x3</label>
+        </type>
+        <layout>
+            <rectangle x="776.0" y="532.5" width="40.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <concept id="617815801716" owner="617815800117">
+        <type>
+            <label>a1</label>
+        </type>
+        <layout>
+            <rectangle x="628.0" y="477.5" width="36.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="617815801717" owner="617815800117">
+        <type>
+            <label>a2</label>
+        </type>
+        <layout>
+            <rectangle x="854.0" y="480.5" width="36.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="617815801718" owner="617815800117">
+        <type>
+            <label>a4</label>
+        </type>
+        <layout>
+            <rectangle x="634.0" y="643.5" width="36.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="617815801719" owner="617815800117">
+        <type>
+            <label>a3</label>
+        </type>
+        <layout>
+            <rectangle x="849.0" y="641.5" width="36.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <relation id="617815801722" owner="617815800117">
+        <type>
+            <label>x1</label>
+        </type>
+        <layout>
+            <rectangle x="740.0" y="644.5" width="36.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="617815801723" owner="617815800117">
+        <type>
+            <label>x1</label>
+        </type>
+        <layout>
+            <rectangle x="630.0" y="558.5" width="36.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="617815801724" owner="617815800117">
+        <type>
+            <label>x2</label>
+        </type>
+        <layout>
+            <rectangle x="571.0" y="558.5" width="36.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="617815801725" owner="617815800117">
+        <type>
+            <label>x2</label>
+        </type>
+        <layout>
+            <rectangle x="910.0" y="559.5" width="36.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="617815801727" owner="617815800117">
+        <type>
+            <label>x1</label>
+        </type>
+        <layout>
+            <rectangle x="850.0" y="560.5" width="36.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <arrow id="617907943280" owner="617815800117" label="-" from="617907943266" to="617815801716">
+        <layout>
+            <rectangle x="679.497" y="544.791" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617907943283" owner="617815800117" label="-" from="617815801718" to="617907943264">
+        <layout>
+            <rectangle x="682.4706" y="598.21094" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801744" owner="617815800117" label="-" from="617815801716" to="617815801729">
+        <layout>
+            <rectangle x="701.9375" y="487.5" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617907943286" owner="617815800117" label="-" from="617907943264" to="617815801717">
+        <layout>
+            <rectangle x="791.2793" y="517.7511" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801746" owner="617815800117" label="-" from="617815801729" to="617815801717">
+        <layout>
+            <rectangle x="814.02344" y="488.987" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801747" owner="617815800117" label="-" from="617815801717" to="617815801730">
+        <layout>
+            <rectangle x="814.02344" y="463.53943" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617907943289" owner="617815800117" label="-" from="617815801717" to="617907943268">
+        <layout>
+            <rectangle x="832.97876" y="545.78906" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801749" owner="617815800117" label="-" from="617815801730" to="617815801716">
+        <layout>
+            <rectangle x="704.59766" y="462.34216" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617907943292" owner="617815800117" label="-" from="617907943268" to="617815801718">
+        <layout>
+            <rectangle x="724.3281" y="626.1979" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801751" owner="617815800117" label="-" from="617815801717" to="617815801727">
+        <layout>
+            <rectangle x="867.475" y="531.0" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801755" owner="617815800117" label="-" from="617815801719" to="617815801725">
+        <layout>
+            <rectangle x="895.7323" y="609.5156" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617907943271" owner="617815800117" label="-" from="617815801716" to="617907943262">
+        <layout>
+            <rectangle x="719.21094" y="515.2607" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801732" owner="617815800117" label="-" from="617815801725" to="617815801717">
+        <layout>
+            <rectangle x="898.12854" y="530.8867" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617907943274" owner="617815800117" label="-" from="617907943262" to="617815801719">
+        <layout>
+            <rectangle x="828.486" y="596.21094" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801735" owner="617815800117" label="-" from="617815801723" to="617815801716">
+        <layout>
+            <rectangle x="644.5104" y="528.4219" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617907943277" owner="617815800117" label="-" from="617815801719" to="617907943266">
+        <layout>
+            <rectangle x="788.78906" y="625.7583" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801736" owner="617815800117" label="-" from="617815801716" to="617815801724">
+        <layout>
+            <rectangle x="614.2578" y="529.0547" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801737" owner="617815800117" label="-" from="617815801724" to="617815801718">
+        <layout>
+            <rectangle x="617.18066" y="609.89453" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801738" owner="617815800117" label="-" from="617815801718" to="617815801731">
+        <layout>
+            <rectangle x="704.5469" y="679.9848" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801739" owner="617815800117" label="-" from="617815801731" to="617815801719">
+        <layout>
+            <rectangle x="808.16406" y="678.8927" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801740" owner="617815800117" label="-" from="617815801727" to="617815801719">
+        <layout>
+            <rectangle x="865.00525" y="610.5781" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801741" owner="617815800117" label="-" from="617815801719" to="617815801722">
+        <layout>
+            <rectangle x="809.8672" y="653.00366" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801742" owner="617815800117" label="-" from="617815801722" to="617815801718">
+        <layout>
+            <rectangle x="702.8906" y="654.00366" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="617815801743" owner="617815800117" label="-" from="617815801718" to="617815801723">
+        <layout>
+            <rectangle x="647.47925" y="610.5586" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+</graph>
+
+</conceptualgraph>
+

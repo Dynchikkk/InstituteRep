@@ -1,0 +1,303 @@
+
+
+There is a Proposition where 
+u4 of Proposition where 
+x3 of a4 is a2
+x3 of a3 is a1
+x3 of a2 is a4
+x1 of a1 is a2
+x2 of a2 is a1
+x3 of a4 is a3
+x3 of a1 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x4 of a3 is a2 and 
+x1 of a2 is a3 is Proposition where 
+x2 of a4 is a4
+x2 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x3 of a1 is a4
+x3 of a3 is a2
+x2 of a1 is a1
+x1 of a2 is a3
+x2 of a2 is a2
+x1 of a1 is a2
+x3 of a2 is a1 and 
+x3 of a4 is a3
+u3 of Proposition where 
+x2 of a4 is a4
+x2 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x3 of a1 is a4
+x3 of a3 is a2
+x2 of a1 is a1
+x1 of a2 is a3
+x2 of a2 is a2
+x1 of a1 is a2
+x3 of a2 is a1 and 
+x3 of a4 is a3 is Proposition where 
+x3 of a4 is a2
+x3 of a3 is a1
+x3 of a2 is a4
+x1 of a1 is a2
+x2 of a2 is a1
+x3 of a4 is a3
+x3 of a1 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x4 of a3 is a2 and 
+x1 of a2 is a3
+u4 of Proposition where 
+x3 of a4 is a4
+x3 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x2 of a3 is a2
+x3 of a1 is a1
+x1 of a2 is a3
+x3 of a2 is a2
+x1 of a1 is a2
+x2 of a2 is a1 and 
+x2 of a4 is a3 is Proposition where 
+x2 of a4 is a4
+x2 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x3 of a1 is a4
+x3 of a3 is a2
+x2 of a1 is a1
+x1 of a2 is a3
+x2 of a2 is a2
+x1 of a1 is a2
+x3 of a2 is a1 and 
+x3 of a4 is a3
+u1 of Proposition where 
+x3 of a4 is a2
+x3 of a3 is a1
+x3 of a2 is a4
+x1 of a1 is a2
+x2 of a2 is a1
+x3 of a4 is a3
+x3 of a1 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x4 of a3 is a2 and 
+x1 of a2 is a3 is Proposition where 
+x3 of a4 is a4
+x3 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x2 of a3 is a2
+x3 of a1 is a1
+x1 of a2 is a3
+x3 of a2 is a2
+x1 of a1 is a2
+x2 of a2 is a1 and 
+x2 of a4 is a3
+u3 of Proposition where 
+x3 of a4 is a4
+x3 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x2 of a3 is a2
+x3 of a1 is a1
+x1 of a2 is a3
+x3 of a2 is a2
+x1 of a1 is a2
+x2 of a2 is a1 and 
+x2 of a4 is a3 is Proposition where 
+x3 of a4 is a2
+x3 of a3 is a1
+x3 of a2 is a4
+x1 of a1 is a2
+x2 of a2 is a1
+x3 of a4 is a3
+x3 of a1 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x4 of a3 is a2 and 
+x1 of a2 is a3
+u2 of Proposition where 
+x2 of a4 is a4
+x2 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x3 of a1 is a4
+x3 of a3 is a2
+x2 of a1 is a1
+x1 of a2 is a3
+x2 of a2 is a2
+x1 of a1 is a2
+x3 of a2 is a1 and 
+x3 of a4 is a3 is Proposition where 
+x2 of a2 is a3
+x3 of a2 is a2
+x2 of a1 is a2
+x1 of a2 is a1
+x1 of a4 is a3
+x3 of a4 is a4
+x3 of a3 is a3
+x2 of a3 is a4
+x2 of a4 is a1
+x1 of a1 is a4
+x1 of a3 is a2 and 
+x3 of a1 is a1
+u4 of Proposition where 
+x2 of a2 is a3
+x3 of a2 is a2
+x2 of a1 is a2
+x1 of a2 is a1
+x1 of a4 is a3
+x3 of a4 is a4
+x3 of a3 is a3
+x2 of a3 is a4
+x2 of a4 is a1
+x1 of a1 is a4
+x1 of a3 is a2 and 
+x3 of a1 is a1 is Proposition where 
+x2 of a4 is a4
+x2 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x3 of a1 is a4
+x3 of a3 is a2
+x2 of a1 is a1
+x1 of a2 is a3
+x2 of a2 is a2
+x1 of a1 is a2
+x3 of a2 is a1 and 
+x3 of a4 is a3
+u2 of Proposition where 
+x3 of a4 is a4
+x3 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x2 of a3 is a2
+x3 of a1 is a1
+x1 of a2 is a3
+x3 of a2 is a2
+x1 of a1 is a2
+x2 of a2 is a1 and 
+x2 of a4 is a3 is Proposition where 
+x2 of a2 is a3
+x3 of a2 is a2
+x2 of a1 is a2
+x1 of a2 is a1
+x1 of a4 is a3
+x3 of a4 is a4
+x3 of a3 is a3
+x2 of a3 is a4
+x2 of a4 is a1
+x1 of a1 is a4
+x1 of a3 is a2 and 
+x3 of a1 is a1
+u1 of Proposition where 
+x2 of a2 is a3
+x3 of a2 is a2
+x2 of a1 is a2
+x1 of a2 is a1
+x1 of a4 is a3
+x3 of a4 is a4
+x3 of a3 is a3
+x2 of a3 is a4
+x2 of a4 is a1
+x1 of a1 is a4
+x1 of a3 is a2 and 
+x3 of a1 is a1 is Proposition where 
+x3 of a4 is a4
+x3 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x2 of a3 is a2
+x3 of a1 is a1
+x1 of a2 is a3
+x3 of a2 is a2
+x1 of a1 is a2
+x2 of a2 is a1 and 
+x2 of a4 is a3
+u2 of Proposition where 
+x3 of a4 is a2
+x3 of a3 is a1
+x3 of a2 is a4
+x1 of a1 is a2
+x2 of a2 is a1
+x3 of a4 is a3
+x3 of a1 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x4 of a3 is a2 and 
+x1 of a2 is a3 is Proposition where 
+x2 of a2 is a3
+x3 of a2 is a2
+x2 of a1 is a2
+x1 of a2 is a1
+x1 of a4 is a3
+x3 of a4 is a4
+x3 of a3 is a3
+x2 of a3 is a4
+x2 of a4 is a1
+x1 of a1 is a4
+x1 of a3 is a2 and 
+x3 of a1 is a1
+u3 of Proposition where 
+x2 of a2 is a3
+x3 of a2 is a2
+x2 of a1 is a2
+x1 of a2 is a1
+x1 of a4 is a3
+x3 of a4 is a4
+x3 of a3 is a3
+x2 of a3 is a4
+x2 of a4 is a1
+x1 of a1 is a4
+x1 of a3 is a2 and 
+x3 of a1 is a1 is Proposition where 
+x3 of a4 is a2
+x3 of a3 is a1
+x3 of a2 is a4
+x1 of a1 is a2
+x2 of a2 is a1
+x3 of a4 is a3
+x3 of a1 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x4 of a3 is a2 and 
+x1 of a2 is a3 and 
+u1 of Proposition where 
+x2 of a4 is a4
+x2 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x3 of a1 is a4
+x3 of a3 is a2
+x2 of a1 is a1
+x1 of a2 is a3
+x2 of a2 is a2
+x1 of a1 is a2
+x3 of a2 is a1 and 
+x3 of a4 is a3 is Proposition where 
+x3 of a4 is a4
+x3 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x2 of a3 is a2
+x3 of a1 is a1
+x1 of a2 is a3
+x3 of a2 is a2
+x1 of a1 is a2
+x2 of a2 is a1 and 
+x2 of a4 is a3 There is a Proposition where   There is a Proposition where   There is a Proposition where   There is a Proposition where  

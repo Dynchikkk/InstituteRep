@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conceptualgraph editor="CharGer" version="3.3b" created="Aug 14, 2004 10:24:42 AM" user="hsd">
+<graph id="35979486110" owner="0">
+    <type>
+        <label>Person_speaks_fact_cg</label>
+    </type>
+    <layout>
+        <rectangle x="0" y="0" width="1000" height="1000"/>
+        <color foreground="0,0,175" background="0,0,175"/>
+    </layout>
+    <concept id="35979486116" owner="35979486110">
+        <type>
+            <label>SPEAK</label>
+        </type>
+        <layout>
+            <rectangle x="227" y="90" width="57" height="25"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="35979486115" owner="35979486110">
+        <type>
+            <label>Person</label>
+        </type>
+        <referent>
+            <label>John</label>
+        </referent>
+        <layout>
+            <rectangle x="62" y="87" width="102" height="25"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <relation id="35979486114" owner="35979486110">
+        <type>
+            <label>object</label>
+        </type>
+        <layout>
+            <rectangle x="304" y="127" width="53" height="23"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="35979486113" owner="35979486110">
+        <type>
+            <label>agent</label>
+        </type>
+        <layout>
+            <rectangle x="145" y="149" width="49" height="23"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <graph id="35979486112" owner="35979486110">
+        <type>
+            <label>Assertion</label>
+        </type>
+        <layout>
+            <rectangle x="430" y="128" width="149" height="202"/>
+            <color foreground="0,0,175" background="0,0,175"/>
+        </layout>
+        <relation id="35979486119" owner="35979486112">
+            <type>
+                <label>location</label>
+            </type>
+            <layout>
+                <rectangle x="478" y="232" width="66" height="23"/>
+                <color foreground="0,0,0" background="255,231,100"/>
+            </layout>
+        </relation>
+        <concept id="35979486118" owner="35979486112">
+            <type>
+                <label>CAT</label>
+            </type>
+            <layout>
+                <rectangle x="491" y="172" width="40" height="25"/>
+                <color foreground="255,255,255" background="0,0,175"/>
+            </layout>
+        </concept>
+        <concept id="35979486117" owner="35979486112">
+            <type>
+                <label>MAT</label>
+            </type>
+            <layout>
+                <rectangle x="491" y="284" width="41" height="25"/>
+                <color foreground="255,255,255" background="0,0,175"/>
+            </layout>
+        </concept>
+    </graph>
+    <graph id="35979486112" owner="35979486110">
+        <type>
+            <label>Assertion</label>
+        </type>
+        <layout>
+            <rectangle x="430" y="128" width="149" height="202"/>
+            <color foreground="0,0,175" background="0,0,175"/>
+        </layout>
+        <relation id="35979486119" owner="35979486112">
+            <type>
+                <label>location</label>
+            </type>
+            <layout>
+                <rectangle x="478" y="232" width="66" height="23"/>
+                <color foreground="0,0,0" background="255,231,100"/>
+            </layout>
+        </relation>
+        <concept id="35979486118" owner="35979486112">
+            <type>
+                <label>CAT</label>
+            </type>
+            <layout>
+                <rectangle x="491" y="172" width="40" height="25"/>
+                <color foreground="255,255,255" background="0,0,175"/>
+            </layout>
+        </concept>
+        <concept id="35979486117" owner="35979486112">
+            <type>
+                <label>MAT</label>
+            </type>
+            <layout>
+                <rectangle x="491" y="284" width="41" height="25"/>
+                <color foreground="255,255,255" background="0,0,175"/>
+            </layout>
+        </concept>
+    </graph>
+    <arrow id="35979486120" owner="35979486110" label="-" from="35979486114" to="35979486112">
+        <layout>
+            <rectangle x="388" y="167" width="6" height="6"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486125" owner="35979486110" label="-" from="35979486116" to="35979486114">
+        <layout>
+            <rectangle x="291" y="118" width="6" height="6"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486124" owner="35979486110" label="-" from="35979486113" to="35979486115">
+        <layout>
+            <rectangle x="138" y="128" width="6" height="6"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486123" owner="35979486110" label="-" from="35979486116" to="35979486113">
+        <layout>
+            <rectangle x="208" y="129" width="6" height="6"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486122" owner="35979486110" label="-" from="35979486119" to="35979486117">
+        <layout>
+            <rectangle x="508" y="267" width="6" height="6"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486121" owner="35979486110" label="-" from="35979486118" to="35979486119">
+        <layout>
+            <rectangle x="508" y="212" width="6" height="6"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+</graph>
+
+</conceptualgraph>
+

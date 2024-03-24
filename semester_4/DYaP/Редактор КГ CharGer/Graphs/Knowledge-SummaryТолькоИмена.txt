@@ -1,0 +1,67 @@
+a Татьяна
+ is the теща of a Петр
+
+a Ирина
+ is the сваха of a Татьяна
+
+a Татьяна
+ is the сваха of a Ирина
+
+a Ирина
+ is the свекровь of a Елена
+
+a Александр
+ is the тесть of a Петр
+
+a Елена
+ is the невестка of a Ирина
+
+a Андрей
+ is the свёкр of a Елена
+
+a Елена
+ is the сноха of a Андрей
+
+a Галина
+ is the свояченица of a Петр
+
+a Александр
+ is the сват of a Андрей
+
+a Петр
+ is the зять of a Галина
+
+a Елена
+ is the невестка of a Ольга
+
+a Ольга
+ is the золовка of a Елена
+
+a Петр
+ is the зять of a Александр
+
+a Семен
+ is the деверь of a Елена
+
+a Петр
+ is the шурин of a Владимир
+
+a Елена
+ is the невестка of a Семен
+
+a Владимир
+ is the зять of a Петр
+
+a Андрей
+ is the сват of a Александр
+
+a Петр
+ is the муж of a Елена
+
+a Елена
+ is the жена of a Петр
+
+a Петр
+ is the зять of a Татьяна
+
+

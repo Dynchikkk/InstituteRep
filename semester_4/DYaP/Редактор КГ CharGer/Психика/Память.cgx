@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conceptualgraph editor="CharGer" version="3.6" created="29.01.2024 23:51:04" user="Admin">
+<graph id="650037599339" owner="0">
+    <type>
+        <label>Proposition</label>
+    </type>
+    <layout>
+        <rectangle x="5.0" y="5.0" width="900.0" height="750.0"/>
+        <color foreground="0,0,175" background="0,0,175"/>
+    </layout>
+    <concept id="650037599576" owner="650037599339">
+        <type>
+            <label>Генетическая</label>
+        </type>
+        <layout>
+            <rectangle x="1368.5" y="1118.5" width="107.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599578" owner="650037599339">
+        <type>
+            <label>Приобретенная</label>
+        </type>
+        <layout>
+            <rectangle x="1367.5" y="1159.5" width="121.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599484" owner="650037599339">
+        <type>
+            <label>Вид_1</label>
+        </type>
+        <layout>
+            <rectangle x="1097.0" y="612.5" width="58.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599582" owner="650037599339">
+        <type>
+            <label>Эксплицитная_(декларативная)</label>
+        </type>
+        <layout>
+            <rectangle x="1325.0" y="1203.375" width="234.0" height="29.25"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599486" owner="650037599339">
+        <type>
+            <label>Вид_2</label>
+        </type>
+        <layout>
+            <rectangle x="1097.0" y="722.5" width="58.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599568" owner="650037599339">
+        <type>
+            <label>Непосредственная</label>
+        </type>
+        <layout>
+            <rectangle x="1369.5" y="1036.5" width="145.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <relation id="650037601146" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="625.5" y="1138.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037601148" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="623.5" y="1185.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037601150" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="624.5" y="1232.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <concept id="650037599574" owner="650037599339">
+        <type>
+            <label>Опосредованная</label>
+        </type>
+        <layout>
+            <rectangle x="1369.5" y="1075.5" width="131.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <relation id="650037599528" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="995.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599530" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="1037.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599532" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="1078.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599534" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="1121.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599520" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="877.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599522" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="917.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599524" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="955.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <concept id="650037599544" owner="650037599339">
+        <type>
+            <label>Образная</label>
+        </type>
+        <layout>
+            <rectangle x="1371.0" y="571.5" width="78.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599546" owner="650037599339">
+        <type>
+            <label>Эмоциональная</label>
+        </type>
+        <layout>
+            <rectangle x="1373.5" y="609.5" width="125.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599548" owner="650037599339">
+        <type>
+            <label>Двигательная</label>
+        </type>
+        <layout>
+            <rectangle x="1371.5" y="647.5" width="109.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <relation id="650037601094" owner="650037599339">
+        <type>
+            <label>Влияют_на</label>
+        </type>
+        <layout>
+            <rectangle x="460.0" y="1051.5" width="88.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <concept id="650037599341" owner="650037599339">
+        <type>
+            <label>Память</label>
+        </type>
+        <layout>
+            <rectangle x="474.0" y="985.5" width="62.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599550" owner="650037599339">
+        <type>
+            <label>Словесно_логическая</label>
+        </type>
+        <layout>
+            <rectangle x="1372.5" y="687.5" width="167.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <relation id="650037599536" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="1162.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599540" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1212.5" y="1208.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599542" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1212.5" y="1261.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037601154" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="622.5" y="1278.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599401" owner="650037599339">
+        <type>
+            <label>По_характеру_психической_активности</label>
+        </type>
+        <layout>
+            <rectangle x="585.5" y="609.4375" width="297.0" height="37.125"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <concept id="650037599500" owner="650037599339">
+        <type>
+            <label>Вид_7</label>
+        </type>
+        <layout>
+            <rectangle x="1099.0" y="1198.5" width="54.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <relation id="650037599403" owner="650037599339">
+        <type>
+            <label>По_продолжительности_сохранения_информации</label>
+        </type>
+        <layout>
+            <rectangle x="691.5" y="681.5625" width="375.0" height="46.875"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <concept id="650037599357" owner="650037599339">
+        <type>
+            <label>Виды</label>
+        </type>
+        <layout>
+            <rectangle x="467.5" y="809.5" width="79.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <relation id="650037599405" owner="650037599339">
+        <type>
+            <label>По_степени_волевого_контроля</label>
+        </type>
+        <layout>
+            <rectangle x="780.0" y="768.75" width="244.0" height="30.5"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <concept id="650037599488" owner="650037599339">
+        <type>
+            <label>Вид_3</label>
+        </type>
+        <layout>
+            <rectangle x="1099.0" y="826.5" width="54.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <relation id="650037599407" owner="650037599339">
+        <type>
+            <label>По_использованию_вспомогательных_средств</label>
+        </type>
+        <layout>
+            <rectangle x="720.0" y="912.875" width="354.0" height="44.25"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <concept id="650037599490" owner="650037599339">
+        <type>
+            <label>Вид_4</label>
+        </type>
+        <layout>
+            <rectangle x="1099.0" y="917.5" width="54.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599492" owner="650037599339">
+        <type>
+            <label>Вид_5</label>
+        </type>
+        <layout>
+            <rectangle x="1099.0" y="995.5" width="54.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599494" owner="650037599339">
+        <type>
+            <label>Вид_6</label>
+        </type>
+        <layout>
+            <rectangle x="1099.0" y="1081.5" width="54.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <relation id="650037599512" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="724.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599514" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="760.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599516" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="796.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599518" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="834.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599504" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="572.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599506" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="611.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599409" owner="650037599339">
+        <type>
+            <label>По_происхождению</label>
+        </type>
+        <layout>
+            <rectangle x="827.0" y="1035.5" width="154.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599508" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="650.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599411" owner="650037599339">
+        <type>
+            <label>По_степени_осознаваемости</label>
+        </type>
+        <layout>
+            <rectangle x="797.0" y="1123.25" width="220.0" height="27.5"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599510" owner="650037599339">
+        <type>
+            <label>Элем</label>
+        </type>
+        <layout>
+            <rectangle x="1256.5" y="690.5" width="49.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <relation id="650037599413" owner="650037599339">
+        <type>
+            <label>По_способу_заучивания</label>
+        </type>
+        <layout>
+            <rectangle x="825.0" y="837.5" width="184.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <concept id="650037601078" owner="650037599339">
+        <type>
+            <label>Мнемические_процессы</label>
+        </type>
+        <layout>
+            <rectangle x="407.0" y="1115.5" width="190.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <relation id="650037599374" owner="650037599339">
+        <type>
+            <label>Подразделяется_на</label>
+        </type>
+        <layout>
+            <rectangle x="430.0" y="894.5" width="152.0" height="25.0"/>
+            <color foreground="0,0,0" background="255,231,100"/>
+        </layout>
+    </relation>
+    <concept id="650037599584" owner="650037599339">
+        <type>
+            <label>Имплицитная_(недекларативная)</label>
+        </type>
+        <layout>
+            <rectangle x="1311.5" y="1250.5625" width="247.0" height="30.875"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037601225" owner="650037599339">
+        <type>
+            <label>Хранение</label>
+        </type>
+        <layout>
+            <rectangle x="721.5" y="1204.5" width="79.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037601227" owner="650037599339">
+        <type>
+            <label>Воспроизведение</label>
+        </type>
+        <layout>
+            <rectangle x="722.5" y="1243.5" width="141.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037601229" owner="650037599339">
+        <type>
+            <label>Забывание</label>
+        </type>
+        <layout>
+            <rectangle x="722.5" y="1288.5" width="91.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599560" owner="650037599339">
+        <type>
+            <label>Произвольная</label>
+        </type>
+        <layout>
+            <rectangle x="1370.0" y="878.5" width="114.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599562" owner="650037599339">
+        <type>
+            <label>Непроизвольная</label>
+        </type>
+        <layout>
+            <rectangle x="1370.5" y="919.5" width="131.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599564" owner="650037599339">
+        <type>
+            <label>Механическая</label>
+        </type>
+        <layout>
+            <rectangle x="1369.5" y="957.5" width="113.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599566" owner="650037599339">
+        <type>
+            <label>Логическая</label>
+        </type>
+        <layout>
+            <rectangle x="1369.0" y="996.5" width="92.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037601223" owner="650037599339">
+        <type>
+            <label>Запоминание_(кодирование)</label>
+        </type>
+        <layout>
+            <rectangle x="722.5" y="1165.3125" width="219.0" height="27.375"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599552" owner="650037599339">
+        <type>
+            <label>Мгновенная</label>
+        </type>
+        <layout>
+            <rectangle x="1370.0" y="727.5" width="96.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599554" owner="650037599339">
+        <type>
+            <label>Кратковременная</label>
+        </type>
+        <layout>
+            <rectangle x="1370.5" y="762.5" width="137.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599556" owner="650037599339">
+        <type>
+            <label>Оперативная</label>
+        </type>
+        <layout>
+            <rectangle x="1370.5" y="798.5" width="103.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <concept id="650037599558" owner="650037599339">
+        <type>
+            <label>Долговременная</label>
+        </type>
+        <layout>
+            <rectangle x="1370.0" y="835.5" width="132.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,175"/>
+        </layout>
+    </concept>
+    <arrow id="650037601232" owner="650037599339" label="-" from="650037601146" to="650037601223">
+        <layout>
+            <rectangle x="702.4961" y="1156.9609" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599671" owner="650037599339" label="-" from="650037599486" to="650037599518">
+        <layout>
+            <rectangle x="1203.0759" y="790.0" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599625" owner="650037599339" label="-" from="650037599407" to="650037599492">
+        <layout>
+            <rectangle x="1027.2031" y="974.80273" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037601235" owner="650037599339" label="-" from="650037601148" to="650037601225">
+        <layout>
+            <rectangle x="693.66797" y="1203.5991" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599628" owner="650037599339" label="-" from="650037599409" to="650037599494">
+        <layout>
+            <rectangle x="1022.34766" y="1070.5405" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037601238" owner="650037599339" label="-" from="650037601150" to="650037601227">
+        <layout>
+            <rectangle x="695.125" y="1246.2144" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599631" owner="650037599339" label="-" from="650037599411" to="650037599500">
+        <layout>
+            <rectangle x="1018.8203" y="1173.1288" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599616" owner="650037599339" label="-" from="650037599403" to="650037599486">
+        <layout>
+            <rectangle x="1051.0918" y="723.70544" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599619" owner="650037599339" label="-" from="650037599405" to="650037599488">
+        <layout>
+            <rectangle x="1024.625" y="812.22266" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599622" owner="650037599339" label="-" from="650037599413" to="650037599490">
+        <layout>
+            <rectangle x="1020.5117" y="888.0786" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599640" owner="650037599339" label="-" from="650037599484" to="650037599508">
+        <layout>
+            <rectangle x="1204.7988" y="642.43134" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599643" owner="650037599339" label="-" from="650037599484" to="650037599510">
+        <layout>
+            <rectangle x="1205.6342" y="663.83203" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599646" owner="650037599339" label="-" from="650037599504" to="650037599544">
+        <layout>
+            <rectangle x="1335.3457" y="582.0593" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037601099" owner="650037599339" label="-" from="650037601078" to="650037601094">
+        <layout>
+            <rectangle x="500.51562" y="1093.0" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599634" owner="650037599339" label="-" from="650037599484" to="650037599504">
+        <layout>
+            <rectangle x="1204.7988" y="601.51965" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037601102" owner="650037599339" label="-" from="650037601094" to="650037599341">
+        <layout>
+            <rectangle x="501.99536" y="1028.8047" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599637" owner="650037599339" label="-" from="650037599484" to="650037599506">
+        <layout>
+            <rectangle x="1203.5879" y="621.9833" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037601160" owner="650037599339" label="-" from="650037601078" to="650037601148">
+        <layout>
+            <rectangle x="577.4536" y="1162.875" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037601163" owner="650037599339" label="-" from="650037601078" to="650037601150">
+        <layout>
+            <rectangle x="574.59015" y="1185.2656" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037601166" owner="650037599339" label="-" from="650037601078" to="650037601154">
+        <layout>
+            <rectangle x="572.907" y="1208.0195" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037601157" owner="650037599339" label="-" from="650037601078" to="650037601146">
+        <layout>
+            <rectangle x="605.08325" y="1141.9082" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599721" owner="650037599339" label="-" from="650037599532" to="650037599574">
+        <layout>
+            <rectangle x="1334.582" y="1087.4075" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599724" owner="650037599339" label="-" from="650037599494" to="650037599534">
+        <layout>
+            <rectangle x="1203.7988" y="1112.2223" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599727" owner="650037599339" label="-" from="650037599534" to="650037599576">
+        <layout>
+            <rectangle x="1334.1426" y="1130.3162" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599712" owner="650037599339" label="-" from="650037599492" to="650037599530">
+        <layout>
+            <rectangle x="1204.1016" y="1027.3405" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599715" owner="650037599339" label="-" from="650037599530" to="650037599568">
+        <layout>
+            <rectangle x="1334.5137" y="1047.1521" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599718" owner="650037599339" label="-" from="650037599492" to="650037599532">
+        <layout>
+            <rectangle x="1205.1289" y="1049.2109" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599736" owner="650037599339" label="-" from="650037599500" to="650037599540">
+        <layout>
+            <rectangle x="1180.8594" y="1213.6675" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599739" owner="650037599339" label="-" from="650037599540" to="650037599582">
+        <layout>
+            <rectangle x="1290.4121" y="1217.6818" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599730" owner="650037599339" label="-" from="650037599494" to="650037599536">
+        <layout>
+            <rectangle x="1205.1375" y="1134.1621" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599377" owner="650037599339" label="-" from="650037599341" to="650037599374">
+        <layout>
+            <rectangle x="503.00385" y="949.64844" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599733" owner="650037599339" label="-" from="650037599536" to="650037599578">
+        <layout>
+            <rectangle x="1333.5957" y="1171.3756" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599380" owner="650037599339" label="-" from="650037599374" to="650037599357">
+        <layout>
+            <rectangle x="503.9948" y="862.4414" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599689" owner="650037599339" label="-" from="650037599520" to="650037599560">
+        <layout>
+            <rectangle x="1334.7617" y="887.8854" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599692" owner="650037599339" label="-" from="650037599488" to="650037599522">
+        <layout>
+            <rectangle x="1204.3235" y="883.9512" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599695" owner="650037599339" label="-" from="650037599522" to="650037599562">
+        <layout>
+            <rectangle x="1335.1621" y="928.2311" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599680" owner="650037599339" label="-" from="650037599516" to="650037599556">
+        <layout>
+            <rectangle x="1335.1426" y="807.30347" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599683" owner="650037599339" label="-" from="650037599518" to="650037599558">
+        <layout>
+            <rectangle x="1334.9121" y="844.86395" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599686" owner="650037599339" label="-" from="650037599488" to="650037599520">
+        <layout>
+            <rectangle x="1204.4043" y="863.1201" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599594" owner="650037599339" label="-" from="650037599357" to="650037599405">
+        <layout>
+            <rectangle x="674.41797" y="803.15344" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599706" owner="650037599339" label="-" from="650037599490" to="650037599528">
+        <layout>
+            <rectangle x="1205.6342" y="968.83203" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599597" owner="650037599339" label="-" from="650037599357" to="650037599413">
+        <layout>
+            <rectangle x="688.50977" y="832.0665" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599709" owner="650037599339" label="-" from="650037599528" to="650037599566">
+        <layout>
+            <rectangle x="1334.3008" y="1005.9164" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599698" owner="650037599339" label="-" from="650037599490" to="650037599524">
+        <layout>
+            <rectangle x="1203.7988" y="947.18616" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599588" owner="650037599339" label="-" from="650037599357" to="650037599401">
+        <layout>
+            <rectangle x="615.0359" y="725.0332" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599701" owner="650037599339" label="-" from="650037599524" to="650037599564">
+        <layout>
+            <rectangle x="1334.7109" y="966.2753" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599591" owner="650037599339" label="-" from="650037599357" to="650037599403">
+        <layout>
+            <rectangle x="676.96484" y="765.257" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599610" owner="650037599339" label="-" from="650037599357" to="650037599411">
+        <layout>
+            <rectangle x="704.08704" y="976.6748" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599658" owner="650037599339" label="-" from="650037599486" to="650037599512">
+        <layout>
+            <rectangle x="1203.5879" y="733.5334" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599613" owner="650037599339" label="-" from="650037599401" to="650037599484">
+        <layout>
+            <rectangle x="986.7656" y="623.54645" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599744" owner="650037599339" label="-" from="650037599500" to="650037599542">
+        <layout>
+            <rectangle x="1182.6545" y="1242.0742" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599663" owner="650037599339" label="-" from="650037599486" to="650037599514">
+        <layout>
+            <rectangle x="1204.7988" y="752.43134" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599649" owner="650037599339" label="-" from="650037599506" to="650037599546">
+        <layout>
+            <rectangle x="1336.6621" y="620.7495" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599747" owner="650037599339" label="-" from="650037599542" to="650037599584">
+        <layout>
+            <rectangle x="1283.625" y="1269.5151" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599604" owner="650037599339" label="-" from="650037599357" to="650037599407">
+        <layout>
+            <rectangle x="684.3301" y="871.6046" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599652" owner="650037599339" label="-" from="650037599508" to="650037599548">
+        <layout>
+            <rectangle x="1335.7109" y="659.3163" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599607" owner="650037599339" label="-" from="650037599357" to="650037599409">
+        <layout>
+            <rectangle x="704.00183" y="933.0703" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599655" owner="650037599339" label="-" from="650037599510" to="650037599550">
+        <layout>
+            <rectangle x="1336.0547" y="699.5133" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599674" owner="650037599339" label="-" from="650037599512" to="650037599552">
+        <layout>
+            <rectangle x="1334.8086" y="735.73303" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599677" owner="650037599339" label="-" from="650037599514" to="650037599554">
+        <layout>
+            <rectangle x="1335.0938" y="771.2164" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037601241" owner="650037599339" label="-" from="650037601154" to="650037601229">
+        <layout>
+            <rectangle x="694.03906" y="1292.5941" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+    <arrow id="650037599666" owner="650037599339" label="-" from="650037599486" to="650037599516">
+        <layout>
+            <rectangle x="1206.0564" y="771.91406" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="255,255,255"/>
+        </layout>
+    </arrow>
+</graph>
+
+</conceptualgraph>
+

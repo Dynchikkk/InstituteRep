@@ -1,0 +1,189 @@
+a G3
+ consists of an a1, an a2, an a4 and an a3
+a G2
+ consists of an a1, an a2, an a4 and an a3
+a G4
+ consists of an a1, an a2, an a4 and an a3
+a G1
+ consists of an a1, an a2, an a4 and an a3
+a G2
+ is the u2 of a G3
+
+a G3
+ is the u3 of a G2
+
+a G1
+ is the u1 of a G4
+
+an a2
+ is the x3 of an a4
+
+an a1
+ is the x3 of an a3
+
+an a4
+ is the x3 of an a2
+
+an a2
+ is the x1 of an a1
+
+an a1
+ is the x2 of an a2
+
+an a3
+ is the x3 of an a4
+
+an a3
+ is the x3 of an a1
+
+an a4
+ is the x1 of an a3
+
+an a1
+ is the x1 of an a4
+
+an a4
+ is the x2 of an a1
+
+an a2
+ is the x4 of an a3
+
+an a3
+ is the x1 of an a2
+
+an a3
+ is the x2 of an a2
+
+an a2
+ is the x3 of an a2
+
+an a2
+ is the x2 of an a1
+
+an a1
+ is the x1 of an a2
+
+an a3
+ is the x1 of an a4
+
+an a4
+ is the x3 of an a4
+
+an a3
+ is the x3 of an a3
+
+an a4
+ is the x2 of an a3
+
+an a1
+ is the x2 of an a4
+
+an a4
+ is the x1 of an a1
+
+an a2
+ is the x1 of an a3
+
+an a1
+ is the x3 of an a1
+
+a G4
+ is the u4 of a G3
+
+an a4
+ is the x2 of an a4
+
+an a3
+ is the x2 of an a3
+
+an a4
+ is the x1 of an a3
+
+an a1
+ is the x1 of an a4
+
+an a4
+ is the x3 of an a1
+
+an a2
+ is the x3 of an a3
+
+an a1
+ is the x2 of an a1
+
+an a3
+ is the x1 of an a2
+
+an a2
+ is the x2 of an a2
+
+an a2
+ is the x1 of an a1
+
+an a1
+ is the x3 of an a2
+
+an a3
+ is the x3 of an a4
+
+a G4
+ is the u4 of a G1
+
+a G1
+ is the u1 of a G3
+
+a G3
+ is the u3 of a G1
+
+a G2
+ is the u2 of a G4
+
+a G4
+ is the u4 of a G2
+
+an a4
+ is the x3 of an a4
+
+an a3
+ is the x3 of an a3
+
+an a4
+ is the x1 of an a3
+
+an a1
+ is the x1 of an a4
+
+an a4
+ is the x2 of an a1
+
+an a2
+ is the x2 of an a3
+
+an a1
+ is the x3 of an a1
+
+an a3
+ is the x1 of an a2
+
+an a2
+ is the x3 of an a2
+
+an a2
+ is the x1 of an a1
+
+an a1
+ is the x2 of an a2
+
+an a3
+ is the x2 of an a4
+
+a G3
+ is the u3 of a G4
+
+a G2
+ is the u2 of a G1
+
+a G1
+ is the u1 of a G2
+
+

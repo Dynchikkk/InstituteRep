@@ -1,0 +1,23 @@
+
+
+There is a Proposition where 
+u4 of G2 is G4
+u3 of G1 is G3
+u1 of G3 is G1
+u2 of G4 is G2
+u1 of G1 is G1
+u4 of G4 is G4
+u2 of G2 is G2
+u3 of G3 is G3
+u3 of G4 is G3
+u4 of G3 is G4
+u2 of G1 is G2
+u1 of G2 is G1
+u1 of G4 is G1
+u4 of G1 is G4
+u2 of G3 is G2
+u3 of G2 is G3
+p of G1 is n1
+p of G2 is n2
+p of G3 is n3 and 
+p of G4 is n4

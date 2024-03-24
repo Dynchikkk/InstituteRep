@@ -1,0 +1,303 @@
+
+
+There is a Proposition where 
+u2 of G3 where 
+x3 of a4 is a2
+x3 of a3 is a1
+x3 of a2 is a4
+x1 of a1 is a2
+x2 of a2 is a1
+x3 of a4 is a3
+x3 of a1 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x4 of a3 is a2 and 
+x1 of a2 is a3 is G2 where 
+x2 of a2 is a3
+x3 of a2 is a2
+x2 of a1 is a2
+x1 of a2 is a1
+x1 of a4 is a3
+x3 of a4 is a4
+x3 of a3 is a3
+x2 of a3 is a4
+x2 of a4 is a1
+x1 of a1 is a4
+x1 of a3 is a2 and 
+x3 of a1 is a1
+u3 of G2 where 
+x2 of a2 is a3
+x3 of a2 is a2
+x2 of a1 is a2
+x1 of a2 is a1
+x1 of a4 is a3
+x3 of a4 is a4
+x3 of a3 is a3
+x2 of a3 is a4
+x2 of a4 is a1
+x1 of a1 is a4
+x1 of a3 is a2 and 
+x3 of a1 is a1 is G3 where 
+x3 of a4 is a2
+x3 of a3 is a1
+x3 of a2 is a4
+x1 of a1 is a2
+x2 of a2 is a1
+x3 of a4 is a3
+x3 of a1 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x4 of a3 is a2 and 
+x1 of a2 is a3
+u1 of G4 where 
+x2 of a4 is a4
+x2 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x3 of a1 is a4
+x3 of a3 is a2
+x2 of a1 is a1
+x1 of a2 is a3
+x2 of a2 is a2
+x1 of a1 is a2
+x3 of a2 is a1 and 
+x3 of a4 is a3 is G1 where 
+x3 of a4 is a4
+x3 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x2 of a3 is a2
+x3 of a1 is a1
+x1 of a2 is a3
+x3 of a2 is a2
+x1 of a1 is a2
+x2 of a2 is a1 and 
+x2 of a4 is a3
+u4 of G3 where 
+x3 of a4 is a2
+x3 of a3 is a1
+x3 of a2 is a4
+x1 of a1 is a2
+x2 of a2 is a1
+x3 of a4 is a3
+x3 of a1 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x4 of a3 is a2 and 
+x1 of a2 is a3 is G4 where 
+x2 of a4 is a4
+x2 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x3 of a1 is a4
+x3 of a3 is a2
+x2 of a1 is a1
+x1 of a2 is a3
+x2 of a2 is a2
+x1 of a1 is a2
+x3 of a2 is a1 and 
+x3 of a4 is a3
+u4 of G1 where 
+x3 of a4 is a4
+x3 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x2 of a3 is a2
+x3 of a1 is a1
+x1 of a2 is a3
+x3 of a2 is a2
+x1 of a1 is a2
+x2 of a2 is a1 and 
+x2 of a4 is a3 is G4 where 
+x2 of a4 is a4
+x2 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x3 of a1 is a4
+x3 of a3 is a2
+x2 of a1 is a1
+x1 of a2 is a3
+x2 of a2 is a2
+x1 of a1 is a2
+x3 of a2 is a1 and 
+x3 of a4 is a3
+u1 of G3 where 
+x3 of a4 is a2
+x3 of a3 is a1
+x3 of a2 is a4
+x1 of a1 is a2
+x2 of a2 is a1
+x3 of a4 is a3
+x3 of a1 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x4 of a3 is a2 and 
+x1 of a2 is a3 is G1 where 
+x3 of a4 is a4
+x3 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x2 of a3 is a2
+x3 of a1 is a1
+x1 of a2 is a3
+x3 of a2 is a2
+x1 of a1 is a2
+x2 of a2 is a1 and 
+x2 of a4 is a3
+u3 of G1 where 
+x3 of a4 is a4
+x3 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x2 of a3 is a2
+x3 of a1 is a1
+x1 of a2 is a3
+x3 of a2 is a2
+x1 of a1 is a2
+x2 of a2 is a1 and 
+x2 of a4 is a3 is G3 where 
+x3 of a4 is a2
+x3 of a3 is a1
+x3 of a2 is a4
+x1 of a1 is a2
+x2 of a2 is a1
+x3 of a4 is a3
+x3 of a1 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x4 of a3 is a2 and 
+x1 of a2 is a3
+u2 of G4 where 
+x2 of a4 is a4
+x2 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x3 of a1 is a4
+x3 of a3 is a2
+x2 of a1 is a1
+x1 of a2 is a3
+x2 of a2 is a2
+x1 of a1 is a2
+x3 of a2 is a1 and 
+x3 of a4 is a3 is G2 where 
+x2 of a2 is a3
+x3 of a2 is a2
+x2 of a1 is a2
+x1 of a2 is a1
+x1 of a4 is a3
+x3 of a4 is a4
+x3 of a3 is a3
+x2 of a3 is a4
+x2 of a4 is a1
+x1 of a1 is a4
+x1 of a3 is a2 and 
+x3 of a1 is a1
+u4 of G2 where 
+x2 of a2 is a3
+x3 of a2 is a2
+x2 of a1 is a2
+x1 of a2 is a1
+x1 of a4 is a3
+x3 of a4 is a4
+x3 of a3 is a3
+x2 of a3 is a4
+x2 of a4 is a1
+x1 of a1 is a4
+x1 of a3 is a2 and 
+x3 of a1 is a1 is G4 where 
+x2 of a4 is a4
+x2 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x3 of a1 is a4
+x3 of a3 is a2
+x2 of a1 is a1
+x1 of a2 is a3
+x2 of a2 is a2
+x1 of a1 is a2
+x3 of a2 is a1 and 
+x3 of a4 is a3
+u3 of G4 where 
+x2 of a4 is a4
+x2 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x3 of a1 is a4
+x3 of a3 is a2
+x2 of a1 is a1
+x1 of a2 is a3
+x2 of a2 is a2
+x1 of a1 is a2
+x3 of a2 is a1 and 
+x3 of a4 is a3 is G3 where 
+x3 of a4 is a2
+x3 of a3 is a1
+x3 of a2 is a4
+x1 of a1 is a2
+x2 of a2 is a1
+x3 of a4 is a3
+x3 of a1 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x4 of a3 is a2 and 
+x1 of a2 is a3
+u2 of G1 where 
+x3 of a4 is a4
+x3 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x2 of a3 is a2
+x3 of a1 is a1
+x1 of a2 is a3
+x3 of a2 is a2
+x1 of a1 is a2
+x2 of a2 is a1 and 
+x2 of a4 is a3 is G2 where 
+x2 of a2 is a3
+x3 of a2 is a2
+x2 of a1 is a2
+x1 of a2 is a1
+x1 of a4 is a3
+x3 of a4 is a4
+x3 of a3 is a3
+x2 of a3 is a4
+x2 of a4 is a1
+x1 of a1 is a4
+x1 of a3 is a2 and 
+x3 of a1 is a1 and 
+u1 of G2 where 
+x2 of a2 is a3
+x3 of a2 is a2
+x2 of a1 is a2
+x1 of a2 is a1
+x1 of a4 is a3
+x3 of a4 is a4
+x3 of a3 is a3
+x2 of a3 is a4
+x2 of a4 is a1
+x1 of a1 is a4
+x1 of a3 is a2 and 
+x3 of a1 is a1 is G1 where 
+x3 of a4 is a4
+x3 of a3 is a3
+x1 of a3 is a4
+x1 of a4 is a1
+x2 of a1 is a4
+x2 of a3 is a2
+x3 of a1 is a1
+x1 of a2 is a3
+x3 of a2 is a2
+x1 of a1 is a2
+x2 of a2 is a1 and 
+x2 of a4 is a3 There is a G3 where   There is a G2 where   There is a G4 where   There is a G1 where  

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conceptualgraph editor="CharGer" version="3.5b1" created="Dec 28, 2005 9:59:58 AM" user="hsd">
+<graph id="35979486054" owner="0">
+    <type>
+        <label>Proposition</label>
+    </type>
+    <layout>
+        <rectangle x="0.0" y="0.0" width="1500.0" height="1500.0"/>
+        <color foreground="0,0,175" background="0,0,175"/>
+    </layout>
+    <concept id="35979486057" owner="35979486054">
+        <type>
+            <label>City</label>
+        </type>
+        <referent>
+            <label>Boston</label>
+        </referent>
+        <layout>
+            <rectangle x="457.0" y="54.0" width="108.0" height="25.0"/>
+            <color foreground="255,255,255" background="102,0,102"/>
+        </layout>
+    </concept>
+    <concept id="35979486056" owner="35979486054">
+        <type>
+            <label>Bus</label>
+        </type>
+        <layout>
+            <rectangle x="284.0" y="167.0" width="40.0" height="25.0"/>
+            <color foreground="255,255,255" background="102,0,102"/>
+        </layout>
+    </concept>
+    <relation id="35979486062" owner="35979486054">
+        <type>
+            <label>agent</label>
+        </type>
+        <layout>
+            <rectangle x="192.0" y="54.0" width="55.0" height="25.0"/>
+            <color foreground="0,0,0" background="153,153,153"/>
+        </layout>
+    </relation>
+    <relation id="35979486061" owner="35979486054">
+        <type>
+            <label>dest</label>
+        </type>
+        <layout>
+            <rectangle x="366.0" y="54.0" width="46.0" height="25.0"/>
+            <color foreground="0,0,0" background="51,255,51"/>
+        </layout>
+    </relation>
+    <relation id="35979486060" owner="35979486054">
+        <type>
+            <label>instrument</label>
+        </type>
+        <layout>
+            <rectangle x="255.0" y="111.0" width="99.0" height="25.0"/>
+            <color foreground="0,0,0" background="153,153,153"/>
+        </layout>
+    </relation>
+    <concept id="35979486059" owner="35979486054">
+        <type>
+            <label>Person</label>
+        </type>
+        <referent>
+            <label>John</label>
+        </referent>
+        <layout>
+            <rectangle x="52.0" y="54.0" width="111.0" height="25.0"/>
+            <color foreground="255,255,255" background="102,0,102"/>
+        </layout>
+    </concept>
+    <concept id="35979486058" owner="35979486054">
+        <type>
+            <label>Going</label>
+        </type>
+        <layout>
+            <rectangle x="277.0" y="54.0" width="55.0" height="25.0"/>
+            <color foreground="255,255,255" background="0,0,153"/>
+        </layout>
+    </concept>
+    <arrow id="35979486063" owner="35979486054" label="-" from="35979486058" to="35979486061">
+        <layout>
+            <rectangle x="346.94727" y="64.0" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486068" owner="35979486054" label="-" from="35979486061" to="35979486057">
+        <layout>
+            <rectangle x="431.91406" y="64.0" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486067" owner="35979486054" label="-" from="35979486058" to="35979486060">
+        <layout>
+            <rectangle x="302.0" y="92.57031" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486066" owner="35979486054" label="-" from="35979486060" to="35979486056">
+        <layout>
+            <rectangle x="301.75168" y="148.8125" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486065" owner="35979486054" label="-" from="35979486058" to="35979486062">
+        <layout>
+            <rectangle x="259.1953" y="64.0" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+    <arrow id="35979486064" owner="35979486054" label="-" from="35979486062" to="35979486059">
+        <layout>
+            <rectangle x="175.25" y="64.0" width="6.0" height="6.0"/>
+            <color foreground="0,0,0" background="0,0,0"/>
+        </layout>
+    </arrow>
+</graph>
+
+</conceptualgraph>
+
