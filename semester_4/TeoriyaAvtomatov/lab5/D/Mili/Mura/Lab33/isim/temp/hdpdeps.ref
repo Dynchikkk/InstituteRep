@@ -1,0 +1,7 @@
+V3 3
+FL Z:/lb/Lab33/../../Flip_Flop_RS_RST.vhd 2024/04/12.15:26:58 J.30
+EN isim_temp/Flip_Flop_RS 1713466571 FL Z:/lb/Lab33/../../Flip_Flop_RS_RST.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254
+AR isim_temp/Flip_Flop_RS/Behavioral 1713466572 \
+      FL Z:/lb/Lab33/../../Flip_Flop_RS_RST.vhd EN isim_temp/Flip_Flop_RS 1713466571

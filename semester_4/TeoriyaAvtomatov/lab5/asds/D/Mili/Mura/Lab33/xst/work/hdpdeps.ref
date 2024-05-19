@@ -1,0 +1,9 @@
+V3 6
+FL //vboxsvr/xl/Flip_Flop_RS_RST.vhd 2024/04/12.15:26:58 J.30
+FL D:/Flip_Flop_RS_RST.vhd 2024/04/12.14:26:58 J.30
+EN work/Flip_Flop_RS 1713529432 FL D:/Flip_Flop_RS_RST.vhd PB ieee/std_logic_1164 1163575071 \
+      PB ieee/std_logic_arith 1163575072 PB ieee/STD_LOGIC_UNSIGNED 1163575073
+AR work/Flip_Flop_RS/Behavioral 1713529433 \
+      FL D:/Flip_Flop_RS_RST.vhd EN work/Flip_Flop_RS 1713529432
+FL D:/lb/Lab33/../../Flip_Flop_RS_RST.vhd 2024/04/12.14:26:58 J.30
+FL Z:/lb/Lab33/../../Flip_Flop_RS_RST.vhd 2024/04/12.15:26:58 J.30

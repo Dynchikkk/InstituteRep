@@ -167,14 +167,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		GetWindowRect(hWnd, &rect);
 		windowWidth = rect.right - rect.left;
 		windowHeight = rect.bottom - rect.top;
-
+			
 		PAINTSTRUCT ps;
 		HDC hdc = BeginPaint(hWnd, &ps);
 
 		calculate();
-		for (int i = 0; i < point_count; i += 2) {
-			MoveToEx(hdc, crds[i][0], crds[i][1], NULL);
-			LineTo(hdc, crds[i + 1][0], crds[i + 1][1]);
+		MoveToEx(hdc, crds[0][0], crds[0][1], NULL);
+		for (int i = 0; i < point_count; i++) {
+			LineTo(hdc, crds[i][0], crds[i][1]);
 		}
 
 		EndPaint(hWnd, &ps);

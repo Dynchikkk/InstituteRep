@@ -1,0 +1,38 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.1i
+//  \   \         Application : ISE
+//  /   /         Filename : test.tfw
+// /___/   /\     Timestamp : Mon Apr 15 21:47:09 2024
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: test
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module test;
+    reg IN_C = 1'b0;
+    reg IN_RST = 1'b0;
+    reg IN_X = 1'b0;
+    wire Y;
+
+
+    schema3_2 UUT (
+        .IN_C(IN_C),
+        .IN_RST(IN_RST),
+        .IN_X(IN_X),
+        .Y(Y));
+
+    initial begin
+    end
+
+endmodule
+

@@ -1,0 +1,3 @@
+MODULE test
+SUBMODULE schema3_2
+INSTANCE UUT
