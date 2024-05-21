@@ -1,9 +1,0 @@
-[Inputs]
-RST
-R
-S
-C
-[Outputs]
-Q
-not_Q
-[BiDir]
