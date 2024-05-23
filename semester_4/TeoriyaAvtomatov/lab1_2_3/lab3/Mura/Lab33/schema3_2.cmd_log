@@ -1,0 +1,2 @@
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_2.sch" schema3_2.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_2.sch" schema3_2.vf

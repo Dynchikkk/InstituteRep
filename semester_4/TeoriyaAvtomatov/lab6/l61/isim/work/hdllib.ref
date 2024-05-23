@@ -1,0 +1,4 @@
+AR core behavioral Z:/l/l61/core.vhd sub00/vhpl01 1716488935
+AR test_core testbench_arch Z:/l/l61/test_core.vhw sub00/vhpl03 1716490101
+EN test_core NULL Z:/l/l61/test_core.vhw sub00/vhpl02 1716490100
+EN core NULL Z:/l/l61/core.vhd sub00/vhpl00 1716488934

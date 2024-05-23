@@ -1,0 +1,215 @@
+Release 9.1i - xst J.30
+Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to ./xst/projnav.tmp
+CPU : 0.00 / 0.16 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.16 s | Elapsed : 0.00 / 0.00 s
+ 
+--> Reading design: schema3_1.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+     9.1) Device utilization summary
+     9.2) Partition Resource Summary
+     9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "schema3_1.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "schema3_1"
+Output Format                      : NGC
+Target Device                      : xc3s2000-5-fg456
+
+---- Source Options
+Top Module Name                    : schema3_1
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : lut
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Library Search Order               : schema3_1.lso
+Keep Hierarchy                     : NO
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+WARNING:HDLParsers:3607 - Unit work/Flip_Flop_RS is now defined in a different file.  It was defined in "D:/lb/Lab33/../../Flip_Flop_RS_RST.vhd", and is now defined in "D:/Flip_Flop_RS_RST.vhd".
+WARNING:HDLParsers:3607 - Unit work/Flip_Flop_RS/Behavioral is now defined in a different file.  It was defined in "D:/lb/Lab33/../../Flip_Flop_RS_RST.vhd", and is now defined in "D:/Flip_Flop_RS_RST.vhd".
+Compiling vhdl file "D:/Flip_Flop_RS_RST.vhd" in Library work.
+Architecture behavioral of Entity flip_flop_rs is up to date.
+Compiling verilog file "schema3_1.vf" in library work
+Module <schema3_1> compiled
+No errors in compilation
+Analysis of file <"schema3_1.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <schema3_1> in library <work>.
+
+Analyzing hierarchy for entity <flip_flop_rs> in library <work> (architecture <behavioral>).
+
+WARNING:Xst:2591 - "schema3_1.vf" line 67: attribute on instance <IOSTANDARD> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "schema3_1.vf" line 84: attribute on instance <IOSTANDARD> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "schema3_1.vf" line 70: attribute on instance <IOSTANDARD> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "schema3_1.vf" line 79: attribute on instance <DRIVE> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "schema3_1.vf" line 79: attribute on instance <IOSTANDARD> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "schema3_1.vf" line 79: attribute on instance <SLEW> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <schema3_1>.
+Module <schema3_1> is correct for synthesis.
+ 
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <XLXI_149> in unit <schema3_1>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <XLXI_149> in unit <schema3_1>.
+    Set user-defined property "IFD_DELAY_VALUE =  AUTO" for instance <XLXI_149> in unit <schema3_1>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <XLXI_149> in unit <schema3_1>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <XLXI_150> in unit <schema3_1>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <XLXI_150> in unit <schema3_1>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <XLXI_150> in unit <schema3_1>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <XLXI_183> in unit <schema3_1>.
+    Set user-defined property "DRIVE =  12" for instance <XLXI_183> in unit <schema3_1>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <XLXI_183> in unit <schema3_1>.
+    Set user-defined property "SLEW =  SLOW" for instance <XLXI_183> in unit <schema3_1>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <XLXI_218> in unit <schema3_1>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <XLXI_218> in unit <schema3_1>.
+    Set user-defined property "IFD_DELAY_VALUE =  AUTO" for instance <XLXI_218> in unit <schema3_1>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <XLXI_218> in unit <schema3_1>.
+Analyzing Entity <flip_flop_rs> in library <work> (Architecture <behavioral>).
+Entity <flip_flop_rs> analyzed. Unit <flip_flop_rs> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <flip_flop_rs>.
+    Related source file is "D:/Flip_Flop_RS_RST.vhd".
+    Found 1-bit register for signal <Q>.
+    Found 1-bit register for signal <not_Q>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <flip_flop_rs> synthesized.
+
+
+Synthesizing Unit <schema3_1>.
+    Related source file is "schema3_1.vf".
+WARNING:Xst:653 - Signal <Q1> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <Q2> is used but never assigned. Tied to value 0.
+WARNING:Xst:653 - Signal <Q3> is used but never assigned. Tied to value 0.
+WARNING:Xst:646 - Signal <No_Q> is assigned but never used.
+Unit <schema3_1> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 6
+ 1-bit register                                        : 6
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Loading device for application Rf_Device from file '3s2000.nph' in environment C:\Xilinx91i.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 6
+ Flip-Flops                                            : 6
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+ERROR:Xst:528 - Multi-source in Unit <schema3_1> on signal <RST>
+Sources are: 
+   Output signal of IBUF instance <XLXI_218>
+   Output signal of AND3 instance <XLXI_234>
+CPU : 3.95 / 4.12 s | Elapsed : 4.00 / 4.00 s
+ 
+--> 
+
+Total memory usage is 200164 kilobytes
+
+Number of errors   :    1 (   0 filtered)
+Number of warnings :   12 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

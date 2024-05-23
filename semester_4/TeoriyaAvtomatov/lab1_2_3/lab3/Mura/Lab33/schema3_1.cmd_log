@@ -1,0 +1,49 @@
+sch2verilog -intstyle ise -family spartan3   -w "E:/Users/plis/a23vvim2/Lab33/schema3_1.sch" schema3_1.vf
+xst -ise "E:/Users/plis/a23vvim2/Lab33/Lab33.ise" -intstyle ise -ifn schema3_1.xst -ofn schema3_1.syr
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+xst -ise "Z:/Lab33/Lab33.ise" -intstyle ise -ifn schema3_1.xst -ofn schema3_1.syr
+xst -ise "Z:/Lab33/Lab33.ise" -intstyle ise -ifn schema3_1.xst -ofn schema3_1.syr
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "D:/lb/Lab33/schema3_1.sch" schema3_1.vf
+xst -ise "D:/lb/Lab33/Lab33.ise" -intstyle ise -ifn schema3_1.xst -ofn schema3_1.syr
+sch2verilog -intstyle ise -family spartan3   -w "D:/lb/Lab33/schema3_1.sch" schema3_1.vf
+xst -ise "D:/lb/Lab33/Lab33.ise" -intstyle ise -ifn schema3_1.xst -ofn schema3_1.syr
+sch2verilog -intstyle ise -family spartan3   -w "D:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "D:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "H:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "H:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "H:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "H:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "D:/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab35/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab35/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab35/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab35/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab35/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab35/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab35/lb/Lab33/schema3_1.sch" schema3_1.vf
+sch2verilog -intstyle ise -family spartan3   -w "Z:/Lab35/lb/Lab33/schema3_1.sch" schema3_1.vf

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLParsers" num="3607" delta="unknown" >Unit <arg fmt="%s" index="1">work/core</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">Z:/l61/core.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">//vboxsvr/shared/l61/core.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="unknown" >Unit <arg fmt="%s" index="1">work/core/Behavioral</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">Z:/l61/core.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">//vboxsvr/shared/l61/core.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="Xst" num="1306" delta="unknown" >Output &lt;<arg fmt="%s" index="1">yf6</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">syk&lt;4&gt;</arg>&gt; is used but never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">se</arg>&gt; is assigned but never used.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">sy&lt;4&gt;</arg>&gt; is used but never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+</msg>
+
+</messages>
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLParsers" num="3607" delta="unknown" >Unit <arg fmt="%s" index="1">work/Flip_Flop_RS</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">D:/lb/Lab33/../../Flip_Flop_RS_RST.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">D:/Flip_Flop_RS_RST.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="unknown" >Unit <arg fmt="%s" index="1">work/Flip_Flop_RS/Behavioral</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">D:/lb/Lab33/../../Flip_Flop_RS_RST.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">D:/Flip_Flop_RS_RST.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="Xst" num="2591" delta="unknown" ><arg fmt="%s" index="1">&quot;schema3_1.vf&quot; line 67:</arg> <arg fmt="%s" index="2">attribute on instance</arg> &lt;<arg fmt="%s" index="3">IOSTANDARD</arg>&gt; overrides <arg fmt="%s" index="4">generic/parameter on entity</arg>. It is possible that simulator will not take this attribute into account.
+</msg>
+
+<msg type="warning" file="Xst" num="2591" delta="unknown" ><arg fmt="%s" index="1">&quot;schema3_1.vf&quot; line 84:</arg> <arg fmt="%s" index="2">attribute on instance</arg> &lt;<arg fmt="%s" index="3">IOSTANDARD</arg>&gt; overrides <arg fmt="%s" index="4">generic/parameter on entity</arg>. It is possible that simulator will not take this attribute into account.
+</msg>
+
+<msg type="warning" file="Xst" num="2591" delta="unknown" ><arg fmt="%s" index="1">&quot;schema3_1.vf&quot; line 70:</arg> <arg fmt="%s" index="2">attribute on instance</arg> &lt;<arg fmt="%s" index="3">IOSTANDARD</arg>&gt; overrides <arg fmt="%s" index="4">generic/parameter on entity</arg>. It is possible that simulator will not take this attribute into account.
+</msg>
+
+<msg type="warning" file="Xst" num="2591" delta="unknown" ><arg fmt="%s" index="1">&quot;schema3_1.vf&quot; line 79:</arg> <arg fmt="%s" index="2">attribute on instance</arg> &lt;<arg fmt="%s" index="3">DRIVE</arg>&gt; overrides <arg fmt="%s" index="4">generic/parameter on entity</arg>. It is possible that simulator will not take this attribute into account.
+</msg>
+
+<msg type="warning" file="Xst" num="2591" delta="unknown" ><arg fmt="%s" index="1">&quot;schema3_1.vf&quot; line 79:</arg> <arg fmt="%s" index="2">attribute on instance</arg> &lt;<arg fmt="%s" index="3">IOSTANDARD</arg>&gt; overrides <arg fmt="%s" index="4">generic/parameter on entity</arg>. It is possible that simulator will not take this attribute into account.
+</msg>
+
+<msg type="warning" file="Xst" num="2591" delta="unknown" ><arg fmt="%s" index="1">&quot;schema3_1.vf&quot; line 79:</arg> <arg fmt="%s" index="2">attribute on instance</arg> &lt;<arg fmt="%s" index="3">SLEW</arg>&gt; overrides <arg fmt="%s" index="4">generic/parameter on entity</arg>. It is possible that simulator will not take this attribute into account.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">Q1</arg>&gt; is used but never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">Q2</arg>&gt; is used but never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">Q3</arg>&gt; is used but never assigned. Tied to value <arg fmt="%s" index="2">0</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">No_Q</arg>&gt; is assigned but never used.
+</msg>
+
+<msg type="error" file="Xst" num="528" delta="unknown" >Multi-source in Unit &lt;<arg fmt="%s" index="1">schema3_1</arg>&gt; on signal &lt;<arg fmt="%s" index="2">RST</arg>&gt;
+</msg>
+
+</messages>
+

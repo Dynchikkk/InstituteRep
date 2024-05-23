@@ -1,0 +1,2 @@
+vhdl work "../../Flip_Flop_RS_RST.vhd"
+verilog work "schema3_1.vf"

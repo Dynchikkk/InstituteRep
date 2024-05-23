@@ -1,0 +1,9 @@
+MO www NULL D:/lb/Lab33/www.tfw vlg69/www.bin 1713529518
+MO lg NULL "D:/Teoriya avtomatov/Lab5/D/Mura/Mura/Lab33/lg.tfw" vlg03/lg.bin 1715943567
+AR flip_flop_rs behavioral H:/lb/Lab33/../../Flip_Flop_RS_RST.vhd sub00/vhpl01 1713962523
+MO schema3_1 NULL C:/Users/student/Desktop/l/l5/D/Mili/Mura/Lab33/schema3_1.vf vlg0C/schema3__1.bin 1716374348
+MO schema3_2 NULL Z:/Lab33/schema3_2.vf vlg0D/schema3__2.bin 1713198268
+EN flip_flop_rs NULL H:/lb/Lab33/../../Flip_Flop_RS_RST.vhd sub00/vhpl00 1713962522
+MO testttt NULL C:/Users/student/Desktop/l/l5/D/Mili/Mura/Lab33/testttt.tfw vlg70/testttt.bin 1716374348
+MO test NULL Z:/Lab33/test.ant vlg34/test.bin 1713199037
+MO glbl NULL C:/Xilinx91i/verilog/src/glbl.v vlg2D/glbl.bin 1716374349

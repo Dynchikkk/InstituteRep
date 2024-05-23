@@ -1,0 +1,2 @@
+xst -ise "Z:/l61/l61.ise" -intstyle ise -ifn core.xst -ofn core.syr
+xst -ise "Z:/l61/l61.ise" -intstyle ise -ifn core.xst -ofn core.syr

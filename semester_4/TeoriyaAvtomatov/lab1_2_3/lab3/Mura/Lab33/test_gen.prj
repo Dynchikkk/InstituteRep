@@ -1,0 +1,3 @@
+verilog work "schema3_2.vf"
+verilog work "test.ant"
+verilog work "C:/Xilinx91i/verilog/src/glbl.v"

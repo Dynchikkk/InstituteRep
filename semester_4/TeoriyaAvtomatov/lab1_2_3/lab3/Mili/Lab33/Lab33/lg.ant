@@ -1,0 +1,139 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.1i
+//  \   \         Application : ISE
+//  /   /         Filename : lg.ant
+// /___/   /\     Timestamp : Wed May 01 20:16:11 2024
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: lg
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module lg;
+    reg IN_C = 1'b0;
+    reg IN_RST = 1'b0;
+    reg IN_X = 1'b0;
+    wire Y;
+
+    parameter PERIOD = 20;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for IN_C
+    begin
+        #OFFSET;
+        forever
+        begin
+            IN_C = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) IN_C = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    schema3_1 UUT (
+        .IN_C(IN_C),
+        .IN_RST(IN_RST),
+        .IN_X(IN_X),
+        .Y(Y));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock IN_C
+        #0;
+        ANNOTATE_Y;
+        #OFFSET;
+        forever begin
+            #15;
+            ANNOTATE_Y;
+            #5;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("\\\\vboxsvr\\xl\\Lab34\\Lab33\\Lab33\\lg.ano");
+        #1020 // Final time:  1020 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  5ns
+        #5;
+        IN_RST = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  45ns
+        #40;
+        IN_RST = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  65ns
+        #20;
+        IN_X = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  105ns
+        #40;
+        IN_X = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  185ns
+        #80;
+        IN_X = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  225ns
+        #40;
+        IN_X = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  245ns
+        #20;
+        IN_RST = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  285ns
+        #40;
+        IN_RST = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  305ns
+        #20;
+        IN_X = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  365ns
+        #60;
+        IN_X = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  385ns
+        #20;
+        IN_RST = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  425ns
+        #40;
+        IN_RST = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  445ns
+        #20;
+        IN_X = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  525ns
+        #80;
+        IN_X = 1'b0;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_Y;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,Y,%b]", $time, Y);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

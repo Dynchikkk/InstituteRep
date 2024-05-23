@@ -1,0 +1,102 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.1i
+//  \   \         Application : ISE
+//  /   /         Filename : lg.tfw
+// /___/   /\     Timestamp : Wed May 01 21:31:30 2024
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: lg
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module lg;
+    reg IN_C = 1'b0;
+    reg IN_RST = 1'b0;
+    reg IN_X = 1'b0;
+    wire [1:4] No_Q;
+    wire Y;
+
+    parameter PERIOD = 20;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for IN_C
+    begin
+        #OFFSET;
+        forever
+        begin
+            IN_C = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) IN_C = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    schema3_1 UUT (
+        .IN_C(IN_C),
+        .IN_RST(IN_RST),
+        .IN_X(IN_X),
+        .No_Q(No_Q),
+        .Y(Y));
+
+    initial begin
+        // -------------  Current Time:  25ns
+        #25;
+        IN_RST = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  105ns
+        #80;
+        IN_RST = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  145ns
+        #40;
+        IN_X = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  185ns
+        #40;
+        IN_X = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  205ns
+        #20;
+        IN_RST = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  285ns
+        #80;
+        IN_RST = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  305ns
+        #20;
+        IN_X = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  345ns
+        #40;
+        IN_X = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  365ns
+        #20;
+        IN_RST = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  485ns
+        #120;
+        IN_RST = 1'b0;
+        // -------------------------------------
+        // -------------  Current Time:  525ns
+        #40;
+        IN_X = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  585ns
+        #60;
+        IN_X = 1'b0;
+        // -------------------------------------
+    end
+
+endmodule
+
