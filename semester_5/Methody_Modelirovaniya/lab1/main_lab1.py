@@ -13,13 +13,9 @@
 
 def left_part(a, b, c, d):
     return not ((b and d) or (b and c)) and ((not d or a) and not (c and not a))
-
-
 def right_part(a, b, c, d):
     return not(not(not(c and d) and ((c and d) or (not c and not d)))) or \
            (((not a and b) or (a and not b)) and (not b or a))
-
-
 def main():
     print("a b c d x y")
     for a in range(2):
