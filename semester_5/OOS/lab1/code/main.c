@@ -17,7 +17,7 @@ PROCESS_INFORMATION startNextProcess(int processNum, int prevPid)
 	ZeroMemory(&si, sizeof(si));
 	si.cb = sizeof(si);
 
-	WCHAR cmd[MAX_PATH];
+	TCHAR cmd[MAX_PATH];
 	GetModuleFileName(NULL, cmd, sizeof(cmd) / sizeof(cmd[0]));
 
 	char src[MAX_PATH];
