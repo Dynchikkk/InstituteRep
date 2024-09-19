@@ -10,7 +10,7 @@
 #define MIN_SLEEP_TIME 10000
 #define MAX_SLEEP_TIME 20000
 
-PROCESS_INFORMATION startNextProcess(int processNum, int prevPid)
+PROCESS_INFORMATION startNextProcess(int processNum)
 {
 	PROCESS_INFORMATION pi;
 	STARTUPINFO si;
@@ -20,8 +20,8 @@ PROCESS_INFORMATION startNextProcess(int processNum, int prevPid)
 	TCHAR cmd[MAX_PATH];
 	GetModuleFileName(NULL, cmd, sizeof(cmd) / sizeof(cmd[0]));
 
-	char src[MAX_PATH];
-	sprintf(src, "code.exe %d %d", processNum, prevPid);
+	char* src[MAX_PATH];
+	sprintf(src, "code.exe %d", processNum);
 	TCHAR cmdArgs[MAX_PATH] = { 0, };
 	MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, src, strlen(src), cmdArgs, MAX_PATH);
 
@@ -32,24 +32,21 @@ PROCESS_INFORMATION startNextProcess(int processNum, int prevPid)
 	return pi;
 }
 
-int terminatePrevProcess(int pid, int num)
-{
-	HANDLE process = OpenProcess(PROCESS_TERMINATE, FALSE, pid);
-	TerminateProcess(process, 1);
-	CloseHandle(process);
-	printf("Process %d terminate by %d\n", num - 1, num);
-}
-
 void fakeRun(int num, int runTime, PROCESS_INFORMATION subPi)
 {
-	runTime -= 1000 * num;
+	// START KOSTYL
+	runTime += 1000 * (num + 1) * (num % 3 + 1);
+	// runTime += 1000 * num;
+	// runTime -= 1000 * num;
+	// START KOSTYL
+
 	char* resultString = "Process %d end work\n";
 	printf("Process %d start work for %d\n", num, runTime);
 	if (num == MAX_PROCESS_COUNT - 1) {
 		Sleep(runTime);
 	} 
 	else {
-		DWORD exCode = WaitForSingleObject(subPi.hProcess, runTime);
+		TCHAR exCode = WaitForSingleObject(subPi.hProcess, runTime);
 		if (exCode != WAIT_TIMEOUT) {
 			resultString = "Process %d terminate\n";
 		}
@@ -59,16 +56,13 @@ void fakeRun(int num, int runTime, PROCESS_INFORMATION subPi)
 
 int main(int argc, char* argv[])
 {
-	int selfpid = GetCurrentProcessId();
-
 	srand(time(NULL));
 	int runTime = rand() % (MAX_SLEEP_TIME - MIN_SLEEP_TIME + 1) + MIN_SLEEP_TIME;
 	int processNum = argc > 1 ? atoi(argv[1]) : 0;
-	int prevPid = argc > 1 ? atoi(argv[2]) : -1;
 
 	PROCESS_INFORMATION subPi;
 	if (processNum < MAX_PROCESS_COUNT) {
-		subPi = startNextProcess(processNum + 1, selfpid);
+		subPi = startNextProcess(processNum + 1);
 		fakeRun(processNum, runTime, subPi);
 		CloseHandle(subPi.hProcess);
 		CloseHandle(subPi.hThread);
