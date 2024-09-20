@@ -20,13 +20,11 @@ PROCESS_INFORMATION startNextProcess(int processNum)
 	TCHAR cmd[MAX_PATH];
 	GetModuleFileName(NULL, cmd, sizeof(cmd) / sizeof(cmd[0]));
 
-	char* src[MAX_PATH];
-	sprintf(src, "code.exe %d", processNum);
-	TCHAR cmdArgs[MAX_PATH] = { 0, };
-	MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, src, strlen(src), cmdArgs, MAX_PATH);
+	TCHAR args[MAX_PATH];
+	swprintf(args, sizeof(args), L"code.exe %d", processNum);
 
-	if (!CreateProcess(cmd, cmdArgs, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
-		printf("CreateProcess failed (%d).\n", GetLastError());
+	if (!CreateProcess(cmd, args, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
+		wprintf(L"CreateProcess failed (%d).\n", GetLastError());
 		return;
 	}
 	return pi;
@@ -35,23 +33,23 @@ PROCESS_INFORMATION startNextProcess(int processNum)
 void fakeRun(int num, int runTime, PROCESS_INFORMATION subPi)
 {
 	// START KOSTYL
-	runTime += 1000 * (num + 1) * (num % 3 + 1);
+	// runTime += 1000 * (num + 1) * (num % 3 + 1);
 	// runTime += 1000 * num;
 	// runTime -= 1000 * num;
 	// START KOSTYL
 
-	char* resultString = "Process %d end work\n";
-	printf("Process %d start work for %d\n", num, runTime);
+	LPWSTR resultString = L"Process %d end work\n";
+	wprintf(L"Process %d start work for %d\n", num, runTime);
 	if (num == MAX_PROCESS_COUNT - 1) {
 		Sleep(runTime);
 	} 
 	else {
 		TCHAR exCode = WaitForSingleObject(subPi.hProcess, runTime);
 		if (exCode != WAIT_TIMEOUT) {
-			resultString = "Process %d terminate\n";
+			resultString = L"Process %d terminate\n";
 		}
 	}
-	printf(resultString, num);
+	wprintf(resultString, num);
 }
 
 int main(int argc, char* argv[])
@@ -63,7 +61,7 @@ int main(int argc, char* argv[])
 	PROCESS_INFORMATION subPi;
 	if (processNum < MAX_PROCESS_COUNT) {
 		subPi = startNextProcess(processNum + 1);
-		fakeRun(processNum, runTime, subPi);
+		fakeRun(processNum, INT_MAX, subPi);
 		CloseHandle(subPi.hProcess);
 		CloseHandle(subPi.hThread);
 	}
