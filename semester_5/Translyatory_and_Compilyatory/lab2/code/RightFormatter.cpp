@@ -73,7 +73,7 @@ bool RightFormatChecker::isRightDecFormat(const std::string number)
 
 	std::string trimNumber = trimString(number);
 	int length = trimNumber.length();
-	if (trimNumber[0] == '0') {
+	if (trimNumber[0] == '0' && length > 1) {
 		return false;
 	}
 	for (int i = 0; i < length; i++) {
