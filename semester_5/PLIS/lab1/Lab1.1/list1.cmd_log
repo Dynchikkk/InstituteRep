@@ -1,0 +1,32 @@
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+xst -ise "C:/22VVP1/Lab1/Lab1.ise" -intstyle ise -ifn list1.xst -ofn list1.syr
+ngdbuild -ise "C:/22VVP1/Lab1/Lab1.ise" -intstyle ise -dd _ngo -i -p xc9500 "list1.ngc" list1.ngd
+cpldfit -ise "C:/22VVP1/Lab1/Lab1.ise" -intstyle ise -p xc9536-5-PC44 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 36 -pterms 25 -power std -localfbk -pinfbk list1.ngd
+XSLTProcess -ise "C:/22VVP1/Lab1/Lab1.ise" list1_build.xml
+tsim -ise "C:/22VVP1/Lab1/Lab1.ise" -intstyle ise list1 list1.nga
+taengine -ise "C:/22VVP1/Lab1/Lab1.ise" -intstyle ise -f list1 -w --format html1 -l C:/22VVP1/Lab1/list1_html/tim/timing_report.htm
+hprep6 -ise "C:/22VVP1/Lab1/Lab1.ise" -s IEEE1149 -n list1 -i list1
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "C:/22VVP1/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "Z:/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "Z:/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "Z:/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "Z:/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "Z:/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "Z:/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "Z:/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "Z:/Lab1/list1.sch" list1.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "Z:/Lab1/list1.sch" list1.vhf

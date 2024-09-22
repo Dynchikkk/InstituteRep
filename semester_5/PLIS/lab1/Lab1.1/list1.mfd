@@ -1,0 +1,17 @@
+MDF Database:  version 1.0
+MDF_INFO | list1 | XC9536-5-PC44
+MACROCELL | 1 | 1 | Y_OBUF
+ATTRIBUTES | 8815362 | 0
+INPUTS | 3 | X3  | X2  | X1
+INPUTP | 3 | 9 | 11 | 36
+EQ | 3 | 
+   Y.D = !X3 & X2
+	# !X2 & !X1;
+   Y.CLK = C;	// GCK
+GLOBALS | 1 | 2 | C
+
+PIN | X3 | 64 | 0 | N/A | 9 | 1 | 1 | 1
+PIN | X2 | 64 | 0 | N/A | 11 | 1 | 1 | 1
+PIN | X1 | 64 | 0 | N/A | 36 | 1 | 1 | 1
+PIN | C | 4096 | 0 | N/A | 5 | 1 | 1 | 1
+PIN | Y | 536871040 | 0 | N/A | 44

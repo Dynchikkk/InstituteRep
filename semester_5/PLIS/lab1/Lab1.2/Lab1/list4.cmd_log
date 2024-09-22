@@ -1,0 +1,4 @@
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "G:/Lab1/list4.sch" list4.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "G:/Lab1/list4.sch" list4.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "Z:/Lab11/Lab1/list4.sch" list4.vhf
+sch2vhdl -intstyle ise -family xc9500 -flat -suppress -w "Z:/Lab11/Lab1/list4.sch" list4.vhf

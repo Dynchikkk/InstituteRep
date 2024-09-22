@@ -1,0 +1,4 @@
+select figure at 508 390 13 -branches -sn=1
+select all in 127 387 505 1244 -branches -enclosed -noattrwin -sn=1
+select figure at 757 242 13 -branches -sn=1
+select figure at 754 239 13 -branches -sn=1

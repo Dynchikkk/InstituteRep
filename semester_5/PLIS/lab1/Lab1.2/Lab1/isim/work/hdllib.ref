@@ -1,0 +1,14 @@
+AR test1 testbench_arch Z:/Lab1/test1.vhw sub00/vhpl05 1726409107
+AR test52 testbench_arch Z:/Lab11/Lab1/test52.vhw sub00/vhpl13 1727018848
+AR list4 behavioral G:/Lab1/list4.vhf sub00/vhpl07 1726477803
+EN fd_mxilinx_list1 NULL Z:/Lab1/list1.vhf sub00/vhpl00 1726409102
+EN test1 NULL Z:/Lab1/test1.vhw sub00/vhpl04 1726409106
+EN test4 NULL G:/Lab1/test4.vhw sub00/vhpl08 1726477983
+EN test52 NULL Z:/Lab11/Lab1/test52.vhw sub00/vhpl12 1727018847
+AR fd_mxilinx_list1 behavioral Z:/Lab1/list1.vhf sub00/vhpl01 1726409103
+AR list5 behavioral Z:/Lab11/Lab1/list5.vhf sub00/vhpl11 1727018726
+AR test4 testbench_arch G:/Lab1/test4.vhw sub00/vhpl09 1726477984
+AR list1 behavioral Z:/Lab1/list1.vhf sub00/vhpl03 1726409105
+EN list1 NULL Z:/Lab1/list1.vhf sub00/vhpl02 1726409104
+EN list4 NULL G:/Lab1/list4.vhf sub00/vhpl06 1726477802
+EN list5 NULL Z:/Lab11/Lab1/list5.vhf sub00/vhpl10 1727018725

@@ -1,0 +1,211 @@
+--------------------------------------------------------------------------------
+-- Copyright (c) 1995-2003 Xilinx, Inc.
+-- All Right Reserved.
+--------------------------------------------------------------------------------
+--   ____  ____ 
+--  /   /\/   / 
+-- /___/  \  /    Vendor: Xilinx 
+-- \   \   \/     Version : 9.1i
+--  \   \         Application : ISE
+--  /   /         Filename : test3.ant
+-- /___/   /\     Timestamp : Sun Sep 15 19:27:24 2024
+-- \   \  /  \ 
+--  \___\/\___\ 
+--
+--Command: 
+--Design Name: test3
+--Device: Xilinx
+--
+
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+USE IEEE.STD_LOGIC_TEXTIO.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE STD.TEXTIO.ALL;
+
+ENTITY test3 IS
+END test3;
+
+ARCHITECTURE testbench_arch OF test3 IS
+    FILE RESULTS: TEXT OPEN WRITE_MODE IS "\\vboxsvr\xl\Lab1\test3.ano";
+
+    COMPONENT list3
+        PORT (
+            X1 : In std_logic;
+            X2 : In std_logic;
+            A0 : Out std_logic;
+            A1 : Out std_logic;
+            A2 : Out std_logic;
+            A3 : Out std_logic
+        );
+    END COMPONENT;
+
+    SIGNAL X1 : std_logic := '0';
+    SIGNAL X2 : std_logic := '0';
+    SIGNAL A0 : std_logic := '0';
+    SIGNAL A1 : std_logic := '0';
+    SIGNAL A2 : std_logic := '0';
+    SIGNAL A3 : std_logic := '0';
+
+    SHARED VARIABLE TX_ERROR : INTEGER := 0;
+    SHARED VARIABLE TX_OUT : LINE;
+
+    constant PERIOD : time := 60 ns;
+    constant DUTY_CYCLE : real := 0.5;
+    constant OFFSET : time := 100 ns;
+
+    BEGIN
+        UUT : list3
+        PORT MAP (
+            X1 => X1,
+            X2 => X2,
+            A0 => A0,
+            A1 => A1,
+            A2 => A2,
+            A3 => A3
+        );
+
+        PROCESS    -- clock process for X1
+        BEGIN
+            WAIT for OFFSET;
+            CLOCK_LOOP : LOOP
+                X1 <= '0';
+                WAIT FOR (PERIOD - (PERIOD * DUTY_CYCLE));
+                X1 <= '1';
+                WAIT FOR (PERIOD * DUTY_CYCLE);
+            END LOOP CLOCK_LOOP;
+        END PROCESS;
+
+        PROCESS    -- Annotation process for X1
+            VARIABLE TX_TIME : INTEGER := 0;
+
+            PROCEDURE ANNOTATE_A0(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", A0, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, A0);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_A1(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", A1, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, A1);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_A2(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", A2, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, A2);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_A3(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", A3, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, A3);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+        BEGIN
+            WAIT for 1 fs;
+            ANNOTATE_A0(0);
+            ANNOTATE_A1(0);
+            ANNOTATE_A2(0);
+            ANNOTATE_A3(0);
+            WAIT for OFFSET;
+            TX_TIME := TX_TIME + 100;
+            ANNO_LOOP : LOOP
+                --Rising Edge
+                WAIT for 45 ns;
+                TX_TIME := TX_TIME + 45;
+                ANNOTATE_A0(TX_TIME);
+                ANNOTATE_A1(TX_TIME);
+                ANNOTATE_A2(TX_TIME);
+                ANNOTATE_A3(TX_TIME);
+                WAIT for 15 ns;
+                TX_TIME := TX_TIME + 15;
+            END LOOP ANNO_LOOP;
+        END PROCESS;
+
+        PROCESS
+            BEGIN
+                -- -------------  Current Time:  175ns
+                WAIT FOR 175 ns;
+                X2 <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  295ns
+                WAIT FOR 120 ns;
+                X2 <= '0';
+                -- -------------------------------------
+                -- -------------  Current Time:  415ns
+                WAIT FOR 120 ns;
+                X2 <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  475ns
+                WAIT FOR 60 ns;
+                X2 <= '0';
+                -- -------------------------------------
+                -- -------------  Current Time:  535ns
+                WAIT FOR 60 ns;
+                X2 <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  595ns
+                WAIT FOR 60 ns;
+                X2 <= '0';
+                -- -------------------------------------
+                -- -------------  Current Time:  655ns
+                WAIT FOR 60 ns;
+                X2 <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  715ns
+                WAIT FOR 60 ns;
+                X2 <= '0';
+                -- -------------------------------------
+                WAIT FOR 345 ns;
+
+                STD.TEXTIO.write(TX_OUT, string'("Total[]"));
+                STD.TEXTIO.writeline(RESULTS, TX_OUT);
+                ASSERT (FALSE) REPORT
+                    "Success! Simulation for annotation completed"
+                    SEVERITY FAILURE;
+            END PROCESS;
+
+    END testbench_arch;
+

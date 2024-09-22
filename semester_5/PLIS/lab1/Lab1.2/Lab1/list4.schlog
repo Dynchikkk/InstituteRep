@@ -1,0 +1,8 @@
+select figure at 359 755 8 -branches -sn=1
+select all in 357 753 557 1180 -branches -enclosed -noattrwin -sn=1
+select figure at 559 1182 8 -branches -sn=1
+select figure at 557 1180 8 -branches -sn=1
+select figure at 563 1203 8 -branches -sn=1
+select all in 400 888 561 1200 -branches -enclosed -noattrwin -sn=1
+select figure at 390 749 8 -branches -sn=1
+select all in 388 747 2195 1289 -branches -enclosed -noattrwin -sn=1
