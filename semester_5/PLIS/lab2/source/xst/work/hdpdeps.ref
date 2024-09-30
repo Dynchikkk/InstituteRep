@@ -1,0 +1,42 @@
+V3 26
+FL //vboxsvr/p1/Lab2/list1.vhd 2024/09/23.13:54:56 J.30
+FL G:/Lab2/list1.vhd 2024/09/23.13:52:54 J.30
+FL Z:/Lab2/list1.vhd 2024/09/29.17:48:20 J.30
+EN work/list1 1727618675 FL Z:/Lab2/list1.vhd PB ieee/std_logic_1164 1163575071 \
+      PB ieee/std_logic_arith 1163575072 PB ieee/STD_LOGIC_UNSIGNED 1163575073
+AR work/list1/Behavioral 1727618676 \
+      FL Z:/Lab2/list1.vhd EN work/list1 1727618675
+FL Z:/Lab2/list13.vhd 2024/09/29.18:05:51 J.30
+EN work/list13 1727618767 FL Z:/Lab2/list13.vhd PB ieee/std_logic_1164 1163575071 \
+      PB ieee/std_logic_arith 1163575072 PB ieee/STD_LOGIC_UNSIGNED 1163575073
+AR work/list13/Behavioral 1727618768 \
+      FL Z:/Lab2/list13.vhd EN work/list13 1727618767
+FL Z:/Lab2/list2.vhd 2024/09/29.18:38:38 J.30
+EN work/list2 1727620853 FL Z:/Lab2/list2.vhd PB ieee/std_logic_1164 1163575071 \
+      PB ieee/std_logic_arith 1163575072 PB ieee/STD_LOGIC_UNSIGNED 1163575073
+AR work/list2/Behavioral 1727620854 \
+      FL Z:/Lab2/list2.vhd EN work/list2 1727620853
+FL Z:/Lab2/list22.vhd 2024/09/29.19:18:18 J.30
+EN work/list22 1727623128 FL Z:/Lab2/list22.vhd PB ieee/std_logic_1164 1163575071 \
+      PB ieee/std_logic_arith 1163575072 PB ieee/STD_LOGIC_UNSIGNED 1163575073
+AR work/list22/Behavioral 1727623129 \
+      FL Z:/Lab2/list22.vhd EN work/list22 1727623128
+FL Z:/Lab2/list3.vhd 2024/09/29.19:53:06 J.30
+EN work/list3 1727625254 FL Z:/Lab2/list3.vhd PB ieee/std_logic_1164 1163575071 \
+      PB ieee/std_logic_arith 1163575072 PB ieee/STD_LOGIC_UNSIGNED 1163575073
+AR work/list3/Behavioral 1727625255 \
+      FL Z:/Lab2/list3.vhd EN work/list3 1727625254
+FL Z:/Lab2/list4.vhd 2024/09/29.20:06:30 J.30
+EN work/list4 1727626024 FL Z:/Lab2/list4.vhd PB ieee/std_logic_1164 1163575071 \
+      PB ieee/std_logic_arith 1163575072 PB ieee/STD_LOGIC_UNSIGNED 1163575073
+AR work/list4/Behavioral 1727626025 \
+      FL Z:/Lab2/list4.vhd EN work/list4 1727626024
+FL Z:/Lab2/list5.vhd 2024/09/29.20:24:33 J.30
+EN work/list5 1727627080 FL Z:/Lab2/list5.vhd PB ieee/std_logic_1164 1163575071 \
+      PB ieee/std_logic_arith 1163575072 PB ieee/STD_LOGIC_UNSIGNED 1163575073
+AR work/list5/Behavioral 1727627081 \
+      FL Z:/Lab2/list5.vhd EN work/list5 1727627080
+FL Z:/Lab2/list52.vhd 2024/09/29.21:14:36 J.30
+EN work/list52 1727630100 FL Z:/Lab2/list52.vhd PB ieee/std_logic_1164 1163575071
+AR work/list52/Behavioral 1727630101 \
+      FL Z:/Lab2/list52.vhd EN work/list52 1727630100

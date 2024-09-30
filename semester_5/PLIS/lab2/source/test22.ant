@@ -1,0 +1,189 @@
+--------------------------------------------------------------------------------
+-- Copyright (c) 1995-2003 Xilinx, Inc.
+-- All Right Reserved.
+--------------------------------------------------------------------------------
+--   ____  ____ 
+--  /   /\/   / 
+-- /___/  \  /    Vendor: Xilinx 
+-- \   \   \/     Version : 9.1i
+--  \   \         Application : ISE
+--  /   /         Filename : test22.ant
+-- /___/   /\     Timestamp : Sun Sep 29 19:31:54 2024
+-- \   \  /  \ 
+--  \___\/\___\ 
+--
+--Command: 
+--Design Name: test22
+--Device: Xilinx
+--
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE IEEE.STD_LOGIC_TEXTIO.ALL;
+USE STD.TEXTIO.ALL;
+
+ENTITY test22 IS
+END test22;
+
+ARCHITECTURE testbench_arch OF test22 IS
+    FILE RESULTS: TEXT OPEN WRITE_MODE IS "\\vboxsvr\xl\Lab2\test22.ano";
+
+    COMPONENT list22
+        PORT (
+            A : In std_logic_vector (1 DownTo 0);
+            B : In std_logic_vector (1 DownTo 0);
+            Cin : In std_logic;
+            S : Out std_logic_vector (1 DownTo 0);
+            Cout : Out std_logic
+        );
+    END COMPONENT;
+
+    SIGNAL A : std_logic_vector (1 DownTo 0) := "00";
+    SIGNAL B : std_logic_vector (1 DownTo 0) := "00";
+    SIGNAL Cin : std_logic := '0';
+    SIGNAL S : std_logic_vector (1 DownTo 0) := "00";
+    SIGNAL Cout : std_logic := '0';
+
+    SHARED VARIABLE TX_ERROR : INTEGER := 0;
+    SHARED VARIABLE TX_OUT : LINE;
+
+    BEGIN
+        UUT : list22
+        PORT MAP (
+            A => A,
+            B => B,
+            Cin => Cin,
+            S => S,
+            Cout => Cout
+        );
+
+        PROCESS    -- Annotation process
+            VARIABLE TX_TIME : INTEGER := 0;
+
+            PROCEDURE ANNOTATE_S(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", S, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, S);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+            PROCEDURE ANNOTATE_Cout(
+                TX_TIME : INTEGER
+            ) IS
+                VARIABLE TX_STR : String(1 to 4096);
+                VARIABLE TX_LOC : LINE;
+            BEGIN
+                STD.TEXTIO.write(TX_LOC, string'("Annotate["));
+                STD.TEXTIO.write(TX_LOC, TX_TIME);
+                STD.TEXTIO.write(TX_LOC, string'(", Cout, "));
+                IEEE.STD_LOGIC_TEXTIO.write(TX_LOC, Cout);
+                STD.TEXTIO.write(TX_LOC, string'("]"));
+                TX_STR(TX_LOC.all'range) := TX_LOC.all;
+                STD.TEXTIO.writeline(RESULTS, TX_LOC);
+                STD.TEXTIO.Deallocate(TX_LOC);
+            END;
+        BEGIN
+            WAIT for 1 fs;
+            ANNOTATE_S(0);
+            ANNOTATE_Cout(0);
+            ANNO_LOOP : LOOP
+                WAIT for 30 ns;
+                TX_TIME := TX_TIME + 30;
+                ANNOTATE_S(TX_TIME);
+                ANNOTATE_Cout(TX_TIME);
+                WAIT for 30 ns;
+                TX_TIME := TX_TIME + 30;
+            END LOOP ANNO_LOOP;
+        END PROCESS;
+
+        PROCESS
+            BEGIN
+                -- -------------  Current Time:  60ns
+                WAIT FOR 60 ns;
+                Cin <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  120ns
+                WAIT FOR 60 ns;
+                Cin <= '0';
+                B <= "01";
+                -- -------------------------------------
+                -- -------------  Current Time:  180ns
+                WAIT FOR 60 ns;
+                Cin <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  240ns
+                WAIT FOR 60 ns;
+                Cin <= '0';
+                B <= "10";
+                -- -------------------------------------
+                -- -------------  Current Time:  300ns
+                WAIT FOR 60 ns;
+                B <= "11";
+                -- -------------------------------------
+                -- -------------  Current Time:  360ns
+                WAIT FOR 60 ns;
+                Cin <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  420ns
+                WAIT FOR 60 ns;
+                A <= "01";
+                B <= "00";
+                -- -------------------------------------
+                -- -------------  Current Time:  480ns
+                WAIT FOR 60 ns;
+                Cin <= '0';
+                B <= "01";
+                -- -------------------------------------
+                -- -------------  Current Time:  540ns
+                WAIT FOR 60 ns;
+                Cin <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  600ns
+                WAIT FOR 60 ns;
+                B <= "10";
+                -- -------------------------------------
+                -- -------------  Current Time:  660ns
+                WAIT FOR 60 ns;
+                Cin <= '0';
+                B <= "11";
+                -- -------------------------------------
+                -- -------------  Current Time:  720ns
+                WAIT FOR 60 ns;
+                Cin <= '1';
+                -- -------------------------------------
+                -- -------------  Current Time:  780ns
+                WAIT FOR 60 ns;
+                A <= "10";
+                B <= "00";
+                -- -------------------------------------
+                -- -------------  Current Time:  840ns
+                WAIT FOR 60 ns;
+                A <= "11";
+                B <= "11";
+                -- -------------------------------------
+                -- -------------  Current Time:  960ns
+                WAIT FOR 120 ns;
+                Cin <= '0';
+                A <= "00";
+                B <= "00";
+                WAIT FOR 40 ns;
+
+                STD.TEXTIO.write(TX_OUT, string'("Total[]"));
+                STD.TEXTIO.writeline(RESULTS, TX_OUT);
+                ASSERT (FALSE) REPORT
+                    "Success! Simulation for annotation completed"
+                    SEVERITY FAILURE;
+            END PROCESS;
+
+    END testbench_arch;
+

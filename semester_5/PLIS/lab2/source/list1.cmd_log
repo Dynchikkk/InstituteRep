@@ -1,0 +1,5 @@
+xst -ise "G:/Lab2/Lab2.ise" -intstyle ise -ifn list1.xst -ofn list1.syr
+ngdbuild -ise "G:/Lab2/Lab2.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s50-pq208-5 "list1.ngc" list1.ngd
+map -ise "G:/Lab2/Lab2.ise" -intstyle ise -p xc3s50-pq208-5 -cm area -pr b -k 4 -c 100 -o list1_map.ncd list1.ngd list1.pcf
+par -ise "G:/Lab2/Lab2.ise" -w -intstyle ise -ol std -t 1 list1_map.ncd list1.ncd list1.pcf
+trce -ise "G:/Lab2/Lab2.ise" -intstyle ise -e 3 -s 5 -xml list1 list1.ncd -o list1.twr list1.pcf

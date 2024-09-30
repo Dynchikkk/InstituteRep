@@ -1,0 +1,11 @@
+V3 6
+FL Z:/Lab2/list4.vhd 2024/09/29.20:08:58 J.30
+EN isim_temp/list4 1727626167 FL Z:/Lab2/list4.vhd PB ieee/std_logic_1164 1164799246 \
+      PB ieee/std_logic_arith 1164799248 PB ieee/STD_LOGIC_UNSIGNED 1164799254
+AR isim_temp/list4/Behavioral 1727626168 \
+      FL Z:/Lab2/list4.vhd EN isim_temp/list4 1727626167
+FL Z:/Lab2/list52.vhd 2024/09/29.20:43:46 J.30
+EN isim_temp/list52 0 FL Z:/Lab2/list52.vhd PB ieee/std_logic_1164 1164799246 \
+      PB ieee/std_logic_arith 1164799248 PB ieee/STD_LOGIC_UNSIGNED 1164799254
+AR isim_temp/list52/Behavioral 0 \
+      FL Z:/Lab2/list52.vhd EN isim_temp/list52 0
