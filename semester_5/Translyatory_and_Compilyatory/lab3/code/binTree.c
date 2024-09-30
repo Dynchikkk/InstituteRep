@@ -1,72 +1,77 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include "binTree.h"
 
-Tree* CreateNode(int value)
+Tree* CreateNode(char value[SIZE])
 {
 	Tree* tmp = (Tree*)malloc(sizeof(Tree));
 	if (tmp == NULL) {
 		printf("ERROR: can't allocate memory\n");
 		return NULL;
 	}
-	tmp->value = value;
+	strcpy(tmp->value, value);
 	tmp->left = NULL;
 	tmp->right = NULL;
 	return tmp;
 }
 
-Tree* CreateTree(int val)
+Tree* CreateTree(char* value)
 {
-	return CreateNode(val);
+	return CreateNode(value);
 }
 
-Tree* AddNode(int val, Tree* root)
+Tree* AddNode(char* value, Tree* root)
 {
-	if (root != NULL && root->value == val) {
+	if (root != NULL && strcmp(root->value, value) == 0) {
 		printf("ERROR: same value in tree\n");
 		return root;
 	}
 
 	if (root == NULL) {
-		root = CreateNode(val);
-	} else if (val < root->value) {
-		root->left = AddNode(val, root->left);
-	} else {
-		root->right = AddNode(val, root->right);
+		root = CreateNode(value);
+	}
+	else if (strcmp(value, root->value) < 0) {
+		root->left = AddNode(value, root->left);
+	}
+	else {
+		root->right = AddNode(value, root->right);
 	}
 	return(root);
 }
 
-Tree* SearchNode(int val, Tree* root)
+Tree* SearchNode(char* value, Tree* root)
 {
 	if (root == NULL) {
 		return NULL;
 	}
 
-	if (root->value == val) {
+	if (strcmp(root->value, value) == 0) {
 		return root;
 	}
 
-	if (val < root->value) {
-		return SearchNode(val, root->left);
-	} else {
-		return SearchNode(val, root->right);
+	if (strcmp(value, root->value) < 0) {
+		return SearchNode(value, root->left);
+	}
+	else {
+		return SearchNode(value, root->right);
 	}
 }
 
-int EntryCount(int value, Tree* root, int entry)
+int EntryCount(char* value, Tree* root, int entry)
 {
 	if (root == NULL) {
 		return -1;
 	}
 
-	if (root->value == value) {
+	if (strcmp(root->value, value) == 0) {
 		return entry + 1;
 	}
 
-	if (value < root->value) {
+	if (strcmp(value, root->value) < 0) {
 		return EntryCount(value, root->left, entry + 1);
-	} else {
+	}
+	else {
 		return EntryCount(value, root->right, entry + 1);
 	}
 }
@@ -92,7 +97,7 @@ void TreePrint(Tree* root, int tabs)
 		return;
 	}
 
-	printf("%d\n", root->value);
+	printf("%s\n", root->value);
 
 	TreePrint(root->left, tabs + 1);
 	TreePrint(root->right, tabs + 1);
@@ -105,13 +110,13 @@ void PrintOneNode(Tree* node)
 		return;
 	}
 
-	printf("%d\n", node->value);
-	if (node->left != NULL)	{
-		printf("%d", node->left->value);
+	printf("%s\n", node->value);
+	if (node->left != NULL) {
+		printf("%s", node->left->value);
 	}
 	printf("  ");
-	if (node->right != NULL)	{
-		printf("%d", node->right->value);
+	if (node->right != NULL) {
+		printf("%s", node->right->value);
 	}
 	printf("\n");
 }
@@ -122,7 +127,7 @@ void TreeWalk(Tree* root)
 		return;
 	}
 
-	printf("%d ", root->value);
+	printf("%s ", root->value);
 	TreeWalk(root->left);
 	TreeWalk(root->right);
 }

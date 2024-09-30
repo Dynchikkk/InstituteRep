@@ -1,19 +1,22 @@
 #ifndef BIN_TREE
 #define BIN_TREE
+#include <string.h>
+
+#define SIZE 256
 
 typedef struct Node {
-	int value;
+	char value[SIZE];
 	struct Node* left;
 	struct Node* right;
 } Tree;
 
-Tree* CreateTree(int val);
+Tree* CreateTree(char* value);
 
-Tree* AddNode(int val, Tree* root);
+Tree* AddNode(char* value, Tree* root);
 
-Tree* SearchNode(int val, Tree* root);
+Tree* SearchNode(char* value, Tree* root);
 
-int EntryCount(int value, Tree* root, int entry);
+int EntryCount(char* value, Tree* root, int entry);
 
 void TreePrint(Tree* root, int tabs);
 
@@ -23,4 +26,4 @@ void PrintOneNode(Tree* root);
 
 void TreeWalk(Tree* root);
 
-#endif 
+#endif
