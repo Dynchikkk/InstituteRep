@@ -2,7 +2,7 @@
 #include <windows.h>
 #include "clientLib.h"
 
-LPCTSTR MAILBOX_NAME = TEXT("\\\\*\\mailslot\\sample_mailslot");
+LPCTSTR MAILBOX_NAME = TEXT("\\\\.\\mailslot\\sample_mailslot");
 
 typedef struct {
     OVERLAPPED ol;
