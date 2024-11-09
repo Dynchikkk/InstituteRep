@@ -1,0 +1,6 @@
+xst -ise "Z:/Lab3_7/Lab3_7.ise" -intstyle ise -ifn p7.xst -ofn p7.syr
+ngdbuild -ise "Z:/Lab3_7/Lab3_7.ise" -intstyle ise -dd _ngo -nt timestamp -uc "ic7.ucf" -p xc3s500e-fg320-4 "p7.ngc" p7.ngd
+map -ise "Z:/Lab3_7/Lab3_7.ise" -intstyle ise -p xc3s500e-fg320-4 -cm area -pr b -k 4 -c 100 -o p7_map.ncd p7.ngd p7.pcf
+par -ise "Z:/Lab3_7/Lab3_7.ise" -w -intstyle ise -ol std -t 1 p7_map.ncd p7.ncd p7.pcf
+trce -ise "Z:/Lab3_7/Lab3_7.ise" -intstyle ise -e 3 -s 4 -xml p7 p7.ncd -o p7.twr p7.pcf -ucf ic7.ucf
+bitgen -ise "Z:/Lab3_7/Lab3_7.ise" -intstyle ise -f p7.ut p7.ncd

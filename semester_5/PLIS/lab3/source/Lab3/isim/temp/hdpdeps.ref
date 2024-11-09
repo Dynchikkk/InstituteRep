@@ -1,0 +1,28 @@
+V3 19
+FL Z:/Lab3/p1.vhd 2024/10/20.22:23:24 J.30
+EN isim_temp/p1 1729448611 FL Z:/Lab3/p1.vhd PB ieee/std_logic_1164 1164799246
+AR isim_temp/p1/Behavioral 1729448612 \
+      FL Z:/Lab3/p1.vhd EN isim_temp/p1 1729448611
+FL Z:/Lab3/p2.vhd 2024/10/20.22:12:42 J.30
+AR isim_temp/p2/behavior -1 FL Z:/Lab3/p2.vhd EN isim_temp/p2 1729447968
+EN isim_temp/p2 1729447968 \
+      FL Z:/Lab3/p2.vhd PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254
+AR isim_temp/p2/Behavioral 1729447969 \
+      FL Z:/Lab3/p2.vhd EN isim_temp/p2 1729447968
+FL Z:/Lab3/p3.vhd 2024/10/20.21:57:00 J.30
+EN isim_temp/p3 1729447026 FL Z:/Lab3/p3.vhd PB ieee/std_logic_1164 1164799246 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254
+AR isim_temp/p3/behavior 1729447027 \
+      FL Z:/Lab3/p3.vhd EN isim_temp/p3 1729447026
+FL Z:/Lab3/p4.vhd 2024/10/20.22:00:59 J.30
+EN isim_temp/p4 1729447607 FL Z:/Lab3/p4.vhd PB ieee/std_logic_1164 1164799246 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254
+AR isim_temp/p4/Behavioral 1729447608 \
+      FL Z:/Lab3/p4.vhd EN isim_temp/p4 1729447607
+FL Z:/Lab3/p42.vhd 2024/10/20.22:06:40 J.30
+AR isim_temp/p4/Structural -1 FL Z:/Lab3/p42.vhd EN isim_temp/p4 1729447607 CP p4
+EN isim_temp/p42 1729447609 \
+      FL Z:/Lab3/p42.vhd PB ieee/std_logic_1164 1164799246
+AR isim_temp/p42/Structural 1729447610 \
+      FL Z:/Lab3/p42.vhd EN isim_temp/p42 1729447609 CP p4

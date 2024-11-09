@@ -1,0 +1,65 @@
+V3 42
+FL Z:/Lab3/p1.vhd 2024/10/20.22:32:04 J.30
+EN work/p1 1729449136 FL Z:/Lab3/p1.vhd PB ieee/std_logic_1164 1164799246
+AR work/p1/Behavioral 1729449137 \
+      FL Z:/Lab3/p1.vhd EN work/p1 1729449136
+FL Z:/Lab3/p2.vhd 2024/10/20.22:12:42 J.30
+EN work/p2 1729448150 FL Z:/Lab3/p2.vhd PB ieee/std_logic_1164 1164799246 \
+      PB ieee/std_logic_arith 1164799248 PB ieee/STD_LOGIC_UNSIGNED 1164799254
+AR work/p2/Behavioral 1729448151 \
+      FL Z:/Lab3/p2.vhd EN work/p2 1729448150
+FL Z:/Lab3/p3.vhd 2024/10/20.21:57:00 J.30
+EN work/p3 1729447099 FL Z:/Lab3/p3.vhd PB ieee/std_logic_1164 1164799246 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254
+AR work/p3/behavior 1729447100 \
+      FL Z:/Lab3/p3.vhd EN work/p3 1729447099
+FL Z:/Lab3/p4.vhd 2024/10/20.22:00:59 J.30
+EN work/p4 1729447348 FL Z:/Lab3/p4.vhd PB ieee/std_logic_1164 1164799246 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254
+AR work/p4/Behavioral 1729447349 \
+      FL Z:/Lab3/p4.vhd EN work/p4 1729447348
+FL Z:/Lab3/p42.vhd 2024/10/20.22:06:40 J.30
+EN work/p42 1729447651 FL Z:/Lab3/p42.vhd PB ieee/std_logic_1164 1164799246
+AR work/p42/Structural 1729447652 \
+      FL Z:/Lab3/p42.vhd EN work/p42 1729447651 CP p4
+FL Z:/Lab3/p5.vhd 2024/10/20.22:36:00 J.30
+EN work/p5 1729449385 FL Z:/Lab3/p5.vhd PB ieee/std_logic_1164 1164799246 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254
+AR work/p5/Behavioral 1729449386 \
+      FL Z:/Lab3/p5.vhd EN work/p5 1729449385
+FL Z:/Lab3/test1.vhw 2024/10/20.22:24:04 J.30
+EN work/test1 1729449138 FL Z:/Lab3/test1.vhw PB ieee/std_logic_1164 1164799246 \
+      PB ieee/STD_LOGIC_TEXTIO 1164799256 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 PB std/textio 1164799233
+AR work/test1/testbench_arch 1729449139 \
+      FL Z:/Lab3/test1.vhw EN work/test1 1729449138 CP p1
+FL Z:/Lab3/test2.vhw 2024/10/20.22:15:28 J.30
+EN work/test2 1729448152 FL Z:/Lab3/test2.vhw PB ieee/std_logic_1164 1164799246 \
+      PB ieee/std_logic_arith 1164799248 PB ieee/STD_LOGIC_UNSIGNED 1164799254 \
+      PB ieee/STD_LOGIC_TEXTIO 1164799256 PB std/textio 1164799233
+AR work/test2/testbench_arch 1729448153 \
+      FL Z:/Lab3/test2.vhw EN work/test2 1729448152 CP p2
+FL Z:/Lab3/test3.vhw 2024/10/20.21:58:57 J.30
+EN work/test3 1729447145 FL Z:/Lab3/test3.vhw PB ieee/std_logic_1164 1164799246 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 PB ieee/STD_LOGIC_TEXTIO 1164799256 \
+      PB ieee/std_logic_arith 1164799248 PB std/textio 1164799233
+AR work/test3/testbench_arch 1729447146 \
+      FL Z:/Lab3/test3.vhw EN work/test3 1729447145 CP p3
+FL Z:/Lab3/test4.vhw 2024/10/20.22:02:17 J.30
+EN work/test4 1729447350 FL Z:/Lab3/test4.vhw PB ieee/std_logic_1164 1164799246 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 PB ieee/STD_LOGIC_TEXTIO 1164799256 \
+      PB ieee/std_logic_arith 1164799248 PB std/textio 1164799233
+AR work/test4/testbench_arch 1729447351 \
+      FL Z:/Lab3/test4.vhw EN work/test4 1729447350 CP p4
+FL Z:/Lab3/test42.vhw 2024/10/20.22:07:21 J.30
+EN work/test42 1729447653 FL Z:/Lab3/test42.vhw PB ieee/std_logic_1164 1164799246 \
+      PB ieee/STD_LOGIC_TEXTIO 1164799256 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 PB std/textio 1164799233
+AR work/test42/testbench_arch 1729447654 \
+      FL Z:/Lab3/test42.vhw EN work/test42 1729447653 CP p42
+FL Z:/Lab3/test5.vhw 2024/10/20.22:36:47 J.30
+EN work/test5 1729449414 FL Z:/Lab3/test5.vhw PB ieee/std_logic_1164 1164799246 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 PB ieee/STD_LOGIC_TEXTIO 1164799256 \
+      PB ieee/std_logic_arith 1164799248 PB std/textio 1164799233
+AR work/test5/testbench_arch 1729449415 \
+      FL Z:/Lab3/test5.vhw EN work/test5 1729449414 CP p5

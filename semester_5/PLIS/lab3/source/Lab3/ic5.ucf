@@ -1,0 +1,24 @@
+# Ограничения для входов (тумблеры)
+NET "x[0]" LOC = "R17";
+NET "x[1]" LOC = "N17";
+NET "x[2]" LOC = "L13";
+NET "x[3]" LOC = "L14";
+NET "x[4]" LOC = "K17";
+NET "x[5]" LOC = "K18";
+NET "x[6]" LOC = "H18";
+NET "x[7]" LOC = "G18";
+
+# Ограничения для выходов (светодиоды)
+NET "q[0]" LOC = "R4";
+NET "q[1]" LOC = "F4";
+NET "q[2]" LOC = "P15";
+NET "q[3]" LOC = "E17";
+NET "q[4]" LOC = "K14";
+NET "q[5]" LOC = "K15";
+NET "q[6]" LOC = "J15";
+NET "q[7]" LOC = "J14";
+
+# Ограничения для тактового сигнала
+NET "clk" LOC = "B8";
+NET "clk" TNM_NET = clk;
+TIMESPEC TS_clk = PERIOD "clk" 20 ns HIGH 50%;

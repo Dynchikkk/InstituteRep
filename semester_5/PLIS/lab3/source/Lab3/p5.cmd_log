@@ -1,0 +1,4 @@
+xst -ise "Z:/Lab3/Lab3.ise" -intstyle ise -ifn p5.xst -ofn p5.syr
+xst -ise "Z:/Lab3/Lab3.ise" -intstyle ise -ifn p5.xst -ofn p5.syr
+xst -ise "Z:/Lab3/Lab3.ise" -intstyle ise -ifn p5.xst -ofn p5.syr
+xst -ise "Z:/Lab3/Lab3.ise" -intstyle ise -ifn p5.xst -ofn p5.syr

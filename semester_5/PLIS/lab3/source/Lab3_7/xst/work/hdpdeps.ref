@@ -1,0 +1,6 @@
+V3 3
+FL //vboxsvr/xl/Lab3_7/p7.vhd 2024/11/09.19:53:42 J.30
+EN work/p7 1731171273 FL //vboxsvr/xl/Lab3_7/p7.vhd PB ieee/std_logic_1164 1163575071 \
+      PB ieee/std_logic_arith 1163575072 PB ieee/STD_LOGIC_UNSIGNED 1163575073
+AR work/p7/Behavioral 1731171274 \
+      FL //vboxsvr/xl/Lab3_7/p7.vhd EN work/p7 1731171273
