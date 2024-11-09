@@ -1,0 +1,12 @@
+V3 7
+FL Z:/Lab4/p3.vhd 2024/11/09.21:24:44 J.30
+EN isim_temp/p3 1731176789 FL Z:/Lab4/p3.vhd PB ieee/std_logic_1164 1164799246 \
+      PB ieee/STD_LOGIC_SIGNED 1164799252 PB ieee/NUMERIC_STD 1164799260
+AR isim_temp/p3/Behavioral 1731176790 \
+      FL Z:/Lab4/p3.vhd EN isim_temp/p3 1731176789
+FL Z:/Lab4/Test_p3.vhd 2024/11/09.21:26:17 J.30
+EN isim_temp/Test_p3 1731176791 FL Z:/Lab4/Test_p3.vhd PB ieee/std_logic_1164 1164799246 \
+      PB ieee/std_logic_arith 1164799248 PB ieee/STD_LOGIC_SIGNED 1164799252 \
+      PB ieee/NUMERIC_STD 1164799260
+AR isim_temp/Test_p3/behavior 1731176792 \
+      FL Z:/Lab4/Test_p3.vhd EN isim_temp/Test_p3 1731176791 CP isim_temp/p3
