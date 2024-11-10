@@ -13,7 +13,7 @@
             <x>300</x>
             <y>100</y>
         </state>
-        <state id="2" name="qAccept">
+        <state id="2" name="qaccept">
             <x>500</x>
             <y>100</y>
             <final/>
