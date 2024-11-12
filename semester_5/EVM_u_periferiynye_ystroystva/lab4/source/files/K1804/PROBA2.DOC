@@ -1,0 +1,456 @@
+Адрес старта                    : 1
+Адрес окончания моделирования   : 5
+Количество тактов моделирования : 100
+Пошаговое моделирование
+  R0  =    77  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     0  CT  =     0  DBU =     0  CMK =     2  RA  =     0  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   1     20   1   7  14   0   0   0   0   0   0   1   4   0   3   0
+Адрес следующей микрокоманды :2  TAKT=     1
+  R0  =    77  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =    77  CT  =    20  DBU =    20  CMK =     3  RA  =    20  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     1  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   2      0   0   0  16   0   0   0   0   2   4   0   4   0   0   0
+Адрес следующей микрокоманды :3  TAKT=     2
+  R0  =    77  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     0  CT  =    20  DBU =     0  CMK =     4  RA  =     0  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     1  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=     3
+  R0  =   176  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =    77  CT  =    20  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=     4
+  R0  =   176  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =   176  CT  =    17  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=     5
+  R0  =   374  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =   176  CT  =    17  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=     6
+  R0  =   374  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =   374  CT  =    16  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=     7
+  R0  =   770  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =   374  CT  =    16  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=     8
+  R0  =   770  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =   770  CT  =    15  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=     9
+  R0  =  1760  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =   770  CT  =    15  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=    10
+  R0  =  1760  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =  1760  CT  =    14  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=    11
+  R0  =  3740  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =  1760  CT  =    14  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=    12
+  R0  =  3740  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =  3740  CT  =    13  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=    13
+  R0  =  7700  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =  3740  CT  =    13  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=    14
+  R0  =  7700  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =  7700  CT  =    12  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=    15
+  R0  = 17600  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =  7700  CT  =    12  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=    16
+  R0  = 17600  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC = 17600  CT  =    11  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=    17
+  R0  = 37400  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC = 17600  CT  =    11  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=    18
+  R0  = 37400  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC = 37400  CT  =    10  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=    19
+  R0  = 77000  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC = 37400  CT  =    10  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=    20
+  R0  = 77000  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC = 77000  CT  =     7  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=    21
+  R0  =176000  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC = 77000  CT  =     7  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=    22
+  R0  =176000  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =176000  CT  =     6  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     0  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     1  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=    23
+  R0  =174000  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =176000  CT  =     6  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =    11  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     1  TST =     0  PR15=     1
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=    24
+  R0  =174000  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =174000  CT  =     5  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =    11  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     1  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :21  TAKT=    25
+  R0  =170000  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =174000  CT  =     5  DBU =    21  CMK =    22  RA  =    21  ST0 =     4
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =    11  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     0  F15 =     1  TST =     1  PR15=     1
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+  21      0   1   7  12   0   0   0   1   2   0   4   0   0   0   0
+Адрес следующей микрокоманды :4  TAKT=    26
+  R0  =     0  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     1  CT  =     5  DBU =     0  CMK =     5  RA  =     0  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     4  PSW =    11  FLG =     0  C0  =     1
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     1  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=    27
+  R0  =     0  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     0  CT  =     4  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     4  PSW =    11  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     1  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :21  TAKT=    28
+  R0  =     0  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     0  CT  =     4  DBU =    21  CMK =    22  RA  =    21  ST0 =     4
+  ST1 =     0  ST2 =     0  ST3 =     0  PSW =     4  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     1  F15 =     0  TST =     1  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+  21      0   1   7  12   0   0   0   1   2   0   4   0   0   0   0
+Адрес следующей микрокоманды :4  TAKT=    29
+  R0  =     0  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     1  CT  =     4  DBU =     0  CMK =     5  RA  =     0  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     4  PSW =     4  FLG =     0  C0  =     1
+  C16 =     0  OVR =     0  Z   =     0  F15 =     0  TST =     1  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=    30
+  R0  =     0  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     0  CT  =     3  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     4  PSW =     4  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     1  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=    31
+  R0  =     0  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     0  CT  =     3  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     4  PSW =     4  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     1  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=    32
+  R0  =     0  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     0  CT  =     2  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     4  PSW =     4  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     1  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=    33
+  R0  =     0  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     0  CT  =     2  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     4  PSW =     4  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     1  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=    34
+  R0  =     0  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     0  CT  =     1  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     4  PSW =     4  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     1  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=    35
+  R0  =     0  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     0  CT  =     1  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     4  PSW =     4  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     1  F15 =     0  TST =     0  PR15=     0
+  PR0 =     0  PQ15=     0  PQ0 =     0
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   4      3   0   6  11   0   0   0   0   0   0   1   7   0   0   0
+Адрес следующей микрокоманды :3  TAKT=    36
+  R0  =     0  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     0  CT  =     0  DBU =     3  CMK =     4  RA  =     3  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     4  PSW =     4  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     1  F15 =     0  TST =     0  PR15=     0
+  PR0 =     1  PQ15=     0  PQ0 =     1
+
+Addr     M1  M2  M3  M4  M5  M6  M7  M8  M9 M10 M11 M12 M13 M14 M15
+   3     21   0   0   1   0   0   0   0   4   0   7   0   2   0   0
+Адрес следующей микрокоманды :4  TAKT=    37
+  R0  =     0  R1  =     0  R2  =     0  R3  =     0  R4  =     0  R5  =     0
+  R6  =     0  R7  =     0  R10 =     0  R11 =     0  R12 =     0  R13 =     0
+  R14 =     0  R15 =     0  R16 =     0  R17 =     0  RQ  =     0  RK  =     0
+  RDI =     0  RDO =     0  MAR =     0  BI  =     0  ZI  =     0  DBC =     0
+  YBC =     0  CT  =     0  DBU =    21  CMK =     5  RA  =    21  ST0 =     0
+  ST1 =     0  ST2 =     0  ST3 =     4  PSW =     4  FLG =     0  C0  =     0
+  C16 =     0  OVR =     0  Z   =     1  F15 =     0  TST =     0  PR15=     0
+  PR0
