@@ -2,6 +2,8 @@
 using psks_lab1.UI.QuizSection;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace psks_lab1.UI
@@ -40,6 +42,33 @@ namespace psks_lab1.UI
                 _statementsToObjects = filledData;
             };
             _fillDataForm.ShowDialog();
+        }
+
+        private void LoadData_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*"
+            };
+            string filePath = openFileDialog.ShowDialog() == DialogResult.OK ? openFileDialog.FileName : null;
+            if (string.IsNullOrEmpty(filePath))
+            {
+                return;
+            }
+            // Читаем файл построчно
+            foreach (string line in File.ReadLines(filePath))
+            {
+                // Предполагается, что строка имеет формат "условие : объект, объект"
+                string[] parts = line.Split(':');
+                string statement = parts[0].Trim();
+                List<string> objects = parts[1]
+                    .Split(',')
+                    .Select(obj => obj.Trim())
+                    .ToList();
+
+                _statementsToObjects.Add(statement, objects);
+            }
+
         }
     }
 }

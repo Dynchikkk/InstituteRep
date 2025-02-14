@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuizForm));
             this.MainSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.QuestionNumberLabel = new System.Windows.Forms.Label();
             this.QuestionLabel = new System.Windows.Forms.Label();
-            this.FinishButton = new System.Windows.Forms.Button();
-            this.NextButton = new System.Windows.Forms.Button();
-            this.TrueRadioButton = new System.Windows.Forms.RadioButton();
+            this.QuestionNumberLabel = new System.Windows.Forms.Label();
             this.FalseRadioButton = new System.Windows.Forms.RadioButton();
+            this.TrueRadioButton = new System.Windows.Forms.RadioButton();
+            this.NextButton = new System.Windows.Forms.Button();
+            this.FinishButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).BeginInit();
             this.MainSplitContainer.Panel1.SuspendLayout();
             this.MainSplitContainer.Panel2.SuspendLayout();
@@ -66,6 +66,17 @@
             this.MainSplitContainer.SplitterDistance = 320;
             this.MainSplitContainer.TabIndex = 0;
             // 
+            // QuestionLabel
+            // 
+            this.QuestionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.QuestionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.QuestionLabel.Location = new System.Drawing.Point(0, 34);
+            this.QuestionLabel.Name = "QuestionLabel";
+            this.QuestionLabel.Size = new System.Drawing.Size(387, 284);
+            this.QuestionLabel.TabIndex = 1;
+            this.QuestionLabel.Text = resources.GetString("QuestionLabel.Text");
+            this.QuestionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // QuestionNumberLabel
             // 
             this.QuestionNumberLabel.BackColor = System.Drawing.SystemColors.Control;
@@ -78,39 +89,16 @@
             this.QuestionNumberLabel.Text = "QuestionNumberLabel";
             this.QuestionNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // QuestionLabel
+            // FalseRadioButton
             // 
-            this.QuestionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.QuestionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.QuestionLabel.Location = new System.Drawing.Point(0, 34);
-            this.QuestionLabel.Name = "QuestionLabel";
-            this.QuestionLabel.Size = new System.Drawing.Size(387, 284);
-            this.QuestionLabel.TabIndex = 1;
-            this.QuestionLabel.Text = resources.GetString("QuestionLabel.Text");
-            this.QuestionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // FinishButton
-            // 
-            this.FinishButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.FinishButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.FinishButton.Location = new System.Drawing.Point(11, 15);
-            this.FinishButton.Name = "FinishButton";
-            this.FinishButton.Size = new System.Drawing.Size(90, 39);
-            this.FinishButton.TabIndex = 0;
-            this.FinishButton.Text = "Finish";
-            this.FinishButton.UseVisualStyleBackColor = true;
-            // 
-            // NextButton
-            // 
-            this.NextButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.NextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.NextButton.Location = new System.Drawing.Point(286, 15);
-            this.NextButton.Name = "NextButton";
-            this.NextButton.Size = new System.Drawing.Size(90, 39);
-            this.NextButton.TabIndex = 1;
-            this.NextButton.Text = "Next";
-            this.NextButton.UseVisualStyleBackColor = true;
-            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
+            this.FalseRadioButton.AutoSize = true;
+            this.FalseRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.FalseRadioButton.Location = new System.Drawing.Point(206, 24);
+            this.FalseRadioButton.Name = "FalseRadioButton";
+            this.FalseRadioButton.Size = new System.Drawing.Size(44, 21);
+            this.FalseRadioButton.TabIndex = 3;
+            this.FalseRadioButton.Text = "No";
+            this.FalseRadioButton.UseVisualStyleBackColor = true;
             // 
             // TrueRadioButton
             // 
@@ -125,16 +113,29 @@
             this.TrueRadioButton.Text = "Yes";
             this.TrueRadioButton.UseVisualStyleBackColor = true;
             // 
-            // FalseRadioButton
+            // NextButton
             // 
-            this.FalseRadioButton.AutoSize = true;
-            this.FalseRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.FalseRadioButton.Location = new System.Drawing.Point(206, 24);
-            this.FalseRadioButton.Name = "FalseRadioButton";
-            this.FalseRadioButton.Size = new System.Drawing.Size(44, 21);
-            this.FalseRadioButton.TabIndex = 3;
-            this.FalseRadioButton.Text = "No";
-            this.FalseRadioButton.UseVisualStyleBackColor = true;
+            this.NextButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.NextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.NextButton.Location = new System.Drawing.Point(286, 15);
+            this.NextButton.Name = "NextButton";
+            this.NextButton.Size = new System.Drawing.Size(90, 39);
+            this.NextButton.TabIndex = 1;
+            this.NextButton.Text = "Next";
+            this.NextButton.UseVisualStyleBackColor = true;
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
+            // 
+            // FinishButton
+            // 
+            this.FinishButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.FinishButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.FinishButton.Location = new System.Drawing.Point(11, 15);
+            this.FinishButton.Name = "FinishButton";
+            this.FinishButton.Size = new System.Drawing.Size(90, 39);
+            this.FinishButton.TabIndex = 0;
+            this.FinishButton.Text = "Finish";
+            this.FinishButton.UseVisualStyleBackColor = true;
+            this.FinishButton.Click += new System.EventHandler(this.FinishButton_Click);
             // 
             // QuizForm
             // 

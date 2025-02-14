@@ -30,6 +30,7 @@
         {
             this.FillDataButton = new System.Windows.Forms.Button();
             this.PlayButton = new System.Windows.Forms.Button();
+            this.LoadData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FillDataButton
@@ -51,7 +52,7 @@
             this.PlayButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PlayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.PlayButton.Location = new System.Drawing.Point(232, 12);
+            this.PlayButton.Location = new System.Drawing.Point(453, 12);
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Size = new System.Drawing.Size(217, 101);
             this.PlayButton.TabIndex = 1;
@@ -59,15 +60,30 @@
             this.PlayButton.UseVisualStyleBackColor = true;
             this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
+            // LoadData
+            // 
+            this.LoadData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LoadData.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.LoadData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LoadData.Location = new System.Drawing.Point(232, 12);
+            this.LoadData.Name = "LoadData";
+            this.LoadData.Size = new System.Drawing.Size(214, 101);
+            this.LoadData.TabIndex = 2;
+            this.LoadData.Text = "Load Data";
+            this.LoadData.UseVisualStyleBackColor = true;
+            this.LoadData.Click += new System.EventHandler(this.LoadData_Click);
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 125);
+            this.ClientSize = new System.Drawing.Size(682, 125);
+            this.Controls.Add(this.LoadData);
             this.Controls.Add(this.PlayButton);
             this.Controls.Add(this.FillDataButton);
-            this.MaximumSize = new System.Drawing.Size(476, 164);
-            this.MinimumSize = new System.Drawing.Size(476, 164);
+            this.MaximumSize = new System.Drawing.Size(698, 164);
+            this.MinimumSize = new System.Drawing.Size(698, 164);
             this.Name = "StartForm";
             this.Text = "StartForm";
             this.ResumeLayout(false);
@@ -78,5 +94,6 @@
 
         private System.Windows.Forms.Button FillDataButton;
         private System.Windows.Forms.Button PlayButton;
+        private System.Windows.Forms.Button LoadData;
     }
 }

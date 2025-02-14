@@ -17,19 +17,20 @@ namespace psks_lab1.UI.QuizSection
         private readonly Dictionary<string, List<string>> _statementsToObjects;
         private readonly List<string> _statements;
         private readonly Dictionary<string, int> _objectsFrequency;
-        
+
         private int _currentStatementIndex = 0;
 
         public QuizForm(Dictionary<string, List<string>> statementsToObjects)
         {
             InitializeComponent();
 
-            _objectsFrequency = new Dictionary<string, int>();
             _statementsToObjects = statementsToObjects;
             _statements = _statementsToObjects.Keys.ToList();
+
+            _objectsFrequency = new Dictionary<string, int>();
             foreach (List<string> objects in _statementsToObjects.Values)
             {
-                foreach (string soloObject in objects) 
+                foreach (string soloObject in objects)
                 {
                     if (_objectsFrequency.ContainsKey(soloObject))
                     {
@@ -68,18 +69,41 @@ namespace psks_lab1.UI.QuizSection
 
         private void Finish()
         {
-            int displayCount = Math.Min(_objectsFrequency.Keys.Count, DISPLAY_RESULT_COUNT);
-            List<string> topObjects = _objectsFrequency
-                .OrderByDescending(x => x.Value)
+            // Сначала вычисляем для каждого объекта общее количество условий, в которых он участвует
+            var totalConditions = new Dictionary<string, int>();
+            foreach (var kvp in _statementsToObjects)
+            {
+                foreach (var obj in kvp.Value)
+                {
+                    if (!totalConditions.ContainsKey(obj))
+                        totalConditions[obj] = 0;
+                    totalConditions[obj]++;
+                }
+            }
+
+            int displayCount = Math.Min(_objectsFrequency.Count, DISPLAY_RESULT_COUNT);
+
+            // Выбираем объекты, у которых частота подтверждений > 0,
+            // сортируем сначала по убыванию частоты, а затем по убыванию отношения (подтверждено/всего)
+            var topObjects = _objectsFrequency
+                .Where(pair => pair.Value > 0)
+                .Select(pair => new
+                {
+                    Name = pair.Key,
+                    Frequency = pair.Value,
+                    Total = totalConditions[pair.Key],
+                    Ratio = pair.Value / (double)totalConditions[pair.Key]
+                })
+                .OrderByDescending(x => x.Frequency)
+                .ThenByDescending(x => x.Ratio)
                 .Take(displayCount)
-                .Select(x => x.Key)
                 .ToList();
 
             StringBuilder topText = new StringBuilder();
-            foreach (var soloObject in topObjects)
+            foreach (var obj in topObjects)
             {
-                int persent = 0;//(_objectsFrequency[soloObject] / _ob.Count) * 100;
-                topText.AppendLine($"{soloObject} - {persent}%");
+                int percent = (int)(obj.Ratio * 100);
+                topText.AppendLine($"{obj.Name} - {percent}%");
             }
 
             QuestionNumberLabel.Text = "Result";
@@ -93,6 +117,11 @@ namespace psks_lab1.UI.QuizSection
             AnalizeQuestionAnswer(TrueRadioButton.Checked);
             _currentStatementIndex++;
             UpdateQuestion();
+        }
+
+        private void FinishButton_Click(object sender, EventArgs e)
+        {
+            Finish();
         }
     }
 }
