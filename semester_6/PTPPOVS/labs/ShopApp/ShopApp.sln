@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35806.99 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magazine", "Magazine\Magazine.csproj", "{B067C287-54B4-4274-AD57-80FBF087A67B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopApp", "ShopApp\ShopApp.csproj", "{160CF866-B1CE-48EA-A932-8EC514318430}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B067C287-54B4-4274-AD57-80FBF087A67B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B067C287-54B4-4274-AD57-80FBF087A67B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B067C287-54B4-4274-AD57-80FBF087A67B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B067C287-54B4-4274-AD57-80FBF087A67B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{160CF866-B1CE-48EA-A932-8EC514318430}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160CF866-B1CE-48EA-A932-8EC514318430}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{160CF866-B1CE-48EA-A932-8EC514318430}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{160CF866-B1CE-48EA-A932-8EC514318430}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8DF8F41C-51E4-4C35-B931-248AA9FC2F78}
+		SolutionGuid = {529D1FF1-A713-493E-A699-64FBA6AB3ED1}
 	EndGlobalSection
 EndGlobal
