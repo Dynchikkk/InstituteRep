@@ -243,7 +243,6 @@ public class MainFrame extends javax.swing.JFrame {
         }
         return sign * sum;
     }
-
     
     private boolean stringIsNullOrEmpty(String str) {
          return str == null || str.trim().isEmpty();
