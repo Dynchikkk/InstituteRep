@@ -13,8 +13,7 @@ public class MainFrame extends javax.swing.JFrame {
     private final String SHADOW_COLUMN_TITLE = "ShadowColumn"; 
     
     private ArrayList<RecIntegral> _integrals;
-    
-    
+        
     /**
      * Creates new form MainFrame
      */
