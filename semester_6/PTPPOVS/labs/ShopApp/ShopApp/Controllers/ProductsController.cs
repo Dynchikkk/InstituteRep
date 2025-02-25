@@ -83,7 +83,7 @@ namespace ShopApp.Controllers
         /// </summary>
         /// <param name="id">Product id</param>
         /// <returns>Found product if success, else - null</returns>
-        [HttpPost, Route("search")]
+        [HttpGet, Route("search")]
         public Product? SearchProduct(Guid id)
         {
             return _productService.Search(id);
