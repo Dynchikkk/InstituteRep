@@ -1,0 +1,77 @@
+[
+  {
+    "Id": "1d3b5a9a-36a1-4eb7-83a4-90f8b4f99382",
+    "Description": "Samsung TV 55 inch",
+    "Price": 599.99
+  },
+  {
+    "Id": "2f3c6b1b-43d2-41f9-81ed-12d3d65e2cde",
+    "Description": "Lenovo ThinkPad Laptop",
+    "Price": 999.99
+  },
+  {
+    "Id": "3a9e5b8c-9d67-42f2-b63a-2f5e8f98c123",
+    "Description": "Apple iPhone 13",
+    "Price": 799.99
+  },
+  {
+    "Id": "4c6f7a12-56e3-45e1-9e27-8f3bfa1e2b5f",
+    "Description": "Xiaomi Mi Pad 4 Tablet",
+    "Price": 349.99
+  },
+  {
+    "Id": "5d8f9c34-7a4f-4d2a-a345-6f7d8c9e0bcd",
+    "Description": "Garmin Fenix 6 Smartwatch",
+    "Price": 449.99
+  },
+  {
+    "Id": "6e9f0d56-8b2e-4c3a-923f-7a1b8c9d0e1f",
+    "Description": "Sony WH-1000XM4 Wireless Headphones",
+    "Price": 349.99
+  },
+  {
+    "Id": "7f0a1b78-9c3d-4e5f-8a2b-3c4d5e6f7a8b",
+    "Description": "Sony PlayStation 5 Console",
+    "Price": 499.99
+  },
+  {
+    "Id": "8a1b2c3d-4e5f-6789-abcd-ef0123456789",
+    "Description": "Microsoft Xbox Series X",
+    "Price": 499.99
+  },
+  {
+    "Id": "9b2c3d4e-5f6a-789b-cdef-0123456789ab",
+    "Description": "Nintendo Switch Console",
+    "Price": 299.99
+  },
+  {
+    "Id": "0c1d2e3f-4a5b-6789-cdef-0123456789ab",
+    "Description": "Dell UltraSharp Monitor 27 inch",
+    "Price": 399.99
+  },
+  {
+    "Id": "1a2b3c4d-5e6f-7890-abcd-0123456789ab",
+    "Description": "HP LaserJet Pro Printer",
+    "Price": 199.99
+  },
+  {
+    "Id": "2b3c4d5e-6f7a-890b-cdef-0123456789ab",
+    "Description": "Bose SoundLink Bluetooth Speaker",
+    "Price": 149.99
+  },
+  {
+    "Id": "3c4d5e6f-7a8b-901c-def0-123456789abc",
+    "Description": "Amazon Echo Dot (4th Gen)",
+    "Price": 49.99
+  },
+  {
+    "Id": "4d5e6f7a-8b9c-012d-ef01-23456789abcd",
+    "Description": "Google Nest Mini",
+    "Price": 39.99
+  },
+  {
+    "Id": "5e6f7a8b-9c0d-123e-f012-3456789abcde",
+    "Description": "Apple AirPods Pro",
+    "Price": 249.99
+  }
+]

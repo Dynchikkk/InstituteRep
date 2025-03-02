@@ -1,5 +1,9 @@
+using ShopApp.Models;
+using ShopApp.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddSingleton<IProductsService<Product>, ProductsService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>

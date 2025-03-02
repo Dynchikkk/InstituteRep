@@ -12,18 +12,17 @@ namespace ShopApp.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly ILogger<ProductsController> _logger;
-        private readonly IProductService<Product> _productService;
+        private readonly IProductsService<Product> _productService;
 
         /// <summary>
         /// Base constructor
         /// </summary>
         /// <param name="logger">ProductsController logger</param>
-        public ProductsController(ILogger<ProductsController> logger)
+        /// <param name="productsService">Products servise</param>
+        public ProductsController(ILogger<ProductsController> logger, IProductsService<Product> productsService)
         {
             _logger = logger;
-#if DEBUG
-            _productService = new ProductService();
-#endif
+            _productService = productsService;
         }
 
         /// <summary>
