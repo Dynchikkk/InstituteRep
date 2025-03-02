@@ -34,17 +34,13 @@ namespace ShopApp.Controllers
         [HttpPost, Route("create")]
         public Guid CreateProduct(string description, double price)
         {
-            Product createdProduct = new Product()
+            Product createdProduct = new()
             {
                 Id = Guid.NewGuid(),
                 Description = description,
                 Price = price
             };
-            if (_productService.Add(createdProduct))
-            {
-                return createdProduct.Id;
-            }
-            return Guid.Empty;
+            return _productService.Add(createdProduct) ? createdProduct.Id : Guid.Empty;
         }
 
         /// <summary>
@@ -68,7 +64,7 @@ namespace ShopApp.Controllers
         [HttpPost, Route("edit")]
         public Product? EditProduct(Guid id, string description, double price)
         {
-            Product tempProduct = new Product()
+            Product tempProduct = new()
             {
                 Id = id,
                 Description = description,

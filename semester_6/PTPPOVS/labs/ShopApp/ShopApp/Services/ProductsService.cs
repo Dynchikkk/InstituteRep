@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using ShopApp.Models;
-using System.Threading;
 
 namespace ShopApp.Services
 {
@@ -39,7 +38,7 @@ namespace ShopApp.Services
                 throw new Exception($"ERROR: Can't find {CONFIGURATION_DATA_BASE_FILE_PATH} in configuration file");
             }
 
-            _products = new Dictionary<Guid, Product>();
+            _products = [];
             Task.Run(() => InitFromFileAsync(_cancellationTokenSource.Token)).Wait();
         }
 
@@ -96,7 +95,7 @@ namespace ShopApp.Services
             {
                 return null;
             }
-            _products.Remove(productId);
+            _ = _products.Remove(productId);
             _ = WriteToFileAsync(_cancellationTokenSource.Token);
             return removedProduct;
         }
@@ -131,7 +130,7 @@ namespace ShopApp.Services
                 return;
             }
 
-            List<Product> productsFromFile = JsonConvert.DeserializeObject<List<Product>>(json);
+            List<Product>? productsFromFile = JsonConvert.DeserializeObject<List<Product>>(json);
             if (productsFromFile == null)
             {
                 return;
@@ -152,7 +151,7 @@ namespace ShopApp.Services
         /// <returns>A task representing the asynchronous operation.</returns>
         private async Task WriteToFileAsync(CancellationToken cancellationToken)
         {
-            await _semaphore.WaitAsync();
+            await _semaphore.WaitAsync(cancellationToken);
             try
             {
                 // Serialize the collection of products.
@@ -165,7 +164,7 @@ namespace ShopApp.Services
             }
             finally
             {
-                _semaphore.Release();
+                _ = _semaphore.Release();
             }
         }
     }

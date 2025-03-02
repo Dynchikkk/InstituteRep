@@ -1,23 +1,29 @@
 ﻿namespace ShopApp.Models
 {
     /// <summary>
-    /// Store data about product
+    /// Represents a product in the store.
     /// </summary>
     public class Product : ICloneable
     {
         /// <summary>
-        /// Unique id in system
+        /// Gets or sets the unique identifier of the product.
         /// </summary>
         public Guid Id { get; set; }
+
         /// <summary>
-        /// Product description
+        /// Gets or sets the description of the product.
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
+
         /// <summary>
-        /// Product price
+        /// Gets or sets the price of the product.
         /// </summary>
         public double Price { get; set; }
 
+        /// <summary>
+        /// Creates a deep copy of the current product instance.
+        /// </summary>
+        /// <returns>A new <see cref="Product"/> object with the same values.</returns>
         public object Clone()
         {
             return new Product()
