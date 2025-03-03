@@ -36,10 +36,12 @@ DROP TEMPORARY TABLE IF EXISTS RecentOrders;
 DROP PROCEDURE IF EXISTS GetCustomerOrders;
 DROP PROCEDURE IF EXISTS CalculateTotalSpent;
 
--- Создание хранимой процедуры для получения заказов клиента с управлением потоком данных
 DELIMITER $$
+
+-- Создание хранимой процедуры для получения заказов клиента с управлением потоком данных
 CREATE PROCEDURE GetCustomerOrders(IN customerID INT)
 BEGIN
+    -- Объявление переменных
     DECLARE total_orders INT;
     DECLARE message VARCHAR(255);
     DECLARE done INT DEFAULT FALSE;
@@ -48,14 +50,22 @@ BEGIN
     DECLARE order_date DATE;
     DECLARE product_name VARCHAR(255);
     DECLARE product_price DECIMAL(10,2);
-    
-    -- Обработчик ошибок
+
+    -- Объявление курсора (должно идти до объявлений обработчиков)
+    DECLARE order_cursor CURSOR FOR 
+        SELECT o.order_ID, o.order_quantity, o.order_date, p.p_name, p.p_price 
+        FROM orders o
+        JOIN products p ON o.order_product_ID = p.product_ID
+        WHERE o.order_customer_ID = customerID;
+
+    -- Объявление обработчиков
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     DECLARE EXIT HANDLER FOR SQLEXCEPTION 
     BEGIN
         ROLLBACK;
         SELECT 'Ошибка при выполнении процедуры' AS ErrorMessage;
     END;
-    
+
     -- Подсчет количества заказов клиента
     SELECT COUNT(*) INTO total_orders FROM orders WHERE order_customer_ID = customerID;
     
@@ -71,16 +81,6 @@ BEGIN
     -- Вывод сообщения
     SELECT message AS OrderStatus;
     
-    -- Объявление курсора
-    DECLARE order_cursor CURSOR FOR 
-        SELECT o.order_ID, o.order_quantity, o.order_date, p.p_name, p.p_price 
-        FROM orders o
-        JOIN products p ON o.order_product_ID = p.product_ID
-        WHERE o.order_customer_ID = customerID;
-    
-    -- Объявление обработчика для обработки конца данных
-    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
-    
     -- Открытие курсора
     OPEN order_cursor;
     
@@ -89,7 +89,6 @@ BEGIN
         IF done THEN
             LEAVE read_loop;
         END IF;
-        
         -- Вывод каждой строки
         SELECT order_id, order_quantity, order_date, product_name, product_price;
     END LOOP;
@@ -117,6 +116,7 @@ BEGIN
     -- Присвоение значения выходной переменной
     SET totalSpent = total;
 END $$
+
 DELIMITER ;
 
 -- Вызов хранимых процедур
