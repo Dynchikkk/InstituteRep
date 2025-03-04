@@ -1,18 +1,24 @@
 package calculator;
 
-/**
- *
- * @author admin
- */
 public class RecIntegral {
+    final double MINIMAL_DOUBLE_VALUE = 0.000001;
+    final double MAXIMUM_DOUBLE_VALUE = 1000000;
+    
     private double _topBorder = 0.0;
     private double _bottomBorder = 0.0;
     private double _stepWidth = 0.0;
     private double _result = 0.0;
     
-    public RecIntegral(double topBorder, double bottomBorder, double stepWidth) {
+    public RecIntegral(double topBorder, double bottomBorder, double stepWidth) throws IntegralValueException {
         _topBorder = topBorder;
         _bottomBorder = bottomBorder;
+        // Check of values in range
+        if (bottomBorder < MINIMAL_DOUBLE_VALUE || bottomBorder > MAXIMUM_DOUBLE_VALUE ||
+                topBorder < MINIMAL_DOUBLE_VALUE || topBorder > MAXIMUM_DOUBLE_VALUE ||
+                stepWidth < MINIMAL_DOUBLE_VALUE || stepWidth > MAXIMUM_DOUBLE_VALUE) {
+            throw new IntegralValueException(
+                    MINIMAL_DOUBLE_VALUE, MAXIMUM_DOUBLE_VALUE);
+        }
         _stepWidth = stepWidth;
         _result = Double.NaN;
     }
