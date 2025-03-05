@@ -28,12 +28,7 @@ public class RecIntegral {
     public double getStepWidth() { return _stepWidth; }
     public double getResult() { return _result; }
     
-    public void calculateIntegral() {
-        // Ensure that the step width is positive
-        if (_stepWidth <= 0) {
-            throw new IllegalArgumentException("Step width must be positive");
-        }
-
+    public void calculateIntegral() throws StepException {
         double sign = 1.0;
         // If the top border is less than the bottom border, swap them and invert the sign of the result
         if (_topBorder < _bottomBorder) {
@@ -41,6 +36,10 @@ public class RecIntegral {
             _topBorder = _bottomBorder;
             _bottomBorder = temp;
             sign = -1.0;
+        }
+        
+        if (_stepWidth > _topBorder - _bottomBorder) {
+            throw new StepException(_stepWidth, _bottomBorder, _topBorder);
         }
 
         double sum = 0.0;
