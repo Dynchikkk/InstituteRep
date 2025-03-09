@@ -1,18 +1,23 @@
 package calculator;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author admin
- */
 public class MainFrame extends javax.swing.JFrame {
-
+    private final int SHADOW_COLUMN_NUMBER = 4; 
+    private final String SHADOW_COLUMN_TITLE = "ShadowColumn"; 
+    
+    private final ArrayList<RecIntegral> _integrals;
+        
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        DataTable.removeColumn(DataTable.getColumn(SHADOW_COLUMN_TITLE));
+        _integrals = new ArrayList<>();
     }
 
     /**
@@ -33,20 +38,27 @@ public class MainFrame extends javax.swing.JFrame {
         AddButton = new javax.swing.JButton();
         DeleteButton = new javax.swing.JButton();
         CalculateButton = new javax.swing.JButton();
+        ClearTableButton = new javax.swing.JButton();
+        FillTableButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         DataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Верхняя граница", "Нижняя граница", "Ширина шага", "Результат"
+                "Верхняя граница", "Нижняя граница", "Ширина шага", "Результат", "ShadowColumn"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         DataTableScrollPanel.setViewportView(DataTable);
 
         TopBorderLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -89,15 +101,25 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        ClearTableButton.setText("Очистить");
+        ClearTableButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ClearTableButtonMouseClicked(evt);
+            }
+        });
+
+        FillTableButton.setText("Восстановить");
+        FillTableButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FillTableButtonMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(DataTableScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(TopBorderLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -107,7 +129,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(StepWidthTextField)
+                            .addComponent(StepWidthTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
                             .addComponent(BottomBorderTextField)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
@@ -118,6 +140,16 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(DeleteButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(AddButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(48, 48, 48))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ClearTableButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FillTableButton, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(DataTableScrollPanel)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,18 +160,23 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(TopBorderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AddButton))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(StepWidthLabel)
-                    .addComponent(BottomBorderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DeleteButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DeleteButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(StepWidthLabel)
+                        .addComponent(BottomBorderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BottomBorderLabel)
                     .addComponent(StepWidthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CalculateButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(DataTableScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ClearTableButton)
+                    .addComponent(FillTableButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -171,8 +208,19 @@ public class MainFrame extends javax.swing.JFrame {
             return;
         }
         // Add data to table
-        ((DefaultTableModel)DataTable.getModel())
-                .addRow(new Double[]{topBorder, bottomBorder, stepWidth});
+        RecIntegral integral;
+        try {
+            integral = new RecIntegral(topBorder, bottomBorder, stepWidth);
+        } catch(IntegralValueException ex){
+            JOptionPane.showMessageDialog(
+                    this, 
+                    ex.getMessage(),
+                    ex.getExceptionName(), 
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        _integrals.add(integral);
+        AddIntegralToTable(DataTable, integral);
     }//GEN-LAST:event_AddButtonMouseClicked
 
     private void DeleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteButtonMouseClicked
@@ -182,7 +230,10 @@ public class MainFrame extends javax.swing.JFrame {
             return;
         }
         // Remove row
-        ((DefaultTableModel)DataTable.getModel()).removeRow(selectedRow);
+        DefaultTableModel model = (DefaultTableModel)DataTable.getModel();
+        _integrals.remove(
+                (RecIntegral)model.getValueAt(selectedRow, SHADOW_COLUMN_NUMBER));
+        model.removeRow(selectedRow);
     }//GEN-LAST:event_DeleteButtonMouseClicked
 
     private void CalculateButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CalculateButtonMouseClicked
@@ -193,55 +244,45 @@ public class MainFrame extends javax.swing.JFrame {
         }
         // Check if selected row not empty
         DefaultTableModel model = (DefaultTableModel) DataTable.getModel(); 
-        String topBorderText =  model.getValueAt(selectedRow, 0).toString();
-        String bottomBordeText = model.getValueAt(selectedRow, 1).toString();
-        String stepWidthText =  model.getValueAt(selectedRow, 2).toString();
-        if (stringIsNullOrEmpty(topBorderText) || 
-            stringIsNullOrEmpty(bottomBordeText) ||
-            stringIsNullOrEmpty(stepWidthText)) {
-            return;
-        }
-        // Try to convert
-        double topBorder;
-        double bottomBorder;
-        double stepWidth;
-        try {
-            topBorder = Double.parseDouble(topBorderText);
-            bottomBorder = Double.parseDouble(bottomBordeText);
-            stepWidth = Double.parseDouble(stepWidthText);
-        } catch (NumberFormatException e) {
-            return;
-        }
+        RecIntegral integral = 
+                (RecIntegral)model.getValueAt(selectedRow, SHADOW_COLUMN_NUMBER);
         // Calculate result
-        double result = calculateFunction(topBorder, bottomBorder, stepWidth);
+        try {
+            integral.calculateIntegral();
+        } catch(StepException ex){
+            JOptionPane.showMessageDialog(
+                    this, 
+                    ex.getMessage(),
+                    ex.getExceptionName(), 
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         // Set result to table
-        model.setValueAt(result, selectedRow, 3);
+        model.setValueAt(integral.getResult(), selectedRow, 3);
     }//GEN-LAST:event_CalculateButtonMouseClicked
+
+    private void ClearTableButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClearTableButtonMouseClicked
+        ((DefaultTableModel) DataTable.getModel()).setRowCount(0); 
+    }//GEN-LAST:event_ClearTableButtonMouseClicked
+
+    private void FillTableButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FillTableButtonMouseClicked
+        DefaultTableModel model = (DefaultTableModel) DataTable.getModel(); 
+        model.setRowCount(0);
+        for (RecIntegral integral : _integrals) {
+            AddIntegralToTable(DataTable, integral);
+        }
+    }//GEN-LAST:event_FillTableButtonMouseClicked
          
-    private double calculateFunction(double topBorder, double bottomBorder, double stepWidth) {
-        // Ensure that the step width is positive
-        if (stepWidth <= 0) {
-            throw new IllegalArgumentException("Step width must be positive");
-        }
-
-        double sign = 1.0;
-        // If the top border is less than the bottom border, swap them and invert the sign of the result
-        if (topBorder < bottomBorder) {
-            double temp = topBorder;
-            topBorder = bottomBorder;
-            bottomBorder = temp;
-            sign = -1.0;
-        }
-
-        double sum = 0.0;
-        // Integrate using the trapezoidal rule
-        for (double x = bottomBorder; x < topBorder; x += stepWidth) {
-            double nextX = Math.min(x + stepWidth, topBorder);
-            // Calculate the area of the trapezoid between x and nextX
-            double area = (nextX - x) * (Math.exp(-x) + Math.exp(-nextX)) / 2.0;
-            sum += area;
-        }
-        return sign * sum;
+    private void AddIntegralToTable(JTable table, RecIntegral integral) {
+        double result = integral.getResult();
+        ((DefaultTableModel)table.getModel()).addRow(
+                new Object[]{
+                    integral.getTopBorder(), 
+                    integral.getBottomBorder(), 
+                    integral.getStepWidth(),
+                    result == Double.NaN ? "" : result, 
+                    integral});
     }
     
     private boolean stringIsNullOrEmpty(String str) {
@@ -253,9 +294,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel BottomBorderLabel;
     private javax.swing.JTextField BottomBorderTextField;
     private javax.swing.JButton CalculateButton;
+    private javax.swing.JButton ClearTableButton;
     private javax.swing.JTable DataTable;
     private javax.swing.JScrollPane DataTableScrollPanel;
     private javax.swing.JButton DeleteButton;
+    private javax.swing.JButton FillTableButton;
     private javax.swing.JLabel StepWidthLabel;
     private javax.swing.JTextField StepWidthTextField;
     private javax.swing.JLabel TopBorderLabel;

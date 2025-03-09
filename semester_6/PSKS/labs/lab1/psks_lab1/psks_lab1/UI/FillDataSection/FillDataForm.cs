@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace psks_lab1.UI.FillDataSection
 {
@@ -23,7 +21,7 @@ namespace psks_lab1.UI.FillDataSection
             _objects = new List<string>();
             _statements = new List<string>();
             _statementsToObjects = new Dictionary<string, List<string>>();
-            
+
             foreach (var statementToObjects in _statementsToObjects)
             {
                 _statements.Add(statementToObjects.Key);
@@ -75,7 +73,7 @@ namespace psks_lab1.UI.FillDataSection
                 string statement = StatementsCheckList.Items[i].ToString();
                 if (isChecked)
                 {
-                    if(_statementsToObjects[statement].Contains(_lastDropDownObject))
+                    if (_statementsToObjects[statement].Contains(_lastDropDownObject))
                     {
                         continue;
                     }

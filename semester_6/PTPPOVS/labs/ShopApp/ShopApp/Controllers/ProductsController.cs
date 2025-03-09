@@ -12,18 +12,17 @@ namespace ShopApp.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly ILogger<ProductsController> _logger;
-        private readonly IProductService<Product> _productService;
+        private readonly IProductsService<Product> _productService;
 
         /// <summary>
         /// Base constructor
         /// </summary>
         /// <param name="logger">ProductsController logger</param>
-        public ProductsController(ILogger<ProductsController> logger)
+        /// <param name="productsService">Products servise</param>
+        public ProductsController(ILogger<ProductsController> logger, IProductsService<Product> productsService)
         {
             _logger = logger;
-#if DEBUG
-            _productService = new ProductService();
-#endif
+            _productService = productsService;
         }
 
         /// <summary>
@@ -35,17 +34,13 @@ namespace ShopApp.Controllers
         [HttpPost, Route("create")]
         public Guid CreateProduct(string description, double price)
         {
-            Product createdProduct = new Product()
+            Product createdProduct = new()
             {
                 Id = Guid.NewGuid(),
                 Description = description,
                 Price = price
             };
-            if (_productService.Add(createdProduct))
-            {
-                return createdProduct.Id;
-            }
-            return Guid.Empty;
+            return _productService.Add(createdProduct) ? createdProduct.Id : Guid.Empty;
         }
 
         /// <summary>
@@ -69,7 +64,7 @@ namespace ShopApp.Controllers
         [HttpPost, Route("edit")]
         public Product? EditProduct(Guid id, string description, double price)
         {
-            Product tempProduct = new Product()
+            Product tempProduct = new()
             {
                 Id = id,
                 Description = description,
@@ -83,7 +78,7 @@ namespace ShopApp.Controllers
         /// </summary>
         /// <param name="id">Product id</param>
         /// <returns>Found product if success, else - null</returns>
-        [HttpPost, Route("search")]
+        [HttpGet, Route("search")]
         public Product? SearchProduct(Guid id)
         {
             return _productService.Search(id);

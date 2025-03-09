@@ -1,21 +1,25 @@
-var builder = WebApplication.CreateBuilder(args);
+using ShopApp.Models;
+using ShopApp.Services;
 
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSingleton<IProductsService<Product>, ProductsService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    var basePath = AppContext.BaseDirectory;
-    var xmlPath = Path.Combine(basePath, "ShopApp.xml");
+    string basePath = AppContext.BaseDirectory;
+    string xmlPath = Path.Combine(basePath, "ShopApp.xml");
     options.IncludeXmlComments(xmlPath);
 });
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    _ = app.UseSwagger();
+    _ = app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
