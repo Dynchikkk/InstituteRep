@@ -2,7 +2,6 @@
 using ShopApp.Core.Models;
 using ShopApp.Core.Services;
 using System.Collections.Concurrent;
-using System.Xml;
 
 namespace ShopApp.WebApi.Services
 {
@@ -64,7 +63,7 @@ namespace ShopApp.WebApi.Services
             {
                 return false;
             }
-            if (_products.TryAdd(product.Id, product))
+            if (!_products.TryAdd(product.Id, product))
             {
                 return false;
             }
