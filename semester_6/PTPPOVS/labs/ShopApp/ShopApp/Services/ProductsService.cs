@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
-using ShopApp.Models;
+using ShopApp.Core.Models;
+using ShopApp.Core.Services;
+using System.Collections.Concurrent;
 
 namespace ShopApp.Services
 {
@@ -12,10 +14,10 @@ namespace ShopApp.Services
     {
         private const string CONFIGURATION_DATA_BASE_FILE_PATH = "DataBaseFilePath";
 
-        private readonly Dictionary<Guid, Product> _products;
+        private readonly ConcurrentDictionary<Guid, Product> _products;
         private readonly IConfiguration _configuration;
 
-        private readonly SemaphoreSlim _semaphore;
+        private readonly SemaphoreSlim _fileSemaphore;
         private readonly CancellationTokenSource _cancellationTokenSource;
 
         private readonly string _dataBasePath;
@@ -29,7 +31,7 @@ namespace ShopApp.Services
         public ProductsService(IConfiguration configuration)
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            _semaphore = new SemaphoreSlim(1, 1);
+            _fileSemaphore = new SemaphoreSlim(1, 1);
 
             _configuration = configuration;
             _dataBasePath = _configuration[CONFIGURATION_DATA_BASE_FILE_PATH];
@@ -61,9 +63,10 @@ namespace ShopApp.Services
             {
                 return false;
             }
-            _products.Add(product.Id, product);
-
-            // Fire-and-forget async write to file
+            if (_products.TryAdd(product.Id, product))
+            {
+                return false;
+            }
             _ = WriteToFileAsync(_cancellationTokenSource.Token);
             return true;
         }
@@ -75,13 +78,16 @@ namespace ShopApp.Services
         /// <returns>The updated product if successful, otherwise null.</returns>
         public Product? Edit(Product product)
         {
-            if (!_products.ContainsKey(product.Id))
+            if (!_products.TryGetValue(product.Id, out Product? oldProduct))
             {
                 return null;
             }
-            _products[product.Id] = (Product)product.Clone();
-            _ = WriteToFileAsync(_cancellationTokenSource.Token);
-            return _products[product.Id];
+            if (_products.TryUpdate(product.Id, product, oldProduct))
+            {
+                _ = WriteToFileAsync(_cancellationTokenSource.Token);
+                return product;
+            }
+            return null;
         }
 
         /// <summary>
@@ -91,11 +97,10 @@ namespace ShopApp.Services
         /// <returns>The removed product if successful, otherwise null.</returns>
         public Product? Remove(Guid productId)
         {
-            if (!_products.TryGetValue(productId, out Product? removedProduct))
+            if (!_products.TryRemove(productId, out Product? removedProduct))
             {
                 return null;
             }
-            _ = _products.Remove(productId);
             _ = WriteToFileAsync(_cancellationTokenSource.Token);
             return removedProduct;
         }
@@ -151,7 +156,7 @@ namespace ShopApp.Services
         /// <returns>A task representing the asynchronous operation.</returns>
         private async Task WriteToFileAsync(CancellationToken cancellationToken)
         {
-            await _semaphore.WaitAsync(cancellationToken);
+            await _fileSemaphore.WaitAsync(cancellationToken);
             try
             {
                 // Serialize the collection of products.
@@ -164,7 +169,7 @@ namespace ShopApp.Services
             }
             finally
             {
-                _ = _semaphore.Release();
+                _ = _fileSemaphore.Release();
             }
         }
     }

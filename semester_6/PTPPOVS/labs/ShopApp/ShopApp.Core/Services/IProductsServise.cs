@@ -1,4 +1,4 @@
-﻿namespace ShopApp.Services
+﻿namespace ShopApp.Core.Services
 {
     /// <summary>
     /// Abstract product service

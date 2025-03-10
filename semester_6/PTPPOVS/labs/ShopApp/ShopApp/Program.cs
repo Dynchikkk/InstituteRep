@@ -1,4 +1,5 @@
-using ShopApp.Models;
+using ShopApp.Core.Models;
+using ShopApp.Core.Services;
 using ShopApp.Services;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);

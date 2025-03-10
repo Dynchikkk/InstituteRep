@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ShopApp.Models;
-using ShopApp.Services;
+using ShopApp.Core.Models;
+using ShopApp.Core.Services;
 
 namespace ShopApp.Controllers
 {

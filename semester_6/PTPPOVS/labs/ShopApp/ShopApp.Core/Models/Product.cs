@@ -1,4 +1,4 @@
-﻿namespace ShopApp.Models
+﻿namespace ShopApp.Core.Models
 {
     /// <summary>
     /// Represents a product in the store.
