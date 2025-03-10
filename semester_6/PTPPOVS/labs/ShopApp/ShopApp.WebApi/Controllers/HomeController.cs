@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ShopApp.Controllers
+namespace ShopApp.WebApi.Controllers
 {
     /// <summary>
     /// Home controller for ShopApp

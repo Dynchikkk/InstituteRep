@@ -2,7 +2,7 @@
 using ShopApp.Core.Models;
 using ShopApp.Core.Services;
 
-namespace ShopApp.Controllers
+namespace ShopApp.WebApi.Controllers
 {
     /// <summary>
     /// Provides endpoints for interacting with products

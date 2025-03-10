@@ -2,8 +2,9 @@
 using ShopApp.Core.Models;
 using ShopApp.Core.Services;
 using System.Collections.Concurrent;
+using System.Xml;
 
-namespace ShopApp.Services
+namespace ShopApp.WebApi.Services
 {
     /// <summary>
     /// Implementation of the product service for managing products.
@@ -160,7 +161,7 @@ namespace ShopApp.Services
             try
             {
                 // Serialize the collection of products.
-                string json = JsonConvert.SerializeObject(_products.Values.ToList(), Formatting.Indented);
+                string json = JsonConvert.SerializeObject(_products.Values.ToList(), Newtonsoft.Json.Formatting.Indented);
                 await File.WriteAllTextAsync(_dataBasePath, json, cancellationToken);
             }
             catch (Exception ex)

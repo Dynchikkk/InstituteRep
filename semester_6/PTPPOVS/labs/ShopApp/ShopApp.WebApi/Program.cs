@@ -1,6 +1,6 @@
 using ShopApp.Core.Models;
 using ShopApp.Core.Services;
-using ShopApp.Services;
+using ShopApp.WebApi.Services;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
     string basePath = AppContext.BaseDirectory;
-    string xmlPath = Path.Combine(basePath, "ShopApp.xml");
+    string xmlPath = Path.Combine(basePath, "ShopApp.WebApi.xml");
     options.IncludeXmlComments(xmlPath);
 });
 
