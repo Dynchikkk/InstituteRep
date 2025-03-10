@@ -247,7 +247,17 @@ public class MainFrame extends javax.swing.JFrame {
         RecIntegral integral = 
                 (RecIntegral)model.getValueAt(selectedRow, SHADOW_COLUMN_NUMBER);
         // Calculate result
-        integral.calculateIntegral();
+        try {
+            integral.calculateIntegral();
+        } catch(StepException ex){
+            JOptionPane.showMessageDialog(
+                    this, 
+                    ex.getMessage(),
+                    ex.getExceptionName(), 
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         // Set result to table
         model.setValueAt(integral.getResult(), selectedRow, 3);
     }//GEN-LAST:event_CalculateButtonMouseClicked
