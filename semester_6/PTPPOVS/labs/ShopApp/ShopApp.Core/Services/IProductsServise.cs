@@ -4,7 +4,7 @@
     /// Abstract product service
     /// </summary>
     /// <typeparam name="T">Type of Product</typeparam>
-    public interface IProductsService<T>
+    public interface IProductsService<T> : IDisposable
         where T : class
     {
         /// <summary>

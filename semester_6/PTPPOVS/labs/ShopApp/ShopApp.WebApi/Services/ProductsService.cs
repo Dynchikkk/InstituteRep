@@ -47,9 +47,10 @@ namespace ShopApp.WebApi.Services
         /// <summary>
         /// Finalizer for the service. Cancels any pending operations.
         /// </summary>
-        ~ProductsService()
+        public void Dispose()
         {
             _cancellationTokenSource?.Cancel();
+            GC.SuppressFinalize(this);
         }
 
         /// <summary>
@@ -70,6 +71,7 @@ namespace ShopApp.WebApi.Services
             _ = WriteToFileAsync(_cancellationTokenSource.Token);
             return true;
         }
+
 
         /// <summary>
         /// Edits (updates) an existing product in the collection.
@@ -160,7 +162,7 @@ namespace ShopApp.WebApi.Services
             try
             {
                 // Serialize the collection of products.
-                string json = JsonConvert.SerializeObject(_products.Values.ToList(), Newtonsoft.Json.Formatting.Indented);
+                string json = JsonConvert.SerializeObject(_products.Values.ToList(), Formatting.Indented);
                 await File.WriteAllTextAsync(_dataBasePath, json, cancellationToken);
             }
             catch (Exception ex)

@@ -32,7 +32,8 @@ namespace ShopApp.Tests
             [TearDown]
             public void TearDown()
             {
-                // Попытка удаления файла с повторными попытками, если он занят.
+                _service.Dispose();
+                //// TEMP
                 const int maxRetries = 10;
                 const int delayMs = 100;
                 for (int retry = 0; retry < maxRetries; retry++)
@@ -43,11 +44,10 @@ namespace ShopApp.Tests
                         {
                             File.Delete(_tempFilePath);
                         }
-                        break; // Успешное удаление — выходим из цикла.
+                        break;
                     }
                     catch (IOException)
                     {
-                        // Файл всё ещё занят, ждем немного и пробуем снова.
                         Thread.Sleep(delayMs);
                     }
                 }
