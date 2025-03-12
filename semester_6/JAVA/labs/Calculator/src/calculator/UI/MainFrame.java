@@ -1,32 +1,52 @@
-package calculator;
+package calculator.UI;
 
+import calculator.Core.DataManager;
+import calculator.Core.Exception.IntegralValueException;
+import calculator.Core.RecIntegral;
+import calculator.Core.Exception.StepException;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 public class MainFrame extends javax.swing.JFrame {
     private final int SHADOW_COLUMN_NUMBER = 4; 
-    private final String SHADOW_COLUMN_TITLE = "ShadowColumn"; 
+    private final String SHADOW_COLUMN_TITLE = "ShadowColumn";     
+    // Constants for file extensions and filter descriptions
+    private static final String TEXT_EXTENSION = ".txt";
+    private static final String BINARY_EXTENSION = ".calcbin";
+    private static final String TEXT_FILTER_DESCRIPTION = "Text Files (*" + TEXT_EXTENSION + ")";
+    private static final String BINARY_FILTER_DESCRIPTION = "Calc Binary Files (*" + BINARY_EXTENSION + ")";
+    // Constants for messages
+    private static final String SAVE_ERROR_MESSAGE = "Save error: ";
+    private static final String LOAD_ERROR_MESSAGE = "Load error: ";
     
-    private final ArrayList<RecIntegral> _integrals;
+    private ArrayList<RecIntegral> _integrals;
         
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
-        DataTable.removeColumn(DataTable.getColumn(SHADOW_COLUMN_TITLE));
+        
         _integrals = new ArrayList<>();
+        
+        DataTable.removeColumn(DataTable.getColumn(SHADOW_COLUMN_TITLE));
+        FileSaveMenuAsTextItem.addActionListener(e -> saveAsText());
+        FileSaveMenuAsBinaryItem.addActionListener(e -> saveAsBinary());
+        FileLoadMenuFromTextItem.addActionListener(e -> loadFromText());
+        FileLoadMenuFromBinaryItem.addActionListener(e -> loadFromBinary());
     }
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         DataTableScrollPanel = new javax.swing.JScrollPane();
         DataTable = new javax.swing.JTable();
         TopBorderLabel = new javax.swing.JLabel();
@@ -40,6 +60,16 @@ public class MainFrame extends javax.swing.JFrame {
         CalculateButton = new javax.swing.JButton();
         ClearTableButton = new javax.swing.JButton();
         FillTableButton = new javax.swing.JButton();
+        MenuBar = new javax.swing.JMenuBar();
+        FileMenu = new javax.swing.JMenu();
+        FileSaveMenu = new javax.swing.JMenu();
+        FileSaveMenuAsTextItem = new javax.swing.JMenuItem();
+        FileSaveMenuAsBinaryItem = new javax.swing.JMenuItem();
+        FileLoadMenu = new javax.swing.JMenu();
+        FileLoadMenuFromTextItem = new javax.swing.JMenuItem();
+        FileLoadMenuFromBinaryItem = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,6 +145,32 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        FileMenu.setText("File");
+
+        FileSaveMenu.setText("Save...");
+
+        FileSaveMenuAsTextItem.setText("As txt");
+        FileSaveMenu.add(FileSaveMenuAsTextItem);
+
+        FileSaveMenuAsBinaryItem.setText("As binary");
+        FileSaveMenu.add(FileSaveMenuAsBinaryItem);
+
+        FileMenu.add(FileSaveMenu);
+
+        FileLoadMenu.setText("Load...");
+
+        FileLoadMenuFromTextItem.setText("From txt");
+        FileLoadMenu.add(FileLoadMenuFromTextItem);
+
+        FileLoadMenuFromBinaryItem.setText("From binary");
+        FileLoadMenu.add(FileLoadMenuFromBinaryItem);
+
+        FileMenu.add(FileLoadMenu);
+
+        MenuBar.add(FileMenu);
+
+        setJMenuBar(MenuBar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,13 +198,13 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(48, 48, 48))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(DataTableScrollPanel)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(ClearTableButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FillTableButton, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(DataTableScrollPanel)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -273,7 +329,100 @@ public class MainFrame extends javax.swing.JFrame {
             AddIntegralToTable(DataTable, integral);
         }
     }//GEN-LAST:event_FillTableButtonMouseClicked
-         
+    
+    private void saveAsText() {
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter textFilter = 
+                new FileNameExtensionFilter(
+                        "Text Files (*" + TEXT_EXTENSION + ")", 
+                        TEXT_EXTENSION.replace(".", ""));
+        chooser.setFileFilter(textFilter);
+        if (chooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            // Append the .txt extension if it is missing.
+            if (!file.getName().toLowerCase().endsWith(TEXT_EXTENSION)) {
+                file = new File(file.getAbsolutePath() + TEXT_EXTENSION);
+            }
+            try {
+                DataManager.saveDataAsText(file, _integrals);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, SAVE_ERROR_MESSAGE + e.getMessage());
+            }
+        }
+    }
+    
+    private void saveAsBinary() {
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter binFilter = new FileNameExtensionFilter(
+                BINARY_FILTER_DESCRIPTION, 
+                BINARY_EXTENSION.replace(".", ""));
+        chooser.setFileFilter(binFilter);
+        if (chooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            // Append the .calcbin extension if it is missing.
+            if (!file.getName().toLowerCase().endsWith(BINARY_EXTENSION)) {
+                file = new File(file.getAbsolutePath() + BINARY_EXTENSION);
+            }
+            try {
+                DataManager.saveDataAsBinary(file, _integrals);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, SAVE_ERROR_MESSAGE + e.getMessage());
+            }
+        }
+    }
+    
+    private void loadFromText() {
+         JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter textFilter = new FileNameExtensionFilter(
+                TEXT_FILTER_DESCRIPTION, 
+                TEXT_EXTENSION.replace(".", ""));
+        chooser.setFileFilter(textFilter);
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            // Validate the file extension.
+            if (!file.getName().toLowerCase().endsWith(TEXT_EXTENSION)) {
+                JOptionPane.showMessageDialog(this, 
+                        "Please select a file with " + TEXT_EXTENSION + " extension");
+                return;
+            }
+            try {
+                _integrals = DataManager.loadDataFromText(file);
+                for (RecIntegral integral : _integrals) {
+                    AddIntegralToTable(DataTable, integral);
+                }
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, LOAD_ERROR_MESSAGE + e.getMessage());
+            }
+        }
+    }
+    
+    private void loadFromBinary() {
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter binFilter = new FileNameExtensionFilter(
+                BINARY_FILTER_DESCRIPTION, 
+                BINARY_EXTENSION.replace(".", ""));
+        chooser.setFileFilter(binFilter);
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            // Validate the file extension.
+            if (!file.getName().toLowerCase().endsWith(BINARY_EXTENSION)) {
+                JOptionPane.showMessageDialog(this, 
+                        "Please select a file with " + BINARY_EXTENSION + " extension");
+                return;
+            }
+            try {
+                _integrals = DataManager.loadDataFromBinary(file);
+                for (RecIntegral integral : _integrals) {
+                    AddIntegralToTable(DataTable, integral);
+                }
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, LOAD_ERROR_MESSAGE + e.getMessage());
+            } catch (ClassNotFoundException e) {
+                JOptionPane.showMessageDialog(this, e.getMessage());
+           }
+        }
+    }
+    
     private void AddIntegralToTable(JTable table, RecIntegral integral) {
         double result = integral.getResult();
         ((DefaultTableModel)table.getModel()).addRow(
@@ -298,10 +447,19 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTable DataTable;
     private javax.swing.JScrollPane DataTableScrollPanel;
     private javax.swing.JButton DeleteButton;
+    private javax.swing.JMenu FileLoadMenu;
+    private javax.swing.JMenuItem FileLoadMenuFromBinaryItem;
+    private javax.swing.JMenuItem FileLoadMenuFromTextItem;
+    private javax.swing.JMenu FileMenu;
+    private javax.swing.JMenu FileSaveMenu;
+    private javax.swing.JMenuItem FileSaveMenuAsBinaryItem;
+    private javax.swing.JMenuItem FileSaveMenuAsTextItem;
     private javax.swing.JButton FillTableButton;
+    private javax.swing.JMenuBar MenuBar;
     private javax.swing.JLabel StepWidthLabel;
     private javax.swing.JTextField StepWidthTextField;
     private javax.swing.JLabel TopBorderLabel;
     private javax.swing.JTextField TopBorderTextField;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

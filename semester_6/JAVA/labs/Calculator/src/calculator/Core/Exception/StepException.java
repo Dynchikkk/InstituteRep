@@ -1,4 +1,4 @@
-package calculator;
+package calculator.Core.Exception;
 
 public class StepException extends Exception {
     public StepException(double step, double lowerBound, double upperBound){

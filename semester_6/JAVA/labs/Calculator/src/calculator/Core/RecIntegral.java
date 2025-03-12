@@ -1,8 +1,13 @@
-package calculator;
+package calculator.Core;
 
-public class RecIntegral {
-    final double MINIMAL_DOUBLE_VALUE = 0.000001;
-    final double MAXIMUM_DOUBLE_VALUE = 1000000;
+import calculator.Core.Exception.StepException;
+import calculator.Core.Exception.IntegralValueException;
+import java.io.Serializable;
+
+public class RecIntegral implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private static final double MINIMAL_DOUBLE_VALUE = 0.000001;
+    private static final double MAXIMUM_DOUBLE_VALUE = 1000000;
     
     private double _topBorder = 0.0;
     private double _bottomBorder = 0.0;
@@ -10,6 +15,15 @@ public class RecIntegral {
     private double _result = 0.0;
     
     public RecIntegral(double topBorder, double bottomBorder, double stepWidth) throws IntegralValueException {
+        this(topBorder, bottomBorder, stepWidth, Double.NaN);
+    }
+    
+    public RecIntegral(
+            double topBorder, 
+            double bottomBorder, 
+            double stepWidth, 
+            double previewResult) 
+            throws IntegralValueException {
         _topBorder = topBorder;
         _bottomBorder = bottomBorder;
         // Check of values in range
@@ -20,7 +34,7 @@ public class RecIntegral {
                     MINIMAL_DOUBLE_VALUE, MAXIMUM_DOUBLE_VALUE);
         }
         _stepWidth = stepWidth;
-        _result = Double.NaN;
+        _result = previewResult;
     }
     
     public double getTopBorder() { return _topBorder; }
