@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataManager {
-    private static final String DOUBLE_NAN = "NaN";
-    
     // Save data as text
     public static void saveDataAsText(File file, List<RecIntegral> integrals) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
