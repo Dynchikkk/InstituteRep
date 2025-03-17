@@ -1,29 +1,32 @@
 package calculator.UI;
 
-import calculator.Core.DataManager;
+import calculator.Core.Data.DataManager;
 import calculator.Core.Exception.IntegralValueException;
-import calculator.Core.RecIntegral;
-import calculator.Core.Exception.StepException;
+import calculator.Core.Integral.RecIntegral;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 public class MainFrame extends javax.swing.JFrame {
-    private final int SHADOW_COLUMN_NUMBER = 4; 
-    private final String SHADOW_COLUMN_TITLE = "ShadowColumn";     
-    // Constants for file extensions and filter descriptions
+    // Shadow column
+    private static final int SHADOW_COLUMN_NUMBER = 4; 
+    private static final String SHADOW_COLUMN_TITLE = "ShadowColumn";     
+    // Load/Save files
     private static final String TEXT_EXTENSION = ".txt";
     private static final String BINARY_EXTENSION = ".calcbin";
     private static final String TEXT_FILTER_DESCRIPTION = "Text Files (*" + TEXT_EXTENSION + ")";
     private static final String BINARY_FILTER_DESCRIPTION = "Calc Binary Files (*" + BINARY_EXTENSION + ")";
-    // Constants for messages
     private static final String SAVE_ERROR_MESSAGE = "Save error: ";
     private static final String LOAD_ERROR_MESSAGE = "Load error: ";
+    // MessageBox
+    private static final String ERROR_TITLE = "Error";
     
     private ArrayList<RecIntegral> _integrals;
         
@@ -293,29 +296,34 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteButtonMouseClicked
 
     private void CalculateButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CalculateButtonMouseClicked
-        // Check if row selected
         int selectedRow = DataTable.getSelectedRow();
         if (selectedRow < 0) {
             return;
         }
-        // Check if selected row not empty
         DefaultTableModel model = (DefaultTableModel) DataTable.getModel(); 
-        RecIntegral integral = 
-                (RecIntegral)model.getValueAt(selectedRow, SHADOW_COLUMN_NUMBER);
-        // Calculate result
-        try {
-            integral.calculateIntegral();
-        } catch(StepException ex){
-            JOptionPane.showMessageDialog(
-                    this, 
-                    ex.getMessage(),
-                    ex.getExceptionName(), 
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        // Set result to table
-        model.setValueAt(integral.getResult(), selectedRow, 3);
+        RecIntegral integral = (RecIntegral)model.getValueAt(selectedRow, SHADOW_COLUMN_NUMBER);
+
+        new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                integral.calculateIntegralMultiThread();
+                return null;
+            }
+
+            @Override
+            protected void done() {
+                try {
+                    get();
+                    model.setValueAt(integral.getResult(), selectedRow, 3);
+                } catch (InterruptedException | ExecutionException ex) {
+                    JOptionPane.showMessageDialog(
+                        MainFrame.this, 
+                        ex.getMessage(),
+                        ERROR_TITLE, 
+                        JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }.execute();
     }//GEN-LAST:event_CalculateButtonMouseClicked
 
     private void ClearTableButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClearTableButtonMouseClicked

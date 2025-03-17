@@ -1,5 +1,6 @@
-package calculator.Core;
+package calculator.Core.Data;
 
+import calculator.Core.Integral.RecIntegral;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
