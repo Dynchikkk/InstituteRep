@@ -23,7 +23,7 @@ namespace ShopApp.Tests
 
                 // Configure the mock for IConfiguration.
                 _mockConfiguration = new Mock<IConfiguration>();
-                _ = _mockConfiguration.Setup(config => config["DataBaseFilePath"]).Returns(_tempFilePath);
+                _mockConfiguration.Setup(config => config["DataBaseFilePath"]).Returns(_tempFilePath);
 
                 // Initialize the service with the mocked configuration.
                 _service = new ProductsService(_mockConfiguration.Object);
@@ -33,7 +33,7 @@ namespace ShopApp.Tests
             public void TearDown()
             {
                 _service.Dispose();
-                //// TEMP
+                // TEMP
                 const int maxRetries = 10;
                 const int delayMs = 100;
                 for (int retry = 0; retry < maxRetries; retry++)
@@ -58,16 +58,16 @@ namespace ShopApp.Tests
             {
                 // Simulate a missing configuration for the database file path.
                 Mock<IConfiguration> emptyConfig = new();
-                _ = emptyConfig.Setup(config => config["DataBaseFilePath"]).Returns(null as string);
+                emptyConfig.Setup(config => config["DataBaseFilePath"]).Returns(null as string);
 
-                _ = Assert.Throws<Exception>(() => new ProductsService(emptyConfig.Object),
+                Assert.Throws<Exception>(() => new ProductsService(emptyConfig.Object),
                     "Constructor should throw an exception when the database file path is missing.");
             }
 
             [TestCase("Product A", 10.0)]
             [TestCase("Product B", 20.0)]
             [TestCase("Product C", 30.0)]
-            public void Add_NewProduct_WithVariousData_ReturnsTrue(string description, double price)
+            public async Task Add_NewProduct_WithVariousData_ReturnsTrue(string description, double price)
             {
                 // Arrange
                 Product product = new()
@@ -78,7 +78,7 @@ namespace ShopApp.Tests
                 };
 
                 // Act
-                bool result = _service.Add(product);
+                bool result = await _service.Add(product);
 
                 // Assert
                 Assert.That(result, Is.True, $"Adding a new product with description '{description}' and price {price} should return true.");
@@ -87,19 +87,19 @@ namespace ShopApp.Tests
             [TestCase("Product A", 10.0)]
             [TestCase("Product B", 20.0)]
             [TestCase("Product C", 30.0)]
-            public void Add_DuplicateProduct_ReturnsFalse(string descriprion, double price)
+            public async Task Add_DuplicateProduct_ReturnsFalse(string description, double price)
             {
                 // Arrange
                 Product product = new()
                 {
                     Id = Guid.NewGuid(),
-                    Description = descriprion,
+                    Description = description,
                     Price = price
                 };
 
                 // Act
-                _ = _service.Add(product);
-                bool secondAdd = _service.Add(product);
+                await _service.Add(product);
+                bool secondAdd = await _service.Add(product);
 
                 // Assert
                 Assert.That(secondAdd, Is.False, "Adding a duplicate product should return false.");
@@ -108,7 +108,7 @@ namespace ShopApp.Tests
             [TestCase("Original Product A", 10.0, "Updated Product A", 15.0)]
             [TestCase("Original Product B", 20.0, "Updated Product B", 25.0)]
             [TestCase("Original Product C", 30.0, "Updated Product C", 35.0)]
-            public void Edit_ExistingProduct_WithVariousData_ReturnsUpdatedProduct(
+            public async Task Edit_ExistingProduct_WithVariousData_ReturnsUpdatedProduct(
                 string originalDescription, double originalPrice,
                 string updatedDescription, double updatedPrice)
             {
@@ -119,15 +119,16 @@ namespace ShopApp.Tests
                     Description = originalDescription,
                     Price = originalPrice
                 };
-                _ = _service.Add(product);
+                await _service.Add(product);
 
                 // Update product values.
+                // Предполагается, что Product реализует ICloneable.
                 Product newProduct = (Product)product.Clone();
                 newProduct.Description = updatedDescription;
                 newProduct.Price = updatedPrice;
 
                 // Act
-                Product? updatedProduct = _service.Edit(newProduct);
+                Product? updatedProduct = await _service.Edit(newProduct);
 
                 // Assert
                 Assert.That(updatedProduct, Is.Not.Null, "Editing an existing product should return the updated product.");
@@ -138,18 +139,18 @@ namespace ShopApp.Tests
             [TestCase("Product A", 10.0)]
             [TestCase("Product B", 20.0)]
             [TestCase("Product C", 30.0)]
-            public void Edit_NonExistingProduct_ReturnsNull(string descriprion, double price)
+            public async Task Edit_NonExistingProduct_ReturnsNull(string description, double price)
             {
                 // Arrange
                 Product product = new()
                 {
                     Id = Guid.NewGuid(),
-                    Description = descriprion,
+                    Description = description,
                     Price = price
                 };
 
                 // Act
-                Product? result = _service.Edit(product);
+                Product? result = await _service.Edit(product);
 
                 // Assert
                 Assert.That(result, Is.Null, "Editing a non-existing product should return null.");
@@ -158,19 +159,19 @@ namespace ShopApp.Tests
             [TestCase("Product A", 10.0)]
             [TestCase("Product B", 20.0)]
             [TestCase("Product C", 30.0)]
-            public void Remove_ExistingProduct_ReturnsRemovedProduct(string descriprion, double price)
+            public async Task Remove_ExistingProduct_ReturnsRemovedProduct(string description, double price)
             {
                 // Arrange
                 Product product = new()
                 {
                     Id = Guid.NewGuid(),
-                    Description = descriprion,
+                    Description = description,
                     Price = price
                 };
-                _ = _service.Add(product);
+                await _service.Add(product);
 
                 // Act
-                Product? removedProduct = _service.Remove(product.Id);
+                Product? removedProduct = await _service.Remove(product.Id);
 
                 // Assert
                 Assert.That(removedProduct, Is.Not.Null, "Removing an existing product should return the removed product.");
@@ -178,10 +179,10 @@ namespace ShopApp.Tests
             }
 
             [Test]
-            public void Remove_NonExistingProduct_ReturnsNull()
+            public async Task Remove_NonExistingProduct_ReturnsNull()
             {
                 // Act
-                Product? removedProduct = _service.Remove(Guid.NewGuid());
+                Product? removedProduct = await _service.Remove(Guid.NewGuid());
 
                 // Assert
                 Assert.That(removedProduct, Is.Null, "Removing a non-existing product should return null.");
@@ -190,19 +191,19 @@ namespace ShopApp.Tests
             [TestCase("Product A", 10.0)]
             [TestCase("Product B", 20.0)]
             [TestCase("Product C", 30.0)]
-            public void Search_ExistingProduct_ReturnsProduct(string descriprion, double price)
+            public async Task Search_ExistingProduct_ReturnsProduct(string description, double price)
             {
                 // Arrange
                 Product product = new()
                 {
                     Id = Guid.NewGuid(),
-                    Description = descriprion,
+                    Description = description,
                     Price = price
                 };
-                _ = _service.Add(product);
+                await _service.Add(product);
 
                 // Act
-                Product? foundProduct = _service.Search(product.Id);
+                Product? foundProduct = await _service.Search(product.Id);
 
                 // Assert
                 Assert.That(foundProduct, Is.Not.Null, "Searching for an existing product should return the product.");
@@ -210,10 +211,10 @@ namespace ShopApp.Tests
             }
 
             [Test]
-            public void Search_NonExistingProduct_ReturnsNull()
+            public async Task Search_NonExistingProduct_ReturnsNull()
             {
                 // Act
-                Product? foundProduct = _service.Search(Guid.NewGuid());
+                Product? foundProduct = await _service.Search(Guid.NewGuid());
 
                 // Assert
                 Assert.That(foundProduct, Is.Null, "Searching for a non-existing product should return null.");
@@ -221,4 +222,3 @@ namespace ShopApp.Tests
         }
     }
 }
-

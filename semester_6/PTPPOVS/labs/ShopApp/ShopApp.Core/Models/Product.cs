@@ -21,6 +21,11 @@
         public double Price { get; set; }
 
         /// <summary>
+        /// Image path
+        /// </summary>
+        public string? Image { get; set; } = null;
+
+        /// <summary>
         /// Creates a deep copy of the current product instance.
         /// </summary>
         /// <returns>A new <see cref="Product"/> object with the same values.</returns>
