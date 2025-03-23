@@ -1,5 +1,7 @@
 package calculator;
 
+import calculator.UI.MainFrame;
+
 public class Calculator {
 
     /**
