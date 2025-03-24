@@ -1,16 +1,15 @@
 package calculator.UI;
 
 import calculator.Core.Data.DataManager;
-import calculator.Core.Exception.IntegralValueException;
+import calculator.Core.Integral.IntegralValueException;
 import calculator.Core.Integral.RecIntegral;
+import calculator.Core.Server.UdpServer;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,14 +28,13 @@ public class MainFrame extends javax.swing.JFrame {
     private static final String ERROR_TITLE = "Error";
     
     private ArrayList<RecIntegral> _integrals;
+    private final UdpServer _udpServer;
         
-    /**
-     * Creates new form MainFrame
-     */
-    public MainFrame() {
+    public MainFrame(UdpServer udpServer) {
         initComponents();
         
         _integrals = new ArrayList<>();
+        _udpServer = udpServer;
         
         DataTable.removeColumn(DataTable.getColumn(SHADOW_COLUMN_TITLE));
         FileSaveMenuAsTextItem.addActionListener(e -> saveAsText());
@@ -302,28 +300,9 @@ public class MainFrame extends javax.swing.JFrame {
         }
         DefaultTableModel model = (DefaultTableModel) DataTable.getModel(); 
         RecIntegral integral = (RecIntegral)model.getValueAt(selectedRow, SHADOW_COLUMN_NUMBER);
-
-        new SwingWorker<Void, Void>() {
-            @Override
-            protected Void doInBackground() throws Exception {
-                integral.calculateIntegralMultiThread();
-                return null;
-            }
-
-            @Override
-            protected void done() {
-                try {
-                    get();
-                    model.setValueAt(integral.getResult(), selectedRow, 3);
-                } catch (InterruptedException | ExecutionException ex) {
-                    JOptionPane.showMessageDialog(
-                        MainFrame.this, 
-                        ex.getMessage(),
-                        ERROR_TITLE, 
-                        JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        }.execute();
+        _udpServer.distributeIntegralCalculation(
+                integral.getBottomBorder(), integral.getTopBorder(), integral.getStepWidth());
+        System.out.println("Запрошено распределённое вычисление интеграла.");
     }//GEN-LAST:event_CalculateButtonMouseClicked
 
     private void ClearTableButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClearTableButtonMouseClicked

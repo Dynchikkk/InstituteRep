@@ -1,4 +1,4 @@
-package calculator.Core.Exception;
+package calculator.Core.Integral;
 
 public class IntegralValueException extends Exception {
     public IntegralValueException(double lowerBound, double upperBound){
