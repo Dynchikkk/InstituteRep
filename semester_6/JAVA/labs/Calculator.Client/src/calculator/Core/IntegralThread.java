@@ -18,10 +18,18 @@ public class IntegralThread extends Thread {
 
     @Override
     public void run() {
+        System.out.println("Start calculate: [" + 
+                            _start + ", " + 
+                            _end + ", " + 
+                            _stepWidth + "]...");
         for (double x = _start; x < _end; x += _stepWidth) {
             double nextX = Math.min(x + _stepWidth, _end);
             double area = (nextX - x) * (Math.exp(-x) + Math.exp(-nextX)) / 2.0;
             _partialResult += area;
         }
+        System.out.println("End calculate: [" + 
+                            _start + ", " + 
+                            _end + ", " + 
+                            _stepWidth + "]");
     }
 }

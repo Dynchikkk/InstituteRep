@@ -17,12 +17,14 @@ import java.util.List;
 public class UdpServer {
     private final DatagramSocket _socket;
     private final List<SocketAddress> _clientList = new ArrayList<>();
-    
-    public UdpServer(int port) throws SocketException {
+    private final CalculationResultAggregator aggregator;
+
+    public UdpServer(int port, CalculationResultAggregator aggregator) throws SocketException {
         _socket = new DatagramSocket(port);
+        this.aggregator = aggregator;
     }
     
-    // Метод для прослушивания входящих сообщений (регистрация или ответы)
+    // Запускаем прослушивание входящих UDP-сообщений
     public void listen() {
         new Thread(() -> {
             byte[] buf = new byte[1024];
@@ -30,21 +32,22 @@ public class UdpServer {
                 try {
                     DatagramPacket packet = new DatagramPacket(buf, buf.length);
                     _socket.receive(packet);
-                    // Простая обработка: если сообщение – регистрация, добавляем клиента
                     String msg = new String(packet.getData(), 0, packet.getLength());
+                    
+                    // Если сообщение – регистрация, добавляем клиента
                     if ("REGISTER".equalsIgnoreCase(msg.trim())) {
                         if (!_clientList.contains(packet.getSocketAddress())) {
                             _clientList.add(packet.getSocketAddress());
-                            System.out.println("Зарегистрирован клиент: " + packet.getSocketAddress());
+                            System.out.println("The client is registered: " + packet.getSocketAddress());
                         }
                     } else {
-                        // Обработка ответа с частичным результатом
+                        // Иначе десериализуем ответ с частичным результатом
                         ByteArrayInputStream bais = new ByteArrayInputStream(packet.getData(), 0, packet.getLength());
                         ObjectInputStream ois = new ObjectInputStream(bais);
                         IntegralResponsePacket response = (IntegralResponsePacket) ois.readObject();
-                        System.out.println("Получен ответ от " + packet.getSocketAddress() 
-                                + " - Частичный результат: " + response.getPartialResult());
-                        // Здесь можно сохранять полученные результаты для последующего суммирования
+                        System.out.println("Received a response from " + packet.getSocketAddress() +
+                                " - Partial result: " + response.getPartialResult());
+                        aggregator.addPartialResult(response.getPartialResult());
                     }
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
@@ -63,23 +66,24 @@ public class UdpServer {
             byte[] data = baos.toByteArray();
             DatagramPacket packet = new DatagramPacket(data, data.length, clientAddress);
             _socket.send(packet);
-            System.out.println("Отправлен запрос клиенту " + clientAddress + ": [" 
+            System.out.println("A request has been sent to the client " + clientAddress + ": [" 
                     + request.getStart() + ", " + request.getEnd() + "]");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
-    // Метод для распределения вычислений между всеми клиентами
+    // Разделение общего интервала на части и отправка запросов всем клиентам
     public void distributeIntegralCalculation(double bottomBorder, double topBorder, double stepWidth) {
         int clientCount = _clientList.size();
         if (clientCount == 0) {
-            System.out.println("Нет зарегистрированных клиентов для выполнения вычислений!");
+            System.out.println("There are no registered clients for calculations!");
             return;
         }
+        
+        aggregator.reset(clientCount);
         double totalInterval = topBorder - bottomBorder;
         double subIntervalLength = totalInterval / clientCount;
-        
         for (int i = 0; i < clientCount; i++) {
             double subStart = bottomBorder + i * subIntervalLength;
             double subEnd = (i == clientCount - 1) ? topBorder : subStart + subIntervalLength;
@@ -88,7 +92,6 @@ public class UdpServer {
         }
     }
     
-    // Геттер для списка клиентов (например, для UI)
     public List<SocketAddress> getClientList() {
         return _clientList;
     }

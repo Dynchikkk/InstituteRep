@@ -3,6 +3,7 @@ package calculator.UI;
 import calculator.Core.Data.DataManager;
 import calculator.Core.Integral.IntegralValueException;
 import calculator.Core.Integral.RecIntegral;
+import calculator.Core.Server.CalculationResultAggregator;
 import calculator.Core.Server.UdpServer;
 import java.io.File;
 import java.io.IOException;
@@ -24,13 +25,12 @@ public class MainFrame extends javax.swing.JFrame {
     private static final String BINARY_FILTER_DESCRIPTION = "Calc Binary Files (*" + BINARY_EXTENSION + ")";
     private static final String SAVE_ERROR_MESSAGE = "Save error: ";
     private static final String LOAD_ERROR_MESSAGE = "Load error: ";
-    // MessageBox
-    private static final String ERROR_TITLE = "Error";
     
     private ArrayList<RecIntegral> _integrals;
     private final UdpServer _udpServer;
+    private int _currentCalculationRow = -1;
         
-    public MainFrame(UdpServer udpServer) {
+    public MainFrame(UdpServer udpServer, CalculationResultAggregator aggregator) {
         initComponents();
         
         _integrals = new ArrayList<>();
@@ -41,6 +41,19 @@ public class MainFrame extends javax.swing.JFrame {
         FileSaveMenuAsBinaryItem.addActionListener(e -> saveAsBinary());
         FileLoadMenuFromTextItem.addActionListener(e -> loadFromText());
         FileLoadMenuFromBinaryItem.addActionListener(e -> loadFromBinary());
+        
+        aggregator.addPropertyChangeListener(evt -> {
+            if ("finalResult".equals(evt.getPropertyName())) {
+                double finalResult = (double) evt.getNewValue();
+                javax.swing.SwingUtilities.invokeLater(() -> {
+                    CalculateButton.setEnabled(true);
+                    DefaultTableModel model = (DefaultTableModel) DataTable.getModel();
+                    if (_currentCalculationRow >= 0) {
+                        model.setValueAt(finalResult, _currentCalculationRow, 3);
+                    }
+                });
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -298,11 +311,13 @@ public class MainFrame extends javax.swing.JFrame {
         if (selectedRow < 0) {
             return;
         }
+        _currentCalculationRow = selectedRow;
         DefaultTableModel model = (DefaultTableModel) DataTable.getModel(); 
         RecIntegral integral = (RecIntegral)model.getValueAt(selectedRow, SHADOW_COLUMN_NUMBER);
+        CalculateButton.setEnabled(false);
         _udpServer.distributeIntegralCalculation(
                 integral.getBottomBorder(), integral.getTopBorder(), integral.getStepWidth());
-        System.out.println("Запрошено распределённое вычисление интеграла.");
+        System.out.println("A distributed integral calculation is requested.");
     }//GEN-LAST:event_CalculateButtonMouseClicked
 
     private void ClearTableButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClearTableButtonMouseClicked

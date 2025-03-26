@@ -30,7 +30,7 @@ public class UdpClient {
             DatagramPacket packet = new DatagramPacket(
                     data, data.length, InetAddress.getByName(_serverHost), _serverPort);
             _socket.send(packet);
-            System.out.println("Клиент отправил сообщение о регистрации");
+            System.out.println("The client has sent a message about registration");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -51,12 +51,13 @@ public class UdpClient {
                     DatagramPacket packet = new DatagramPacket(buf, buf.length);
                     _socket.receive(packet);
                     IntegralRequestPacket request = deserializeRequest(packet);
-                    System.out.println("Получен запрос: [" 
-                            + request.getStart() + ", " + request.getEnd() + "]");
-                    
+                    System.out.println("Request received: [" + 
+                            request.getStart() + ", " + 
+                            request.getEnd() + ", " + 
+                            request.getStepWidth() + "]");
                     double partialResult = processRequest(request);
                     sendResponse(packet.getAddress(), packet.getPort(), partialResult);
-                    System.out.println("Отправлен результат: " + partialResult);
+                    System.out.println("The result has been sent: " + partialResult);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
