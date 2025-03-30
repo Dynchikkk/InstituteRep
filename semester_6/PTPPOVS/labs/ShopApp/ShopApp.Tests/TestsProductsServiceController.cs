@@ -3,6 +3,12 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using ShopApp.WebApi.Controllers;
 using ShopApp.WebApi.Services;
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ShopApp.Tests
 {
@@ -22,7 +28,7 @@ namespace ShopApp.Tests
             _tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.json");
 
             // Build an in-memory configuration with the database file path.
-            Dictionary<string, string> configDictionary = new()
+            Dictionary<string, string?> configDictionary = new()
             {
                 { "DataBaseFilePath", _tempFilePath }
             };
@@ -44,7 +50,7 @@ namespace ShopApp.Tests
         public void TearDown()
         {
             _productService.Dispose();
-            //// TEMP
+            // Delete the temporary file with retry logic in case of IO exceptions.
             const int maxRetries = 10;
             const int delayMs = 100;
             for (int retry = 0; retry < maxRetries; retry++)
@@ -67,77 +73,77 @@ namespace ShopApp.Tests
         [TestCase("Product A", 10.0)]
         [TestCase("Product B", 20.0)]
         [TestCase("Product C", 30.0)]
-        public void CreateProduct_IntegrationTest_ReturnsNonEmptyGuid(string description, double price)
+        public async Task CreateProduct_IntegrationTest_ReturnsNonEmptyGuid(string description, double price)
         {
             // Act
-            Guid productId = _controller.CreateProduct(description, price);
+            Guid productId = await _controller.CreateProduct(description, price);
 
             // Assert
             Assert.That(productId, Is.Not.EqualTo(Guid.Empty), "CreateProduct should return a non-empty Guid.");
 
-            // Verify that the product can be searched afterwards.
-            Core.Models.Product? product = _controller.SearchProduct(productId);
+            // Verify that the product can be found after creation.
+            var product = await _controller.SearchProduct(productId);
             Assert.That(product, Is.Not.Null, "Product should be found after creation.");
-            Assert.That(product.Description, Is.EqualTo(description), "Product description should match.");
+            Assert.That(product!.Description, Is.EqualTo(description), "Product description should match.");
             Assert.That(product.Price, Is.EqualTo(price), "Product price should match.");
         }
 
         [TestCase("Original Product A", 10.0, "Updated Product A", 15.0)]
         [TestCase("Original Product B", 20.0, "Updated Product B", 25.0)]
         [TestCase("Original Product C", 30.0, "Updated Product C", 35.0)]
-        public void EditProduct_IntegrationTest_ReturnsUpdatedProduct(
+        public async Task EditProduct_IntegrationTest_ReturnsUpdatedProduct(
             string initialDescription, double initialPrice,
             string updatedDescription, double updatedPrice)
         {
             // Arrange
-            Guid productId = _controller.CreateProduct(initialDescription, initialPrice);
+            Guid productId = await _controller.CreateProduct(initialDescription, initialPrice);
             Assert.That(productId, Is.Not.EqualTo(Guid.Empty));
 
             // Act
-            Core.Models.Product? editedProduct = _controller.EditProduct(productId, updatedDescription, updatedPrice);
+            var editedProduct = await _controller.EditProduct(productId, updatedDescription, updatedPrice);
 
             // Assert
             Assert.That(editedProduct, Is.Not.Null, "EditProduct should return the updated product.");
-            Assert.That(editedProduct.Description, Is.EqualTo(updatedDescription), "Product description should be updated.");
+            Assert.That(editedProduct!.Description, Is.EqualTo(updatedDescription), "Product description should be updated.");
             Assert.That(editedProduct.Price, Is.EqualTo(updatedPrice), "Product price should be updated.");
         }
 
         [TestCase("Product A", 10.0)]
         [TestCase("Product B", 20.0)]
         [TestCase("Product C", 30.0)]
-        public void RemoveProduct_IntegrationTest_ReturnsRemovedProduct(string description, double price)
+        public async Task RemoveProduct_IntegrationTest_ReturnsRemovedProduct(string description, double price)
         {
             // Arrange
-            Guid productId = _controller.CreateProduct(description, price);
+            Guid productId = await _controller.CreateProduct(description, price);
             Assert.That(productId, Is.Not.EqualTo(Guid.Empty));
 
             // Act
-            Core.Models.Product? removedProduct = _controller.RemoveProduct(productId);
+            var removedProduct = await _controller.RemoveProduct(productId);
 
             // Assert
             Assert.That(removedProduct, Is.Not.Null, "RemoveProduct should return the removed product.");
-            Assert.That(removedProduct.Id, Is.EqualTo(productId), "Removed product should have the same Id.");
+            Assert.That(removedProduct!.Id, Is.EqualTo(productId), "Removed product should have the same Id.");
 
             // Verify that searching for the product now returns null.
-            Core.Models.Product? productAfterRemoval = _controller.SearchProduct(productId);
+            var productAfterRemoval = await _controller.SearchProduct(productId);
             Assert.That(productAfterRemoval, Is.Null, "Product should not be found after removal.");
         }
 
         [TestCase("Product A", 10.0)]
         [TestCase("Product B", 20.0)]
         [TestCase("Product C", 30.0)]
-        public void SearchProduct_IntegrationTest_ReturnsProduct(string description, double price)
+        public async Task SearchProduct_IntegrationTest_ReturnsProduct(string description, double price)
         {
             // Arrange
-            Guid productId = _controller.CreateProduct(description, price);
+            Guid productId = await _controller.CreateProduct(description, price);
             Assert.That(productId, Is.Not.EqualTo(Guid.Empty));
 
             // Act
-            Core.Models.Product? product = _controller.SearchProduct(productId);
+            var product = await _controller.SearchProduct(productId);
 
             // Assert
             Assert.That(product, Is.Not.Null, "SearchProduct should return the product if it exists.");
-            Assert.That(product.Description, Is.EqualTo(description), "Product description should match.");
+            Assert.That(product!.Description, Is.EqualTo(description), "Product description should match.");
             Assert.That(product.Price, Is.EqualTo(price), "Product price should match.");
         }
     }

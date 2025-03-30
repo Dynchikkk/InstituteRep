@@ -32,7 +32,7 @@ namespace ShopApp.WebApi.Controllers
         /// <param name="price">Product price</param>
         /// <returns>Created product</returns>
         [HttpPost, Route("create")]
-        public Guid CreateProduct(string description, double price)
+        public async Task<Guid> CreateProduct(string description, double price)
         {
             Product createdProduct = new()
             {
@@ -40,7 +40,7 @@ namespace ShopApp.WebApi.Controllers
                 Description = description,
                 Price = price
             };
-            return _productService.Add(createdProduct) ? createdProduct.Id : Guid.Empty;
+            return await _productService.Add(createdProduct) ? createdProduct.Id : Guid.Empty;
         }
 
         /// <summary>
@@ -49,9 +49,9 @@ namespace ShopApp.WebApi.Controllers
         /// <param name="id">Product id</param>
         /// <returns>Removed product if success, else - null</returns>
         [HttpPost, Route("remove")]
-        public Product? RemoveProduct(Guid id)
+        public async Task<Product?> RemoveProduct(Guid id)
         {
-            return _productService.Remove(id);
+            return await _productService.Remove(id);
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace ShopApp.WebApi.Controllers
         /// <param name="price">Product price</param>
         /// <returns>Edited product if success, else - null</returns>
         [HttpPost, Route("edit")]
-        public Product? EditProduct(Guid id, string description, double price)
+        public async Task<Product?> EditProduct(Guid id, string description, double price)
         {
             Product tempProduct = new()
             {
@@ -70,7 +70,7 @@ namespace ShopApp.WebApi.Controllers
                 Description = description,
                 Price = price
             };
-            return _productService.Edit(tempProduct);
+            return await _productService.Edit(tempProduct);
         }
 
         /// <summary>
@@ -79,9 +79,9 @@ namespace ShopApp.WebApi.Controllers
         /// <param name="id">Product id</param>
         /// <returns>Found product if success, else - null</returns>
         [HttpGet, Route("search")]
-        public Product? SearchProduct(Guid id)
+        public async Task<Product?> SearchProduct(Guid id)
         {
-            return _productService.Search(id);
+            return await _productService.Search(id);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ShopApp.WebApi.Services
     /// Provides methods to add, edit, remove, and search products.
     /// The products are stored in a JSON file whose path is specified in the configuration.
     /// </summary>
-    public class ProductsService : IProductsService<Product>
+    public class ProductsService : IProductsService<Product>, IDisposable
     {
         private const string CONFIGURATION_DATA_BASE_FILE_PATH = "DataBaseFilePath";
 
@@ -40,7 +40,7 @@ namespace ShopApp.WebApi.Services
                 throw new Exception($"ERROR: Can't find {CONFIGURATION_DATA_BASE_FILE_PATH} in configuration file");
             }
 
-            _products = [];
+            _products = new ConcurrentDictionary<Guid, Product>();
             Task.Run(() => InitFromFileAsync(_cancellationTokenSource.Token)).Wait();
         }
 
@@ -58,38 +58,37 @@ namespace ShopApp.WebApi.Services
         /// </summary>
         /// <param name="product">The product to add.</param>
         /// <returns>True if the product was successfully added, otherwise false.</returns>
-        public bool Add(Product product)
+        public Task<bool> Add(Product product)
         {
             if (_products.ContainsKey(product.Id))
             {
-                return false;
+                return Task.FromResult(false);
             }
             if (!_products.TryAdd(product.Id, product))
             {
-                return false;
+                return Task.FromResult(false);
             }
             _ = WriteToFileAsync(_cancellationTokenSource.Token);
-            return true;
+            return Task.FromResult(true);
         }
-
 
         /// <summary>
         /// Edits (updates) an existing product in the collection.
         /// </summary>
         /// <param name="product">The product with updated data.</param>
         /// <returns>The updated product if successful, otherwise null.</returns>
-        public Product? Edit(Product product)
+        public Task<Product?> Edit(Product product)
         {
             if (!_products.TryGetValue(product.Id, out Product? oldProduct))
             {
-                return null;
+                return Task.FromResult<Product?>(null);
             }
             if (_products.TryUpdate(product.Id, product, oldProduct))
             {
                 _ = WriteToFileAsync(_cancellationTokenSource.Token);
-                return product;
+                return Task.FromResult<Product?>(product);
             }
-            return null;
+            return Task.FromResult<Product?>(null);
         }
 
         /// <summary>
@@ -97,14 +96,14 @@ namespace ShopApp.WebApi.Services
         /// </summary>
         /// <param name="productId">The identifier of the product to remove.</param>
         /// <returns>The removed product if successful, otherwise null.</returns>
-        public Product? Remove(Guid productId)
+        public Task<Product?> Remove(Guid productId)
         {
             if (!_products.TryRemove(productId, out Product? removedProduct))
             {
-                return null;
+                return Task.FromResult<Product?>(null);
             }
             _ = WriteToFileAsync(_cancellationTokenSource.Token);
-            return removedProduct;
+            return Task.FromResult<Product?>(removedProduct);
         }
 
         /// <summary>
@@ -112,9 +111,11 @@ namespace ShopApp.WebApi.Services
         /// </summary>
         /// <param name="productId">The identifier of the product to search for.</param>
         /// <returns>The found product if it exists, otherwise null.</returns>
-        public Product? Search(Guid productId)
+        public Task<Product?> Search(Guid productId)
         {
-            return _products.TryGetValue(productId, out Product? foundProduct) ? foundProduct : null;
+            return Task.FromResult(_products.TryGetValue(productId, out Product? foundProduct) ? 
+                foundProduct : 
+                null);
         }
 
         /// <summary>
@@ -171,7 +172,7 @@ namespace ShopApp.WebApi.Services
             }
             finally
             {
-                _ = _fileSemaphore.Release();
+                _fileSemaphore.Release();
             }
         }
     }
