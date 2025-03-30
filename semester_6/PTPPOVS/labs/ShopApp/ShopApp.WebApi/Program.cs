@@ -1,9 +1,15 @@
+using ShopApp.Core.Data;
 using ShopApp.Core.Models;
 using ShopApp.Core.Services;
+using ShopApp.WebApi.Data;
 using ShopApp.WebApi.Services;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? "Data Source=shopapp.db";
+
+builder.Services.AddSingleton<IDataBase>(new SqliteDataBase(connectionString));
 builder.Services.AddSingleton<IProductsService<Product>, ProductsService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
