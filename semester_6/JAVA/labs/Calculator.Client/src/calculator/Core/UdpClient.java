@@ -72,7 +72,7 @@ public class UdpClient {
         return (IntegralRequestPacket) ois.readObject();
     }
     
-    // Обработка запроса с использованием вычислительного класса ClientCalculator
+    // Обработка запроса с использованием вычислительного класса
     private double processRequest(IntegralRequestPacket request) throws StepException {
         final int THREAD_COUNT = 5;
         double start = request.getStart();

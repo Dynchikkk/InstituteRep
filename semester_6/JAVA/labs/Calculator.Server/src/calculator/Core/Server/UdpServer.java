@@ -17,11 +17,11 @@ import java.util.List;
 public class UdpServer {
     private final DatagramSocket _socket;
     private final List<SocketAddress> _clientList = new ArrayList<>();
-    private final CalculationResultAggregator aggregator;
+    private final CalculationResultAggregator _aggregator;
 
     public UdpServer(int port, CalculationResultAggregator aggregator) throws SocketException {
         _socket = new DatagramSocket(port);
-        this.aggregator = aggregator;
+        _aggregator = aggregator;
     }
     
     // Запускаем прослушивание входящих UDP-сообщений
@@ -47,7 +47,7 @@ public class UdpServer {
                         IntegralResponsePacket response = (IntegralResponsePacket) ois.readObject();
                         System.out.println("Received a response from " + packet.getSocketAddress() +
                                 " - Partial result: " + response.getPartialResult());
-                        aggregator.addPartialResult(response.getPartialResult());
+                        _aggregator.addPartialResult(response.getPartialResult());
                     }
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
@@ -81,7 +81,7 @@ public class UdpServer {
             return;
         }
         
-        aggregator.reset(clientCount);
+        _aggregator.reset(clientCount);
         double totalInterval = topBorder - bottomBorder;
         double subIntervalLength = totalInterval / clientCount;
         for (int i = 0; i < clientCount; i++) {
