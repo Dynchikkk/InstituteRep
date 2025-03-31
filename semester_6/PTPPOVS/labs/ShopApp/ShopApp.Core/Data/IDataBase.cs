@@ -10,42 +10,42 @@ namespace ShopApp.Core.Data
         /// <summary>
         /// Creates the Products table if it does not exist.
         /// </summary>
-        void CreateTable();
+        Task CreateTableAsync();
 
         /// <summary>
         /// Creates an index on the Id field of the Products table.
         /// </summary>
-        void CreateIndex();
+        Task CreateIndexAsync();
 
         /// <summary>
         /// Retrieves all products from the Products table.
         /// </summary>
         /// <returns>An enumerable collection of <see cref="Product"/> objects.</returns>
-        IEnumerable<Product> SelectProducts();
+        Task<IEnumerable<Product>> SelectProductsAsync();
 
         /// <summary>
         /// Retrieves a single product by its Id.
         /// </summary>
         /// <param name="productId">The unique identifier of the product.</param>
         /// <returns>A <see cref="Product"/> object if found; otherwise, null.</returns>
-        Product? SelectProductById(Guid productId);
+        Task<Product?> SelectProductByIdAsync(Guid productId);
 
         /// <summary>
         /// Inserts a new product into the Products table.
         /// </summary>
         /// <param name="product">The <see cref="Product"/> to insert.</param>
-        void InsertProduct(Product product);
+        Task InsertProductAsync(Product product);
 
         /// <summary>
         /// Updates an existing product in the Products table.
         /// </summary>
         /// <param name="product">The <see cref="Product"/> with updated data.</param>
-        void UpdateProduct(Product product);
+        Task UpdateProductAsync(Product product);
 
         /// <summary>
         /// Deletes a product from the Products table by its Id.
         /// </summary>
         /// <param name="productId">The unique identifier of the product to delete.</param>
-        void DeleteProduct(Guid productId);
+        Task DeleteProductAsync(Guid productId);
     }
 }

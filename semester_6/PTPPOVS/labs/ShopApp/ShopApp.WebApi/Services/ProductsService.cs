@@ -18,9 +18,11 @@ namespace ShopApp.WebApi.Services
         public ProductsService(IDataBase dataBase)
         {
             _dataBase = dataBase ?? throw new ArgumentNullException(nameof(dataBase));
-            // Initialize the table and index.
-            _dataBase.CreateTable();
-            _dataBase.CreateIndex();
+            Task.Run(async () =>
+            {
+                await _dataBase.CreateTableAsync();
+                await _dataBase.CreateIndexAsync();
+            }).Wait();
         }
 
         /// <summary>
@@ -28,6 +30,7 @@ namespace ShopApp.WebApi.Services
         /// </summary>
         public void Dispose()
         {
+            GC.SuppressFinalize(this);
         }
 
         /// <summary>
@@ -35,16 +38,16 @@ namespace ShopApp.WebApi.Services
         /// </summary>
         /// <param name="product">The product to add.</param>
         /// <returns>A task that represents the asynchronous add operation. The task result contains true if successful; otherwise, false.</returns>
-        public Task<bool> Add(Product product)
+        public async Task<bool> Add(Product product)
         {
             try
             {
-                _dataBase.InsertProduct(product);
-                return Task.FromResult(true);
+                await _dataBase.InsertProductAsync(product);
+                return true;
             }
             catch (Exception)
             {
-                return Task.FromResult(false);
+                return false;
             }
         }
 
@@ -53,16 +56,16 @@ namespace ShopApp.WebApi.Services
         /// </summary>
         /// <param name="product">The product with updated data.</param>
         /// <returns>A task that represents the asynchronous update operation. The task result contains the updated product if successful; otherwise, null.</returns>
-        public Task<Product?> Edit(Product product)
+        public async Task<Product?> Edit(Product product)
         {
             try
             {
-                _dataBase.UpdateProduct(product);
-                return Task.FromResult<Product?>(product);
+                await _dataBase.UpdateProductAsync(product);
+                return product;
             }
             catch (Exception)
             {
-                return Task.FromResult<Product?>(null);
+                return null;
             }
         }
 
@@ -71,21 +74,21 @@ namespace ShopApp.WebApi.Services
         /// </summary>
         /// <param name="productId">The unique identifier of the product to remove.</param>
         /// <returns>A task that represents the asynchronous remove operation. The task result contains the removed product if successful; otherwise, null.</returns>
-        public Task<Product?> Remove(Guid productId)
+        public async Task<Product?> Remove(Guid productId)
         {
             try
             {
                 // Get the product from the database before deleting.
-                var product = _dataBase.SelectProductById(productId);
+                Product? product = await _dataBase.SelectProductByIdAsync(productId);
                 if (product != null)
                 {
-                    _dataBase.DeleteProduct(productId);
+                    await _dataBase.DeleteProductAsync(productId);
                 }
-                return Task.FromResult(product);
+                return product;
             }
             catch (Exception)
             {
-                return Task.FromResult<Product?>(null);
+                return null;
             }
         }
 
@@ -94,16 +97,15 @@ namespace ShopApp.WebApi.Services
         /// </summary>
         /// <param name="productId">The unique identifier of the product.</param>
         /// <returns>A task that represents the asynchronous search operation. The task result contains the product if found; otherwise, null.</returns>
-        public Task<Product?> Search(Guid productId)
+        public async Task<Product?> Search(Guid productId)
         {
             try
             {
-                var product = _dataBase.SelectProductById(productId);
-                return Task.FromResult(product);
+                return await _dataBase.SelectProductByIdAsync(productId);
             }
             catch (Exception)
             {
-                return Task.FromResult<Product?>(null);
+                return null;
             }
         }
 
@@ -111,16 +113,15 @@ namespace ShopApp.WebApi.Services
         /// Retrieves all products.
         /// </summary>
         /// <returns>A task that represents the asynchronous get operation. The task result contains an enumerable of <see cref="Product"/> objects.</returns>
-        public Task<IEnumerable<Product>> GetAll()
+        public async Task<IEnumerable<Product>> GetAll()
         {
             try
             {
-                var products = _dataBase.SelectProducts();
-                return Task.FromResult(products);
+                return await _dataBase.SelectProductsAsync();
             }
             catch (Exception)
             {
-                return Task.FromResult(Enumerable.Empty<Product>());
+                return [];
             }
         }
     }

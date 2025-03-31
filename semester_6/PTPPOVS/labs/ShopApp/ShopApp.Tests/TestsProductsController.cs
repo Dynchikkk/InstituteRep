@@ -3,9 +3,6 @@ using Moq;
 using ShopApp.Core.Models;
 using ShopApp.Core.Services;
 using ShopApp.WebApi.Controllers;
-using NUnit.Framework;
-using System;
-using System.Threading.Tasks;
 
 namespace ShopApp.Tests
 {
@@ -33,7 +30,7 @@ namespace ShopApp.Tests
         public async Task CreateProduct_WhenServiceReturnsTrue_ReturnsNonEmptyGuid(string description, double price)
         {
             // Arrange
-            _mockProductService
+            _ = _mockProductService
                 .Setup(s => s.Add(It.IsAny<Product>()))
                 .ReturnsAsync(true);
 
@@ -53,7 +50,7 @@ namespace ShopApp.Tests
         public async Task CreateProduct_WhenServiceReturnsFalse_ReturnsEmptyGuid(string description, double price)
         {
             // Arrange
-            _mockProductService
+            _ = _mockProductService
                 .Setup(s => s.Add(It.IsAny<Product>()))
                 .ReturnsAsync(false);
 
@@ -78,7 +75,7 @@ namespace ShopApp.Tests
                 Price = price
             };
 
-            _mockProductService
+            _ = _mockProductService
                 .Setup(s => s.Remove(product.Id))
                 .ReturnsAsync(product);
 
@@ -95,7 +92,7 @@ namespace ShopApp.Tests
         {
             // Arrange
             Guid productId = Guid.NewGuid();
-            _mockProductService
+            _ = _mockProductService
                 .Setup(s => s.Remove(productId))
                 .ReturnsAsync((Product?)null);
 
@@ -120,7 +117,7 @@ namespace ShopApp.Tests
                 Price = newPrice
             };
 
-            _mockProductService
+            _ = _mockProductService
                 .Setup(s => s.Edit(It.Is<Product>(p => p.Id == productId &&
                                                         p.Description == newDescription &&
                                                         p.Price == newPrice)))
@@ -142,7 +139,7 @@ namespace ShopApp.Tests
         {
             // Arrange
             Guid productId = Guid.NewGuid();
-            _mockProductService
+            _ = _mockProductService
                 .Setup(s => s.Edit(It.IsAny<Product>()))
                 .ReturnsAsync((Product?)null);
 
@@ -166,7 +163,7 @@ namespace ShopApp.Tests
                 Price = price
             };
 
-            _mockProductService
+            _ = _mockProductService
                 .Setup(s => s.Search(product.Id))
                 .ReturnsAsync(product);
 
@@ -183,7 +180,7 @@ namespace ShopApp.Tests
         {
             // Arrange
             Guid productId = Guid.NewGuid();
-            _mockProductService
+            _ = _mockProductService
                 .Setup(s => s.Search(productId))
                 .ReturnsAsync((Product?)null);
 

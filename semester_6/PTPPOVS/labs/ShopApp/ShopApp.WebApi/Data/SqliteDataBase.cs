@@ -42,147 +42,137 @@ namespace ShopApp.WebApi.Data
         }
 
         /// <summary>
-        /// Creates the Products table if it does not exist.
+        /// Asynchronously creates the Products table if it does not exist.
         /// </summary>
-        public void CreateTable()
+        public async Task CreateTableAsync()
         {
             using SqliteConnection connection = new(_connectionString);
-            connection.Open();
+            await connection.OpenAsync();
             using SqliteCommand cmd = connection.CreateCommand();
             cmd.CommandText = SQL_CREATE_TABLE_PRODUCTS;
-            _ = cmd.ExecuteNonQuery();
+            _ = await cmd.ExecuteNonQueryAsync();
         }
 
         /// <summary>
-        /// Creates an index on the Id field of the Products table.
+        /// Asynchronously creates an index on the Id field of the Products table.
         /// </summary>
-        public void CreateIndex()
+        public async Task CreateIndexAsync()
         {
             using SqliteConnection connection = new(_connectionString);
-            connection.Open();
+            await connection.OpenAsync();
             using SqliteCommand cmd = connection.CreateCommand();
             cmd.CommandText = SQL_CREATE_INDEX_PRODUCTS_ID;
-            _ = cmd.ExecuteNonQuery();
+            _ = await cmd.ExecuteNonQueryAsync();
         }
 
         /// <summary>
-        /// Retrieves all products from the Products table.
+        /// Asynchronously retrieves all products from the Products table.
         /// </summary>
         /// <returns>An enumerable collection of <see cref="Product"/> objects.</returns>
-        public IEnumerable<Product> SelectProducts()
+        public async Task<IEnumerable<Product>> SelectProductsAsync()
         {
             List<Product> products = [];
-            using (SqliteConnection connection = new(_connectionString))
-            {
-                connection.Open();
-                using SqliteCommand cmd = connection.CreateCommand();
-                cmd.CommandText = SQL_SELECT_ALL_PRODUCTS;
-                using SqliteDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    string? idStr = reader["Id"]?.ToString();
-                    if (string.IsNullOrWhiteSpace(idStr) || !Guid.TryParse(idStr, out Guid parsedId))
-                    {
-                        continue;
-                    }
-                    products.Add(new Product
-                    {
-                        Id = parsedId,
-                        Description = reader["Description"]?.ToString(),
-                        Price = Convert.ToDouble(reader["Price"]),
-                        Image = reader["Image"]?.ToString()
-                    });
-                }
-            }
-            return products;
-        }
 
-        /// <summary>
-        /// Retrieves a single product by its Id.
-        /// </summary>
-        /// <param name="productId">The unique identifier of the product.</param>
-        /// <returns>A <see cref="Product"/> object if found; otherwise, null.</returns>
-        public Product? SelectProductById(Guid productId)
-        {
             using SqliteConnection connection = new(_connectionString);
-            connection.Open();
+            await connection.OpenAsync();
             using SqliteCommand cmd = connection.CreateCommand();
-            cmd.CommandText = SQL_SELECT_PRODUCT_BY_ID;
-            cmd.Parameters.AddWithValue("@Id", productId.ToString());
-            using SqliteDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+            cmd.CommandText = SQL_SELECT_ALL_PRODUCTS;
+
+            using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
+            while (await reader.ReadAsync())
             {
                 string? idStr = reader["Id"]?.ToString();
                 if (string.IsNullOrWhiteSpace(idStr) || !Guid.TryParse(idStr, out Guid parsedId))
                 {
-                    return null; 
+                    continue;
                 }
-
-                return new Product
+                products.Add(new Product
                 {
                     Id = parsedId,
                     Description = reader["Description"]?.ToString(),
                     Price = Convert.ToDouble(reader["Price"]),
                     Image = reader["Image"]?.ToString()
-                };
+                });
             }
-            else
-            {
-                return null;
-            }
+            return products;
         }
 
         /// <summary>
-        /// Inserts a new product into the Products table.
+        /// Asynchronously retrieves a single product by its Id.
         /// </summary>
-        /// <param name="product">The <see cref="Product"/> to insert.</param>
-        public void InsertProduct(Product product)
+        /// <param name="productId">The unique identifier of the product.</param>
+        /// <returns>A <see cref="Product"/> object if found; otherwise, null.</returns>
+        public async Task<Product?> SelectProductByIdAsync(Guid productId)
         {
             using SqliteConnection connection = new(_connectionString);
-            connection.Open();
+            await connection.OpenAsync();
+            using SqliteCommand cmd = connection.CreateCommand();
+            cmd.CommandText = SQL_SELECT_PRODUCT_BY_ID;
+            _ = cmd.Parameters.AddWithValue("@Id", productId.ToString());
+
+            using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
+            if (await reader.ReadAsync())
+            {
+                string? idStr = reader["Id"]?.ToString();
+                return string.IsNullOrWhiteSpace(idStr) || !Guid.TryParse(idStr, out Guid parsedId)
+                    ? null
+                    : new Product
+                    {
+                        Id = parsedId,
+                        Description = reader["Description"]?.ToString(),
+                        Price = Convert.ToDouble(reader["Price"]),
+                        Image = reader["Image"]?.ToString()
+                    };
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Asynchronously inserts a new product into the Products table.
+        /// </summary>
+        /// <param name="product">The <see cref="Product"/> to insert.</param>
+        public async Task InsertProductAsync(Product product)
+        {
+            using SqliteConnection connection = new(_connectionString);
+            await connection.OpenAsync();
             using SqliteCommand cmd = connection.CreateCommand();
             cmd.CommandText = SQL_INSERT_PRODUCT;
             _ = cmd.Parameters.AddWithValue("@Id", product.Id.ToString());
             _ = cmd.Parameters.AddWithValue("@Description", product.Description);
             _ = cmd.Parameters.AddWithValue("@Price", product.Price);
             _ = cmd.Parameters.AddWithValue("@Image", product.Image ?? (object)DBNull.Value);
-            _ = cmd.ExecuteNonQuery();
+            _ = await cmd.ExecuteNonQueryAsync();
         }
 
         /// <summary>
-        /// Updates an existing product in the Products table.
+        /// Asynchronously updates an existing product in the Products table.
         /// </summary>
         /// <param name="product">The <see cref="Product"/> with updated data.</param>
-        public void UpdateProduct(Product product)
+        public async Task UpdateProductAsync(Product product)
         {
             using SqliteConnection connection = new(_connectionString);
-            connection.Open();
+            await connection.OpenAsync();
             using SqliteCommand cmd = connection.CreateCommand();
             cmd.CommandText = SQL_UPDATE_PRODUCT;
             _ = cmd.Parameters.AddWithValue("@Id", product.Id.ToString());
             _ = cmd.Parameters.AddWithValue("@Description", product.Description);
             _ = cmd.Parameters.AddWithValue("@Price", product.Price);
             _ = cmd.Parameters.AddWithValue("@Image", product.Image ?? (object)DBNull.Value);
-            _ = cmd.ExecuteNonQuery();
+            _ = await cmd.ExecuteNonQueryAsync();
         }
 
         /// <summary>
-        /// Deletes a product from the Products table by its Id.
+        /// Asynchronously deletes a product from the Products table by its Id.
         /// </summary>
         /// <param name="productId">The unique identifier of the product to delete.</param>
-        public void DeleteProduct(Guid productId)
+        public async Task DeleteProductAsync(Guid productId)
         {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                connection.Open();
-                using (var cmd = connection.CreateCommand())
-                {
-                    cmd.CommandText = SQL_DELETE_PRODUCT;
-                    cmd.Parameters.AddWithValue("@Id", productId.ToString());
-                    cmd.ExecuteNonQuery();
-                }
-            }
+            using SqliteConnection connection = new(_connectionString);
+            await connection.OpenAsync();
+            using SqliteCommand cmd = connection.CreateCommand();
+            cmd.CommandText = SQL_DELETE_PRODUCT;
+            _ = cmd.Parameters.AddWithValue("@Id", productId.ToString());
+            _ = await cmd.ExecuteNonQueryAsync();
         }
     }
 }
-

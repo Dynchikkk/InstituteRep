@@ -1,224 +1,236 @@
-﻿//using Microsoft.Extensions.Configuration;
-//using Moq;
-//using ShopApp.Core.Models;
-//using ShopApp.WebApi.Services;
+﻿using Moq;
+using ShopApp.Core.Data;
+using ShopApp.Core.Models;
+using ShopApp.WebApi.Services;
 
-//namespace ShopApp.Tests
-//{
-//    [TestFixture]
-//    internal class TestsProductsService
-//    {
-//        [TestFixture]
-//        public class ProductsServiceMoqTests
-//        {
-//            private string _tempFilePath;
-//            private Mock<IConfiguration> _mockConfiguration;
-//            private ProductsService _service;
+namespace ShopApp.Tests
+{
+    [TestFixture]
+    public class TestsProductsService
+    {
+        private Mock<IDataBase> _mockDataBase;
+        private ProductsService _service;
 
-//            [SetUp]
-//            public void SetUp()
-//            {
-//                // Generate a unique temporary file path using a GUID.
-//                _tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.json");
+        [SetUp]
+        public void SetUp()
+        {
+            _mockDataBase = new Mock<IDataBase>();
 
-//                // Configure the mock for IConfiguration.
-//                _mockConfiguration = new Mock<IConfiguration>();
-//                _mockConfiguration.Setup(config => config["DataBaseFilePath"]).Returns(_tempFilePath);
+            // For initialization, simulate successful table/index creation.
+            _ = _mockDataBase.Setup(db => db.CreateTableAsync())
+                .Returns(Task.CompletedTask);
+            _ = _mockDataBase.Setup(db => db.CreateIndexAsync())
+                .Returns(Task.CompletedTask);
 
-//                // Initialize the service with the mocked configuration.
-//                _service = new ProductsService(_mockConfiguration.Object);
-//            }
+            _service = new ProductsService(_mockDataBase.Object);
+        }
 
-//            [TearDown]
-//            public void TearDown()
-//            {
-//                _service.Dispose();
-//                // TEMP
-//                const int maxRetries = 10;
-//                const int delayMs = 100;
-//                for (int retry = 0; retry < maxRetries; retry++)
-//                {
-//                    try
-//                    {
-//                        if (File.Exists(_tempFilePath))
-//                        {
-//                            File.Delete(_tempFilePath);
-//                        }
-//                        break;
-//                    }
-//                    catch (IOException)
-//                    {
-//                        Thread.Sleep(delayMs);
-//                    }
-//                }
-//            }
+        [TearDown]
+        public void TearDown()
+        {
+            _service?.Dispose();
+        }
 
-//            [Test]
-//            public void Constructor_MissingConfiguration_ThrowsException()
-//            {
-//                // Simulate a missing configuration for the database file path.
-//                Mock<IConfiguration> emptyConfig = new();
-//                emptyConfig.Setup(config => config["DataBaseFilePath"]).Returns(null as string);
+        [TestCase("Test Product", 19.99, null)]
+        public async Task Add_WhenInsertSucceeds_ReturnsTrue(string description, double price, string? image)
+        {
+            // Arrange
+            Product product = new()
+            {
+                Id = Guid.NewGuid(),
+                Description = description,
+                Price = price,
+                Image = image
+            };
+            _ = _mockDataBase.Setup(db => db.InsertProductAsync(product))
+                .Returns(Task.CompletedTask);
 
-//                Assert.Throws<Exception>(() => new ProductsService(emptyConfig.Object),
-//                    "Constructor should throw an exception when the database file path is missing.");
-//            }
+            // Act
+            bool result = await _service.Add(product);
 
-//            [TestCase("Product A", 10.0)]
-//            [TestCase("Product B", 20.0)]
-//            [TestCase("Product C", 30.0)]
-//            public async Task Add_NewProduct_WithVariousData_ReturnsTrue(string description, double price)
-//            {
-//                // Arrange
-//                Product product = new()
-//                {
-//                    Id = Guid.NewGuid(),
-//                    Description = description,
-//                    Price = price
-//                };
+            // Assert
+            Assert.That(result, Is.True, "Service.Add should return true when InsertProductAsync succeeds.");
+            _mockDataBase.Verify(db => db.InsertProductAsync(It.Is<Product>(p => p.Id == product.Id)), Times.Once);
+        }
 
-//                // Act
-//                bool result = await _service.Add(product);
+        [TestCase("Test Product", 19.99, null)]
+        public async Task Add_WhenInsertFails_ReturnsFalse(string description, double price, string? image)
+        {
+            // Arrange
+            Product product = new()
+            {
+                Id = Guid.NewGuid(),
+                Description = description,
+                Price = price,
+                Image = image
+            };
+            _ = _mockDataBase.Setup(db => db.InsertProductAsync(product))
+                .ThrowsAsync(new Exception("Insert error"));
 
-//                // Assert
-//                Assert.That(result, Is.True, $"Adding a new product with description '{description}' and price {price} should return true.");
-//            }
+            // Act
+            bool result = await _service.Add(product);
 
-//            [TestCase("Product A", 10.0)]
-//            [TestCase("Product B", 20.0)]
-//            [TestCase("Product C", 30.0)]
-//            public async Task Add_DuplicateProduct_ReturnsFalse(string description, double price)
-//            {
-//                // Arrange
-//                Product product = new()
-//                {
-//                    Id = Guid.NewGuid(),
-//                    Description = description,
-//                    Price = price
-//                };
+            // Assert
+            Assert.That(result, Is.False, "Service.Add should return false when InsertProductAsync fails.");
+        }
 
-//                // Act
-//                await _service.Add(product);
-//                bool secondAdd = await _service.Add(product);
+        [TestCase("Test Product", 19.99, null)]
+        public async Task Edit_WhenUpdateSucceeds_ReturnsProduct(string description, double price, string? image)
+        {
+            // Arrange
+            Product product = new()
+            {
+                Id = Guid.NewGuid(),
+                Description = description,
+                Price = price,
+                Image = image
+            };
+            _ = _mockDataBase.Setup(db => db.UpdateProductAsync(product))
+                .Returns(Task.CompletedTask);
+            _ = _mockDataBase.Setup(db => db.SelectProductByIdAsync(product.Id))
+                .ReturnsAsync(product);
 
-//                // Assert
-//                Assert.That(secondAdd, Is.False, "Adding a duplicate product should return false.");
-//            }
+            // Act
+            Product? result = await _service.Edit(product);
 
-//            [TestCase("Original Product A", 10.0, "Updated Product A", 15.0)]
-//            [TestCase("Original Product B", 20.0, "Updated Product B", 25.0)]
-//            [TestCase("Original Product C", 30.0, "Updated Product C", 35.0)]
-//            public async Task Edit_ExistingProduct_WithVariousData_ReturnsUpdatedProduct(
-//                string originalDescription, double originalPrice,
-//                string updatedDescription, double updatedPrice)
-//            {
-//                // Arrange
-//                Product product = new()
-//                {
-//                    Id = Guid.NewGuid(),
-//                    Description = originalDescription,
-//                    Price = originalPrice
-//                };
-//                await _service.Add(product);
+            // Assert
+            Assert.That(result, Is.Not.Null, "Service.Edit should return the product when update succeeds.");
+            Assert.That(result!.Id, Is.EqualTo(product.Id));
+            _mockDataBase.Verify(db => db.UpdateProductAsync(It.Is<Product>(p => p.Id == product.Id)), Times.Once);
+        }
 
-//                // Update product values.
-//                // Предполагается, что Product реализует ICloneable.
-//                Product newProduct = (Product)product.Clone();
-//                newProduct.Description = updatedDescription;
-//                newProduct.Price = updatedPrice;
+        [TestCase("Test Product", 19.99, null)]
+        public async Task Edit_WhenUpdateFails_ReturnsNull(string description, double price, string? image)
+        {
+            // Arrange
+            Product product = new()
+            {
+                Id = Guid.NewGuid(),
+                Description = description,
+                Price = price,
+                Image = image
+            };
+            _ = _mockDataBase.Setup(db => db.UpdateProductAsync(product))
+                .ThrowsAsync(new Exception("Update error"));
 
-//                // Act
-//                Product? updatedProduct = await _service.Edit(newProduct);
+            // Act
+            Product? result = await _service.Edit(product);
 
-//                // Assert
-//                Assert.That(updatedProduct, Is.Not.Null, "Editing an existing product should return the updated product.");
-//                Assert.That(updatedProduct.Description, Is.EqualTo(updatedDescription), "The product description should be updated.");
-//                Assert.That(updatedProduct.Price, Is.EqualTo(updatedPrice), "The product price should be updated.");
-//            }
+            // Assert
+            Assert.That(result, Is.Null, "Service.Edit should return null when update fails.");
+        }
 
-//            [TestCase("Product A", 10.0)]
-//            [TestCase("Product B", 20.0)]
-//            [TestCase("Product C", 30.0)]
-//            public async Task Edit_NonExistingProduct_ReturnsNull(string description, double price)
-//            {
-//                // Arrange
-//                Product product = new()
-//                {
-//                    Id = Guid.NewGuid(),
-//                    Description = description,
-//                    Price = price
-//                };
+        [TestCase("Test Product", 19.99, null)]
+        public async Task Remove_WhenProductExists_ReturnsProduct(string description, double price, string? image)
+        {
+            // Arrange
+            Product product = new()
+            {
+                Id = Guid.NewGuid(),
+                Description = description,
+                Price = price,
+                Image = image
+            };
+            _ = _mockDataBase.Setup(db => db.SelectProductByIdAsync(product.Id))
+                .ReturnsAsync(product);
+            _ = _mockDataBase.Setup(db => db.DeleteProductAsync(product.Id))
+                .Returns(Task.CompletedTask);
 
-//                // Act
-//                Product? result = await _service.Edit(product);
+            // Act
+            Product? result = await _service.Remove(product.Id);
 
-//                // Assert
-//                Assert.That(result, Is.Null, "Editing a non-existing product should return null.");
-//            }
+            // Assert
+            Assert.That(result, Is.Not.Null, "Service.Remove should return the product when it exists.");
+            Assert.That(result!.Id, Is.EqualTo(product.Id));
+            _mockDataBase.Verify(db => db.DeleteProductAsync(product.Id), Times.Once);
+        }
 
-//            [TestCase("Product A", 10.0)]
-//            [TestCase("Product B", 20.0)]
-//            [TestCase("Product C", 30.0)]
-//            public async Task Remove_ExistingProduct_ReturnsRemovedProduct(string description, double price)
-//            {
-//                // Arrange
-//                Product product = new()
-//                {
-//                    Id = Guid.NewGuid(),
-//                    Description = description,
-//                    Price = price
-//                };
-//                await _service.Add(product);
+        [Test]
+        public async Task Remove_WhenProductDoesNotExist_ReturnsNull()
+        {
+            // Arrange
+            Guid productId = Guid.NewGuid();
+            _ = _mockDataBase.Setup(db => db.SelectProductByIdAsync(productId))
+                .ReturnsAsync((Product?)null);
 
-//                // Act
-//                Product? removedProduct = await _service.Remove(product.Id);
+            // Act
+            Product? result = await _service.Remove(productId);
 
-//                // Assert
-//                Assert.That(removedProduct, Is.Not.Null, "Removing an existing product should return the removed product.");
-//                Assert.That(removedProduct.Id, Is.EqualTo(product.Id), "The removed product should have the same ID.");
-//            }
+            // Assert
+            Assert.That(result, Is.Null, "Service.Remove should return null if the product is not found.");
+        }
 
-//            [Test]
-//            public async Task Remove_NonExistingProduct_ReturnsNull()
-//            {
-//                // Act
-//                Product? removedProduct = await _service.Remove(Guid.NewGuid());
+        [TestCase("Test Product", 19.99, null)]
+        public async Task Search_WhenProductExists_ReturnsProduct(string description, double price, string? image)
+        {
+            // Arrange
+            Product product = new()
+            {
+                Id = Guid.NewGuid(),
+                Description = description,
+                Price = price,
+                Image = image
+            };
+            _ = _mockDataBase.Setup(db => db.SelectProductByIdAsync(product.Id))
+                .ReturnsAsync(product);
 
-//                // Assert
-//                Assert.That(removedProduct, Is.Null, "Removing a non-existing product should return null.");
-//            }
+            // Act
+            Product? result = await _service.Search(product.Id);
 
-//            [TestCase("Product A", 10.0)]
-//            [TestCase("Product B", 20.0)]
-//            [TestCase("Product C", 30.0)]
-//            public async Task Search_ExistingProduct_ReturnsProduct(string description, double price)
-//            {
-//                // Arrange
-//                Product product = new()
-//                {
-//                    Id = Guid.NewGuid(),
-//                    Description = description,
-//                    Price = price
-//                };
-//                await _service.Add(product);
+            // Assert
+            Assert.That(result, Is.Not.Null, "Service.Search should return the product if it exists.");
+            Assert.That(result!.Id, Is.EqualTo(product.Id));
+        }
 
-//                // Act
-//                Product? foundProduct = await _service.Search(product.Id);
+        [Test]
+        public async Task Search_WhenProductDoesNotExist_ReturnsNull()
+        {
+            // Arrange
+            Guid productId = Guid.NewGuid();
+            _ = _mockDataBase.Setup(db => db.SelectProductByIdAsync(productId))
+                .ReturnsAsync((Product?)null);
 
-//                // Assert
-//                Assert.That(foundProduct, Is.Not.Null, "Searching for an existing product should return the product.");
-//                Assert.That(foundProduct.Id, Is.EqualTo(product.Id), "The found product should have the same ID.");
-//            }
+            // Act
+            Product? result = await _service.Search(productId);
 
-//            [Test]
-//            public async Task Search_NonExistingProduct_ReturnsNull()
-//            {
-//                // Act
-//                Product? foundProduct = await _service.Search(Guid.NewGuid());
+            // Assert
+            Assert.That(result, Is.Null, "Service.Search should return null if the product is not found.");
+        }
 
-//                // Assert
-//                Assert.That(foundProduct, Is.Null, "Searching for a non-existing product should return null.");
-//            }
-//        }
-//    }
-//}
+        [TestCase(
+            "Original Description", 10.0, null,
+            "Updated Description", 15.5, null)]
+        public async Task GetAll_ReturnsAllProducts(
+            string firstDescription, double firstPrice, string? firstImage,
+            string secondDescription, double secondPrice, string? secondImage)
+        {
+            // Arrange
+            List<Product> products =
+            [
+                new Product
+                {
+                    Id = Guid.NewGuid(),
+                    Description = firstDescription,
+                    Price = firstPrice,
+                    Image = firstImage
+                },
+                new Product
+                {
+                    Id = Guid.NewGuid(),
+                    Description = secondDescription,
+                    Price = secondPrice,
+                    Image = secondImage
+                }
+            ];
+            _ = _mockDataBase.Setup(db => db.SelectProductsAsync())
+                .ReturnsAsync(products);
+
+            // Act
+            IEnumerable<Product> result = await _service.GetAll();
+
+            // Assert
+            Assert.That(result, Is.Not.Null, "Service.GetAll should not return null.");
+            Assert.That(result.Count(), Is.EqualTo(2), "Service.GetAll should return all products.");
+        }
+    }
+}
