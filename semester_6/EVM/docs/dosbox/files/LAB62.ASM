@@ -5,7 +5,7 @@ stseg   ends
 
 dseg    segment para
     ; Объявление переменных
-    msg db 'Zaharov Hosseyni', 0  ; Строка завершается нулём
+    msg db 'Belyaev Demin Sergunov', 0  ; Строка завершается нулём
 dseg    ends
 
 cseg    segment para
@@ -31,14 +31,14 @@ lab62   proc far
 
     ; Средняя белая полоса (9 строк)
     mov ax, 0609h       ; AL = 9 строк
-    mov bh, 70h        ; Белый фон (0xF) + чёрный текст (0x0)
+    mov bh, 0F0h        ; Белый фон (0xF) + чёрный текст (0x0)
     mov cx, 0800h       ; Координаты: (8,0)
     mov dx, 104Fh       ; Координаты: (16,79)
     int 10h
 
     ; Нижняя красная полоса (8 строк)
     mov ax, 0608h       ; AL = 8 строк
-    mov bh, 30h         ; голубой фон (0x3)
+    mov bh, 40h         ; Красный фон (0x4)
     mov cx, 1100h       ; Координаты: (17,0)
     mov dx, 184Fh       ; Координаты: (24,79)
     int 10h
