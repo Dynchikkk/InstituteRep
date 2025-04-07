@@ -21,6 +21,8 @@ public class MainFrame extends javax.swing.JFrame {
     // Load/Save files
     private static final String TEXT_EXTENSION = ".txt";
     private static final String BINARY_EXTENSION = ".calcbin";
+    private static final String JSON_EXTENSION = ".json";
+    private static final String JSON_FILTER_DESCRIPTION = "JSON Files (*" + JSON_EXTENSION + ")";
     private static final String TEXT_FILTER_DESCRIPTION = "Text Files (*" + TEXT_EXTENSION + ")";
     private static final String BINARY_FILTER_DESCRIPTION = "Calc Binary Files (*" + BINARY_EXTENSION + ")";
     private static final String SAVE_ERROR_MESSAGE = "Save error: ";
@@ -37,9 +39,9 @@ public class MainFrame extends javax.swing.JFrame {
         _udpServer = udpServer;
         
         DataTable.removeColumn(DataTable.getColumn(SHADOW_COLUMN_TITLE));
-        FileSaveMenuAsTextItem.addActionListener(e -> saveAsText());
+        FileSaveMenuAsTextItem.addActionListener(e -> saveAsJson());
         FileSaveMenuAsBinaryItem.addActionListener(e -> saveAsBinary());
-        FileLoadMenuFromTextItem.addActionListener(e -> loadFromText());
+        FileLoadMenuFromTextItem.addActionListener(e -> loadFromJson());
         FileLoadMenuFromBinaryItem.addActionListener(e -> loadFromBinary());
         
         aggregator.addPropertyChangeListener(evt -> {
@@ -373,8 +375,29 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     
+     // Метод для сохранения в JSON
+    private void saveAsJson() {
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter jsonFilter = new FileNameExtensionFilter(
+                JSON_FILTER_DESCRIPTION, 
+                JSON_EXTENSION.replace(".", ""));
+        chooser.setFileFilter(jsonFilter);
+        if (chooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            // Добавляем расширение, если оно отсутствует
+            if (!file.getName().toLowerCase().endsWith(JSON_EXTENSION)) {
+                file = new File(file.getAbsolutePath() + JSON_EXTENSION);
+            }
+            try {
+                calculator.Core.Data.DataManager.saveDataAsJson(file, _integrals);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, SAVE_ERROR_MESSAGE + e.getMessage());
+            }
+        }
+    }
+    
     private void loadFromText() {
-         JFileChooser chooser = new JFileChooser();
+        JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter textFilter = new FileNameExtensionFilter(
                 TEXT_FILTER_DESCRIPTION, 
                 TEXT_EXTENSION.replace(".", ""));
@@ -422,6 +445,32 @@ public class MainFrame extends javax.swing.JFrame {
             } catch (ClassNotFoundException e) {
                 JOptionPane.showMessageDialog(this, e.getMessage());
            }
+        }
+    }
+    
+    private void loadFromJson() {
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter jsonFilter = new FileNameExtensionFilter(
+                JSON_FILTER_DESCRIPTION, 
+                JSON_EXTENSION.replace(".", ""));
+        chooser.setFileFilter(jsonFilter);
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            // Проверка расширения файла
+            if (!file.getName().toLowerCase().endsWith(JSON_EXTENSION)) {
+                JOptionPane.showMessageDialog(this, 
+                        "Please select a file with " + JSON_EXTENSION + " extension");
+                return;
+            }
+            try {
+                _integrals = calculator.Core.Data.DataManager.loadDataFromJson(file);
+                // Пример: добавляем каждый интеграл в таблицу
+                for (calculator.Core.Integral.RecIntegral integral : _integrals) {
+                    AddIntegralToTable(DataTable, integral);
+                }
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, LOAD_ERROR_MESSAGE + e.getMessage());
+            }
         }
     }
     

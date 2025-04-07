@@ -10,6 +10,12 @@ import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class UdpClient {
     private final int _serverPort;
@@ -72,19 +78,18 @@ public class UdpClient {
         return (IntegralRequestPacket) ois.readObject();
     }
     
-    // Обработка запроса с использованием вычислительного класса
+    // Обработка запроса с использованием Callable и Future
     private double processRequest(IntegralRequestPacket request) throws StepException {
         final int THREAD_COUNT = 5;
         double start = request.getStart();
         double end = request.getEnd();
         double stepWidth = request.getStepWidth();
-        double sign = 1.0;
-
+        
+        double sign = (start > end) ? -1.0 : 1.0;
         if (start > end) {
             double tmp = start;
             start = end;
             end = tmp;
-            sign = -1.0;
         }
         if (stepWidth > (end - start)) {
             throw new StepException(stepWidth, start, end);
@@ -92,25 +97,28 @@ public class UdpClient {
         
         double totalInterval = end - start;
         double subIntervalLength = totalInterval / THREAD_COUNT;
-        IntegralThread[] threads = new IntegralThread[THREAD_COUNT];
+        
+        ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT);
+        List<Future<Double>> futures = new ArrayList<>();
         
         for (int i = 0; i < THREAD_COUNT; i++) {
             double subStart = start + i * subIntervalLength;
             double subEnd = (i == THREAD_COUNT - 1) ? end : subStart + subIntervalLength;
-            threads[i] = new IntegralThread(subStart, subEnd, stepWidth);
-            threads[i].start();
+            
+            IntegralCallable task = new IntegralCallable(subStart, subEnd, stepWidth);
+            futures.add(executor.submit(task));
         }
         
         double sum = 0.0;
-        for (int i = 0; i < THREAD_COUNT; i++) {
+        for (Future<Double> future : futures) {
             try {
-                threads[i].join();
-                sum += threads[i].getPartialResult();
-            } catch (InterruptedException e) {
+                sum += future.get();
+            } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
         }
         
+        executor.shutdown();
         return sign * sum;
     }
     
