@@ -35,7 +35,8 @@
             {
                 Id = Id,
                 Description = Description,
-                Price = Price
+                Price = Price,
+                Image = Image
             };
         }
     }

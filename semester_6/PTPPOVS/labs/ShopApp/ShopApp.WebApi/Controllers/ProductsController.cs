@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using ShopApp.Core.Models;
 using ShopApp.Core.Services;
 
 namespace ShopApp.WebApi.Controllers
 {
     /// <summary>
-    /// Provides endpoints for interacting with products
+    /// Provides endpoints for interacting with products.
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
@@ -15,10 +16,10 @@ namespace ShopApp.WebApi.Controllers
         private readonly IProductsService<Product> _productService;
 
         /// <summary>
-        /// Base constructor
+        /// Base constructor.
         /// </summary>
         /// <param name="logger">ProductsController logger</param>
-        /// <param name="productsService">Products servise</param>
+        /// <param name="productsService">Products service</param>
         public ProductsController(ILogger<ProductsController> logger, IProductsService<Product> productsService)
         {
             _logger = logger;
@@ -26,62 +27,72 @@ namespace ShopApp.WebApi.Controllers
         }
 
         /// <summary>
-        /// Create new product 
+        /// Create new product.
         /// </summary>
         /// <param name="description">Product description</param>
         /// <param name="price">Product price</param>
-        /// <returns>Created product</returns>
+        /// <param name="image">Product image (optional)</param>
+        /// <returns>JSON string of the created product if success, else empty JSON</returns>
         [HttpPost, Route("create")]
-        public async Task<Guid> CreateProduct(string description, double price)
+        public async Task<string> CreateProduct(string description, double price, string? image = null)
         {
             Product createdProduct = new()
             {
                 Id = Guid.NewGuid(),
                 Description = description,
-                Price = price
+                Price = price,
+                Image = image
             };
-            return await _productService.Add(createdProduct) ? createdProduct.Id : Guid.Empty;
+
+            bool isAdded = await _productService.Add(createdProduct);
+            return isAdded ? JsonConvert.SerializeObject(createdProduct) : "{}";
         }
 
         /// <summary>
-        /// Remove product by id
+        /// Remove product by id.
         /// </summary>
         /// <param name="id">Product id</param>
-        /// <returns>Removed product if success, else - null</returns>
+        /// <returns>JSON string of the removed product if success, else empty JSON</returns>
         [HttpPost, Route("remove")]
-        public async Task<Product?> RemoveProduct(Guid id)
+        public async Task<string> RemoveProduct(Guid id)
         {
-            return await _productService.Remove(id);
+            Product? removedProduct = await _productService.Remove(id);
+            return removedProduct != null ? JsonConvert.SerializeObject(removedProduct) : "{}";
         }
 
         /// <summary>
-        /// Edit existed product
+        /// Edit existed product.
         /// </summary>
         /// <param name="id">Product id</param>
         /// <param name="description">Product description</param>
         /// <param name="price">Product price</param>
-        /// <returns>Edited product if success, else - null</returns>
+        /// <param name="image">Product image (optional)</param>
+        /// <returns>JSON string of the updated product if success, else empty JSON</returns>
         [HttpPost, Route("edit")]
-        public async Task<Product?> EditProduct(Guid id, string description, double price)
+        public async Task<string> EditProduct(Guid id, string description, double price, string? image = null)
         {
             Product tempProduct = new()
             {
                 Id = id,
                 Description = description,
-                Price = price
+                Price = price,
+                Image = image
             };
-            return await _productService.Edit(tempProduct);
+
+            Product? editedProduct = await _productService.Edit(tempProduct);
+            return editedProduct != null ? JsonConvert.SerializeObject(editedProduct) : "{}";
         }
 
         /// <summary>
-        /// Search product by id
+        /// Search product by id.
         /// </summary>
         /// <param name="id">Product id</param>
-        /// <returns>Found product if success, else - null</returns>
+        /// <returns>JSON string of the found product if success, else empty JSON</returns>
         [HttpGet, Route("search")]
-        public async Task<Product?> SearchProduct(Guid id)
+        public async Task<string> SearchProduct(Guid id)
         {
-            return await _productService.Search(id);
+            Product? foundProduct = await _productService.Search(id);
+            return foundProduct != null ? JsonConvert.SerializeObject(foundProduct) : "{}";
         }
     }
 }

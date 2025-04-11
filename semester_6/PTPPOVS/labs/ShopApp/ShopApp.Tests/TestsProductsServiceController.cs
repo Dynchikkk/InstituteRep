@@ -1,5 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging.Abstractions;
+using Newtonsoft.Json;
 using ShopApp.Core.Data;
 using ShopApp.Core.Models;
 using ShopApp.WebApi.Controllers;
@@ -37,7 +40,13 @@ namespace ShopApp.Tests
             _service = new ProductsService(dataBase);
 
             // Create the controller with a NullLogger.
-            _controller = new ProductsController(NullLogger<ProductsController>.Instance, _service);
+            _controller = new ProductsController(NullLogger<ProductsController>.Instance, _service)
+            {
+                ControllerContext = new ControllerContext
+                {
+                    HttpContext = new DefaultHttpContext()
+                }
+            };
         }
 
         [TearDown]
@@ -70,14 +79,14 @@ namespace ShopApp.Tests
         public async Task CreateProduct_ReturnsNonEmptyGuid(string description, double price)
         {
             // Act
-            Guid productId = await _controller.CreateProduct(description, price);
-
-            // Assert
-            Assert.That(productId, Is.Not.EqualTo(Guid.Empty), "CreateProduct should return a non-empty Guid.");
+            string createResult = await _controller.CreateProduct(description, price);
+            Product createdProduct = JsonConvert.DeserializeObject<Product>(createResult)!;
+            Assert.That(createdProduct.Id, Is.Not.EqualTo(Guid.Empty), "CreateProduct should return a non-empty Guid.");
 
             // Verify that the product exists.
-            Product? product = await _controller.SearchProduct(productId);
-            Assert.That(product, Is.Not.Null, "Product should be found after creation.");
+            string searchResult = await _controller.SearchProduct(createdProduct.Id);
+            Product? product = JsonConvert.DeserializeObject<Product>(searchResult);
+            Assert.IsNotNull(product, "Product should be found after creation.");
             Assert.That(product!.Description, Is.EqualTo(description), "Product description should match.");
             Assert.That(product.Price, Is.EqualTo(price), "Product price should match.");
         }
@@ -86,15 +95,17 @@ namespace ShopApp.Tests
         public async Task EditProduct_ReturnsUpdatedProduct(string initialDesc, double initialPrice, string updatedDesc, double updatedPrice)
         {
             // Arrange
-            Guid productId = await _controller.CreateProduct(initialDesc, initialPrice);
-            Assert.That(productId, Is.Not.EqualTo(Guid.Empty), "Product creation should return a valid Guid.");
+            string createResult = await _controller.CreateProduct(initialDesc, initialPrice);
+            Product createdProduct = JsonConvert.DeserializeObject<Product>(createResult)!;
+            Assert.That(createdProduct.Id, Is.Not.EqualTo(Guid.Empty), "Product creation should return a valid Guid.");
 
             // Act
-            Product? editedProduct = await _controller.EditProduct(productId, updatedDesc, updatedPrice);
+            string editResult = await _controller.EditProduct(createdProduct.Id, updatedDesc, updatedPrice);
+            Product editedProduct = JsonConvert.DeserializeObject<Product>(editResult)!;
 
             // Assert
             Assert.That(editedProduct, Is.Not.Null, "EditProduct should return the updated product.");
-            Assert.That(editedProduct!.Description, Is.EqualTo(updatedDesc), "Product description should be updated.");
+            Assert.That(editedProduct.Description, Is.EqualTo(updatedDesc), "Product description should be updated.");
             Assert.That(editedProduct.Price, Is.EqualTo(updatedPrice), "Product price should be updated.");
         }
 
@@ -102,34 +113,39 @@ namespace ShopApp.Tests
         public async Task RemoveProduct_ReturnsRemovedProduct(string description, double price)
         {
             // Arrange
-            Guid productId = await _controller.CreateProduct(description, price);
-            Assert.That(productId, Is.Not.EqualTo(Guid.Empty), "Product creation should return a valid Guid.");
+            string createResult = await _controller.CreateProduct(description, price);
+            Product createdProduct = JsonConvert.DeserializeObject<Product>(createResult)!;
+            Assert.That(createdProduct.Id, Is.Not.EqualTo(Guid.Empty), "Product creation should return a valid Guid.");
 
             // Act
-            Product? removedProduct = await _controller.RemoveProduct(productId);
+            string removeResult = await _controller.RemoveProduct(createdProduct.Id);
+            Product removedProduct = JsonConvert.DeserializeObject<Product>(removeResult)!;
 
             // Assert
             Assert.That(removedProduct, Is.Not.Null, "RemoveProduct should return the removed product.");
-            Assert.That(removedProduct!.Id, Is.EqualTo(productId), "Removed product should have the correct ID.");
+            Assert.That(removedProduct.Id, Is.EqualTo(createdProduct.Id), "Removed product should have the correct ID.");
 
             // Verify the product no longer exists.
-            Product? searchResult = await _controller.SearchProduct(productId);
-            Assert.That(searchResult, Is.Null, "Product should not be found after removal.");
+            string searchResult = await _controller.SearchProduct(createdProduct.Id);
+            bool isEmpty = string.IsNullOrWhiteSpace(searchResult) || searchResult == "{}";
+            Assert.That(isEmpty, Is.True, "Product should not be found after removal.");
         }
 
         [TestCase("Product A", 10.0)]
         public async Task SearchProduct_ReturnsProduct(string description, double price)
         {
             // Arrange
-            Guid productId = await _controller.CreateProduct(description, price);
-            Assert.That(productId, Is.Not.EqualTo(Guid.Empty), "Product creation should return a valid Guid.");
+            string createResult = await _controller.CreateProduct(description, price);
+            Product createdProduct = JsonConvert.DeserializeObject<Product>(createResult)!;
+            Assert.That(createdProduct.Id, Is.Not.EqualTo(Guid.Empty), "Product creation should return a valid Guid.");
 
             // Act
-            Product? foundProduct = await _controller.SearchProduct(productId);
+            string searchResult = await _controller.SearchProduct(createdProduct.Id);
+            Product foundProduct = JsonConvert.DeserializeObject<Product>(searchResult)!;
 
             // Assert
             Assert.That(foundProduct, Is.Not.Null, "SearchProduct should return the product if it exists.");
-            Assert.That(foundProduct!.Description, Is.EqualTo(description), "Product description should match.");
+            Assert.That(foundProduct.Description, Is.EqualTo(description), "Product description should match.");
             Assert.That(foundProduct.Price, Is.EqualTo(price), "Product price should match.");
         }
     }
