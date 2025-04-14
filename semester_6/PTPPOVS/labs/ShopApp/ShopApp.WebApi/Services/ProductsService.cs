@@ -1,6 +1,6 @@
-﻿using ShopApp.Core.Data;
-using ShopApp.Core.Models;
+﻿using ShopApp.Core.Models;
 using ShopApp.Core.Services;
+using ShopApp.WebApi.Data;
 
 namespace ShopApp.WebApi.Services
 {
@@ -9,13 +9,13 @@ namespace ShopApp.WebApi.Services
     /// </summary>
     public class ProductsService : IProductsService<Product>, IDisposable
     {
-        private readonly IDataBase _dataBase;
+        private readonly SqliteDataBase _dataBase;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductsService"/> class.
         /// </summary>
         /// <param name="dataBase">The database instance to be used for product operations.</param>
-        public ProductsService(IDataBase dataBase)
+        public ProductsService(SqliteDataBase dataBase)
         {
             _dataBase = dataBase ?? throw new ArgumentNullException(nameof(dataBase));
             Task.Run(async () =>

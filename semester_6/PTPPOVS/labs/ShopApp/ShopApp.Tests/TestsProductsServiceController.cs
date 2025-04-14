@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging.Abstractions;
 using Newtonsoft.Json;
-using ShopApp.Core.Data;
 using ShopApp.Core.Models;
 using ShopApp.WebApi.Controllers;
 using ShopApp.WebApi.Data;
@@ -36,7 +35,7 @@ namespace ShopApp.Tests
 
             // Instantiate the real ProductsService.
             string connectionString = _configuration.GetConnectionString("DefaultConnection")!;
-            IDataBase dataBase = new SqliteDataBase(connectionString);
+            SqliteDataBase dataBase = new(connectionString);
             _service = new ProductsService(dataBase);
 
             // Create the controller with a NullLogger.

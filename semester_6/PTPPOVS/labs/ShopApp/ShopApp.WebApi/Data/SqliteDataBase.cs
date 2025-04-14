@@ -1,5 +1,4 @@
 ﻿using Microsoft.Data.Sqlite;
-using ShopApp.Core.Data;
 using ShopApp.Core.Models;
 
 namespace ShopApp.WebApi.Data
@@ -7,7 +6,7 @@ namespace ShopApp.WebApi.Data
     /// <summary>
     /// Provides methods to interact with the SQLite database.
     /// </summary>
-    public class SqliteDataBase : IDataBase
+    public class SqliteDataBase
     {
         private const string SQL_CREATE_TABLE_PRODUCTS = @"
             CREATE TABLE IF NOT EXISTS Products (

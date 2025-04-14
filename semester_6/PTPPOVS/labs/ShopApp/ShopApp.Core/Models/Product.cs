@@ -1,8 +1,11 @@
-﻿namespace ShopApp.Core.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace ShopApp.Core.Models
 {
     /// <summary>
     /// Represents a product in the store.
     /// </summary>
+    [Index(nameof(Id))]
     public class Product : ICloneable
     {
         /// <summary>
@@ -21,7 +24,7 @@
         public double Price { get; set; }
 
         /// <summary>
-        /// Image path
+        /// Gets or sets the image path of the product.
         /// </summary>
         public string? Image { get; set; } = null;
 

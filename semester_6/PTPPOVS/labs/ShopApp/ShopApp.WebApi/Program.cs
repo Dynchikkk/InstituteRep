@@ -1,4 +1,4 @@
-using ShopApp.Core.Data;
+using Microsoft.EntityFrameworkCore;
 using ShopApp.Core.Models;
 using ShopApp.Core.Services;
 using ShopApp.WebApi.Data;
@@ -6,11 +6,14 @@ using ShopApp.WebApi.Services;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-string connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? "Data Source=shopapp.db";
+// Retrieve connection string from configuration.
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=shopapp.db";
 
-builder.Services.AddSingleton<IDataBase>(new SqliteDataBase(connectionString));
-builder.Services.AddSingleton<IProductsService<Product>, ProductsService>();
+// Register the application's DbContext using SQLite.
+builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlite(connectionString));
+// Register the product service for dependency injection.
+builder.Services.AddScoped<IProductsService<Product>, DataBaseProductService>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -22,7 +25,12 @@ builder.Services.AddSwaggerGen(options =>
 
 WebApplication app = builder.Build();
 
-// Configure the HTTP request pipeline.
+using (IServiceScope scope = app.Services.CreateScope())
+{
+    ApplicationContext context = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
+    context.Database.Migrate();
+}
+
 if (app.Environment.IsDevelopment())
 {
     _ = app.UseSwagger();
@@ -30,7 +38,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();
