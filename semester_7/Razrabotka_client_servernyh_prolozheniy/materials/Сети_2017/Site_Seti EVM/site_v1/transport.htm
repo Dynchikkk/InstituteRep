@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [en] (Win95; I) [Netscape]">
+</HEAD>
+<BODY BACKGROUND="Backgrd.gif">
+
+<CENTER>
+<H3>
+Протокол TCP</H3></CENTER>
+<FONT FACE=""><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TCP также служит для передачи данных между сетевым и прикладным уровнями
+сетевой модели ISO/OSI, но устроен значительно сложнее. TCP при передаче
+данных образует соединение (канал) между клиентом и сервером. В процессе
+взаимодействия протокол TCP организует потоковую, надежную службу доставки
+данных. Кроме того, TCP гарантирует правильную последовательность передаваемых
+и принимаемых данных. Формат и описание сегмента (сообщения) TCP представлены
+ниже.</FONT></FONT>
+<CENTER>
+<P><IMG SRC="img/tcp_format.gif" ALT=""  ALIGN=TOP>
+<P><FONT FACE=""><FONT SIZE=+1>Рис. 6. Формат сегмента TCP</FONT></FONT></CENTER>
+
+<BR>&nbsp;
+<P><BR>
+<P><FONT FACE=""><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Описание сегмента TCP:</FONT></FONT>
+<UL>
+<LI>
+<FONT SIZE=+1><B><I>порт-передатчик</I></B>и <B><I>порт-приемник</I></B>
+- номера портов протокола источника и получателя сообщения;</FONT></LI>
+
+<LI>
+&nbsp;<FONT SIZE=+1><B><I>номер последовательности</I></B> - определяет
+первый байт данных в области данных сегмента;</FONT></LI>
+
+<LI>
+&nbsp;<FONT SIZE=+1><B><I>номер подтверждения</I></B> - определяет следующий
+байт данных, который приемник расчитывает получить из входного потока;</FONT></LI>
+
+<LI>
+&nbsp;<FONT SIZE=+1><B><I>длина заголовка</I></B> - длина TCP-заголовка
+в 32-разрядных словах;</FONT></LI>
+
+<LI>
+<B><I><FONT SIZE=+1>флаги</FONT></I></B> -<FONT FACE=""><FONT SIZE=+1>
+управляющие команды модулю TCP;</FONT></FONT></LI>
+
+<LI>
+<FONT SIZE=+1><B><I>размер окна</I></B> - сообщение приемнику о количестве
+байт, которое может принять передатчик;</FONT></LI>
+
+<LI>
+<FONT SIZE=+1><B><I>контрольная сумма</I></B> - результат дополнения до
+единицы суммы 16-разрядных слов сегмента;</FONT></LI>
+
+<LI>
+<FONT SIZE=+1><B><I>указатель на неотложные данные</I></B> - указывает
+на последний байт данных, требующих неотложной обработки, находящихся в
+области данных сегмента;</FONT></LI>
+
+<LI>
+&nbsp;<FONT SIZE=+1><B><I>опции</I></B> - дополнительная информация для
+модуля TCP;</FONT></LI>
+
+<LI>
+<B><I><FONT FACE="Times New Roman"><FONT SIZE=+1>заполнение - </FONT></FONT></I></B><FONT FACE="Times New Roman"><FONT SIZE=+1>поле,
+необходимое для выравнивания поля данных.</FONT></FONT></LI>
+</UL>
+
+</BODY>
+</HTML>

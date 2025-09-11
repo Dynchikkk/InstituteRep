@@ -1,0 +1,146 @@
+<html>
+<head>
+<title>Primer</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<style fprolloverstyle>A:hover {color: #FF0000}</style>
+</head>
+<body text=black bgcolor=#ffffff vlink=black link=black>
+<A NAME="primer1"></A><b>Пример создания серверного сокета для TCP</b>
+<p>CSocket Server; <i>	// Сокет </i>
+<br>UINT Port=2000; <i>	// Порт сервера </i>
+<br>if (!Server.Create(Port)) { 
+<br><i>	// не удалось создать сокет </i>
+<br>MessageBox("Ошибка при создании сокета");} 
+<p>
+<br>
+<br>
+<br>
+<A NAME="primer2"></A><b>Пример создания клиентского сокета для TCP</b>
+<p>CSocket Client; <i>// Сокет </i>
+<br>if (!Client.Create()) { 
+<br<i>> // не удалось создать сокет </i>
+<br> MessageBox("Ошибка при создании сокета"); 
+} 
+<p>
+<br>
+<br>
+<br>
+<A NAME="primer3"></A><b> Создание IPX сокета </b>
+<p>CSocket Server;<i> // Сокет </i>
+<br>long lEvent=FD_READ | FD_WRITE | FD_OOB | FD_ACCEPT | FD_CONNECT | FD_CLOSE;<i> // Отслеживаемые события </i>
+<br>if (!Server.Socket( SOCK_DGRAM, 
+<br>    lEvent, 
+<br>    NSPROTO_IPX, 
+<br>    AF_IPX)) { 
+<br><i> // не удалось создать сокет </i>
+<br> MessageBox("Ошибка при создании сокета");} 
+<p>
+<br>
+<br>
+<br>
+<A NAME="primer4"></A><b> Прием данных от клиента по протоколу SPX </b>
+<p>CSocket Server, Work; <i>// Два сокета (основной и рабочий)</i>
+<br>UINT SockNum=2000; 
+<br>long lEvent=FD_READ | FD_WRITE | FD_OOB | FD_ACCEPT | FD_CONNECT | FD_CLOSE; <i>// Отслеживаемые события </i>
+<br>sockaddr_ipx Addr; <i>// Структура адреса IPX </i>
+<br>char Buf[100]; <i>// Буфер принимаемых данных </i>
+<br>  
+<br><i>// Создание сокета </i>
+<br>if (!Server.Socket( SOCK_STREAM, 
+<br>    lEvent, 
+<br>    NSPROTO_SPX, 
+<br>    AF_IPX)) { 
+<br><i>// не удалось создать сокет </i>
+<br> MessageBox("Ошибка при создании сокета"); 
+<br>} 
+<br><i>// Подсоединение сокета </i>
+<br>memset(Addr, 0, sizeof(Addr)); <i>// Обнуление структуры адреса </i>
+<br>sa.sa_family = AF_IPX; <i>// заполнение структуры адреса </i>
+<br>sa.sa_socket = SockNum; 
+<br>if (!Server.Bind( (sockaddr*)&Addr, 
+<br>     sizeof(Addr))) { 
+<br> <i>// не удалось подключить сокет </i>
+<br> MessageBox("Ошибка при подключении сокета"); 
+<br>} 
+<br><i>// Перевод в ожидающее состояние </i>
+<br>if (!Server.Listen(1)) { 
+<br> <i>// не удалось подключить сокет </i>
+<br> MessageBox("Ошибка при переводе сокета в ожидание"); 
+<br>} 
+<br><i>// Прием соединения </i>
+<br>if (!Server.Accept(Work)) { 
+<br> <i>// не удалось соединиться </i>
+<br> MessageBox("Ошибка при соединении"); 
+<br>} 
+<br>
+<br><i>// Прием данных </i>
+<br>if (Work.Receive(Buf, sizeof(Buf)-1)<=0) { 
+<br><i>// не удалось принять данные </i>
+<br> MessageBox("Ошибка при принятии данных"); 
+<br>} 
+<br><i>// Вывод данных </i>
+<br>MessageBox(Buf, "Приняты данные!"); 
+<br>
+<br><i>//акрытие сокетов </i>
+<br>Work.Close(); 
+<br>Server.Close(); 
+<p>
+<br>
+<br>
+<br>
+<A NAME="primer5"></A><b> Передача данных на сервер по протоколу SPX</b>
+<p>CSocket Client; <i>// Сокет клиента </i>
+<br>UINT SockNum=2000; 
+<br>char ServNetnum[4]={12,34,0,62}; <i>// Номер сети сервера </i>
+<br>char ServNodenum[6]={0,0,0,0,34,21}; <i>// Номер узла сервера </i>
+<br>long lEvent=FD_READ | FD_WRITE | FD_OOB | FD_ACCEPT | FD_CONNECT | FD_CLOSE; <i>// Отслеживаемые события </i>
+<br>sockaddr_ipx Addr, <i>// Структура адреса IPX </i>
+<br>   ServAddr; <i>// Адрес сервера </i>
+<br>char Buf[]="Сообщение от клиента"; <i>// Сообщение </i>
+<br>  
+<br><i>// Создание сокета </i>
+<br>if (!Client.Socket( SOCK_STREAM, 
+<br>    lEvent, 
+<br>    NSPROTO_SPX, 
+<br>    AF_IPX)) { 
+<br> <i>// не удалось создать сокет </i>
+<br> MessageBox("Ошибка при создании сокета"); 
+<br>} 
+<br><i>// Подсоединение сокета </i>
+<br>memset(Addr, 0, sizeof(Addr)); <i>// Обнуление структуры адреса </i>
+<br>sa.sa_family = AF_IPX; <i>// заполнение структуры адреса </i>
+<br>if (!Client.Bind( (sockaddr*)&Addr, 
+<br>     sizeof(Addr))) { 
+<br> <i>// не удалось подключить сокет </i>
+<br> MessageBox("Ошибка при подключении сокета"); 
+<br>} 
+<br>
+<br><i>// Соединение с сервером </i>
+<br>memset(ServAddr, 0, sizeof(ServAddr)); <i>// Обнуление структуры адреса сервера </i>
+<br>sa.sa_family = AF_IPX; <i>// заполнение структуры адреса </i>
+<br>for (int i=0; i<6; i++) { 
+<br> ServAddr.sa_netnum[i]=ServNetnum[i]; 
+<br>} 
+<br>for (int i=0; i<4; i++) { 
+<br> ServAddr.sa_nodenum[i]=ServNodenum[i]; 
+<br>} 
+<br>ServAddr.sa_socket=SockNum; 
+<br>
+<br>if (!Client.Connect( (sockaddr*)&ServAddr, 
+<br>      sizeof(ServAddr))) { 
+<br><i> // не удалось соединиться </i>
+<br> MessageBox("Ошибка при соединении"); 
+<br>} 
+<br>
+<br><i>// Передача данных </i>
+<br>if (Client.Send(Buf, sizeof(Buf))<=0) { 
+<br> <i>// не удалось отправить данные </i>
+<br> MessageBox("Ошибка при отправке данных"); 
+<br>} 
+<br>
+<br><i>//Закрытие сокетов </i>
+<br>Work.Close(); 
+<br>Server.Close(); 
+
+</body>
+</html>

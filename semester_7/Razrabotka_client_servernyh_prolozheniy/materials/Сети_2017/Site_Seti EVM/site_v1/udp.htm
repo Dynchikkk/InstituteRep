@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [en] (Win98; I) [Netscape]">
+</HEAD>
+<BODY BACKGROUND="Backgrd.gif">
+
+<CENTER>
+<H3>
+<BR>
+Протокол UDP</H3></CENTER>
+<FONT FACE=""><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UDP, как и IP, является ненадежным, не ориентированным на соединение протоколом,
+использующим датаграммы. При этом при пересылке данных не устанавливается
+соединение между клиентом и сервером. Этот механизм позволяет передавать
+по протоколу UDP широковещательные сообщения, предназначенные нескольким
+или всем станциям сети.Формат и описание датаграммы UDP приводятся ниже.</FONT></FONT>
+<BR>&nbsp;
+<P><BR>
+<CENTER>
+<P><IMG SRC="img/udp_format.gif" ALT=""  ALIGN=TOP>
+<P><FONT FACE=""><FONT SIZE=+1>Рис. 5. Формат UDP-датаграммы</FONT></FONT></CENTER>
+
+<BR>&nbsp;
+<P><BR>
+<P><FONT FACE=""><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Описание UDP-датаграммы:</FONT></FONT>
+<UL>
+<LI>
+<B><I><FONT SIZE=+1>порт-получатель и порт-источник</FONT></I> </B><FONT SIZE=+1>-</FONT><B>
+номер портов получателя и источника датаграммы;</B></LI>
+
+<LI>
+<FONT SIZE=+1><B><I>длина сообщения</I></B> - длина датаграммы в байтах,
+включая заголовок;</FONT></LI>
+
+<BR><FONT SIZE=+1><B><I>контрольная сумма</I></B> - результат дополнения
+до единицы суммы 16-разрядных слов датаграммы, включая область данных.</FONT></UL>
+
+</BODY>
+</HTML>

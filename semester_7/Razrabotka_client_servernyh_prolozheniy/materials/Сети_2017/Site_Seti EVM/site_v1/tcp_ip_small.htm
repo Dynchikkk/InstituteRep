@@ -1,0 +1,1881 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="TCP_IP_small.files/filelist.xml">
+<link rel=Edit-Time-Data href="TCP_IP_small.files/editdata.mso">
+<link rel=OLE-Object-Data href="TCP_IP_small.files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Описание TCP/IP</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>oleg</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Michael</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>2001-10-24T14:47:00Z</o:Created>
+  <o:LastSaved>2001-10-24T14:47:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>3952</o:Words>
+  <o:Characters>22529</o:Characters>
+  <o:Company>PSS</o:Company>
+  <o:Lines>187</o:Lines>
+  <o:Paragraphs>52</o:Paragraphs>
+  <o:CharactersWithSpaces>26429</o:CharactersWithSpaces>
+  <o:Version>10.2625</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:AutoHyphenation/>
+  <w:HyphenationZone>17</w:HyphenationZone>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+   <w:UseWord97LineBreakingRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Arial Narrow";
+	panose-1:2 11 5 6 2 2 2 3 2 4;
+	mso-font-charset:204;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Обычный;
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Arial Narrow";
+	mso-font-kerning:0pt;
+	font-weight:normal;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+h2
+	{mso-style-next:Обычный;
+	margin-top:14.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Arial Narrow";
+	mso-bidi-font-weight:normal;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Обычная таблица";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=RU style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal style='margin-left:37.0pt;text-align:justify;text-indent:
+-37.0pt;line-height:125%;mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:18.0pt;mso-bidi-font-size:12.0pt;line-height:125%;font-family:
+"Arial Narrow"'>Реализация межсетевого взаимодействия средствами </span><span
+lang=EN-US style='font-size:18.0pt;mso-bidi-font-size:12.0pt;line-height:125%;
+font-family:"Arial Narrow";mso-ansi-language:EN-US'>TCP</span><span
+style='font-size:18.0pt;mso-bidi-font-size:12.0pt;line-height:125%;font-family:
+"Arial Narrow"'>/</span><span lang=EN-US style='font-size:18.0pt;mso-bidi-font-size:
+12.0pt;line-height:125%;font-family:"Arial Narrow";mso-ansi-language:EN-US'>IP</span><span
+style='font-size:18.0pt;mso-bidi-font-size:12.0pt;line-height:125%;font-family:
+"Arial Narrow"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>В настоящее время стек </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>TCP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>/</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> является самым популярным
+средством организации составных сетей. До<span style='mso-no-proof:yes'> 1996</span>
+года бесспорным лидером был стек </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IPX</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>/</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>SPX</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> компании </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Novell</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>,
+но затем картина резко изменилась<span style='mso-no-proof:yes'> —</span> стек </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>/</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> по
+темпам роста числа установок намного стал опережать другие стеки, а с<span
+style='mso-no-proof:yes'> 1998</span> года вышел в лидеры и в абсолютном
+выражении. Именно поэтому дальнейшее изучение функций сетевого уровня будет
+проводиться на примере стека </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>TCP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>/</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Arial Narrow"'>Многоуровневая структура стека </span></i></b><b
+style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:"Arial Narrow";
+mso-ansi-language:EN-US'>TCP</span></i></b><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Arial Narrow"'>/</span></i></b><b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:"Arial Narrow";
+mso-ansi-language:EN-US'>IP</span></i></b><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Arial Narrow"'><o:p></o:p></span></i></b></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>В стеке </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>TCP</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>/</span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> определены<span
+style='mso-no-proof:yes'> 4</span> уровня<span style='mso-no-proof:yes'>.</span>
+Каждый из этих уровней несет на себе некоторую нагрузку по решению основной
+задачи<span style='mso-no-proof:yes'> —</span> организации надежной и
+производительной работы составной сети, части которой построены на основе
+разных сетевых технологий.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:106.2pt;margin-bottom:.0001pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Уровень 1<span style='mso-tab-count:2'>                            </span>Прикладной
+уровень<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:106.2pt;margin-bottom:.0001pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Уровень 2<span style='mso-tab-count:2'>                            </span>Основной
+(транспортный) уровень<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:106.2pt;margin-bottom:.0001pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Уровень 3<span style='mso-tab-count:2'>                            </span>Уровень
+межсетевого взаимодействия<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:106.2pt;margin-bottom:.0001pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Уровень 4<span style='mso-tab-count:2'>                            </span>Уровень
+сетевого взаимодействия<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Arial Narrow"'>Уровень межсетевого взаимодействия.<o:p></o:p></span></i></b></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:12.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Стержнем всей архитектуры является <i style='mso-bidi-font-style:normal'>уровень
+межсетевого взаимодействия,</i> который реализует концепцию передачи пакетов в
+режиме без установления соединений, то есть дейтаграммным способом. Именно этот
+уровень обеспечивает возможность перемещения пакетов по сети, используя тот
+маршрут, который в данный момент является наиболее рациональным. Этот уровень
+также называют уровнем </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>internet</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>, указывая тем<b
+style='mso-bidi-font-weight:normal'> </b>самым<b style='mso-bidi-font-weight:
+normal'> </b>на основную его функцию<span style='mso-no-proof:yes'> —</span>
+передачу данных через составную сеть.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:12.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Основным протоколом сетевого уровня (в терминах модели </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>OSI</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>) в
+стеке протокол </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>IP</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'> (</span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Internet</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Protocol</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>).
+Этот протокол изначально проектировался как протокол передачи пакетов в
+составных сетях, состоящих из большого количеств локальных сетей, объединенных
+как локальными, так и глобальными связями. Поэтому протокол </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+хорошо работает в сетях со сложной топологией, рационально используя наличие в
+них подсистем и экономно расходуя пропускную способность низко скоростных линий
+связи. Так как протокол </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> является дейтаграммным
+протоколом, он не гарантирует доставку пакетов до узла назначения, но старается
+это сделать.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:12.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>К уровню межсетевого взаимодействия относятся и все протоколы,
+связанные с составлением и модификацией таблиц маршрутизации, такие как
+протоколы сбора маршрутной информации </span><span lang=EN-US style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>RIP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> (</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Routing</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Internet</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'> </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>Protocol</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>) и </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>OSPF</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> (</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Open</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Shortest</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'> </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>Path</span><span lang=EN-US style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt'> </span><span lang=EN-US style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>First</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>), а также протокол
+межсетевых управляющих сообщений </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>ICMP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> (</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Internet</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Control</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'> </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>Message</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Protocol</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>). Последний протокол
+предназначен для обмена инфор­мацией об ошибках между маршрутизаторами сети и
+узлом-источником пакета. С помощью специальных пакетов<span style='mso-no-proof:
+yes'> ICMP</span> сообщает о невозможности доставки па­кета, о превышении
+времени жизни или продолжительности сборки пакета из фраг­ментов, об аномальных
+величинах параметров, об изменении маршрута пересылка и типа обслуживания, о
+состоянии системы и т.п.<o:p></o:p></span></p>
+
+<h1><b style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt'>Основной уровень<o:p></o:p></span></b></h1>
+
+<p class=MsoNormal style='margin-top:2.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Поскольку на сетевом уровне не устанавливаются соединения, то нет
+никаких гарантий, что все пакеты будут доставлены в место назначения целыми и
+невредимыми или придут в том же порядке, в котором они были отправлены. Эту
+задачу<span style='mso-no-proof:yes'> - </span>обеспечение надежной
+информационной связи между двумя конечными узлами<span style='mso-no-proof:
+yes'> -</span><i style='mso-bidi-font-style:normal'>решает основной уровень</i>
+стека </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+mso-ansi-language:EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>/</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>IP</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>, называемый также <i style='mso-bidi-font-style:
+normal'>транспортным.<o:p></o:p></i></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>На этом уровне функционируют протокол управления передачей </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> (</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Transmission</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'> </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>Control</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Protocol</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>) и протокол дейтаграмм
+пользователя </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>UDP</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'> (</span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>User</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Datagramm</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Protocol</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>).
+Протокол </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>TCP</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'> обеспечивает надежную передачу сообщений между
+удаленными прикладными процессами за счет образования логических соединений.
+Этот протокол позволяет равноранговым объектам на компьютере-отправителе и
+компьютере-получателе поддерживать обмен данными в дуплексном режиме. </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+позволяет без ошибок доставить сформированный на одном из компьютеров поток
+байт в любой другой компьютер, входящий в составную сеть. </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+делит поток байт на части<span style='mso-no-proof:yes'> —</span> <i
+style='mso-bidi-font-style:normal'>сегменты</i> и передает их ниже лежащему
+уровню межсетевого вза­имодействия, После того как эти сегменты будут
+доставлены средствами уровня межсетевого взаимодействия в пункт назначения,
+протокол </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>TCP</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'> снова соберет их в непрерывный поток байт.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Протокол<span style='mso-no-proof:yes'> UDP</span> обеспечивает
+передачу прикладных пакетов дейтаграммным способом, как и главный протокол
+уровня межсетевого взаимодействия </span><span lang=EN-US style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>, и выполняет только функции
+связующего звена (мультиплексора) между сетевым протоколом и многочисленными
+службами прикладного уровня или пользовательскими процессами.<o:p></o:p></span></p>
+
+<h1><b style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt'>Прикладной уровень<o:p></o:p></span></b></h1>
+
+<p class=MsoNormal style='margin-top:2.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><i style='mso-bidi-font-style:normal'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Прикладной уровень</span></i><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> объединяет все службы,
+предоставляемые системой пользовательским приложениям. За долгие годы использования
+в сетях различных стран и организаций стек </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>TCP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>/</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> накопил большое количество
+протоколов и служб прикладного уровня. Прикладной уровень реализуется
+программными системами, построенными в архитектуре клиент-сервер, базирующимися
+на протоколах нижних уровней. В отличие от протоколов остальных трех уровней,
+протоколы прикладно­го уровня занимаются деталями конкретного приложения и «не
+интересуются» способами передачи данных по сети. Этот уровень постоянно
+расширяется за счет присоединения к старым, прошедшим многолетнюю эксплуатацию
+сетевым служ­бам типа </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Telnet</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>, </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>FTP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>, </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>TFTP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>, </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>DNS</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>, </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>SNMP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> сравнительно новых служб
+таких, напри­мер, как протокол передачи гипертекстовой информации </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>HTTP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>.<o:p></o:p></span></p>
+
+<h2><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>Уровень сетевых
+интерфейсов<o:p></o:p></span></h2>
+
+<p class=MsoNormal style='margin-top:4.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Идеологическим отличием архитектуры стека </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>TCP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>/</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> от многоуровневой органи­зации
+других стеков является интерпретация функций самого нижнего уровня<span
+style='mso-no-proof:yes'> — </span><i style='mso-bidi-font-style:normal'>уровня
+сетевых интерфейсов.</i> Протоколы этого уровня должны обеспечивать ин­теграцию
+в составную сеть других сетей, причем задача ставится так: сеть </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>/</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+должна иметь средства включения в себя любой другой сети, какую бы внутрен­нюю
+технологию передачи данных эта сеть не использовала. Отсюда следует, что этот
+уровень нельзя определить раз и навсегда. Для каждой технологии, включае­мой в
+составную сеть подсети, должны быть разработаны собственные интерфейс­ные
+средства. К таким интерфейсным средствам относятся протоколы инкапсуляции <span
+style='mso-no-proof:yes'>IP-пакетов</span> уровня межсетевого взаимодействия в
+кадры локальных технологий. Например, документ </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>RFC</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-no-proof:yes'> 1042</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> определяет способы
+инкапсуляции<span style='mso-no-proof:yes'> IP-пакетов</span> в кадры
+технологий </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>IEEE</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-no-proof:yes'> 802.</span><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt'> Для этих целей должен использоваться
+заголовок </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>LLC</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>/ </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>SNAP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>, причем в поле </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Type</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+заголовка </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>SNAP</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'> должен быть указан код<span style='mso-no-proof:
+yes'> 0х0800,</span> Только для протокола </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Ethernet</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> в<span style='mso-no-proof:
+yes'> RFC 1042</span> сделано исключение<span style='mso-no-proof:yes'> —</span>
+помимо заголовка<span style='mso-no-proof:yes'> LLC/ </span></span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>SNAP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+разрешается использовать кадр </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Ethernet</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>DIX</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>, не
+имеющий заголовка<span style='mso-no-proof:yes'> LLC, </span>зато имеющий поле </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Type</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>. В
+сетях </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+mso-ansi-language:EN-US'>Ethernet</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'> предпочтительным является инкапсу­ляция<span
+style='mso-no-proof:yes'> IP-пакета</span> в кадр </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Ethernet</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>DIX</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:116%;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:116%'>Уровень сетевых интерфейсов в протоколах </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:116%;
+mso-ansi-language:EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:116%'>/</span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:116%;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:116%'> не
+регламентируется, но он поддерживает все популярные стандарты физического и
+канального уровней:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>для
+локальных сетей это </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>Ethernet</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>, </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Token</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Ring</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>, </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>FDDI</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>, </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Fast</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'> </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>Ethernet</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>, </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Gigabit</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Ethernet</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>,
+</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+mso-ansi-language:EN-US'>lOOVG</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>-</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>AnyLAN</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>, для глобальных сетей<span style='mso-no-proof:
+yes'> —</span> протоколы соединений «точка-точка» </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>SLIP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> и РРР, протоколы
+территориальных сетей с коммутацией пакетов Х.25, </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>frame</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>relay</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>.
+Разработана также специальная спецификация, определяющая использование тех­нологии
+АТМ в качестве транспорта канального уровня. Обычно при появлении новой технологии
+локальных или глобальных сетей она быстро включается в стек </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>/</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> за
+счет разработки соответствующего<span style='mso-no-proof:yes'> RFC,</span>
+определяющего метод инкап­суляции<span style='mso-no-proof:yes'> IP-пакетов</span>
+в ее кадры (спецификация<span style='mso-no-proof:yes'> RFC 1577,</span> определяющая
+работу </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+mso-ansi-language:EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'> через сети АТМ, появилась в<span style='mso-no-proof:yes'> 1994</span>
+году вскоре после принятия основных стан­дартов этой технологии).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:13.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:"Arial Narrow"'>Соответствие
+уровней стека </span></b><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:"Arial Narrow";
+mso-ansi-language:EN-US'>TCP</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:"Arial Narrow"'>/</span></b><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Arial Narrow";mso-ansi-language:EN-US'>IP</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Arial Narrow"'> семиуровневой модели </span></b><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Arial Narrow";mso-ansi-language:EN-US'>ISO</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Arial Narrow"'>/</span></b><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Arial Narrow";mso-ansi-language:EN-US'>OSI</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Arial Narrow"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-top:3.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Так как стек </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>TCP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>/</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> был разработан до появления
+модели взаимодействия откры­тых систем<span style='mso-no-proof:yes'> ISO/OSI,</span>
+то, хотя он также имеет многоуровневую структуру, соответ­ствие уровней стека </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>/</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+уровням модели<span style='mso-no-proof:yes'> OSI</span> достаточно условно
+(рис.<span style='mso-no-proof:yes'> 1). </span>Рассматривая многоуровневую
+архитектуру </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>TCP</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>/</span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>, можно выделить в ней,
+подобно архитектуре<span style='mso-no-proof:yes'> OSI,</span> уровни, функции
+которых зависят от конкретной технической реализации сети, и уровни, функции
+которых ориентированны на работу с,<i style='mso-bidi-font-style:normal'><span
+style='mso-no-proof:yes'> </span></i>приложениями (рис.<span style='mso-no-proof:
+yes'> 2).</span><span
+style='mso-spacerun:yes'>                                               
+</span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:108%;mso-layout-grid-align:
+none;text-autospace:none'><!--[if gte vml 1]><o:wrapblock><v:shapetype id="_x0000_t75"
+  coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+  filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="_x0000_s1027" type="#_x0000_t75" style='position:absolute;
+  left:0;text-align:left;margin-left:0;margin-top:0;width:267.75pt;height:177pt;
+  z-index:2' o:allowincell="f">
+  <v:imagedata src="TCP_IP_small.files/image001.gif" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![if gte mso 9]><o:OLEObject Type="Embed" ProgID="PBrush"
+  ShapeID="_x0000_s1027" DrawAspect="Content" ObjectID="_1065454388">
+ </o:OLEObject>
+ <![endif]><![endif]--><![if !vml]><img src="TCP_IP_small.files/image001.gif" v:shapes="_x0000_s1027"><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+</p>
+
+<p class=MsoNormal style='text-align:justify;line-height:108%;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:108%;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:108%;mso-layout-grid-align:
+none;text-autospace:none'><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1026"
+  type="#_x0000_t75" style='position:absolute;left:0;text-align:left;
+  margin-left:0;margin-top:0;width:366.75pt;height:276.75pt;z-index:1'
+  o:allowincell="f">
+  <v:imagedata src="TCP_IP_small.files/image002.gif" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![if gte mso 9]><o:OLEObject Type="Embed" ProgID="PBrush"
+  ShapeID="_x0000_s1026" DrawAspect="Content" ObjectID="_1065454389">
+ </o:OLEObject>
+ <![endif]><![endif]--><![if !vml]><img src="TCP_IP_small.files/image002.gif" v:shapes="_x0000_s1026"><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+<span lang=EN-US style='font-size:9.0pt;mso-bidi-font-size:12.0pt;line-height:
+108%;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:108%;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:9.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:108%;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:9.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>Протоколы прикладного уровня
+стека </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>TCP</span><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>/</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> работают на компьютерах, вы­полняющих приложения
+пользователей. Даже полная смена сетевого оборудова­ния в общем случае не
+должна влиять на работу приложений, если они получают доступ к сетевым возможностям
+через протоколы прикладного уровня.<br>
+Протоколы транспортного уровня уже более зависят от сети, так как они реализу­ют
+интерфейс к уровням, непосредственно организующим передачу данных по сети.
+Однако, подобно протоколам прикладного уровня, программные модули, реализу­ющие
+протоколы транспортного уровня, устанавливаются только на конечных уз­лах.
+Протоколы двух нижних уровней являются сетезависимыми, а следовательно,
+программные модули протоколов межсетевого уровня и уровня сетевых интерфей­сов
+устанавливаются как на конечных узлах составной сети, так и на маршрути­заторах.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>Каждый коммуникационный
+протокол оперирует с некоторой единицей пере­даваемых данных. Названия этих
+единиц иногда закрепляются стандартом, а чаще просто определяются традицией. В
+стеке </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>TCP</span><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>/</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> за многие годы его существова­ния образовалась устоявшаяся
+терминология в этой области (рис.<span style='mso-no-proof:yes'>3).<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+9.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+9.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><!--[if gte vml 1]><o:wrapblock><v:shape
+  id="_x0000_s1028" type="#_x0000_t75" style='position:absolute;left:0;
+  text-align:left;margin-left:0;margin-top:0;width:188.25pt;height:141.75pt;
+  z-index:3' o:allowincell="f">
+  <v:imagedata src="TCP_IP_small.files/image003.gif" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![if gte mso 9]><o:OLEObject Type="Embed" ProgID="PBrush"
+  ShapeID="_x0000_s1028" DrawAspect="Content" ObjectID="_1065454390">
+ </o:OLEObject>
+ <![endif]><![endif]--><![if !vml]><img
+ src="TCP_IP_small.files/image003.gif" v:shapes="_x0000_s1028"><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+<span lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><i style='mso-bidi-font-style:
+normal'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:
+108%'>Потоком</span></i><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> называют данные, поступающие от приложений на вход
+протоколов транспортного уровня </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>TCP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> и </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>UDP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>.</span> <span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Протокол </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>TCP</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'> нарезает из потока данных <i style='mso-bidi-font-style:
+normal'>сегменты.<o:p></o:p></i></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Единицу данных протокола<span style='mso-no-proof:yes'> UDP</span>
+часто называют <i style='mso-bidi-font-style:normal'>дейтаграммой</i> (или
+датаграммой). Дейтаграмма<span style='mso-no-proof:yes'> —</span> это общее
+название для единиц данных, которыми оперируют протоколы без установления
+соединений. К таким протоколам относится и прото­кол межсетевого взаимодействия
+</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+mso-ansi-language:EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Дейтаграмму протокола </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> называют также <i
+style='mso-bidi-font-style:normal'>пакетом.<o:p></o:p></i></span></p>
+
+<p class=MsoNormal style='text-align:justify;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>В
+стеке </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+mso-ansi-language:EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>/</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>IP</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'> принято называть <i style='mso-bidi-font-style:
+normal'>кадрами (фреймами)</i> единицы данных про­токолов, на основе которых<span
+style='mso-no-proof:yes'> IP-пакеты</span> переносятся через подсети составной
+сети. При этом не имеет значения, какое название используется для этой единицы
+дан­ных в локальной технологии.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:22.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'>Адресация в<span style='mso-no-proof:yes'> IP-сетях<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-top:22.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:16.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Arial Narrow"'>Типы адресов стека </span><span lang=EN-US
+style='font-size:16.0pt;mso-bidi-font-size:12.0pt;font-family:"Arial Narrow";
+mso-ansi-language:EN-US'>TCP</span><span style='font-size:16.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Arial Narrow"'>/</span><span lang=EN-US style='font-size:
+16.0pt;mso-bidi-font-size:12.0pt;font-family:"Arial Narrow";mso-ansi-language:
+EN-US'>IP</span><span style='font-size:16.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Arial Narrow"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;text-align:justify;line-height:108%;
+mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%'>В стеке </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'>/</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>
+используются три типа адресов: локальные (называемые также аппаратными),<span
+style='mso-no-proof:yes'> IP-адреса</span> и символьные доменные имена.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:15.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>В терминологии </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>/</span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> под <i
+style='mso-bidi-font-style:normal'>локальным адресом</i> понимается такой тип
+адреса, который используется средствами базовой технологии для доставки данных
+в пределах подсети, являющейся элементом составной интерсети. В разных подсе­тях
+допустимы разные сетевые технологии, разные стеки протоколов, поэтому при
+создании стека </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>TCP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>/</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> предполагалось наличие разных типов локальных
+адресов. Если подсетью интерсети является локальная сеть, то локальный ад­рес<span
+style='mso-no-proof:yes'> —</span> это МАС-адрес, МАС-адрес назначается сетевым
+адаптерам и сетевым интерфейсам маршрутизаторов. МАС-адреса назначаются
+производителями обо­рудования и являются уникальными, так как управляются
+централизованно. Для всех существующих технологий локальных сетей МАС-адрес
+имеет формат<span style='mso-no-proof:yes'> 6</span> байт, например 11-</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>AO</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>-17-3</span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>D</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>-</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>BC</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>-01. Однако протокол </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> может работать и над прото­колами более высокого уровня,
+например над протоколом </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>IPX</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> или Х,25.
+В этом случае локальными адресами для протокола </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> соответственно будут адреса </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>IPX</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> и Х.25. Следует учесть, что компьютер в локальной сети может
+иметь несколько локальных адресов даже при одном сетевом адаптере. Некоторые
+сетевые устрой­ства не имеют локальных адресов. Например, к таким устройствам
+относятся глобальные порты маршрутизаторов, предназначенные для соединений типа
+«точ­ка-точка».<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><i style='mso-bidi-font-style:
+normal'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:
+108%;mso-no-proof:yes'>IP-адреса</span></i><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%'> представляют собой основной тип
+адресов, на основании которых сетевой уровень передает пакеты между сетями. Эти
+адреса состоят из<span style='mso-no-proof:yes'> 4</span> байт, на­пример<span
+style='mso-no-proof:yes'> 109.26.17.100. IP-адрес</span> назначается администратором
+во время конфигу­рирования компьютеров и маршрутизаторов.<span
+style='mso-no-proof:yes'> IP-адрес</span> состоит из двух частей: номера сети и
+номера узла. Номер сети может быть выбран администратором произволь­но, либо
+назначен по рекомендации специального подразделения </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>Internet</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> (</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>Internet</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>
+</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>Network</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>Information</span><span lang=EN-US style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>Center</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'>, </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>InterNIC</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>), если
+сеть должна работать как составная часть </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>Internet</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'>. Обычно поставщики услуг </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>Internet</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> получают диапазоны адресов у подразделений<span
+style='mso-no-proof:yes'> InterNIC,</span> а затем распределяют их между своими
+абонентами. Но­мер узла в протоколе </span><span lang=EN-US style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>
+назначается независимо от локального адреса узла. Марш­рутизатор по определению
+входит сразу в несколько сетей. Поэтому каждый порт маршрутизатора имеет собственный<span
+style='mso-no-proof:yes'> IP-адрес.</span> Конечный узел также может вхо­дить в
+несколько<span style='mso-no-proof:yes'> IP-сетей.</span> В этом случае
+компьютер должен иметь несколько<span style='mso-no-proof:yes'> IP-адресов,</span>
+по числу сетевых связей. Таким образом,<span style='mso-no-proof:yes'> IP-адрес</span>
+характеризует не отдельный компьютер или маршрутизатор, а одно сетевое
+соединение.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><i style='mso-bidi-font-style:
+normal'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:
+108%'>Символьные доменные имена.</span></i><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%'> Символьные имена в<span
+style='mso-no-proof:yes'> IP-сетях</span> называются доменными и строятся по иерархическому
+признаку. Составляющие полного символьного имени в<span style='mso-no-proof:
+yes'> IP-сетях</span> разделяются точкой и перечисляются в следующем порядке:
+снача­ла простое имя конечного узла, затем имя группы узлов (например, имя
+организа­ции), затем имя более крупной группы (поддомена) и так до имени домена
+самого высокого уровня (например, домена объединяющего организации по
+географическо­му принципу: </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>RU</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-no-proof:
+yes'> —</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> Россия, </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>UK</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-no-proof:
+yes'> —</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> Великобритания, </span><span lang=EN-US style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>SU</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-no-proof:
+yes'> —</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> США). Примеров домен­ного имени может служить имя<span
+style='mso-no-proof:yes'> base2.sales.zil.rn.</span> Между доменным именем и <span
+style='mso-no-proof:yes'>IP-адресом</span> узла нет никакого алгоритмического
+соответствия, поэтому необходимо использовать какие-то дополнительные таблицы
+или службы, чтобы узел сети одно­значно определялся как по доменному имени, так
+и по<span style='mso-no-proof:yes'> IP-адресу.</span> В сетях </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>/</span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> используется
+специальная распределенная служба </span><span lang=EN-US style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>Domain</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>
+</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>Name</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>System</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> (</span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>DNS</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>), ко­торая
+устанавливает это соответствие на оснований создаваемых администраторами сети
+таблиц соответствия. Поэтому доменные имена называют также<span
+style='mso-no-proof:yes'> DNS-именами.<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-top:14.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:16.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Arial Narrow"'>Классы<span style='mso-no-proof:yes'>
+IP-адресов<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-no-proof:yes'>IP-адрес</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'> имеет длину<span style='mso-no-proof:yes'> 4</span>
+байта и обычно записывается в виде четырех чисел, пред­ставляющих значения каждого
+байта в десятичной форме и разделенных точками, например.<span
+style='mso-no-proof:yes'> 128.10.2.30 —</span> традиционная десятичная форма
+представления адреса, а <span style='mso-no-proof:yes'>10000000 00001010
+00000010 00011110 -</span> двоичная форма представления этого же адреса.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Адрес состоит из двух логических частей<span style='mso-no-proof:yes'>
+—</span> номера сети и номера узла в сети. Какая часть адреса относится к
+номеру сети, а какая<span style='mso-no-proof:yes'> —</span> к номеру узла,
+определяется значениями первых бит адреса. Значения этих бит являются также
+признаками того, к какому <i style='mso-bidi-font-style:normal'>классу</i>
+относится тот или иной<span style='mso-no-proof:yes'> IP-адрес.<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>На
+рис.<span style='mso-no-proof:yes'> 4</span> показана структура<span
+style='mso-no-proof:yes'> IP-адреса</span> разных классов.</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;mso-layout-grid-align:none;
+text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;mso-layout-grid-align:none;
+text-autospace:none'><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1029"
+  type="#_x0000_t75" style='position:absolute;left:0;text-align:left;
+  margin-left:0;margin-top:0;width:255pt;height:206.25pt;z-index:4'
+  o:allowincell="f">
+  <v:imagedata src="TCP_IP_small.files/image004.gif" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![if gte mso 9]><o:OLEObject Type="Embed" ProgID="PBrush"
+  ShapeID="_x0000_s1029" DrawAspect="Content" ObjectID="_1065454391">
+ </o:OLEObject>
+ <![endif]><![endif]--><![if !vml]><img
+ src="TCP_IP_small.files/image004.gif" v:shapes="_x0000_s1029"><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+<span lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;mso-layout-grid-align:none;
+text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Если
+адрес начинается с<span style='mso-no-proof:yes'> 0,</span> то сеть относят к <i
+style='mso-bidi-font-style:normal'>классу А</i> и номер сети занимает один
+байт, остальные<span style='mso-no-proof:yes'> 3</span> байта интерпретируются
+как номер узла в сети. Сети класса А имеют номера в диапазоне от<span
+style='mso-no-proof:yes'> 1</span> до<span style='mso-no-proof:yes'> 126.</span>
+(Номер<span style='mso-no-proof:yes'> 0</span> не используется, а номер<span
+style='mso-no-proof:yes'> 127<span style='mso-spacerun:yes'>  </span></span>зарезервирован
+для специальных целей, о чем будет сказано ниже.) Сетей класса А немного зато
+количество узлов в них может достигать<span style='mso-no-proof:yes'> 2<sup>24</sup>,</span>
+то есть<span style='mso-no-proof:yes'> 16 777 216</span> узлов<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:9.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'><span
+style='mso-spacerun:yes'> </span>Если первые два бита адреса равны<span
+style='mso-no-proof:yes'> 10,</span> то сеть относится к <i style='mso-bidi-font-style:
+normal'>классу В.</i> В сетях класса В под номер сети и под номер узла
+отводится по<span style='mso-no-proof:yes'> 16</span> бит, то есть по<span
+style='mso-no-proof:yes'> 2</span> байта Таким образом, сеть класса В является
+сетью средних размеров с максимальным числом узлов<span style='mso-no-proof:
+yes'> 2<sup>16</sup>,</span> что составляет<span style='mso-no-proof:yes'> 65
+536</span> узлов.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>Если адрес начинается с
+последовательности<span style='mso-no-proof:yes'> 110,</span> то это сеть <i
+style='mso-bidi-font-style:normal'>класса С.</i> В этом случае под номер сети отводится<span
+style='mso-no-proof:yes'> 24</span> бита, а под номер узла<span
+style='mso-no-proof:yes'> — 8</span> бит. Сети этого класса наиболее
+распространены, число узлов в них ограничено<span style='mso-no-proof:yes'> 2<sup>8</sup>,</span>
+то есть<span style='mso-no-proof:yes'> 256 </span>узлами.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>Если адрес начинается с
+последовательности<span style='mso-no-proof:yes'> 1110,</span> то он является
+адресом <i style='mso-bidi-font-style:normal'>клас­са </i></span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>Dn</span></i><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> обозначает
+особый, групповой адрес<span style='mso-no-proof:yes'> —</span> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>multicast</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%'>. Если в пакете в качестве адреса
+назначения указан адрес класса </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>D</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>, то такой
+пакет должны получить все узлы, которым присвоен данный адрес.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;line-height:
+133%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:133%'>Если адрес начинается с
+последовательности<span style='mso-no-proof:yes'> 11110,</span> то это значит,
+что данный адрес относится к <i style='mso-bidi-font-style:normal'>классу Е.</i>
+Адреса этого класса зарезервированы для будущих применений.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>В табл.<span
+style='mso-no-proof:yes'> 5.4</span> приведены диапазоны номеров сетей и
+максимальное число узлов, соответствующих каждому классу сетей.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:7.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:9.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Таблица<span
+style='mso-no-proof:yes'> 5.4.</span> <b style='mso-bidi-font-weight:normal'>Характеристики
+адресов разного <i style='mso-bidi-font-style:normal'>класса<o:p></o:p></i></b></span></p>
+
+<div style='border:none;border-top:solid windowtext 1.0pt;mso-border-top-alt:
+solid windowtext .75pt;padding:1.0pt 0cm 0cm 0cm'>
+
+<p class=MsoNormal style='margin-top:16.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none;border:none;mso-border-top-alt:solid windowtext .75pt;
+padding:0cm;mso-padding-alt:1.0pt 0cm 0cm 0cm'><span style='font-size:8.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Класс<span
+style='mso-spacerun:yes'>         </span>Первые биты<span
+style='mso-spacerun:yes'>     </span>Наименьший<span
+style='mso-spacerun:yes'>    </span>Наибольший<span
+style='mso-spacerun:yes'>         </span>Максимальное<o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-left:70.8pt;text-align:justify;text-indent:
+35.4pt;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman"'><span
+style='mso-spacerun:yes'>  </span>номер сети<span
+style='mso-spacerun:yes'>      </span>номер сети<span
+style='mso-spacerun:yes'>           </span>число узлов в сети<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:150%;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+line-height:150%;mso-no-proof:yes'>A<span style='mso-spacerun:yes'>          
+</span><span style='mso-tab-count:1'>  </span><span
+style='mso-spacerun:yes'>          </span>0<span style='mso-tab-count:2'>                   </span><span
+style='mso-spacerun:yes'>     </span>1.0.0.0<span
+style='mso-spacerun:yes'>              </span>126,0.0.0<span
+style='mso-spacerun:yes'>              </span><span style='mso-tab-count:1'>    </span>2<sup>24</sup>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:150%;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+line-height:150%;mso-no-proof:yes'>B<span style='mso-tab-count:1'>             </span><span
+style='mso-spacerun:yes'>         </span>10<span
+style='mso-spacerun:yes'>           </span><span style='mso-tab-count:1'>       </span><span
+style='mso-spacerun:yes'>     </span>128.0.0.0<span
+style='mso-spacerun:yes'>          </span>191.255.0.0<span
+style='mso-spacerun:yes'>            </span><span style='mso-tab-count:1'>  </span>2<sup>16</sup>
+<span style='mso-tab-count:5'>                                                                         </span><span
+style='mso-spacerun:yes'>     </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:150%;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+line-height:150%;mso-no-proof:yes'>C<span style='mso-tab-count:1'>             </span><span
+style='mso-spacerun:yes'>         </span>110<span
+style='mso-spacerun:yes'>           </span><span style='mso-tab-count:1'>     </span><span
+style='mso-spacerun:yes'>     </span>192.0.1.0</span><span style='font-size:
+8.0pt;mso-bidi-font-size:12.0pt;line-height:150%'><span
+style='mso-spacerun:yes'>          </span>223.255.255.0<span
+style='mso-spacerun:yes'>          </span><span style='mso-tab-count:1'>               </span>2<sup>8<span
+style='mso-spacerun:yes'>  </span></sup><span style='mso-no-proof:yes'><span
+style='mso-tab-count:5'>                                                                          </span><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:150%;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+line-height:150%;mso-no-proof:yes'>D<span style='mso-tab-count:1'>             </span><span
+style='mso-spacerun:yes'>         </span>1110<span
+style='mso-spacerun:yes'>           </span><span style='mso-tab-count:1'>   </span><span
+style='mso-spacerun:yes'>     </span>224.0.0,0<span
+style='mso-spacerun:yes'>          </span>239.255.255.355</span><span
+style='font-size:8.0pt;mso-bidi-font-size:12.0pt;line-height:150%'><span
+style='mso-spacerun:yes'>       </span><span style='mso-tab-count:1'>              </span></span><span
+lang=EN-US style='font-size:8.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+mso-ansi-language:EN-US'>Multicast</span><span style='font-size:8.0pt;
+mso-bidi-font-size:12.0pt;line-height:150%'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:150%;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt;line-height:150%;mso-ansi-language:EN-US'>E</span><span
+style='font-size:8.0pt;mso-bidi-font-size:12.0pt;line-height:150%'><span
+style='mso-tab-count:1'>             </span><span
+style='mso-spacerun:yes'>         </span><span style='mso-no-proof:yes'>11110<span
+style='mso-tab-count:1'>            </span><span style='mso-spacerun:yes'>    
+</span>24</span>0.0.0.0<span style='mso-no-proof:yes'><span
+style='mso-spacerun:yes'>          </span>247.255.255.255<span
+style='mso-tab-count:1'>      </span></span>Зарезервирован</span><span
+lang=EN-US style='font-size:8.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
+mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:150%;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt;line-height:150%;mso-ansi-language:EN-US'>____________________________________________________________________________________________________________________<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Большие
+сети получают адреса класса А, средние<span style='mso-no-proof:yes'> —</span>
+класса В, а маленькие класса С.</span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:22.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:22.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Протокол </span><span
+lang=EN-US style='font-size:22.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+mso-bidi-font-family:"Times New Roman";mso-ansi-language:EN-US'>IP</span><span
+style='font-size:22.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:21.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:16.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Arial Narrow"'><span
+style='mso-spacerun:yes'> </span>Основные функции протокола </span><span
+lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:12.0pt;font-family:"Arial Narrow";
+mso-ansi-language:EN-US'>IP</span><span style='font-size:16.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Arial Narrow"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;text-align:justify;line-height:108%;
+mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%'>Основу транспортных средств стека
+протоколов </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>TCP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>/</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> составляет <i style='mso-bidi-font-style:normal'>протокол
+меж­сетевого взаимодействия (</i></span><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>Internet</span></i><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>
+</span></i><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>Protocol</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>, </span></i><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>IP</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>).</span></i><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> Он обеспечивает передачу дейта­грамм от отправителя к
+получателям через объединенную систему компьютерных сетей.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:108%;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>Название данного протокола<span style='mso-no-proof:
+yes'> —</span> </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>Intrenet</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>
+</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>Protocol</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> — отражает
+его суть: он должен<span style='mso-spacerun:yes'>  </span>передавать пакеты <i
+style='mso-bidi-font-style:normal'>между сетями.</i> В каждой очередной сети,
+лежащей на пути перемещения пакета, протокол </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> вызывает средства транспортировки, принятые в этой сети,
+чтобы с их помощью передать этот пакет на маршрутизатор, ведущий к следующей
+сети, или непосредственно на узел-получатель.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:15.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>Протокол </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> относится к протоколам без установления соединений.
+Перед </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>IP</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%'> не ставится задача надежной
+доставки сообщений от отправителя к получателю Протокол </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> обрабатывает каждый<span style='mso-no-proof:yes'>
+IP-пакет</span> как независимую единицу, не имею­щую связи ни с какими другими<span
+style='mso-no-proof:yes'> IP-пакетами.</span> В протоколе </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> нет механизмов обычно применяемых для увеличения
+достоверности конечных данных: отсутствует квитирование<span style='mso-no-proof:
+yes'> —</span> обмен подтверждениями между отправителем и получателем нет
+процедуры упорядочивания, повторных передач или других подобных функ­ций. Если
+во время продвижения пакета произошла какая-либо ошибка, то прото­кол </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> по своей инициативе ничего не предпринимает для
+исправления этой ошибки. Например, если на промежуточном маршрутизаторе пакет
+был отброшен по при­чине истечения времени жизни или из-за ошибки в контрольной
+сумме, то модуль </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> не
+пытается заново послать испорченный или потерянный пакет. Все вопросы обес­печения
+надежности доставки данных по составной сети в стеке </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'>/</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> решает
+протокол </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>TCP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>,
+работающий непосредственно над протоколом </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'>. Именно </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>TCP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> орга­низует
+повторную передачу пакетов, когда в этом возникает необходимость.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:15.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>Важной особенностью
+протокола </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>,
+отличающей его от других сетевых прото­колов (например, от сетевого протокола </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>IPX</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>), является его способность выполнять динамическую
+фрагментацию пакетов при передаче их между сетями с различны­ми, максимально
+допустимыми значениями поля данных кадров </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>MTU</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'>. Свойство фрагментации во многом способствовало тому, что
+протокол </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>IP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> смог
+занять доми­нирующие позиции в сложных составных сетях.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Имеется
+прямая связь между функциональной сложностью протокола и слож­ностью заголовка
+пакетов, которые этот протокол использует. Это объясняется тем, что основные
+служебные данные, на основании которых протокол выполняет то или иное действие,
+переносятся между двумя модулями, реализующими этот протокол на разных машинах,
+именно в полях заголовков пакетов. Поэтому очень полезно изучить назначение
+каждого поля заголовка<span style='mso-no-proof:yes'> IP-пакета,</span> и это
+изучение дает не только формальные знания о структуре пакета, но и объясняет
+все основные режимы работы протокола по обработке и передаче<span
+style='mso-no-proof:yes'> IP-дейтаграмм.<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:16.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Структура<span
+style='mso-no-proof:yes'> IP-пакета<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-top:4.0pt;text-align:justify;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-no-proof:yes'>IP-пакет</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'> состоит из заголовка и поля данных. Заголовок, как
+правило, имеющий длину<span style='mso-no-proof:yes'> 20</span> байт, имеет следующую
+структуру (рис.<span style='mso-no-proof:yes'> 5).<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Поле <b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Номер версии</i></b><i style='mso-bidi-font-style:normal'> (</i></span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Version</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>),</span></i><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+занимающее<span style='mso-no-proof:yes'> 4</span> бит, указывает версию
+протокола </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>IP</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>. Сейчас повсеместно используется версия<span
+style='mso-no-proof:yes'> 4</span> (</span><span lang=EN-US style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IPv</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>4), и готовится переход на
+версию <span style='mso-no-proof:yes'>6</span> (</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IPv</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>6).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Поле <b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Длина заголовка</i></b><i style='mso-bidi-font-style:normal'> (</i></span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>IHL</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>)</span></i><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+mso-no-proof:yes'> IP-пакета</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'> занимает<span style='mso-no-proof:yes'> 4</span> бит и указывает
+значение длины заголовка, измеренное в 32-битовых словах. Обычно заголовок
+имеет длину в<span style='mso-no-proof:yes'> 20</span> байт (пять 32-битовых
+слов), но при увеличении объема служебной информации эта длина может быть
+увеличена за счет использования дополнительных байт в поле <i style='mso-bidi-font-style:
+normal'>Опции (</i></span><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>IP</span></i><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span></i><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Options</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>).</span></i><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+Наибольший заголовок занимает<span style='mso-no-proof:yes'> 60</span> октетов.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:108%;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>Поле <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Тип сервиса</i></b><i style='mso-bidi-font-style:
+normal'> (</i></span><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>Type</span></i><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> </span></i><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>of</span></i><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%'> </span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>Service</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>)</span></i><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> занимает один байт и задает приоритетность пакета и
+вид критерия выбора маршрута. Первые три бита этого поля образуют подполе <i
+style='mso-bidi-font-style:normal'>приоритета</i> пакета <i style='mso-bidi-font-style:
+normal'>(</i></span><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>Precedence</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>).</span></i><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> Приоритет
+может иметь значения от са­мого низкого<span style='mso-no-proof:yes'> — 0</span>
+(нормальный пакет) до самого высокого<span style='mso-no-proof:yes'> — 7</span>
+(пакет управляющей информации). Маршрутизаторы и компьютеры могут принимать во
+внимание при­оритет пакета и обрабатывать более важные пакеты в первую очередь-
+Поле <i style='mso-bidi-font-style:normal'>Тип сервиса</i> содержит также три
+бита, определяющие критерий выбора маршрута. Ре­ально выбор осуществляется
+между тремя альтернативами: малой задержкой, вы­сокой достоверностью и высокой
+пропускной способностью. Установленный бит </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>D</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> (</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>delay</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>) говорит о
+том, что маршрут должен выбираться для минимизации задерж­ки доставки данного
+пакета, бит Т<span style='mso-no-proof:yes'> —</span> для максимизации
+пропускной способности, а бит </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>R</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-no-proof:
+yes'> —</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> для максимизации надежности доставки. Во многих сетях
+улучшение од­ного из этих параметров связано с ухудшением другого, кроме того,
+обработка каждого из них требует дополнительных вычислительных затрат. Поэтому
+редко, когда имеет смысл устанавливать одновременно хотя бы два из этих трех
+критери­ев выбора маршрута. Зарезервированные биты имеют нулевое значение.</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:108%;mso-layout-grid-align:
+none;text-autospace:none'><!--[if gte vml 1]><o:wrapblock><v:shape id="_x0000_s1030"
+  type="#_x0000_t75" style='position:absolute;left:0;text-align:left;
+  margin-left:0;margin-top:0;width:312pt;height:181.5pt;z-index:5'
+  o:allowincell="f">
+  <v:imagedata src="TCP_IP_small.files/image005.gif" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![if gte mso 9]><o:OLEObject Type="Embed" ProgID="PBrush"
+  ShapeID="_x0000_s1030" DrawAspect="Content" ObjectID="_1065454392">
+ </o:OLEObject>
+ <![endif]><![endif]--><![if !vml]><img
+ src="TCP_IP_small.files/image005.gif" v:shapes="_x0000_s1030"><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+<span lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:108%;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:108%;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>Поле <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Общая длина</i></b><i style='mso-bidi-font-style:
+normal'> (</i></span><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>Total</span></i><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> </span></i><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>Length</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>)</span></i><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> занимает<span style='mso-no-proof:yes'> 2</span>
+байта и означает общую длину пакета с учетом заголовка и поля данных. Максимальная
+длина пакета ограничена разрядностью поля, определяющего эту величину, и
+составляет<span style='mso-no-proof:yes'> 65 535</span> байт, однако в
+большинстве хост-компьютеров и сетей столь большие пакеты не используются. При
+передаче по сетям различного типа длина пакета выбирается с учетом макси­мальной
+длины пакета протокола нижнего уровня, несущего<span style='mso-no-proof:yes'>
+IP-пакеты.</span> Если это кадры </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>Ethernet</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>, то
+выбираются пакеты с максимальной длиной в<span style='mso-no-proof:yes'> 1500</span>
+байт, уме­щающиеся в поле данных кадра </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>Ethernet</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'>. В стандарте предусматривается, что все хосты должны быть
+готовы принимать пакеты вплоть до<span style='mso-no-proof:yes'> 576</span>
+байт длиной (прихо­дят ли они целиком или по фрагментам). Хостам рекомендуется
+отправлять пакеты размером более чем<span style='mso-no-proof:yes'> 576</span>
+байт, только если они уверены, что принимающий хост или промежуточная сеть
+готовы обслуживать пакеты такого размера.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:12.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>Поле <b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'>Идентификатор пакета</i></b><i
+style='mso-bidi-font-style:normal'> (</i></span><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>Identification</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>)</span></i><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> занимает<span style='mso-no-proof:yes'> 2</span>
+байта и используется для распознавания пакетов, образовавшихся путем
+фрагментации исходного пакета. Все фрагменты должны иметь одинаковое значение
+этого поля.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;line-height:108%;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>Поле <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Флаги</i></b><i style='mso-bidi-font-style:
+normal'> (</i></span><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>Flags</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>)</span></i><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> занимает<span
+style='mso-no-proof:yes'> 3</span> бита и содержит признаки, связанные с фраг­ментацией.
+Установленный бит </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>DP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> (</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>Do</span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%'> </span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>not</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>Fragment</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>) запрещает
+маршрутизатору фрагментировать данный пакет, а установленный бит </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>MF</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> (</span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>More</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>
+</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>Fragments</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>) гово­рит
+о том, что данный пакет является промежуточным (не последним) фрагмен­том.
+Оставшийся бит зарезервирован.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:15.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>Поле <b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'>Смещение фрагмента</i></b><i
+style='mso-bidi-font-style:normal'> (</i></span><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>Fragment</span></i><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%'> </span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>Offset</span></i><i style='mso-bidi-font-style:
+normal'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:
+108%'>)</span></i><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> занимает<span style='mso-no-proof:yes'> 13</span> бит и
+задает смещение в байтах поля данных этого пакета от начала общего поля данных
+исходного паке­та, подвергнутого фрагментации. Используется при сборке/разборке
+фрагментов пакетов, при передачах их между сетями с различными величинами </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>MTU</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>. Смеще­ние должно быть кратно<span style='mso-no-proof:
+yes'> 8</span> байт.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:15.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>Поле <b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'>Время жизни</i></b><i
+style='mso-bidi-font-style:normal'> (</i></span><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>Time</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> </span></i><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>to</span></i><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>
+</span></i><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>Live</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>)</span></i><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> занимает
+один байт и означает предельный срок, в течение которого пакет может перемещаться
+по сети. Время жизни данного пакета измеряется в секундах и задается источником
+передачи. На маршрутизато­рах и в других узлах сети по истечении каждой секунды
+из текущего времени жизни вычитается единица; единица вычитается и в том
+случае, когда время задер­жки меньше секунды. Поскольку современные
+маршрутизаторы редко обрабаты­вают пакет дольше, чем за одну секунду, то время
+жизни можно считать равным максимальному числу узлов, которые разрешено пройти
+данному пакету до того, как он достигнет места назначения. Если параметр
+времени жизни станет нулевым до того, как пакет достигает получателя, этот пакет
+будет уничтожен. Время жизни можно рассматривать как часовой механизм
+самоуничтожения. Значение этого поля изменяется при обработке заголовка<span
+style='mso-no-proof:yes'> IP-пакета-<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:15.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>Идентификатор <i
+style='mso-bidi-font-style:normal'>Протокол верхнего уровня (</i></span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>Protocol</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>)</span></i><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> занимает один байт и ука­зывает, какому протоколу верхнего
+уровня принадлежит информация, размещен­ная в поле данных пакета (например, это
+могут быть сегменты протокола </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>TCP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>,
+дейтаграммы </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%;mso-ansi-language:EN-US'>UDP</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>, пакеты </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>ICMP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> или </span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>OSPF</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>), Значения
+идентификаторов для раз­личных протоколов приводятся в документе </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>RFC</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> «</span><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>Assigned</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>
+</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>Numbers</span><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>».<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:15.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><i style='mso-bidi-font-style:
+normal'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:
+108%'>Контрольная сумма (</span></i><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>Header</span></i><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>
+</span></i><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>Checksum</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>)</span></i><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> занимает<span
+style='mso-no-proof:yes'> 2</span> байта и рассчитывается толь­ко по заголовку.
+Поскольку некоторые поля заголовка меняют свое значение в процессе передачи
+пакета по сети (например, время жизни), контрольная сумма проверяется и повторно
+рассчитывается при каждой обработке<span style='mso-no-proof:yes'>
+IP-заголовка.</span> Кон­трольная сумма<span style='mso-no-proof:yes'> — 16</span>
+бит<span style='mso-no-proof:yes'> —</span> подсчитывается как дополнение к сумме
+всех 16-бито­вых слов заголовка. При вычислении контрольной суммы значение
+самого поля «контрольная сумма» устанавливается в нуль. Если контрольная сумма
+неверна, то пакет будет отброшен, как только ошибка будет обнаружена.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:15.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>Поля<span style='mso-no-proof:
+yes'> <i style='mso-bidi-font-style:normal'>IP-адрес</i></span><i
+style='mso-bidi-font-style:normal'> источника (</i></span><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>Source</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> </span></i><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>IP</span></i><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>
+</span></i><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>Address</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>)</span></i><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> и<span
+style='mso-no-proof:yes'> <i style='mso-bidi-font-style:normal'>IP-адрес</i></span><i
+style='mso-bidi-font-style:normal'> назначения (</i></span><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>Destination</span></i><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%'> </span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%;mso-ansi-language:EN-US'>IP</span></i><i style='mso-bidi-font-style:
+normal'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+line-height:108%'> </span></i><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;
+mso-ansi-language:EN-US'>Address</span></i><i style='mso-bidi-font-style:normal'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>)</span></i><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> имеют одинаковую
+длину<span style='mso-no-proof:yes'> — 32</span> бита<span style='mso-no-proof:
+yes'> —</span> и одинаковую структуру.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:15.0pt;line-height:
+108%;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'>Поле <b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'>Опции</i></b><i style='mso-bidi-font-style:
+normal'> (</i></span><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:
+EN-US'>IP</span></i><i style='mso-bidi-font-style:normal'><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;line-height:108%'> </span></i><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;line-height:108%;mso-ansi-language:EN-US'>Options</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'>)</span></i><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;line-height:108%'> является необязательным и используется обычно только
+при отладке сети. Механизм опций предоставляет функции управления, которые
+необходимы или просто полезны при определенных ситуациях, однако он не ну­жен
+при обычных коммуникациях. Это поле состоит из нескольких подполей, каж­дое из
+которых может быть одного из восьми предопределенных типов. В этих подполях
+можно указывать точный маршрут прохождения маршрутизаторов, ре­гистрировать
+проходимые пакетом маршрутизаторы, помещать данные системы безопасности, а
+также временные отметки. Так как число подполей может быть произвольным, то в
+конце поля <i style='mso-bidi-font-style:normal'>Опции</i> должно быть
+добавлено несколько байт для выравнивания заголовка пакета по 32-битной
+границе.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Поле <b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Выравнивание</i></b><i style='mso-bidi-font-style:normal'> (</i></span><i
+style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Padding</span></i><i
+style='mso-bidi-font-style:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>)</span></i><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+используется для того, чтобы убедиться в том, что<span style='mso-no-proof:
+yes'> IP-заголовок</span> заканчивается на 32-битной границе. Выравнивание
+осуществля­ется нулями.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>Ниже приведена распечатка значений полей заголовка одного из реальных<span
+style='mso-no-proof:yes'> IP-пакетов,</span> захваченных в сети </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Ethernet</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>
+средствами анализатора протоколов </span><span lang=EN-US style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>Microsoft</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt'> </span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>Network</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'> </span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'>Monitor</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt'>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>Version</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'> = 4</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-ansi-language:EN-US'> (0х4)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>Header- Length</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'> = 20 (0х14)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>Service Type</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'> = 0 (0х0)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>Precedence</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'> =</span><span lang=EN-US style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-US'> Routine<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>...O.</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'>, =</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-ansi-language:EN-US'> Normal Delay<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>...0...</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'> -</span><span lang=EN-US style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-US'> Normal Throughput<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-no-proof:yes'><span
+style='mso-tab-count:1'>    </span>.....0</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-US'> <sup><span lang=EN-US>=</span></sup><span lang=EN-US>
+Normal Reliability<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>Total Length</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'> = 54 (0х36)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>Identification</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'> = 31746</span><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-US'> <span lang=EN-US>(Ox7C02)<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>Flags Summary</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'> = 2 (0х2)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-no-proof:yes'><span
+style='mso-tab-count:1'>    </span>.......0 =</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-ansi-language:EN-US'> Last fragment in datagram<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP</span><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-no-proof:yes'><span
+style='mso-tab-count:1'>    </span>......1.=</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-ansi-language:EN-US'> Cannot fragment datagram<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>Fragment Offset</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'> = 0 (0х0)</span><span lang=EN-US
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-ansi-language:EN-US'> bytes<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>Time to Live</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'> =- 128 (0х80)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>Protocol</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'> =</span><span lang=EN-US style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-US'> TCP</span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-no-proof:
+yes'> -</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'> Transmission Control<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>Checksum <sup>=</sup> OxEB86<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>Source Address =</span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'>194,85.135.75<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt;mso-layout-grid-align:
+none;text-autospace:none'><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US'>IP<span style='mso-tab-count:1'>    </span>Destination Address <sup>=</sup></span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman";mso-no-proof:yes'> 194,85,135,66<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:14.0pt'><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+mso-bidi-font-family:"Times New Roman";mso-ansi-language:EN-US'>IP<span
+style='mso-tab-count:1'>    </span>Data: Number of data bytes remaining</span><span
+lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;
+mso-bidi-font-family:"Times New Roman";mso-no-proof:yes'> </span><i
+style='mso-bidi-font-style:normal'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-no-proof:
+yes'>=</span></i><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial;mso-bidi-font-family:"Times New Roman";mso-no-proof:yes'> 34
+(0х0022)</span><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

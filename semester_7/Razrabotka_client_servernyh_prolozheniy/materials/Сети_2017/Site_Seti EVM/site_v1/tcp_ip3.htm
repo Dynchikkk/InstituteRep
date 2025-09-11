@@ -1,0 +1,150 @@
+<html>
+
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<meta NAME="GENERATOR" CONTENT="Microsoft FrontPage 3.0">
+<meta NAME="Version" CONTENT="8.0.3612">
+<meta NAME="Date" CONTENT="3/4/97">
+<meta NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Office\HTML.DOT">
+<title>РАБОТА С КОММУТИРУЕМЫМИ КАНАЛАМИ СВЯЗИ</title>
+</head>
+
+<body BGCOLOR="#FFFFFF" background="yellzig.gif">
+<b><font FACE="Times New Roman" SIZE="4" COLOR="#000000">
+
+<p align="center"></font><font FACE="Times New Roman" SIZE="4"><font color="#0000FF">РАБОТА
+С КОММУТИРУЕМЫМИ КАНАЛАМИ СВЯЗИ</font></p>
+
+<p align="center"></font><font FACE="Times New Roman" SIZE="4" COLOR="#000000">1.
+Настройка удаленного доступа</p>
+</b>
+
+<p ALIGN="JUSTIFY">Для организации передачи данных через
+модем по протоколам </font><font SIZE="4" COLOR="#000000">TCP/IP</font><font
+FACE="Times New Roman" SIZE="4" COLOR="#000000"> в ОС </font><font SIZE="4"
+COLOR="#000000">Windows 9x </font><font FACE="Times New Roman" SIZE="4" COLOR="#000000">необходимо
+выполнить следующие действия:</p>
+
+<ol>
+  <li>Убедиться, установлен ли модем в системе, — если
+    нет, то выполнить его установку и настройку его
+    параметров.</li>
+  <li>Выполнить те же действия для контроллера
+    удаленного доступа и службы удаленного доступа к
+    сети.<font SIZE="4" COLOR="#000000"> </font>После этого
+    конфигурация сети будет выглядеть аналогично
+    рис. 1.</li>
+</ol>
+</font><font SIZE="4" COLOR="#000000">
+
+<p ALIGN="CENTER"><img SRC="img/image3.gif" WIDTH="366" HEIGHT="459"></p>
+</font><font FACE="Times New Roman" COLOR="#000000">
+
+<p ALIGN="center">Рис. 1. Конфигурация сети</p>
+</font><font SIZE="4" COLOR="#000000">
+
+<ol START="3">
+  <font FACE="Times New Roman" SIZE="4" COLOR="#000000">
+  <li>В параметрах привязки сетевой карты к
+    протоколам<br>
+    (</font>Control Panel/Network/NE2000 Adapter/Properties/Bindings) <font
+    FACE="Times New Roman" SIZE="4" COLOR="#000000">снять флажок,
+    соответствующий протоколам </font>TCP/IP</font><font
+    FACE="Times New Roman" SIZE="4" COLOR="#000000"> (см. рис. 2.).</li>
+</ol>
+</font><font SIZE="4" COLOR="#000000"><b>
+
+<p ALIGN="CENTER"><img SRC="img/image4.gif" WIDTH="366" HEIGHT="418"></p>
+</b></font><font FACE="Times New Roman" COLOR="#000000">
+
+<p ALIGN="center">Рис. 2. Привязка сетевой карты к
+протоколам</p>
+</font><font COLOR="#000000">
+
+<ol START="4">
+  <font FACE="Times New Roman" SIZE="4" COLOR="#000000">
+  <li>В параметрах привязки контроллера удаленного
+    доступа к протоколам (</font><font SIZE="4" COLOR="#000000">Control
+    Panel/Network/Dial-Up Adapter/Properties/Bindings) </font><font FACE="Times New Roman"
+    SIZE="4" COLOR="#000000">установить флажок, соответствующий
+    протоколам </font><font SIZE="4" COLOR="#000000">TCP/IP</font></font><font
+    FACE="Times New Roman" SIZE="4" COLOR="#000000"> (см. рис. 3.).</li>
+</ol>
+
+<p ALIGN="JUSTIFY">Эти действия выполняются для того,
+чтобы разрешить конфликт сетевой карты и
+контроллера удаленного доступа при их
+одновременной работе в системе.</p>
+
+<p ALIGN="JUSTIFY">Остальные флажки, соответствующие
+другим сетевым протоколам (если эти протоколы
+используются в работе) необходимо установить
+аналогично описанию в пунктах 3 и 4.</p>
+</font><font SIZE="4" COLOR="#000000"><b>
+
+<p ALIGN="CENTER"><img SRC="img/image5.gif" WIDTH="366" HEIGHT="418"></p>
+</b></font><font FACE="Times New Roman" COLOR="#000000">
+
+<p ALIGN="center">Рис. 3. Привязка контроллера удаленного
+доступа к протоколам</p>
+</font><font FACE="Times New Roman" SIZE="4" COLOR="#000000"><b>
+
+<p ALIGN="center">2. Установка модемного соединения</p>
+</b>
+
+<p ALIGN="JUSTIFY">Для установки модемного соединения
+необходимо осуществить следующие действия:</p>
+
+<ol>
+  <li>Включить модем и убедиться в его
+    функционировании с помощью средств диагностики
+    модема.</li>
+  <li>Осуществить настройку используемого
+    соединения (при необходимости создать его).
+    Используемые соединения доступны через <font SIZE="4"
+    COLOR="#000000">My Computer/Dial-Up Networking</font> (см. рис. 4). При этом
+    необходимо указать телефонный номер, по которому
+    модем будет осуществлять дозвон. В данном случае
+    это двузначный номер мини-АТС, закрепленный за
+    ПЭВМ, с которой устанавливается связь. Настройку
+    соединений необходимо осуществить и для клиента,
+    и для сервера (см. рис. 5.). Кроме того, для сервера
+    нужно убедиться, что установлен сервер
+    удаленного доступа и для него разрешен ответ на
+    все входящие звонки.</li>
+</ol>
+</font><font SIZE="4" COLOR="#000000"><b>
+
+<p ALIGN="CENTER"><img SRC="img/image6.gif" WIDTH="479" HEIGHT="319"></p>
+</b></font><font FACE="Times New Roman" COLOR="#000000">
+
+<p ALIGN="center">Рис. 4. Удаленный доступ к сети</p>
+</font><font SIZE="4" COLOR="#000000"><b>
+
+<p ALIGN="CENTER"><img SRC="img/image7.gif" WIDTH="343" HEIGHT="423"></p>
+</b></font><font FACE="Times New Roman" COLOR="#000000">
+
+<p ALIGN="center">Рис. 5. Свойства соединения</p>
+</font><font FACE="Times New Roman" SIZE="4" COLOR="#000000">
+
+<p ALIGN="JUSTIFY">На клиентской ПЭВМ установить связь с
+абонентом-сервером, как показано на рис. 6.</p>
+</font><font SIZE="4" COLOR="#000000"><b>
+
+<p ALIGN="CENTER"><img SRC="img/image8.gif" WIDTH="380" HEIGHT="300"></p>
+</b></font><font FACE="Times New Roman" COLOR="#000000">
+
+<p ALIGN="center">Рис. 6. Установка связи</p>
+</font><font FACE="Times New Roman" SIZE="4" COLOR="#000000">
+
+<p ALIGN="JUSTIFY">После этого, если соединение было
+успешно установлено, то можно запускать на
+исполнение приложение-клиент и
+приложение-сервер. При этом работа через
+коммутируемый канал связи посредством модема
+будет для них абсолютно прозрачной, они будут
+функционировать также, как и при работе через
+ЛВС.</p>
+</font>
+</body>
+</html>

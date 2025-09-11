@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [en] (Win95; I) [Netscape]">
+   <META NAME="Version" CONTENT="8.0.3612">
+   <META NAME="Date" CONTENT="3/4/97">
+   <META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Office\HTML.DOT">
+   <TITLE>Описание интерфейса Windows Sockets</TITLE>
+</HEAD>
+<BODY BACKGROUND="yelljade1.gif">
+<A NAME="socket"></A>
+<BR><IMG SRC="Sgreenl.gif" HEIGHT=9 WIDTH=750>
+<UL>
+<UL>
+<LI>
+<FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Создание
+сокета:</FONT></FONT></FONT></LI>
+</UL>
+</UL>
+<FONT FACE="Courier"><FONT COLOR="#000000"><FONT SIZE=+1>SOCKET socket(int
+af, int type, int protocol);</FONT></FONT></FONT><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1></FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Параметры:</FONT></FONT></FONT><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1></FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>af -- </I><FONT FACE="Times New Roman">семейство
+протоколов и адресов</FONT> (PF_INET, PF_UNIX, PF_NS, AF_INET, AF_UNIX,
+AF_NS);</FONT></FONT><FONT COLOR="#000000"><FONT SIZE=+1></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>type -- </I><FONT FACE="Times New Roman">тип
+соединения (</FONT>SOCK_DGRAM, SOCK_STREAM);</FONT></FONT><FONT COLOR="#000000"><FONT SIZE=+1></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>protocol -- </I><FONT FACE="Times New Roman">протокол
+(</FONT>IPPROTO_TCP, IPPROTO_UDP).</FONT></FONT><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1></FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Возвращаемое
+значение — дескриптор сокета.</FONT></FONT></FONT>
+<BR>&nbsp;
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Пример:</FONT></FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">SOCKET hSocket=socket(PF_INET,
+SOCK_STREAM, IPPROTO_TCP);</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">if (hSocket==INVALID_SOCKET){</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">int errCode=WSAGetLastError();</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">throw(TUserException("Cannot
+create socket", errCode));</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">}</FONT></FONT>
+<P><A NAME="bind"></A>
+<BR><IMG SRC="Sgreenl.gif" HEIGHT=9 WIDTH=750>
+<UL>
+<UL>
+<LI>
+<FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Привязка
+сокета к порту протокола:</FONT></FONT></FONT></LI>
+</UL>
+</UL>
+<FONT FACE="Courier"><FONT COLOR="#000000"><FONT SIZE=+1>int bind(SOCKET
+s, const sockaddr FAR* name, int namelen);</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Параметры:</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>s</I> —<FONT FACE="Times New Roman">
+дескриптор сокета;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>name</I> —<FONT FACE="Times New Roman">
+адрес, назначаемый сокету;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>namelen</I> —<FONT FACE="Times New Roman">
+длина параметра </FONT><I>name</I>.</FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Возвращаемое
+значение — результат выполнения операции.</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Пример:</FONT></FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">sockaddr_in Addr;</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">Addr.sin_family=AF_INET;</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">Addr.sin_addr.s_addr=INADDR_ANY;</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">Addr.sin_port=htons(SERVER_PORT);</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">if (bind(hSocket, (sockaddr*)&amp;Addr,
+sizeof(Addr))==SOCKET_ERROR){</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">closesocket(hSocket);</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">int errCode=WSAGetLastError();</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">throw(TUserException("Cannot
+bind socket", errCode));</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">}</FONT></FONT>
+<P><A NAME="connect"></A>
+<BR><IMG SRC="Sgreenl.gif" HEIGHT=9 WIDTH=750>
+<UL>
+<UL>
+<LI>
+<FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Соединение
+сокета:</FONT></FONT></FONT></LI>
+</UL>
+</UL>
+<FONT FACE="Courier"><FONT COLOR="#000000"><FONT SIZE=+1>int connect(SOCKET
+s, const sockaddr FAR* name, int namelen);</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Параметры:</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>s</I> —<FONT FACE="Times New Roman">
+дескриптор несоединенного сокета;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>name</I> —<FONT FACE="Times New Roman">
+адрес удаленного сокета для связи;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>namelen</I> —<FONT FACE="Times New Roman">
+длина параметра </FONT><I>name</I>.</FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Возвращаемое
+значение — результат выполнения операции.</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Пример:</FONT></FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">sockaddr_in Addr;</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">Addr.sin_family=AF_INET;</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">Addr.sin_addr.s_addr=inet_addr(SERVER_ADDRESS);</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">Addr.sin_port=htons(SERVER_PORT);</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">if (connect(hSocket, (sockaddr*)&amp;Addr,
+sizeof(Addr))){</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">closesocket(hSocket);</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">int errCode=WSAGetLastError();</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">throw(TUserException("Cannot
+connect to socket", errCode));</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">}</FONT></FONT>
+<P><A NAME="listen"></A>
+<BR><IMG SRC="Sgreenl.gif" HEIGHT=9 WIDTH=750>
+<UL>
+<UL>
+<LI>
+<FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Прослушивание
+порта протокола:</FONT></FONT></FONT></LI>
+</UL>
+</UL>
+<FONT FACE="Courier"><FONT COLOR="#000000"><FONT SIZE=+1>int listen(SOCKET
+s, int backlog);</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Параметры:</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>s</I> —<FONT FACE="Times New Roman">
+дескриптор несоединенного сокета;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>backlog</I> —<FONT FACE="Times New Roman">
+длина очереди входящих запросов.</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Возвращаемое
+значение — результат выполнения операции.</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Пример:</FONT></FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">if (listen(hSocket, SOMAXCONN)==SOCKET_ERROR){</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">closesocket(hSocket);</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">int errCode=WSAGetLastError();</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">throw(TUserException("Cannot
+listen socket", errCode));</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">}</FONT></FONT>
+<P><A NAME="accept"></A>
+<BR><IMG SRC="Sgreenl.gif" HEIGHT=9 WIDTH=750>
+<UL>
+<UL>
+<LI>
+<FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Принятие
+запроса на соединение:</FONT></FONT></FONT></LI>
+</UL>
+</UL>
+<FONT FACE="Courier"><FONT COLOR="#000000"><FONT SIZE=+1>SOCKET accept(SOCKET
+s, sockaddr FAR* addr, int FAR* addrlen);</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Параметры:</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>s</I> —<FONT FACE="Times New Roman">
+дескриптор сокета, находящегося в режиме прослушивания;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>addr</I> —<FONT FACE="Times New Roman">
+необязательный указатель на буфер, в который будет записан адрес клиента,
+от которого поступил запрос;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>addrlen</I> —<FONT FACE="Times New Roman">
+необязательный указатель на переменную, в которую будет записана длина
+параметра </FONT><I>addr</I>.</FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Возвращаемое
+значение — дескриптор соединенного сокета.</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Пример:</FONT></FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">SOCKET hTempSocket=accept(hSocket,
+(sockaddr*)&amp;clientAddress, NULL);</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">if (hTempSocket==INVALID_SOCKET){</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">int errCode=WSAGetLastError();</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">throw(TUserException("Cannot
+accept socket", errCode));</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">}</FONT></FONT>
+<P><A NAME="send"></A>
+<BR><IMG SRC="Sgreenl.gif" HEIGHT=9 WIDTH=750>
+<UL>
+<UL>
+<LI>
+<FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Передача
+данных через сокет:</FONT></FONT></FONT></LI>
+</UL>
+</UL>
+<FONT FACE="Courier"><FONT COLOR="#000000"><FONT SIZE=+1>int send(SOCKET
+s, const char FAR* buf, int len, int flags);</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Параметры:</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>s</I> —<FONT FACE="Times New Roman">
+дескриптор соединенного сокета;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>buf</I> —<FONT FACE="Times New Roman">
+буфер, содержащий передаваемые данные;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>len</I> —<FONT FACE="Times New Roman">
+длина данных в буфере </FONT><I>buf</I>;</FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>flags — </I><FONT FACE="Times New Roman">флаги
+управления передачей данных.</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Возвращаемое
+значение — результат выполнения операции.</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Пример:</FONT></FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">if (send(hTempSocket, Buffer,
+strlen(Buffer)+1, 0)==SOCKET_ERROR){</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">closesocket(hTempSocket);</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">int errCode=WSAGetLastError();</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">throw(TUserException("Cannot
+send data", errCode));</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">}</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">closesocket(hTempSocket);</FONT></FONT>
+<P><A NAME="sendto"></A>
+<BR><IMG SRC="Sgreenl.gif" HEIGHT=9 WIDTH=750>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">int <B>sendto</B>(SOCKET
+s, const char FAR* buf, int len, int flags,</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">const sockaddr FAR* to, int
+tolen);</FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Параметры:</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>s</I> —<FONT FACE="Times New Roman">
+дескриптор сокета;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>buf</I> —<FONT FACE="Times New Roman">
+буфер, содержащий передаваемые данные;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>len</I> —<FONT FACE="Times New Roman">
+длина данных в буфере </FONT><I>buf</I>;</FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>flags — </I><FONT FACE="Times New Roman">флаги
+управления передачей данных;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>to </I>— <FONT FACE="Times New Roman">указатель
+на адрес сокета-приемника данных;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>tolen</I> — <FONT FACE="Times New Roman">длина
+параметра </FONT><I>to.</I></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Возвращаемое
+значение — результат выполнения операции.</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Пример:</FONT></FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">if (sendto(hSocket, Buffer,
+strlen(Buffer)+1, 0, (sockaddr*)&amp;Addr,</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">sizeof(Addr))==SOCKET_ERROR){</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">int errCode=WSAGetLastError();</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">throw(TUserException("Cannot
+send data", errCode));</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">}</FONT></FONT>
+<P><A NAME="recv"></A>
+<BR><IMG SRC="Sgreenl.gif" HEIGHT=9 WIDTH=750>
+<UL>
+<UL>
+<LI>
+<FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Прием
+данных через сокет:</FONT></FONT></FONT></LI>
+</UL>
+</UL>
+<FONT FACE="Courier"><FONT COLOR="#000000"><FONT SIZE=+1>int recv(SOCKET
+s, const char FAR* buf, int len, int flags);</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Параметры:</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>s</I> —<FONT FACE="Times New Roman">
+дескриптор соединенного сокета;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>buf</I> —<FONT FACE="Times New Roman">
+буфер для принятия данных;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>len</I> —<FONT FACE="Times New Roman">
+длина буфера </FONT><I>buf</I>;</FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>flags — </I><FONT FACE="Times New Roman">флаги
+управления приемом данных.</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Возвращаемое
+значение — результат выполнения операции.</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Пример:</FONT></FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">if (recv(hTempSocket, Buffer,
+256, 0)==SOCKET_ERROR){</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">closesocket(hTempSocket);</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">int errCode=WSAGetLastError();</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">throw(TUserException("Cannot
+receive data", errCode));</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">}</FONT></FONT>
+<P><A NAME="recvfrom"></A>
+<BR><IMG SRC="Sgreenl.gif" HEIGHT=9 WIDTH=750>
+<P><FONT FACE="Courier"><FONT COLOR="#000000"><FONT SIZE=+1>int <B>recvfrom</B>(SOCKET
+s, const char FAR* buf, int len, int flags,</FONT></FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">const sockaddr FAR* to, int
+FAR* tolen);</FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Параметры:</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>s</I> —<FONT FACE="Times New Roman">
+дескриптор сокета;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>buf</I> —<FONT FACE="Times New Roman">
+буфер для принятия данных;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>len</I> —<FONT FACE="Times New Roman">
+длина буфера </FONT><I>buf</I>;</FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>flags — </I><FONT FACE="Times New Roman">флаги
+управления приемом данных.</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>to </I>— <FONT FACE="Times New Roman">необязательный
+указатель на буфер, в который будет записан адрес сокета-передатчика данных;</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>tolen</I> — <FONT FACE="Times New Roman">необязательный
+указатель на переменную, в которую будет записана длина параметра </FONT><I>to.</I></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Возвращаемое
+значение — результат выполнения операции.</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Пример:</FONT></FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">sockaddr_in Addr;</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">int addrLen=sizeof(Addr);</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">if (recvfrom(hSocket, Buffer,
+256, 0, (sockaddr*)&amp;Addr,</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">&amp;addrLen)==SOCKET_ERROR){</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">closesocket(hSocket);</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">int errCode=WSAGetLastError();</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">throw(TUserException("Cannot
+receive data", errCode));</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">}</FONT></FONT>
+<P><A NAME="close"></A>
+<BR><IMG SRC="Sgreenl.gif" HEIGHT=9 WIDTH=750>
+<UL>
+<UL>
+<LI>
+<FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Закрытие
+сокета:</FONT></FONT></FONT></LI>
+</UL>
+</UL>
+<FONT FACE="Courier"><FONT COLOR="#000000"><FONT SIZE=+1>int closesocket(SOCKET
+s);</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Параметры:</FONT></FONT></FONT>
+<P><FONT COLOR="#000000"><FONT SIZE=+1><I>s</I> —<FONT FACE="Times New Roman">
+дескриптор сокета;</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Возвращаемое
+значение — результат выполнения операции.</FONT></FONT></FONT>
+<P><FONT FACE="Times New Roman"><FONT COLOR="#000000"><FONT SIZE=+1>Пример:</FONT></FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">if (closesocket(hSocket)==SOCKET_ERROR){</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">int errCode=WSAGetLastError();</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">throw(TUserException("Cannot
+close socket", errCode));</FONT></FONT>
+<P><FONT FACE="Courier"><FONT COLOR="#000000">}</FONT></FONT>
+</BODY>
+</HTML>

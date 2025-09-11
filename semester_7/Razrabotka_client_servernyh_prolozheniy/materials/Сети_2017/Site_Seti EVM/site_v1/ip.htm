@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [en] (Win95; I) [Netscape]">
+</HEAD>
+<BODY BACKGROUND="Backgrd.gif">
+
+<CENTER>
+<H2>
+Сетевой протокол</H2></CENTER>
+<FONT SIZE=+1><FONT FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Сетевой уровень протокола TCP/IP выполняет диспетчерские функции для пакетов
+данных Internet и базируется на протоколе </FONT><FONT FACE="">IP.</FONT></FONT>
+<P><FONT SIZE=+1><FONT FACE="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Адрес сети Internet (IP-адрес) имеет длину 32 бита и обычно записывается
+в формате </FONT><I><FONT FACE="">dotted-decimal </FONT></I><FONT FACE="Times New Roman">(десятичное
+с точкой), например 192.102.249.3. IP-адрес скрывает за собой номера сети
+и сетевого интерфейса. Распределением IP-адресов компьютерным сетям занимается
+Информационный центр сети Internet (Internet Network Information Center
+- InterNIC). В зависимости от значения старших бит все IP-адреса разделяются
+на классы, приведенные в таблице 1.</FONT></FONT>
+<BR>&nbsp;
+<P><BR>
+<DIV ALIGN=right>
+<P>&nbsp;<FONT FACE="Times New Roman"><FONT SIZE=+1>Таблица 1. Классы IP-адресов</FONT></FONT></DIV>
+
+<TABLE BORDER WIDTH="100%" BACKGROUND="" id="TABLE1" style="WIDTH: 100%" >
+<TR>
+<TD>
+<CENTER><B><FONT FACE="Times New Roman"><FONT SIZE=+1>Класс</FONT></FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="30%">
+<CENTER><B><FONT FACE=""><FONT SIZE=+1>Старшие биты</FONT></FONT></B></CENTER>
+</TD>
+
+<TD>
+<CENTER><B><FONT FACE=""><FONT SIZE=+1>Байты для нумерации сети</FONT></FONT></B></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="15%">
+<CENTER><FONT FACE=""><FONT SIZE=+1>A</FONT></FONT></CENTER>
+</TD>
+
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>0 - - - -</FONT></FONT></CENTER>
+</TD>
+
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>1</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>B</FONT></FONT></CENTER>
+</TD>
+
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>1 0 - - -</FONT></FONT></CENTER>
+</TD>
+
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>2</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>C&nbsp;</FONT></FONT></CENTER>
+</TD>
+
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>1 1 0 - -</FONT></FONT></CENTER>
+</TD>
+
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>3</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>D&nbsp;</FONT></FONT></CENTER>
+</TD>
+
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>1 1 1 0 -</FONT></FONT></CENTER>
+</TD>
+
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>Для широковещания</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>E&nbsp;</FONT></FONT></CENTER>
+</TD>
+
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>1 1 1 1 0</FONT></FONT></CENTER>
+</TD>
+
+<TD>
+<CENTER><FONT FACE=""><FONT SIZE=+1>Зарезервировано</FONT></FONT></CENTER>
+</TD>
+</TR>
+</TABLE>
+
+<P><FONT FACE="Times New Roman"><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Номера сетей присваиваются администрацией InterNIC, а номера компьютеров
+в сетях - непосредственно сетевыми администраторами. В целях увеличения
+эффективности одна сеть может разделяться на несколько подсетей путем деления
+адресного пространства.</FONT></FONT>
+<P>&nbsp;&nbsp;<FONT FACE="Times New Roman"><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Протокол IP - это ненадежный, не ориентированный на соединение протокол,
+пользующийся датаграммами для доставки информации в сети TCP/IP. IP-датаграмма
+представляет собой самодостаточный блок данных, состоящий из заголовка
+и собственно данных. Формат IP-датаграммы представлен на рис. 4.</FONT></FONT>
+<BR>&nbsp;
+<P><BR>
+<CENTER>
+<P><IMG SRC="img/ip_format.gif" ALT="" id="IMG1"  ALIGN=TOP>
+<P><FONT FACE=""><FONT SIZE=+1>Рис. 4. Формат IP-датаграммы</FONT></FONT></CENTER>
+
+<BR>&nbsp;
+<P><BR>
+<P><FONT FACE=""><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Описание полей заголовка IP-датаграммы приводится ниже:</FONT></FONT>
+<UL>
+<LI>
+<FONT FACE="Times New Roman"><FONT SIZE=+1><B><I>номер версии -</I></B>
+версия IP-протокола, создавшего данную датаграмму;</FONT></FONT></LI>
+
+<LI>
+<FONT SIZE=+1><B><I><FONT FACE="">длина заголовка - </FONT></I></B><FONT FACE="Times New Roman">длина
+заголовка в 32-битных словах;</FONT></FONT></LI>
+
+<LI>
+<FONT SIZE=+1><B><I><FONT FACE="">тип службы - </FONT></I></B><FONT FACE="Times New Roman">набор
+приоритетов датаграммы, используемый для организации ее доставки;</FONT></FONT></LI>
+
+<LI>
+<FONT SIZE=+1><B><I><FONT FACE="">длина пакета - </FONT></I></B><FONT FACE="Times New Roman">длина
+датаграммы в байтах, включая заголовок;</FONT></FONT></LI>
+
+<LI>
+<FONT SIZE=+1><B><I><FONT FACE="">идентификатор фрагмента - </FONT></I></B><FONT FACE="Times New Roman">уникальный
+идентификатор, присвоенный датаграмме для связывания фрагментированных
+пакетов;</FONT></FONT></LI>
+
+<LI>
+<FONT SIZE=+1><B><I><FONT FACE="">флаги - </FONT></I></B><FONT FACE="Times New Roman">тип
+текущего фрагмента датаграммы;</FONT></FONT></LI>
+
+<LI>
+<FONT SIZE=+1><B><I><FONT FACE="">смещение фрагмента - </FONT></I></B><FONT FACE="Times New Roman">смещение
+текущего фрагмента от начала датаграммы в 64-битных словах;</FONT></FONT></LI>
+
+<LI>
+<FONT SIZE=+1><B><I><FONT FACE="">время существования - </FONT></I></B><FONT FACE="Times New Roman">срок
+существования датаграммы в сети: при прохождении датаграммы через любой
+маршрутизатор значение данного поля уменьшается на величину задержки датаграммы
+внутри буфера в секундах, при нулевом значении данного поля датаграмма
+уничтожается и посылается соответствующее извещение источнику;</FONT></FONT></LI>
+
+<LI>
+<FONT SIZE=+1><B><I><FONT FACE="">протокол - </FONT></I></B><FONT FACE="Times New Roman">тип
+протокола-источника данных, инкапсулированных в датаграмму:</FONT></FONT></LI>
+
+<BR><FONT FACE=""><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+1 - ICMP;</FONT></FONT>
+<BR><FONT FACE=""><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2 - IGMP;</FONT></FONT>
+<BR><FONT FACE=""><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+6 - TCP;</FONT></FONT>
+<BR><FONT FACE=""><FONT SIZE=+1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17 - UDP;</FONT></FONT>
+<LI>
+<FONT SIZE=+1><B><I><FONT FACE="">контрольная сумма заголовка - </FONT></I></B><FONT FACE="Times New Roman Cyr,Times Cyr">результат
+дополнения до единицы суммы 16-разрядных слов заголовка;</FONT></FONT></LI>
+
+<LI>
+<FONT SIZE=+1><B><I><FONT FACE="">IP-адрес источника и получателя - </FONT></I></B><FONT FACE="Times New Roman">IP-адрес
+сетевого интерфейса отправителя и получателя данных;</FONT></FONT></LI>
+
+<LI>
+<FONT SIZE=+1><I><FONT FACE=""><B>опции -</B> </FONT></I><FONT FACE="Times New Roman">поле,
+используемое для тестирования и отладки сетевых приложений, а также для
+управления фрагментацией и маршрутизацией сетевых пакетов;</FONT></FONT></LI>
+
+<LI>
+<FONT SIZE=+1><B><I><FONT FACE="">заполнение - </FONT></I></B><FONT FACE="Times New Roman">поле,
+необходимое для выравнивания поля данных.</FONT></FONT></LI>
+</UL>
+
+<BR>&nbsp;
+<BR>&nbsp;
+</BODY>
+</HTML>
