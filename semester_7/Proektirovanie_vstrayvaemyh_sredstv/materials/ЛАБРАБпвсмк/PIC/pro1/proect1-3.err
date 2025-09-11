@@ -1,0 +1,5 @@
+Warning[215] E:\CHIP_1\EXEMPLES\PROBA10\PRO1\PROECT1-3.ASM 5 : Processor superseded by command line.  Verify processor symbol.
+Message[301] C:\PROGRAM FILES\MICROCHIP\MPASM SUITE\P16F876.INC 33 : MESSAGE: (Processor-header file mismatch.  Verify selected processor.)
+Error[150]   E:\CHIP_1\EXEMPLES\PROBA10\PRO1\PROECT1-3.ASM 16 : Labels must be defined in a code or data section when making an object file
+Error[150]   E:\CHIP_1\EXEMPLES\PROBA10\PRO1\PROECT1-3.ASM 17 : Labels must be defined in a code or data section when making an object file
+Message[302] E:\CHIP_1\EXEMPLES\PROBA10\PRO1\PROECT1-3.ASM 30 : Register in operand not in bank 0.  Ensure that bank bits are correct.

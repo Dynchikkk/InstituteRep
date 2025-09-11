@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width">
+  <title></title>
+  <link rel="stylesheet" href="../../index.css" />
+  <link rel="stylesheet" href="../../menu.css" />
+  <script src="../../gc.js" ></script>
+</head>
+<body>
+    <div class="card-column">
+        <div class="example-work">
+            <a class="card-link" href="../../gallery/Примеры лабораторных работ.pdf" download="" target="_blank"></a>
+            <img src="../../gallery/loon-icon 1.svg">
+            <p>Образец работы</p>
+        </div>
+        <div class="theory-work">
+            <a href="../theory/network_theory.html" class="card-link" target="_blank"></a>
+            <p>Network Monitor</p>
+        </div>
+    </div>
+    <nav class="nav-bar">
+        <h4>Задания</h4>
+        <div class="progress_bar" >
+            <div class="progress_done" id="progress_done">
+            </div>
+        </div>
+        <form id="tasks">
+                <div class="task_line">
+                   <input type="checkbox" class="check_box" name = "box1" onclick="update();"> <label class="text_box" for="box1"><a class="a-nav" href="#one">TELNET-протокол</a></label>
+                 </div>          
+        </form>
+    </nav>
+    <div class="wrapper">
+        <h1>Работа №7</h1>
+        <h2>Анализ протокола TELNET</h2>
+        <div class="paragraph">
+            <h3>Цель работы</h3>
+            <p class="par_txt">Изучение и анализ протоколов канального и сетевого уровня с помощью диагностических утилит операционной системы Windows и программных средств, позволяющих контролировать сетевой трафик на примере программы Network Monitor.</p>
+            <h3>Теоретический материал</h3>
+            <h4>Протокол TELNET</h4>
+            <p class="par_txt"><strong>Telnet</strong> - сетевой протокол, позволяющий клиенту соединиться с другой машиной в сети и отправлять команды удалённым системам через терминал. Соединения обычно находятся на 23 порте. Telnet применяется другими протоколами, например FTP. Telnet предоставляет пользователям интерактивную и двунаправленную текстовую систему сообщений, которая использует эффективное терминальное соединение, которое имеет длину более 8 байт. Пользовательские данные разбросаны по всей полосе с информацией управления telnet над TCP. Это помогает выполнять некоторые функции удаленно.</p>
+            <p class="par_txt">Подключение Telnet практически не используется, на замену ему прошёл <strong>SSH (Secure Shell) </strong>- протокол, разрешающий соединение с удалённое машиной (порт 22). В отличие от Telnet, SSH надёжно шифрует данные, что гарантирует безопасность их передачи.</p>
+            <h4>Служба TELNET</h4>
+            <p class="par_txt">Служба Telnet - предназначена для эмуляции удаленного терминала.</p> 
+            <p class="par_txt">С помощью Telnet можно обратиться к любому порту и посмотреть, что он отвечает (с некоторыми (например, с ftp) даже пообщаться).</p> 
+            <ol class="with-dot">Служба Telnet состоит из:
+                <li>telnet - интерфейса пользователя;</li>
+                <li>telnetd - процесса (серверная часть);</li>
+                <li>TELNET - протокола. </li>
+            </ol>
+            <p class="par_txt">Взаимодействие клиента и сервера происходит по схеме, представленной на рисунке ниже.</p> 
+            <img src="../../gallery/49.jpg">
+
+            <h4>Утилита TELNET</h4>
+            <p class="par_txt"><strong>Telnet</strong> используется для получения доступа к командной строке удалённой машины, например для запуска и остановки служб или управления файлами. Чтобы разрешить работу с telnet, необходимо зайти в директорию Панель управления -> Программы -> Программы и компоненты -> Компоненты Windows и поставить галочку напротив «Клиент Telnet».</p>
+            <img src="../../gallery/45.jpg">
+            <ol class="with-dot"><strong>Формат:</strong> telnet [IP-адрес или доменное имя] [Номер порта для связи ]
+                <li>Порт указывать необязательно, по умолчанию используется 23.</li>
+                <li>Чтобы зайти в консоль telnet, в командной строке необходимо ввести telnet и нажать enter, для выхода из терминала - нажать q (quit).</li>
+            </ol>
+           <p class="par_txt"><strong>Наиболее часто используемые параметры:</strong></p> 
+            <table class="without-border">
+                <tr><td><strong>c</strong></td><td><strong>- close</strong></td><td>закрыть текущее подключение</td></tr>
+                <tr><td><strong>d</strong></td><td><strong>- display</strong></td><td>отобразить параметры операции</td></tr>
+                <tr><td><strong>o</strong></td><td><strong>- open имя_узла [Порт]</strong></td><td>подключиться к сайту (по умолчанию, Порт = 23)</td></tr>
+                <tr><td><strong>q</strong></td><td><strong>- quit</strong></td><td>выйти из telnet</td></tr>
+                <tr><td><strong>set</strong></td><td><strong>- set</strong></td><td>установить параметры ("set ?" для вывода их списка)</td></tr>
+                <tr><td><strong>sen</strong></td><td><strong>- send</strong></td><td>отправить строки на сервер</td></tr>
+                <tr><td><strong>st</strong></td><td><strong>- status</strong></td><td>вывести сведения о текущем состоянии</td></tr>
+                <tr><td><strong>u</strong></td><td><strong>- unset</strong></td><td>сбросить параметры ("unset ?" для вывода их списка)</td></tr>
+                <tr><td><strong>?/h</strong></td><td><strong>- help</strong></td><td>вывести справку</td></tr>
+            </table>
+            <p class="par_txt">Пример использования утилиты для подключения к удалённому серверу:</p> 
+            <img src="../../gallery/46.jpg">
+            <p class="par_txt">Результат подключения:</p> 
+            <img src="../../gallery/47.jpg">
+            <h3>Задание</h3>
+            <p class="par_txt">Создать и настроить Capture в программе Network Monitor. Как это сделать, написано в <a href="#">теоретическом материале.</a></p>
+            <p class="par_txt">Список удалённых серверов для подключения можно найти на <a href="https://telnet-online.net/" target="_blank">официальном сайте Telnet.</a></p>
+        </div>
+        <div class="paragraph">
+            <a name="one"></a><h4>Изучить работу TELNET-протокола</h4>
+            <ol class="with-dot"><strong>Для этого:</strong>
+                <li>Запустить окно захвата в сетевом мониторе;</li>
+                <li>Открыть командную строку и, с помощью утилиты telnet, подключиться к серверу через 23 порт (если выдаёт ошибку, можно попробовать 22 и 123);</li>
+                <li>Добавить файл с ПК на сервер;</li>
+                <li>Остановить захват Capture;</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

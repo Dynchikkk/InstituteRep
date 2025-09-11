@@ -1,0 +1,9 @@
+Message[302] E:\FATHER\PIC\PROBI\F-MEASURE\PR1.ASM 15 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\FATHER\PIC\PROBI\F-MEASURE\PR1.ASM 16 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\FATHER\PIC\PROBI\F-MEASURE\PR1.ASM 19 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[207] E:\FATHER\PIC\PROBI\F-MEASURE\PR1.ASM 21 : Found label after column 1. (m3)
+Warning[207] E:\FATHER\PIC\PROBI\F-MEASURE\PR1.ASM 31 : Found label after column 1. (m1)
+Warning[207] E:\FATHER\PIC\PROBI\F-MEASURE\PR1.ASM 33 : Found label after column 1. (m2)
+Warning[207] E:\FATHER\PIC\PROBI\F-MEASURE\PR1.ASM 36 : Found label after column 1. (m4)
+Message[305] E:\FATHER\PIC\PROBI\F-MEASURE\PR1.ASM 38 : Using default destination of 1 (file).
+Message[305] E:\FATHER\PIC\PROBI\F-MEASURE\PR1.ASM 42 : Using default destination of 1 (file).

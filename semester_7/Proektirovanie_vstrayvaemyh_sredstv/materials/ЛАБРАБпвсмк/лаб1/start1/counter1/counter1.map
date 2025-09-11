@@ -1,0 +1,36 @@
+MPLINK 4.43, Linker
+Linker Map File - Created Mon Sep 01 17:55:33 2014
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                    reset       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000005    program   0x000004
+                    .code       code   0x000007    program   0x00000a
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000000      
+                            0x000005    0x00000b      
+            8 out of 8453 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                       m1   0x000009    program     static E:\CHIP_1\start1\counter1\counter1.asm
+                    start   0x000007    program     static E:\CHIP_1\start1\counter1\counter1.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    start   0x000007    program     static E:\CHIP_1\start1\counter1\counter1.asm
+                       m1   0x000009    program     static E:\CHIP_1\start1\counter1\counter1.asm
+
+

@@ -1,0 +1,552 @@
+@font-face {
+  font-family: "GolosTextWebRegular";
+  src: url("../assets/fonts/Golos-Text/Golos-Text_Regular.woff2")
+      format("woff2"),
+    url("../assets/fonts/Golos-Text/Golos-Text_Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face{
+  font-family: "GolosTextWebDemiBold";
+  src: url("../assets/fonts/Golos-Text/Golos-Text_DemiBold.woff2")
+      format("woff2"),
+    url("../assets/fonts/Golos-Text/Golos-Text_DemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face{
+  font-family: "GolosTextWebMedium";
+  src: url("../assets/fonts/Golos-Text/Golos-Text_Medium.woff2")
+      format("woff2"),
+    url("../assets/fonts/Golos-Text/Golos-Text_Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+body {
+ 
+  
+  font-family: "GolosTextWebRegular";
+  font-size: 18px;
+  line-height: 27px;
+}
+.main_header{
+  display:flex;
+  border-bottom:1px solid #C4C4C4;
+  max-width:100%;
+  min-height:88px;
+  align-items: center;
+  justify-content: start;
+  padding-left: 96px;
+}
+a{
+  text-decoration: none;
+}
+a:visited{
+  text-decoration: none;
+}
+.a-nav{
+  color:black;
+}
+.a-nav:hover{
+  color:#0329B4;
+}
+.univ_name{
+  display:flex;
+  margin: 0 0 0 383px;
+}
+.discipl_name{
+  padding:0;
+  margin:0;
+}
+.teacher_card{
+  display:block;
+}
+.theory_column{
+  width:272px;
+  margin: 0 80px 0 32px;
+  display:flex;
+  flex-direction: column;
+  flex-wrap:wrap;
+  row-gap: 32px;
+  
+}
+.theory_card{
+  display:inline-block;
+  position:relative;
+  width:272px;
+  min-height: 200px;
+  background: #E2E8FF;
+  border-radius:5px;
+  vertical-align: top;
+  padding:0;
+}
+.card-link{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.main_menu{
+  display:flex;
+  margin: 63px 64px 0 64px;
+}
+.navigation_panel{
+  width: 1380px;
+  display:flex;
+  flex-wrap:wrap;
+  row-gap:32px;
+  column-gap:32px;
+  margin: 0 0 0 50px;
+}
+.nav-bar{
+  height:300px;
+  width:424px;
+  position:fixed;
+  right:64px;
+  top:61px;
+  font-size:14px;
+  line-height: 22px;
+  font-family:"GolosTextWebRegular";
+  color:#001357;
+  
+}
+
+ol, table {
+  padding:0;
+  line-height:40px;
+  font-size:24px;
+  font-family:"GolosTextWebRegular";
+  color:#001357;
+}
+
+.without-border td {
+  border: none;
+  text-align: start;
+}
+.horizontal-line{
+  height:0px;
+  width:880px;
+  border: 1px solid #001357;
+  margin: 48px 0 56px; 
+}
+
+.with-border {
+  font-size:23px;
+  border-collapse:collapse;
+  text-align: center;
+  margin:0;
+  width:100%;
+  border: 1px solid #001357;
+}
+.with-border td{
+  border:1px solid #001357;
+}
+
+ol li {
+  padding: 6px 0 0 35px;
+  list-style-type:none;
+}
+.with-dot li{
+  padding:0;
+  margin: 0 0 0 25px;
+  list-style-type:disc;
+}
+.with-marker li{
+  padding:0;
+  margin:0 0 0 25px;
+  list-style-type:circle;
+}
+.with-numbers li{
+  list-style-type:decimal;
+  padding:0;
+  margin:0 0 0 30px;
+}
+.no-padding li{
+  padding:0;
+  margin:0;
+}
+.work_card{
+  display:block;
+  position: relative;
+  width:424px;
+  min-height:248px;
+  border:1px solid  #C4C4C4;
+  border-radius:5px;
+}
+.work_card a{
+  text-decoration: none;
+  display:block;
+  height:100%;
+}
+.number_card{
+  text-align: center;
+  display: block;
+  flex-direction: row;
+  width:99px;
+  min-height:32px;
+  background: #E2E8FF;
+  border-radius:5px;
+  margin: 16px 0 74px 24px;
+}
+.number_card h5{
+  line-height:32px;
+}
+section{
+  display:flex;
+}
+
+.menu-button{
+  width:64px;height:64px;
+  position:fixed;
+  top:40px;
+  left:64px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+
+.centre_col {
+  width:1032px;
+  
+}
+.paragraph {
+  width: 880px;
+}
+.right_col {
+ vertical-align: top;
+ width:424px;
+ margin: 0 0 0 64px;
+ position: fixed;
+ 
+ right:64px;
+ top:0;
+}
+
+.task_line {
+  min-height: 27px;
+  max-width: 344px;
+  display:flex;
+  margin: 0 0 20px 0;
+}
+.text_box {
+ display:block;
+ text-indent: 0;
+ font-size:18px;
+ line-height:27px;
+ margin: 0; padding:0;
+}
+.check_box
+{
+	  margin: 0 15px 0 0;
+	  padding: 0;
+  	  flex: 0 0 20px;
+	  height: 20px;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+label,
+ul {
+  color: #001357;
+}
+.inside_card{
+  padding:0;
+  margin: 0 24px 27px 24px;
+  position:relative;
+}
+#card_text{
+  font-size: 24px;
+  line-height: 40px;
+  color:black;
+  padding:0;
+}
+h1,
+h3,
+h4 {
+  font-family: "GolosTextWebDemiBold";
+}
+h5{
+  font-family:"GolosTextWebMedium" ;
+  font-size:14px;
+  line-height:24px;
+}
+#theory_text{
+  font-size: 24px;
+  line-height: 36px;
+  margin: 16px 16px 60px 16px;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 36px;
+  margin-bottom: 44px;
+  margin:0;
+  padding:0;
+}
+#header_maintext , #header_text{
+  margin: 0 0 0 0;
+  font-size:18px;
+  line-height:36px;
+}
+#header_text{
+  margin: 0 0 0 43px;
+}
+h2 {
+  font-size: 64px;
+  line-height: 88px;
+  margin-bottom: 80px;
+}
+h3 {
+  font-size: 40px;
+  line-height: 64px;
+  margin-bottom: 24px;
+}
+
+h4 {
+  
+  font-size: 24px;
+  line-height: 27px;
+  
+}
+.par_txt {
+  font-size: 24px;
+  line-height: 40px;
+}
+.menu_bar {
+  margin-left: 64px;
+  margin-top: 40px;
+}
+a{
+  cursor:pointer;
+}
+
+.menu-button{
+  width:64px;height:64px;
+  position:fixed;
+  top:40px;
+  left:64px;
+  cursor: pointer;
+  z-index: 100;
+}
+.main-wrapper{
+  display:flex;
+  min-height:100%;
+  overflow:hidden;
+  max-width:1920px;
+}
+.menu-main-wrapper{
+  max-width:1920px;
+  min-height:100%;
+}
+
+.wrapper{
+
+  padding-left:255px;
+
+  max-width:1032px;
+  margin-left:64px;
+  padding-right:365px;
+  margin-right:32px;
+  
+}
+
+
+.wrapper img{
+
+  max-width:100%;
+
+}
+.example-work{
+  position:relative;
+  height:136px;
+  width:120px;
+  border:1px solid #D0D4E3;
+  text-align: center;
+  
+  border-radius:5px;
+}
+.example-work p {
+  color:#001357;
+  margin-top:-12px;
+  font-size:18px;
+  line-height: 24px;
+  
+  
+}
+.theory-work{
+  position:relative;
+  display:flex;
+  height:120px;
+  width:120px;
+  background:#E2E8FF;
+  border-radius: 5px;
+  align-items: center;
+  
+}
+.theory-work p {
+  text-align: center;
+  width:100%;
+  color:#001357; 
+  margin: 0;
+  padding:0;
+  font-size:20px;
+  line-height: 28px;
+  
+}
+.card-column{
+  width:120px;
+  bottom:0;
+  margin-bottom: 16px;
+  position:fixed;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  row-gap: 16px ;
+}
+/*Proggress bar */
+.progress_bar{
+  background: #E2E8FF;
+  height:4px;
+  max-width:100%;
+  border-radius:5px;
+  right:64px;
+  top:188px;
+  margin-bottom:32px;
+}
+.progress_done{
+  height:100%;
+  width:0%;
+  background: #0329B4;
+  border-radius:5px;
+  transition: 0.5s ease-in-out;
+}
+
+@media screen and (max-width:1536px)
+{
+  .main-wrapper{
+    max-width:1536px;
+  }
+  .par_txt{
+    font-size:20px;
+    line-height:32px;
+  }
+  h1{
+    font-size:24px;
+    line-height:40px;
+  }
+  h2{
+    font-size:56px;
+    line-height:80px;
+  }
+  h3{
+    font-size: 32px;
+    line-height: 56px;
+  }
+  h4{
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .wrapper{
+    max-width:880px;
+  }
+  ol, table {
+
+    line-height: 32px;
+    font-size: 16px;
+  }
+  .nav-bar{
+    width:328px;
+  }
+  .task_line{
+    max-width:288px;
+
+  }
+  .text_box{
+      font-size:14px;
+      line-height:22px;
+  }
+  .progress_bar{
+    margin-bottom:24px;
+  }
+  .check_box{
+    height:16px;
+  }
+  /*menu part*/
+  .theory_card{
+    width:208px;
+  }
+  .work_card{
+    width:328px;
+    height:224px;
+    font-size:20px;
+    line-height:28px;
+  }
+  .number_card{
+
+  }
+}
+@media screen and (max-width:1336px) {
+  .main-wrapper {
+    max-width: 1336px;
+  }
+
+  .par_txt {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  h1 {
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  h2 {
+    font-size: 56px;
+    line-height: 80px;
+  }
+
+  h3 {
+    font-size: 32px;
+    line-height: 56px;
+  }
+
+  h4 {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .wrapper {
+    max-width: 736px;
+  }
+
+  ol, table {
+
+    line-height: 32px;
+    font-size: 16px;
+  }
+  .nav-bar{
+    width:306px;
+  }
+  .task_line{
+    max-width:288px;
+
+  }
+  .text_box{
+    font-size:14px;
+    line-height:22px;
+  }
+  .progress_bar{
+    margin-bottom:24px;
+  }
+  .check_box{
+    height:16px;
+  }
+}
+

@@ -1,0 +1,80 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=D:\15\proect1-1.o
+Folder=Intermediary
+DeviceName=PIC16F876
+LanguageToolSuiteID={6B3DAA78-59C1-46DD-B6AA-DBDAE4E06484}
+LanguageToolID={49D3CA3F-D9A3-4518-9943-226A347E8CC7}
+LanguageToolLocation=D:\Programs\MPLAB v.6.60\MPLAB IDE\MCHIP_Tools\mpasmwin.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|proect1-1.asm||<obj>||<lib>||<lkr>|16F876.lkr||
+SuiteArgsString=
+ToolArgsString=
+[File001]
+Location=D:\15\proect1-1.ERR
+Folder=Intermediary
+DeviceName=PIC16F876
+LanguageToolSuiteID={6B3DAA78-59C1-46DD-B6AA-DBDAE4E06484}
+LanguageToolID={49D3CA3F-D9A3-4518-9943-226A347E8CC7}
+LanguageToolLocation=D:\Programs\MPLAB v.6.60\MPLAB IDE\MCHIP_Tools\mpasmwin.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|proect1-1.asm||<obj>||<lib>||<lkr>|16F876.lkr||
+SuiteArgsString=
+ToolArgsString=
+[File002]
+Location=proect1-1.lst
+Folder=Output
+DeviceName=PIC16F876
+LanguageToolSuiteID={6B3DAA78-59C1-46DD-B6AA-DBDAE4E06484}
+LanguageToolID={49D3CA3F-D9A3-4518-9943-226A347E8CC7}
+LanguageToolLocation=D:\Programs\MPLAB v.6.60\MPLAB IDE\MCHIP_Tools\mpasmwin.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|proect1-1.asm||<obj>||<lib>||<lkr>|16F876.lkr||
+SuiteArgsString=
+ToolArgsString=
+[File003]
+Location=lab1.cof
+Folder=Output
+DeviceName=PIC16F876
+LanguageToolSuiteID={6B3DAA78-59C1-46DD-B6AA-DBDAE4E06484}
+LanguageToolID={96C98149-AA1B-4CF9-B967-FAE79CAB663C}
+LanguageToolLocation=D:\Programs\MPLAB v.6.60\MPLAB IDE\MCHIP_Tools\mplink.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|proect1-1.asm||<obj>||<lib>||<lkr>|16F876.lkr||
+SuiteArgsString=
+ToolArgsString=/o"$(TARGETBASE).cof"
+[File004]
+Location=lab1.cod
+Folder=Output
+DeviceName=PIC16F876
+LanguageToolSuiteID={6B3DAA78-59C1-46DD-B6AA-DBDAE4E06484}
+LanguageToolID={96C98149-AA1B-4CF9-B967-FAE79CAB663C}
+LanguageToolLocation=D:\Programs\MPLAB v.6.60\MPLAB IDE\MCHIP_Tools\mplink.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|proect1-1.asm||<obj>||<lib>||<lkr>|16F876.lkr||
+SuiteArgsString=
+ToolArgsString=/o"$(TARGETBASE).cof"
+[File005]
+Location=lab1.hex
+Folder=Output
+DeviceName=PIC16F876
+LanguageToolSuiteID={6B3DAA78-59C1-46DD-B6AA-DBDAE4E06484}
+LanguageToolID={96C98149-AA1B-4CF9-B967-FAE79CAB663C}
+LanguageToolLocation=D:\Programs\MPLAB v.6.60\MPLAB IDE\MCHIP_Tools\mplink.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|proect1-1.asm||<obj>||<lib>||<lkr>|16F876.lkr||
+SuiteArgsString=
+ToolArgsString=/o"$(TARGETBASE).cof"
+[File006]
+Location=lab1.lst
+Folder=Output
+DeviceName=PIC16F876
+LanguageToolSuiteID={6B3DAA78-59C1-46DD-B6AA-DBDAE4E06484}
+LanguageToolID={96C98149-AA1B-4CF9-B967-FAE79CAB663C}
+LanguageToolLocation=D:\Programs\MPLAB v.6.60\MPLAB IDE\MCHIP_Tools\mplink.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|proect1-1.asm||<obj>||<lib>||<lkr>|16F876.lkr||
+SuiteArgsString=
+ToolArgsString=/o"$(TARGETBASE).cof"

@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <link rel="stylesheet" href="../../index.css" />
+</head>
+<style>
+    .horizontal-line{
+        height:0px;
+        width:880px;
+        border: 1px solid #001357;
+        margin: 48px 0 56px; 
+    }
+    body{
+    margin: 0;
+    padding: 0;
+    background: #E2E8FF;
+    width:1920px;
+    
+    }
+    .wrapper{
+     margin:0 auto;
+     width:1032px;
+     line-height:40px;
+    font-size:24px;
+    font-family:"GolosTextWebRegular";
+    color:#001357;
+    }
+  
+    ul li , ol li {
+    list-style-type:none;
+    }
+    ul{
+        padding:0;
+    }
+    ul li {
+        margin: 0;
+    }
+    ol{
+        padding:0;
+        list-style-type:none;
+    }
+    ol li {
+    padding: 24px 0;
+    }
+    .nav-bar{
+        
+        color:#001357;
+        font-family:"GolosTextWebRegular";
+        line-height:27px;
+        font-size:18px;
+        position:fixed;
+        right:64px;
+        top:145px;
+        cursor: pointer;
+       
+    }
+    #ul-nav-bar li{
+        margin: 12px;
+    }
+    .nav-bar ol li  {
+        padding: 0 0 16px 0;
+        
+    }
+    span{
+        font-size:24px;
+        
+    }
+    a{
+    text-decoration: none;
+    }
+    .with-padding li{
+        margin:0;
+        padding: 0 0 0 80px;
+    }
+    ul{
+        list-style-type:none;
+        padding:0;
+        margin:8px 0;
+    }
+    h4{ 
+        font-size:18px;
+        margin:0;
+        padding:0;
+    }
+    h3{
+        padding: 0;
+        margin:0;
+        font-size:28px;
+    }
+    ul li {
+        font-size:18px;
+        line-height: 28px;
+        margin:0 0 8px 16px;
+        
+    }
+</style>
+<body>
+    <nav class="nav-bar">
+        <h3>Содержание</h3>
+        <ul>
+       <h4><a class="a-nav" href="#one">Начало работы с Network Monitor</a></h4>  
+       <h4><a class="a-nav" href="#two">Работа с Capture (окном захвата)</a></h4>
+       <h4><a class="a-nav" href="#three">Фильтрация кадров</a></h4>
+        </ul>
+    </nav>
+    <div class="wrapper">
+        <h1>Теоретический материал</h1>
+        <h2>Работа с Network Monitor</h2>
+        <div class="paragraph">
+            <p class="par_txt">Скачать приложение можно по <a href="#">ссылке</a> или <a href="https://www.microsoft.com/en-us/download/4865" target="_blank">на официальном сайте.</a>  </p>
+            <p class="par_txt"><strong>Network Monitor (Сетевой монитор)</strong> — это анализатор пакетов. Он позволяет собирать, просматривать и анализировать сетевые данные и расшифровывать сетевые протоколы . Его можно использовать для устранения неполадок сети и приложений в сети.</p>
+        </div>
+        <div class="paragraph">
+            <a name="one"></a>
+            <h3>Начало работы Network Monitor</h3>
+            <p class="par_txt">Для работы с сетевыми данными и протоколами необходимо открывать сетевой монитор от имени администратора (Правая кнопка мыши -> Запуск от имени администратора).</p>
+            <p class="par_txt">Открывшееся окно должно выглядеть следующим образом:</p>
+            <img src="../../gallery/image 17.jpg">
+            <p class="par_txt">Открывшееся окно должно выглядеть следующим образом:</p>
+            <ol>Далее необходимо произвести его настройку:
+                
+                <li><strong>1. Выбрать сеть Ethernet</strong></li>
+                <img src="../../gallery/image 18.jpg">
+                <li><strong>2. Включить p-mode.</strong> Для этого необходимо два раза нажать на выбранную сеть, и в появившемся окне поставить галочку напротив p-mode и нажать на кнопку «OK».</li>
+                <img src="../../gallery/image 19.jpg">
+                <p class="par_txt">Для анализа сетевых протоколов и пакетов нужно открыть новое окно захвата «New Capture». Сделать это можно двумя способами. Нажать на главном экране «New Capture» или на «New Capture Tab».</p>
+                <img src="../../gallery/image 20.jpg">
+                <p class="par_txt">Открытая Capture выглядит следующим образом:</p>
+                <img src="../../gallery/image 21.jpg" >
+                <p class="par_txt">Окно захвата так же следует настроить. Открыть окно настроек «Capture Settings» в главном меню, два раза нажать на выбранную сеть Ethernet и выбрать p-mode.</p>
+                <img src="../../gallery/22.png">
+                <p class="par_txt">	Чтобы сохранить результаты захвата, следует нажать в меню File -> Save as.</p>
+
+            
+            </ol>
+            <a name="two"></a>
+            <h3>Работа с Capture (окном захвата)</h3>
+            <p class="par_txt">Для анализа сетевых протоколов и данных, необходимо запустить окно захвата, нажав на кнопку «Start», открыть браузер и выполнить нужные вам действия (Например, перейти на сайт), затем вернуться в окно захвата и остановить захват, нажав на кнопку «Pause» или «Stop». После захвата окно Capture будет выглядеть следующим образом:</p>
+            <img src="../../gallery/23.png">
+            <p class="par_txt">В разделе «Network Conversations» представлен список приложений, на которые переходит сетевой трафик. «Frame Summary» отображает сводку кадров. При нажатии на кадр, появляется информация в разделах «Frame Details» и «Hex Details», которые отображают его детали в текстовом и шестнадцатеричном формате. В окно «Display Filter» вводятся фильтры для кадров.</p>
+            <h4>«Frame Summary» имеет следующие разделы:</h4>
+                <ul>
+                    <li><strong>Frame Number</strong> - Номер кадра</li>
+                    <li><strong>Time Data Local Adjusted</strong> - Время и дата по местному времени</li>
+                    <li><strong>Time Offset</strong> - Время смещения (Отсчитывается с момента запуска Capture)</li>
+                    <li><strong>Process Name</strong> - Имя процесса, к которому относятся захваченные данные</li>
+                    <li><strong>Source</strong> - IP-адрес или доменное имя источника данных</li>
+                    <li><strong>Destination</strong>- IP-адрес или доменное имя приёмника данных</li>
+                    <li><strong>Protocol Name</strong> - Имя протокола передачи данных</li>
+                    <li><strong>Description</strong> - Данные </li>
+                </ul>
+                <img src="../../gallery/24.png">
+                <p class="par_txt">Данные из раздела Description подробно описаны в разделах «Frame Details» и «Hex Details». При нажатии на параметр в разделе «Frame Details» автоматически выделится информация в разделе «Hex Details» - это та же информация, представленная в 16-ричном формате. То же и с параметрами в разделе «Hex Details».</p>
+                <img src="../../gallery/25.png">
+                <h4>Раздел «Frame Details» содержит следующие параметры:</h4>
+                <ul>
+                    <li><strong>Frame </strong>- информация о рассматриваемом кадре (Номер кадра, его длина, тип сети)</li>
+                    <li><strong>Имя сети</strong> (Например, Ethernet)</li>
+                    <li><strong>Порт, по которому передаются данные</strong> (Например, IPv4)</li>
+                    <li><strong>Протокол передачи данных</strong> (Например, TCP) </li>
+                </ul>
+                <img src="../../gallery/26.png">
+                <a name="three"></a>
+                <h3>Фильтрация кадров</h3>
+                <p class="par_txt">Кадры можно отфильтровать по протоколу передачи данных. Фильтр вводится в раздел «Display Filter», далее необходимо нажать кнопку «Applay». Чтобы отменить фильтрацию, необходимо нажать на кнопку «Remove». Так же фильтр можно выбрать из списка, нажав на кнопку «Load Filter».</p>
+                <p class="par_txt">Фильтров может быть несколько, в таком случае они перечисляются через AND (и) или OR (или).</p>
+                <p class="par_txt">Так выглядит список кадров с применением фильтрации по протоколу TCP. В списке остались только кадры с этим протоколом, остальные скрыты.</p>
+                <img src="../../gallery/27.png">
+                <h4>Наиболее часто используемые фильтры:</h4>
+                <ul class="with-padding">
+                    <li>Ipv4.address=="client ip" и ipv4.address=="server ip"</li>
+                    <li>Tcp.port==</li>
+                    <li>Udp.port==</li>
+                    <li>Icmp</li>
+                    <li>Arp</li>
+                    <li>Property.tcpretranmits</li>
+                    <li>Property.tcprequestfastretransmits</li>
+                    <li>Tcp.flags.syn==1</li>
+                </ul>
+                <h3>Начало работы WireShark</h3>
+                <p class="par_txt"></p>
+                <p class="par_txt">Для работы с сетевыми данными и протоколами необходимо открывать программу от имени администратора (Правая кнопка мыши -> Запуск от имени администратора). Открывшееся окно должно выглядеть следующим образом. Справа от типа соединения в реальном режиме идёт демонстрация потребляемого трафика.</p>
+                <p class="par_txt">Далее необходимо выбрать сеть по которой будет проходить захват кадров и два раза нажать на выбранную сеть левой кнопкой мыши.</p>
+                <img src="../../gallery/28.png">
+                <p class="par_txt">Откроется окно, которое будет производить захват кадров.</p>
+                <img src="../../gallery/29.png">
+                <p class="par_txt">Окно захвата содержит следующие разделы:</p>
+                <ol class="with-dot">
+                    <li>Список захваченных кадров (Порядковый номер, время, адрес отправителя и получателя, протокол передачи информации, длина пакета);</li>
+                    <li>Информация о кадре в текстовом виде;</li>
+                    <li>Информация о кадре в шестнадцатеричном виде.</li>
+                </ol>
+                <p class="par_txt">При нажатии на кадр в разделах появляется подробная информация о нём.</p>
+            <p class="par_txt">	Чтобы начать захват, необходимо нажать на иконку акулы с левом верхнем углу, чтобы остановить - на красный квадрат, перезапустить захват - на зелёную иконку акулы.</p>
+            <img src="../../gallery/30.png">
+            <p class="par_txt">	В случае повторного захвата данных (нажатия на иконку акулы), будет предложено сохранить предложено сохранить предыдущие кадры (в отдельный файл) или продолжить без сохранения.</p>
+            <img src="../../gallery/31.png">
+            <p class="par_txt">	Кадры с флагами закрытия в программе выделены серым цветом.</p>
+            <img src="../../gallery/32.png">
+            <p class="par_txt">	Дублирующиеся или пустые пакеты - чёрным.</p>
+            <img src="../../gallery/33.png">
+            <p class="par_txt">	Среднее время передачи пакетов, количество выбранных запросов и другую статистику можно посмотреть в окне «Статистика», предварительно остановив захват.</p>
+            <img src="../../gallery/34.png">
+            <p class="par_txt">	Чтобы применить фильтр, необходимо остановить захват кадров, и в разделе «Анализ» выбрать «Дисплейные фильтры».</p>
+            <img src="../../gallery/35.png">
+            <p class="par_txt">	В открывшемся окне выбрать необходимый фильтр и нажать «Ок».</p>
+            <img src="../../gallery/36.png">
+            <p class="par_txt">	В окне останутся только необходимые кадры.</p>
+            <img src="../../gallery/37.png">
+
+        </div>
+    </div>
+    </body> 
+</html>

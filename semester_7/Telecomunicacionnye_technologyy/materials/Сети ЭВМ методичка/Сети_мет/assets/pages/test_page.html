@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: 'sans serif';
+  font-size: 12pt;
+}
+.hidden-menu {
+  display: block;
+  position: fixed;
+  list-style:none;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  width: 1920px;
+  background-color: #eee;
+  height: 100%;
+  top: 0;
+  left: -1920px;
+  transition: left .2s;
+  z-index: 2;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+.hidden-menu-ticker {
+  display: none;
+}
+.btn-menu {
+  color: #001357;
+  background-color: whi;
+  padding: 5px;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  transition: left .23s;
+  z-index: 3;
+  width: 25px;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+.btn-menu span {
+  display: block;
+  height: 5px;
+  background-color: #fff;
+  margin: 5px 0 0;
+  transition: all .1s linear .23s;
+  position: relative;
+}
+.btn-menu span.first {
+  margin-top: 0;
+}
+.hidden-menu-ticker:checked ~ .btn-menu {
+  left: 1890px;
+}
+.hidden-menu-ticker:checked ~ .hidden-menu {
+  left: 0;
+}
+.hidden-menu-ticker:checked ~ .btn-menu span.first {
+  -webkit-transform: rotate(45deg);
+  top: 10px;
+}
+.hidden-menu-ticker:checked ~ .btn-menu span.second {
+  opacity: 0;
+}
+
+.hidden-menu-ticker:checked ~ .btn-menu span.third {
+  -webkit-transform: rotate(-45deg);
+  top: -10px;
+}
+header {
+  background-color: #666;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+}
+.theory_card{
+	position: relative ;
+}
+.theory-link{
+	position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+</style>
+<body>
+  
+<input type="checkbox" id="hmt" class="hidden-menu-ticker">
+<label class="btn-menu" for="hmt">
+  <span class="first"></span>
+  <span class="second"></span>
+  <span class="third"></span>
+</label>
+<ul class="hidden-menu">
+    <div class="main_header">
+		<div class="teacher_card">
+		</div>
+		<div class="discipl_name"><h1 id="header_maintext">Предметный предмет</h1></div>
+		<div class="univ_name"><h1 id="header_maintext">ПГУ</h1><p class="par_txt" id="header_text">Кафедра ВТ</h3>
+		</div>
+		
+	</div>
+	<div class="main_menu">
+		<div class="theory_column">
+			<div class="theory_card">
+				<a href="#" class="theory-link">	
+				<div class="theory_indside">
+					<h1 id="theory_text">Теория для работы с <strong>CMD</strong></h1>
+				</div>
+			<img src="/assets/gallery/Arrow.svg" width="32px" height="32px" style="margin: 0 0 20px 24px">	
+				</a>
+			</div>
+		</div>
+		<div class="navigation_panel">
+			<div class="work_card" id="1">
+			<a href="assets/pages/first_work.html" target="_blank">
+				<div class="number_card">
+					<h5>Работа №1</h5>
+				</div>
+				<div class="inside_card">
+					<p id="card_text">Диагностические сетевые утилиты и их использование</p>
+				</div>
+			</a>
+			</div>
+			<div class="work_card" id="2">
+				<div class="number_card">
+					<h5>Работа №2</h5>
+				</div>
+				<div class="inside_card">
+					<p id="card_text">Пример</p>
+				</div>
+			</div>
+			<div class="work_card" id="3">
+				<div class="number_card">
+					<h5>Работа №3</h5>
+				</div>
+				<div class="inside_card">
+					<p id="card_text">Пример</p>
+				</div>
+			</div>
+			<div class="work_card" id="4">
+				<div class="number_card">
+					<h5>Работа №4</h5>
+				</div>
+				<div class="inside_card">
+					<p id="card_text">Пример</p>
+				</div>
+			</div>
+			<div class="work_card" id="5">
+				<div class="number_card">
+					<h5>Работа №5</h5>
+				</div>
+				<div class="inside_card">
+					<p id="card_text">Пример</p>
+				</div>
+			</div>
+			<div class="work_card"id="6">
+				<div class="number_card">
+					<h5>Работа №6</h5>
+				</div>
+				<div class="inside_card">
+					<p id="card_text">Пример</p>
+				</div>
+			</div>
+		</div>
+	</div> 
+</ul>
+  
+  <header>
+    <h1>Some title</h1>
+  </header>
+  
+</body>
+</html>

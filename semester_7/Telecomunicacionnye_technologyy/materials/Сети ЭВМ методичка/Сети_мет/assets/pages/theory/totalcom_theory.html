@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <link rel="stylesheet" href="../../index.css" />
+</head>
+<style>
+    .horizontal-line{
+        height:0px;
+        width:880px;
+        border: 1px solid #001357;
+        margin: 48px 0 56px; 
+    }
+    body{
+    margin: 0;
+    padding: 0;
+    background: #E2E8FF;
+    width:1920px;
+    
+    }
+    .wrapper{
+     margin:0 auto;
+     width:1032px;
+     line-height:40px;
+    font-size:24px;
+    font-family:"GolosTextWebRegular";
+    color:#001357;
+    }
+  
+    ul{
+        list-style-type:none;
+        padding:0;
+        margin:8px 0;
+    }
+    h4{ 
+        font-size:18px;
+        margin:0;
+        padding:0;
+    }
+    h3{
+        padding: 0;
+        margin:0;
+        font-size:28px;
+    }
+    ul li {
+        font-size:18px;
+        line-height: 28px;
+        margin:0 0 8px 16px;
+        
+    }
+</style>
+<body>
+    <nav class="nav-bar">
+        <h3>Содержание</h3>
+        
+       <h4><a class="a-nav" href="#one">Начало работы с Total Comander</a></h4>  
+       <h4><a class="a-nav" href="#two">Работа с файлами</a></h4>
+       <ul>
+        <li><a class="a-nav" href="#two-one">Вариант 1</a></li>
+        <li><a class="a-nav" href="#two-two">Вариант 2</a></li>
+        </ul>
+       <h4><a class="a-nav" href="#three">Использование Total Commander в качестве FTP-клиента</a></h4>
+    
+    </nav>
+    <div class="wrapper">
+        <h1>Теоретический материал</h1>
+        <h2>Работы с Total Commander</h2>
+        <div class="paragraph">
+            <p class="par_txt">Скачать приложение можно по <a href="#">ссылке</a> или <a href="https://www.ghisler.com/download.htm" target="">на официальном сайте.</a>  </p>
+            <p class="par_txt"><strong>Total Commander</strong> - это файловый менеджер. Помимо работы с файлами, используется в качестве FTP-клиента.</p>
+        </div>
+        <div class="paragraph">
+            <a name="one"></a>
+            <h3>Начало работы Total Commander</h3>
+            <p class="par_txt">Главное окно программы выглядит следующим образом. По бокам расположены директории. Диск, с которым вы хотите работать, можно выбрать из выпадающего списка над директорией. Перейти в нужную папку можно обычным способом, как в обычном проводнике (два раза нажать на папку) или ввести путь вручную в поле ввода ниже.</p>
+            <img src="../../gallery/28.jpg">
+            <p class="par_txt">Чтобы вернуться в предыдущую папку, необходимо два раза нажать на стрелку вверху директории.</p>
+            <img src="../../gallery/29.jpg">
+            <p class="par_txt">	Так же перемещаться по директориям можно с помощью стрелок главного меню.</p>
+            <img src="../../gallery/30.jpg">
+            <a name="two"></a><h3>Работа с файлами</h3>
+            <ul><strong>Для работы с файлами используются следующие стандартные команды:</strong>
+                <li>Просмотр - открыть файл</li>
+                <li>Правка- изменить название файла</li>
+                <li>Копирование - скопировать файл</li>
+                <li>Перемещение - переместить файл </li>
+                <li>Каталог - создать папку</li>
+                <li>Удаление - удалить файл</li>
+            </ul>
+            <ul><strong>Осуществить эти операции можно двумя различными способами:</strong>
+                <a name="two-one"></a><li><strong>Вариант 1.</strong></li>
+                <p class="par_txt">Использовать горячие клавиши. Их перечень и интерпретация представлен внизу экрана. Необходимо нажать клавишу на клавиатуре, затем кликнуть мышкой на сам файл. В случае, если команда не сработала, используйте сочетание Fn+[горячая клавиша].</p>
+                <ul class="with-padding">Total Commander поддерживает стандартные сочетания горячих клавиш:
+                    <li>Ctrl+C - копировать файл</li>
+                    <li>Ctrl+V - вставить файл</li>
+                    <li>Delete - удалить файл</li>
+                    <p class="par_txt">Так же скопировать файл можно, «перетащив» его из одной директории в другую и открыть двойным кликом мыши.</p>
+                    <img src="../../gallery/31.jpg">
+                </ul>
+                <a name="two-two"></a><li><strong>Вариант 2.</strong></li>
+                <p class="par_txt">Кликнуть левой кнопкой мыши на файл, а затем выбрать действие в панели меню между директориями.</p>
+                <img src="../../gallery/32.jpg">
+
+            </ul>
+            <a name="three"></a><h3>Использование Total Commander в качестве FTP-клиента</h3>
+            <p class="par_txt"><strong>FTP-клиент FTP</strong> — File Transfer Protocol (Протокол передачи файлов) — Компьютерная программа для упрощения доступа к FTP серверу.</p>
+            <p class="par_txt">Для использования Total Commander в качестве FTP-клиента, следует в главном меню выбрать Сеть -> Новое FTP-соединение или нажать сочетание клавиш Ctrl+N.</p>
+            <img src="../../gallery/33.jpg">
+            <p class="par_txt">Ввести адрес сервера и убрать галочки напротив «Анонимное соединение» и «Использовать брандмауэр или прокси-сервер». Затем нажать «ОК».</p>
+            <img src="../../gallery/34.jpg">
+            <p class="par_txt">В открывшемся окне ввести пароль и нажать «ОК».</p>
+            <img src="../../gallery/35.jpg">
+            <p class="par_txt">Если пароль указан верно, то в поле слева откроется главная директория FTP-сервера.</p>
+            <img src="../../gallery/36.jpg">
+            <p class="par_txt">Чтобы отключиться от сервера необходимо нажать на кнопку «Отключиться» или «Disconnect».</p>
+            <img src="../../gallery/37.jpg">
+            <p class="par_txt">При нажатии на поле в правом верхнем углу, открываются запросы от клиента к серверу и ответы сервера клиенту. Запросы отображаются не полностью, поэтому для более удобной их интерпретации рекомендуется дополнительно запустить Capture в Network Monitor.</p>
+            <p class="par_txt">Так выглядят запросы в Total Commander.</p>
+            <img src="../../gallery/38.jpg">
+            <p class="par_txt">А так в Network Monitor.</p>
+            <img src="../../gallery/39.jpg">
+            <p class="par_txt">Так же в программе есть возможность сохранять и повторно заходить на FTP-сервер. Для этого необходимо в главном меню выбрать Сеть -> Соединиться с FTP-сервером или нажать сочетание клавиш Ctrl+F.</p>
+            <img src="../../gallery/40.jpg">
+            <p class="par_txt">В открывшемся окне выбрать последующие действия с сервером.</p>
+            <img src="../../gallery/41.jpg">
+            <p class="par_txt">Копирование, удаление и перемещение файлов с сервера и на сервер осуществляется аналогично файлам из директорий на ПК.</p>
+        </div>  
+    </body> 
+</html>

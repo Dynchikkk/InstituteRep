@@ -1,0 +1,4 @@
+Message[302] E:\FATHER\PIC\PROBI\CCP3\PR1.ASM 19 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\FATHER\PIC\PROBI\CCP3\PR1.ASM 20 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[207] E:\FATHER\PIC\PROBI\CCP3\PR1.ASM 24 : Found label after column 1. (m1)
+Warning[207] E:\FATHER\PIC\PROBI\CCP3\PR1.ASM 30 : Found label after column 1. (m2)

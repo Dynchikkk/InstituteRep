@@ -1,0 +1,36 @@
+MPLINK 4.43, Linker
+Linker Map File - Created Thu Oct 09 19:52:19 2014
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x00004c
+                   .cinit    romdata   0x000026    program   0x000004
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000027      
+            40 out of 8455 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                       m1   0x000013    program     static E:\FATHER\PIC\PROBI\ccp3\pr1.asm
+                       m2   0x00001b    program     static E:\FATHER\PIC\PROBI\ccp3\pr1.asm
+                    start   0x000001    program     static E:\FATHER\PIC\PROBI\ccp3\pr1.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    start   0x000001    program     static E:\FATHER\PIC\PROBI\ccp3\pr1.asm
+                       m1   0x000013    program     static E:\FATHER\PIC\PROBI\ccp3\pr1.asm
+                       m2   0x00001b    program     static E:\FATHER\PIC\PROBI\ccp3\pr1.asm
+
+

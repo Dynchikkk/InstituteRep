@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <link rel="stylesheet" href="../../index.css"/>
+</head>
+<style>
+    
+    body{
+    
+    background: #E2E8FF;
+    
+    
+    }
+    table{
+        border-collapse:separate;
+        
+    }
+    table td{
+        vertical-align: top;
+        
+    }
+    ul{
+        list-style-type:none;
+        padding:0;
+        margin:8px 0;
+    }
+    h4{ 
+        font-size:18px;
+        margin:0;
+        padding:0;
+    }
+    h3{
+        padding: 0;
+        margin:0;
+        font-size:28px;
+    }
+    ul li {
+        font-size:18px;
+        line-height: 28px;
+        margin:0 0 8px 16px;
+        
+    }
+</style>
+<body>
+    <nav class="nav-bar">
+        <h3>Содержание</h3>
+        
+       <h4><a class="a-nav" href="#one">Открыть командную строку</a></h4>
+        <ul>
+            <li><a class="a-nav"  href="#one-one">Вариант 1</a></li>
+            <li><a class="a-nav"  href="#one-two">Вариант 2</a></li>
+            <li><a class="a-nav"  href="#one-three">Вариант 3</a></li>
+            
+        </ul>
+        
+            <h4><a class="a-nav" href="#two">Как использовать командную строку</a></h4>
+            <h4><a class="a-nav" href="#three">Сетевые команды</a></h4>
+            <ul>
+                <li><a class="a-nav" href="#three-one">Ipconfig</a></li>
+                <li><a class="a-nav" href="#three-two">Ping</a></li>
+                <li><a class="a-nav" href="#three-three">Tracert</a></li>
+                <li><a class="a-nav" href="#three-four">Arp</a></li>
+                <li><a class="a-nav" href="#three-five">Netstat</a></li>
+                <li><a class="a-nav" href="#three-six">Nslookup</a></li>
+            </ul>
+        </ol>
+    </nav>
+    <div class="wrapper">
+        <h1>Теоретический материал</h1>
+        <h2>Работа с командной строкой Windows</h2>
+        <div class="paragraph">
+            <p class="par_txt"><strong>Командная строка в ОС Windows (cmd, терминал, консоль)</strong> — это ПО, которое обеспечивает взаимосвязь между пользователем и операционной системой с помощью текстовых команд.</p>
+        </div>
+        <div class="paragraph">
+            <a name="one"></a>
+            <h3>Открыть командную строку</h3>
+            <p class="par_txt">Существует 3 способа запуска командной строки.
+            <p class="par_txt"><strong><a name="one-one"></a>Вариант 1.</strong> Выполнить следующую последовательно сть действий:</p>
+            <img src="../../gallery/image 4.jpg" >
+            <p class="par_txt"><strong><a name="one-two"></a>Вариант 2.</strong> Нажать на клавиатуре сочетание клавиш Win +R, в появившемся окне ввода ввести «cmd».</p>
+            <img src="../../gallery/image 5.jpg" >
+            <p class="par_txt"><strong><a name="one-three"></a>Вариант 3.</strong> Нажать на клавиатуре сочетание клавиш Win+X, в появившемся меню выбрать Windows PowerShell.</p>
+            <img src="../../gallery/image 6.jpg" >
+            <p class="par_txt">Командная строка выглядит следующим образом:</p>
+            <img src="../../gallery/image 7.jpg" >
+            <p class="par_txt">В появившемся окне представлена актуальная информация о версии Windows и текущее местоположение:</p>
+            <p class="par_txt">C:\Пользователи\[Имя пользователя]></p>
+        </div>
+        <div class="paragraph">
+            <a name="two"></a>
+            <h3>Как использовать командную строку</h3>
+            <p class="par_txt">В терминале необходимо вводить команды, в противном случае вы увидите уведомление о том, что команда нераспознана.</p>
+            <img src="../../gallery/image 8.jpg" >
+            <p class="par_txt"><strong>Команды имеют следующий синтаксис:</strong><p class="par_txt">команда -[параметр [аргумент]]. Параметров может быть несколько, в этом случае они вводятся через пробел, перед параметром ставится дефис (-) или слэш (/). Параметры могут быть обязательными и необязательными: необязательные указываются по желанию, без обязательных параметров вы получите справочную информацию о команде.</p></p>
+            <p class="par_txt">Для прекращения работы команды необходимо нажать на клавиатуре сочетание клавиш Ctrl+C.</p>
+            <p class="par_txt">Для того, чтобы повторно использовать ранее введённую команду, необходимо нажать на клавиатуре стрелку вверх. Для перемещения в тексте команды необходимо так же использовать стрелки.</p>
+            <p class="par_txt">Для получения информации о командах, которые вы можете использовать, необходимо набрать help, затем нажать Enter.</p>
+            <img src="../../gallery/image 9.jpg" >
+            <p class="par_txt">Для получения справочной информации о конкретной команде, необходимо ввести её в консоль и добавить [/?]</p>
+            <img src="../../gallery/image 10.jpg" >
+        </div>
+        <div class="paragraph">
+            <a name="three"></a>
+            <h3>Сетевые команды</h3>
+            <p class="par_txt"><strong>Сетевые команды терминала</strong> — утилиты командной строки для анализа и устранения проблем с функционированием сети.</p>
+            <table>
+                <tr><td><p class="par_txt"><strong><a name="three-one"></a>Ipconfig</strong></p></td>
+                    
+                    <td id='column-info'><p class="par_txt">Используется для отображения текущих настроек протокола TCP/IP и для обновления некоторых параметров.</p>
+                        <ul>ipconfig [/allcompartments] [/? |
+                            <li>/all |</li>
+                            <li>/renew [адаптер] |</li>
+                            <li> /release [адаптер] |</li>
+                            <li>/renew6 [адаптер] |</li>
+                            <li>/release6 [адаптер] |</li>
+                            <li> /flushdns |</li>
+                            <li>/displaydns |</li>
+                            <li>/registerdns |</li>
+                            <li>/showclassid адаптер |</li>
+                            <li>/setclassid адаптер [идентификатор_класса] ]</li>
+                            <li> /showclassid6 адаптер |</li>
+                            <li>/setclassid6 адаптер [идентификатор_класса] ]</li>
+                        </ul>
+                        <ol><strong>Наиболее часто используемые параметры:</strong>
+                            <li><strong>/?</strong> — Вывод справочного сообщения</li>
+                            <li><strong>/all</strong> — Вывод подробных сведений о конфигурации</li>
+                        </ol>
+                        <p class="par_txt">Пример использования утилиты для получения текущих настроек протокола TCP/IP:</p>
+                    </td>
+                </tr>
+            </table>
+            <img src='../../gallery/image 11.jpg' >
+            <div class="horizontal-line"></div>
+            <table>
+                <tr><td><p class="par_txt"><strong><a name="three-two"></a>Ping</strong></p></td>
+                    <td>
+                        <p class="par_txt">Позволяет проверять собственную связь и состояние удалённых хостов, находить и локализировать неполадки в программном и аппаратном обеспечении, тестировать качество сетей.</p>
+                        <p class="par_txt">Удалённый хост можно вводить в виде ip адреса или использовать его доменное имя. Хост является обязательным.</p>
+                        <ul>ping [-t] [-a] [-n <число>] [-l <размер>] [-f] [-i <TTL>]
+                            <li>[-v <TOS>] [-r <число>] [-s <число>]</li>
+                            <li>[[-j <список_узлов>] | [-k <список_узлов>]]</li>
+                            <li>[-w <время_ожидания>] [-R] [-S <адрес_источника>]</li>
+                            <li>[-c секция] [-p] [-4] [-6] конечный_узел</li>
+                        </ul>
+                        <ol><strong>Наиболее часто используемые параметры:</strong>
+                            <li><strong>/?</strong> — Вывод справочного сообщения</li>
+                            <li><strong>-t</strong> — Проверяет связь с указанным узлом до прекращения.</li>
+                            <li>Для отображения статистики и продолжения проверки нажмите клавиши CTRL+BREAK;для прекращения нажмите CTRL+C.</li>
+                            <li><strong>-a</strong> — Позволяет определить доменное имя компьютера по его адресу.</li>
+                            <li><strong>-n</strong> <число> — Число отправляемых запросов проверки связи (пакетов Echo). Количество по умолчанию - 4 пакета</li>
+                            <li><strong>-l</strong> <размер> — Размер буфера отправки (сообщения).</li>
+                            <li><strong>-f</strong> — Устанавливает флаг, запрещающий фрагментацию, в пакете (только IPv4).</li>
+                            <li><strong>-i</strong> <TTL> — Срок жизни пакетов.</li>
+                            <li><strong>-w</strong> <время_ожидания> — Задает время ожидания каждого ответа (в миллисекундах).</li>
+                            <li><strong>-4</strong> — Задает принудительное использование протокола IPv4.</li>
+                            <li><strong>-6</strong> — Задает принудительное использование протокола IPv6.</li>
+                        </ol>
+                        <p class="par_txt">Пример использования утилиты для проверки связи с удалённым хостом:</p>
+                    </td>
+                </tr>
+            </table>
+            <img src='../../gallery/image 12.jpg' >
+            <div class="horizontal-line"></div>
+            <table>
+                <tr>
+                    <td><p class="par_txt"><strong><a name="three-three"></a>Tracert</strong></p></td>
+                    <td>
+                        <p class="par_txt">Tracert позволяет выяснить последовательность маршрутизаторов IP пакета на пути к конечному узлу. отправляет на хост назначения ICPM-запрос «Echo Request» с TTL=1.</p>
+                        <p class="par_txt">Удалённый хост можно вводить в виде ip адреса или использовать его доменное имя. Хост является обязательным.</p>
+                        tracert [-d] [-h максЧисло] [-j списокУзлов] [-w таймаут]
+                            [-R] [-S адресИсточника] [-4] [-6] конечноеИмя</li>
+                        
+                        <ol class="no-padding"><strong>Наиболее часто используемые параметры:</strong>
+                            <li><strong>/?</strong> — Вывод справочного сообщения</li>
+                            <li><strong>-d</strong> — Без разрешения в имена узлов.</li>
+                            <li><strong>-h максЧисло</strong>  — Максимальное число прыжков при поиске узла (по умолчанию - 30).</li>
+                            <li><strong>-j списокУзлов</strong>  — Свободный выбор маршрута по списку узлов (только IPv4).</li>
+                            <li><strong>-w таймаут</strong> — Таймаут каждого ответа в миллисекундах.</li>
+                            <li><strong>-R</strong> — Трассировка пути (только IPv6).</li>
+                            <li><strong>-S</strong> адресИсточника — Используемый адрес источника (только IPv6).</li>
+                            <li><strong>-4</strong> — Принудительное использование IPv4.</li>
+                            <li><strong>-6</strong> — Принудительное использование IPv6.</li>
+                        </ol>
+                        <p class="par_txt">Пример использования утилиты для выяснения последовательности маршрутизаторов на пути к удалённому хосту:</p>
+                    </td>
+                </tr>
+            </table>
+            <img src="../../gallery/image 13.jpg" >
+            <div class="horizontal-line"></div>
+            <table>
+                <tr>
+                    <td><p class="par_txt"><strong><a name="three-four"></a>Arp</strong></p></td>
+                    <td>
+                        <p class="par_txt">Arp позволяет просмотреть или изменить записи в кэше ARP (Address Resolution Protocol - протокол разрешения адресов).</p>
+                        <ol class="no-padding">
+                            <li>ARP -s inet_addr eth_addr [if_addr]</li>
+                            <li>ARP -d inet_addr [if_addr]</li>
+                            <li>ARP -a [inet_addr] [-N if_addr] [-v]</li>
+                        </ol>
+                        <ol class="no-padding">
+                            <li><strong>eth_addr </strong>— Определяет физический адрес.</li>
+                            <li><strong>if_addr</strong> — Если параметр задан, он определяет адрес интерфейса в Интернете, чья таблица преобразования адресов должнаизмениться. Если параметр не задан, будет использован первый доступный интерфейс.</li>
+                            <li><strong>inet_addr</strong> — Определяет IP-адрес.</li>
+                        </ol>
+                        <ol class="no-padding"><strong>Наиболее часто используемые параметры:</strong>
+                            <li><strong>/?</strong> — Вывод справочного сообщения</li>
+                            <li><strong>-a</strong> — Отображает текущие ARP-записи, опрашивая текущие данные протокола. Если задан inet_addr, то будут отображены IP и физический адреса только для заданного компьютера. Если ARP используют более одного сетевого интерфейса, то будут отображаться записи для каждой таблицы.</li>
+                            <li><strong>-g</strong> — То же, что и параметр -a.</li>
+                            <li><strong>-v</strong> — Отображает текущие ARP-записи в режиме подробного протоколирования. Все недопустимые записи и записи в интерфейсе обратной связи будут отображаться.</li>
+                            <li><strong>-N if_addr</strong>  — Отображает ARP-записи для заданного в if_addr сетевого интерфейса</li>
+                            <li><strong>-d</strong> — Удаляет узел, задаваемый inet_addr. Параметр inet_addr может содержать знак шаблона * для удаления всех узлов.</li>
+                            <li><strong>-s</strong> — Добавляет узел и связывает адрес в Интернете inet_addr с физическим адресом eth_addr.  Физический адрес задается. Пример использования утилиты для просмотра arp кэша:</li>
+                        </ol>
+                        <p class="par_txt">Пример использования утилиты для просмотра arp кэша:</p>
+                    </td>
+                </tr>
+                
+            </table>
+            <img src="../../gallery/image 14.jpg">
+            <div class="horizontal-line"></div>
+            <table>
+                <tr>
+                    <td><p class="par_txt"><strong><a name="three-five"></a>Netstat</strong></p></td>
+                    <td>
+                        <p class="par_txt">Предназначена для получения сведений о состоянии сетевых соединений и слушаемых на данном компьютере портах TCP и UDP, а также, для отображения статистических данных по сетевым интерфейсам и протоколам.</p>
+                        <p class="par_txt">netstat [-a] [-b] [-e] [-f] [-n] [-o] [-p протокол] [-r] [-s] [-t] [-x] [-y] [интервал]</p>
+                        <ol class="no-padding"><strong>Наиболее часто используемые параметры:</strong>
+                            <li><strong>/?</strong> — Вывод справочного сообщения</li>
+                            <li><strong>-a</strong> — Отображает текущие ARP-записи, опрашивая текущие данные протокола. Если задан inet_addr, то будут отображены IP и физический адреса только для заданного компьютера. Если ARP используют более одного сетевого интерфейса, то будут отображаться записи для каждой таблицы.</li>
+                            <li><strong>-b</strong> — Отображение исполняемого файла, участвующего в создании каждого подключения или порта прослушивания.</li>
+                            <li><strong>-e</strong> — Отображение статистики Ethernet. Может применяться вместе с параметром -s.</li>
+                            <li><strong>-n</strong> — Отображение адресов и номеров портов в числовом формате.</li>
+                            <li><strong>-o</strong> — Отображение ИД процесса каждого подключения.</li>
+                            <li><strong>-r</strong> — Отображение таблицы маршрутов.</li>
+                            <li><strong>interval</strong> — Повторное отображение выбранной статистики с паузой между отображениями, заданной интервалом в секундах. Чтобы прекратить повторное отображение статистики, нажмите клавиши CTRL+C. Если этот параметр опущен, netstat напечатает текущую информацию о конфигурации один раз.</li>
+                        </ol>
+                        <p class="par_txt">Пример использования утилиты для отображения всех подключений и ожидающих портов:</p>
+                    </td>
+                </tr>
+            </table>
+            <img src="../../gallery/image 15.jpg">
+            <div class="horizontal-line"></div>
+            <table class="withoud-border">
+                <tr>
+                    <td><p class="par_txt"><strong><a name="three-six"></a>Nslookup</strong></p></td>
+                    <td>
+                        <p class="par_txt">Инструмент сетевого администрирования для запросов в доменной системе имен (DNS) с целью получения доменного имени, IP-адреса или другой информации из записей DNS. Кроме того, эта команда используется для поиска и устранения проблем с DNS.</p>
+                        <ol class="no-padding">
+                            <li><strong>nslookup [-opt ...]</strong> — интерактивный режим с использованием сервера по умолчанию</li>
+                            <li><strong>nslookup [-opt ...]</strong> — server — интерактивный режим с использованием сервера "server"</li>
+                            <li><strong>nslookup [-opt ...]</strong> — поиск узла "host" с использованием сервера по умолчанию</li>
+                            <li><strong>nslookup [-opt ...]</strong> — поиск узла "host" с использованием сервера "server"</li>
+                            <p class="par_txt">Пример использования утилиты для IP адреса:</p>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+            <img src="../../gallery/image 16.jpg">
+        </div>  
+    </body> 
+</html>

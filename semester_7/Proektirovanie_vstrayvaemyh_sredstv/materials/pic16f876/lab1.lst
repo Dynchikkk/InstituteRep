@@ -1,0 +1,55 @@
+MP2COD 3.80, COFF to COD File Converter
+Copyright (c) 2004 Microchip Technology Inc.
+Listing File Generated: Fri Sep 27 22:30:52 2019
+
+
+Address  Value    Disassembly              Source                                                                           File
+-------  -------  -----------------------  -------------------------------------------------------------------------------  -----
+                                           ;**********************************************************************          D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+                                           	list      p=16F876            ; list directive to define processor              D:\15\proect1-1.asm
+                                           	#include <p16F876.inc>        ; processor specific variable definitions         D:\15\proect1-1.asm
+                                                   LIST                                                                     D:\Programs\MPLAB v.6.60\MPLAB IDE\MCHIP_Tools\p16F876.inc
+                                           ; P16F876.INC  Standard Header File, Version 1.00    Microchip Technology, Inc.  D:\Programs\MPLAB v.6.60\MPLAB IDE\MCHIP_Tools\p16F876.inc
+                                                   LIST                                                                     D:\Programs\MPLAB v.6.60\MPLAB IDE\MCHIP_Tools\p16F876.inc
+                                                                                                                            D:\15\proect1-1.asm
+002007   3ff7     ADDLW     0xf7           	__CONFIG   _CP_OFF & _WDT_ON & _PWRTE_ON & _RC_OSC                              D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+                                           ;***** proba 1 - model invertora                                                 D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+                                           ;**********************************************************************          D:\15\proect1-1.asm
+                                           ; Адрес расположения ct1 - 0x10, а ct2 - 0x011                                   D:\15\proect1-1.asm
+                                           	UDATA	0x10                                                                      D:\15\proect1-1.asm
+                                           ct1 RES 1	;бронируется место для ct1 в один байт                                 D:\15\proect1-1.asm
+                                           ct2 RES 1	;место для ct2                                                         D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+                                           RESET_VECTOR  CODE    0x000       ; processor reset vector                       D:\15\proect1-1.asm
+000000   2807     GOTO      0x7            	goto start                                                                      D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+                                           Main CODE                                                                        D:\15\proect1-1.asm
+                                           start                                                                            D:\15\proect1-1.asm
+000007   1683     BSF       0x3,0x5             bsf       STATUS,RP0                                                        D:\15\proect1-1.asm
+000008   0187     CLRF      0x7                 clrf      TRISC          ; Make PortD all output                            D:\15\proect1-1.asm
+000009   1283     BCF       0x3,0x5        	 bcf       STATUS,RP0                                                           D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+00000a   3012     MOVLW     0x12                movlw     0x12           ;                                                  D:\15\proect1-1.asm
+00000b   0087     MOVWF     0x7                 movwf     PORTC                                                             D:\15\proect1-1.asm
+00000c   0190     CLRF      0x10                clrf      ct1                                                               D:\15\proect1-1.asm
+00000d   0191     CLRF      0x11           	 clrf      ct2                                                                  D:\15\proect1-1.asm
+00000e   0f90     INCFSZ    0x10,0x1       c1	incfsz ct1,1                                                                  D:\15\proect1-1.asm
+00000f   280e     GOTO      0xe            	goto c1                                                                         D:\15\proect1-1.asm
+000010   0f91     INCFSZ    0x11,0x1       	incfsz ct2,1                                                                    D:\15\proect1-1.asm
+000011   280e     GOTO      0xe            	goto c1                                                                         D:\15\proect1-1.asm
+000012   0d87     RLF       0x7,0x1        	rlf PORTC,1                                                                     D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
+000013   280e     GOTO      0xe            	goto c1                                                                         D:\15\proect1-1.asm
+                                           	end ;                                                                           D:\15\proect1-1.asm
+                                                                                                                            D:\15\proect1-1.asm
