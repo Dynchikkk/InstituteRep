@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://doc.mpv.ru/steps/mfc/net/socket/22.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="22.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 22 - оЕПБШИ ЬЮЦ ДКЪ УЮЙЕПЮ, ЯЙЮМХПНБЮМХЕ 
+ОНПРНБ.</H2></FONT>
+<P>хРЮЙ, ГЮДЮВЮ МЮЛ МСФМН ОЕПЕАПЮРЭ БЯЕ ОНПРШ. яЛНРПХЛ ЙНД: <PRE>#include "stdafx.h"
+#include "iostream.h"
+#include "fstream.h"
+#include "winsock2.h"
+#include "iostream.h"
+
+#pragma comment(lib,"wsock32.lib")
+
+void ErrorInfo();
+
+void main()
+{	
+	ofstream ofs;
+	ofs.open("log.txt"); 
+	WSADATA wsaData;
+	if (WSAStartup(WINSOCK_VERSION, &amp;wsaData)) 
+	{
+		printf ("winsock not bi initialized !\n");
+	
+	}
+	else 
+	{
+	u_short  ushTestPort;
+	for (ushTestPort=2828;ushTestPort&lt; 65535;ushTestPort++)
+		{
+		    cout &lt;&lt; ushTestPort &lt;&lt; endl;  
+			SOCKET sock;
+			sock = socket(AF_INET,SOCK_STREAM,0);
+				if (sock!=INVALID_SOCKET) 
+					{
+						SOCKADDR_IN socketaddr;
+						socketaddr.sin_family = AF_INET;
+						socketaddr.sin_addr.s_addr  = inet_addr("192.168.1.1"); 
+						socketaddr.sin_port = htons(ushTestPort);
+						int size=sizeof(socketaddr);
+						sock=connect(sock,(LPSOCKADDR)&amp;socketaddr,size);
+						if (sock != SOCKET_ERROR )
+							{
+            					cout &lt;&lt; "Port " &lt;&lt;ushTestPort &lt;&lt; endl;
+								ofs &lt;&lt;"Port " &lt;&lt; ushTestPort &lt;&lt; endl;
+			
+							}
+						else ErrorInfo();
+						closesocket(sock);
+					}
+					else cout &lt;&lt; "error create socket" &lt;&lt; endl;
+		}	
+	}
+	WSACleanup();
+	ofs.close(); 
+}
+
+
+void ErrorInfo()
+{
+	int i=WSAGetLastError();
+	int g;
+	switch (i)
+	{
+	case WSANOTINITIALISED :
+		cout &lt;&lt; "Not start WinSock" &lt;&lt; endl;
+		break;
+    	case WSAENETDOWN:
+		cout &lt;&lt; "NetWork failed" &lt;&lt; endl;
+		break;
+	case WSAEADDRINUSE:
+		cout &lt;&lt; "Socket in use " &lt;&lt; endl;
+		break;
+    	case WSAEINTR:
+		cout &lt;&lt; "call  WSACancelBlockingCall" &lt;&lt; endl;
+		break;
+    	case WSAEADDRNOTAVAIL:
+		cout &lt;&lt; "address not valid " &lt;&lt; endl;
+		break;
+	case WSAETIMEDOUT:
+		cout &lt;&lt; "connection Time Out " &lt;&lt; endl;
+		break;
+    	case WSAENOTSOCK:
+		cout &lt;&lt; "Not Socket " &lt;&lt; endl;
+		break;
+    	case WSAECONNREFUSED:
+		cout &lt;&lt; "reject connection" &lt;&lt; endl;
+		break;
+	default:
+		cout &lt;&lt; " ????? " &lt;&lt; g &lt;&lt; endl;
+		cin &gt;&gt; g;
+		break;
+	}
+}
+</PRE>
+<P>хРЮЙ, БЯЕ ЯЮЛНЕ МЕНАУНДХЛНЕ Б ЖХЙКЕ: <PRE>for (ushTestPort=2828;ushTestPort&lt; 65535;ushTestPort++)
+{
+}
+</PRE>
+<P>яНГДЮЕЛ ЯНЙЕР, СЙЮГШБЮЕЛ ЕЛС <B>IP</B> ЮДПЕЯ Х ОНПР Х ЯБЪГШБЮЕЛ МЮЬ ЯНЙЕР Я 
+СДЮКЕММШЛ ТСМЙЖХЕИ <B>connect()</B>. дЮКЭЬЕ ЛНФЕР АШРЭ ДБЕ ЯХРСЮЖХХ. сЯРЮМНБКЕМН 
+ЯНЕДХМЕМХЕ ХКХ МЕР. еЯКХ ОПНЯРН МЕР РЮЙНЦН ОНПРЮ, РН НЬХАЙЮ АСДЕР. <PRE>    case WSAECONNREFUSED:
+		cout &lt;&lt; "reject connection" &lt;&lt; endl;
+		break;
+</PRE>
+<P>хЛЕММН РЮЙЮЪ НЬХАЙЮ. бЯЕ НЯРЮКЭМШЕ ЯБЪГЮМШ Я ДПСЦХЛХ ОПХВХМЮЛХ, Ю ЩРЮ Я 
+НРЯСРЯРБХЕЛ ОНПРЮ. хУ ЛМНЦН ОПХВХМ. ъ МЕ БЯЕ НАПЮАЮРШБЮЧ. оНЯЛНРПХРЕ МЮ 
+<B>default</B> НАПЮАНРЙХ НЬХАЙХ: <PRE>default:
+		cout &lt;&lt; " ????? " &lt;&lt; g &lt;&lt; endl;
+		cin &gt;&gt; g;
+</PRE>
+<P>нЬХАЙЮ МЕХГБЕЯРМЮ Х Ъ ЯОЕЖХЮКЭМН НЯРЮМЮБКХБЮЧ ОПНЦПЮЛЛС, ВРНАШ ЛНФМН АШКН 
+МЮВЮРЭ Я ЩРНЦН ЛЕЯРЮ. йНМЕВМН ЛНФМН АШКН ЯДЕКЮРЭ БЯЕ КСВЬЕ, РНКЭЙН ГЮВЕЛ ??? щРН 
+СВЕАМЮЪ ОПНЦПЮЛЛЮ Х ОНФЮКСИЯРЮ МЕ ОНКЭГСИРЕЯЭ ЕЧ Б УЮЙЕПЯЙХУ ЖЕКЪУ. ю КСВЬЕ 
+ОНЙЮФХРЕ МЮВЮКЭЯРБС Х ОСЯРЭ ДЕМЕЦ БШДЕКЪЧР МЮ ГЮЫХРС ХМТНПЛЮЖХХ. дКЪ ЩРНЦН 
+ОНФЮКСИЯРЮ. ю ГЮЫХРЮ ЯЮЛЮ МЮОПЮЬХБЮЕРЯЪ. еЯКХ ГЮТХЙЯХПНБЮМ ОЕПЕАНП ОНПРНБ Х УНРЭ 
+ДБЮ ОНПРЮ ОЕПЕАПЮКХ, ДЮ ЕЫЕ ГЮ ЙНПНРЙХИ ОПНЛЕФСРНЙ БПЕЛЕМХ - НРПСАЮРЭ МЮДН БЯЕ Х 
+КСВЬЕ ЯПЮГС ЯЕПБЕП НР ОХРЮМХЪ :-))) 
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/21.html">оПЕДШДСЫХИ ЬЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/23.html">яКЕДСЧЫХИ ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="22.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

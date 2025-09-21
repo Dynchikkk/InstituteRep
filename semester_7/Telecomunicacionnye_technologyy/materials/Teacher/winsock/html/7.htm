@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0045)http://doc.mpv.ru/steps/mfc/net/socket/7.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="7.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 7 - нФХДЮЧЫХИ ЯНЙЕР</H2></FONT>бШМНЯХЛ ОПЕДШДСЫХИ ЬЮЦ Б 
+НРДЕКЭМСЧ ТСМЙЖХЧ. <PRE>.....
+void LinkWindowScoket();
+.....
+</PRE>оНЯКЕ БЯЕУ МЮЯРПНЕЙ ЕЯРЭ БНГЛНФМНЯРЭ СЯРЮМНБХРЭ ЯНЙЕР Б ЯНЯРНЪМХЕ 
+НФХДЮМХЪ. щРН ДЕКЮЕРЯЪ ЙНЛЮМДНИ <B>listen</B>. бНР БЕЯЭ ЙНД. <PRE>void WaitSocket()
+{
+	SocketGetHostName();
+	CreateSocket();
+	LinkSoketPort();
+        LinkWindowScoket();
+	int Errors;
+	Errors=listen(servsocket,QUEUE_SIZE);
+	if ( Errors == SOCKET_ERROR)
+	{
+		printf(" Listen BAD !!! \n");
+		exit(1);
+	}
+	else printf("God Listen  !!!!!!! \n");
+	printf("Wait to connected");
+
+	CloseScoket();
+}
+</PRE>мЕЙНРНПЮЪ ЯОЕЖХТХЙЮ ОПХКНФЕМХЪ <B>Win32 Console</B> МЮ ДЮММШИ ЛНЛЕМР МЕ 
+ДЮЯР БНГЛНФМНЯРЭ ОНЯКСЬЮРЭ ОН ВЕКНБЕВЕЯЙХ. мЮЛ Б ЯКЕДСЧЫХУ ЬЮЦЮУ ОПХДЕРЯЪ 
+МЮСВХРЭ ОНКСВЮРЭ ЯННАЫЕМХЪ НР <B>Windows</B> Х ХУ НАПЮАЮРШБЮРЭ. мН ОПХ 
+ОПНЦПЮЛЛХПНБЮМХХ МЮ АЮГЕ, ЯЙЮФЕЛ, <B>MFC</B> ЩРНЦН АШКН АШ ДНЯРЮРНВМН, ВРНАШ 
+ЯПЮГС ОЕПЕИРХ Й НАПЮАНРЙЕ ЯННАЫЕМХИ. ю ОНЙЮ ЛШ СБХДХЛ, ВРН БЯ╦ МНПЛЮКЭМН Х 
+ОПНЦПЮЛЛЮ ГЮБЕПЬХР ПЮАНРС. 
+<P>хРЮЙ ТСМЙЖХЪ <B>listen</B> ОЕПЕБНДХР ЯНЙЕР Б ПЕФХЛ НФХДЮМХЪ. <PRE>int listen (  
+      SOCKET s,
+      int backlog  
+);
+</PRE>оЕПБШИ ОЮПЮЛЕРП ЩРН ЯНГДЮММШИ ЯНЙЕР, Ю БРНПНИ ЛЮЙЯХЛЮКЭМНЕ ЙНКХВЕЯРБН 
+ОНДЙКЧВЕМХИ. ъ ОНЙЮ НЯРЮБХК <B>5</B> НОПЕДЕКХБ ЙНМЯРЮМРС <B>QUEUE_SIZE</B> <PRE>#define QUEUE_SIZE 5
+</PRE>оПХ МНПЛЮКЭМНЛ ГЮБЕПЬЕМХХ ТСМЙЖХЪ БЕПМЕР <B>0</B> ХМЮВЕ 
+<B>SOCKET_ERROR</B>, ЙЯРЮРХ Ъ МХ ПЮГС БПНДЕ МЕ ЯЙЮГЮК, МН ПЮЯЬХПЕММШИ ЙНД НЬХАЙХ 
+ЛНФМН ОНКСВХРЭ БШГБЮБ ТСМЙЖХЧ <B>WSAGetLastError</B>. 
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/prog/step7.rar">гЮЦПСГХРЭ 
+ОПНЕЙР</A> | <A href="http://doc.mpv.ru/steps/mfc/net/socket/6.html">оПЕДШДСЫХИ 
+ЬЮЦ</A> | <A href="http://doc.mpv.ru/steps/mfc/net/socket/8.html">яКЕДСЧЫХИ 
+ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="7.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

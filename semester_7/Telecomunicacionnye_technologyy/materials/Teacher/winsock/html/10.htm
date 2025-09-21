@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://doc.mpv.ru/steps/mfc/net/socket/10.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="10.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 10 - яЕРЕБЮЪ ЯНПРХПНБЙЮ</H2></FONT>нДХМ ХГ ХМРЕПЕЯМШУ 
+ЛНЛЕМРНБ ЩРН <B>яЕРЕБЮЪ ЯНПРХПНБЙЮ АЮИРНБ</B> 
+<P>б ЙНЛОЭЧРЕПЮУ Я ОПНЖЕЯЯНПНЛ <B>Intel 80x86</B> Х ЕЯРЕЯРБЕММН ЯНБЛЕЯРХЛШЛХ 
+ЯКНБН УПЮМХРЯЪ ЙЮЙ <PRE>ЛКЮДЫХИ АЮИР  n
+ЯРЮПЬХИ АЮИР  n+1
+</PRE>б хМРЕПМЕРЕ <PRE>ЛКЮДЫХИ АЮИР  n+1
+ЯРЮПЬХИ АЮИР  n
+</PRE>дКЪ ПЕЬЕМХЪ ЩРНИ ОПНАКЕЛЛШ <B>WinSock API</B> ОПЕДНЯРЮБКЪЕР ЯКЕДСЧЫХЕ 
+ТСМЙЖХХ <PRE>htohl	оПЕНАПЮГСЕР 32 АХРМШЕ МНЛЕПЮ УНЯРЮ Й ЯЕРЕБШЛ ЯНПРХПСЪ АЮИРШ
+htohs	оПЕНАПЮГСЕР 16 АХРМШЕ МНЛЕПЮ УНЯРЮ Й ЯЕРЕБШЛ ЯНПРХПСЪ АЮИРШ
+ntonl	оПЕНАПЮГСЕР 32 АХРМШЕ ЯЕРЕБШЕ ВХЯКЮ Й ЯНПРХПНБЙХ УНЯРЮ
+ntons	оПЕНАПЮГСЕР 16 АХРМШЕ ЯЕРЕБШЕ ВХЯКЮ Й ЯНПРХПНБЙХ УНЯРЮ
+</PRE>лШ Я бЮЛХ ОПХЛЕМЪКХ ДЮММШЕ ТСМЙЖХХ ОПХ БШГНБЕ <B>bind</B> <PRE>OOL CSeverWinSock::LinkSoketPort()
+{
+
+	SOCKADDR_IN socketaddr;
+	socketaddr.sin_family = AF_INET;
+	socketaddr.sin_addr.s_addr  = INADDR_ANY;
+<B>	socketaddr.sin_port = htons(PORT_ADDR);</B>
+
+	if (bind(servsocket,(LPSOCKADDR)&amp;socketaddr,sizeof(socketaddr)) == SOCKET_ERROR)
+	{
+		AfxMessageBox("Error bind socket");
+		return FALSE;
+	}
+	else return TRUE;
+}
+</PRE>
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/9.html">оПЕДШДСЫХИ ЬЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/11.html">яКЕДСЧЫХИ ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="10.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

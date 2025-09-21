@@ -1,0 +1,34 @@
+Known Issues
+------------
+
+*** Whole Project
+
+2. Socks Proxy(old -- Nat Gateway) to external network. 
+3. ReNew Console(IOS-similar command line) and normal config files.
+4. VPN-client/VPN-gateway (sockets, RMI and Corba mechanisms) (or PPP Client/PPP Gateway -- ??)
+5. Second level Switches (VLAN, etc...)
+6. Normal SocketLayer (instead of current ugly mechanism)
+7. Firewalls (NAT, PAT, etc)
+8. Access-lists in Firewalls/Routers/PCs
+9. DHCP server/clients, DNS.
+10. Wi-Fi Access-Points and Wi-Fi adapters in PCs
+
+*** Documentation/Comments
+
+1. Write documentation for routing functions in ProtocolStack, IPv4, Route_Entry.
+2. Change the licence to licence.txt in the headers of all source files.
+
+*** GUI Related
+ 
+1. Check changing/saving netmask in SET TCP/IP Properties dialog.
+2. Create _normal_ route table edit form (instead of route command). Use as template EditRoutesDialog.java. Note,
+that "route" command is only for ugly testing purposes! 
+7. Fix LinkProperties Dialog: safe using (check for correct input values) (!!!, Gift!).
+8. Add show switch cache dialog.
+9. Device config save/load.
+
+*** Simulation Related
+
+*** Command Line Interface (CLI) Related
+
+0. Redevelop the CLI.

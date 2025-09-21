@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://doc.mpv.ru/steps/mfc/net/socket/16.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="16.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 16 - яРПСЙРСПЮ in_addr.</H2></FONT>
+<P>яРПСЙРСПЮ <B>in_addr</B> ОПЕДЯРЮБКЪЕР ЯНАНИ ЮДПЕЯ ХМРЕПМЕРЮ. <PRE>struct in_addr {
+  union {
+          struct { u_char s_b1,s_b2,s_b3,s_b4; }   S_un_b;
+          struct { u_short s_w1,s_w2; }            S_un_w;
+          u_long                                   S_addr;
+  } S_un;
+};
+</PRE>
+<P><B>S_un_b</B> - ЮДПЕЯ Б ТНПЛЮРЕ ЙЮЙ ВЕРШПЕ <B>u_chars</B>. <BR><B>S_un_w</B> 
+- ЮДПЕЯ Б ТНПЛЮРЕ ЙЮЙ ДБЮ <B>u_shorts</B>. <BR><B>S_addr</B> - ЮДПЕЯ Б ТНПЛЮРЕ 
+<B>u_long</B>. 
+<P>йЮЙ НАПЮЫЮРЭЯЪ Й ЩРХЛ ДЮММШЛ ?? бНР, МЮОПХЛЕП, ЙЮЙ ЛНФМН ГЮОНКМХРЭ ЩРС 
+ЯРСЙРСПС: <PRE>in_addr adr2;
+adr2.s_addr=inet_addr("124.23.45.67");
+</PRE>
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/15.html">оПЕДШДСЫХИ ЬЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/17.html">яКЕДСЧЫХИ ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="16.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

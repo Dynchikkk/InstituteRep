@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://doc.mpv.ru/steps/mfc/net/socket/17.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="17.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 17 - тСМЙЖХЪ inet_addr().</H2></FONT>
+<P>щРЮ ТСМЙЖХЪ ЙНМБЕПРХПСЕР ЯРПНЙС Б ГМЮВЕМХЕ, ЙНРНПНЕ ЛНФМН ХЯОНКЭГНБЮРЭ Б 
+ЯРПСЙРСПЕ <B>in_addr</B>: <PRE>unsigned long inet_addr 
+(
+  const char   FAR *cp  
+);
+</PRE>
+<P>оЕПЕДЮЕРЯЪ ЩРНИ ТСМЙЖХХ ЯРПНЙЮ, ЙНРНПЮЪ ЯНДЕПФХР <B>IP</B> ЮДПЕЯ Б ТНПЛЮРЕ 
+ХМРЕПМЕР (МЮОПХЛЕП, 123.23.45.89) 
+<P>еЯКХ БЯЕ МНПЛЮКЭМН <B>inet_addr()</B> БНГБПЮЫЮЕР ГМЮВЕМХЕ РХОЮ <B>long</B>, 
+ЯНДЕПФЮЫЕЕ ДБНХВМНЕ ОПЕДЯРЮБКЕМХЕ ДЮММНЦН ЮДПЕЯЮ ХМРЕПМЕРЮ. б ЯКСВЮЕ НЬХАЙХ БЮЛ 
+БЕПМЕРЯЪ <B>INADDR_NONE</B>: <PRE>#include "stdafx.h"
+#include "iostream.h"
+#include "winsock.h"
+
+#pragma comment(lib,"wsock32.lib")
+
+void main()
+{
+	unsigned long adr1;
+	unsigned long adr2;
+	adr1=inet_addr("124.23.45.67");
+	adr2=inet_addr("as.34.34.56");
+	if (adr1!=INADDR_NONE) cout &lt;&lt; " adr1 correct" &lt;&lt; endl;
+	else cout &lt;&lt; " adr1 incorect " &lt;&lt; endl;
+	if (adr2!=INADDR_NONE) cout &lt;&lt; " adr2 correct" &lt;&lt; endl;
+	else cout &lt;&lt; " adr2 incorect" &lt;&lt; endl;
+	
+}
+</PRE>
+<P>ю БНР ПЕГСКЭРЮР ПЮАНРШ <PRE>adr1 correct
+adr2 incorect
+Press any key to continue
+</PRE>
+<P>йНМЯРЮМРЮ МЕЙНПЕЙМНЯРХ ЮДПЕЯЮ НОПЕДЕКЕМЮ Б <B>winsock.h</B> ЙЮЙ: <PRE>#define INADDR_NONE             0xffffffff
+</PRE>
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/16.html">оПЕДШДСЫХИ ЬЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/18.html">яКЕДСЧЫХИ ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="17.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

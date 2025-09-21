@@ -1,0 +1,1085 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://www.zeiss.net.ru/docs/technol/tcpip/tcp27.htm --><HTML><HEAD>
+		<TITLE>FTP: протокол передачи файлов</TITLE>
+		<META http-equiv="Content-Type" content="text/html; charset=windows-1251">
+		<META content="MSHTML 6.00.2800.1479" name="GENERATOR">
+		<META content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot" name="Template">
+	</HEAD>
+	<BODY vLink="#800080" link="#0000ff" bgColor="#ffffff">
+		<H1 align="center"><A name="t270000"></A>FTP - протокол передачи файлов</H1>
+		<FONT face="Arial" size="2">
+			<P align="center">&nbsp;</P>
+			<OL>
+				<LI>
+					<DIV align="left"><FONT face="Times New Roman" size="3"><A href="FTP.htm#1">Введение</A></FONT></DIV>
+				<LI>
+					<DIV align="left"><FONT face="Times New Roman" size="3"><A href="FTP.htm#2">Протокол FTP</A></FONT></DIV>
+				<LI>
+					<DIV align="left"><FONT face="Times New Roman" size="3"><A href="FTP.htm#3">Представление 
+								данных</A></FONT></DIV>
+				<LI>
+					<DIV align="left"><FONT face="Times New Roman" size="3"><A href="FTP.htm#4">Команды FTP</A></FONT></DIV>
+				<LI>
+					<DIV align="left"><FONT face="Times New Roman" size="3"><A href="FTP.htm#5">FTP отклики</A></FONT></DIV>
+				<LI>
+					<DIV align="left"><FONT face="Times New Roman" size="3"><A href="FTP.htm#6">Управление 
+								соединением</A></FONT></DIV>
+				<LI>
+					<DIV align="left"><FONT face="Times New Roman" size="3"><A href="FTP.htm#7">Примеры FTP</A></FONT></DIV>
+				<LI>
+					<DIV align="left"><FONT face="Times New Roman" size="3"><A href="FTP.htm#8">Управление 
+								соединением: динамически назначаемый порт</A></FONT></DIV>
+				<LI>
+					<DIV align="left"><FONT face="Times New Roman" size="3"><A href="FTP.htm#9">Передача 
+								текстовых файлов: представление NVT ASCII или двоичное?</A></FONT></DIV>
+				<LI>
+					<DIV align="left"><FONT face="Times New Roman" size="3"><A href="FTP.htm#10">Прекращение 
+								передачи файла</A></FONT></DIV>
+				<LI>
+					<DIV align="left"><FONT face="Times New Roman" size="3"><A href="FTP.htm#11">Пассивный 
+								режим FTP</A></FONT></DIV>
+				<LI>
+					<DIV align="left"><FONT face="Times New Roman" size="3"><A href="FTP.htm#12">Анонимный FTP</A></FONT></DIV>
+				<LI>
+					<DIV align="left"><FONT face="Times New Roman" size="3"><A href="FTP.htm#13">Краткие выводы</A></FONT></DIV>
+				</LI>
+			</OL>
+			<P>&nbsp;</P>
+		</FONT><FONT face="Arial">
+			<P align="center"><A name="1"></A><STRONG><FONT face="Times New Roman">Введение</FONT></STRONG></P>
+			<P align="justify"><SMALL><A name="t271001"></A><FONT face="Times New Roman" size="3">FTP - 
+						это широко используемый сетевой протокол, являющийся стандартом Internet для 
+						передачи файлов. Необходимо различать передачу файлов, именно то, что 
+						предоставляет FTP, и доступ к файлам, что предоставляется такими протоколами 
+						как NFS. Передача файлов заключается в копировании целого файла из одной 
+						системы в другую. Чтобы использовать FTP, необходимо иметь учетную 
+						запись&nbsp;на сервере, или воспользоваться так называемым анонимным FTP 
+						(anonymous FTP). </FONT></SMALL>
+			</P>
+			<P align="justify"><SMALL><FONT face="Times New Roman" size="3">FTP был создан для того, 
+						чтобы работать между хостами работающими под управлением различных операционных 
+						систем, использующих различные структуры файлов и, возможно, различные наборы 
+						символов. Часто связь между разнородными системами обеспечивается с 
+						помощью&nbsp;кода NVT, использующего 7-битный </FONT><A name="t271002"></A><FONT face="Times New Roman" size="3">
+						ASCII. FTP сглаживает различия между системами с использованием другого 
+						подхода. FTP поддерживает ограниченное количество типов файлов (ASCII, двоичное 
+						и так далее) и структуру файлов (поток байтов или ориентированный на запись). </FONT>
+				</SMALL>
+			</P>
+			<P align="justify"><SMALL><FONT face="Times New Roman" size="3">RFC 959 [Postel and </FONT>
+					<A name="t271003"></A><FONT face="Times New Roman" size="3">Reynolds 1985] является 
+						официальной спецификацией FTP. Этот RFC описывает историю и развитиие передачи 
+						файлов в течение времени.</FONT></SMALL></P>
+			<P align="justify"><SMALL><FONT face="Times New Roman"></FONT></SMALL>&nbsp;</P>
+			<B>
+				<P align="center"><A name="2"></A><FONT face="Times New Roman">Протокол FTP</FONT></P>
+				<P align="left">
+			</B><FONT face="Times New Roman"><FONT size="3">FTP отличается от других приложений 
+					тем, что он использует два TCP соединения для передачи файла.&nbsp;</FONT></FONT></P>
+			<OL>
+				<LI>
+					<DIV align="justify"><SMALL><A name="t272001"></A><FONT face="Times New Roman" size="3">Управляющее 
+								соединение устанавливается как обычное соединение клиент-сервер. Сервер 
+								осуществляет пассивное открытие на заранее известный порт FTP (21) и ожидает 
+								запроса на соединение от клиента. Клиент осуществляет активное открытие на TCP 
+								порт 21, чтобы установить управляющее соединение. Управляющее соединение 
+								существует все время, пока клиент общается с сервером. Это соединение 
+								используется для передачи команд от клиента к серверу и для передачи откликов 
+								от сервера. </FONT><A name="t272002"></A><FONT face="Times New Roman" size="3">Тип 
+								IP сервиса для управляющего соединения устанавливается для получения 
+								"минимальной задержки", так как команды обычно вводятся пользователем (рисунок 
+								3.2).</FONT></SMALL><FONT face="Times New Roman"> </FONT>
+					</DIV>
+				<LI>
+					<DIV align="justify"><SMALL><A name="t272003"></A><FONT face="Times New Roman" size="3">Соединение 
+								данных открывается каждый раз, когда осуществляется передача файла между 
+								клиентом и сервером. (Оно также открывается и в другие моменты, как мы увидим 
+								позже.) Тип сервиса IP для соединения данных должен быть "максимальная 
+								пропускная способность", так как это соединение используется для передачи 
+								файлов.</FONT></SMALL><FONT face="Times New Roman"> </FONT>
+					</DIV>
+				</LI>
+			</OL>
+			<P><SMALL><FONT face="Times New Roman" size="3">На рисунке 1 показано общение клиента и 
+						сервера по двум соединениям.</FONT> <A name="t272004"></A></SMALL>
+			</P>
+		</FONT>
+		<P align="center"><SMALL><IMG height="264" src="FTP_files/t27_1.jpg" width="548"></SMALL></P>
+		<P align="center"><SMALL>Рисунок 1. Процессы, участвующие в передаче файлов.</SMALL></P>
+		<P>&nbsp;</P>
+		<P align="justify"><SMALL><FONT size="3">Из рисунка видно, что интерактивный пользователь 
+					обычно не видит команды и отклики, которые передаются по управляющему 
+					соединению. Эти детали оставлены двум интерпретаторам протокола. Квадратик, 
+					помеченный как "пользовательский интерфейс", это именно то, что видит 
+					интерактивный пользователь (полноэкранный интерфейс, основанный на меню, 
+					командные строки и так далее). Интерфейс конвертирует ввод пользователя в FTP 
+					команды, которые отправляются по управляющему соединению. Отклики, возвращаемые 
+					сервером по управляющему соединению, конвертируются в формат, удобный для 
+					пользователя. </FONT></SMALL>
+		</P>
+		<P><SMALL><FONT size="3">Обратите внимание на то, что существуют два интерпретатора 
+					протокола, которые по необходимости используют две функции передачи данных.</FONT></SMALL></P>
+		<P><I><B></B></I>&nbsp;</P>
+		<P><A name="3"></A><I><B>Представление данных</P>
+		</B></I>
+		<P><FONT size="3">&nbsp;Протокол FTP предоставляет различные способы управления 
+				передачей и хранения файлов. Необходимо сделать выбор по четырем пунктам.</FONT>
+			<OL>
+				<LI>
+					<FONT size="3"><SMALL>Тип файла.</SMALL> </FONT>
+					<DL>
+						<P><SMALL><FONT size="3">(а)</FONT></SMALL></P>
+						<DD>
+							<P align="justify"><SMALL><A name="t272007"></A>ASCII файлы.<BR>
+									(По умолчанию) Текстовый файл передается по соединению данных как <A name="t272008">
+									</A>NVT ASCII. При этом требуется, чтобы отправитель конвертировал локальный 
+									текстовый файл в NVT ASCII, а получатель конвертировал NVT ASCII в текстовый 
+									файл. Конец каждой строки передается в виде NVT ASCII символа возврата каретки, 
+									после чего следует перевод строки. Это означает, что получатель должен 
+									просматривать каждый байт в поисках пары символов CR, LF.</SMALL></P>
+							<P><SMALL><FONT size="3">(b)</FONT></SMALL></P>
+							<DD>
+								<P align="justify"><FONT size="3"><SMALL>EBCDIC файлы.<BR>
+											Альтернативный способ передачи текстовых файлов, когда на обоих концах системы 
+											EBCDIC.</SMALL> </FONT>
+								</P>
+								<P><SMALL><FONT size="3">(c)</FONT></SMALL></P>
+								<DD>
+									<P align="justify"><FONT size="3"><SMALL>Двоичные или бинарные файлы. (Image.)<BR>
+												Данные передаются как непрерывный поток битов.</SMALL> </FONT>
+									</P>
+									<P><SMALL><FONT size="3">(d)</FONT></SMALL></P>
+									<DD>
+										<DIV align="justify"><FONT size="3"><SMALL>Локальный тип файлов.<BR>
+													Способ передачи бинарных файлов между хостами, которые имеют различный размер 
+													байта. Количество битов в байте определяется отправителем. Для систем, которые 
+													используют 8-битные байты, локальный тип файла с размером байта равным 8 
+													эквивалентен бинарному типу файла.</SMALL> </FONT>
+										</DIV>
+									</DD>
+					</DL>
+					<P>&nbsp;</P>
+				<LI>
+					<SMALL><A name="t272009"></A><FONT size="3">Управление форматом. Применяется только для 
+							ASCII и EBCDIC файлов.</FONT></SMALL>
+					<DL>
+						<P><SMALL><FONT size="3">(a)</FONT></SMALL></P>
+						<DD>
+							<FONT size="3"><SMALL>Nonprint. (По умолчанию)<BR>
+									Файл не содержит информацию вертикального формата.</SMALL> </FONT>
+							<P><SMALL><FONT size="3">(b)</FONT></SMALL></P>
+							<DD>
+								<P align="justify"><FONT size="3"><SMALL>Telnet format control.
+											<BR>
+											Файл содержит управляющие символы вертикального формата Telnet, которые 
+											интерпретируются принтером.</SMALL> </FONT>
+								</P>
+								<P><SMALL><FONT size="3">(c)</FONT></SMALL></P>
+								<DD>
+									<FONT size="3"><SMALL>Fortran carriage control.
+											<BR>
+											Первый символ каждой строки это Fortran символ управления формата.</SMALL> </FONT>
+								</DD>
+					</DL>
+					<P>&nbsp;</P>
+				<LI>
+					<SMALL><A name="t272010"></A><FONT size="3">Структура. </FONT></SMALL>
+					<DL>
+						<P><SMALL><FONT size="3">(a)</FONT></SMALL></P>
+						<DD>
+							<P align="justify"><FONT size="3"><SMALL>Структура файла.<BR>
+										(По умолчанию) Файл воспринимается в виде непрерывного потока байтов. Файл не 
+										имеет внутренней структуры.</SMALL> </FONT>
+							</P>
+							<P><SMALL><FONT size="3">(b)</FONT></SMALL></P>
+							<DD>
+								<FONT size="3"><SMALL>Структура записи.<BR>
+										Эта структура используется только в случае текстовых файлов (ASCII или EBCDIC).</SMALL>
+								</FONT>
+								<P><SMALL><FONT size="3">(c)</FONT></SMALL></P>
+								<DD>
+									<DIV align="justify"><SMALL>Структура страницы.<BR>
+											Каждая страница передается с номером страницы, что позволяет получателю хранить 
+											страницы в случайном порядке. Предоставляется операционной системой TOPS-20. 
+											(Требование к хостам <A name="t272011"></A>Host Requirements RFC не рекомендует 
+											использовать эту структуру.)</SMALL><FONT size="2"> </FONT>
+									</DIV>
+								</DD>
+					</DL>
+					<P>&nbsp;</P>
+				<LI>
+					<SMALL><A name="t272012"></A><FONT size="3">Режим передачи. Указывает на то, как файл 
+							передается по соединению данных. </FONT></SMALL>
+					<DL>
+						<P><SMALL><FONT size="3">(a)</FONT></SMALL></P>
+						<DD>
+							<P align="justify"><FONT size="3"><SMALL>Режим потока.
+										<BR>
+										(По умолчанию) Файл передается как поток байтов. Для файловой структуры конец 
+										файла указывает на то, что отправитель закрывает соединение данных. Для 
+										структуры записи специальная 2-байтовая последовательность обозначает конец 
+										записи и конец файла.</SMALL> </FONT>
+							</P>
+							<P><SMALL><FONT size="3">(b)</FONT></SMALL></P>
+							<DD>
+								<FONT size="3"><SMALL>Режим блоков.
+										<BR>
+										Файл передается как последовательность блоков, перед каждым из них стоит один 
+										или несколько байт заголовков.</SMALL> </FONT>
+								<P><SMALL><FONT size="3">(c)</FONT></SMALL></P>
+								<DD>
+									<DIV align="justify"><FONT size="3"><SMALL>Сжатый режим.
+												<BR>
+												Простое кодирование неоднократно встречающихся повторяющихся байт. В текстовых 
+												файлах обычно сжимаются пустые строки или строки из пробелов, а в бинарных 
+												строки из нулевых байт. (Этот режим поддерживается редко. Существуют более 
+												оптимальные способы сжатия файлов для FTP.)</SMALL> </FONT>
+									</DIV>
+								</DD>
+					</DL>
+				</LI>
+			</OL>
+		<P>&nbsp;</P>
+		<P align="justify"><SMALL><FONT size="3">Если посчитать количество комбинаций из 
+					приведенных вариантов, то получится 72 способа передачи и хранения файла. К 
+					счастью, можно игнорировать многие из этих опций, потому что они не 
+					поддерживаются в большинстве реализаций. </FONT></SMALL>
+		</P>
+		<P><FONT size="3">Самые распространенные Unix реализации FTP клиента и сервера 
+				предоставляют следующий выбор:</FONT>
+			<UL>
+				<LI>
+					<SMALL><FONT size="3">Тип: </FONT><A name="t272013"></A><FONT size="3">ASCII или 
+							двоичный. </FONT></SMALL>
+				<LI>
+					<SMALL><FONT size="3">Управление форматом: только nonprint. </FONT></SMALL>
+				<LI>
+					<SMALL><FONT size="3">Структура: только файловая структура.</FONT> </SMALL>
+				<LI>
+					<SMALL><FONT size="3">Режим передачи: только потоковый режим.</FONT></SMALL>
+				</LI>
+			</UL>
+		<P><SMALL><FONT size="3">Это ограничивает нас одним из двух режимов: ASCII или двоичный.</FONT></SMALL></P>
+		<P>&nbsp;</P>
+		<I><B>
+				<P><A name="4"></A>Команды FTP</P>
+			</B></I>
+		<P align="justify"><SMALL><FONT size="3">Команды и отклики передаются по управляющему 
+					соединению между клиентом и сервером в формате </FONT><A name="t272016"></A>
+				<FONT size="3">NVT ASCII. В конце каждой строки команды или отклика присутствует 
+					пара CR, LF. </FONT></SMALL>
+		</P>
+		<P align="justify"><FONT size="3"><SMALL>Команды состоят из 3 или 4 байт, а именно из 
+					заглавных ASCII символов, некоторые с необязательными аргументами. Клиент может 
+					отправить серверу более чем 30 различных FTP команд. Регистр при этом не 
+					различается.</SMALL><SMALL>Ниже приведен ряд наиболее распространенных команд 
+					протокола:</SMALL></FONT></P>
+		<P></P>
+		<SMALL>
+			<UL>
+				<LI>
+					<FONT size="3">управления доступом </FONT>
+					<UL>
+						<LI>
+							<FONT size="3">USER имя-пользователя </FONT>
+						<LI>
+							<FONT size="3">PASS пароль </FONT>
+						<LI>
+							<FONT size="3">ACCT учетная-запись (необязательно для регистрации) </FONT>
+						<LI>
+							<FONT size="3">CWD имя-новой-рабочей-директории </FONT>
+						<LI>
+							<FONT size="3">CDUP (перейти на один уровень директории вверх) </FONT>
+						<LI>
+							<FONT size="3">SMNT имя-монтируемой-директории </FONT>
+						<LI>
+							<FONT size="3">REIN (реинициализация соединения) </FONT>
+						<LI>
+							<FONT size="3">QUIT </FONT>
+						</LI>
+					</UL>
+				<LI>
+					<FONT size="3">установки параметров передачи </FONT>
+					<UL>
+						<LI>
+							<FONT size="3">PORT ip1,ip2,ip3,ip4,port1,port2 (1 - старший байт) </FONT>
+						<LI>
+							<FONT size="3">PASV (сервер д. определить нестандартный порт данных, начать его 
+								слушать и вернуть ip-адрес и номер порта в формате команды PORT) </FONT>
+						<LI>
+							<FONT size="3">TYPE { { A | E } [ N | T | C ] } | I | L размер-байта (по умолчанию 
+								- A N) </FONT>
+						<LI>
+							<FONT size="3">STRU { F | R | P } (по умолчанию - файл) </FONT>
+						<LI>
+							<FONT size="3">MODE { S | B | C } (по умолчанию - stream ) </FONT>
+						</LI>
+					</UL>
+				<LI>
+					<FONT size="3">действия </FONT>
+					<UL>
+						<LI>
+							<FONT size="3">RETR имя-файла (взять файл) </FONT>
+						<LI>
+							<FONT size="3">STOR имя-файла (передать файл) </FONT>
+						<LI>
+							<FONT size="3">STOU имя-файла (передать файл, записав его там под уникальным 
+								именем) </FONT>
+						<LI>
+							<FONT size="3">APPE имя-файла (передать файл, добавив его в конец файла на той 
+								стороне) </FONT>
+						<LI>
+							<FONT size="3">ALLO байт (зарезервировать место на сервере для будущей передачи) </FONT>
+						<LI>
+							<FONT size="3">REST маркер (при последующей передаче "перемотать" к соответствующей 
+								позиции в файле - обычно указывается смещение в байтах) </FONT>
+						<LI>
+							<FONT size="3">RNFR старое-имя-файла </FONT>
+						<LI>
+							<FONT size="3">RNTO новое-имя-файла </FONT>
+						<LI>
+							<FONT size="3">ABOR (прервать передачу данных и закрыть соединение данных) </FONT>
+						<LI>
+							<FONT size="3">DELE имя-удаляемого-файла </FONT>
+						<LI>
+							<FONT size="3">RMD имя-удаляемой-директории </FONT>
+						<LI>
+							<FONT size="3">MKD имя-создаваемой-директории </FONT>
+						<LI>
+							<FONT size="3">PWD (в ответе указать имя текущей директории) </FONT>
+						<LI>
+							<FONT size="3">LIST [ имя-директории-или-файла ] (передать по соединению данных 
+								список имен файлов в директории или информацию о файле) </FONT>
+						<LI>
+							<FONT size="3">NLST [ имя-директории ] (передать по соединению данных список имен 
+								файлов в директории, разделенных CRLF) </FONT>
+						<LI>
+							<FONT size="3">SITE (выполнить нестандартное действие, реализованное данным 
+								сервером; синтаксис и семантика д. объясняться по HELP SITE) </FONT>
+						<LI>
+							<FONT size="3">SYST (ответ должен содержать тип ОС сервера и др. полезную 
+								информацию) </FONT>
+						<LI>
+							<FONT size="3">STAT (ответ д. содержать информацию о текущем состоянии сервера; 
+								если команда выдана в процессе передачи файла и предварена посылкой сигналов 
+								telnet-а IP и Synch, то ответ д. содержать информацию о состоянии пересылки) </FONT>
+						<LI>
+							<FONT size="3">STAT имя-файла (ответ д. содержать информацию о файле) </FONT>
+						</LI>
+					</UL>
+				<LI>
+					<FONT size="3">прочее </FONT>
+					<UL>
+						<LI>
+							<FONT size="3">HELP [ имя-команды ] </FONT>
+						<LI>
+							<FONT size="3">NOOP </FONT>
+						</LI>
+					</UL>
+				</LI>
+			</UL>
+			<P><FONT size="3"></FONT>&nbsp;</P>
+			<P><FONT size="3"></FONT>
+		</SMALL></SMALL></P><I><B>
+				<P><A name="5"></A>FTP отклики</P>
+			</B></I>
+		<P align="justify"><SMALL><FONT size="3">Отклики состоят из 3-циферных значений в формате 
+					ASCII, и необязательных сообщений, которые следуют за числами. Подобное 
+					представление откликов объясняется тем, что программному обеспечению необходимо 
+					посмотреть только цифровые значения, чтобы понять, что ответил процесс, а 
+					дополнительную строку может прочитать человек. Поэтому пользователю достаточно 
+					просто прочитать сообщение (причем нет необходимости запоминать все цифровые 
+					коды откликов). </FONT></SMALL>
+		</P>
+		<P align="justify">Каждая из трех цифр в коде отклика имеет собственный смысл. На 
+			рисунке 3 показаны значения первых и вторых цифр в коде отклика.</P>
+		<P align="justify">&nbsp;</P>
+		<TABLE borderColor="#000000" cellSpacing="1" cellPadding="5" width="715" border="1" align="center">
+			<TBODY>
+				<TR>
+					<TD vAlign="top" width="12%" bgColor="#ffffff">
+						<P align="center"><SMALL><FONT size="3">Отклик</FONT></SMALL></P>
+					</TD>
+					<TD vAlign="top" width="88%" bgColor="#ffffff">
+						<P align="center"><FONT size="3"><SMALL>Описание</SMALL> </FONT>
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="12%"><SMALL><FONT size="3">1yz</FONT></SMALL></TD>
+					<TD vAlign="top" width="88%"><SMALL><FONT size="3">Положительный предварительный отклик. 
+								Действие началось, однако необходимо дождаться еще одного отклика перед 
+								отправкой следующей команды.</FONT></SMALL></TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="12%"><SMALL><FONT size="3">2yz</FONT></SMALL></TD>
+					<TD vAlign="top" width="88%"><SMALL><FONT size="3">Положительный отклик о завершении. Может 
+								быть отправлена новая команда.</FONT></SMALL></TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="12%"><SMALL><FONT size="3">3yz</FONT></SMALL></TD>
+					<TD vAlign="top" width="88%"><SMALL><FONT size="3">Положительный промежуточный отклик. 
+								Команда принята, однако необходимо отправить еще одну команду.</FONT></SMALL></TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="12%"><SMALL><FONT size="3">4yz</FONT></SMALL></TD>
+					<TD vAlign="top" width="88%"><SMALL><FONT size="3">Временный отрицательный отклик о 
+								завершении. Требуемое действие не произошло, однако ошибка временная, поэтому 
+								команду необходимо повторить позже.</FONT></SMALL></TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="12%"><SMALL><FONT size="3">5yz</FONT></SMALL></TD>
+					<TD vAlign="top" width="88%"><SMALL><FONT size="3">Постоянный отрицательный отклик о 
+								завершении. Команда не была воспринята и повторять ее не стоит.</FONT></SMALL></TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="12%"><SMALL><FONT size="3">x0z</FONT></SMALL></TD>
+					<TD vAlign="top" width="88%"><SMALL><FONT size="3">Синтаксическая ошибка.</FONT></SMALL></TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="12%"><SMALL><FONT size="3">x1z</FONT></SMALL></TD>
+					<TD vAlign="top" width="88%"><SMALL><FONT size="3">Информация.</FONT></SMALL></TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="12%"><SMALL><FONT size="3">x2z</FONT></SMALL></TD>
+					<TD vAlign="top" width="88%"><SMALL><FONT size="3">Соединения. Отклики имеют отношение либо 
+								к управляющему, либо к соединению данных.</FONT></SMALL></TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="12%"><SMALL><FONT size="3">x3z</FONT></SMALL></TD>
+					<TD vAlign="top" width="88%"><SMALL><FONT size="3">Аутентификация. Отклик имеет отношение 
+								к&nbsp;авторизации или командам, связанным с управлением сессией.</FONT></SMALL></TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="12%"><SMALL><FONT size="3">x4z</FONT></SMALL></TD>
+					<TD vAlign="top" width="88%"><SMALL><FONT size="3">Не определено.</FONT></SMALL></TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="12%"><SMALL><FONT size="3">x5z</FONT></SMALL></TD>
+					<TD vAlign="top" width="88%"><SMALL><FONT size="3">Состояние файловой системы.</FONT></SMALL></TD>
+				</TR>
+			</TBODY></TABLE>
+		<P align="center"><SMALL><FONT size="3">Рисунок 3. Значения первой и второй цифр в 
+					3-циферном коде отклика.</FONT></SMALL></P>
+		<P>&nbsp;</P>
+		<P align="justify"><SMALL><FONT size="3">Третья цифра дает дополнительное объяснение 
+					сообщению об ошибке. Ниже приведены некоторые типичные отклики с возможными 
+					объясняющими строками. </FONT></SMALL>
+			<UL>
+				<LI>
+					<SMALL><FONT size="3">125 Соединение данных уже открыто; начало передачи. </FONT></SMALL>
+				<LI>
+					<SMALL><FONT size="3">200 Команда исполнена. </FONT></SMALL>
+				<LI>
+					<SMALL><FONT size="3">214 Сообщение о помощи (для пользователя). </FONT></SMALL>
+				<LI>
+					<SMALL><FONT size="3">331 Имя пользователя принято, требуется пароль. </FONT></SMALL>
+				<LI>
+					<SMALL><FONT size="3">425 Невозможно открыть соединение данных. </FONT></SMALL>
+				<LI>
+					<SMALL><FONT size="3">452 Ошибка записи файла. </FONT></SMALL>
+				<LI>
+					<SMALL><FONT size="3">500 Синтаксическая ошибка (неизвестная команда). </FONT></SMALL>
+				<LI>
+					<SMALL><FONT size="3">501 Синтаксическая ошибка (неверные аргументы).</FONT> </SMALL>
+				<LI>
+					<SMALL></SMALL><SMALL><FONT size="3">502 Нереализованный тип MODE.</FONT>&nbsp;</SMALL></LI></UL>
+		<P align="justify"><SMALL><FONT size="3">Обычно каждая FTP команда генерируют отклик в одну 
+					строку. Например, команда QUIT сгенерирует следующий отклик:</FONT></SMALL></P>
+		<P>
+			221 Goodbye.</P>
+		<P align="justify"><SMALL><FONT size="3">Если необходим отклик в несколько строк, первая 
+					строка содержит дефис вместо пробела после 3-циферного кода отклика, а 
+					последняя строка содержит тот же самый 3-циферный код отклика, за которым 
+					следует пробел. Например, команда HELP сгенерирует следующий отклик:</FONT></SMALL></P>
+		<P><BR>
+			<FONT face="Courier New" size="2">214- The following commands are recognized (* 
+				=&gt;'s unimplemented).<BR>
+				&nbsp;&nbsp; USER&nbsp;&nbsp;&nbsp; PORT&nbsp;&nbsp;&nbsp; 
+				STOR&nbsp;&nbsp;&nbsp; MSAM* &nbsp;&nbsp;&nbsp; RNTO&nbsp;&nbsp;&nbsp; 
+				NLST&nbsp;&nbsp;&nbsp; MKD &nbsp;&nbsp;&nbsp;&nbsp; CDUP<BR>
+				&nbsp;&nbsp; PASS&nbsp;&nbsp;&nbsp; PASV&nbsp;&nbsp;&nbsp; 
+				APPE&nbsp;&nbsp;&nbsp; MRSQ* &nbsp;&nbsp;&nbsp; ABOR&nbsp;&nbsp;&nbsp; 
+				SITE&nbsp;&nbsp;&nbsp; XMKD &nbsp;&nbsp;&nbsp; XCUP<BR>
+				&nbsp;&nbsp; ACCT*&nbsp;&nbsp; TYPE&nbsp;&nbsp;&nbsp; MLFL*&nbsp;&nbsp; MRCP* 
+				&nbsp;&nbsp;&nbsp; DELE&nbsp;&nbsp;&nbsp; SYST&nbsp;&nbsp;&nbsp; RMD 
+				&nbsp;&nbsp;&nbsp;&nbsp; STOU<BR>
+				&nbsp;&nbsp; SMNT*&nbsp;&nbsp; STRU&nbsp;&nbsp;&nbsp; MAIL*&nbsp;&nbsp; ALLO 
+				&nbsp;&nbsp;&nbsp;&nbsp; CWD&nbsp;&nbsp;&nbsp;&nbsp; STAT&nbsp;&nbsp;&nbsp; 
+				XRMD &nbsp;&nbsp;&nbsp; SIZE<BR>
+				&nbsp;&nbsp; REIN*&nbsp;&nbsp; MODE&nbsp;&nbsp;&nbsp; MSND*&nbsp;&nbsp; REST 
+				&nbsp;&nbsp;&nbsp;&nbsp; XCWD&nbsp;&nbsp;&nbsp; HELP&nbsp;&nbsp;&nbsp; PWD 
+				&nbsp;&nbsp;&nbsp;&nbsp; MDTM<BR>
+				&nbsp;&nbsp; QUIT&nbsp;&nbsp;&nbsp; RETR&nbsp;&nbsp;&nbsp; MSOM*&nbsp;&nbsp; 
+				RNFR &nbsp;&nbsp;&nbsp;&nbsp; LIST&nbsp;&nbsp;&nbsp; NOOP&nbsp;&nbsp;&nbsp; 
+				XPWD<BR>
+				214 Direct comments to ftp-bugs@bsdi.tuc.noao.edu.</FONT></P>
+		<P><FONT face="Courier New" size="2"></FONT>&nbsp;</P>
+		<P><SMALL><FONT size="3">&nbsp;</FONT><A name="6"></A></SMALL><I><B>Управление 
+			соединением</P>
+		</B></I>
+		<P><SMALL><FONT size="3">Использовать соединение данных можно тремя способами. </FONT></SMALL>
+			<OL>
+				<LI>
+					<FONT size="3"><SMALL>Отправка файлов от клиента к серверу.</SMALL> </FONT>
+				<LI>
+					<FONT size="3"><SMALL>Отправка файлов от сервера к клиенту.</SMALL> </FONT>
+				<LI>
+					<FONT size="3"><SMALL>Отправка списка файлов или директорий от сервера к клиенту.</SMALL>
+					</FONT>
+				</LI>
+			</OL>
+		<P align="justify"><SMALL><FONT size="3">FTP сервер посылает список файлов по соединению 
+					данных, вместо того чтобы посылать многострочные отклики по управляющему 
+					соединению. При этом появляется возможность избежать любых ограничений в 
+					строках, накладывающихся на размер списка директории, и позволяет просто 
+					сохранить список директории в файле, вместо того чтобы выдавать список на 
+					терминал. </FONT></SMALL>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">Мы сказали, что управляющее соединение остается в 
+					активизированном состоянии все время, пока установлено соединение 
+					клиент-сервер, однако соединение данных может выключаться и включаться по 
+					необходимости. Как выбираются номера портов для соединения данных, и кто 
+					осуществляет активное открытие, а кто пассивное открытие? </FONT></SMALL>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">Во-первых, как было сказано ранее, 
+					распространенный режим передачи (в случае Unix это единственный режим передачи) 
+					- это потоковый режим. В этом режиме конец файла обозначает закрытие соединения 
+					данных. Из этого следует, что для передачи каждого файла или списка директории 
+					требуется новое соединение данных. Обычная процедура выглядит следующим 
+					образом:</FONT></SMALL></P>
+		<P align="justify"><SMALL></SMALL>
+			<OL>
+				<LI>
+					<DIV align="justify"><SMALL><FONT size="3">Создание соединения данных осуществляется 
+								клиентом, потому что именно клиент выдает команды, которые требуют передать 
+								данные (получить файл, передать файл или список директории). </FONT></SMALL>
+					</DIV>
+				<LI>
+					<DIV align="justify"><SMALL><FONT size="3">Клиент обычно выбирает динамически назначаемый 
+								номер порта на хосте клиента для своего конца соединения данных. Клиент 
+								осуществляет пассивное открытие с этого порта. </FONT></SMALL>
+					</DIV>
+				<LI>
+					<DIV align="justify"><SMALL><FONT size="3">Клиент посылает этот номер порта на сервер по 
+								управляющему соединению с использованием команды PORT. </FONT></SMALL>
+					</DIV>
+				<LI>
+					<DIV align="justify"><SMALL><FONT size="3">Сервер принимает номер порта с управляющего 
+								соединения и осуществляет активное открытие на этот порт хоста клиента. Сервер 
+								всегда использует порт 20 для соединения данных. </FONT></SMALL>
+					</DIV>
+				</LI>
+			</OL>
+		<P align="justify"><SMALL><FONT size="3">На рисунке 4 показано состояние соединений, пока 
+					осуществляется шаг номер 3. Мы предполагаем, что динамически назначаемый порт 
+					клиента для управляющего соединения имеет номер 1173, а динамически назначаемый 
+					порт клиента для соединения данных имеет номер 1174. Команда, посылаемая 
+					клиентом - PORT, а ее аргументы это шесть десятичных цифр в формате ASCII, 
+					разделенные запятыми. Четыре первых числа - это IP адрес клиента, на который 
+					сервер должен осуществить активное открытие (140.252.13.34 в данном примере), а 
+					следующие два - это 16-битный номер порта. Так как 16-битный номер порта 
+					формируется из двух цифр, его значение в этом примере будет 4 x 256 + 150 = 
+					1174. </FONT></SMALL>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">На рисунке 5 показано состояние соединений, когда 
+					сервер осуществляет активное открытие на конец клиента соединения данных. 
+					Конечная точка сервера это порт 20.</FONT> <A name="t272021"></A></SMALL>
+		</P>
+		<P align="center"><SMALL><FONT size="3"><IMG height="127" src="FTP_files/t27_4.jpg" width="463"></FONT></SMALL></P>
+		<P align="center"><SMALL><FONT size="3">Рисунок 4. Команда PORT, передаваемая по 
+					управляющему соединению FTP.</FONT></SMALL></P>
+		<P align="center"><SMALL><FONT size="3"><IMG height="139" src="FTP_files/t27_5.jpg" width="463"></FONT></SMALL></P>
+		<P align="center"><SMALL><FONT size="3">Рисунок 5. FTP сервер осуществляет активное 
+					открытие соединения данных.</FONT></SMALL></P>
+		<P>&nbsp;</P>
+		<P align="justify"><SMALL><FONT size="3">Сервер всегда осуществляет активное открытие 
+					соединения данных. Обычно сервер также осуществляет активное закрытие 
+					соединения данных, за исключением тех случаев, когда клиент отправляет файл на 
+					сервер в потоковом режиме, который требует, чтобы клиент закрыл соединение (что 
+					делается с помощью уведомления сервера о конце файла). </FONT></SMALL>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">Если клиент не выдает команду PORT, сервер 
+					осуществляет активное открытие на тот же самый номер порта, который 
+					использовался клиентом для управляющего соединения (1173 в данном примере). В 
+					этом случае все работает корректно, так как номера порта сервера для двух 
+					соединений различны: один 20, другой 21. Тем не менее, в следующем разделе мы 
+					посмотрим, почему современные реализации не поступают таким образом.</FONT></SMALL></P>
+		<P align="justify"><SMALL></SMALL>&nbsp;</P>
+		<B>
+			<P align="center"><A name="7"></A>Примеры FTP</P>
+		</B>
+		<P align="justify"><SMALL><FONT size="3">Сейчас мы рассмотрим некоторые примеры 
+					использования FTP: как осуществляется управление соединением данных, как 
+					передаются текстовые файлы с использованием </FONT><A name="t273002"></A><FONT size="3">
+					NVT ASCII, как в FTP используется сигнал синхронизации Telnet для прекращения 
+					процесса передачи. В завершение мы рассмотрим "анонимный FTP" (anonymous FTP).</FONT></SMALL></P>
+		<P align="justify"><I><B></B></I>&nbsp;</P>
+		<P align="justify"><A name="8"></A><I><B>Управление соединением: динамически 
+			назначаемый порт</P>
+		</B></I>
+		<P align="justify"><SMALL><FONT size="3">Давайте, рассмотрим управление FTP соединением на 
+					примере простой FTP сессии, в течение которой просматривается список файлов на 
+					сервере. Клиент запущен на хосте svr4 с флагом </FONT><A name="t273003"></A>
+				<FONT size="3">-d (отладка). При этом печатаются команды и отклики, которыми 
+					происходит обмен по управляющему соединению. Все строки, начинающиеся с 
+					---&gt;, отправляются клиентом серверу, а строки, которые начинаются с 
+					3-циферных чисел, это отклики от сервера. </FONT><A name="t273004"></A><FONT size="3">
+					Клиенту выдается приглашение в виде ftp&gt;.</FONT></SMALL></P>
+		<P>&nbsp;</P>
+		<P><BR>
+			<FONT face="Courier New" size="2">svr4 % <B>ftp -d bsdi </B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				опция -d для отладочного вывода<BR>
+				Connected to bsdi. 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				клиент осуществляет активное открытие управляющего соединения<BR>
+				220 bsdi FTP server (Version 5.60) ready. 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; сервер отвечает, что он 
+				готов<BR>
+				<BR>
+				Name (bsdi:rstevens): 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				клиент спрашивает имя пользователя<BR>
+				<BR>
+				---&gt; USER rstevens 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				вводим RETURN, поэтому используется имя по умолчанию<BR>
+				331 Password required for rstevens.<BR>
+				<BR>
+				Password: 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				вводим наш пароль; он не отображается эхом<BR>
+				<BR>
+				---&gt; PASS XXXXXXX 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				клиент передает пароль в виде открытого текста<BR>
+				230 User rstevens logged in.<BR>
+				<BR>
+				ftp&gt; <B>dir hello.c </B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				спрашиваем, находится ли в директории указанный файл<BR>
+				<BR>
+				---&gt; PORT 140,252,13,34,4,150 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				см. рисунок 4<BR>
+				200 PORT command successful.<BR>
+				<BR>
+				---&gt; LIST hello.c<BR>
+				150 Opening ASCII mode data connection for /bin/ls.<BR>
+				<BR>
+				-rw-r--r-- 1 rstevens staff 38 Jul 17 12:47 hello.c<BR>
+				<BR>
+				226 Transfer complete.<BR>
+				<BR>
+				remote: hello.c 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				вывод от клиента<BR>
+				56 bytes received in 0.03 seconds (1.8 Kbytes/s)<BR>
+				<BR>
+				ftp&gt; <B>quit</B> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				мы закончили<BR>
+				<BR>
+				---&gt; QUIT<BR>
+				221 Goodbye.<BR>
+			</FONT>
+		</P>
+		<P>&nbsp;</P>
+		<P align="justify"><SMALL><FONT size="3">Когда FTP клиент просит нас ввести имя 
+					пользователя, он выводит имя по умолчанию (наше имя на хосте клиента). Когда мы 
+					нажимаем клавишу RETURN, отправляется это имя по умолчанию. </FONT></SMALL>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">Когда мы спрашиваем, присутствует ли указанный 
+					файл в директории, устанавливается соединение данных. Этот пример является 
+					продолжением процедуры, показанной на рисунках 4 и 5. Клиент спрашивает свой 
+					TCP модуль о динамически назначаемом номере порта для своего конца соединения 
+					данных и отправляет этот номер порта (1174) серверу в виде команды PORT. Мы 
+					также видим, что одна команда, введенная пользователем (dir) генерирует две FTP 
+					команды (PORT и LIST). </FONT></SMALL>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">На рисунке 6 приведена временная диаграмма, 
+					иллюстрирующая обмен пакетами по управляющему соединению. (Мы удалили все, что 
+					связано с установлением и прерыванием управляющего соединения, вместе со всеми 
+					объявлениями размера окна.) На этом рисунке показано как открывается соединение 
+					данных, используется и затем закрывается. </FONT></SMALL>
+		</P>
+		<P align="justify"><FONT size="3"> <SMALL><A name="t273006">Рисунок 7 - это временная диаграмма 
+						для соединения данных. Времена на этом рисунке начинаются с того же момента, 
+						как и на рисунке 6. Мы удалили все объявления окна, однако оставили поле типа 
+						сервиса, чтобы показать, что соединение данных использует отличный тип сервиса 
+						(максимальная пропускная способность), нежели управляющее соединение 
+						(минимальная задержка). На этой временной диаграмме FTP сервер осуществляет 
+						активное открытие соединения данных с порта 20 (который называется ftp-data) на 
+						номер порта из команды PORT (1174). Также в этом примере, где сервер выдает 
+						информацию в соединение данных, сервер осуществляет активное закрытие 
+						соединения данных, тем самым сообщая клиенту, когда список завершен.</A></SMALL></FONT></P>
+		<P align="center"><SMALL><FONT size="3"><IMG height="741" src="FTP_files/t27_6.jpg" width="508"></FONT></SMALL></P>
+		<P align="center"><SMALL><FONT size="3">Рисунок 6. Пример управляющего соединения FTP.</FONT></SMALL></P>
+		<P align="center"><SMALL><FONT size="3"><IMG height="340" src="FTP_files/t27_7.jpg" width="497"></FONT></SMALL></P>
+		<P align="center"><SMALL><FONT size="3">Рисунок 7. Пример соединения данных FTP.</FONT></SMALL></P>
+		<P>&nbsp;</P>
+		<H3><A name="9"></A><EM><FONT size="3">Передача текстовых файлов: представление NVT ASCII 
+					или двоичное?</FONT></EM></H3>
+		<P align="justify">Давайте убедимся в том, что при передаче текстовых файлов по 
+			умолчанию используется формат<A name="t273017"> </A>NVT ASCII. В этот раз мы не 
+			будем использовать флаг -d, поэтому мы не увидим команды клиента, однако клиент 
+			все еще печатает отклики от сервера:</P>
+		<P><BR>
+			<FONT face="Courier New" size="2">sun % <B>ftp bsdi</B><BR>
+				Connected to bsdi.<BR>
+				220 bsdi FTP server (Version 5.60) ready.<BR>
+				<BR>
+				Name (bsdi:rstevens): 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				вводим RETURN<BR>
+				331 Password required for rstevens.<BR>
+				<BR>
+				Password: вводим пароль<BR>
+				230 User rstevens logged in.<BR>
+				<BR>
+				ftp&gt; <B>get hello.c </B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				получаем файл<BR>
+				200 PORT command successful.<BR>
+				<BR>
+				150 Opening ASCII mode data connection for hello.c (38 bytes).<BR>
+				226 Transfer complete. 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				сервер сообщает, что файл содержит 38 байт<BR>
+				<BR>
+				local: hello.c remote: hello.c 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				вывод от клиента<BR>
+				42 bytes received in 0.0037 seconds (11 Kbytes/s) 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				42 байта пришло по соединению данных<BR>
+				<BR>
+				ftp&gt; <B>quit</B><BR>
+				221 Goodbye.<BR>
+				<BR>
+				sun % <B>ls -l hello.c</B><BR>
+				-rw-rw-r-- 1 rstevens 38 Jul 18 08:48 hello.c 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				однако файл содержит 38 байт<BR>
+				<BR>
+				sun % <B>wc -l hello.c</B> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				подсчет строк в файле<BR>
+				4 hello.c<BR>
+			</FONT>
+		</P>
+		<P><FONT face="Courier New" size="2"></FONT>&nbsp;</P>
+		<P align="justify"><SMALL><FONT size="3">Сорок два байта было передано по соединению 
+					данных, потому что файл содержит четыре строки. Каждый Unix символ новой строки 
+					(\n) конвертируется в 2-байтную последовательность NVT ASCII конец строки 
+					(\r\n) сервером для передачи, а затем конвертируется обратно клиентом при 
+					записи на диск. </FONT></SMALL>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">Более новые клиенты стараются определить, 
+					используется ли подобная система на сервере, и если да, передают файлы в 
+					двоичном виде (image тип файла) вместо </FONT><A name="t273018"></A><FONT size="3">
+					ASCII. Это помогает в двух случаях.</FONT></SMALL>
+			<OL>
+				<LI>
+					<DIV align="justify"><SMALL><FONT size="3">Отправитель и получатель не должны просматривать 
+								каждый байт (это большая экономия времени и ресурсов). </FONT></SMALL>
+					</DIV>
+				<LI>
+					<DIV align="justify"><SMALL><FONT size="3">Передается меньше байт, если операционная 
+								система хоста использует меньше байтов в качестве символа конца строки, нежели 
+								2-байтовая последовательность NVT ASCII (это меньшая часть экономии). </FONT>
+						</SMALL>
+					</DIV>
+				</LI>
+			</OL>
+		<P align="justify"><SMALL><FONT size="3">Мы можем увидеть подобную оптимизацию с 
+					использованием </FONT><A name="t273019"></A><FONT size="3">BSD/386 клиента и 
+					сервера. Включен отладочный режим, что позволяет увидеть команды FTP клиента:</FONT></SMALL></P>
+		<P>
+			<BR>
+			<FONT face="Courier New" size="2">bsdi % <B>ftp -d slip </B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				указываем опцию -d, чтобы видеть команды клиента<BR>
+				Connected to slip.<BR>
+				220 slip FTP server (Version 5.60) ready.<BR>
+				<BR>
+				Name (slip:rstevens): 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				вводим RETURN<BR>
+				---&gt; USER rstevens<BR>
+				331 Password required for rstevens.<BR>
+				<BR>
+				Password: вводим пароль<BR>
+				---&gt; PASS XXXX<BR>
+				230 User rstevens logged in.<BR>
+				<BR>
+				---&gt; SYST 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				это клиент посылает автоматически<BR>
+				215 UNIX Type: L8 Version: BSD-199103 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				отклик сервера<BR>
+				<BR>
+				Remote system type is UNIX. 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				вывод информации клиентом<BR>
+				Using binary mode to transfer files. 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				вывод информации клиентом<BR>
+				<BR>
+				ftp&gt; <B>get hello.c </B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				получить файл<BR>
+				---&gt; TYPE I 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				это клиент посылает автоматически<BR>
+				200 Type set to I.<BR>
+				<BR>
+				---&gt; PORT 140,252,13,66,4,84 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				номер порта = 4 х 256 + 84 = 1108<BR>
+				200 PORT command successful.<BR>
+				<BR>
+				---&gt; RETR hello.c<BR>
+				150 Opening BINARY mode data connection for hello.c (38 bytes).<BR>
+				226 Transfer complete.<BR>
+				<BR>
+				38 bytes received in 0.035 seconds (1.1 Kbytes/s) 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; в этот раз только 38 байт<BR>
+				<BR>
+				ftp&gt; <B>quit</B><BR>
+				<BR>
+				---&gt; QUIT<BR>
+				221 Goodbye.<BR>
+			</FONT>
+		</P>
+		<P><SMALL><FONT size="3">После того как мы правильно ввели имя и пароль серверу, FTP клиент 
+					автоматически посылает команду SYST, в ответ на которую сервер сообщает свой 
+					тип системы. Если отклик начинается со строки "215 UNIX Type: L8", и если 
+					клиент работает под управлением Unix системы с 8-битными байтами, для передачи 
+					всех файлов используется двоичный (image) режим, если его не сменит 
+					пользователь. </FONT></SMALL>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">Когда мы забираем файл hello.c, клиент 
+					автоматически посылает команду TYPE I, чтобы установить тип файла в двоичный. 
+					На этот раз по соединению данных было передано 38 байт.</FONT></SMALL></P>
+		<P align="justify"><SMALL></SMALL><FONT color="#0000a0"><FONT color="#000000">Требования к 
+					хостам </FONT><A name="t273020"></A><FONT color="#000000">Host Requirements RFC 
+					говорят, что FTP сервер должен поддерживать команду SYST (это было 
+					необязательным условием в RFC 959). Из систем описанных в тексте (см. 
+					внутреннюю сторону обложки) эту команду поддерживают </FONT><A name="t273021"></A>
+				<FONT color="#000000">BSD/386 и </FONT><A name="t273022"></A><FONT color="#000000">AIX 
+					3.2.2. </FONT><A name="t273023"></A><FONT color="#000000">SunOS 4.1.3 и </FONT>
+				<A name="t273024"></A><FONT color="#000000">Solaris 2.x выдают на эту команду 
+					отклик 500 (команда неизвестна). </FONT><A name="t273025"></A><FONT color="#000000">
+					SVR4 ведет себя совсем по-дикому: отвечает 500 и закрывает управляющее 
+					соединение!</FONT> </FONT>
+		</P>
+		<P>&nbsp;</P>
+		<I><B>
+				<P><A name="10"></A>Прекращение передачи файла</P>
+			</B></I>
+		<P align="justify"><SMALL><FONT size="3">Сейчас мы посмотрим, как FTP клиент прекращает 
+					передачу файла от сервера. Прекратить передачу файла от клиента к серверу 
+					достаточно просто - клиент прекращает посылку данных по соединению данных и 
+					посылает ABOR на сервер по управляющему соединению. Прекращение приема, однако, 
+					более сложная задача, потому что клиент хочет, чтобы сервер немедленно 
+					прекратил передачу данных. </FONT></SMALL>
+		</P>
+		<P align="justify"><SMALL></SMALL><SMALL><FONT size="3">Мы начали прием, после чего ввели 
+					символ прерывания. Ниже приведена интерактивная сессия, процесс идентификации 
+					пользователя удален:</FONT></SMALL></P>
+		<P><BR>
+			<FONT face="Courier New" size="2">ftp&gt; <B>get a.out</B> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				получаем большой файл<BR>
+				<BR>
+				---&gt; TYPE I 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				клиент и сервер - Unix системы с 8-битными байтами<BR>
+				<BR>
+				200 Type set to I.<BR>
+				<BR>
+				---&gt; PORT 140,252,13,66,4,99<BR>
+				200 PORT command successful.<BR>
+				<BR>
+				---&gt; RETR a.out<BR>
+				150 Opening BINARY mode data connection for a.out (28672 bytes).<BR>
+				<BR>
+				^<B>?</B> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				вводим символ прерывания<BR>
+				receive aborted 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				вывод от клиента<BR>
+				waiting for remote to finish abort 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				вывод от клиента<BR>
+				<BR>
+				426 Transfer aborted. Data connection closed.<BR>
+				226 Abort successful<BR>
+				<BR>
+				1536 bytes received in 1.7 seconds (0.89 Kbytes/s)<BR>
+			</FONT>
+		</P>
+		<P>&nbsp;</P>
+		<P align="justify"><SMALL><FONT size="3">После того как введен символ прерывания, клиент 
+					немедленно сообщает, что он инициализировал прерывание передачи файла и 
+					ожидает, когда сервер его завершит. Сервер посылает два отклика: 426 и 226. Оба 
+					отклика посылаются Unix сервером, когда он принимает срочные данные от клиента 
+					с командой ABOR. </FONT></SMALL>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">На рисунках 9 и 10 показаны временные диаграммы 
+					для этой сессии. Мы объединили вместе управляющее соединение (сплошные линии) и 
+					соединение данных (прерывистые линии), чтобы показать взаимосвязь между ними.</FONT>
+				<A name="t273028"></A></SMALL>
+		</P>
+		<P align="center"><SMALL><FONT size="3"><IMG height="492" src="FTP_files/t27_9.jpg" width="515"></FONT></SMALL></P>
+		<P align="center"><SMALL><FONT size="3">Рисунок 9. Прерывание передачи файла (первая 
+					половина).</FONT></SMALL></P>
+		<P>&nbsp;</P>
+		<P align="justify"><SMALL><FONT size="3">Первые 12 сегментов на рисунке 9 как раз такие, 
+					как мы ожидали. Команды и отклики по управляющему соединению настраивают 
+					системы на передачу файла, открывается соединение данных и от сервера к клиенту 
+					посылается первый сегмент данных.</FONT> <A name="t273029"></A></SMALL>
+		</P>
+		<P align="center"><SMALL><FONT size="3"><IMG height="632" src="FTP_files/t27_10.jpg" width="515"></FONT></SMALL></P>
+		<P align="center"><SMALL><FONT size="3">Рисунок 10. Прерывание передачи файла (вторая 
+					половина).</FONT></SMALL></P>
+		<P>&nbsp;</P>
+		<P align="justify"><SMALL><FONT size="3">Сегмент 13 на рисунке 10 - это квитанция на шестой 
+					сегмент данных от сервера по соединению данных. Затем следует сегмент 14, 
+					который сгенерирован нашим вводом символа прерывания. Для того чтобы прервать 
+					передачу, клиент посылает десять байт:</FONT></SMALL></P>
+		<P><FONT size="3"><SMALL>&lt;IAC, IP, IAC, DM, A, B, O, R, \r, \n&gt;</SMALL> </FONT>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">Мы видим два сегмента (14 и 15), это связано с 
+					проблемой определения положения </FONT><A name="t273030"></A><FONT size="3">указателя 
+					срочности TCP.&nbsp; Требование к хостам </FONT><A name="t273031"></A><FONT size="3">
+					Host Requirements RFC говорит, что указатель срочности должен указывать на 
+					последний байт срочных данных, тогда как большинство Berkeley реализаций 
+					указывают на один байт позади последнего байта срочных данных. FTP клиент 
+					специально пишет первые 3 байта как срочные данные, зная, что указатель 
+					срочности будет (некорректно) указывать на следующий байт, который будет 
+					записан (метка данных, DM, с номером последовательности 54). Эта первая запись 
+					из 3 байт срочных данных посылается немедленно, вместе с указателем срочности, 
+					за ними следуют следующие 7 байт. (BSD FTP сервер не имеет проблемы с 
+					интерпретацией указателя срочности, который используется клиентом. Когда сервер 
+					принимает срочные данные по управляющему соединению, он читает следующую FTP 
+					команду, в поиске ABOR или STAT, игнорируя любые вложенные команды Telnet.) </FONT>
+			</SMALL>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">Несмотря на то, что сервер сообщил о прекращении 
+					передачи (сегмент 18, по управляющему соединению), клиент получил еще 14 
+					сегментов данных (номера последовательности 1537 - 5120) по соединению данных. 
+					Эти сегменты, скорее всего, были поставлены в очередь в драйвере сетевого 
+					устройства на сервере, когда был принят сигнал о прекращении передачи. Однако 
+					клиент печатает "1536 байт принято", а это означает, что он проигнорировал эти 
+					сегменты данных (сегменты 17 и позже), которые были приняты после отправки 
+					прерывания передачи (сегменты 14 и 15). </FONT></SMALL>
+		</P>
+		<P>&nbsp;</P>
+		<P align="center"><A name="11"></A><STRONG>Пассивный режим FTP</STRONG></P>
+		<P align="justify">Существует так называемый пассивный режим FTP (Passive FTP), в 
+			котором установление соединения для передачи данных выполняется не сервером, а 
+			клиентом. В этом случае клиент вместо команды PORT передает клмпнду PASV, в 
+			ответ на которую сервер формирует ответ, содержащий IP-адрес и номер порта для 
+			установления соединения, после чего клиент выполняет активное подключение к 
+			указанному порту.</P>
+		<P>Пример:</P>
+		<P><FONT face="Courier New" size="2">220 testbox2.slacksite.com FTP server ready.<BR>
+			</FONT><FONT size="2"><FONT face="Courier New"><FONT color="#000000"><STRONG>USER slacker<BR>
+						</STRONG></FONT>331 Password required for slacker.<BR>
+				</FONT></FONT><FONT size="2"><FONT face="Courier New"><FONT color="#000000"><STRONG>PASS 
+							XXXX<BR>
+						</STRONG></FONT>230 User slacker logged in.<BR>
+				</FONT></FONT><FONT size="2"><FONT face="Courier New"><FONT color="red"><STRONG><FONT color="#000000">
+								SYST</FONT></STRONG><BR>
+						<FONT color="#000000">215 UNIX Type: L8</FONT> </FONT>Remote system type is 
+					UNIX. Using binary mode to transfer files.<BR>
+				</FONT></FONT><FONT size="2"><FONT face="Courier New"><FONT color="#000000"><STRONG>PASV<BR>
+						</STRONG></FONT>227 Entering Passive Mode (192,168,10,90,35,0).<BR>
+					&lt;Клиент открывает соединение с 192.168.10.90:9000&gt;<BR>
+				</FONT></FONT><FONT size="2"><FONT face="Courier New"><FONT color="red"><FONT color="#000000">
+							<STRONG>LIST</STRONG></FONT><BR>
+					</FONT>150 Opening ASCII mode data connection for file list drwx------ 3 
+					slacker users 104 Jul 27 01:45 public_html 226 Transfer complete.<BR>
+				</FONT></FONT><FONT size="2"><FONT face="Courier New"><FONT color="#000000"><STRONG>QUIT<BR>
+						</STRONG></FONT>221 Goodbye.</FONT></FONT></P>
+		<P>&nbsp;</P>
+		<P align="center"><A name="12"></A><B>Анонимный FTP</P>
+		</B>
+		<P align="justify"><SMALL><FONT size="3">Существует невероятно популярная форма 
+					использования FTP. Она называется анонимный FTP (anonymous FTP). Если эта форма 
+					поддерживается сервером, она позволяет любому получить доступ к серверу и 
+					использовать FTP для передачи файлов. С помощью анонимного FTP можно получить 
+					доступ к огромному объему свободно распространяемой информации. </FONT></SMALL>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">Чтобы использовать анонимный FTP, мы входим в 
+					систему с именем пользователя "anonymous" (чтобы выучить, как пишется это 
+					слово, попробуйте повторить его несколько раз). Когда появляется приглашение 
+					ввести пароль, мы вводим наш адрес электронной почты.</FONT></SMALL></P>
+		<P><BR>
+			<FONT face="Courier New" size="2">sun % <B>ftp ftp.uu.net</B><BR>
+				Connected to ftp.uu.net.<BR>
+				220 ftp.UU.NET FTP server (Version 2.OWU(13) Fri Apr 9 20:44:32 EDT 1993) 
+				ready.<BR>
+				<BR>
+				Name (ftp.uu.net:rstevens): <B>anonymous</B><BR>
+				331 Guest login ok, send your complete e-mail address as password.<BR>
+				<BR>
+				Password: 
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				мы вводим rstevens@noao.edu; это не отображается эхом<BR>
+				<BR>
+				230-<BR>
+				230- Welcome to the UUNET archive.<BR>
+				230- A service of UUNET Technologies Inc, Falls Church, Virginia<BR>
+				230- For information about UUNET, call +1 703 204 8000, or see the files<BR>
+				230- in /uunet-info<BR>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				здесь еще несколько приветственных строк<BR>
+				<BR>
+				230 Guest login ok, access restrictions apply.<BR>
+				<BR>
+				ftp&gt; <B>cd published/books</B> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				переходим в нужную директорию<BR>
+				250 CWD command successful.<BR>
+				<BR>
+				ftp&gt; <B>binary</B> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				будем использовать двоичный формат файла<BR>
+				200 Type set to I.<BR>
+				<BR>
+				ftp&gt; <B>get stevens.tcpipiv1.errata.Z</B> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				получаем файл<BR>
+				200 PORT command successful.<BR>
+				150 Opening BINARY mode data connection for stevens.tcpipiv1.errata.Z (105 
+				bytes).<BR>
+				226 Transfer complete. (у вас может быть другой размер файла)<BR>
+				<BR>
+				local: stevens.tcpipiv1.errata.Z remote: stevens.tcpipiv1.errata.Z<BR>
+				105 bytes received in 4.1 seconds (0.83 Kbytes/s)<BR>
+				<BR>
+				ftp&gt; <B>quit</B><BR>
+				221 Goodbye.<BR>
+			</FONT>
+		</P>
+		<P>&nbsp;</P>
+		<I><B><A name="t273035"></A></B></I><B>
+			<P align="center"><A name="13"></A>Краткие выводы</P>
+		</B>
+		<P align="justify"><SMALL><FONT size="3">FTP это стандарт, признанный в Internet, для 
+					передачи файлов. В отличие от большинства других TCP приложений, он использует 
+					два TCP соединения между клиентом и сервером - управляющее соединение, которое 
+					существует в течение всего продолжения сессии клиент-сервер, и соединение 
+					данных, которое создается и удаляется по необходимости. </FONT></SMALL>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">Управление соединением, которое осуществляется 
+					FTP, позволило нам увидеть, какие требования выдвигает TCP к управлению 
+					соединением. Мы видели состояние ожидания 2MSL на клиенте, который не выдает 
+					команды PORT. </FONT></SMALL>
+		</P>
+		<P align="justify"><SMALL><FONT size="3">FTP использует формат NVT </FONT><A name="t274001">
+				</A><FONT size="3">ASCII для всех команд и откликов, которые передаются по 
+					управляющему соединению. Режим передачи данных по умолчанию это, как правило, 
+					также NVT </FONT><A name="t274002"></A><FONT size="3">ASCII. Мы видели, что 
+					более новые Unix клиенты автоматически посылают команду, чтобы убедиться в том, 
+					что сервер это Unix хост с 8-битными байтами, и если так, используют двоичный 
+					режим для передачи всех файлов, которые являются более эффективными. </FONT>
+			</SMALL>
+		</P>
+		<I><B>
+				<P align="justify">
+			</B></I>&nbsp;</P></BODY></HTML>

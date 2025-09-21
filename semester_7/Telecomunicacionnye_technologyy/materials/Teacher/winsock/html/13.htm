@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://doc.mpv.ru/steps/mfc/net/socket/13.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="13.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 13 - пЮЯЬХПЪЕЛ ХМТНПЛЮРХБМНЯРЭ LOG</H2></FONT>оНКСВХРЭ 
+ХМТНПЛЮЖХЧ Н <B>Winsock.dll</B>, ЙНРНПШИ ХЯОНКЭГСЕРЯЪ МЮ бЮЬЕЛ ой ЛНФМН 
+ЮМЮКХГХПСЪ ЯРПРСЙРСПС <B>WSADATA</B>. <PRE>typedef struct WSAData {   
+	WORD                    wVersion;
+        WORD                    wHighVersion;
+        char                    szDescription[WSADESCRIPTION_LEN+1];
+        char                    szSystemStatus[WSASYS_STATUS_LEN+1];
+        unsigned short          iMaxSockets;
+        unsigned short          iMaxUdpDg;
+        char FAR *              lpVendorInfo;
+} WSADATA, FAR * LPWSADATA; 
+</PRE><B>wVersion</B> - БЕПЯХЪ ОНДДЕПФЙЮ ЙНРНПНИ НФХДЮЕРЯЪ. бЕДЭ ЛНФМН 
+ОНДДЕПФХБЮРЭ Х ЛКЮДЬСЧ БЕПЯХЧ. <B>wHighVersion</B> - ЛЮЙЯХЛЮКЭМЮЪ БЕПЯХЪ, Я 
+ЙНРНПНИ ЛНФМН ПЮАНРЮРЭ. мНПЛЮКЭМН ЙНЦДЮ НМХ ЯНБОЮДЮЧР УНРЪ Х МЕ НАЪГЮМШ. 
+<B>szDescription</B> - РЕЙЯРНБЮЪ ЯРПНЙЮ Я НОХЯЮМХЕЛ. <B>szSystemStatus</B> - 
+НОЪРЭ РЕЙЯРНБЮЪ ЯРПНЙЮ Я НОХЯЮМХЕЛ, МН Б ОПХКНФЕМХХ ДКЪ РХОЮ НОЕПЮЖХНММНИ ЯПЕДШ. 
+я НЯРЮКЭМШЛХ ЯКНФМЕЕ, ОПХКНФЕМХЕ ДНКФМН ОПНХЦМНПХПНБЮРЭ <B>iMaxsockets</B>, 
+<B>iMaxUdpDg</B>, Х <B>lpVendorInfo</B> НАКЮЯРХ Б <B>WSAData</B>, ЕЯКХ БЕКХВХМЮ 
+Б <B>wVersion</B> ОНЯКЕ СЯОЕЬМНЦН БШГНБЮ МЮ <B>WSAStartup</B> Б БЕПЯХХ 2. 
+<P>ъ БМЕЯ Б ЙНД ХМХЖХЮКХГЮЖХХ <B>WinSock</B> ХГЛЕМЕМХЪ <PRE>BOOL CSeverWinSock::StartWinSock()
+{
+	if (WSAStartup(WINSOCK_VERSION, &amp;wsaData)) 
+	{
+		AfxMessageBox("winsock not bi initialized !");
+		LogsWrite("winsock not bi initialized !");
+		WSACleanup();
+		return FALSE;
+	} 
+	LogsWrite("гЮОСЯЙ WinSock");
+	LogsWriteNotTime("хМТНПЛЮЖХЪ Н WinSock.DLL"); 
+	LogsWriteNotTime(wsaData.szDescription); 
+	LogsWriteNotTime(wsaData.szSystemStatus);
+	return TRUE;
+}
+</PRE>оНЪБХКЮЯЭ ТСМЙЖХЪ <B>LogsWriteNotTime</B>, ЙНРНПЮЪ ОХЬЕР Б <B>log</B> ТЮИК 
+АЕГ СЙЮГЮМХЪ БПЕЛЕМХ. бНР НМЮ <PRE>void CSeverWinSock::LogsWriteNotTime(CString writeString)
+{
+if (TestLogFile)  	 cLogFile.write(writeString); 
+}
+</PRE>бМНЯХЛ ОНЪЯМЕМХЪ Б ОПХ ОНКСВЕМХХ ХЛЕМХ УНЯРЮ. <PRE>BOOL CSeverWinSock::SocketGetHostName()
+{
+	........
+	LogsWriteNotTime("оНКСВЮЕЛ ХЛЪ УНЯРЮ");
+	LogsWrite(chInfo);
+	........
+}
+</PRE>дНОНКМХРЕКЭМЮЪ ХМТНПЛЮЖХЪ Н ЯНГДЮМХХ ЯНЙЕРЮ. <PRE>BOOL CSeverWinSock::CreateSocket()
+{
+	.............
+	LogsWrite("яНГДЮКХ ЯНЙЕР");
+	CString  temp;
+	temp.Format(" %i", PORT_ADDR);
+	LogsWriteNotTime("оНПР " + temp);
+	LogsWriteNotTime("оПНРНЙНК ОН СЛНКВЮМХЧ ");
+	..........
+}
+</PRE>РЮЙ ФЕ Ъ ДНАЮБХК ТХЙЯЮЖХЧ БПЕЛЕМХ НАПЮЫЕМХЪ ЙКХЕМРЮ. <PRE>afx_msg LRESULT CHTTPServerView::OnServerAccept(WPARAM wParam, LPARAM lParam)
+{
+	.........
+	HTTPServer.LogsWrite("гЮОПНЯ ЯНЕДХМЕМХЕ ЙКХЕМРНЛ"); 
+	..........
+	  closesocket(HTTPServer.clientsocket);
+	  HTTPServer.LogsWrite("нРЯНЕДХМЕМХЕ ЙКХЕМРЮ"); 
+	...........
+}
+</PRE>йНМЕВМН ПЮЯЬХПЪРЭ ХМТНПЛЮРХБМНЯРЭ КНЦЮ МЮДН Х ДЮКЭЬЕ, МН ОНЙЮ УБЮРХР :-) 
+бНР ЙЮЙ НМ СФЕ БШЦКЪДХР !!!! <PRE>09 : 45 :03
+гЮОСЯЙ WinSock
+хМТНПЛЮЖХЪ Н WinSock.DLL
+Microsoft wsock32.dll, ver2.2, 32bit of Apr 28 1998, at 19:33:24.
+On Win95.
+оНКСВЮЕЛ ХЛЪ УНЯРЮ
+09 : 45 :03
+Jana
+09 : 45 :03
+яНГДЮКХ ЯНЙЕР
+оНПР  80
+оПНРНЙНК ОН СЛНКВЮМХЧ 
+09 : 45 :03
+bind
+09 : 45 :03
+WSAAsyncSelect 
+..........
+</PRE>
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/prog/step13.rar">гЮЦПСГХРЭ 
+ОПНЕЙР</A> | <A href="http://doc.mpv.ru/steps/mfc/net/socket/12.html">оПЕДШДСЫХИ 
+ЬЮЦ</A> | <A href="http://doc.mpv.ru/steps/mfc/net/socket/14.html">яКЕДСЧЫХИ 
+ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="13.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

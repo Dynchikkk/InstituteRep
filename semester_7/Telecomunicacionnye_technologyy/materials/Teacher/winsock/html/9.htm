@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0045)http://doc.mpv.ru/steps/mfc/net/socket/9.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="9.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 9 - оНЯШКЮЕЛ ДНЙСЛЕМР</H2></FONT>
+<H3>яНГДЮЕЛ ОПНЕЙР</H3>оПНЕЙР ЛШ НЯРЮБХЛ ЯРЮПШИ МЮЛ МСФМН БМЕЯРХ ХГЛЕМЕМХЪ БЯЕЦН 
+Б НДМС ТСМЙЖХЧ <B>OnServerAccept</B> 
+<H3>яНГДЮЕЛ ЙНД</H3><PRE>afx_msg LRESULT CHTTPServerView::OnServerAccept(WPARAM wParam, LPARAM lParam)
+{
+	CHTTPServerDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	HTTPServer.clientsocket = INVALID_SOCKET;
+	pDoc-&gt;csInfo = "Client Connect !!!!!"; 
+	Invalidate();
+	if (WSAGETASYNCERROR(lParam))
+	{
+		AfxMessageBox("Error detecting Client");
+		return 0L;
+	}
+	if (WSAGETSELECTEVENT(lParam) == FD_ACCEPT)
+	{
+		int length=sizeof(SOCKADDR);
+	
+		SOCKADDR_IN socketclientaddr;
+		HTTPServer.clientsocket=accept(HTTPServer.servsocket,(LPSOCKADDR)&amp;socketclientaddr, (LPINT) &amp;length);
+		if (HTTPServer.clientsocket == INVALID_SOCKET)
+		{
+			AfxMessageBox("Invalid Client Socket");
+			return 0L;
+		}
+          CString buff="&lt; html &gt;\n&lt; p &gt;яЮИР ЬЮЦ ГЮ ЬЮЦНЛ ОПЕДЯРЮБКЪЕР\n&lt; /html &gt;\r\n";
+	  HTTPServer.SendData(buff.GetBuffer(1000));
+	  closesocket(HTTPServer.clientsocket);
+	   
+	}
+
+	return 0L;
+}
+</PRE>бНР ЙНД Б ОПНЖЕДСПС ОЕПЕДЮЧРЯЪ ОЮПЮЛЕРПШ, Б РНЛ ВХЯКЕ Х ВРН ОПНХГНЬКН 
+НАПЮЫЕМХЕ <B>FD_ACCEPT</B>. б ЯЮЛНЛ МЮВЮКЕ ЛШ ОПНБЕПЪЕЛ ОЮПЮЛЕРПШ. х ЕЯКХ БЯЕ 
+МНПЛЮКЭМН <B>accept</B> ДКЪ ЯНГДЮМХЪ ЯНЙЕРЮ ЙКХЕМРЮ. оНЯКЕ ВЕЦН ЛНФМН ОНЯШКЮРЭ 
+ДЮММШЕ. оНЯШКЙС ДЮММШУ Ъ БШМЕЯ Б НРДЕКЭМСЧ ОПНЖЕДСПС. <PRE>void CSeverWinSock::SendData(LPSTR buff)
+{
+	int Errors;
+	Errors = send(clientsocket,(LPSTR)buff,lstrlen(buff),0);
+	if (Errors == SOCKET_ERROR) AfxMessageBox("Error Send");
+}
+</PRE>оНЯКЕ ОНЯШКЙХ ДЮММШУ ЯНЙЕР ЛНФМН ГЮЙПШРЭ. 
+<P>б АНКЭЬНИ ЯРЕОЕМХ ЮАЯРПЮЙЖХХ ЛНФМН БЕЯЭ ДЮММШИ ОПНЖЕЯЯ ЯН ЯРНПНМШ ЯЕПБЕПЮ 
+ОПЕДЯРЮБХРЭ ЙЮЙ <PRE>socket()
+bind()
+WSAAsyncSelec()
+linten()
+	if accept send()
+closecoket()
+</PRE>бНР РЮЙНИ ПЕГСКЭРЮР ПЮАНРШ МЮЬЕЦН ЯЕПБЕПЮ. рНКЭЙН НДМН ОПЕДСОПЕФДЕМХЕ. 
+оНЯКЕ ГЮОСЯЙЮ ОНДНФДХРЕ МЕЛМНЦН. х ХМНЦДЮ ОПХ ГЮОПНЯЕ ЯЕПБЕП МЕ НРБЕВЮЕР. мН 
+НВЕМЭ ПЕДЙН. еЯРЭ Х ЕЫЕ НДМЮ ЛЕКНВЭ. оНЯКЕ НАПЮЫЕМХЪ Й ЯЕПБЕПС Б ЙЮРЮКНЦЕ 
+<B>Windows\Internet Temporary</B> ОНЛЕЬЮЕРЯЪ БПЕЛЕММШИ ТЮИК. еЯКХ УНРХРЕ 
+РЕЯРХПНБЮРЭ СДЮКЪИРЕ ЕЦН ОНЯКЕ ЙЮФДНЦН НАПЮЫЕМХЪ, ХМЮВЕ ЯРПЮМХЖЮ АСДЕР 
+ГЮЦПСФЮРЭЯЪ НРРСДЮ. хЛЪ Е╦ АСДЕР <B>IP</B>, ЙНРНПШИ БШ ББНДХКХ ДКЪ НАПЮЫЕМХЪ Й 
+ЯЕПБЕПС. 
+<P><IMG alt="step9.gif (10720 b)" src="9.files/step9.gif" border=2> 
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/prog/step9.rar">гЮЦПСГХРЭ 
+ОПНЕЙР</A> | <A href="http://doc.mpv.ru/steps/mfc/net/socket/8.html">оПЕДШДСЫХИ 
+ЬЮЦ</A> | <A href="http://doc.mpv.ru/steps/mfc/net/socket/10.html">яКЕДСЧЫХИ 
+ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="9.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

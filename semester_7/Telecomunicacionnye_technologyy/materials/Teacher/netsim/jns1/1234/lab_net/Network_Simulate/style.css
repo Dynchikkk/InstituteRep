@@ -1,0 +1,23 @@
+
+<style>
+  body        { text-align: justify; font-family: verdana, arial, sans-serif; font-size: 8.5pt;}
+  p,ul,ol,li     {margin-top:4; margin-bottom:2;}
+
+  h3          {margin:0px 0px 0px 0px; font-size: 14pt;}
+  h5          {margin:10px 0px 5px 0px; font-size: 10pt;} 
+  .MainText   { text-align: justify; font-family: verdana, arial, sans-serif; font-size: 8.5pt;}
+  .small      { font-size: 7pt; color: #777777;}
+
+  .spisok     { margin:3px 0px 3px 30px; }
+  .begin      { text-align:right; margin-top:20px; margin-bottom:-25px; }
+  .tbl-simple { table-layout:fixed ;      margin:7px 0px 10px 30px; }
+  .tbl-border { table-layout:fixed ;  background-color: #FFFFFF;    margin:7px 0px 10px 30px; border: 1px dotted; border-color:#BBBBDD;}
+  .command    { padding:2px 5px 4px 30px; margin:5px 0px  5px  0px; border: 1px dashed; border-color:#BBBBDD;
+                background-color: #FFFFFF; font-family: courier,verdana, arial, sans-serif; font-size: 8pt;
+				color: #333333; }
+  .preText	  {	margin:5px 0px 5px 30px; padding-left:10px; border-left: 3px double; border-color:#BBBBDD;
+  			  	text-align:left; }
+  a           { text-decoration: none; color: #777777;}
+  a:hover     { text-decoration: underline; }
+  .ris		  { margin-top:10px; text-align:center }
+</style>

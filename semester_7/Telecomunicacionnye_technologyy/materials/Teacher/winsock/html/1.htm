@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0045)http://doc.mpv.ru/steps/mfc/net/socket/1.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="1.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 1 - вРН РЮЙНЕ Windows Sockets</H2></FONT><B>WinSock</B> ХКХ 
+<B>Windows socket</B> - ЩРН ХМРЕПТЕИЯ ОПНЦПЮЛЛМНЦН ОПНЦПЮЛЛХПНБЮМХЪ (<B>API</B>) 
+ЯНГДЮММШИ ДКЪ ПЕЮКХГЮЖХХ ОПХКНФЕМХИ Б ЯЕРХ МЮ НЯМНБЕ ОПНРНЙНКЮ <B>TCP/IP</B>. рН 
+ЕЯРЭ ЩРН ОПНЯРН ЦПСООЮ ТСМЙЖХИ !!!! дКЪ ПЮАНРШ ХЯОНКЭГСЕРЯЪ <B>WSOCK32.DLL</B> <PRE> оПНЦПЮЛЛЮ
+ WSOCK32.DLL
+ TCP/IP
+</PRE>оПЮЙРХВЕЯЙХ ЩРН ХМРЕПТЕИЯ Й ОПНРНЙНКС <B>TCP/IP</B>. 
+<P>оПХ БГЮХЛНДЕИЯРБХХ ЙКХЕМР - ЯЕПБЕП Б ЯЕРХ ЙЮФДНЦН СВЮЯРМХЙЮ БГЮХЛНДЕИЯРБХЪ 
+ЛНФМН ПЮЯЯЛЮРПХБЮРЭ ЙЮЙ ЙНМЕВМСЧ РНВЙС. яНЙЕР ЩРН БПНДЕ ЙЮЙ Х ЕЯРЭ ЩРЮ ЙНМЕВМЮЪ 
+РНВЙЮ. б ОПХКНФЕМХХ бШ НОПЕДЕКЪЕРЕ ЯНЙЕР. х УНРЭ ОПНЦПЮЛЛХПНБЮМХЕ ЯНЙЕРНБ Б 
+<B>UNIX</B> Х <B>Windows</B> ОНУНФЕ, ЛШ Я бЮЛХ АСДЕЛ ПЮЯЯЛЮРПХБЮРЭ ХЛЕММН 
+<B>Windows socket</B>. 
+<P>мЕГМЮЧ ХМРЕПЕЯМН ЩРН ХКХ МЕР, МН <B>Windows socket</B> ПЮГПЮАЮРШБЮКЯЪ МЮ 
+НЯМНБЕ ХМРЕПТЕИЯЮ аЕПЙКХ ДКЪ <B>UNIX</B>, МН Й МХЛ ДНАЮБКЕМШ ТСМЙЖХХ ОНДДЕПФЙХ 
+ЯНАШРХИ <B>Windows</B>. 
+<P>еЯРЭ ДБЕ БЕПЯХХ <B>WinSock</B> 
+<UL>
+  <LI>WinSock 1.1 - ОНДДЕПФЙЮ РНКЭЙН <B>TCP/IP</B> 
+  <LI>WinSock 2.0 - оНДДЕПЙЮ ДНОНКМХРЕКЭМНЦН ОПНЦПЮЛЛМНЦН НАЕЯОЕВЕМХЪ 
+</LI></UL>яОЕЖХТХЙЮЖХЪ <B>WinSock</B> ПЮГДЕКЪЕР ТСМЙЖХХ МЮ РПХ РХОЮ. 
+<OL>
+  <LI>тСМЙЖХХ аЕПЙКХ 
+  <LI>хМТНПЛЮЖХНММШЕ ТСМЙЖХХ (ОНКСВЕМХЕ ХМТНПЛЮЖХХ Н МЮХЛЕМНБЮМХХ ДНЛЕМНБ, 
+  ЯКСФАЮУ, ОПНРНЙНКЮУ <B>Internet</B>) 
+  <LI>пЮЯЬХПЕМХЪ <B>Windows</B> ДКЪ ТСМЙЖХИ аЕПЙКХ </LI></OL>бЯЕ ТСМЙЖХХ ЛНЦСР 
+АШРЭ АКНЙХПСЧЫХЕ Х МЕАКНЙХПСЧЫХЕ. нАШВМН АКНЙХПСЧЫХЕ ЩРН ТСМЙЖХХ аЕПЙКХ. рН ЕЯРЭ 
+ОПХ ПЮАНРЕ РЮЙНИ ТСМЙЖХХ МЕКЭГЪ БШОНКМЪРЭ ДПСЦХЕ ТСМЙЖХХ <B>WinSock</B>. 
+<P>дЮБЮИРЕ ПЮЯЛНРПХЛ ЙЮЙ ОПНХГБНДХРЯЪ ОНДЙКЧВЕМХЕ Й ЯЕПБЕПС. яМЮВЮКЮ ОПНЦПЮЛЛЮ 
+ОНДЙКЧВЮЕРЯЪ Й ЮДПЕЯС <B>IP</B> Я ЯНГДЮМХЕЛ ЯНЙЕРЮ. оПНЦПЮЛЛЮ АСДЕР ФДЮРЭ 
+ОНДЙКЧВЕМХЪ. дКЪ ОНДЙКЧВЕМХЪ ОПНЦПЮЛЛЮ ЙКХЕМР РНФЕ ЯНГДЮЕР ЯНЙЕР Х ОШРЮЕРЯЪ 
+ОНДЙКЧВХРЭЯЪ Й ЯНЙЕРС ЯЕПБЕПЮ. мН ЯЕПБЕП МЕ ЯОХР !!! рНКЭЙН НМ СБХДХР ОНОШРЙС 
+ОНДЙКЧВЕМХЪ НМ ЯНГДЮЯР МНБШИ ЯНЙЕР. х ЩРНР МНБШИ ЯНЙЕР АСДЕР ХЯОНКЭГНБЮРЭЯЪ ДКЪ 
+БГЮХЛНДЕИЯРБХЪ Я ЙКХЕМРНЛ. ю РНР, Й ЙНРНПНЛС АШКЮ ОНОШРЙЮ ОНДЙКЧВЕМХЪ АСДЕР 
+ФДЮРЭ ЯКЕДСЧЫЕЦН. мЮ ЩРНИ НЯМНБЕ ОПНХГБНДХРЯЪ БГЮХЛНДЕИЯРБХЕ ЯЕПБЕПЮ Х ЛМНЦХЛХ 
+ОПНЦПЮЛЛЮЛХ. 
+<P>яЮЛ ЯНЙЕР ЛНФЕР АШРЭ ЯНГДЮМ МЮ НЯМНБЕ 
+<OL>
+  <LI><B>TCP (transport control protocol)</B> - МЮДЕФМНЕ ЯНЕДХМЕМХЕ 
+  <LI><B>UDP (user datagram protocol)</B> - МЕМЮДЕФМНЕ ЯНЕДХМЕМХЪ </LI></OL>
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/2.html">яКЕДСЧЫХИ ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="1.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

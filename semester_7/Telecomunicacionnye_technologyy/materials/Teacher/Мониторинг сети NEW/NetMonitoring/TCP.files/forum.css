@@ -1,0 +1,63 @@
+A.head {
+	FONT-SIZE: 10pt
+}
+A.plain {
+	TEXT-DECORATION: none
+}
+A.menu {
+	TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #cc0000; TEXT-DECORATION: underline
+}
+A.topic01 {
+	COLOR: #006890; FONT-FAMILY: sans-serif; TEXT-DECORATION: none
+}
+A.topic02 {
+	COLOR: #099771; FONT-FAMILY: sans-serif; TEXT-DECORATION: none
+}
+A.topic03 {
+	COLOR: #719709; FONT-FAMILY: sans-serif; TEXT-DECORATION: none
+}
+A.topic04 {
+	COLOR: #98650a; FONT-FAMILY: sans-serif; TEXT-DECORATION: none
+}
+A.topic05 {
+	COLOR: #98340a; FONT-FAMILY: sans-serif; TEXT-DECORATION: none
+}
+A.topic06 {
+	COLOR: #099607; FONT-FAMILY: sans-serif; TEXT-DECORATION: none
+}
+A.topic07 {
+	COLOR: #9e1215; FONT-FAMILY: sans-serif; TEXT-DECORATION: none
+}
+A.topic08 {
+	COLOR: #970941; FONT-FAMILY: sans-serif; TEXT-DECORATION: none
+}
+A.topic09 {
+	COLOR: #950995; FONT-FAMILY: sans-serif; TEXT-DECORATION: none
+}
+A.topic010 {
+	COLOR: #390a98; FONT-FAMILY: sans-serif; TEXT-DECORATION: none
+}
+P.topic {
+	FONT-FAMILY: sans-serif
+}
+H1 {
+	FONT-FAMILY: sans-serif
+}
+H2 {
+	FONT-FAMILY: sans-serif
+}
+H3 {
+	FONT-FAMILY: sans-serif
+}
+H4 {
+	FONT-FAMILY: sans-serif
+}
+H5 {
+	FONT-FAMILY: sans-serif
+}
+H6 {
+	FONT-FAMILY: sans-serif
+}

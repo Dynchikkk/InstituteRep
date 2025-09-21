@@ -1,0 +1,298 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link rel="File-List" href="p2_1.files/filelist.xml">
+
+<title>1. Методика построения проекта.</title>
+<style>
+<!--
+h1
+	{margin:3.0px 0cm; text-align:center;
+	line-height:23.0px;
+	page-break-after:avoid;
+	font-size:16.0px;
+	font-family:"Times New Roman";
+	}
+-->
+</style>
+<!--[if !mso]>
+<style>
+v\:*         { behavior: url(#default#VML) }
+o\:*         { behavior: url(#default#VML) }
+.shape       { behavior: url(#default#VML) }
+</style>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="../main.css">
+<!--[if gte mso 9]>
+<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+</head>
+
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" background="../images/1.gif">
+
+<table border="0" width="950" id="table1" height="600">
+	<tr>
+		<td>
+		<div align="center">
+			<table border="0" width="800" id="table2">
+				<tr>
+					<td colspan="2">
+					<h1 align="center">ЧАСТЬ 2</h1>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<h2 align="center">1. Методика построения проекта.</a></h2>
+					</td>
+				</tr>
+				<tr>
+					<td>Методика построения проекта включает следующие шаги:
+					<p>1.&nbsp;В окно проекта заносится сетевое оборудование, которое 
+					будет использоваться для построения сети.<br>
+					Если необходимо, то в рабочие станции и/или сервера 
+					добавляются сетевые адаптеры из списка.<br>
+					Возможно конфигурирование рабочих станций и серверов, 
+					которое выполняется при нажатии на них<br>
+					правой кнопкой мыши.</p>
+					<p>2. В режиме “<span lang="EN-US">Link devices</span>” 
+					соединяются сетевое оборудование и компьютеры.</p>
+					<p>3. Для того, чтобы можно было задать трафик на серверы 
+					обязательно устанавливается соответствующее общее 
+					программное обеспечение (ПО) (в списке оборудования 
+					выбирается опция <span lang="EN-US">Network and Enterprise 
+					Software</span>). Поддержка по умолчанию общим ПО типов 
+					трафика приведена в табл1.<br>
+&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+					<div align="center">
+						<span lang="ru">Таблица 1<br>
+&nbsp;</span><table border="1" width="500" id="table3">
+							<tr>
+								<td align="center"><b>Общее ПО</b></td>
+								<td align="center"><b>Поддерживаемый трафик</b></td>
+							</tr>
+							<tr>
+								<td align="center">E-mail server</td>
+								<td align="center"><span lang="EN-US">SMTP; POP3</span></td>
+							</tr>
+							<tr>
+								<td align="center"><span lang="EN-US">
+								File-server</span></td>
+								<td align="center"><span lang="EN-US">File 
+								client-server</span></td>
+							</tr>
+							<tr>
+								<td align="center"><span lang="EN-US">SQL-server</span></td>
+								<td align="center"><span lang="EN-US">SQL</span></td>
+							</tr>
+							<tr>
+								<td align="center"><span lang="EN-US">FTP-server</span></td>
+								<td align="center"><span lang="EN-US">FTP</span></td>
+							</tr>
+							<tr>
+								<td align="center"><span lang="EN-US">Small 
+								office database server</span></td>
+								<td align="center"><span lang="EN-US">Data base 
+								client-server; SQL</span></td>
+							</tr>
+							<tr>
+								<td align="center"><span lang="EN-US">HTTP – 
+								server</span></td>
+								<td align="center"><span lang="EN-US">HTTP</span></td>
+							</tr>
+						</table>
+						<p>&nbsp;</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Если выбранное общее ПО не поддерживает конкретный тип 
+					трафика, то настройка осуществляется следующим образом:<ul>
+						<li>кликнуть правой клавишей по серверу в окне проекта;</li>
+						<li>выбрать опцию <span lang="EN-US">Configuration
+						</span>в контекстном меню;</li>
+						<li>выделить в окне конфигурации установленное на сервер 
+						общее ПО и нажать клавишу <span lang="EN-US">Plug</span>-<span lang="EN-US">in 
+						Setup</span>;</li>
+						<li>выбрать вкладку <span lang="EN-US">Traffic</span>;</li>
+						<li>установить необходимые флаги типов трафика;</li>
+						<li>нажать клавишу <span lang="EN-US">OK</span>;</li>
+						<li>закрыть окно конфигурации.</li>
+					</ul>
+					<p>В это же окне конфигурации, на вкладке <span lang="EN-US">
+					Server</span> можно задать параметры ответа сервера на 
+					поступающие запросы.&nbsp; </p>
+					<p>4.&nbsp;После выбора типа трафика необходимо задать сам трафик 
+					между компьютерами. Для этого на панели инструментов надо 
+					нажать кнопку “<span lang="EN-US">Set Traffic</span>, затем 
+					поочередно щелкнуть левой кнопкой мыши станцию-клиента и 
+					сервер, с которым клиент будет обмениваться данными. Трафик 
+					можно также задать и между клиентами. Направление трафика 
+					определяется от первого щелчка ко второму. Изменять свойства 
+					трафика можно с помощью пункта меню “<span lang="EN-US">Global</span>”=&gt;”
+					<span lang="EN-US">Data Flow</span>”, в том числе добавлять 
+					и удалять сетевой трафик.</p>
+					<p>5.&nbsp;При выборе компьютера или сегмента сети необходимо в 
+					соответствии с вариантом задания указать типы отображаемой 
+					статистики. Для этого следует выбрать в выпадающем меню 
+					пункт “<span lang="EN-US">Statistics</span>”, а в 
+					появившемся окне галочками отметить, в каком виде выводить 
+					статистику. Статистику можно выводить в виде диаграммы, 
+					числа, графика или голосом. Далее нажать <span lang="EN-US">
+					OK</span>.</p>
+					<p>6.&nbsp;В случае, когда при построении сети показываются связи 
+					между различными сегментами (например, когда требуется 
+					показать связи между зданиями и показать строение сети 
+					внутри здания), следует нажать на правую кнопку мыши, и в 
+					выпадающем меню выбрать пункт =&gt; <span lang="EN-US">Expand</span>. 
+					После этого можно продолжать рисовать сеть на новом листе.</p>
+					<p>7.&nbsp;Процесс имитации запускается с помощью кнопки “<span lang="EN-US">Start</span>”.</p>
+					<p>После окончания процесса имитации отчеты выводятся 
+					следующим&nbsp; образом: в меню выбирается пункт<br>
+					“<span lang="EN-US">Tools</span>” =&gt; “<span lang="EN-US">Reports</span>” 
+					=&gt; “<span lang="EN-US">Wizard</span>” =&gt; “<span lang="EN-US">Statistical</span>” 
+					=&gt; в зависимости от задания. Отчет можно также получить, не 
+					используя услуги мастера, а просто выбрав соответствующий 
+					пункт в подменю “<span lang="EN-US">Reports</span>”. 
+					Полученный отчет можно распечатать или сохранить в виде 
+					файла.</p>
+					<p>Полученный рисунок сети можно вывести на печать, 
+					используя меню <span lang="EN-US">File=&gt;Print.<br>
+&nbsp;</span></td>
+				</tr>
+				<tr>
+					<td><b><u>Примечания</u></b><span lang="EN-US"><b><u>:</u></b>
+					</span>
+					<p>1.&nbsp;Во всех вариантах длины кабелей&nbsp; берутся произвольно (длины 
+					не должны превышать допустимые стандартом значения). </p>
+					<p>2.&nbsp;Для сетей с топологией <span lang="EN-US">FDDI</span> 
+					в базе данных нет устройств <span lang="EN-US">MSAU</span>. 
+					Поэтому для этой топологии в базе следует выбрать “<span lang="EN-US">Generic 
+					LAN</span>’<span lang="EN-US">s</span>”=&gt;<span lang="EN-US">FDDI</span> 
+					(схематический рисунок <span lang="EN-US">FDDI</span>).</p>
+					<p>3.&nbsp;Устройства типа сервера удаленного доступа можно найти 
+					в базе устройств <span lang="EN-US">Routers and Bridges</span> 
+					=&gt; <span lang="EN-US">Access Server</span> =&gt; открыть любого 
+					производителя =&gt; найти там подходящее устройство. После 
+					этого к нему можно подключить либо модемы, либо устройства 
+					DSU/CSU.</p>
+					<p>4.&nbsp;Построение многоуровневого (иерархического) проекта 
+					необходимо начинать с самого верхнего уровня (корня),&nbsp; 
+					раскрывая подуровни через контекстное меню (<span lang="EN-US">Expand</span>) 
+					выделенного объекта текущего уровня.</p>
+					<span lang="ru">5. </span>Фоновое изображение карты 
+					местности (<span lang="EN-US">Map</span>) выбирается при 
+					настройке: меню <span lang="EN-US"><br>
+					Sites =&gt; Site Setup =&gt;Background.<br>
+					<br>
+					<br>
+&nbsp;</span></td>
+				</tr>
+				<tr>
+					<td>
+					<p align="center">
+					<span lang="ru"><!--[if gte vml 1]><v:shapetype id="_x0000_m1030"
+ coordsize="21600,21600" o:spt="138" o:spx="138" adj="10800" path="m0@0l10800,,21600@0m,21600r10800,l21600,21600e">
+ <v:formulas>
+  <v:f eqn="val #0"/>
+  <v:f eqn="prod #0 1 2"/>
+  <v:f eqn="sum @1 10800 0"/>
+  <v:f eqn="sum 21600 0 @1"/>
+ </v:formulas>
+ <v:path textpathok="t" o:connecttype="custom" o:connectlocs="10800,0;5400,@1;10800,21600;16200,@1"
+  o:connectangles="270,180,90,0"/>
+ <v:textpath on="t" fitshape="t"/>
+ <v:handles>
+  <v:h position="topLeft,#0" yrange="0,21600"/>
+ </v:handles>
+ <o:lock v:ext="edit" text="t" shapetype="t"/>
+</v:shapetype><v:shape id="_x0000_s1029" type="#_x0000_m1030" alt="Вперед"
+ href="p1_7.htm" style='width:42pt;height:30pt' fillcolor="#ffc">
+ <v:fill opacity="1" color2="#f99" o:opacity2="1" recolor="f" rotate="f"
+  focus="100%" type="gradient"/>
+ <v:shadow type="single" color="#868686"/>
+ <o:extrusion v:ext="view" color="#06c" on="t" viewpoint="-34.72222mm"
+  viewpointorigin="-.5" skewangle="-45" brightness="10000f" lightposition="0,-50000"
+  lightlevel="44000f" lightposition2="0,50000" lightlevel2="24000f"/>
+ <v:textpath on="t" style='font-family:"Times New Roman";font-size:13.5pt;
+  v-text-kern:t;v-same-letter-heights:t' fitshape="t" trim="t" fitpath="t"
+  string="Назад"/>
+</v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'><map
+name=MicrosoftOfficeMap0><area shape=Polygon
+coords="25, 0, 2, 16, 0, 18, 0, 39, 14, 55, 15, 55, 74, 55, 73, 35, 71, 32, 55, 17, 32, 0, 25, 0"
+href="p1_7.htm" title=""></map><img border=0 width=74 height=57
+src="p2_1.files/image001.gif" usemap="#MicrosoftOfficeMap0" alt=Вперед v:shapes="_x0000_s1029"></span><![endif]>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[if gte vml 1]><v:shapetype
+ id="_x0000_m1028" coordsize="21600,21600" o:spt="138" o:spx="138" adj="10800"
+ path="m0@0l10800,,21600@0m,21600r10800,l21600,21600e">
+ <v:formulas>
+  <v:f eqn="val #0"/>
+  <v:f eqn="prod #0 1 2"/>
+  <v:f eqn="sum @1 10800 0"/>
+  <v:f eqn="sum 21600 0 @1"/>
+ </v:formulas>
+ <v:path textpathok="t" o:connecttype="custom" o:connectlocs="10800,0;5400,@1;10800,21600;16200,@1"
+  o:connectangles="270,180,90,0"/>
+ <v:textpath on="t" fitshape="t"/>
+ <v:handles>
+  <v:h position="topLeft,#0" yrange="0,21600"/>
+ </v:handles>
+ <o:lock v:ext="edit" text="t" shapetype="t"/>
+</v:shapetype><v:shape id="_x0000_s1027" type="#_x0000_m1028" alt="Главная страница"
+ href="../index.htm" style='width:114pt;height:37.5pt' fillcolor="black">
+ <v:fill opacity="1" color2="fill lighten(0)" o:opacity2="1" recolor="f"
+  rotate="t" method="linear sigma" type="gradient"/>
+ <v:shadow type="single" color="#868686"/>
+ <o:extrusion v:ext="view" color="#06c" on="t" viewpoint="-34.72222mm"
+  viewpointorigin="-.5" skewangle="-45" brightness="10000f" lightposition="0,-50000"
+  lightlevel="44000f" lightposition2="0,50000" lightlevel2="24000f"/>
+ <v:textpath on="t" style='font-family:"Times New Roman";font-size:15pt;
+  v-text-kern:t' fitshape="t" trim="t" fitpath="t" string="Главная страница"/>
+</v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'><map
+name=MicrosoftOfficeMap1><area shape=Polygon
+coords="75, 0, 0, 9, 0, 32, 14, 49, 98, 54, 106, 54, 115, 54, 148, 54, 170, 52, 170, 44, 165, 29, 147, 16, 81, 0, 75, 0"
+href="../index.htm" title=""></map><img border=0 width=170 height=56
+src="p2_1.files/image002.gif" usemap="#MicrosoftOfficeMap1"
+alt="Главная страница" v:shapes="_x0000_s1027"></span><![endif]>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[if gte vml 1]><v:shapetype
+ id="_x0000_m1026" coordsize="21600,21600" o:spt="138" o:spx="138" adj="10800"
+ path="m0@0l10800,,21600@0m,21600r10800,l21600,21600e">
+ <v:formulas>
+  <v:f eqn="val #0"/>
+  <v:f eqn="prod #0 1 2"/>
+  <v:f eqn="sum @1 10800 0"/>
+  <v:f eqn="sum 21600 0 @1"/>
+ </v:formulas>
+ <v:path textpathok="t" o:connecttype="custom" o:connectlocs="10800,0;5400,@1;10800,21600;16200,@1"
+  o:connectangles="270,180,90,0"/>
+ <v:textpath on="t" fitshape="t"/>
+ <v:handles>
+  <v:h position="topLeft,#0" yrange="0,21600"/>
+ </v:handles>
+ <o:lock v:ext="edit" text="t" shapetype="t"/>
+</v:shapetype><v:shape id="_x0000_s1025" type="#_x0000_m1026" alt="Вперед"
+ href="p2_2.htm" style='width:42pt;height:30pt' fillcolor="#ffc">
+ <v:fill opacity="1" color2="#f99" o:opacity2="1" recolor="f" rotate="f"
+  focus="100%" type="gradient"/>
+ <v:shadow type="single" color="#868686"/>
+ <o:extrusion v:ext="view" color="#06c" on="t" viewpoint="-34.72222mm"
+  viewpointorigin="-.5" skewangle="-45" brightness="10000f" lightposition="0,-50000"
+  lightlevel="44000f" lightposition2="0,50000" lightlevel2="24000f"/>
+ <v:textpath on="t" style='font-family:"Times New Roman";font-size:13.5pt;
+  v-text-kern:t;v-same-letter-heights:t' fitshape="t" trim="t" fitpath="t"
+  string="Вперед"/>
+</v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout'><map
+name=MicrosoftOfficeMap2><area shape=Polygon
+coords="24, 0, 0, 18, 0, 39, 14, 55, 15, 55, 74, 55, 73, 35, 71, 32, 55, 17, 32, 1, 29, 0, 24, 0"
+href="p2_2.htm" title=""></map><img border=0 width=74 height=57
+src="p2_1.files/image003.gif" usemap="#MicrosoftOfficeMap2" alt=Вперед v:shapes="_x0000_s1025"></span><![endif]></span></td>
+				</tr>
+			</table>
+		</div>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+</html>

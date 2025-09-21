@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://doc.mpv.ru/steps/mfc/net/socket/14.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="14.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 14 - тСМЙЖХХ WinSock</H2></FONT>
+<H3>тСМЙЖХХ аЕПЙКХ</H3>нОХЯЮММШЕ МХФЕ ТСМЙЖХХ АКНЙХПСЧР <B>WinSock API</B> ОПХ 
+БШОНКМЕМХХ <PRE>accept			ЯНГДЮЕР МНБШИ ЯНЙЕР Х ОНДЙКЧВЮЕР ЕЦН Й СДЮКЕММНЛС ЙНЛОЭЧРЕПС
+closesocket		ГЮЙПШБЮЕР НДМС ХГ ЯРНПНМ ЯНЕДХМЕМХЪ
+connect			ХМХЖХЮКХГХПСЕР ЯНЕДХМЕМХЕ ЯН ЯРНПНМШ СЙЮГЮМММНЦН ЯНЙЕРЮ
+recv			ОПХМХЛЮЕР ДЮММШЕ НР ОНДЙКЧВЕММНЦН ЯНЙЕРЮ
+recfrom			ОПХМХЛЮЕР ДЮММШЕ НР ОНДКЧВЕММНЦН ХКХ МЕОНДЙКЧВЕММНЦН ЯНЙЕРЮ
+select			СОПЮБЕКЕМХЕ ЯНЯРНЪМХЕЛ МЕЯЙНКЭЙХУ ЯНЙЕРНБ
+send			ОНЯШКЮЕР ДЮММШЕ ОНДЙКЧВЕММНЛС ЯНЙЕРС
+sendto			ОНЯШКЮЕР ДЮММШЕ ОНДКЧВЕММНЛС ХКХ МЕОНДЙКЧВЕММНЛС ЯНЙЕРС
+</PRE>ю БНР ЩРХ МЕ АКНЙХПСЧР <PRE>bind			ОПХЯБЮХБЮЕР ХЛЪ МЕХЛЕММНБЮМНЛС ЯНЙЕРС
+getpeername		ГЮОПЮЬХБЮЕР ХЛЪ РНВЙХ ОНДЙКЧВЕММНИ Й ЯНЙЕРС
+getsockname		ГЮОПЮЬХБЮЕР КНЙЮКЭМНЕ ХЛЪ ЯНЙЕРЮ
+getsockopt		ГЮОПЮЬХБЮЕР ДНОНКМХРЕКЭМСЧ ХМТНПЛЮЖХЧ ЯБЪГЮММСЧ Я ЯНЙЕРНЛ
+htonl			ОПЕНАПЮГСЕР 32 АХРМШЕ МНЛЕПЮ НР УНЯРЮ Й ЯЕРЕБШЛ
+htons			ОПЕНАПЮГСЕР 16 АХРМШЕ МНЛЕПЮ НР УНЯРЮ Й ЯЕРЕБШЛ
+inet_addr		ОПЕНАПЮГСЕР ЯХЛБНКЭМСЧ ЯРПНЙС Я IP Й ВХЯКЕМНИ МЮРЮЖХХ 32 АЮИРЮ ЯЕРЕБНИ ОНПЪДНЙ
+inet_ntoa		ОПЕНАПЮГСЕР IP Й ВХЯКС
+ioctlsocket		СОПЮБКЕМХЕ ОЮПЮЛЕРПЮЛХ ЯНЙЕРЮ	
+listen			ЙНЛЮМДЮ ОПНЯКСЬХБЮМХЪ ЯНЙЕРЮ
+ntohl			ОПЕНАПЮГНБЮМХЕ ВХЯЕК 32 АХР НР ЯЕРЕБНИ ЯНПРХПНБЙХ Й ЯНПРХПНБЙХ УНЯРЮ
+ntohs			ОПЕНАПЮГНБЮМХЕ ВХЯЕК 16 АХР НР ЯЕРЕБНИ ЯНПРХПНБЙХ Й ЯНПРХПНБЙХ УНЯРЮ
+setsockopt		ЯНУПЮМЪЕР ДНОНКМХРЕКЭМШЕ ЯБЕДЕМХЪ Н ЯНЙЕРЕ
+shutdown		ГЮЙПШБЮЕР ЯНЕДХМЕМХЕ ЯН ЯРНПНМШ ЙКХЕМРЮ
+socket			ЯНГДЮЕР РНВЙС ЯНЕДХМЕМХЪ
+</PRE>тСМЙЖХХ юДПЕЯНБ <PRE>gethostbyaddr		БНГБПЮЫЮЕР МЮХЛЕМНБЮМХЕ ДНЛЕМЮ Х ЮДПЕЯ IP ЯННРБЕЯРБСЧЫИХ ЯНЙЕРС
+gethostbyname		БНГБПЮЫЮЕР МЮХЛЕМНБЮМХЕ ДНЛЕМЮ Х ЮДПЕЯ IP ЯННРБЕЯРБСЧЫИХ ХЛЕМХ УНЯРЮ
+gethostname		БНГБПЮЫЮЕР МЮХЛЕМНБЮМХЕ ДНЛЕМЮ КНЙЮКЭМН УНЯРЮ
+getprotobyname		БНГБПЮЫЮЕР МЮХЛЕМНБЮМХЕ ОПНРНЙНКЮ
+getprotobynumber        БНГБПЮЫЮЕР МЮХЛЕМНБЮМХЕ ОПНРНЙНКЮ Х ВХЯКН
+getservbyname		БНГБПЮЫЮЕР МЮХЛЕМНБЮМХЕ ЯКСФАШ Х ОНПР ОПНРНЙНКЮ
+getservbyport		БНГБПЮЬЮЕР МЮХЛЕМНБЮМХЕ ЯКСФАШ Х ОНПР
+</PRE>щЙБХБЮКЕМР <B>Windows</B> <PRE>gethostbyaddr		WSAAsyncGetHostByAddr
+gethostbyname		WSAAsyncGetHostByName
+getprotobyname		WSAAsyncGetProtoByName
+getprotobynumber        WSAAsyncGetProtoByNumber
+getservbyname		WSAAsyncGetServByName
+getservbyport		WSAAsyncGetServByPort
+select			WSAAsyncSelect
+</PRE>тСМЙЖХХ ПЮЯЬХПЕМХЪ <PRE>WSACancelAsyncRequest	нРЛЕМЮ ТСМЙЖХХ WSAASyncGetXByY
+WSACancelBlockingCall   нРЛЕМЮ АКНЙХПСЧЫЕЦН БШГНБЮ API
+WSACleanup		оПЕЙПЮЫЕМХЕ ПЮАНРШ Я WinSock DLL
+WSAGetLastError		оНКСВЕМХЪ ХМТНПЛЮЖХХ Н ОНЯКЕДМЕИ НЬХАЙЕ
+WSAIsBlocking		нОПЕДЕКЪЕР АКНЙХРПНБЙС WinSock DLL
+WSASetBlockingHook	оЕПЕУБЮРШБЮЕР АКНЙХПСЧЫХИ ЛЕРНД
+WSASetLastError		сЯРЮМЮБКХБЮЕР БНГБПЮР ОНЯКЕ НЬХАЙХ
+WSAStartup		хМХЖХЮКХГЮЖХЪ WinSock DLL
+WSAUnhookBlockingHook	бНЯРЮМЮБКХБЮЕР НПХЦХМЮКЭМСЧ АКНЙХПСЧЫЕЧ ТСМЙЖХЧ
+</PRE>
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/13.html">оПЕДШДСЫХИ ЬЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/15.html">яКЕДСЧЫХИ ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="14.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

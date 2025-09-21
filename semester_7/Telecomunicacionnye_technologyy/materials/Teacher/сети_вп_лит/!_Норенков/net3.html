@@ -1,0 +1,717 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+   <TITLE>Телекоммуникационные технологии и сети: Глава3</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER><FONT FACE="Times New Roman Cyr,Times Cyr">Глава 3</FONT></CENTER>
+
+<CENTER><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT></CENTER>
+
+<CENTER><B><FONT FACE="Times New Roman Cyr,Times Cyr">Кодирование информации</FONT></B></CENTER>
+
+<OL>
+<LI>
+<FONT FACE="Times New Roman Cyr,Times Cyr"><U><FONT COLOR="#0000FF"><A HREF="#n1">Количество
+информации</A></FONT></U></FONT></LI>
+
+<LI>
+<FONT FACE="Times New Roman Cyr,Times Cyr"><U><FONT COLOR="#0000FF"><A HREF="#n2">Энтропия</A></FONT></U></FONT></LI>
+
+<LI>
+<FONT FACE="Times New Roman Cyr,Times Cyr"><U><FONT COLOR="#0000FF"><A HREF="#n3">Коэффициент
+избыточности сообщения</A></FONT></U></FONT></LI>
+
+<LI>
+<FONT FACE="Times New Roman Cyr,Times Cyr"><U><FONT COLOR="#0000FF"><A HREF="#n4">Основные
+используемые коды</A></FONT></U></FONT></LI>
+
+<LI>
+<FONT FACE="Times New Roman Cyr,Times Cyr"><U><FONT COLOR="#0000FF"><A HREF="#n5">Асинхронное
+и синхронное кодирование</A></FONT></U></FONT></LI>
+
+<LI>
+<FONT FACE="Times New Roman Cyr,Times Cyr"><U><FONT COLOR="#0000FF"><A HREF="#n6">Манчестерское
+кодирование</A></FONT></U></FONT></LI>
+
+<LI>
+<FONT FACE="Times New Roman Cyr,Times Cyr"><U><FONT COLOR="#0000FF"><A HREF="#n7">Способы
+контроля правильности передачи данных</A></FONT></U></FONT></LI>
+
+<LI>
+<FONT FACE="Times New Roman Cyr,Times Cyr"><U><FONT COLOR="#0000FF"><A HREF="#n8">Код
+Хемминга</A></FONT></U></FONT></LI>
+
+<LI>
+<FONT FACE="Times New Roman Cyr,Times Cyr"><U><FONT COLOR="#0000FF"><A HREF="#n9">Циклические
+коды</A></FONT></U></FONT></LI>
+
+<LI>
+<FONT FACE="Times New Roman Cyr,Times Cyr"><U><FONT COLOR="#0000FF"><A HREF="#n10">Коэффициент
+сжатия</A></FONT></U></FONT></LI>
+
+<LI>
+<U><FONT FACE="Times New Roman Cyr,Times Cyr"><FONT COLOR="#0000FF"><A HREF="#n11">Алгоритмы
+сжатия</A></FONT></FONT></U></LI>
+
+<LI>
+<A NAME="a51"></A><FONT FACE="Times New Roman Cyr,Times Cyr"><U><FONT COLOR="#0000FF"><A HREF="#n12">Сжатие
+данных по методу Лемпеля-Зива</A></FONT></U></FONT></LI>
+</OL>
+<FONT FACE="Times New Roman Cyr,Times Cyr"><B>1.&nbsp;<A NAME="n1"></A></B>Количество
+информации. <I>Кодирование -</I> представление сообщения последовательностью
+элементарных символов.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Рассмотрим кодирование дискретных
+сообщений. Символы в сообщениях могут относиться к алфавиту, включающему
+n букв (буква - символ сообщения). Однако число элементов кода k существенно
+ограничено сверху энергетическими соображениями, т.е. часто n > k. Так,
+если отношение сигнал/помеха для надежного различения уровня сигнала должно
+быть не менее q, то наименьшая амплитуда для представления одного из k
+символов должна быть q*g, где g - амплитуда помехи, а наибольшая амплитуда
+соответственно q*g*k. Мощность передатчика пропорциональна квадрату амплитуды
+сигнала (тока или напряжения), т.е. должна превышать величину, пропорциональную
+(q*g*k)<SUP>2</SUP>. В связи с этим распространено двоичное кодирование
+с k = 2. При двоичном кодировании сообщений с n типами букв, каждая из
+n букв кодируется определенной комбинацией 1 и 0 (например, код ASCII).</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Кодирование аналоговых сообщений
+после их предварительной дискретизации должно выполняться в соответствии
+с теоремой Котельникова: если в спектре функции f(t) нет частот выше F<SUB>В</SUB>,
+то эта функция может быть полностью восстановлена по совокупности своих
+значений, определенных в моменты времени t<SUB>k</SUB>, отстоящие друг
+от друга на величину 1/(2*Fв). Для передачи аналогового сигнала производится
+его дискретизация с частотой отсчетов 2*F<SUB>В</SUB> и выполняется кодово-импульсная
+модуляция последовательности отсчетов.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr"><I>Количество информации</I>
+в сообщении (элементе сообщения) определяется по формуле</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">I = -log<SUB>2</SUB> P,</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">где Р - вероятность появления
+сообщения (элемента сообщения). Из этой формулы следует, что единица измерения
+количества информации есть количество информации, содержащееся в одном
+бите двоичного кода при условии равной вероятности появления в нем 1 и
+0. В то же время один разряд десятичного кода содержит I = -log<SUB>2</SUB>Р
+= 3,32 единиц информации (при том же условии равновероятности появления
+десятичных символов, т.е. при Р = 0,1).</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><B><FONT FACE="Times New Roman Cyr,Times Cyr">2.&nbsp;<A NAME="n2"></A>Энтропия.
+</FONT></B><FONT FACE="Times New Roman Cyr,Times Cyr">Энтропия источника
+информации с независимыми и равновероятными сообщениями есть среднее арифметическое
+количеств информации сообщений</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">H = - sum&nbsp; P<SUB>k</SUB>*log<SUB>2
+</SUB>P<SUB>k</SUB></FONT>
+<BR><FONT FACE="Times New Roman Cyr,Times Cyr">k=1..N</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">где P<SUB>k</SUB> - вероятность
+появления k-го сообщения. Другими словами, энтропия есть мера неопределенности
+ожидаемой информации.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">П р и м е р. Пусть имеем
+два источника информации, один передает двоичный код с равновероятным появлением
+в нем 1 и 0, другой имеет вероятность 1, равную 2<SUP>-10</SUP>, и вероятность
+0, равную 1-2<SUP>-10</SUP>. Очевидно, что неопределенность в получении
+в очередном такте символа 1 или 0 от первого источника выше, чем от второго.
+Это подтверждается количественно оценкой энтропии: у первого источника
+H = 1, у второго приблизительно H = -2<SUP>-10</SUP>*log<SUB>2</SUB>2<SUP>-10</SUP>
+, т.е. значительно меньше.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><B><FONT FACE="Times New Roman Cyr,Times Cyr">3.&nbsp;<A NAME="n3"></A>Коэффициент
+избыточности сообщения. </FONT></B><FONT FACE="Times New Roman Cyr,Times Cyr">Коэффициент
+избыточности сообщения А определяется по формуле</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">r = (I<SUB>max</SUB> - I)/I<SUB>max</SUB>,</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">где I - количество информации
+в сообщении А, I<SUB>max</SUB> - максимально возможное количество информации
+в сообщении той же длины, что и А.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Пример избыточности дают
+сообщения на естественных языках, так, у русского языка r находится в пределах
+0,3...0,5.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Наличие избыточности позволяет
+ставить вопрос о сжатии информации без ее потери в передаваемых сообщениях.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><A NAME="a54a"></A><A NAME="DDE_LINK1"></A><B><FONT FACE="Times New Roman Cyr,Times Cyr">4.&nbsp;<A NAME="n4"></A>Основные
+используемые коды. </FONT></B><FONT FACE="Times New Roman Cyr,Times Cyr">Широко
+используются двоичные коды:</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">EBCDIC (Extended Binary Coded
+Decimal Interchange Code) - символы кодируются восемью битами; популярен
+благодаря его использованию в IBM;</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">ASCII (American Standards
+Committee for Information Interchange) - семибитовый двоичный код.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Оба этих кода включают битовые
+комбинации для печатаемых символов и некоторых распространенных командных
+слов типа NUL, CR, ACK, NAK и др.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Для кодировки русского текста
+нужно вводить дополнительные битовые комбинации. Семибитовая кодировка
+здесь уже недостаточна. В восьмибитовой кодировке нужно под русские символы
+отводить двоичные комбинации, не занятые в общепринятом коде, чтобы сохранять
+неизменной кодировку латинских букв и других символов. Так возникли кодировка
+КОИ-8<A NAME="a54b"></A>, затем при появлении персональных ЭВМ - альтернативная
+кодировка и при переходе к Windows - кодировка 1251. Множество используемых
+кодировок существенно усложняет проблему согласования почтовых программ
+в глобальных сетях.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><B><FONT FACE="Times New Roman Cyr,Times Cyr">5.&nbsp;<A NAME="n5"></A>Асинхронное
+и синхронное кодирование. </FONT></B><FONT FACE="Times New Roman Cyr,Times Cyr">Для
+правильного распознавания позиций символов в передаваемом сообщении получатель
+должен знать границы передаваемых элементов сообщения. Для этого необходима
+синхронизация передатчика и приемника. Использование специального дополнительного
+провода для сигналов синхронизации (в этом случае имеем <I>битовую</I>
+синхронизацию) слишком дорого, поэтому используют другие способы синхронизации.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">В <I>асинхронном режиме</I>
+применяют коды, в которых явно выделены границы каждого символа (байта)
+специальными стартовым и стоповым символами. Подобные побайтно выделенные
+коды называют <I>байт-ориентированными,</I> а способ передачи - <I>байтовой</I>
+синхронизацией. Однако это увеличивает число битов, не относящихся собственно
+к сообщению.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">В <I>синхронном режиме</I>
+синхронизм поддерживается во время передачи всего информационного блока
+без обрамления каждого байта. Такие коды называют <I>бит-ориентированными</I>.
+Для входа в синхронизм нужно обозначать границы лишь всего передаваемого
+блока информации с помощью специальных начальной и конечной комбинаций
+байтов (обычно это двубайтовые комбинации). В этом случае синхронизация
+называется <I>блочной (фреймовой</I>).</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Для обрамления текстового
+блока (текст состоит только из печатаемых символов) можно использовать
+символы, отличающиеся от печатаемых. Для обрамления двоичных блоков применяют
+специальный символ (обозначим его DLE), который благодаря <I>стаффингу</I>
+становится уникальным. Уникальность заключается в том, что если DLE встречается
+внутри блока, то сразу вслед за ним вставляется еще один DLE. Приемник
+будет игнорировать каждый второй идущий подряд символ DLE. Если же DLE
+встречается без добавления, то это граница блока.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><A NAME="a54c"></A><B><FONT FACE="Times New Roman Cyr,Times Cyr">6.&nbsp;<A NAME="n6"></A>Манчестерское
+кодирование. </FONT></B><FONT FACE="Times New Roman Cyr,Times Cyr">Передаваемые
+данные представляются электрическими сигналами. Возможны коды RZ (Return-to-zero),
+использующие двуполярные сигналы для изображения 1 и 0, и коды NRZ (non-return-to-zero)
+- коды без возвращения к нулю.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Для кодирования информации
+наибольшее распространение получили самосинхронизирующиеся коды, так как
+при этом отпадает необходимость иметь дополнительную линию для передачи
+синхросигналов между узлами сети. В ЛВС чаще других применяют манчестерский
+код, одна из разновидностей которого пояснена на рис. 3.1. Самосинхронизация
+обеспечивается благодаря формированию синхроимпульсов из перепадов, имеющихся
+в каждом такте манчестерского кода.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Представленная на рис. 3.1
+разновидность манчестерского кода используется при байт-ориентированном
+кодировании, при котором каждый байт, состоящий из 1 и 0, обрамляется символами
+j и k. В этом случае станция, получившая полномочия, начинает передавать
+серию сигналов jkjkjk... для того, чтобы станция-получатель могла войти
+в синхронизм с передающей станцией. После нескольких пар jk начинают передаваться
+байты самого сообщения. Различение четырех возможных значений сигнала выполняется
+в соответствии с правилами кодирования, представленными в нижней части
+рисунка.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><IMG SRC="Image9.gif" HEIGHT=319 WIDTH=553>
+<DIR>
+<CENTER><B><FONT FACE="Times New Roman Cyr,Times Cyr">Рис. 3.1. Манчестерское
+кодирование</FONT></B></CENTER>
+
+<CENTER><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT></CENTER>
+
+<CENTER><FONT FACE="Times New Roman Cyr,Times Cyr">&nbsp;</FONT></CENTER>
+</DIR>
+<FONT FACE="Times New Roman Cyr,Times Cyr">В случае бит-ориентированного
+кода после входа в синхронизм не нужно обрамлять байты символами j и k,
+т.е. используется двузначное кодирование. Чаще используется код, в котором
+"1" представляется положительным, а "0" - отрицательным перепадом.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><B><FONT FACE="Times New Roman Cyr,Times Cyr">7.&nbsp;<A NAME="n7"></A>Способы
+контроля правильности передачи данных. </FONT></B><FONT FACE="Times New Roman Cyr,Times Cyr">Управление
+правильностью (помехозащищенностью) передачи информации выполняется с помощью
+помехоустойчивого кодирования. Различают коды, обнаруживающие ошибки, и
+корректирующие коды, которые дополнительно к обнаружению еще и исправляют
+ошибки. Помехозащищенность достигается с помощью введения избыточности.
+Устранение ошибок с помощью <I>корректирующих кодов</I> (такое управление
+называют Forward Error Control) реализуют в симплексных каналах связи.
+В дуплексных каналах достаточно применения кодов, <I>обнаруживающих </I>ошибки
+(Feedback or Backward Error Control), так как сигнализация об ошибке вызывает
+повторную передачу от источника. Это основные методы, используемые в информационных
+сетях.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Простейшими способами обнаружения
+ошибок являются контрольное суммирование, проверка на нечетность. Однако
+они недостаточно надежны, особенно при появлении пачек ошибок. Поэтому
+в качестве надежных обнаруживающих кодов применяют <I>циклические коды</I>.
+Примером корректирующего кода является код Хемминга.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><B><FONT FACE="Times New Roman Cyr,Times Cyr">8.&nbsp;<A NAME="n8"></A>Код
+Хемминга. </FONT></B><FONT FACE="Times New Roman Cyr,Times Cyr">В коде
+Хемминга вводится понятие <I>кодового расстояния</I> d (расстояния между
+двумя кодами), равного числу разрядов с неодинаковыми значениями. Возможности
+исправления ошибок связаны с минимальным кодовым расстоянием d<SUB>min</SUB>.
+Исправляются ошибки кратности r = ent (d<SUB>min</SUB>-1)/2 и обнаруживаются
+ошибки кратности d<SUB>min</SUB>-1 (здесь ent означает “целая часть”).
+Так, при контроле на нечетность d<SUB>min</SUB> = 2 и обнаруживаются одиночные
+ошибки. В коде Хемминга d<SUB>min </SUB>= 3. Дополнительно к информационным
+разрядам вводится L = log<SUB>2</SUB>K избыточных контролирующих разрядов,
+где K - число информационных разрядов, L округляется до ближайшего большего
+целого значения. L-разрядный контролирующий код есть инвертированный результат
+поразрядного сложения (т.е. сложения по модулю 2) номеров тех информационных
+разрядов, значения которых равны 1.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">П р и м е р 1. Пусть имеем
+основной код 100110, т.е. К = 6. Следовательно, L = 3 и дополнительный
+код равен</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">010 # 011 # 110 = 111,</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">где # - символ операции поразрядного
+сложения, и после инвертирования имеем 000. Теперь вместе с основным кодом
+будет передан и дополнительный. На приемном конце вновь рассчитывается
+дополнительный код и сравнивается с переданным. Фиксируется код сравнения
+(поразрядная операция отрицания равнозначности), и если он отличен от нуля,
+то его значение есть номер ошибочно принятого разряда основного кода. Так,
+если принят код 100010, то рассчитанный в приемнике дополнительный код
+равен инверсии от 010 # 110 = 100, т.е. 011, что означает ошибку в 3-м
+разряде.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">П р и м е р 2. Основной код
+1100000, дополнительный код 110 (результат инверсии кода 110 # 111 = 001).
+Пусть принятый код 1101000, его дополнительный код 010, код сравнения 100,
+т.е. ошибка в четвертом разряде.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><B><FONT FACE="Times New Roman Cyr,Times Cyr">9.&nbsp;<A NAME="n9"></A>Циклические
+коды. </FONT></B><FONT FACE="Times New Roman Cyr,Times Cyr">К числу эффективных
+кодов, обнаруживающих одиночные, кратные ошибки и пачки ошибок, относятся<I>
+циклические коды </I>(CRC - Cyclic Redundance Code). Они высоконадежны
+и могут применяться при блочной синхронизации, при которой выделение, например,
+бита нечетности было бы затруднительно.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Один из вариантов циклического
+кодирования заключается в умножении исходного кода на образующий полином
+g(x), а декодирование - в делении на g(x). Если остаток от деления не равен
+нулю, то произошла ошибка. Сигнал об ошибке поступает на передатчик, что
+вызывает повторную передачу.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Образующий полином есть двоичное
+представление одного из простых множителей, на которые раскладывается число
+X<SUP>n</SUP>-1, где X<SUP>n</SUP> обозначает единицу в n-м разряде, n
+равно числу разрядов кодовой группы. Так, если n = 10 и Х = 2, то X<SUP>n</SUP>-1
+= 1023 = 11*93, и если g(X)=11 или в двоичном коде 1011, то примеры циклических
+кодов A<SUB>i</SUB>*g(Х) чисел A<SUB>i</SUB> в кодовой группе при этом
+образующем полиноме можно видеть в следующей табл. 3.1.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr"><I>Основной вариант</I> циклического
+кода, широко применяемый на практике, отличается от предыдущего тем, что
+операция деления на образующий полином заменяется следующим алгоритмом:
+1) к исходному кодируемому числу А справа приписывается К нулей, где К
+- число битов в образующем полиноме, уменьшенное на единицу; 2) над полученным
+числом А*(2<SUP>К</SUP>) выполняется операция О, отличающаяся от деления
+тем, что на каждом шаге операции вместо вычитания выполняется поразрядная
+операция "исключающее ИЛИ": 3) полученный остаток В и есть CRC - избыточный
+К-разрядный код, который заменяет в закодированном числе С приписанные
+справа К нулей, т.е.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">С= А*(2<SUP>К</SUP>)+В.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">На приемном конце над кодом
+С выполняется операция О. Если остаток не равен нулю, то при передаче произошла
+ошибка и нужна повторная передача кода А.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">.П р и м е р. Пусть А = 1001
+1101, образующий полином 11001.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Так как К = 4, то А*(2<SUP>K)=100111010000.</SUP>
+Выполнение операции О расчета циклического кода показано на рис. 3.2.</FONT>
+<DIV ALIGN=right><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT></DIV>
+
+<DIV ALIGN=right><FONT FACE="Times New Roman Cyr,Times Cyr">Таблица 3.1</FONT></DIV>
+
+<TABLE BORDER CELLPADDING=7 WIDTH="548" BORDERCOLOR="#000000" >
+<TR>
+<TD VALIGN=TOP WIDTH="21%"><FONT FACE="Times New Roman Cyr,Times Cyr">Число&nbsp;</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="33%"><FONT FACE="Times New Roman Cyr,Times Cyr">Циклический
+код&nbsp;</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="16%"><FONT FACE="Times New Roman Cyr,Times Cyr">Число&nbsp;</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="31%"><FONT FACE="Times New Roman Cyr,Times Cyr">Циклический
+код&nbsp;</FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=TOP WIDTH="21%"><FONT FACE="Times New Roman Cyr,Times Cyr">0&nbsp;</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="33%"><FONT FACE="Times New Roman Cyr,Times Cyr">0000000000.</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="16%"><FONT FACE="Times New Roman Cyr,Times Cyr">13&nbsp;</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="31%"><FONT FACE="Times New Roman Cyr,Times Cyr">0010001111</FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=TOP WIDTH="21%"><FONT FACE="Times New Roman Cyr,Times Cyr">1&nbsp;</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="33%"><FONT FACE="Times New Roman Cyr,Times Cyr">0000001011</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="16%"><FONT FACE="Times New Roman Cyr,Times Cyr">14</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="31%"><FONT FACE="Times New Roman Cyr,Times Cyr">0010011010</FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=TOP WIDTH="21%"><FONT FACE="Times New Roman Cyr,Times Cyr">2&nbsp;</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="33%"><FONT FACE="Times New Roman Cyr,Times Cyr">0000010110</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="16%"><FONT FACE="Times New Roman Cyr,Times Cyr">15&nbsp;</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="31%"><FONT FACE="Times New Roman Cyr,Times Cyr">0010100101&nbsp;</FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=TOP WIDTH="21%"><FONT FACE="Times New Roman Cyr,Times Cyr">3&nbsp;</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="33%"><FONT FACE="Times New Roman Cyr,Times Cyr">0000100001</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="16%"><FONT FACE="Times New Roman Cyr,Times Cyr">16</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="31%"><FONT FACE="Times New Roman Cyr,Times Cyr">0011000110</FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=TOP WIDTH="21%"><FONT FACE="Times New Roman Cyr,Times Cyr">5</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="33%"><FONT FACE="Times New Roman Cyr,Times Cyr">0000110111</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="16%"><FONT FACE="Times New Roman Cyr,Times Cyr">18&nbsp;</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="31%"><FONT FACE="Times New Roman Cyr,Times Cyr">0011000110&nbsp;</FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=TOP WIDTH="21%"><FONT FACE="Times New Roman Cyr,Times Cyr">6&nbsp;</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="33%"><FONT FACE="Times New Roman Cyr,Times Cyr">0001000010</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="16%"><FONT FACE="Times New Roman Cyr,Times Cyr">19&nbsp;</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="31%"><FONT FACE="Times New Roman Cyr,Times Cyr">0011010001&nbsp;</FONT></TD>
+</TR>
+
+<TR>
+<TD VALIGN=TOP WIDTH="21%"><FONT FACE="Times New Roman Cyr,Times Cyr">.....</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="33%"><FONT FACE="Times New Roman Cyr,Times Cyr">........</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="16%"><FONT FACE="Times New Roman Cyr,Times Cyr">.......</FONT></TD>
+
+<TD VALIGN=TOP WIDTH="31%"><FONT FACE="Times New Roman Cyr,Times Cyr">.......</FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Times New Roman Cyr,Times Cyr">Положительными свойствами циклических
+кодов являются малая вероятность необнаружения ошибки и сравнительно небольшое
+число избыточных разрядов.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><IMG SRC="Image10.gif" HEIGHT=163 WIDTH=480>
+<DIR>
+<CENTER><B><FONT FACE="Times New Roman Cyr,Times Cyr">Рис. 3.2. Пример
+получения циклического кода</FONT></B></CENTER>
+
+<CENTER><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT></CENTER>
+
+<CENTER><FONT FACE="Times New Roman Cyr,Times Cyr">&nbsp;</FONT></CENTER>
+</DIR>
+<FONT FACE="Times New Roman Cyr,Times Cyr">Общепринятое обозначение образующих
+полиномов дает следующий пример:</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">g(X) = X<SUP> 16 </SUP>+
+X <SUP>12</SUP> + X<SUP> 5</SUP> + 1,</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">что эквивалентно коду 1 0001
+0000 0010 0001. Этот полином используется в протоколе V.42 для кодирования
+кодовых групп в 240 разрядов с двумя избыточными байтами. В этом протоколе
+возможен и образующий полином для четырех избыточных байтов</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">g(X) = X <SUP>32</SUP> +
+X<SUP> 26</SUP> + X <SUP>23</SUP> + X<SUP> 22</SUP> + X<SUP> 16</SUP> +
+X<SUP> 12 </SUP>+ X <SUP>11 </SUP>+ X <SUP>10</SUP> + X <SUP>8 </SUP>+
+X <SUP>7</SUP> + X<SUP> 5</SUP></FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">+ X<SUP> 4 </SUP>+ X <SUP>2
+</SUP>+ 1.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">&nbsp;</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><B><FONT FACE="Times New Roman Cyr,Times Cyr">10.&nbsp;<A NAME="n10"></A>Коэффициент
+сжатия.</FONT></B><FONT FACE="Times New Roman Cyr,Times Cyr"> Наличие в
+сообщениях избыточности позволяет ставить вопрос о сжатии данных, т.е.
+о передаче того же количества информации с помощью последовательностей
+символов меньшей длины. Для этого используются специальные алгоритмы сжатия,
+уменьшающие избыточность. Эффект сжатия оценивают <I>коэффициентом сжатия</I></FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">K = n/q,</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">где n - число минимально
+необходимых символов для передачи сообщения (практически это число символов
+на выходе эталонного алгоритма сжатия); q - число символов в сообщении,
+сжатом данным алгоритмом. Так, при двоичном кодировании n равно энтропии
+источника информации.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Наряду с методами сжатия,
+не уменьшающими количество информации в сообщении, применяются методы сжатия,
+основанные на потере малосущественной информации.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><B><FONT FACE="Times New Roman Cyr,Times Cyr">11.&nbsp;<A NAME="n11"></A>Алгоритмы
+сжатия. </FONT></B><FONT FACE="Times New Roman Cyr,Times Cyr">Сжатие данных
+осуществляется либо на прикладном уровне с помощью программ сжатия, таких,
+как ARJ, либо с помощью устройств защиты от ошибок (УЗО) непосредственно
+в составе модемов по протоколам типа V.42bis.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Очевидный способ сжатия числовой
+информации, представленной в коде ASCII, заключается в использовании сокращенного
+кода с четырьмя битами на символ вместо восьми, так как передается набор,
+включающий только 10 цифр, символы "точка", "запятая" и "пробел".</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Среди простых алгоритмов
+сжатия наиболее известны <I>алгоритмы RLE (Run Length Encoding).</I> В
+них вместо передачи цепочки из одинаковых символов передаются символ и
+значение длины цепочки. Метод эффективен при передаче растровых изображений,
+но малополезен при передаче текста.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">К методам сжатия относят
+также <I>методы разностного кодирования</I>, поскольку разности амплитуд
+отсчетов представляются меньшим числом разрядов, чем сами амплитуды. Разностное
+кодирование реализовано в методах дельта-модуляции и ее разновидностях.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr"><I>Предсказывающие (предиктивные)
+методы</I> основаны на экстраполяции значений амплитуд отсчетов, и если
+выполнено условие</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Ar - Ap > d,</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">то отсчет должен быть передан,
+иначе он является избыточным; здесь Ar и Ap - амплитуды реального и предсказанного
+отсчетов, d - допуск (допустимая погрешность представления амплитуд). Иллюстрация
+предсказывающего метода с линейной экстраполяцией представлена рис. 3.3.
+Здесь точками показаны предсказываемые значения сигнала. Если точка выходит
+за пределы "коридора" (допуска d), показанного пунктирными линиями, то
+происходит передача отсчета. На рисунке передаваемые отсчеты отмечены темными
+кружками в моменты времени t<SUB>1, t2, t4, t7</SUB>. Если передачи отсчета
+нет, то на приемном конце принимается экстраполированное значение.</FONT>
+<DIR><IMG SRC="Image11.gif" HEIGHT=261 WIDTH=401><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><B><FONT FACE="Times New Roman Cyr,Times Cyr">Рис. 3.3. Предиктивное
+кодирование</FONT></B><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><I><FONT FACE="Times New Roman Cyr,Times Cyr">&nbsp;</FONT></I></DIR>
+<FONT FACE="Times New Roman Cyr,Times Cyr">Методы MPEG (Moving Pictures
+Experts Group) используют предсказывающее кодирование изображений <U>(для
+сжатия данных о движущихся объектах вместе со звуком).</U> Так, если передавать
+только изменившиеся во времени пиксели изображения, то достигается сжатие
+в несколько десятков раз. Этот алгоритм сжатия используется также в стандарте
+Н.261 ITU. Методы MPEG становятся мировыми стандартами для цифрового телевидения.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Для сжатия данных об изображениях
+можно использовать также методы типа JPEG (Joint Photographic Expert Group),
+основанные на потере малосущественной информации (не различимые для глаза
+оттенки кодируются одинаково, коды могут стать короче). В этих методах
+передаваемая последовательность пикселей делится на блоки, в каждом блоке
+производится преобразование Фурье, устраняются высокие частоты, передаются
+коэффициенты разложения для оставшихся частот, по ним в приемнике изображение
+восстанавливается.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Другой принцип воплощен в
+фрактальном кодировании, при котором изображение, представленное совокупностью
+линий, описывается уравнениями этих линий.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Более универсален широко
+известный метод Хаффмена, относящийся к статистическим методам сжатия.
+Идея метода - часто повторяющиеся символы нужно кодировать более короткими
+цепочками битов, чем цепочки редких символов. Строится двоичное дерево,
+листья соответствуют кодируемым символам, код символа представляется последовательностью
+значений ребер (эти значения в двоичном дереве суть 1 и 0), ведущих от
+корня к листу. Листья символов с высокой вероятностью появления находятся
+ближе к корню, чем листья маловероятных символов.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Распознавание кода, сжатого
+по методу Хаффмена, выполняется по алгоритму, аналогичному алгоритмам восходящего
+грамматического разбора. Например, пусть набор из восьми символов (A, B,
+C, D, E, F, G, H) имеет следующие правила кодирования:</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">A ::= 10; B ::= 01; C ::=
+111; D ::= 110;</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">E ::= 0001; F ::= 0000; G
+::= 0011; H ::= 0010.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Тогда при распознавании входного
+потока 101100000110 в стек распознавателя заносится 1, но 1 не совпадает
+с правой частью ни одного из правил. Поэтому в стек добавляется следующий
+символ 0. Полученная комбинация 10 распознается и заменяется на А. В стек
+поступает следующий символ 1, затем 1, затем 0. Сочетание 110 совпадает
+с правой частью правила для D. Теперь в стеке AD, заносятся следующие символы
+0000 и т.д.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Недостаток метода заключается
+в необходимости знать вероятности символов. Если заранее они не известны,
+то требуются два прохода: на одном в передатчике подсчитываются вероятности,
+на другом эти вероятности и сжатый поток символов передаются к приемнику.
+Однако двухпроходность не всегда возможна.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Этот недостаток устраняется
+в однопроходных алгоритмах адаптивного сжатия, в которых схема кодирования
+есть схема приспособления к текущим особенностям передаваемого потока символов.
+Поскольку схема кодирования известна как кодеру, так и декодеру, сжатое
+сообщение будет восстановлено на приемном конце.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Обобщением этого способа
+является алгоритм, основанный на <I>словаре сжатия данных</I>. В нем происходит
+выделение и запоминание в словаре повторяющихся цепочек символов, которые
+кодируются цепочками меньшей длины.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Интересен <I>алгоритм "стопка
+книг</I>", в котором код символа равен его порядковому номеру в списке.
+Появление символа в кодируемом потоке вызывает его перемещение в начало
+списка. Очевидно, что часто встречающиеся символы будут тяготеть к малым
+номерам, а они кодируются более короткими цепочками 1 и 0.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Кроме упомянутых алгоритмов
+сжатия существует ряд других алгоритмов, например LZ-алгоритмы (<I>алгоритмы
+Лемпеля-Зива</I>). В частности, один из них (LZW) применен в протоколе
+V.42bis.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><B><U><FONT FACE="Times New Roman Cyr,Times Cyr">12.&nbsp;<A NAME="n12"></A>Сжатие
+данных по методу Лемпеля-Зива. </FONT></U></B><U><FONT FACE="Times New Roman Cyr,Times Cyr">Лемель
+и Зив используют следующую идею: если в тексте сообщения появляется последовательность
+из двух ранее уже встречавшихся символов, то эта последовательсность объявляется
+новым символом, для нее назначается код, который при определенных условиях
+может быть значительно короче исходной последовательности. В дальнейшем
+в сжатом сообщении вместо исходной последовательности записывается назначенный
+код. При декодировании повторяются аналогичные действия и потому становятся
+известными последовательности символов для каждого кода.</FONT></U><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><U><FONT FACE="Times New Roman Cyr,Times Cyr">Одна из алгоритмических
+реализаций этой идеи включает следующие операции. Первоначально каждому
+символу алфавита присваивается определенный код (коды - порядковые номера,
+начиная с 0). При <I>кодировании</I></FONT></U><FONT FACE="Times New Roman Cyr,Times Cyr">:</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">1. Выбирается первый символ
+сообщения и заменяется на его код.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">2. Выбираются следующие два
+символа и заменяются своими кодами. Одновременно этой комбинации двух символов
+присваивается свой код. Обычно это номер, равный числу уже использованных
+кодов. Так, если алфавит включает 8 символов, имеющих коды от 000 до 111,
+то первая двухсимвольная комбинация получит код 1000, следующая - код 1001
+и т.д.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">3. Выбираются из исходного
+текста очередные 2, 3,...N символов до тех пор, пока не образуется еще
+не встречавшаяся комбинация. Тогда этой комбинации присваивается очередной
+код, и поскольку совокупность А из первых N-1 символов уже встречалась,
+то она имеет свой код, который и записывается вместо этих N-1 символов.
+Каждый акт введения нового кода назовем шагом кодирования.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">4. Процесс продолжается до
+исчерпания исходного текста.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">При <I>декодировании </I>код
+первого символа, а затем второго и третьего заменяются на символы алфавита.
+При этом становится известным код комбинации второго и третьего символов.
+В следующей позиции могут быть только коды уже известных символов и их
+комбинаций. Процесс декодирования продолжается до исчерпания сжатого текста.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Сколько двоичных разрядов
+нужно выделять для кодирования? Ответ может быть следующим: число разрядов
+R на каждом шаге кодирования равно числу разрядов в наиболее длинном из
+использованных кодов (т.е. числу разрядов в последнем использованном порядковом
+номере). Поэтому если последний использованный код (порядковый номер) равен
+13=1101, то коды А всех комбинаций должны быть четырехразрядными при кодировании
+вплоть до появления номера 16, после чего все коды символов начинают рассматриваться
+как пятиразрядные (R=5).</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">Пример. Пусть исходный текст
+представляет собой двоичный код (первая строка таблицы 1), т.е. символами
+алфавита являются 0 и 1. Коды этих символов соответственно также 0 и 1.
+Образующийся по методу Лемпеля-Зива код (LZ-код) показан во второй строке
+таблицы 1. В третьей строке отмечены шаги кодирования, после которых происходит
+переход на представление кодов А увеличенным числом разрядов R. Так, на
+первом шаге вводится код 10 для комбинации 00 и поэтому на следующих двух
+шагах R=2, после третьего шага R=3, после седьмого шага R=4, т.е. в общем
+случае R=K после шага 2<SUP>K-1</SUP>-1.</FONT><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><FONT FACE="Times New Roman Cyr,Times Cyr">В приведенном примере LZ-код
+оказался даже длиннее исходного кода, так как обычно короткие тексты не
+дают эффекта сжатия. Эффект сжатия проявляется в достаточно длинных текстах
+и особенно заметен в графических файлах.</FONT>
+<DIV ALIGN=right><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT></DIV>
+
+<DIV ALIGN=right><FONT FACE="Times New Roman Cyr,Times Cyr">Таблица 1</FONT></DIV>
+
+<DIV ALIGN=right><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>&nbsp;</DIV>
+
+<TABLE BORDER CELLPADDING=7 WIDTH="593" BORDERCOLOR="#000000" >
+<TR>
+<TD VALIGN=TOP WIDTH="27%"><U><FONT FACE="Times New Roman Cyr,Times Cyr">Исходный
+текст</FONT></U></TD>
+
+<TD VALIGN=TOP WIDTH="73%"><U><FONT FACE="Times New Roman Cyr,Times Cyr">0.00.000.
+01. 11. 111.1111. 110. 0000.00000. 1101. 1110.</FONT></U></TD>
+</TR>
+
+<TR>
+<TD VALIGN=TOP WIDTH="27%"><U><FONT FACE="Times New Roman Cyr,Times Cyr">LZ-код</FONT></U></TD>
+
+<TD VALIGN=TOP WIDTH="73%"><U><FONT FACE="Times New Roman Cyr,Times Cyr">0.00.100.001.0011.1011.1101.
+1010.00110.10010.10001.10110.</FONT></U></TD>
+</TR>
+
+<TR>
+<TD VALIGN=TOP WIDTH="27%"><U><FONT FACE="Times New Roman Cyr,Times Cyr">R&nbsp;</FONT></U></TD>
+
+<TD VALIGN=TOP WIDTH="73%"><U><FONT FACE="Times New Roman Cyr,Times Cyr">2
+3 4</FONT></U></TD>
+</TR>
+
+<TR>
+<TD VALIGN=TOP WIDTH="27%"><U><FONT FACE="Times New Roman Cyr,Times Cyr">Вводимые
+коды</FONT></U></TD>
+
+<TD VALIGN=TOP WIDTH="73%"><U><FONT FACE="Times New Roman Cyr,Times Cyr">-
+10 11 100 101 110 111 1000 1001 1010 1011 1100</FONT></U></TD>
+</TR>
+</TABLE>
+<U><FONT FACE="Times New Roman Cyr,Times Cyr">&nbsp;</FONT></U><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><U><FONT FACE="Times New Roman Cyr,Times Cyr">&nbsp;</FONT></U><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+<P><U><FONT FACE="Times New Roman Cyr,Times Cyr">В другой известной реализации
+LZ-метода любая ранее встречавшаяся последовательность в сжатом тексте
+представляет собой совокупность следующих данных:</FONT></U>
+<UL>
+<LI>
+<U><FONT FACE="Times New Roman Cyr,Times Cyr">номер первого символа в ранее
+встречавшейся последовательности;</FONT></U></LI>
+
+<LI>
+<U><FONT FACE="Times New Roman Cyr,Times Cyr">число символов в последовательности;</FONT></U></LI>
+
+<LI>
+<U><FONT FACE="Times New Roman Cyr,Times Cyr">следующий символ в текущей
+позиции кодируемого текста.</FONT></U></LI>
+</UL>
+<U><FONT FACE="Times New Roman Cyr,Times Cyr"><FONT COLOR="#0000FF"><A
+HREF="net0.html">(возврат
+в титульную страницу)</A></FONT></FONT></U><FONT FACE="Times New Roman Cyr,Times Cyr"></FONT>
+
+</BODY>
+</HTML>

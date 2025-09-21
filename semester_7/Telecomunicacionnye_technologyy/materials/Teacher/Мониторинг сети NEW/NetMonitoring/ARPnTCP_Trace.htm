@@ -1,0 +1,1494 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		<meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">
+		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+	</head>
+	<body>
+<H2 align="center">Методика трассировки работы протоколов ARP, TCP, FTP, SMTP 
+  &egrave; HTTP </H2>
+		<P align="center">&nbsp;</P>
+		
+<OL>
+  <LI> 
+    <DIV align="justify"><A href="#00001">Введение</A></DIV>
+  <LI> 
+    <DIV align="justify"><A href="#00002">Настройка утилиты Network monitor</A></DIV>
+  <LI> 
+    <DIV align="justify"><A href="#00003">Установление соединения</A></DIV>
+  <LI> 
+    <DIV align="justify"><A href="#0005">Анализ процесса разрешения адреса по 
+      протоколу ARP</A></DIV>
+  <LI> 
+    <DIV align="justify"><A href="#0004">Анализ сеанса TCP</A></DIV>
+  <LI> 
+    <DIV align="justify"><A href="#0006">Поведение TCP при потере пакетов</A></DIV>
+  <LI> 
+    <DIV align="justify"><A href="#0007">Трассировка протокола FTP</A></DIV>
+  <LI> 
+    <DIV align="justify"><A href="#0008">Трассировка&nbsp;SMTP сеанса</A></DIV>
+  </LI>
+  <LI>
+    <div align="justify"><a href="monit_HTTP.htm">Трассировка&nbsp;HTTP сеанса</a></div>
+  </LI>
+</OL>
+		<P align="justify">&nbsp;</P>
+		<H3 align="center"><A name="#00001"></A>Введение</H3>
+		<P align="justify">В данном методическом пособии описывается процесс трассировки 
+			TCP соединения между двумя узлами, подробно рассматривается содержимое 
+			передаваемых по сети кадров данных, рассматривается работа протоколов FTP и 
+			SMTP&nbsp;и описывается процесс разрешения адреса&nbsp;назначения с помощью 
+			протокола ARP.</P>
+		<P align="justify">&nbsp;</P>
+		<H3 align="center"><A name="00002"></A>Настройка утилиты Network monitor</H3>
+		<P align="justify">Для установления связи между узлами можно использовать доступ по 
+			FTP через менеджер файлов Total Commander. Для этого в файловом менеджере 
+			следует выбрать пункт "Соединение по FTP" ("FTP connect...") в пункте меню 
+			"Сеть" ("Net) или нажать комбинацию клавиш Ctrl+F. В открывшемся окне следует 
+			нажать на кнопку "Новое соединение" ("New connection"), после чего на экране 
+			появится диалоговое окно, в котором следует задать параметры соединения: 
+			"Session" - произвольное имя сессии, "Host name" - titan.vt, "User name" и 
+			"Password"- имя и пароль учетной записи, выданной преподавателем, после чего 
+			следует нажать кнопку OK. Возможна ситуация, когда из-за неумелого 
+			администирования системы добавить новое соединеие не удается. В этом случае 
+			данный пункт можно пропустить.</P>
+		<P align="justify">Теперь Total Commander настроен для установления соединения. 
+			Далее следует запустить утилиту Network Monitor и настроить его для перехвата 
+			пакетов. Настройка выполняется следующим образом: сначала необходимо выбрать 
+			сеть, трафик которой вы хотите контролировать. Это делается с помощью меню 
+			Capture и пункта Networks. В появившейся панели отображаются все сетевые 
+			интерфейсы, которые имеются у вашего компьютера.</P>
+		<P align="center"><IMG src="ARPnTCP_Trace.files\0000.JPG">
+		</P>
+		<P align="center">&nbsp;</P>
+		<P align="justify">В этом окне необходимо выбрать "Local Area Connection". Далее 
+			необходимо установить размер буфера (пункт&nbsp;"Buffer settings" меню 
+			"Capture"). Размер буфера определяется характером и объемом передаваемых по 
+			сети данных. Для отслеживания процесса соединения будат вполне достаточно 2-3 
+			Mb. Поле "Frame size" можно оставить без изменений.</P>
+		<P align="center"><IMG src="ARPnTCP_Trace.files\0001.JPG">
+		<P align="justify">&nbsp;</P>
+		<P align="justify">Далее необходимо установить фильтр для того, чтобы не 
+			отследживать обмен с другими узлами. Для этого необходимо выбрать 
+			пункт&nbsp;"Filter" меню "Capture".</P>
+		<P align="center"><IMG src="ARPnTCP_Trace.files\0002.JPG">
+		<P align="justify">&nbsp;</P>
+		<P align="justify">В появившемся диалоговом окне необходимо нажать на кнопку "Add 
+			expression" (верхняя кнопка в правом ряду) и перейда на вкладку "Addresses". 
+			Далее в левой панели следует выбрать адрес "LOCAL" типа MAC (справа от которого 
+			записано двенадцать шестнадцатеричных цифр без разделителей). В правой панели 
+			необходимо выбрать адрес TITAN.VT. Если такой адрес отсутствует, 
+			следует&nbsp;создать его самостоятельно, нажав на кнопку "Edit addresses..." и 
+			добавив далее с помощью кнопки "Add" адрес с именем "TITAN.VT" и типом "IP" 
+			(поле "Type"). В поле "Address" следует указать IP адрес сервера, который можно 
+			узнать у преподавателя. Добавив адрес и выбрав его в правой панели необходимо 
+			выбрать в средней панели пункт, озаглавленный как "&lt;--&gt;", после чего 
+			следует нажать на "OK". Теперь в списке фильтров появилось новое выражение: 
+			LOCAL (ETHERNET) &lt;--&gt; TITAN.VT (IP). Это означает, что Network Monitor 
+			теперь будет отслеживать все пакеты, передаваемые&nbsp;из текущего узла на 
+			IP-адрес сервера, или идущие с IP-адреса сервера на данный узел.</P>
+		<P align="center"><IMG src="ARPnTCP_Trace.files\0004.JPG">
+		<P align="justify">&nbsp;</P>
+		<P align="justify">Для того, чтобы Network Monitor мог отследить передачу по 
+			протоколу ARP следует добавить еще один фильтр. Для этого нужно выделить 
+			недавно добавленное выражение и нажать на кнопку "OR", а затем снова 
+			"Expression". В открывшемся окне необходимо перейти на вкладку "Protocol", 
+			нажать кнопку "Disable All", после чего все протоколы будут перемещены в правую 
+			панель, и разрешить протокол "ARP_RARP" (найти его в правой панели, выделить и 
+			нажать кнопку "Enable". После всех проделанных выше действий нужно нажать на 
+			"OK". В результате вид окна установки фильтра должен соответствовать следующему 
+			рисунку.</P>
+		<P align="center"><IMG src="ARPnTCP_Trace.files\0003.JPG"></P>
+		<P align="justify">После этого установленный фильтр нужно применить (кнопка "OK"). 
+			Далее можно приступать к отcлеживанию соединения.</P>
+		<P align="justify">&nbsp;</P>
+		<P align="center">
+			<H3 align="center"><A name="00003"></A>Установление соединения</H3>
+		<P align="justify">Установление соединения выполняется с помощью Total Commander. <EM>Перед 
+				началом сеанса необходимо запустить сбор пакетов в Network Monitor&nbsp; с 
+				помощью пункта "Start" меню "Capture" или соответвствующей кнопочки на панели 
+				инструментов</EM>.</P>
+		<P align="justify">Для установления соединения необходимо нажать комбинацию клавиш 
+			"Ctrl+F" и выбрать пункт, созданный в начале работы, после чего следует нажать 
+			на "OK". Если создать пункт не удалось, можно воспользоваться пунктом "Новое 
+			соединеие FTP" ("New FTP connection", комбинация "Ctrl+N"), сняв в открывшемся 
+			окне галочку напротив пункта "Анонимное соединение" ("Anonymous connection").</P>
+		<P align="justify">Когда соединение с сервером будет установлено, необходимо 
+			будет&nbsp;закачать какой-либо файл небольшого размера&nbsp;по FTP на локальный 
+			диск. Далее необходимо разорвать соединеие в Total Commander (кнопка 
+			"Disconnect" на противоположной панели) и остановить сбор пакетов в Network 
+			Monitor с помощью пункта "Stop and View". Если все было проделано 
+			правильно,&nbsp;в&nbsp;утилите&nbsp;откроется окно с сохраненными данными:</P>
+		<P align="center"><IMG src="ARPnTCP_Trace.files\0005.JPG">
+		<P align="justify">После этого можно приступать к анализу передаваемых данных.</P>
+		<P align="justify">&nbsp;</P>
+		<H3 align="center"><A name="0005"></A>Анализ процесса разрешения адреса по 
+			протоколу ARP</H3>
+		<P align="justify">Протокол разрешения адреса ARP (Address Resolution Protoco) 
+			используется для определения физического адреса узла по его IP-адресу. Протокол 
+			ARP работает различным образом в зависимости от того, какой протокол канального 
+			уровня работает в данной сети - протокол локальной сети (Ethernet, Token Ring, 
+			FDDI) с возможностью широковещательного доступа одновременно ко всем узлам 
+			сети, или же протокол глобальной сети (X.25, frame relay), как правило не 
+			поддерживающий широковещательный доступ. Существует также протокол, решающий 
+			обратную задачу - нахождение IP-адреса по известному локальному адресу. Он 
+			называется реверсивный ARP - RARP (Reverse Address Resolution Protocol) и 
+			используется при старте бездисковых станций, не знающих в начальный момент 
+			своего IP-адреса, но знающих адрес своего сетевого адаптера. В локальных сетях 
+			протокол ARP использует широковещательные кадры протокола канального уровня для 
+			поиска в сети узла с заданным IP-адресом.
+		</P>
+		<A name="_5_9"></A>
+			<P align="justify">
+			Когда сообщения ARP пересылаются от одной машины к другой, они должны 
+			передаваться в физических кадрах. Сообщение ARP передается как поле данных 
+			кадра физического уровня. В отличие от большинства протоколов, данные в 
+		пакетах ARP не имеют фиксированного формата заголовка. Вместо этого его 
+		сообщения были разработаны так, чтобы их можно было использовать для различных 
+		сетевых технологий. Поэтому, первые поля заголовка содержат счетчики, которые 
+		указывают длину следующих полей. Фактически, ARP можно использовать с 
+		произвольными физическими адресами и произвольными протокольными адресами. В 
+		таблице&nbsp;показан 28-октетный формат сообщения ARP, используемый для 
+		оборудования Ethernetа(у которого физические адреса являются 48-битовыми или 
+		6-октетными) при разрешении протокольных адресов IP(имеющих длину 4 октета). 
+		Поле ОПЕРАЦИЯ указывает запрос ARP(1), ответ ARP(2), запрос RARP(3), или ответ 
+		RARP(4).</P>
+		<P align="justify">
+			<TABLE id="Table1" cellSpacing="1" cellPadding="1" border="1">
+				<TR>
+					<TD>
+						<P align="center">0</P>
+					</TD>
+					<TD>
+						<P align="center">1</P>
+					</TD>
+					<TD>
+						<P align="center">2</P>
+					</TD>
+					<TD>
+						<P align="center">3</P>
+					</TD>
+					<TD>
+						<P align="center">4</P>
+					</TD>
+					<TD>
+						<P align="center">5</P>
+					</TD>
+					<TD>
+						<P align="center">6</P>
+					</TD>
+					<TD>
+						<P align="center">7</P>
+					</TD>
+					<TD>
+						<P align="center">8</P>
+					</TD>
+					<TD>
+						<P align="center">9</P>
+					</TD>
+					<TD>
+						<P align="center">A</P>
+					</TD>
+					<TD>
+						<P align="center">B</P>
+					</TD>
+					<TD>
+						<P align="center">C</P>
+					</TD>
+					<TD>
+						<P align="center">D</P>
+					</TD>
+					<TD>
+						<P align="center">E</P>
+					</TD>
+					<TD>
+						<P align="center">F</P>
+					</TD>
+					<TD>
+						<P align="center">0</P>
+					</TD>
+					<TD>
+						<P align="center">1</P>
+					</TD>
+					<TD>
+						<P align="center">2</P>
+					</TD>
+					<TD>
+						<P align="center">3</P>
+					</TD>
+					<TD>
+						<P align="center">4</P>
+					</TD>
+					<TD>
+						<P align="center">5</P>
+					</TD>
+					<TD>
+						<P align="center">6</P>
+					</TD>
+					<TD>
+						<P align="center">7</P>
+					</TD>
+					<TD>
+						<P align="center">8</P>
+					</TD>
+					<TD>
+						<P align="center">9</P>
+					</TD>
+					<TD>
+						<P align="center">A</P>
+					</TD>
+					<TD>
+						<P align="center">B</P>
+					</TD>
+					<TD>
+						<P align="center">C</P>
+					</TD>
+					<TD>
+						<P align="center">D</P>
+					</TD>
+					<TD>
+						<P align="center">E</P>
+					</TD>
+					<TD>
+						<P align="center">F</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD colSpan="16">
+						<P align="center">ТИП ОБОРУДОВАНИЯ
+						</P>
+					</TD>
+					<TD colSpan="16">
+						<P align="center">ТИП ПРОТОКОЛА
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD colSpan="8">
+						<P align="center">HLEN
+						</P>
+					</TD>
+					<TD colSpan="8">
+						<P align="center">PLEN
+						</P>
+					</TD>
+					<TD colSpan="16">
+						<P align="center">ОПЕРАЦИЯ
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD colSpan="32">
+						<P align="center">ОТПРАВИТЕЛЬ АА (октеты 0-3)
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD colSpan="16">
+						<P align="center">ОТПРАВИТЕЛЬ АА(октеты 4-5)</P>
+					</TD>
+					<TD colSpan="16">
+						<P align="center">ОТПРАВИТЕЛЬ IP(октеты 0-1)
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD colSpan="16">
+						<P align="center">ОТПРАВИТЕЛЬ IP(октеты 2-3)</P>
+					</TD>
+					<TD colSpan="16">
+						<P align="center">ПОЛУЧАТЕЛЬ АА(октеты 0-1)
+						</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD colSpan="32">
+						<P align="center">ПОЛУЧАТЕЛЬ АА(октеты 0-1)</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD colSpan="32">
+						<P align="center">ПОЛУЧАТЕЛЬ IP(октеты 0-3)</P>
+					</TD>
+				</TR>
+			</TABLE>
+		<p></P>
+		<P align="left">&nbsp;</P>
+		<P align="justify">Итак, установление соединения должно начинаться с определения 
+			физического адреса узла назначения по его IP. На рисунке показано, что первые 
+			два захваченные пакета как раз содержат запрос ARP, адресованный серверу, и 
+			ARP-ответ сервера, передающий данные о MAC-адресе узлу, пославшему запрос:</P>
+		<P align="center"><IMG src="ARPnTCP_Trace.files\0006.JPG">
+		<P align="center">&nbsp;</P>
+		<P align="justify">Первый пакет (Frame #1) содержит собственно запрос. В нем указан 
+			IP-адрес отправителя, MAC-адрес отправителя и IP-адрес получателя. Для того, 
+			чтобы раскрыть структуру пакета, необходимо дважды щелкнут по нему мышью. В 
+			результате окно будет разбито на три части: в верхней части будет отображаться 
+			список пакетов, в средней будет приводиться расшифровка части их полей, в 
+			нижней - отображаться данный пакета в виде шестнадцатеричных чисел.</P>
+		<P align="left">Структура пакета, используемого в данном примере:</P>
+		<PRE>1 6.198914 LOCAL BROADCAST ARP_RARP ARP: Request, Target IP: 192.168.0.74    
+FRAME: Base frame properties
+    FRAME: Time of capture = 21.12.2004 5:12:16 PM
+    FRAME: Time delta from previous physical frame: 0 microseconds
+    FRAME: Frame number: 1
+    FRAME: Total frame length: 42 bytes
+    FRAME: Capture frame length: 42 bytes
+    FRAME: Frame data: Number of data bytes remaining = 42 (0x002A)
+ETHERNET:  EType = ARP 
+    ETHERNET: Destination address = FFFFFFFFFFFF 
+        ETHERNET: 1....... = Group address
+        ETHERNET: .1...... = Locally administered address
+    ETHERNET: Source address = 0060081EF346 
+        ETHERNET: .0...... = Universally administered address
+    ETHERNET: Ethernet Type : 0x0806 (ARP)
+ARP_RARP: ARP: Request, Target IP: 192.168.0.74
+    ARP_RARP: Hardware Type = Ethernet (10Mb)
+    ARP_RARP: Protocol Type = 2048 (0x800)
+    ARP_RARP: Hardware Address Length = 6 (0x6)
+    ARP_RARP: Protocol Address Length = 4 (0x4)
+    ARP_RARP: Opcode = Request
+    ARP_RARP: Sender's Hardware Address = 0060081EF346 
+    ARP_RARP: Sender's Protocol Address = 192.168.0.1
+    ARP_RARP: Target's Hardware Address = 000000000000 
+    ARP_RARP: Target's Protocol Address = 192.168.0.74
+00000:  FF FF FF FF FF FF 00 60 08 1E F3 46 08 06 00 01   yyyyyy.`..oF....
+00010:  08 00 06 04 00 01 00 60 08 1E F3 46 C0 A8 00 01   .......`..oFA?..
+00020:  00 00 00 00 00 00 C0 A8 00 4A                     ......A?.J      
+		</PRE>
+		<P align="justify">Как можно видеть в поле "Destination address", MAC адрес 
+			получателя равен FFFFFFFFFFFF, что соответствует широковещательному запросу. 
+			Это связано с тем, что MAC адрес сервера пока еще не известен (собственно, этот 
+			запрос посылается именно для того, чтобы его получить), и пакет направлен 
+			на&nbsp;все узлы сети. Тип пакета: ARP-запрос ("ARP_RARP: Opcode = Request"). 
+			Узлы, IP которых не равен указанному в пакете (поле ARP_RARP: "Target's 
+			Protocol Address" = 192.168.0.74), проигнорируют этот запрос, сервер же 
+			напротив должен ответить отправителю, сообщив ему свой адрес Ethernet. Адрес 
+			отправителя известен, он указан в поле ARP_RARP: "Sender's Hardware Address" = 
+			0060081EF346. Кстати, пакет предназначен для разрешения IPv4 в сети Ethernet, 
+			поэтому поля "Hardware Address Length" и "Protocol Address Length" равны 
+			соответственно 6 и 4 (длины Ethernet и IP адреса).</P>
+		<P>В ответ сервер генерирует ARP-ответ. Его структура представлена ниже:</P>
+		<PRE>2 6.198914 TITAN.VT LOCAL ARP_RARP ARP: Reply, Target IP: 192.168.0.1 Target Hdwr Addr: 0060081EF346    
+FRAME: Base frame properties
+    FRAME: Time of capture = 21.12.2004 5:12:16 PM
+    FRAME: Time delta from previous physical frame: 0 microseconds
+    FRAME: Frame number: 2
+    FRAME: Total frame length: 60 bytes
+    FRAME: Capture frame length: 60 bytes
+    FRAME: Frame data: Number of data bytes remaining = 60 (0x003C)
+ETHERNET:  EType = ARP 
+    ETHERNET: Destination address = 0060081EF346 
+        ETHERNET: 0....... = Individual address
+        ETHERNET: .0...... = Universally administered address
+    ETHERNET: Source address = 000A5E225644 
+        ETHERNET: .0...... = Universally administered address
+    ETHERNET: Ethernet Type : 0x0806 (ARP)
+ARP_RARP: ARP: Reply, Target IP: 192.168.0.1 Target Hdwr Addr: 0060081EF346
+    ARP_RARP: Hardware Type = Ethernet (10Mb)
+    ARP_RARP: Protocol Type = 2048 (0x800)
+    ARP_RARP: Hardware Address Length = 6 (0x6)
+    ARP_RARP: Protocol Address Length = 4 (0x4)
+    ARP_RARP: Opcode = Reply
+    ARP_RARP: Sender's Hardware Address = 000A5E225644 
+    ARP_RARP: Sender's Protocol Address = 192.168.0.74
+    ARP_RARP: Target's Hardware Address = 0060081EF346 
+    ARP_RARP: Target's Protocol Address = 192.168.0.1
+    ARP_RARP: Frame Padding
+00000:  00 60 08 1E F3 46 00 0A 5E 22 56 44 08 06 00 01   .`..oF..^"VD....
+00010:  08 00 06 04 00 02 00 0A 5E 22 56 44 C0 A8 00 4A   ........^"VDA?.J
+00020:  00 60 08 1E F3 46 C0 A8 00 01 00 00 00 00 00 00   .`..oFA?........
+00030:  00 00 00 00 00 00 00 00 00 00 00 00               ............    
+		</PRE>
+		<P align="justify">ARP ответ уже не широковещательный, он предназначен узлу, 
+			пославшему запрос: "Destination address = 0060081EF346". Значение этого поля 
+			совпадает со значением поля "ARP_RARP: Sender's Hardware Address" предыдущего 
+			запроса. В&nbsp;целом ARP-ответ не отличается от ARP-запроса, отличия 
+			заключаются в поле типа ARP-пакета: "ARP_RARP: Opcode = Reply" - ARP-ответ, в 
+			том, что значения полей отправителя и получателя поменялись местами, и в том, 
+			что теперь пакет содержит MAC адрес сервера: "ARP_RARP: Sender's Hardware 
+			Address = 000A5E225644". Таким образом, узел получает информацию о физическом 
+			адресе сервера и может теперь выполнять с ним обмен&nbsp; пакетами.</P>
+		<P align="justify">Примечание: MAC-адрес сервера titan.vt может быть уже известен 
+			вследствие предыдущих запросов. В этом случае повторный обмен по ARP уже не 
+			производится. Для того, чтобы отследить ARP обмен, необходимо попытаться 
+			установить соединение с узлом, на который до этого не отправлялись запросы, 
+			например, с соседним компьютером. Для этого в свойствах соединения Total 
+			Commander следует вместо имени сервера указать IP-адрес этого компьютера в 
+			стандартной нотации, например, 192.168.10.1. Соединение FTP при этом 
+			установлено не будет, но обмен по ARP отследить удасться.</P>
+		<P>&nbsp;</P>
+		<H3 align="center">Анализ сеанса TCP</H3>
+		<P align="justify">После разрешения MAC адреса сервера следует установление 
+			соединения по протоколу TCP. Установление соединения осуществляется с помощью 
+			процедуры тройного обмена. Первые три пакета TCP, перехваченные NetMon'ом как 
+			раз и демонстрируют этот процесс:</P>
+		<P align="justify"><PRE>3 6.198914 LOCAL TITAN.VT TCP Control Bits: ....S., len: 0, seq: 485943161-485943162, ack: 0, win:16384, src: 1038 dst: 21 (FTP) LOCAL TITAN.VT IP<BR>
+4 6.198914 TITAN.VT LOCAL TCP Control Bits: .A..S., len: 0, seq: 251219392-251219393, ack: 485943162, win: 5840, src: 21 (FTP) dst: 1038 TITAN.VT LOCAL IP<BR>
+5 6.198914 LOCAL TITAN.VT TCP Control Bits: .A...., len: 0, seq: 485943162-485943162, ack: 251219393, win:17520, src: 1038 dst: 21 (FTP) LOCAL TITAN.VT IP<P></P>
+</PRE>
+		<P>Первый пакет служит для установления начального номера последовательности, 
+			поэтому в нем установлен флаг SYN:</P>
+		<pre>3 6.198914 LOCAL TITAN.VT TCP Control Bits: ....S., len:    0, seq: 485943161-485943162, ack:         0, win:16384, src: 1038  dst:   21 (FTP) LOCAL TITAN.VT IP 
+FRAME: Base frame properties
+    FRAME: Time of capture = 21.12.2004 5:12:16 PM
+    FRAME: Time delta from previous physical frame: 0 microseconds
+    FRAME: Frame number: 3
+    FRAME: Total frame length: 62 bytes
+    FRAME: Capture frame length: 62 bytes
+    FRAME: Frame data: Number of data bytes remaining = 62 (0x003E)
+ETHERNET:  EType = Internet IP (IPv4) 
+    ETHERNET: Destination address = 000A5E225644 
+        ETHERNET: 0....... = Individual address
+        ETHERNET: .0...... = Universally administered address
+    ETHERNET: Source address = 0060081EF346 
+        ETHERNET: .0...... = Universally administered address
+    ETHERNET: Ethernet Type : 0x0800 (Internet IP (IPv4))
+IP: Protocol = TCP - Transmission Control; Packet ID = 83; Total IP Length = 48; Options = No Options
+    IP: Version = IPv4; Header Length = 20
+        IP: 0100.... = IP Version 4
+        IP: ....0101 = Header Length 20
+    IP: Type of Service = Normal Service
+        IP: 000..... = Precedence - Routine
+        IP: ...0.... = Normal Delay
+        IP: ....0... = Normal Throughput
+        IP: .....0.. = Normal Reliability
+        IP: ......0. = Normal Monetary Cost
+    IP: Total Length = 48 (0x30)
+    IP: Identification = 83 (0x53)
+    IP: Fragmentation Summary = 16384 (0x4000)
+        IP: .1.............. = Cannot fragment datagram
+        IP: ..0............. = Last fragment in datagram
+        IP: ...0000000000000 = Fragment Offset 0 (0x0000)
+    IP: Time to Live = 128 (0x80)
+    IP: Protocol = TCP - Transmission Control
+    IP: Checksum = 30937 (0x78D9)
+    IP: Source Address = 192.168.0.1
+    IP: Destination Address = 192.168.0.74
+TCP: Control Bits: ....S., len:    0, seq: 485943161-485943162, ack:         0, win:16384, src: 1038  dst:   21 (FTP) 
+    TCP: Source Port = 0x040E
+    TCP: Destination Port = File Transfer [Control]
+    TCP: Sequence Number = 485943161 (0x1CF6E779)
+    TCP: Acknowledgement Number = 0 (0x0)
+    TCP: Data Offset = 28 bytes
+        TCP: 0111.... = Data Offset (28 bytes)
+        TCP: ....0000 = Reserved bits
+    TCP: Flags = 0x02 : ....S.
+        TCP: ..0..... = No urgent data
+        TCP: ...0.... = Acknowledgement field not significant
+        TCP: ....0... = No Push function
+        TCP: .....0.. = No Reset
+        TCP: ......1. = Synchronize sequence numbers
+        TCP: .......0 = Not the end of the data
+    TCP: Window = 16384 (0x4000)
+    TCP: Checksum = 0xB8F0
+    TCP: Urgent Pointer = 0 (0x0)
+    TCP: Options
+        TCP: Maximum Segment Size Option
+            TCP: Option Type = Maximum Segment Size
+            TCP: Option Length = 4 (0x4)
+            TCP: Maximum Segment Size = 1460 (0x5B4)
+        TCP: Option Nop = 1 (0x1)
+        TCP: Option Nop = 1 (0x1)
+        TCP: SACK Permitted Option
+            TCP: Option Type = Sack Permitted
+            TCP: Option Length = 2 (0x2)
+00000:  00 0A 5E 22 56 44 00 60 08 1E F3 46 08 00 45 00   ..^"VD.`..oF..E.
+00010:  00 30 00 53 40 00 80 06 78 D9 C0 A8 00 01 C0 A8   .0.S@.?.xUA?..A?
+00020:  00 4A 04 0E 00 15 1C F6 E7 79 00 00 00 00 70 02   .J.....ocy....p.
+00030:  40 00 B8 F0 00 00 02 04 05 B4 01 01 04 02         @.??.....?....  
+</pre>
+		<P align="justify">
+			Данный пакет предназначен&nbsp;для узела с IP= 192.168.0.74 (сервер), его MAC 
+			адрес явно указан в заголовке Ethernet кадра: "ETHERNET: Destination address = 
+			000A5E225644". В поле IP: "Protocol" установлено&nbsp;значение 0x06: "TCP - 
+			Transmission Control", следовательно, данные, следующие после заголовка IP 
+			должны рассматриваться как заголовок TCP. Ниже представлено описание его 
+			основных полей:</P>
+		<P align="justify"><STRONG>TCP: Source Port = 0x040E</STRONG> - TCP-порт 
+			отправителя, в данном случае, Total Commander'а. С помощью этого поля модуль 
+			TCP может различать пакеты, принадлежащие различным сеансам.<BR>
+			<STRONG>TCP: Destination Port = File Transfer [Control]</STRONG> - TCP-порт 
+			получателя, идентифицирет приложение, которому предназначен данный пакет.<BR>
+			<STRONG>TCP: Sequence Number = 485943161 (0x1CF6E779)</STRONG> - это начальный 
+			номер последовательности передаваемых данных. Этот номер назначается случайным 
+			образом. При создании новых соединений применяется генератор первоначальных 
+			номеров очереди (ISN), который выбирает новые 32 битные значения ISN. Генератор 
+			привязан к 32-разрядным часам, чье значение меняется каждые 4 микросекунды. 
+			Таким образом, полный цикл часов ISN составляет примерно 4.55 часа. 
+			Поскольку&nbsp;полагается, что сегменты будут существовать в сети не более 
+			максимального времени жизни сегмента (Maximum Segment Lifetime - MSL), и что 
+			MSL меньше, чем 4.55 часа, то&nbsp;можно с основанием полагать, что номера ISN 
+			будут уникальны.<BR>
+			<STRONG>TCP: Acknowledgement Number = 0 (0x0)</STRONG> - номер старшего 
+			подтверждаемого байта принимаемой последовательности. Поскольку соединение еще 
+			не установилось, данные, требующие подтверждения, отсутствуют.
+			<BR>
+			<STRONG>TCP: Data Offset = 28 bytes</STRONG> - смещение области данных 
+			относительно начала заголовка. По существу, это просто длина всего заголовка 
+			TCP, включая поля опций.
+			<BR>
+			<STRONG><STRONG>&nbsp;&nbsp;&nbsp;&nbsp; </STRONG>TCP: 0111.... = Data Offset (28 
+				bytes)</STRONG> -&nbsp;эта информация содержится в старших 4-х разрядах.
+			<BR>
+			<STRONG><STRONG>&nbsp;&nbsp;&nbsp;&nbsp; </STRONG>TCP: ....0000 = Reserved bits</STRONG>
+			- младшие зарезервированы.
+			<BR>
+			<STRONG>TCP: Flags = 0x02 : ....S.</STRONG> -&nbsp;поле флагов.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp; TCP: ..0..... = No urgent data</STRONG> -&nbsp;данные 
+			не являются срочными.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp; TCP: ...0.... = Acknowledgement field not 
+				significant</STRONG> -&nbsp;в этом сегменте не передается нодтверждение.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp; TCP: ....0... = No Push function</STRONG> -&nbsp;данные 
+			не требуется передать немедлено.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp; TCP: .....0.. = No Reset</STRONG> -&nbsp;сброс 
+			соединения не производится.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp; TCP: ......1. = Synchronize sequence numbers</STRONG>
+			-&nbsp;соединение содержит начальный&nbsp;номер последовательности.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp; TCP: .......0 = Not the end of the data</STRONG>
+			- запрос на разрыв соединения отсутствует.
+			<BR>
+			<STRONG>TCP: Window = 16384 (0x4000)</STRONG> - анонсированный размер приемного 
+			окна.
+			<BR>
+			<STRONG>TCP: Checksum = 0xB8F0</STRONG> -&nbsp;контрольная сумма. Если сегмент 
+			содержит в заголовке и тексте нечетное количество октетов, подлежащих учету в 
+			контрольной сумме, последний октет будет дополнен нулями справа с тем, чтобы 
+			образовать для предоставления контрольной сумме 16-битное слово. Возникший при 
+			таком выравнивании октет не передается вместе с сегментом по сети.<BR>
+			<STRONG>TCP: Urgent Pointer = 0 (0x0)</STRONG> - сообщает текущее значение 
+			срочного указателя. Последний является положительной величиной - смещением 
+			относительно номера очереди данного сегмента. Срочный указатель сообщает номер 
+			очереди для октета, следующего за срочными данными. Это поле интерпретируется 
+			только в том случае, когда в сегменте выставлен контрольный бит URG.
+			<BR>
+			<STRONG>TCP: Options</STRONG> -&nbsp;Опции. Они&nbsp;могут располагаться в 
+			конце TCP заголовка, а их длина кратна 8 битам. Все опции учитываются при 
+			расчете контрольной суммы<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp; TCP: Maximum Segment Size Option</STRONG> -&nbsp;опция, 
+			указывающая максимальный размер сегмента, который готова обработыть вызывающая 
+			сторона.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TCP: Option Type = 
+				Maximum Segment Size</STRONG> -&nbsp;поле, содержащее код опции.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TCP: Option Length = 
+				4 (0x4)</STRONG> -&nbsp;длина опции - 4 байта.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TCP: Maximum Segment 
+				Size = 1460 (0x5B4)</STRONG> -&nbsp;само значение:1460&nbsp;байт.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp; TCP: Option Nop = 1 (0x1)</STRONG> -&nbsp;фиктивная 
+			опция, служит для выравнивания.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp; TCP: Option Nop = 1 (0x1)</STRONG> -&nbsp;то 
+			же.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp; TCP: SACK Permitted Option</STRONG> -&nbsp;опция 
+			разрешает передачу расширеных подтверждений, в которых указывается начало и 
+			конец подтверждаемого участка последовательности.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TCP: Option Type = 
+				Sack Permitted</STRONG> -&nbsp;&nbsp;поле, содержащее код опции.<BR>
+			<STRONG>&nbsp;&nbsp;&nbsp;&nbsp; TCP: Option Length = 2 (0x2)</STRONG> -&nbsp;&nbsp;длина 
+			опции - 4 байта.<BR>
+		</P>
+		<P align="justify">Таким образом, вызывающий&nbsp;узел послал запрос на соединеие, 
+			указав в нем начальный номер последовательности. Вызываемый узел должен 
+			ответить на этот запрос подтверждением, указав также свой начальный 
+			номер,&nbsp;то есть в ответе должны быть&nbsp;установленны флаги ACK и 
+			SYN.&nbsp;Второй пакет выглядит так:</P>
+		<pre>4 6.198914 TITAN.VT LOCAL TCP Control Bits: .A..S., len:    0, seq: 251219392-251219393, ack: 485943162, win: 5840, src:   21 (FTP)  dst: 1038 TITAN.VT LOCAL IP 
+FRAME: Base frame properties
+    FRAME: Time of capture = 21.12.2004 5:12:16 PM
+    FRAME: Time delta from previous physical frame: 0 microseconds
+    FRAME: Frame number: 4
+    FRAME: Total frame length: 62 bytes
+    FRAME: Capture frame length: 62 bytes
+    FRAME: Frame data: Number of data bytes remaining = 62 (0x003E)
+ETHERNET:  EType = Internet IP (IPv4) 
+    ETHERNET: Destination address = 0060081EF346 
+        ETHERNET: 0....... = Individual address
+        ETHERNET: .0...... = Universally administered address
+    ETHERNET: Source address = 000A5E225644 
+        ETHERNET: .0...... = Universally administered address
+    ETHERNET: Ethernet Type : 0x0800 (Internet IP (IPv4))
+IP: Protocol = TCP - Transmission Control; Packet ID = 0; Total IP Length = 48; Options = No Options
+    IP: Version = IPv4; Header Length = 20
+        IP: 0100.... = IP Version 4
+        IP: ....0101 = Header Length 20
+    IP: Type of Service = Normal Service
+        IP: 000..... = Precedence - Routine
+        IP: ...0.... = Normal Delay
+        IP: ....0... = Normal Throughput
+        IP: .....0.. = Normal Reliability
+        IP: ......0. = Normal Monetary Cost
+    IP: Total Length = 48 (0x30)
+    IP: Identification = 0 (0x0)
+    IP: Fragmentation Summary = 16384 (0x4000)
+        IP: .1.............. = Cannot fragment datagram
+        IP: ..0............. = Last fragment in datagram
+        IP: ...0000000000000 = Fragment Offset 0 (0x0000)
+    IP: Time to Live = 64 (0x40)
+    IP: Protocol = TCP - Transmission Control
+    IP: Checksum = 47404 (0xB92C)
+    IP: Source Address = 192.168.0.74
+    IP: Destination Address = 192.168.0.1
+TCP: Control Bits: .A..S., len:    0, seq: 251219392-251219393, ack: 485943162, win: 5840, src:   21 (FTP)  dst: 1038 
+    TCP: Source Port = File Transfer [Control]
+    TCP: Destination Port = 0x040E
+    TCP: Sequence Number = 251219392 (0xEF94DC0)
+    TCP: Acknowledgement Number = 485943162 (0x1CF6E77A)
+    TCP: Data Offset = 28 bytes
+        TCP: 0111.... = Data Offset (28 bytes)
+        TCP: ....0000 = Reserved bits
+    TCP: Flags = 0x12 : .A..S.
+        TCP: ..0..... = No urgent data
+        TCP: ...1.... = Acknowledgement field significant
+        TCP: ....0... = No Push function
+        TCP: .....0.. = No Reset
+        TCP: ......1. = Synchronize sequence numbers
+        TCP: .......0 = Not the end of the data
+    TCP: Window = 5840 (0x16D0)
+    TCP: Checksum = 0x8556
+    TCP: Urgent Pointer = 0 (0x0)
+    TCP: Options
+        TCP: Maximum Segment Size Option
+            TCP: Option Type = Maximum Segment Size
+            TCP: Option Length = 4 (0x4)
+            TCP: Maximum Segment Size = 1460 (0x5B4)
+        TCP: Option Nop = 1 (0x1)
+        TCP: Option Nop = 1 (0x1)
+        TCP: SACK Permitted Option
+            TCP: Option Type = Sack Permitted
+            TCP: Option Length = 2 (0x2)
+00000:  00 60 08 1E F3 46 00 0A 5E 22 56 44 08 00 45 00   .`..oF..^"VD..E.
+00010:  00 30 00 00 40 00 40 06 B9 2C C0 A8 00 4A C0 A8   .0..@.@.?,A?.JA?
+00020:  00 01 00 15 04 0E 0E F9 4D C0 1C F6 E7 7A 70 12   .......uMA.oczp.
+00030:  16 D0 85 56 00 00 02 04 05 B4 01 01 04 02         .??V.....?....  
+</pre>
+		<P align="justify">Структура ответного пакета&nbsp;совпадает со структурой пакета 
+			запроса. В ответе сервер устанавливает флаг ACK, подтверждая тем самым прием 
+			начального пакета. Поле "TCP: Acknowledgement Number" = 485943162, это 
+			означает, что принимающий узел подтверждает принятый пакет, указывая в поле 
+			подтверждения на единицу большее значение, чем то, которое содержалось в поле 
+			"TCP: Sequence Number" первого кадра. В свою очередь, узел так же задает 
+			начальный номер своей последовательности: "TCP: Sequence Number = 251219392", 
+			флаг SYN=1.</P>
+		<P align="justify">Узел, инициировавший запрос, также должен подтвердит начальный 
+			номер, переданый сервером. Это выполняется в третьем пакете:</P>
+		<PRE>5 6.198914 LOCAL TITAN.VT TCP Control Bits: .A...., len:    0, seq: 485943162-485943162, ack: 251219393, win:17520, src: 1038  dst:   21 (FTP) LOCAL TITAN.VT IP 
+FRAME: Base frame properties
+    FRAME: Time of capture = 21.12.2004 5:12:16 PM
+    FRAME: Time delta from previous physical frame: 0 microseconds
+    FRAME: Frame number: 5
+    FRAME: Total frame length: 54 bytes
+    FRAME: Capture frame length: 54 bytes
+    FRAME: Frame data: Number of data bytes remaining = 54 (0x0036)
+ETHERNET:  EType = Internet IP (IPv4) 
+    ETHERNET: Destination address = 000A5E225644 
+        ETHERNET: 0....... = Individual address
+        ETHERNET: .0...... = Universally administered address
+    ETHERNET: Source address = 0060081EF346 
+        ETHERNET: .0...... = Universally administered address
+    ETHERNET: Ethernet Type : 0x0800 (Internet IP (IPv4))
+IP: Protocol = TCP - Transmission Control; Packet ID = 84; Total IP Length = 40; Options = No Options
+    IP: Version = IPv4; Header Length = 20
+        IP: 0100.... = IP Version 4
+        IP: ....0101 = Header Length 20
+    IP: Type of Service = Normal Service
+        IP: 000..... = Precedence - Routine
+        IP: ...0.... = Normal Delay
+        IP: ....0... = Normal Throughput
+        IP: .....0.. = Normal Reliability
+        IP: ......0. = Normal Monetary Cost
+    IP: Total Length = 40 (0x28)
+    IP: Identification = 84 (0x54)
+    IP: Fragmentation Summary = 16384 (0x4000)
+        IP: .1.............. = Cannot fragment datagram
+        IP: ..0............. = Last fragment in datagram
+        IP: ...0000000000000 = Fragment Offset 0 (0x0000)
+    IP: Time to Live = 128 (0x80)
+    IP: Protocol = TCP - Transmission Control
+    IP: Checksum = 30944 (0x78E0)
+    IP: Source Address = 192.168.0.1
+    IP: Destination Address = 192.168.0.74
+TCP: Control Bits: .A...., len:    0, seq: 485943162-485943162, ack: 251219393, win:17520, src: 1038  dst:   21 (FTP) 
+    TCP: Source Port = 0x040E
+    TCP: Destination Port = File Transfer [Control]
+    TCP: Sequence Number = 485943162 (0x1CF6E77A)
+    TCP: Acknowledgement Number = 251219393 (0xEF94DC1)
+    TCP: Data Offset = 20 bytes
+        TCP: 0101.... = Data Offset (20 bytes)
+        TCP: ....0000 = Reserved bits
+    TCP: Flags = 0x10 : .A....
+        TCP: ..0..... = No urgent data
+        TCP: ...1.... = Acknowledgement field significant
+        TCP: ....0... = No Push function
+        TCP: .....0.. = No Reset
+        TCP: ......0. = No Synchronize
+        TCP: .......0 = Not the end of the data
+    TCP: Window = 17520 (0x4470)
+    TCP: Checksum = 0x847A
+    TCP: Urgent Pointer = 0 (0x0)
+00000:  00 0A 5E 22 56 44 00 60 08 1E F3 46 08 00 45 00   ..^"VD.`..oF..E.
+00010:  00 28 00 54 40 00 80 06 78 E0 C0 A8 00 01 C0 A8   .(.T@.?.xaA?..A?
+00020:  00 4A 04 0E 00 15 1C F6 E7 7A 0E F9 4D C1 50 10   .J.....ocz.uMAP.
+00030:  44 70 84 7A 00 00                                 Dp?z..          
+</PRE>
+		<P align="justify">Следует обратить внимание на следующие особенности пакета: флаг 
+			SYN не установлен, так как начальный номер последовательности уже согласован. 
+			Поле "TCP: Sequence Number" = 485943162 - то значение, которое было 
+			подтверждено во втором пакете. Поле "TCP: Acknowledgement Number" = 251219393 - 
+			на единицу больше значения "TCP: Sequence Number" в предыдущем пакете, так как 
+			ACK указывает номер байта, который еще не был поручен. Кстати, данные в этом 
+			пакете не передаются. Об этом свидетельствует следующее соотношение ("IP: Total 
+			Length = 40" - "IP:&nbsp;Header Length = 20" - "TCP: Data Offset = 20") = 0. 
+			Именно такая разность определяет размер передаваемых&nbsp;в пакете данных.</P>
+		<P align="justify"><EM>Примечание:</EM> для удобства можно добавить в фильтр 
+			условия, указывающие,&nbsp;что необходимо отображать только пакеты, порты 
+			отправления которых совпадают с портами, указаными в первых пакетах соединения 
+			(в данном примере: SrcPort==0x040E || SrcPort==21).</P>
+		<H4 align="justify">Передача данных</H4>
+		<P align="justify">После установления соединения начинается передача данных. При 
+			этом большинство участвующих в этом пакетов будут помечены в&nbsp;NetMon'е как 
+			пакеты FTP. В действительности, пока наибольший интерес представляют заголовки 
+			TCP этих пакетов. Здесь приведена часть процесса обмена, выполненого при 
+			подготовки этого примера:</P>
+		<P align="justify">8 6.319087 TITAN.VT -&gt; LOCAL&nbsp; TCP: Control Bits: .AP..., 
+			len: 72, seq: 251219393-251219465, ack: 485943162, win: 5840, src: 21 (FTP) 
+			dst: 1038<BR>
+			9 6.329101 LOCAL -&gt; TITAN.VT TCP: Control Bits: .AP..., len: 9, seq: 
+			485943162-485943171, ack: 251219465, win:17448, src: 1038 dst: 21 (FTP)<BR>
+			10 6.329101 TITAN.VT -&gt; LOCAL TCP Control Bits: .A...., len: 0, seq: 
+			251219465-251219465, ack: 485943171, win: 5840, src: 21 (FTP) dst: 1038</P>
+		<P align="justify">Здесь передачу начинает сервер, посылая клиенту пакет данных 
+			длиной 72 байта. Поле "TCP: Sequence Number" = 251219393 - последнее 
+			подтвержденное значение (см. установление соединения). NetMon отображает 
+			это&nbsp;поле&nbsp;как "seq: 251219393-251219465". Легко заметить, что 
+			251219465 получается как 251219393+72, то есть NetMon указывает номер 
+			следующего&nbsp;после переданных данных&nbsp;байта&nbsp;последовательности. 
+			Длина пакета получается по формуле: "IP: Total Length" - "IP:&nbsp;Header 
+			Length" - "TCP: Data Offset". Вот частичная распечатка первого пакета:</P>
+		<PRE>8 6.319087 TITAN.VT LOCAL FTP Resp. to Port 1038, '220 titan.vt FTP server (Version 6.5/OpenBSD, linu' TITAN.VT LOCAL IP 
+FRAME: Base frame properties
+..........................<BR>ETHERNET:  EType = Internet IP (IPv4) 
+<BR>..........................<BR>IP: Protocol = TCP - Transmission Control; Packet ID = 24664; Total IP Length = 112; Options = No Options
+    IP: Version = IPv4; Header Length = 20
+        IP: 0100.... = IP Version 4
+        IP: ....0101 = Header Length 20
+..........................<BR>    IP: Total Length = 112 (0x70)<BR>..........................
+<BR><BR>TCP: Control Bits: .AP..., len:   72, seq: 251219393-251219465, ack: 485943162, win: 5840, src:   21 (FTP)  dst: 1038 <BR>..........................
+<BR> TCP: Data Offset = 20         bytes ..........................  
+</PRE>
+		<P align="justify">Легко заметить, что "IP: Total Length" - "IP:&nbsp;Header 
+			Length" - "TCP: Data Offset" = 112 - 20 - 20 = 72. Поле ACK первого пакета 
+			содержит номер следующего после последнего полученного байта последовательности 
+			(еще при установлении соединения): 485943162.</P>
+		<P align="justify">Очередной пакет приходит уже от узла к серверу.&nbsp;В нем 
+			передается 9 байт, а номер ACK равен 251219465 - это номер первого 
+			неподтвержденного байта в последовательности, именно начиная с него&nbsp;узел и 
+			ожидает следующей порции данных.</P>
+		<P align="justify">Так как данные для передачи у сервера на тот момент 
+			отсутсвовали, следующий пакет передавал только подтверждение и не содержал в 
+			себе очередной порции последовательности: len=0, seq: 
+			251219465-251219465,&nbsp; ACK= 485943171.</P>
+		<H4 align="justify">Изменение размеров окна</H4>
+		<P align="justify">Во время передачи пакет TCP также содержит размер окна, то есть 
+			количество данных, которое узел готов принять. Это количество может изменяться 
+			с течением времени. Вот фрагмент приведенного выше сеанса:</P>
+		<P align="justify">22 6.709648&nbsp;LOCAL -&gt; TITAN.VT&nbsp;&nbsp; TCP: Control 
+			Bits: .AP..., len: 5, seq: 485943195-485943200, ack: 251219603, win:17310, src: 
+			1038 dst: 21 (FTP)
+			<BR>
+			23 6.709648&nbsp;TITAN.VT -&gt;&nbsp;LOCAL&nbsp;&nbsp; TCP: Control Bits: 
+			.AP..., len: 38, seq: 251219603-251219641, ack: 485943200, win: 5840, src: 21 
+			(FTP) dst: 1038<BR>
+			24 6.759720&nbsp;LOCAL -&gt; TITAN.VT&nbsp;&nbsp; TCP: Control Bits: .AP..., 
+			len: 8, seq: 485943200-485943208, ack: 251219641, win:17272, src: 1038 dst: 21 
+			(FTP)
+			<BR>
+			25 6.759720&nbsp;TITAN.VT -&gt;&nbsp;LOCAL&nbsp; TCP: Control Bits: .AP..., 
+			len: 20, seq: 251219641-251219661, ack: 485943208, win: 5840, src: 21 (FTP) 
+			dst: 1038
+			<BR>
+			26 6.769735&nbsp;LOCAL -&gt; TITAN.VT&nbsp;&nbsp; TCP: Control Bits: .AP..., 
+			len: 23, seq: 485943208-485943231, ack: 251219661, win:17252, src: 1038 dst: 21 
+			(FTP)
+			<BR>
+			27 6.769735&nbsp;TITAN.VT -&gt;&nbsp;LOCAL&nbsp; TCP: Control Bits: .AP..., 
+			len: 30, seq: 251219661-251219691, ack: 485943231, win: 5840, src: 21 (FTP) 
+			dst: 1038
+		</P>
+		<P align="justify">В данном фрагменте происходит передача трех пакетов в сторну 
+			сервера и трех - в сторону клиента. В первом пакете клиент анонсирует окно 
+			размером 17310 байт (win:17310). Во втором клиент получает от сервера пакет 
+			размером 38 байт. Однако данные не освобождаются из буфера приема, и 
+			поэтому&nbsp;в третьем пакете клиент анонсирует окно размером 17310-38=17272 
+			байта. Далее сервер вновь передает пакет длиной 20 байт и в пятом пакете клиент 
+			анонсирует окно размером уже в 17252 байтов. Размер окна сервера при этом 
+			остается постоянным.</P>
+		<H4 align="justify">Закрытие соединения</H4>
+		<P align="justify">Закрытие соединения происходит следующим образом: создается 
+			сегмент с сигналом FIN и помещается в очередь сегментов, ждущих отправления. 
+			После этого&nbsp;модуль&nbsp;TCP&nbsp;уже не будет принимать от приложения, 
+			открывшего соединение, каких-либо команд на отправление данных по закрытому 
+			соединению, а само соединение переходит в состояние FIN-WAIT-1. Тем не менее, в 
+			этом состоянии еще возможно получение&nbsp;приложением данных с этого 
+			соединения. Все сегменты, стоящие в очереди, и сам сегмент с сигналом FIN будут 
+			в случае необходимости посылаться второму узлу вновь и вновь, пока не получат 
+			своего подтверждения.&nbsp;Когда&nbsp;второй узел&nbsp;подтвердит получение 
+			сигнала FIN, и сам отправит сюда свой сигнал FIN,&nbsp;первый узел может 
+			подтвердить получение последнего.&nbsp;Модуль TCP, получающий сигнал FIN, будет 
+			подтверждать его, но не будет посылать своего собственного сигнала FIN до тех 
+			пор, пока&nbsp;процесс, открывший соединение,&nbsp;тоже не закроет его.</P>
+		<P align="justify">Процедура закрытия соединения для приведенного выше примера:</P>
+		<P align="justify">189 194.229288 LOCAL -&gt; TITAN.VT&nbsp;&nbsp;TCP: Control 
+			Bits: .A...F, len: 0, seq: 251222466-251222467, ack: 485945502, win:16297, src: 
+			1038 dst:&nbsp;21 (FTP)&nbsp;
+			<BR>
+			190 194.229288&nbsp;TITAN.VT -&gt;&nbsp;LOCAL&nbsp;&nbsp;TCP: Control Bits: 
+			.A...., len: 0, seq: 485945502-485945502, ack: 251222467, win: 5840, src: 21 
+			(FTP) dst: 1038
+			<BR>
+			191&nbsp;194.229288&nbsp;TITAN.VT -&gt;&nbsp;LOCAL&nbsp; TCP: Control Bits: 
+			.A...F, len: 0, seq: 485945502-485945503, ack: 251222467, win: 5840, 
+			src:&nbsp;21 (FTP) dst: 1038
+			<BR>
+			192&nbsp;194.229288&nbsp;LOCAL -&gt; TITAN.VT&nbsp;&nbsp;TCP: Control Bits: 
+			.A...., len: 0, seq: 251222467-251222467, ack: 485945503, win:16297, src: 
+			1038&nbsp; dst:&nbsp;21 (FTP)
+			<BR>
+		</P>
+		<P align="justify">Сначала клиент посылает серверу пакет с запросом на закрытие 
+			соединения. Сервер подтверждает его и посылает собственный запрос. После 
+			подтверждения от клиента соединение закрывается.</P>
+		<P align="justify">&nbsp;</P>
+		<H3 align="center"><A name="0006"></A>Поведение TCP при потере пакетов</H3>
+		<P align="justify">Иногда из-за сбоев в работе сети некоторые пакеты не могут дойти 
+			от одного узла до другого или приходят поврежденными, то есть с несовпадающим 
+			значением контрольной суммы. В таких случаях узел не получает подтверждения 
+			передачи, что вынуждает его выполнять повторную передачу неподтвержденных 
+			пакетов. Здесь имеет особое значение стратегия выбора времени 
+			задержки&nbsp;между повторными попытками&nbsp;передачи.</P>
+		<P align="justify">Обычно в модуль TCP заложена некоторая константа, определяющая, 
+			через какой промежуток времени следует отправить повторный пакет, если его 
+			получение не было подтверждено, однако, вследствие непостоянства сетей, 
+			составляющих единую объединенную систему, и большого числа клиентов, 
+			пользующихся услугами TCP соединений, существует необходимость в динамическом 
+			определении контрольного времени повторной посылки. Здесь приводится одна из 
+			процедур определения этого времени. Согласно этой процедуре, для каждого 
+			TCP-пакета измеряется величина <B>RTT</B> (<B>Round Trip Time </B>- интервал 
+			времени от момента посылки TCP-пакета до момента получения подтверждения на 
+			него). На основе измеренных RTT вычисляется величина <B>SRTT</B> (<B>Smoothed RTT </B>
+			- сглаженный RTT) по следующей формуле:
+		</P>
+		<PRE>              <B>SRTT = k*SRTT + (1 - k)*RTT</B>,
+</PRE>
+		<P>где <B>k</B> - сглаживающий коэффициент (например, 0.9).
+		</P>
+		<P><I><B>Примечание. </B>Приведенная формула обеспечивает фильтрацию нетипичных 
+				(пиковых) значений измеренной величины RTT. </I>
+		</P>
+		<P>"Оптимальное" значение RTO вычисляется по формуле:
+		</P>
+		<PRE>             <B>RTO = min(U, max(L, p*SRTT))</B>,
+</PRE>
+		<P>где:
+		</P>
+		<UL>
+			<P><B>U</B> - ограничение сверху на значение RTO (например, 30 секунд);
+			</P>
+			<P><B>L</B> - ограничение снизу на значение RTO (например, 1 секунда);
+			</P>
+			<P><B>p </B>- коэффициент&nbsp;масштабирования задержки&nbsp;(например, 2).
+			</P>
+		</UL>
+		<P>Если после повторной посылки TCP-пакета, опять не будет получено его 
+			подтверждение за интервал времени RTO, то попытки послать TCP-пакеты будут 
+			повторены (до 12 раз), но каждый раз с экспоненциально возрастающим значением 
+			RTO. Только после неудачи всей серии повторных посылок связь между&nbsp;узлами 
+			будет считаться аварийно закрытой.
+		</P>
+		<P align="justify">В качестве иллюстрации&nbsp;приводится пример повторной передачи 
+			пакетов, полученный&nbsp;при искуственном разрыве соединения:</P>
+		<P align="justify">87 29.432322 LOCAL -&gt; TITAN.VT&nbsp;&nbsp;TCP: Control Bits: 
+			.AP..., len: 10, seq:1906499398-1906499408, ack:4064347908, win:16890, src: 
+			1063 dst: 21 (FTP)
+			<BR>
+			88 29.802855 LOCAL -&gt; TITAN.VT&nbsp;&nbsp;TCP: Control Bits: .AP..., len: 
+			10, seq:1906499398-1906499408, ack:4064347908, win:16890, src: 1063 dst: 21 
+			(FTP)
+			<BR>
+			89 30.604077 LOCAL -&gt; TITAN.VT&nbsp;&nbsp;TCP: Control Bits: .AP..., len: 
+			10, seq:1906499398-1906499408, ack:4064347908, win:16890, src: 1063 dst: 21 
+			(FTP)
+			<BR>
+			90 32.206311 LOCAL -&gt; TITAN.VT&nbsp;&nbsp;TCP: Control Bits: .AP..., len: 
+			10, seq:1906499398-1906499408, ack:4064347908, win:16890, src: 1063 dst: 21 
+			(FTP)
+			<BR>
+			91 32.206311&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;TCP: Control Bits: .AP..., 
+			len: 29, seq:4064347908-4064347937, ack:1906499408, win: 5840, src: 21 (FTP) 
+			dst: 1063
+		</P>
+		<P align="justify">На&nbsp;этом примере&nbsp;хорошо&nbsp;заметно последовательное 
+			увеличение&nbsp;интервала времени между попытками повторной передачи 
+			неподтвержденного пакета.</P>
+		<P align="justify">&nbsp;</P>
+		<H3 align="center"><A name="0007"></A>Трассировка протокола FTP</H3>
+		<P align="justify"><SMALL><A name="t271001"></A><FONT face="Times New Roman" size="3">FTP - 
+					это широко используемый сетевой протокол, являющийся стандартом Internet для 
+					передачи файлов. <SMALL><FONT face="Times New Roman" size="3">FTP был создан для того, 
+							чтобы&nbsp;обеспечивать передачу&nbsp;между узлами,&nbsp;функционирующими под 
+							управлением различных операционных систем, использующих различные структуры 
+							файлов и, возможно, различные наборы символов. Часто связь между разнородными 
+							системами обеспечивается с помощью&nbsp;кода NVT, использующего 7-битный </FONT>
+						<A name="t271002"></A><FONT face="Times New Roman" size="3">ASCII. FTP сглаживает 
+							различия между системами с использованием другого подхода. FTP поддерживает 
+							ограниченное количество типов файлов (ASCII, двоичное и так далее) и структуру 
+							файлов (поток байтов или ориентированный на запись).</FONT></SMALL></FONT></SMALL></P>
+		<SMALL><FONT face="Times New Roman" size="3"><SMALL>
+					<P align="left"><FONT face="Times New Roman"><FONT size="3">FTP отличается от других 
+								приложений тем, что он использует два TCP соединения для передачи файла.&nbsp;</FONT></FONT></P>
+					<OL>
+						<LI>
+							<DIV align="justify"><SMALL><A name="t272001"></A><FONT face="Times New Roman" size="3">Управляющее 
+										соединение устанавливается как обычное соединение клиент-сервер. Сервер 
+										осуществляет пассивное открытие на заранее известный порт FTP (21) и ожидает 
+										запроса на соединение от клиента. Клиент осуществляет активное открытие на TCP 
+										порт 21, чтобы установить управляющее соединение. Управляющее соединение 
+										существует все время, пока клиент общается с сервером. Это соединение 
+										используется для передачи команд от клиента к серверу и для передачи откликов 
+										от сервера. </FONT><A name="t272002"></A><FONT face="Times New Roman" size="3">Тип 
+										IP сервиса для управляющего соединения устанавливается для получения 
+										"минимальной задержки", так как команды обычно вводятся пользователем.</FONT></SMALL></DIV>
+						<LI>
+							<DIV align="justify"><SMALL><A name="t272003"></A><FONT face="Times New Roman" size="3">Соединение 
+										данных открывается каждый раз, когда осуществляется передача файла между 
+										клиентом и сервером.</FONT></SMALL></DIV>
+						</LI>
+					</OL>
+				</SMALL></FONT></SMALL>
+		<P align="justify">Для трассировки соединения FTP следует настроить соответствующим 
+			образом утилиту Network Monitor и файловый менеджер Total Commander, как это 
+			описано в пункте "<A href="#00002">Настройка утилиты Network monitor</A>". <EM>Примечание: 
+				приведенный ниже пример был получен при сброшеном переключателе "Пассивный 
+				режим" ("Passive mode") в настройке соединения FTP&nbsp;Total Commander.</EM>
+			Далее следует запустить сбор пакетов в Network Monitor'е, переключиться на 
+			Total Commander и открыть в нем соединение FTP. Для того, чтобы проследить сам 
+			процесс передачи данных, необходимо скачать с сервера какой-либо 
+			файл&nbsp;небольшого размера, после чего соединение FTP следует закрыть, а сбор 
+			пакетов остановить. Далее можно настроить фильтр NetMon'а для того, чтобы он не 
+			отрображал пакеты, не относящиеся к протоколам TCP и FTP.</P>
+		<P align="justify">&nbsp;</P>
+		<P align="justify">Пример обмена по FTP:</P>
+		<P align="justify">5&nbsp;LOCAL -&gt; TITAN.VT&nbsp;&nbsp;TCP: Control Bits: 
+			....S., len: 0, seq: 485943161-485943162, ack: 0, win:16384, src: 1038 dst: 21 
+			(FTP)&nbsp;<BR>
+			6&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;TCP: Control Bits: .A..S., len: 0, seq: 
+			251219392-251219393, ack: 485943162, win: 5840, src: 21 (FTP) dst: 1038<BR>
+			7&nbsp;LOCAL -&gt; TITAN.VT&nbsp;&nbsp;TCP: Control Bits: .A...., len: 0, seq: 
+			485943162-485943162, ack: 251219393, win:17520, src: 1038 dst: 21 (FTP)
+		</P>
+		<P align="justify">Здесь выполнялось установление TCP соединения. Далее следует 
+			первый пакет, содержащий данные FTP:</P>
+		<PRE>
+8 6.319087 TITAN.VT LOCAL FTP Resp. to Port 1038, '220 titan.vt FTP server (Version 6.5/OpenBSD, linu' TITAN.VT LOCAL IP 
+FRAME: Base frame properties
+    FRAME: Time of capture = 21.12.2004 5:12:16 PM
+    FRAME: Time delta from previous physical frame: 70101 microseconds
+    FRAME: Frame number: 8
+    FRAME: Total frame length: 126 bytes
+    FRAME: Capture frame length: 126 bytes
+    FRAME: Frame data: Number of data bytes remaining = 126 (0x007E)
+ETHERNET:  EType = Internet IP (IPv4) 
+    ETHERNET: Destination address = 0060081EF346 
+        ETHERNET: 0....... = Individual address
+        ETHERNET: .0...... = Universally administered address
+    ETHERNET: Source address = 000A5E225644 
+        ETHERNET: .0...... = Universally administered address
+    ETHERNET: Ethernet Type : 0x0800 (Internet IP (IPv4))
+IP: Protocol = TCP - Transmission Control; Packet ID = 24664; Total IP Length = 112; Options = No Options
+    IP: Version = IPv4; Header Length = 20
+        IP: 0100.... = IP Version 4
+        IP: ....0101 = Header Length 20
+    IP: Type of Service = Minimize Delay
+        IP: 000..... = Precedence - Routine
+        IP: ...1.... = Request Low Delay
+        IP: ....0... = Normal Throughput
+        IP: .....0.. = Normal Reliability
+        IP: ......0. = Normal Monetary Cost
+    IP: Total Length = 112 (0x70)
+    IP: Identification = 24664 (0x6058)
+    IP: Fragmentation Summary = 16384 (0x4000)
+        IP: .1.............. = Cannot fragment datagram
+        IP: ..0............. = Last fragment in datagram
+        IP: ...0000000000000 = Fragment Offset 0 (0x0000)
+    IP: Time to Live = 64 (0x40)
+    IP: Protocol = TCP - Transmission Control
+    IP: Checksum = 22660 (0x5884)
+    IP: Source Address = 192.168.0.74
+    IP: Destination Address = 192.168.0.1
+TCP: Control Bits: .AP..., len:   72, seq: 251219393-251219465, ack: 485943162, win: 5840, src:   21 (FTP)  dst: 1038 
+    TCP: Source Port = File Transfer [Control]
+    TCP: Destination Port = 0x040E
+    TCP: Sequence Number = 251219393 (0xEF94DC1)
+    TCP: Acknowledgement Number = 485943162 (0x1CF6E77A)
+    TCP: Data Offset = 20 bytes
+        TCP: 0101.... = Data Offset (20 bytes)
+        TCP: ....0000 = Reserved bits
+    TCP: Flags = 0x18 : .AP...
+        TCP: ..0..... = No urgent data
+        TCP: ...1.... = Acknowledgement field significant
+        TCP: ....1... = Push function
+        TCP: .....0.. = No Reset
+        TCP: ......0. = No Synchronize
+        TCP: .......0 = Not the end of the data
+    TCP: Window = 5840 (0x16D0)
+    TCP: Checksum = 0x1D06
+    TCP: Urgent Pointer = 0 (0x0)
+FTP: Resp. to Port 1038, '220 titan.vt FTP server (Version 6.5/OpenBSD, linu'
+    FTP: FTP Error Return Code = 220 
+    FTP: FTP Command Arg1 =titan.vt
+    FTP: FTP Data: Number of data bytes remaining = 60 (0x003C)
+00000:  00 60 08 1E F3 46 00 0A 5E 22 56 44 08 00 45 10   .`..oF..^"VD..E.
+00010:  00 70 60 58 40 00 40 06 58 84 C0 A8 00 4A C0 A8   .p`X@.@.X?A?.JA?
+00020:  00 01 00 15 04 0E 0E F9 4D C1 1C F6 E7 7A 50 18   .......uMA.oczP.
+00030:  16 D0 1D 06 00 00 32 32 30 20 74 69 74 61 6E 2E   .?....220 titan.
+00040:  76 74 20 46 54 50 20 73 65 72 76 65 72 20 28 56   vt FTP server (V
+00050:  65 72 73 69 6F 6E 20 36 2E 35 2F 4F 70 65 6E 42   ersion 6.5/OpenB
+00060:  53 44 2C 20 6C 69 6E 75 78 20 70 6F 72 74 20 30   SD, linux port 0
+00070:  2E 33 2E 32 29 20 72 65 61 64 79 2E 0D 0A         .3.2) ready...  
+</PRE>
+		<P align="justify">Как можно видеть, данные FTP передаются внутри пакета TCP. 
+			Следует обратить внимание на флаг PSH (Push function), свидетельствующий о том, 
+			что данные были принудительно переданы до того, как их объем достиг достаточной 
+			для передачи величины. Далее ненужная информация, не относящаяся к обмену по 
+			FTP,&nbsp;будет опускаться. Последний пакет выглядел так:</P>
+		<P align="justify">6&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, 
+			'220 titan.vt FTP server (Version 6.5/OpenBSD, linux.port 0.3.2).ready... '</P>
+		<P align="justify">Это стандартный ответ FTP сервера titan.vt. Код 220 показывает, 
+			что все в порядке. <FONT color="#0000cc">Синим цветом далее выделены коментарии.</FONT></P>
+		<P align="justify">&nbsp; 6&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. 
+			from Port 1038, 'USER pi'&nbsp;<FONT color="#0000cc">- идентификация пользователя</FONT>
+			<BR>
+			&nbsp; 7&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '331 
+			Password required for pi.'&nbsp;<FONT color="#0000cc">- код 331 -&nbsp;требуется 
+				аутентификация</FONT>
+			<BR>
+			&nbsp; 8&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 
+			'PASS *****' <FONT color="#0000cc">- здесь передается пароль ;)<BR>
+			</FONT>&nbsp; 9&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, 
+			'230- Have a lot of fun...'&nbsp;<FONT color="#0000cc">- код 230 - аутентификация 
+				прошла успешно</FONT>
+			<BR>
+			10&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '230 User pi 
+			logged in.'&nbsp;<FONT color="#0000cc">- еще одно сообщение пользователю</FONT>
+			<BR>
+			11&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 
+			'SYST'&nbsp;<FONT color="#0000cc">- запрос информации о сервере</FONT>
+			<BR>
+			12&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '215 UNIX 
+			Type: L8'&nbsp;<FONT color="#0000cc">- код 215 - информация о сервере: сервер типа 
+				UNIX L8</FONT>
+			<BR>
+			13&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 
+			'FEAT'&nbsp;<FONT color="#0000cc">- дополнительная FTP команда: запрос о 
+				поддерживаемых расширениях FTP</FONT>
+			<BR>
+			14&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '500 'FEAT': 
+			command not understood.'&nbsp;<FONT color="#0000cc">- код 500: неизвестная команда. 
+				Как можно видеть, сервер не поддерживает ни одно из FTP-расширений</FONT>
+			<BR>
+			15&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 
+			'PWD'&nbsp;<FONT color="#0000cc">- запрос текущего каталога на сервере</FONT>
+			<BR>
+			16&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '257 
+			"/home/pi" is current directory.'&nbsp;<FONT color="#0000cc">- код 257: текущий 
+				каталог "/home/pi"</FONT>
+			<BR>
+			17&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 'TYPE 
+			A'&nbsp;<FONT color="#0000cc">- выбор режима передачи ASCII.<BR>
+			</FONT>18&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '200 
+			Type set to A.'&nbsp;<FONT color="#0000cc">- установлен режим передачи ASCII</FONT>
+			<BR>
+			19&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 'PORT 
+			192,168,0,1,4,15'&nbsp;<FONT color="#0000cc">- команда указывает, что для передачи 
+				данных серверу следует установить соединение с&nbsp;портом 1039 (256*4+15) узла 
+				с адресом&nbsp;192.168.0.1.</FONT>
+			<BR>
+			20&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '200 PORT 
+			command successful.'&nbsp;<FONT color="#0000cc">- подтверждение сервера о успешном 
+				принятии команды</FONT>
+			<BR>
+			21&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 'LIST 
+			-la'&nbsp;<FONT color="#0000cc">- запрос содержимого текущего каталога<BR>
+				Следующие три пакета служат для установления&nbsp;&nbsp;сервером соединения с 
+				192.168.0.1:1039 для передачи оглавления каталога:</FONT>
+			<BR>
+			22&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;TCP: Control Bits: ....S., len: 0, seq: 
+			243000894-243000895, ack: 0, win: 5840, src: 20 dst: 1039&nbsp;
+			<BR>
+			23&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;TCP: Control Bits: .A..S., len: 0, 
+			seq:2408757596-2408757597, ack: 243000895, win:17520, src: 1039 dst: 20&nbsp;
+			<BR>
+			24&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;TCP: Control Bits: .A...., len: 0, seq: 
+			243000895-243000895, ack:2408757597, win: 5840, src: 20 dst: 1039&nbsp;
+			<BR>
+			25&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '150 Opening 
+			ASCII mode data connection for '/bin/l'&nbsp;&nbsp;<FONT color="#0000cc">-&nbsp;режим 
+				ASCII был выбран выше. Далее следует собственно передача оглавления.&nbsp;В 
+				распечатке передаваемых данных можно найти имена файлов, их размеры, дату 
+				создания и атрибуты:</FONT>
+			<BR>
+			26&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Data Transfer To Client, Port = 
+			1039, size 1448:<BR>
+		</P>
+		<PRE>
+total.109..drwxrwx--x..12.pi....pv.......784.Dec.21.16:30....drwxr-xr-x...5.root..
+root.....168.Mar..1..2004.....-rw-r--r--...1.pi....users...5742.Jan.14..2004..Xdef
+aults..-rw-r--r--...1.pi....users...1305.Jan.14..2004..Xmodmap..lrwxrwxrwx...1.roo
+t..root......10.Jan.14..2004..Xresources.-&gt;..Xdefaults..-rw-------...1.pi....us
+ers..31985.Dec.21.16:06..bash_history..-rw-r--r--...1.pi....users...1691.Jan.14..2
+004..bashrc..drwx------...2.pi....pi.......104.May.24..2004..cedit..-rw-r--r--...1
+.pi....users....208.Jan.14..2004..dvipsrc..-rw-r--r--...1.pi....users...1637.Jan.1
+4..2004..emacs..-rw-r--r--...1.pi....users...1124.Jan.14..2004..exrc..-rw-r--r--..
+.1.pi....users....164.Jan.14..2004..kermrc..drwxr-xr-x...3.pi....pi.......144.May.
+28..2004..mc..-rw-r--r--...1.pi....users...2286.Jan.14..2004..muttrc..-rw-r--r--..
+.1.pi....users....952.Jan.14..2004..profile..-rw-r--r--...1.pi....users....311.Jan
+.14..2004..urlview..drwx------...2.pi....pi........96.May.24..2004..w3m..-rw-r--r-
+-...1.pi....users...7913.Jan.14..2004..xcoralrc..drwxr-xr-x...2.pi....users.....72
+.Jan.14..2004..xemacs..-rw-r--r--...1.pi....users...3407.Jan.14..2004..xim..-rwxr-
+xr-x...1.pi....users...2324.Jan.14..2004..xinitrc..-rw-r--r--...1.pi....users...11
+01.Jan.14..2004..xserverrc.secure..-rwxr-xr-x...1.pi....users...2804.Jan.14..2004.
+.xsession..-rw-r--r--...1.pi....users....119.Jan.14..2004..xtalkrc..drwxrwxrwx...2
+.pi....pv........72.Dec.21.16:39.1..drwxr-xr-x...2.pi....
+		</PRE>
+		<P align="justify">
+			27&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Data Transfer To Client, Port = 
+			1039, size 1448:<BR>
+		</P>
+		<PRE>
+total.109..drwxrwx--x..12.pi....pv.......784.Dec.21.16:30....drwxr-xr-x...5.root..
+root.....168.Mar..1..2004.....-rw-r--r--...1.pi....users...5742.Jan.14..2004..Xdef
+aults..-rw-r--r--...1.pi....users...1305.Jan.14..2004..Xmodmap..lrwxrwxrwx...1.roo
+t..root......10.Jan.14..2004..Xresources.-&gt;..Xdefaults..-rw-------...1.pi....us
+ers..31985.Dec.21.16:06..bash_history..-rw-r--r--...1.pi....users...1691.Jan.14..2
+004..bashrc..drwx------...2.pi....pi.......104.May.24..2004..cedit..-rw-r--r--...1
+.pi....users....208.Jan.14..2004..dvipsrc..-rw-r--r--...1.pi....users...1637.Jan.1
+4..2004..emacs..-rw-r--r--...1.pi....users...1124.Jan.14..2004..exrc..-rw-r--r--..
+.1.pi....users....164.Jan.14..2004..kermrc..drwxr-xr-x...3.pi....pi.......144.May.
+28..2004..mc..-rw-r--r--...1.pi....users...2286.Jan.14..2004..muttrc..-rw-r--r--..
+.1.pi....users....952.Jan.14..2004..profile..-rw-r--r--...1.pi....users....311.Jan
+.14..2004..urlview..drwx------...2.pi....pi........96.May.24..2004..w3m..-rw-r--r-
+-...1.pi....users...7913.Jan.14..2004..xcoralrc..drwxr-xr-x...2.pi....users.....72
+.Jan.14..2004..xemacs..-rw-r--r--...1.pi....users...3407.Jan.14..2004..xim..-rwxr-
+xr-x...1.pi....users...2324.Jan.14..2004..xinitrc..-rw-r--r--...1.pi....users...11
+01.Jan.14..2004..xserverrc.secure..-rwxr-xr-x...1.pi....users...2804.Jan.14..2004.
+.xsession..-rw-r--r--...1.pi....users....119.Jan.14..2004..xtalkrc..drwxrwxrwx...2
+.pi....pv........72.Dec.21.16:39.1..drwxr-xr-x...2.pi....
+</PRE>
+		<BR>
+		28&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Data Transfer To Client, Port = 
+		1039, size 1448:<BR>
+		<PRE>
+total.109..drwxrwx--x..12.pi....pv.......784.Dec.21.16:30....drwxr-xr-x...5.root..
+root.....168.Mar..1..2004.....-rw-r--r--...1.pi....users...5742.Jan.14..2004..Xdef
+aults..-rw-r--r--...1.pi....users...1305.Jan.14..2004..Xmodmap..lrwxrwxrwx...1.roo
+t..root......10.Jan.14..2004..Xresources.-&gt;..Xdefaults..-rw-------...1.pi....us
+ers..31985.Dec.21.16:06..bash_history..-rw-r--r--...1.pi....users...1691.Jan.14..2
+004..bashrc..drwx------...2.pi....pi.......104.May.24..2004..cedit..-rw-r--r--...1
+.pi....users....208.Jan.14..2004..dvipsrc..-rw-r--r--...1.pi....users...1637.Jan.1
+4..2004..emacs..-rw-r--r--...1.pi....users...1124.Jan.14..2004..exrc..-rw-r--r--..
+.1.pi....users....164.Jan.14..2004..kermrc..drwxr-xr-x...3.pi....pi.......144.May.
+28..2004..mc..-rw-r--r--...1.pi....users...2286.Jan.14..2004..muttrc..-rw-r--r--..
+.1.pi....users....952.Jan.14..2004..profile..-rw-r--r--...1.pi....users....311.Jan
+.14..2004..urlview..drwx------...2.pi....pi........96.May.24..2004..w3m..-rw-r--r-
+-...1.pi....users...7913.Jan.14..2004..xcoralrc..drwxr-xr-x...2.pi....users.....72
+.Jan.14..2004..xemacs..-rw-r--r--...1.pi....users...3407.Jan.14..2004..xim..-rwxr-
+xr-x...1.pi....users...2324.Jan.14..2004..xinitrc..-rw-r--r--...1.pi....users...11
+01.Jan.14..2004..xserverrc.secure..-rwxr-xr-x...1.pi....users...2804.Jan.14..2004.
+.xsession..-rw-r--r--...1.pi....users....119.Jan.14..2004..xtalkrc..drwxrwxrwx...2
+.pi....pv........72.Dec.21.16:39.1..drwxr-xr-x...2.pi....
+</PRE>
+		<BR>
+		<FONT color="#0000cc">А теперь соединение с портом 1039 закрывается:</FONT>
+		<BR>
+		29&nbsp;LOCAL -&gt;&nbsp;TITAN.VT: Control Bits: .A...., len: 0, 
+		seq:2408757597-2408757597, ack: 243002591, win:17520, src: 1039 dst: 20&nbsp;
+		<BR>
+		30&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;TCP: Control Bits: .A...F, len: 0, 
+		seq:2408757597-2408757598, ack: 243002591, win:17520, src: 1039 dst: 20&nbsp;
+		<BR>
+		31&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;TCP: Control Bits: .A...., len: 0, seq: 
+		243002591-243002591, ack:2408757598, win: 5840, src: 20 dst: 1039&nbsp;
+		<BR>
+		32&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '226 Transfer 
+		complete.'&nbsp;&nbsp;<FONT color="#0000cc">-&nbsp;сообщение сервера о завершении 
+			передачи. Данное сообщение посылается по управляющему соединению (порт 1038 
+			клиента), которое и было установленно изначально.</FONT>
+		<BR>
+		33&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 'CWD 
+		X'&nbsp;<FONT color="#0000cc">-&nbsp;запрос на переход в подкаталог 'X'.</FONT>
+		<BR>
+		34&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '250 CWD 
+		command successful.'&nbsp;<FONT color="#0000cc">-&nbsp;сообщение об успешном 
+			выполнении команды 'CWD'</FONT>
+		<BR>
+		35&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 
+		'PWD'&nbsp;<FONT color="#0000cc">-&nbsp;клиент убеждается в том, что текущи каталог 
+			действительно 'home/pi/X'</FONT>
+		<BR>
+		36&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '257 
+		"/home/pi/X" is current directory.'<BR>
+		<FONT color="#0000cc">Далее снова следует процедура получения оглавления текущего 
+			каталога:</FONT>
+		<BR>
+		37&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 'PORT 
+		192,168,0,1,4,16'<BR>
+		38&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '200 PORT 
+		command successful.'<BR>
+		39&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 'LIST 
+		-la'<BR>
+		40 - 42: &lt;Сервер выполняет установление соединения с портом 1040 клиента&gt;<BR>
+		43&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '150 Opening 
+		ASCII mode data connection for '/bin/l'<BR>
+		44&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Data Transfer To Client, Port = 
+		1040, size 277:<BR>
+		<PRE>
+total.1762..drwxr-xr-x...2.root..root......152.Dec.21.16:30....drwxrwx--x..12.pi..
+..pv........784.Dec.21.16:30.....-r--r--r--...1.root..root..1789160.Feb.14..2003.p
+ostfix-1.1.12-alt2.i586.rpm..-r--r--r--...1.root..root....11877.Feb.14..2003.postf
+ix-smtpd-1.1.12-alt2.i586.rpm..
+</PRE>
+		<BR>
+		45 - 47: &lt;Сервер&nbsp;закрывает соединение с портом 1040&gt;<BR>
+		48&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '226 Transfer 
+		complete.'<BR>
+		49&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 'TYPE I'<FONT color="#0000cc">- 
+			выбор режима передачи двоичных данных (Image)</FONT>&nbsp;
+		<BR>
+		50&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '200 Type set 
+		to I.'&nbsp;<FONT color="#0000cc">-&nbsp;подтверждение от сервера</FONT>
+		<BR>
+		51&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 'PORT 
+		192,168,0,1,4,17'&nbsp;<FONT color="#0000cc">-&nbsp;выбор порта и IP-адреса для 
+			передачи данных: 192.168.0.1:1041</FONT>
+		<BR>
+		52&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '200 PORT 
+		command successful.'&nbsp;<FONT color="#0000cc">-&nbsp;подтверждение</FONT>
+		<BR>
+		53&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 'RETR 
+		postfix-smtpd-1.1.12-alt2.i586.rpm'&nbsp;<FONT color="#0000cc">-&nbsp;команда 
+			запрашивает передачу содержимого файла 'postfix-smtpd-1.1.12-alt2.i586.rpm' из 
+			текущего каталога. Для передачи будет создано отдельное соединение, параметры 
+			которого были заданы ранее командой 'PORT':</FONT>
+		<BR>
+		54 - 56: &lt;Сервер выполняет установление соединения с портом 1041 клиента&gt;<BR>
+		57 TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '150 Opening BINARY 
+		mode data connection for 'postf'<BR>
+		<FONT color="#0000cc">Далее начинается передача данных:</FONT>
+		<BR>
+		58&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Data Transfer To Client, Port = 
+		1041, size 1448:
+		<P></P>
+		<P align="justify">
+			<pre>
+00000040        ED AB EE DB 03 00 00 00 00 01 70 6F 73 74   ..........post
+00000050  66 69 78 2D 73 6D 74 70 64 2D 31 2E 31 2E 31 32 fix-smtpd-1.1.12
+00000060  2D 61 6C 74 32 00 00 00 00 00 00 00 00 00 00 00 -alt2...........
+00000070  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+00000080  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 ................
+00000090  00 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+000000A0  00 00 8E AD E8 01 00 00 00 00 00 00 00 05 00 00 ................
+000000B0  00 91 00 00 00 3E 00 00 00 07 00 00 00 81 00 00 .....&gt;..........
+000000C0  00 10 00 00 01 0D 00 00 00 06 00 00 00 00 00 00 ................
+000000D0  00 01 00 00 03 E8 00 00 00 04 00 00 00 2C 00 00 .............,..
+000000E0  00 01 00 00 03 EC 00 00 00 07 00 00 00 30 00 00 .............0..
+000000F0  00 10 00 00 03 ED 00 00 00 07 00 00 00 40 00 00 .............@..
+00000100  00 41 32 37 62 30 33 37 30 37 63 34 38 38 39 38 .A27b03707c48898
+00000110  30 35 36 66 66 36 63 61 62 35 65 30 30 66 65 30 056ff6cab5e00fe0
+00000120  39 33 66 62 65 30 36 38 30 39 00 00 00 00 00 00 93fbe06809......
+00000130  2D 0D 06 34 57 FC 58 7E 74 13 C9 9E A0 59 1F 69 -..4W.X~t....Y.i
+00000140  3B 28 88 3F 03 05 00 3E 4C E8 74 5B 43 3A 0E EA ;(.?...&gt;L.t[C:..
+00000150  C9 1C A0 11 02 09 38 00 9F 66 51 28 89 4F 04 37 ......8..fQ(.O.7
+00000160  55 BB F0 00 6A 47 42 F5 7B F5 7A 0B F0 00 A0 E2 U...jGB.{.z.....
+00000170  69 41 B9 AF 99 C6 A0 13 78 C1 64 B8 63 F8 4E BB iA......x.d.c.N.
+00000180  89 B0 81 00 00 00 3E 00 00 00 07 FF FF FF B0 00 ......&gt;.........
+00000190  00 00 10 00 00 00 00 00 00 00 8E AD E8 01 00 00 ................
+000001A0  00 00 00 00 00 2A 00 00 2A 2D 00 00 00 3F 00 00 .....*..*-...?..
+000001B0  00 07 00 00 2A 1D 00 00 00 10 00 00 00 64 00 00 ....*........d..
+000001C0  00 08 00 00 00 00 00 00 00 01 00 00 03 E8 00 00 ................
+000001D0  00 06 00 00 00 02 00 00 00 01 00 00 03 E9 00 00 ................
+000001E0  00 06 00 00 00 10 00 00 00 01 00 00 03 EA 00 00 ................
+</pre>
+			<PRE>......................................................... <FONT color=#0000cc>- данные передаются в нескольких пакетах</FONT></PRE>
+			&lt;Сервер&nbsp;закрывает соединение с портом 1041&gt;&nbsp;
+			<BR>
+			81&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '226 Transfer 
+			complete.'&nbsp;<FONT color="#0000cc">-&nbsp;сообщение об успешном завершении 
+				передачи.</FONT>
+			<BR>
+			82&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;FTP: Req. from Port 1038, 
+			'QUIT'&nbsp;<FONT color="#0000cc">-&nbsp;команда завершения сеанса.</FONT>
+			<BR>
+			83&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;FTP: Resp. to Port 1038, '221 
+			Goodbye.'&nbsp;<FONT color="#0000cc">-&nbsp;код 221: подтверждание закрытия сеанса.</FONT>
+			<BR>
+			&lt;Сервер&nbsp;закрывает соединение с портом 1038 клиента&gt;<BR>
+			<BR>
+		<P align="justify">Этот пример&nbsp;демонстрирует выполнение&nbsp;следующей 
+			последовательности действий: соединение с сервером, авторизация, получение 
+			содержимого домашнего каталога ("/home/pi"), переход в подкаталог "./X", 
+			получение его содержимого, закачка файла "postfix-smtpd-1.1.12-alt2.i586.rpm" и 
+			закрытие сеанса.</P>
+		<P>&nbsp;</P>
+		<H3 align="center"><A name="0008"></A>Трассировка&nbsp;SMTP сеанса</H3>
+		<P align="justify">Протокол SMTP Протокол SMTP (Simple Mail Transfer Protocol - 
+			простой протокол передачи почты) поддерживает передачу сообщений (электронной 
+			почты) между произвольными узлами сети Internet. Имея механизмы промежуточного 
+			хранения почты и механизмы повышения надежности доставки, протокол SMTP 
+			допускает использование различных транспотных протоколов. Он может 
+			работать&nbsp;также в сетях, не использующих протоколы семейства TCP/IP. 
+			Протокол SMTP обеспечивает как группирование сообщений в адрес одного 
+			получателя, так и размножение нескольких копий сообщения для передачи в разные 
+			адреса.</P>
+		<P align="justify">Для трассировки передачи по SMTP необходимо настроить почтового 
+			клиента Outlook Express. Откройте Outlook Express и добавьте в него новую 
+			учетную запись с помощью пункта "Accounts..." меню "Tools". Данные учетной 
+			записи задаются преподавателем. После создайте&nbsp;небольшое новое сообщение 
+			произвольного содержания, по указанию преподавателя выберите e-mail получателя 
+			и перешлите сообщение, предварительно запустив сбор пакетов&nbsp;в NetMon'е.</P>
+		<P align="justify">Пример передачи по протоколу SMTP приведен ниже, комментарии 
+			выделены <FONT color="#009900">зеленым</FONT> цветом, а <FONT color="#0000cc">синим</FONT>
+			выделены сами команды SMTP, записываемые после TCP заголовков пакетов, в 
+			которых эти команды передаются. Все сообщения SMTP завершаются символами 
+			перевода строки (две точки в конце):</P>
+		<P align="justify">&lt;Клиент выполняет установление соединения с портом 25 
+			сервера&gt;<BR>
+			<BR>
+			&nbsp;7&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;TCP: Control Bits: .AP..., len: 
+			91, seq: 430135129-430135220, ack: 959151933, win: 5840, src: 25 (SMTP) dst: 
+			1045:<BR>
+			<FONT color="#0000cc">220 titan.vt ESMTP Sendmail 8.12.2/8.12.2/SuSE Linux 0.6; 
+				Tue, 21 Dec 2004 17:11:33 +0300..&nbsp;<FONT color="#009900">// код 220 - сеанс 
+					успешно открыт, сервер передает дополнительные сведения о себе.<BR>
+				</FONT>
+				<BR>
+			</FONT><FONT color="#000000">&nbsp;8&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;TCP: 
+				Control Bits: .AP..., len: 17, seq: 959151933-959151950, ack: 430135220, 
+				win:17429, src: 1045 dst: 25 (SMTP):<BR>
+				<FONT color="#0000cc">HELO localhost..&nbsp;<FONT color="#009900">// идентификация 
+						клиента</FONT><BR>
+				</FONT>
+				<BR>
+				<FONT color="#000000">&nbsp;9&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;</FONT>TCP: 
+				Control Bits: .AP..., len: 55, seq: 430135220-430135275, ack: 959151950, win: 
+				5840, src: 25 (SMTP) dst: 1045:<BR>
+			</FONT><FONT color="#0000cc">250 titan. vt Hello [192.16 8.0.1], pleased to meet 
+				you..&nbsp; <FONT color="#009900">// код 250 - успешное завершение операции, сервер 
+					сообщает о том, что готов к обмену</FONT><BR>
+				<BR>
+			</FONT><FONT color="#000000">10&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;TCP: 
+				Control Bits: .AP..., len: 26, seq: 959151950-959151976, ack: 430135275, 
+				win:17374, src: 1045 dst: 25 (SMTP) :
+				<BR>
+				<FONT color="#0000cc">MAIL FROM: <A href="mailto:pv@titan.vt">pv@titan.vt</A>..</FONT>&nbsp;
+				<FONT color="#009900">// данная команда указывает отправителя почтового сообщения</FONT><BR>
+				<BR>
+				<FONT color="#000000"><FONT color="#0000cc"><FONT color="#000000">11&nbsp;TITAN.VT -&gt; 
+							LOCAL&nbsp;&nbsp;TCP: Control Bits: .AP..., len: 38, seq: 430135275-430135313, 
+							ack: 959151976, win: 5840, src: 25 (SMTP) dst: 1045:<BR>
+						</FONT>250 2.1.0 &lt;PV@TITAN.VT&gt;... Sender ok..</FONT>&nbsp; <FONT color="#009900">
+						// подтверждение сервера о том, что отправитель опознан и может приступать к 
+						передаче</FONT><BR>
+					<BR>
+				</FONT><FONT color="#000000"><FONT color="#0000cc"><FONT color="#000000">12&nbsp;LOCAL 
+							-&gt;&nbsp;TITAN.VT&nbsp;&nbsp;TCP: Control Bits: .AP..., len: 26, seq: 
+							959151976-959152002, ack: 430135313, win:17336, src: 1045 dst: 25 (SMTP):<BR>
+						</FONT>RCPT TO: &lt; <A href="mailto:root@titan.vt">root@titan.vt</A>&gt;..</FONT>&nbsp;
+					<FONT color="#009900">//&nbsp;клиент указывает&nbsp;получателя</FONT><BR>
+					<BR>
+				</FONT><FONT color="#0000cc"><FONT color="#000000">13&nbsp;TITAN.VT -&gt; 
+						LOCAL&nbsp;&nbsp;TCP: Control Bits: .AP..., len: 43, seq: 430135313-430135356, 
+						ack: 959152002, win: 5840, src: 25 (SMTP) dst: 1045:<BR>
+					</FONT>250 2.1.5 &lt;ROOT@TITAN.VT&gt;. .. Recipient ok..&nbsp; <FONT color="#009900">
+						// подтверждение</FONT><BR>
+					<BR>
+				</FONT><FONT color="#000000"><FONT color="#0000cc"><FONT color="#000000">14&nbsp;LOCAL 
+							-&gt;&nbsp;TITAN.VT&nbsp;&nbsp;TCP: Control Bits: .AP..., len: 6, seq: 
+							959152002-959152008, ack: 430135356, win:17293, src: 1045 dst: 25 (SMTP) :<BR>
+						</FONT>DATA.. <FONT color="#009900">// команда начала передачи текста сообщения. 
+							Сообщение передается в текстовом виде и завершается последовательностью 
+							&lt;CR&gt;&lt;LN&gt;.&lt;CR&gt;&lt;LN&gt; (единственная точка в отдельной 
+							строке).</FONT><BR>
+					</FONT>
+					<BR>
+				</FONT><FONT color="#000000"><FONT color="#0000cc"><FONT color="#000000">15TITAN.VT -&gt; 
+							LOCAL&nbsp;&nbsp;TCP: Control Bits: .AP..., len: 50, seq: 430135356-430135406, 
+							ack: 959152008, win: 5840, src: 25 (SMTP) dst: 1045:<BR>
+						</FONT>354 Enter mail, end with " ." on a line by itself..</FONT>&nbsp; <FONT color="#009900">
+						// сервер подтверждает свою готовность</FONT><BR>
+					<BR>
+				</FONT><FONT color="#0000cc"><FONT color="#000000">16LOCAL 
+						-&gt;&nbsp;TITAN.VT&nbsp;&nbsp;TCP: Control Bits: .AP..., len: 447, seq: 
+						959152008-959152455, ack: 430135406, win:17243, src: 1045 dst: 25 (SMTP):<BR>
+					</FONT>Message-ID: &lt;000b01c4e767$83016150$0100a8c0@localhost&gt;..From: "PV" 
+					&lt;pv@titan.vt&gt;..To: &lt;root@titan.vt&gt;..Subject: ..Date: Tue, 21 Dec 
+					2004 17:15:23 +0300.. MIME-Version: 1. 0..Content-Type: text/plain;...charset= 
+					"koi8-r"..Content-Transfer-Encoding: 7bit ..X-Priority: 3..X-MSMail-Priority: 
+					Normal..X-Mailer: Microsoft Outlook Express 6.00.3790.0..X-MimeOLE: Produced By 
+					Microsoft MimeOLE V6.00.3790 .0....Sample mail message..Second string..Last 
+					string <FONT color="#009900">// собственно сообщение</FONT>< BR>
+					<BR>
+				</FONT><FONT color="#000000">17&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;TCP: Control 
+					Bits: .AP..., len: 5, seq: 959152455-959152460, ack: 430135406, win:17243, src: 
+					1045 dst: 25 (SMTP):<BR>
+					<FONT color="#0000cc"><FONT color="#0000cc">..... </FONT><FONT color="#009900">// а это 
+							&lt;CR&gt;&lt;LN&gt;.&lt;CR&gt;&lt;LN&gt; - комбинация, указывающая конец 
+							письма</FONT><BR>
+					</FONT>
+					<BR>
+				</FONT><FONT color="#000000">18&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;TCP: Control 
+					Bits: .AP..., len: 56, seq: 430135406-430135462, ack: 959152460, win: 6432, 
+					src: 25 (SMTP) dst: 1045:<BR>
+					<FONT color="#0000cc">250 2.0.0 iBLEBX0I000966 Message accepted for delivery..</FONT>
+					<FONT color="#009900">// сервер подтверждает прием</FONT><BR>
+					<BR>
+				</FONT><FONT color="#000000">19&nbsp;LOCAL -&gt;&nbsp;TITAN.VT&nbsp;&nbsp;TCP: 
+					Control Bits: .AP..., len: 6, seq: 959152460-959152466, ack: 430135462, 
+					win:17187, src: 1045 dst: 25 (SMTP):<BR>
+					<FONT color="#0000cc">QUIT.. <FONT color="#009900">// клиент передает запрос на 
+							закрытие сеанса</FONT><BR>
+					</FONT>
+					<BR>
+				</FONT><FONT color="#000000">20&nbsp;TITAN.VT -&gt; LOCAL&nbsp;&nbsp;TCP: Control 
+					Bits: .AP..., len: 39, seq: 430135462-430135501, ack: 959152466, win: 6432, 
+					src: 25 (SMTP) dst: 1045:<BR>
+					<FONT color="#0000cc">221 2.0.0 titan.vt closing connection..</FONT> <FONT color="#009900">
+						// подтверждение сервера</FONT><BR>
+					<BR>
+				</FONT>&lt;Сервер разрывает соединение&gt; </FONT>
+		</P>
+		<P align="justify"><FONT color="#000000">В данном примере выполнялась пересылка 
+				почтового сообщения от "PV" pv@titan.vt пользователю root@titan.vt. Содержимое 
+				сообщения:</FONT></P>
+		<PRE><FONT color="#000000"><FONT face="Courier New">
+Message-ID: 
+&lt;000b01c4e767$83016150$0100a8c0@localhost&gt;
+From: "PV" &lt;pv@titan.vt&gt;
+To: &lt;root@titan.vt&gt;
+Subject:
+Date: Tue, 21 Dec 2004 17:15:23 +0300
+MIME-Version: 1. 0
+Content-Type: text/plain;
+	charset= "koi8-r"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.3790.0
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.3790.0
+
+Sample mail message
+Second string
+Last string
+		</FONT></font></PRE><FONT color="#000000">
+		<P></P>
+		</FONT>
+	</body>
+</html>

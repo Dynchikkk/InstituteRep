@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://doc.mpv.ru/steps/mfc/net/socket/11.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="11.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 11 - вЕРШПЕ ЩРЮОЮ РПЮМГЮЙЖХХ HTTP</H2></FONT>
+<H3>сЯРЮМНБЙЮ ЯНЕДХМЕМХЪ </H3>оЕПЕД НАЛЕМНЛ ХМТНПЛЮЖХХ ЙКХЕМР Х ЯЕПБЕП ДНКФМШ 
+ХЛЕРЭ ЯНЕДХМЕМХЕ <B>TCP</B>, ХЛЕММН ОН ЩРНЛС ЛШ СЯРЮМЮБКХБЮКХ ЯНЕДХМЕМХЕ 
+<B>Internet</B>. рН ЕЯРЭ МЮЛ МСФЕМ АШК <B>IP</B> ЮДПЕЯ. йЮЙ ПЮГКХВЮЧРЯЪ ПЮГМШЕ 
+ОПНРНЙНКШ ? дКЪ ЩРНЦН ХЯОНКЭГСЧРЯЪ СМХЙЮКЭМШЕ МНЛЕПЮ. щРХ МНЛЕПЮ МЮГШБЮЧРЯЪ 
+ОНПРЮЛХ. дКЪ <B>HTTP</B> ЯРЮМДЮПРМШИ ОНПР <B>80</B>. бНР ЯОХЯНЙ МЮХАНКЕЕ 
+ХГБЕЯРМШУ ОНПРНБ. <PRE>FTP 	21
+TELNET 	23
+SMTP	25
+TFTP	69
+Gopher	70
+Finger	79
+HTTP	80
+</PRE>оНПРШ ДЕКЪРЯЪ МЮ 2 ВЮЯРХ. я ЮДПЕЯЮЛХ МХФЕ <B>1024</B> ОПХБЕКХЦХПНБЮММШЕ БШ 
+МЕ ЯЛНФЕРЕ ЯНГДЮРЭ ЯБНИ ОНПР Я МНЛЕПНЛ ЛЕМЭЬЕ <B>1024</B>. лШ Я БЮЛХ Б МЮЬЕИ 
+ОПНЦПЮЛЛЕ СЙЮГШБЮКХ МНЛЕП ОНПРЮ ЯНГДЮБЮЪ ЯНЙЕР. <PRE>#define PORT_ADDR 80
+........
+<B>socketaddr.sin_port = htons(PORT_ADDR);</B>
+if (bind(servsocket,(LPSOCKADDR)&amp;socketaddr,sizeof(socketaddr)) == SOCKET_ERROR)
+</PRE>
+<H3>гЮОПНЯ йКХЕМРЮ</H3>йЮФДШИ ГЮОПНЯ ЙКХЕМРЮ ОЕПЕДЮБЮЕЛШИ МЮ <B>WEB</B>-ЯЕПБЕП 
+МЮВХМЮЕРЯЪ Я ЛЕРНДЮ, ГЮ ЙНРНПШЛ ЯКЕДСЕР <B>URL</B> НАЗЕЙРЮ. дЮКЕЕ ХДЕР 
+ХМТНПЛЮЖХЪ Н БЕПЯХХ ОПНРНЙНКЮ <B>HTTP</B> Х ЯХЛБНК БНГБПЮРЮ ЙЮПЕРЙХ Я ОЕПЕБНДНЛ 
+ЯРПНЙХ. лЕРНД - ЩРН ЙНЛЮМДЮ ЙКХЕМРЮ Й ЯЕПБЕПС Я ЖЕКЭЧ СЙЮГЮМХЪ ГЮОПНЯЮ. лШ ЕЦН 
+МЕ НАПЮАЮРШБЮКХ. мЮСВХЛЯЪ :-) 
+<H3>нРБЕР ЯЕПБЕПЮ</H3>оНЯКЕ ОНКСВЕМХЪ ЯННАЫЕМХЪ ЯЕПБЕП НРБЕВЮЕР ЯННАЫЕМХЕЛ 
+<B>HTTP</B>. гЮРЕЛ ХДЕР ЙНД ЯРЮРСЯЮ Х РЕЛЮ НРБЕРЮ ХГ 3 ЖХТП, ОНРНЛ 
+ДНОНКМХРЕКЭМЮЪ ХМТНПЛЮЖХЪ, Ю ОНРНЛ РЕКН НРБЕРЮ. еЯКХ НАПЮРХРЕ БМХЛЮМХЕ, ВРН ЛШ Я 
+бЮЛХ ЩРН СОСЯРХКХ. мС Х КЮДМН ХЯОПЮБХЛ ОНРНЛ. ю БНР ДЮММШЕ ЛШ ОНЯШКЮКХ РЮЙ. <PRE>CString buff="\nяЮИР ЬЮЦ ГЮ ЬЮЦНЛ ОПЕДЯРЮБКЪЕР\n\r\n";
+HTTPServer.SendData(buff.GetBuffer(1000));
+..........
+void CSeverWinSock::SendData(LPSTR buff)
+{
+int Errors;
+Errors = send(clientsocket,(LPSTR)buff,lstrlen(buff),0);
+if (Errors == SOCKET_ERROR) AfxMessageBox("Error Send");
+}
+</PRE>
+<H3>яЕПБЕП ПЮГПШБЮЕР ЯНЕДХМЕМХЕ</H3>оНЯКЕ НРОПЮБЙХ ЯННАЫЕМХЪ ЯЕПБЕП ХЛЕЕР 
+БНГЛНФМНЯРЭ ПЮГНПБЮРЭ ЯНЕДХМЕМХЕ. бНР РЮЙ ЛШ ЩРН ДЕКЮКХ ГЮЙПШБЮЪ ЯНЙЕР. <PRE> closesocket(HTTPServer.clientsocket);
+</PRE>
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/10.html">оПЕДШДСЫХИ ЬЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/12.html">яКЕДСЧЫХИ ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="11.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0045)http://doc.mpv.ru/steps/mfc/net/socket/8.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="8.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 8 - яНЕДХМЕМХЕ Я ЯЕПБЕПНЛ</H2></FONT>
+<H3>яНГДЮЕЛ ОПНЕЙР</H3>гЮОСЯЙЮИРЕ <B>VC</B> Х БШАХПЮИРЕ <B>MFC AppWizard</B>, 
+ХЛЪ ОПНЕЙРС ДЮИРЕ <B>HTTPServer</B>. мЮ ЬЮЦЕ 1 ОНЯРЮБЭРЕ <B>Single Document</B>, 
+МЮ ЬЮЦЕ 3 НРЙКЧВХРЕ <B>ActiveX Control</B> МЮЛ ОНЙЮ ЩРН МЕ МСФМН, МЮ ЬЮЦЕ 4 
+НРЙКЧВХРЕ БЯ╦, Х ФЛХРЕ <B>Finish</B>. 
+<H3>яНГДЮЕЛ ЙНД</H3>дЮБЮИРЕ МЮ НЯМНБЕ ОПНЬКШУ ЬЮЦНБ ЯНГДЮДХЛ ЙКЮЯЯ 
+<B>CSeverWinSock</B>. оЕПЕУНДХРЕ Б <B>ClassView</B>, МЮФХЛЮИРЕ ОПЮБСЧ ЙМНОЙС 
+ЛШЬХ Х БШАХПЮИРЕ <B>Add New Class</B>. бШАХПХРЕ <B>Generic Class</B> БМЕЯХРЕ ХЛЪ 
+Х ФЛХРЕ <B>OK</B>, Ъ МЕ АСДС ПЮГАХПЮРЭ ОНДПНАМНЯРХ ОЕПЕМНЯЮ, ЯЙЮФС РНКЭЙН, ВРН 
+БЯЕ ТСМЙЖХХ <B>printf</B> ОНЛЕМЪЧ МЮ <B>AfxmessageBox</B>, Х БЯЕ ТСМЙЖХХ ХГ 
+<B>void</B> ЯРЮМСР <B>BOOL</B>. оНЯЛНРПХРЕ ОПНЕЙР. мН НОХЯЮМХЕ ЙКЮЯЯЮ Х ДБЕ 
+БЮФМШЕ ТСМЙЖХХ ОПХБЕДС. <PRE>class CSeverWinSock  
+{
+public:
+	CSeverWinSock();
+	virtual ~CSeverWinSock();
+	BOOL StartWinSock();
+	BOOL SocketGetHostName();
+	BOOL CreateSocket();
+	BOOL LinkWindowSocket(HWND m_hWnd);
+	BOOL ListenSocket();
+	void CloseScoket();
+    BOOL LinkSoketPort();
+	BOOL StopWinSock();
+	BOOL StartServer(HWND m_hWnd);
+	void StopServer();
+private:
+	SOCKET servsocket;
+
+};
+
+
+void CSeverWinSock::StopServer()
+{
+ CloseScoket();
+ StopWinSock();
+}
+
+BOOL CSeverWinSock::StartServer()
+{
+	if (!StartWinSock()) return FALSE;
+        if (!SocketGetHostName()) return FALSE;
+	if (!CreateSocket()) return FALSE;
+	if (!LinkSoketPort()) return FALSE;
+        if (!LinkWindowSocket(m_hWnd)) return FALSE;
+	if (!ListenSocket()) return FALSE;
+	return TRUE;
+}
+</PRE>хРЮЙ МЮЛ МСФМН ГЮОСЯРХРЭ Х НЯРЮМНБХРЭ ЯЕПБЕП. лШ АСДЕЛ ЩРН ДЕКЮРЭ ОН 
+МЮФЮРХЧ КЕБНИ ЙМНОЙХ ЛШЬХ - ГЮОСЯЙЮРЭ, ОПЮБНИ - НЯРЮМЮБКХБЮРЭ. мН ЯМЮВЮКЮ 
+ГЮБЕДЕЛ ОЕПЕЛЕММСЧ <B>csInfo</B> ДКЪ БШБНДЮ МЮ ЩЙПЮМ ЯНЯРНЪМХЪ. лШ НОХЬЕЛ Е╦ Б 
+ЙКЮЯЯЕ <B>CHTTPServerDoc</B> Х РЮЛ ФЕ ХМХЖХЮКХГХПСЕЛ. <PRE>.....
+// Implementation
+public:
+	CString csInfo;
+	virtual ~CHTTPServerDoc();
+#ifdef _DEBUG
+	virtual void AssertValid() const;
+	virtual void Dump(CDumpContext&amp; dc) const;
+#endif
+......
+BOOL CHTTPServerDoc::OnNewDocument()
+{
+	if (!CDocument::OnNewDocument())
+		return FALSE;
+
+	csInfo="Stop Server";
+
+	return TRUE;
+}
+</PRE>б ЙКЮЯЯЕ <B>CHTTPServerView</B> НОХЬЕЛ БШБНД МЮ ЩЙПЮМ. <PRE>void CHTTPServerView::OnDraw(CDC* pDC)
+{
+	CHTTPServerDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	
+	pDC-&gt;TextOut(10,10,pDoc-&gt;csInfo);  
+}
+</PRE>б ЙКЮЯЯЕ <B>CHTTPServerView</B> ГЮБЕДЕЛ КНЦХВЕЯЙСЧ ОЕПЕЛЕММСЧ 
+<B>blTestStartServer</B> Х Б ЙНМЯРПСЙРНПЕ ЯЙЮФЕЛ, ВРН НМЮ <B>FALSE</B> - РХОЮ 
+ЯЕПБЕП ЯРНХР. <PRE>CHTTPServerView::CHTTPServerView()
+{
+	blTestStartServer=FALSE;
+}
+</PRE>дНАЮБХЛ ДКЪ ЙКЮЯЯЮ <B>CHTTPServerView</B> ПЕЮЙЖХЧ МЮ МЮФЮРХЕ ОПЮБНИ Х 
+КЕБНИ ЙМНОЙХ ЛШЬХ. ю РЮЙФЕ Б НОХЯЮМХЕ ЩРНЦН ЙКЮЯЯЮ ЯЯШКЙС МЮ МЮЬ ГЮЦНКНБНВМШИ 
+ТЮИК. <PRE>#pragma once
+#endif // _MSC_VER &gt; 1000
+
+#include "SeverWinSock.h"
+</PRE>бЙКЧВХЛ Б НОХЯЮМХЕ ЙКЮЯЯЮ <B>CHTTPServerView</B> ЩЙГЕЛОКЪП ЙКЮЯЯЮ 
+<B>CSeverWinSock</B> <PRE>public:
+	BOOL blTestStartServer;
+	virtual ~CHTTPServerView();
+	CSeverWinSock  HTTPServer;
+#ifdef _DEBUG
+</PRE>мС БНР Х БЯ╦ ЦНРНБН. рЕОЕПЭ ЛНФМН НАПЮАЮРШБЮРЭ МЮФЮРХЕ ЛШЬЙХ. <PRE>/////////////////////////////////////////////////////////////////////////////
+// CHTTPServerView message handlers
+
+void CHTTPServerView::OnLButtonDown(UINT nFlags, CPoint point) 
+{
+	
+	if (!blTestStartServer)
+	{
+	if (HTTPServer.StartServer(m_hWnd))
+	{
+		CHTTPServerDoc* pDoc = GetDocument();
+		ASSERT_VALID(pDoc);
+		pDoc-&gt;csInfo = "Server Start"; 
+		Invalidate();
+		blTestStartServer=TRUE;
+	}
+	}
+	CView::OnLButtonDown(nFlags, point);
+}
+
+void CHTTPServerView::OnRButtonDown(UINT nFlags, CPoint point) 
+{
+	
+	HTTPServer.StopServer();
+	CHTTPServerDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	pDoc-&gt;csInfo = "Server Stop"; 
+	Invalidate();
+	blTestStartServer=FALSE;
+	CView::OnRButtonDown(nFlags, point);
+}
+</PRE>йНЦДЮ Й ЯЕПБЕПС НАПЮРХРЯЪ ЙКХЕМР АСДЕР ЯЦЕМЕПХПНБЮМН ЯННАЫЕМХЕ 
+<B>WM_SERVER_ACCEPT</B>, НРКНБНЛ ЙНРНПНЦН ЛШ ГЮИЛЕЛЯЪ. <PRE>BEGIN_MESSAGE_MAP(CHTTPServerView, CView)
+	//{{AFX_MSG_MAP(CHTTPServerView)
+	ON_WM_LBUTTONDOWN()
+	ON_WM_RBUTTONDOWN()
+	//}}AFX_MSG_MAP
+	ON_MESSAGE(WM_SERVER_ACCEPT,OnServerAccept)
+END_MESSAGE_MAP()
+
+afx_msg LRESULT CHTTPServerView::OnServerAccept(WPARAM wParam, LPARAM lParam)
+{
+	CHTTPServerDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	pDoc-&gt;csInfo = "Client Connect !!!!!"; 
+	Invalidate();
+	return 0L;
+}
+</PRE>мЮДН СЯРПЮМХРЭ ЕЫЕ НДМС НЬХАЙС ДНОСЬЕММСЧ ЛМНЧ Б ОПНЬКНЛ ЬЮЦЕ, ОПХ 
+СЙЮГЮМХХ ОНПРЮ Б <B>LinkSoketPort</B>. щРН ТСМЙЖХЪ ЙНМБЕПРЮЖХХ. <PRE>	socketaddr.sin_port = htons(PORT_ADDR);
+</PRE>яНАХПЮИРЕ ОПНЕЙР. сЯРЮМЮБКХБЮИРЕ ЯБЪГЭ Я ХМРЕПМЕРНЛ Х ГЮОСЯЙЮИРЕ. 
+<P>ю БНР РЕОЕПЭ МСФМН ОПНРЕЯРХПНБЮРЭ. ъ РЕЯРХПНБЮК МЮ <B>Windows 98</B> Я 
+СДЮКЕММШЛ ДНЯРСОНЛ Й <B>Internet</B>. рЮЙ ЙЮЙ <B>IP</B> ЮДПЕЯ ДХМЮЛХВЕЯЙХИ Ъ ЕЦН 
+ОНЯЛНРПЕК ХЯОНКЭГСЪ <B>IPconfig</B> Х ББЕК Б <B>Exploler</B>. бНР ЯЛНРПХРЕ 
+ПХЯСМНЙ МХФЕ. йНМЕВМН ЯНЕДХМЕМХЕ ОПНЬКН, МН <B>Internet Explorer</B> МЕВЕЦН МЕ 
+ОНЙЮГЮК, УНРЪ ОШРЮКЯЪ. йНМЕВМН :-) мСФЕМ ЙНД РХОЮ <B>Client_Read</B>, МН ЛШ ЕЦН 
+ЯДЕКЮЕЛ :-) Б ЯКЕДСЧЫЕЛ ЬЮЦЕ. 
+<P><A href="http://doc.mpv.ru/steps/mfc/net/socket/step8.gif">пХЯСМНЙ 8 
+[step8.gif (15583 b)]</A> 
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/prog/step8.rar">гЮЦПСГХРЭ 
+ОПНЕЙР</A> | <A href="http://doc.mpv.ru/steps/mfc/net/socket/7.html">оПЕДШДСЫХИ 
+ЬЮЦ</A> | <A href="http://doc.mpv.ru/steps/mfc/net/socket/9.html">яКЕДСЧЫХИ 
+ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="8.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://doc.mpv.ru/steps/mfc/net/socket/19.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="19.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 19 - оНКСВЕМХЕ ЯБНЕЦН IP ЮДПЕЯЮ.</H2></FONT>
+<P>хРЮЙ, ГЮДЮВЮ ОНКСВХРЭ ЯБНИ <B>IP</B> ЮДПЕЯ. дКЪ МЮВЮКЮ МЮДН ОНКСВХРЭ ХЛЪ 
+КНЙЮКЭМНЦН УНЯРЮ. лШ ЩРН ДЕКЮКХ. "<A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/3.html">ьЮЦ 3 - оНКСВЕМХЕ ХЛЕМХ 
+УНЯРЮ</A>" ХЛЕЪ ХЛЪ УНЯРЮ ЛНФМН ОНКСВХРЭ <B>IP</B> ЮДПЕЯ, БНЯОНКЭГНБЮБЬХЯЭ 
+ТСМЙЖХЕИ <B>gethostbyname()</B>. дЮБЮИРЕ ОНЯЛНРПХЛ: <PRE>// TestB.cpp : Defines the entry point for the console application.
+//
+#include "stdafx.h"
+#include "winsock2.h"
+#include "iostream.h"
+
+#pragma comment(lib,"wsock32.lib")
+
+void main()
+{
+	WSADATA wsaData;
+	if (!WSAStartup(WINSOCK_VERSION, &amp;wsaData)) 
+	{
+	char chInfo[64];
+	if (!gethostname(chInfo,sizeof(chInfo)))
+	{
+	  cout &lt;&lt; chInfo &lt;&lt; endl;
+	  hostent *sh;
+	  sh=gethostbyname((char*)&amp;chInfo);
+	  if (sh!=NULL)
+	  {
+	  cout &lt;&lt; sh-&gt;h_name &lt;&lt; endl;
+	  int   nAdapter = 0;
+		while (	sh-&gt;h_addr_list[nAdapter]  )
+		{
+			struct   sockaddr_in   adr;
+			memcpy(&amp;adr.sin_addr,sh-&gt;h_addr_list[nAdapter],sh-&gt;h_length); 
+			cout &lt;&lt; inet_ntoa(adr.sin_addr) &lt;&lt; endl;
+			nAdapter++;
+		}
+	  }
+	}
+	else cout &lt;&lt; "Error local host " &lt;&lt; endl;
+	}
+	else cout &lt;&lt; "Winsock initial Bad !!!!" &lt;&lt; endl;
+	WSACleanup();
+}
+</PRE>
+<P>мХВЕЦН НЯНАЕММНЦН ЙПНЛЕ РНЦН, ВРН <B>h_addr_list</B> - ЩРН СЙЮГЮРЕКЭ МЮ 
+ЛЮЯЯХБ СЙЮГЮРЕКЕИ ЮДПЕЯНБ Х ЮДПЕЯ МСФМН ОПЕНАПЮГНБЮРЭ Б ОПХБШВМШИ БХД ВЕПЕГ 
+<B>inet_ntoa()</B>. 
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/18.html">оПЕДШДСЫХИ ЬЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/20.html">яКЕДСЧЫХИ ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="19.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

@@ -1,0 +1,40 @@
+Body {
+Font-Family: Arial;
+Font-size: 16px;
+Letter-spacing: 0px;
+BackGround-Image: url(images/1.gif);
+}
+H1 {
+Font-Family: Arial;
+Font-weight: bold; Font-size: 30px;
+Letter-spacing: -2px;
+
+}
+H2 {
+Font-Family: Arial;
+Font-weight: bold; Font-size: 24px;
+Letter-spacing: -1px;
+
+}
+H3 {
+Font-Family: Arial;
+Font-weight: bold; Font-size: 18px;
+Letter-spacing: -1px;
+
+}
+A {
+Font-Family: Arial;
+Font-size: 16px;
+Letter-spacing: 0px;
+
+}
+TABLE {
+Font-Family: Arial;
+Font-size: 16px;
+Letter-spacing: 0px;
+
+}
+H4 {
+Font-Family: Arial;
+Font-size: 11px;
+}

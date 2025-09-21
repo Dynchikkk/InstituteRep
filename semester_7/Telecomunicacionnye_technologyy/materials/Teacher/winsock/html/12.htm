@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://doc.mpv.ru/steps/mfc/net/socket/12.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="12.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 12 - дЕКЮЕЛ Log ТЮИК</H2></FONT>оЕПБШЛ ДЕКНЛ ЯНГДЮДХЛ ОСМЙР 
+ЛЕМЧ <B>Tools - Options</B>, ЦДЕ АСДЕЛ СЙЮГШБЮРЭ БЯЪЙХЕ НОЖХХ, Б РНЛ ВХЯКЕ Х 
+ЯНГДЮМХЕ КНЦ ТЮИКЮ. оЕПЕУНДХРЕ МЮ ЛЕМЧ Б БЙКЮДЙЕ <B>Resource</B> Х ХЯОНКЭГСИРЕ 
+<B>IDR_MAINFRAME</B> ДКЪ ПЕДЮЙРХПНБЮМХЪ ОСМЙРНБ ЛЕМЧ. сДЮКХРЕ ЛЕМЧ <B>File</B> Х 
+<B>Edit</B>. 
+<P><IMG alt="step12_1.gif (919 b)" src="12.files/step12_1.gif" border=2> 
+<P>яНГДЮДХЛ ПЕЮЙЖХЧ МЮ ЕЦН БШАНП Б ЙКЮЯЯЕ <B>CHTTPServerView</B> <PRE>void CHTTPServerView::OnToolsOptions() 
+{
+	// TODO: Add your command handler code here
+	
+}
+</PRE>мЮДН ЯНГДЮРЭ ДХЮКНЦНБНЕ НЙМН Х ЯНГДЮРЭ ДКЪ МЕЦН ЙКЮЯЯ. 
+<P><IMG alt="step12_2.gif (4404 b)" src="12.files/step12_2.gif" border=2> 
+<P>сЯРЮМНБХРЭ ЙМНОНВЙС БШАНПЮ <B>check box</B> Х ДКЪ МЕ╦ ЯНГДЮРЭ ОЕПЕЛЕММСЧ 
+<B>BOOL m_LogFile;</B>. б ЙНМЯРПСЙРНПЕ НМЮ ХМХЖХЮКХГХПСЕРЯЪ ЙЮЙ <PRE>CToolsOptios::CToolsOptios(CWnd* pParent /*=NULL*/)
+	: CDialog(CToolsOptios::IDD, pParent)
+{
+	//{{AFX_DATA_INIT(CToolsOptios)
+	m_LogFile = FALSE;
+	//}}AFX_DATA_INIT
+}
+</PRE>гЮБЕДЕЛ ЯРЮМДЮПРМСЧ ОЕПЕЛЕММСЧ Я ХЛЕМЕЛ КНЦ ТЮИКЮ. <PRE>..........
+#define PORT_ADDR 80
+#define QUEUE_SIZE 25
+#define NAMEFILE "FirstStepServer.log"
+
+class CSeverWinSock 
+.........
+</PRE>х Б ЙКЮЯЯЕ <B>CServerWinSock</B> ОЕПЕЛЕММСЧ, ЙНРНПЮЪ АСДЕР СЙЮГШБЮРЭ МЮ 
+РН, ВРН МСФМН БЕЯРХ КНЦ ТЮИК. <PRE>......
+class CSeverWinSock  
+{
+public:
+	BOOL TestLogFile;
+	void SendData(LPSTR buff);
+.........
+</PRE>мЮВЮКЭМЮЪ ХМХЖХЮКХГЮЖХЪ <PRE>CSeverWinSock::CSeverWinSock()
+{
+	TestLogFile=FALSE;
+}
+</PRE>нПЦЮМХГСЕЛ БШГНБ ДХЮКНЦЮ, МН ЯМЮВЮКЮ НОХЬЕЛ ЯЯШКЙС МЮ ЙКЮЯЯ. <PRE>#include "ToolsOptios.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// CHTTPServerView
+</PRE>х БШГНБ ДХЮКНЦНБНЦН НЙМЮ. <PRE>void CHTTPServerView::OnToolsOptions() 
+{
+	CToolsOptios ctopt;
+	ctopt.m_LogFile=HTTPServer.TestLogFile;
+	if (ctopt.DoModal()==IDOK) 	HTTPServer.TestLogFile=ctopt.m_LogFile;
+}
+</PRE>дКЪ ЯНГДЮМХЪ <B>log</B> ТЮИКЮ ЯНГДЮДХЛ ЙКЮЯЯ <B>CLogFile</B>. хЯОНКЭГСЪ 
+ЩРНР ЙКЮЯЯ ЛШ Х АСДЕР ОХЯЮРЭ ХМТНПЛЮЖХЧ Б ТЮИК. <PRE>class CLogFile : public CFile
+{
+public:
+	BOOL Create();
+	CString csFileName;
+	BOOL write(CString  writeString);
+	CLogFile();
+	virtual ~CLogFile();
+
+};
+</PRE>оНДЙКЧВХЛ ЕЦН НОХЯЮМХЕ Й ПЕЮКХГЮЖХХ ЙКЮЯЯЮ <B>CServerWinSock</B>. <PRE>// SeverWinSock.h: interface for the CSeverWinSock class.
+//
+//////////////////////////////////////////////////////////////////////
+
+....................
+
+#include "winsock.h"
+# include "LogFile.h"
+нАЭЪБХЛ ЕЦН Б ЙКЮЯЯЕ 
+
+....
+class CSeverWinSock  
+{
+public:
+	CLogFile cLogFile;
+....
+</PRE>оПХ ХМХЖХЮКХГЮЖХХ Б ОЕПЕЛЕММСЧ ЙКЮЯЯЮ <B>CLogFile</B> ОЕПЕДЮЕЛ ХЛЪ ТЮИКЮ <PRE>CSeverWinSock::CSeverWinSock()
+{
+	TestLogFile=FALSE;
+	cLogFile.csFileName=NAMEFILE;
+	cLogFile.Create(); 
+}
+</PRE>оПНЖЕДСПЮ ГЮОХЯХ <PRE>BOOL CLogFile::write(CString writeString)
+{
+	CFile file(csFileName, CFile::modeNoTruncate | CFile::modeWrite);
+	file.SeekToEnd(); 
+	writeString=writeString+"\r\n";
+	file.Write(writeString.GetBufferSetLength(writeString.GetLength()),writeString.GetLength());  
+	file.Close();
+	return TRUE;
+}
+</PRE>б ОПНЕЙРЕ ЕЯРЭ ПЕЮКХГЮЖХЪ БЯЕУ ГЮОХЯЕИ Б КНЦ МЮ ДЮММШИ ЛНЛЕМР. лШ 
+ОНЯРНЪММН АСДЕЛ ПЮЯЬХПЪРЭ ЙНКХВЕЯРБН ХМТНПЛЮЖХХ ОНЛЕЫЮЕЛНЕ Б КНЦ ТЮИК ДКЪ 
+ХГСВЕМХЪ ЯНЕДХМЕМХЪ Х ЕЦН ОПНЖЕЯЯЮ. оНЙЮ РЮЛ НРПЮФЮЧРЯЪ РНКЭЙН ЯЮЛШЕ БЮФМШЕ 
+ЯНАШРХЪ. 
+<P>бНР ОПХЛЕП ОПХЛЕП КНЦ ТЮИКЮ <PRE>09 : 13 :04
+Start WinSock
+09 : 13 :04
+uuobat
+09 : 13 :04
+Create Soket
+09 : 13 :04
+bind
+09 : 13 :04
+WSAAsyncSelect 
+09 : 13 :04
+Listen 
+09 : 13 :05
+StopServer
+09 : 13 :05
+Close Socket
+</PRE>
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/prog/step12.rar">гЮЦПСГХРЭ 
+ОПНЕЙР</A> | <A href="http://doc.mpv.ru/steps/mfc/net/socket/11.html">оПЕДШДСЫХИ 
+ЬЮЦ</A> | <A href="http://doc.mpv.ru/steps/mfc/net/socket/13.html">яКЕДСЧЫХИ 
+ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="12.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

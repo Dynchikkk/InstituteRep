@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://doc.mpv.ru/steps/mfc/net/socket/24.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="24.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 24 - яНГДЮЕЛ ЙКХЕМРЮ Х ЯЕПБЕП Socket МЮ MFC.</H2></FONT><PRE>рЕЛЮ: sockets  
+дЮРЮ: 21.02.01 19:34  
+нР ЙНЦН: Jurik <JURIK_JA@MAIL.RU>   
+йНЛС: Art <KAEV@YANDEX.RU>
+</PRE>
+<P>гДПЮЯРБСИРЕ юПР╦Л - Ъ МЕДЮБМН БЮЛ ЯКЮК ЛЕЯЯЮЦ МЮ ЯВ╦Р РНЦН ЙЮЙ ЯДЕКЮРЭ ЯЕПБЕП 
+МЮ ЯНЙЕРЮУ ... Ъ ПЮГНАПЮКЯЪ ЯЮЛ СФЕ ... ГЮЦБНГДЙЮ АШКЮ Б РНЛ, ВРН ТСМЙЖХХ 
+<B>Accept()</B> ЙЮЙ ОЮПЮЛЕРП МЮДН АШКН ДЮБЮРЭ НАЗЕЙР ЙКЮЯЯЮ <B>CSocket</B>, МН 
+МЕ РНР, ЙНРНПШИ Ъ ХЯОНКЭГСЧ Х БШГШБЮЧ ЕЛС ТСМЙЖХХ <B>Create()</B>, 
+<B>Bind()</B>, <B>Listen()</B> Х РЮЙ ДЮКЕЕ, Ю БРНПНИ МЕ РПНЦЮММШИ МЕ 
+ХМХЖХЮКХГХПНБЮММШИ ! :) дКЪ ЙКХЕМРЮ Х ДКЪ ЯЕПБЕПЮ ... БЯ╦ ЩРН ДЕКН БЯРЮБКЪЕРЯЪ Б 
+ПЕЮЙЖХЧ МЮ МЮФЮРХЕ ЙМНОЙХ ... Ъ КХВМН ХЯОНКЭГНБЮК бХГЮПД Х ДЕКЮК <B>Dialog based 
+app</B>. 
+<P>яЕПБЕП: <PRE>CSocket ServerSocket, RecieveSocket; 
+ServerSocket.Create(5544);
+ServerSocket.Bind(5544, "192.168.93.1");
+ServerSocket.Listen(5); 
+ServerSocket.Accept(RecieveSocket); 
+CSocketFile file(&amp;RecieveSocket);
+CArchive In(&amp;file, CArchive::load);
+CArchive Out(&amp;file, CArchive::store); 
+CString string;
+In &gt;&gt; string; 
+AfxMessageBox(string); 
+ServerSocket.Close(); 
+</PRE>
+<P>йКХЕМР: <PRE>CSocket ClientSocket;
+ClientSocket.Create();
+ClientSocket.Connect("192.168.93.1", 5544);
+CString buffer = " Hello World";
+ClientSocket.Send(buffer, 500, 0); 
+ClientSocket.Close(); 
+</PRE>
+<P>еДХМЯРБЕММЮЪ МЕОНМЪРМЮЪ НЬХАЙЮ !!! йНЦДЮ ЯЕПБЕП ОПХМХЛЮЕР ЯРПНЙС, РН НМ 
+БШБНДХР Е╦ МЮВХМЮЪ ЯН БРНПНЦН ЯХЛБНКЮ, Ю ОЕПБШИ ОПНОЮДЮЕР !!! :))) мН ОПХМЖХО 
+ОНМЪРЕМ ! :)))) аСДС ПЮД ЕЯКХ ЩРН НЙЮФЕРЯЪ ОНКЕГМШЛ ! оНЙЮ ! 
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/23.html">оПЕДШДСЫХИ ЬЮЦ</A> <!--| <a href=.html>яКЕДСЧЫХИ ьЮЦ</a-->| <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="24.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

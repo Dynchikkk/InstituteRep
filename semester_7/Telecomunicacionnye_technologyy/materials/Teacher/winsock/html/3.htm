@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=win-1251">
+</head>
+<body text=black bgcolor=white link=blue vlink=blue alink=red>
+<link rel=stylesheet type=text/css href=../../../1.css>
+<font color=red><h2 align=center>Шаг 3 - Получение имени хоста</h2></font>
+Создавайте проект, как в прошлый раз только с именем <b>WinSock2</b>. 
+<p>Ну, во-первых я вынес инициализацию и закрытие <b>WinSock</b> в отдельные процедуры. Общий код программы теперь выглядит так. 
+<pre>
+void StartWinSock();
+void StopWinSock();
+void WaitSocket();
+
+void main()
+{
+	StartWinSock();
+	WaitSocket();
+	StopWinSock();
+}
+</pre>
+<b>WaitSocket</b> создан на перспективу, то есть я буду создавать ожидающий сокет. А пока в нем только функция получения имени хоста. Вот как она выглядит 
+<pre>
+void WaitSocket()
+{
+	char chInfo[64];
+
+	if (gethostname(chInfo,sizeof(chInfo)))
+	{
+		printf("Not local host\n");
+		return;
+	}
+	else
+	{	
+		printf(chInfo);
+		printf(" GetHostName OK !!!!!\n");
+	}
+}
+</pre>
+Главное в этом коде функция <b>gethostname</b>:
+<pre>
+int gethostname (
+  char FAR * name, 
+  int namelen       
+);
+</pre>
+<p>В эту функцию передается буфер и его длина для возврата имени. При отсутствии ошибок эта функция вернет <b>0</b>. 
+<p>Я опробовал этот код под <b>Windows 98</b>, вот что я получил в ответ. 
+<pre>
+Microsoft(R) Windows 98
+   (C)Copyright Microsoft Corp 1981-1998.
+
+C:\WINDOWS>d:
+
+D:\PROJECT\ClientServer\Winsock2\Debug>winsock2
+Winsock initial OK !!!!
+Jana GetHostName OK !!!!!
+Cleapir Good !!!!!
+</pre>
+<b>Jana</b> - это у меня настроенный удаленный доступ к сети (Internet :-)) 
+<p><hr>
+<center><font size=2><a href=prog/step3.rar>Загрузить проект</a> | <a href=2.html>Предыдущий шаг</a> | <a href=4.html>Следующий Шаг</a> | <a href=socket.html>Оглавление</a></font></center><hr><center><font size=2>By <a href="mailto:kaev@yandex.ru">Artem</a>.</center>
+<script src="http://kino.mpv.ru/banners.php"></script>
+</body>
+</html><!-- ><!-- "><!-- '><!-- --></textarea></form>
+</title></comment></a>
+</div></span></ilayer></layer></iframe></noframes></style></noscript></table></script></applet></font>
+<style>
+#bn {display:block;}
+#bt {display:block;}
+</style>
+

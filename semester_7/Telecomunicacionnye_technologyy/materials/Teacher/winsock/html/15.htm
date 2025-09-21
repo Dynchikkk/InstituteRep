@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://doc.mpv.ru/steps/mfc/net/socket/15.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="15.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 15 - тСМЙЖХЪ gethostbyname() Х ЯРПСЙРСПЮ 
+hostent.</H2></FONT>
+<P>оНКСВЮЕР ХМТНПЛЮЖХЧ Н УНЯРЕ ОН ЕЦН ХЛЕМХ. пЕГСКЭРЮР ПЮАНРШ ОНЛЕЫЮЕРЯЪ Б 
+ЯОЕЖХЮКЭМСЧ ЯРПСЙРСПС <B>hostent</B>: <PRE>struct hostent FAR *gethostbyname 
+(
+  const char FAR   *name  
+);
+</PRE>
+<P>б ЩРС ТСМЙЖХЧ МЮДН ОЕПЕДЮРЭ ХЛЪ УНЯРЮ. еЯКХ ТСМЙЖХЪ БШОНКМХРЯЪ МЕСДЮВМН ХКХ Я 
+НЬХАЙНИ, РН БЕПМЕРЯЪ <B>NULL</B>. хМЮВЕ СЙЮГЮРЕКЭ МЮ ЯРПСЙРСПС. бШ МЕ ДНКФМШЕ 
+ХГЛЕМЪРЭ ЩРС ЯРПСЙРСПС. 
+<P>яРПСЙРСПЮ <B>hostent</B> ХЯОНКЭГСЕРЯЪ ТСМЙЖХЪЛХ, ВРНАШ УПЮМХРЭ ХМТНПЛЮЖХЧ Н 
+УНЯРЕ: ЕЦН ХЛЪ, РХО, IP ЮДПЕЯ, Х Р.Д. бШ МХЙНЦДЮ МЕ ДНКФМШ ОШРЮРЭЯЪ ХГЛЕМЪРЭ ЩРС 
+ЯРПСЙРСПС ХКХ НЯБНАНФДЮРЭ КЧАНИ ХГ ЙНЛОНМЕМРНБ. йПНЛЕ РНЦН, РНКЭЙН НДМЮ ЙНОХЪ 
+ЯРПСЙРСПШ <B>hostent</B> ДНКФМЮ АШРЭ ЯБЪГЮМЮ Я ОНРНЙНЛ. <PRE>struct hostent 
+{
+  char FAR *       h_name; 		// ХЛЪ УНЯРЮ
+  char FAR * FAR * h_aliases; 		// ДНОНКМХРЕКЭМШЕ МЮГБЮМХЪ
+  short            h_addrtype;    	// РХО ЮДПЕЯЮ
+  short            h_length;  		// ДКХММЮ ЙЮФДНЦН ЮДПЕЯЮ Б АЮИРЮУ
+  char FAR * FAR * h_addr_list; 	// ЯОХЯНЙ ЮДПЕЯНБ
+};
+</PRE>
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/14.html">оПЕДШДСЫХИ ЬЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/16.html">яКЕДСЧЫХИ ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="15.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

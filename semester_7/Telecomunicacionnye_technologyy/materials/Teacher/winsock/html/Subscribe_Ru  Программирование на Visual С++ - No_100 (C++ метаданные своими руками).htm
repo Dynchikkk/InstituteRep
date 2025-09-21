@@ -1,0 +1,1492 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0066)http://subscribe.ru/archive/comp.prog.visualc/200310/30125326.html -->
+<!--
+--*--
+--><HTML lang=ru><HEAD><TITLE>Subscribe.Ru : Программирование на Visual С++ - No.100 (C++: метаданные своими руками)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1251">
+<META 
+content="Visual С++ MFC WinAPI программирование FAQ программист разработчик разработка MSDN NET VISUAL STUDIO" 
+name=keywords>
+<META content="jenter@rsdn.ru ведущий рассылки Алекс Jenter" name=author>
+<STYLE></STYLE>
+
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY link=#0030ff bgColor=#dff2f2><LINK 
+href="http://subscribe.ru/skin/favicon.ico" rel="shortcut icon"><LINK 
+href="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/main.css" 
+type=text/css rel=stylesheet><LINK title="Архив рассылки" 
+href="/archive/comp.prog.visualc/" type=text/html rel=contents><LINK 
+title="Архив рассылки" href="/archive/comp.prog.visualc/" type=text/html 
+rel=start><LINK title="Архив рассылки" href="/archive/comp.prog.visualc/" 
+type=text/html rel=index><LINK title="Первый выпуск" 
+href="/archive/comp.prog.visualc/nav/first/html" type=text/html rel=first><LINK 
+title="Предыдущий выпуск" 
+href="/archive/comp.prog.visualc/nav/prev//archive/comp.prog.visualc/200310/30125326.html" 
+type=text/html rel=prev><LINK title="Следующий выпуск" 
+href="/archive/comp.prog.visualc/nav/next//archive/comp.prog.visualc/200310/30125326.html" 
+type=text/html rel=next><LINK title="Последний выпуск" 
+href="/archive/comp.prog.visualc/nav/last/html" type=text/html rel=last>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffffff>&nbsp;</TD>
+    <TD align=middle width=500 bgColor=#ffffff><A 
+      href="http://games.subscribe.ru/" target=_blank><IMG height=90 
+      alt="Игрушки на 5 минут" 
+      src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/games5min_3.gif" 
+      width=720 border=0></A> </TD>
+    <TD bgColor=#ffffff>&nbsp;</TD></TR></TBODY></TABLE>
+<TABLE class=subscriberu_table cellSpacing=0 cellPadding=0 width="100%" 
+bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD class=subscriberu_td bgColor=#ffffff height=10><IMG height=10 
+      src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+      width=1></TD></TR>
+  <TR>
+    <TD class=subscriberu_td vAlign=top><!--Шапка-->
+      <TABLE class=subscriberu_table cellSpacing=0 cellPadding=0 width="100%" 
+      bgColor=#ffffff border=0>
+        <TBODY>
+        <TR>
+          <TD class=subscriberu_td vAlign=top width=185 bgColor=#ffffff 
+          height=35><A class=subscriberu_a href="http://subscribe.ru/"><IMG 
+            height=35 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/logo.gif" 
+            width=185 border=0></A></TD>
+          <TD class=subscriberu_td vAlign=top width="100%" bgColor=#ffffff 
+          height=35>
+            <TABLE class=subscriberu_table cellSpacing=0 cellPadding=0 
+            width="100%" bgColor=#ffffff border=0>
+              <TBODY>
+              <TR>
+                <TD class=subscriberu_td bgColor=#ffffff colSpan=3><IMG 
+                  height=3 
+                  src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+                  width=1></TD></TR>
+              <TR>
+                <TD class=subscriberu_td width=11 bgColor=#ffffff height=30 
+                rowSpan=4><IMG height=30 
+                  src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/tale-l.gif" 
+                  width=11></TD>
+                <TD class=subscriberu_td bgColor=#000000 height=1><IMG 
+                  height=1 
+                  src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+                  width=1></TD>
+                <TD class=subscriberu_td width=11 bgColor=#ffffff height=30 
+                rowSpan=4><IMG height=30 
+                  src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/tale-r.gif" 
+                  width=11></TD></TR>
+              <TR>
+                <TD class=subscriberu_td bgColor=#28607a><!-- верхнее меню -->
+                  <TABLE class=subscriberu_table cellSpacing=0 cellPadding=0 
+                  width="100%" bgColor=#28607a 
+                  background="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/bgr1.gif" 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=subscriberu_td>
+                        <TABLE class=subscriberu_table height=23 cellSpacing=0 
+                        cellPadding=0 bgColor=#28607a border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=subscriberu_td width=1 height=23><IMG 
+                              height=23 
+                              src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+                              width=1></TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/member/"><IMG height=19 
+                              alt=подписчикам 
+                              src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-subscr.gif" 
+                              width=19 border=0></A></TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/member/"><FONT 
+                              class=subscriberu_litegreen 
+                              color=#d5f072>ПОДПИСЧИКАМ</FONT></A>&nbsp;&nbsp;</TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/catalog/"><IMG height=19 
+                              alt=каталог 
+                              src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-arh.gif" 
+                              width=19 border=0></A></TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/catalog/"><FONT 
+                              class=subscriberu_litegreen 
+                              color=#d5f072>КАТАЛОГ</FONT></A>&nbsp;&nbsp;</TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/archive/"><IMG height=19 
+                              alt=архив 
+                              src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-arh.gif" 
+                              width=19 border=0></A></TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/archive/"><FONT 
+                              class=subscriberu_litegreen 
+                              color=#d5f072>АРХИВ</FONT></A>&nbsp;&nbsp;</TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/author/"><IMG height=19 
+                              alt=авторы 
+                              src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-author.gif" 
+                              width=19 border=0></A></TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/author/"><FONT 
+                              class=subscriberu_litegreen 
+                              color=#d5f072>АВТОРЫ</FONT></A>&nbsp;&nbsp;</TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/archive/"><IMG height=19 
+                              alt=дайджест 
+                              src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-arh.gif" 
+                              width=19 border=0></A></TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/digest/"><FONT 
+                              class=subscriberu_litegreen 
+                              color=#d5f072>ДАЙДЖЕСТ</FONT></A>&nbsp;&nbsp;</TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/advert/"><IMG height=19 
+                              alt=рекламодателям 
+                              src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-adv.gif" 
+                              width=19 border=0></A></TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/advert/"><FONT 
+                              class=subscriberu_litegreen 
+                              color=#d5f072>РЕКЛАМА</FONT></A>&nbsp;&nbsp;</TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/stat/"><IMG height=19 
+                              alt=статистика 
+                              src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-stat.gif" 
+                              width=19 border=0></A></TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/stat"><FONT 
+                              class=subscriberu_litegreen 
+                              color=#d5f072>СТАТИСТИКА</FONT></A></TD></TR></TBODY></TABLE></TD>
+                      <TD class=subscriberu_td align=right>
+                        <TABLE class=subscriberu_table cellSpacing=0 
+                        cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=subscriberu_td>&nbsp;<A 
+                              class=subscriberu_a 
+                              href="http://subscribe.ru/faq/"><IMG height=19 
+                              alt=помощь 
+                              src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-help.gif" 
+                              width=19 border=0></A></TD>
+                            <TD class=subscriberu_td><A class=subscriberu_a 
+                              href="http://subscribe.ru/faq/"><FONT 
+                              class=subscriberu_litegreen 
+                              color=#d5f072>ПОМОЩЬ</FONT></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- /верхнее меню --></TD></TR>
+              <TR>
+                <TD class=subscriberu_td bgColor=#000000 height=1><IMG 
+                  height=1 
+                  src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+                  width=1></TD></TR>
+              <TR>
+                <TD class=subscriberu_td bgColor=#d5f072 height=5><IMG 
+                  height=5 
+                  src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+                  width=1></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- /Шапка--></TD></TR>
+  <TR>
+    <TD class=subscriberu_td bgColor=#ffffff height=14><IMG height=14 
+      src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+      width=1></TD></TR>
+  <TR>
+    <TD class=subscriberu_td vAlign=top align=middle><NOBR><IMG height=5 
+      src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/b2.gif" 
+      width=5>&nbsp;<A class=subscriberu_a 
+      style="FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #43892d; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+      href="http://subscribe.ru/archive/comp.prog.visualc"><B 
+      class=subscriberu_b>АРХИВ&nbsp;РАССЫЛКИ</B></A></NOBR> <IMG height=1 
+      src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+      width=15> <NOBR><IMG height=5 
+      src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/b2.gif" 
+      width=5>&nbsp;<A class=subscriberu_a 
+      style="FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #43892d; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+      href="http://subscribe.ru/catalog/comp.prog.visualc"><B 
+      class=subscriberu_b>ОПИСАНИЕ&nbsp;РАССЫЛКИ</B></A></NOBR> <IMG height=1 
+      src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+      width=25> <NOBR><A class=subscriberu_a 
+      href="http://link.subscribe.ru/5799"><IMG height=5 
+      src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/b2.gif" 
+      width=5 border=0></A>&nbsp;<A class=subscriberu_a 
+      style="FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #43892d; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+      href="http://link.subscribe.ru/5799"><B class=subscriberu_b>КАТАЛОГ 
+      РАССЫЛОК</B></A></NOBR> <IMG height=1 
+      src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+      width=15> <NOBR><A class=subscriberu_a 
+      href="http://link.subscribe.ru/6933"><IMG height=5 
+      src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/b2.gif" 
+      width=5 border=0></A>&nbsp;<A class=subscriberu_a 
+      style="FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #43892d; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+      href="http://link.subscribe.ru/6933"><B class=subscriberu_b>КАТАЛОГ 
+      ДИСКУССИОННЫХ ЛИСТОВ</B></A></NOBR> 
+      <P class=subscriberu_p 
+      style="FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva">
+      <TABLE class=subscriberu_table 
+      style="FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+      cellSpacing=0 cellPadding=0 width="90%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD class=subscriberu_td align=left><A class=subscriberu_a 
+            style="FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #43892d; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/archive/comp.prog.visualc/nav/first/html" 
+            target=_top><B class=subscriberu_b>первый&nbsp;выпуск</B></A> 
+            &nbsp;&nbsp;&nbsp; <A class=subscriberu_a 
+            style="FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #43892d; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/archive/comp.prog.visualc/nav/prev//archive/comp.prog.visualc/200310/30125326.html" 
+            target=_top><B class=subscriberu_b>предыдущий&nbsp;выпуск</B></A> 
+          <TD class=subscriberu_td align=middle>
+            <TABLE class=subscriberu_table 
+            style="FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            cellSpacing=0 cellPadding=0 align=center border=0>
+              <FORM action=/member/quick method=post><INPUT type=hidden 
+              value=comp.prog.visualc name=grp> <INPUT type=hidden value=archive 
+              name=src> 
+              <TBODY>
+              <TR>
+                <TD class=subscriberu_td>Подписка на <B 
+                  class=subscriberu_b>"Программирование на Visual 
+                  С++"</B>:&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+                <TD class=subscriberu_td><INPUT class=subscriberu_qq 
+                  style="BORDER-RIGHT: #284250 1px solid; BORDER-TOP: #284250 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #284250 1px solid; WIDTH: 160px; COLOR: #284250; BORDER-BOTTOM: #284250 1px solid; FONT-FAMILY: MS Sans Serif, Arial,
+                  Helvetica, Geneva; BACKGROUND-COLOR: white" maxLength=100 
+                  size=15 value="Ваш e-mail" name=email></TD>
+                <TD class=subscriberu_td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+                <TD class=subscriberu_td><INPUT class=subscriberu_qq2 style="BORDER-RIGHT: #313131 1px solid; BORDER-TOP: #7494a4 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #7494a4 1px solid; WIDTH: 144px; COLOR: #e0f391; BORDER-BOTTOM: #313131 1px solid; FONT-FAMILY: MS Sans Serif, Arial,
+Helvetica, Geneva; BACKGROUND-COLOR: #3f6a7f" type=submit value=Подписаться></TD></TR></FORM></TBODY></TABLE></TD>
+          <TD class=subscriberu_td align=right><A class=subscriberu_a 
+            style="FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #43892d; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/archive/comp.prog.visualc/nav/next//archive/comp.prog.visualc/200310/30125326.html" 
+            target=_top><B class=subscriberu_b>следующий&nbsp;выпуск</B></A> 
+            &nbsp;&nbsp;&nbsp; <A class=subscriberu_a 
+            style="FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #43892d; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/archive/comp.prog.visualc/nav/last/html" 
+            target=_top><B class=subscriberu_b>последний&nbsp;выпуск</B></A> 
+        </TR></TBODY></TABLE>
+      <HR class=subscriberu_hr noShade>
+    </TD></TR></TBODY></TABLE>
+<TABLE class=subscriberu_table cellSpacing=5 cellPadding=0 width="100%" 
+align=center border=0>
+  <TBODY>
+  <TR>
+    <TD class=subscriberu_td vAlign=top aling="left"><!--noindex-->
+      <CENTER>
+      <TABLE style="BACKGROUND-COLOR: #dff2f2" cellSpacing=0 cellPadding=7 
+      width="100%" bgColor=#dff2f2 background="" border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle width="100%"><B><FONT 
+            style="FONT-SIZE: 10pt; COLOR: #000000" color=#000000 
+            size=2>Информационный Канал</FONT> <A href="http://subscribe.ru/" 
+            target=_top><FONT style="FONT-SIZE: 10pt; COLOR: #000000" 
+            color=#000000 size=2>Subscribe.Ru</FONT></A></B></TD>
+          <TD align=right><NOBR><FONT style="FONT-SIZE: 10pt; COLOR: #000000" 
+            color=#000000 size=2></FONT></NOBR></TD></TR></TBODY></TABLE>
+      <HR noShade>
+      </CENTER><!--/noindex--><!--noindex-->
+      <CENTER><IFRAME marginWidth=0 marginHeight=0 
+      src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/erle.gif" 
+      frameBorder=0 width=468 scrolling=no 
+      height=60><a target=_top href="http://ad.adriver.ru/cgi-bin/click.cgi?sid=458?bt=1?pz=1?sz=/?rnd=533346798"><img src="http://ad.adriver.ru/cgi-bin/rle.cgi?sid=458?bt=1?pz=1?sz=/?rnd=533346798" alt="-AdRiver-" border=0 width=468 height=60></a></IFRAME></CENTER>
+      <HR noShade>
+<!--/noindex-->
+      <TABLE cellPadding=7 width="100%">
+        <TBODY>
+        <TR>
+          <TD vAlign=bottom><NOBR><FONT face=Verdana size=3><B>&nbsp; <FONT 
+            color=#7688a4 size=3><BIG>П</BIG>РОГРАММИРОВАНИЕ &nbsp;&nbsp; НА 
+            &nbsp;&nbsp; </FONT><FONT color=#4682b4 size=3><BIG>V</BIG> I S U A 
+            L &nbsp;<BIG> C</BIG> + + </FONT></B></FONT></NOBR></TD>
+          <TD vAlign=bottom>
+            <DIV align=right><FONT face=Tahoma color=#bacaea size=1>РАССЫЛКА 
+            САЙТА &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR></FONT><FONT 
+            face=Verdana color=#bacaea 
+            size=5><I><B>RSDN<SMALL><SMALL>.RU</SMALL></SMALL></B></I></FONT> 
+            &nbsp;</FONT> </FONT></DIV></TD></TR></TBODY></TABLE>
+      <HR style="HEIGHT: 1px" color=#90a0c0 noShade SIZE=1>
+<!-- END TITLE -->
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD width=10></TD>
+          <TD><FONT face=verdana size=2>
+            <TABLE cellPadding=7>
+              <TBODY>
+              <TR>
+                <TD vAlign=top width="50%"><FONT face=Tahoma color=#8090a0 
+                  size=2>&nbsp;&nbsp;&nbsp;&nbsp;<STRONG>Выпуск No.&nbsp;100 
+                  от&nbsp;30&nbsp;октября 2003 г. <BR>&nbsp;&nbsp;&nbsp; 
+                  </STRONG>Подписчиков: 23434<STRONG>&nbsp;</STRONG></FONT> </TD>
+                <TD vAlign=top><FONT face=tahoma color=#90a0c0 size=1>
+                  <P align=justify><BIG>Р</BIG>АССЫЛКА ЯВЛЯЕТСЯ ЧАСТЬЮ ПРОЕКТА 
+                  <BIG><A href="http://www.rsdn.ru/" target=_blank><B><FONT 
+                  color=#8090b0>RSDN</FONT></B></A></BIG> , НА САЙТЕ КОТОРОГО 
+                  ВСЕГДА МОЖНО НАЙТИ ВСЮ НЕОБХОДИМУЮ РАЗРАБОТЧИКУ ИНФОРМАЦИЮ, 
+                  СТАТЬИ, ФОРУМЫ, РЕСУРСЫ, ПОЛНЫЙ АРХИВ ПРЕДЫДУЩИХ ВЫПУСКОВ 
+                  РАССЫЛКИ И МНОГОЕ ДРУГОЕ. </P></FONT></TD></TR></TBODY></TABLE><!-- CONTENT -->
+            <P>Здравствуйте, дорогие подписчики! <BR>
+            <P>Как вы наверное заметили, номер у сегодняшнего выпуска 
+            довольно-таки круглый. В связи с чем команда RSDN делает вам 
+            подарок: сегодня в рассылке ЭКСКЛЮЗИВНО публикуется статья из нового 
+            номера RSDN Magazine (#5'03), который должен в скором времени 
+            появиться в продаже!<BR>
+            <P>А также хочется напомнить, что уже сейчас можно купить RSDN 
+            Magazine #4'03 со следующими материалами:<BR>
+            <UL>
+              <LI>Методы и алгоритмы компьютерной графики в примерах на Visual 
+              C++ 
+              <LI>Эффективное использование WTL 
+              <LI>Динамическая генерация элементов управления для Web 
+              <LI>Механизмы безопасности в .NET 
+              <LI>Работа с объектами большого объема в MS SQL и ADO 
+              <LI>Объединение CHM-файлов 
+              <LI>Менеджер подключений к базам данных 
+              <LI>Алгоритмы кодогенерации 
+              <LI>Счетчики производительности 
+              <LI>Разработка DB-Aware компонентов </LI></UL>
+            <P>На сопроводительном CD-ROM к RSDN Magazine #4 вы найдете: 
+            <UL>
+              <LI>RSDN Offline - все статьи и форумы сайта RSDN в формате CHM 
+              <LI>RSDN@Home 1.1 beta 2 - Инсталляционный комплект + База данных 
+              c заполненным списком пользователей + Исходные коды 
+              <LI>Platform SDK February 2003 </LI></UL>Подробности о способах 
+            получения журнала вы можете узнать <A 
+            href="http://www.rsdn.ru/?Mag/Subscribe/">здесь</A>. 
+            <P><FONT color=#7688a4>
+            <HR style="HEIGHT: 1px" align=left width="50%" color=#b6c8e4 noShade 
+            SIZE=1>
+            &nbsp;<B>CТАТЬЯ</B> </FONT>
+            <P></P><FONT color=#000000 size=3>
+            <P align=center><B>C++: метаданные своими руками <BR></B><FONT 
+            face=arial size=2><I><B>Чтение/запись простых Xml-файлов из 
+            программы на классическом С++</B></I></FONT></P></FONT>
+            <DIV align=right>
+            <H5><SPAN class=title>Автор: </SPAN><SPAN class=value>Андрей 
+            Мартынов</SPAN></H5></DIV>
+            <H5></H5><A 
+            href="http://rsdn.ru/archive/vc/files/xmlcpp_demo.zip">Исходные 
+            тексты примера(~30 кб)</A> 
+            <H5></H5>
+            <P align=justify></P>
+            <H5>Проблема</H5>
+            <P align=justify>Прежде всего, надо пояснить подзаголовок. 
+            «Классический С++» здесь означает «не MC++», то есть не C++ with 
+            managed extensions. Это важное уточнение, так как работа с XML в 
+            среде .Net – это лёгкое и приятное занятие. В этой среде имеются 
+            встроенные средства сериализации типов, основанные на метаданных. Но 
+            что делать, если вы пишете на старом («классическом») С++, а 
+            читать/писать xml-файлы вам нужно не в меньшей степени, чем 
+            коллегам, пишущим на .Net-совместимых языках? Вот этой цели – 
+            скрасить жизнь С++ программистов, работающих с XML, – и посвящена 
+            библиотека классов (шаблонов), которая будет представлена ниже.</P>
+            <P align=justify>Второе уточнение подзаголовка статьи – что означает 
+            выражение «простые Xml-файлы»? Здесь «простота» подразумевает, что 
+            до полного повторения всех возможностей, имеющихся в .Net, дело не 
+            дошло (пока), решена лишь задача, описание которой приведено ниже. 
+            </P>
+            <P align=justify>Имеется структура данных, содержащая подструктуры 
+            любой степени вложенности, а также массивы. И поля структур, и 
+            элементы массивов имеют типы-значения, т.е. среди них нет ни 
+            указателей, ни ссылок. Задача состоит в том, чтобы обеспечить 
+            универсальный алгоритм чтения/записи такой структуры в виде 
+            xml-файла. Изменение структуры данных не должно приводить к 
+            перепрограммированию алгоритма чтения. Чтение должно быть основано 
+            на неких данных, которыми предварительно снабжены (размечены) все 
+            типы, участвующие в считываемой/записываемой структуре.</P>
+            <P align=justify>Короче, при таком подходе программист не должен для 
+            каждого типа сохраняемых данных писать процедуру обхода 
+            XMLDOM-дерева. Он лишь декларирует (описывает, размечает) структуру 
+            данных специальным образом, чтобы потом использовать универсальный 
+            алгоритм чтения/записи. Ровно то, что называется декларативным 
+            подходом в программировании.</P>
+            <BLOCKQUOTE>
+              <TABLE cellPadding=5 width="90%">
+                <TBODY>
+                <TR>
+                  <TD><FONT size=2>
+                    <P align=justify><B><FONT 
+                    color=#666677>ПРИМЕЧАНИЕ</FONT></B><BR><FONT size=4></FONT>
+                    <P align=justify>Для решения подобных задач в .Net 
+                    используют атрибуты. Нечто подобное атрибутам придется 
+                    сделать и в C++, если нам хочется работать в том же 
+                    стиле.</P>
+                    <P></P></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+            <H5>Решение</H5>
+            <P align=justify>Предлагаю для начала, не вдаваясь в подробности 
+            устройства библиотеки, посмотреть на то, как она применяется, и что 
+            это даёт. Начнём с простейшего. Правило первое – чтобы записать 
+            структуру в xml-файл, её необходимо разметить, т.е. сопоставить 
+            полям структуры имена xml-тегов, и задать значения полей по 
+            умолчанию (если при чтении файла полю разрешено отсутствовать). Ниже 
+            приведён пример создания простейшего xml-файла.</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>#include</FONT> <FONT color=#007777>"SerializeXml.h" // «волшебство» здесь 8-)</FONT>
+<FONT color=blue>
+struct</FONT> Clr
+{
+  Clr() : r(0), g(0), b(0) {}
+  Clr(byte _r, byte _g, byte _b) : r(_r), g(_g), b(_b) {}
+  byte  r;
+  short g;
+  long  b;
+  <FONT color=blue>const</FONT> <FONT color=blue>static</FONT> Clr white;
+  <FONT color=blue>const</FONT> <FONT color=blue>static</FONT> Clr black;
+
+  struct LayoutDefault : public Layout&lt;Clr&gt;
+  {
+    LayoutDefault()
+    {  //        тег        поле   значение по умолчанию
+      Simple(_T("red"  ), &amp;Clr::r, &amp;Clr::white.r);
+      Simple(_T("green"), &amp;Clr::g, &amp;Clr::white.g);
+      Simple(_T("blue" ), &amp;Clr::b, &amp;Clr::white.b);
+    }
+  };
+};
+ . . . 
+Clr clr(23, 196, 7);
+Xml::Save(_T(<FONT color=#007777>"color.xml"</FONT>), _T(<FONT color=#007777>"clr"</FONT>), clr); <FONT color=green>// второй параметр – корневой тег</FONT>
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Как вы видите, в тело класса добавлен вложенный тип 
+            LayoutDefault, унаследованный от шаблонного класса 
+            Layout&lt;Clr&gt;. В конструкторе класса LayoutDefault с помощью 
+            специального метода Simple происходит разметка структуры. Этот метод 
+            принимает в качестве входных параметров имя тега, указатель на поле 
+            и указатель на значение поля по умолчанию (может быть NULL, если нет 
+            значения по умолчанию).</P>
+            <P align=justify>Такая разметка структуры позволяет нам использовать 
+            метод Xml::Save для сохранения структуры в виде xml-файла. Xml::Save 
+            – этот тот самый универсальный метод сохранения данных, о котором 
+            говорилось при постановке задачи. Имеется аналогичный метод для 
+            чтения данных из Xml-файла – Xml::Load.</P>
+            <P align=justify>Результатом будет следующий файл:</P>
+            <P><PRE><FONT size=2>
+&lt;?xml version=<FONT color=#007777>"1.0"</FONT> encoding=<FONT color=#007777>"utf-8"</FONT> ?&gt; 
+&lt;clr&gt;
+  &lt;red&gt;23&lt;/red&gt; 
+  &lt;green&gt;196&lt;/green&gt; 
+  &lt;blue&gt;7&lt;/blue&gt; 
+&lt;/clr&gt;
+</FONT></PRE>
+            <P></P>
+            <P align=justify>В данном случае для сопоставления тегов и полей 
+            структуры использовался метод Simple. Если же нужно, чтобы значения 
+            компонентов цвета сохранялись не как элементы, а как атрибуты, 
+            придется разметить структуру немного по-другому и использовать метод 
+            Attribute:</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>struct</FONT> LayoutDefault : <FONT color=blue>public</FONT> Layout&lt;Clr&gt;
+{
+  LayoutDefault()
+  {
+    Attribute(_T(<FONT color=#007777>"red"</FONT>  ), &amp;Clr::r, &amp;Clr::white.r);
+    Attribute(_T(<FONT color=#007777>"green"</FONT>), &amp;Clr::g, &amp;Clr::white.g);
+    Attribute(_T(<FONT color=#007777>"blue"</FONT> ), &amp;Clr::b, &amp;Clr::white.b);
+  }
+};
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Результат получается соответствующий:</P>
+            <P><PRE><FONT size=2>
+&lt;?xml version=<FONT color=#007777>"1.0"</FONT> encoding=<FONT color=#007777>"utf-8"</FONT> ?&gt; 
+&lt;clr red=<FONT color=#007777>"23"</FONT> green=<FONT color=#007777>"193"</FONT> blue=<FONT color=#007777>"7"</FONT> /&gt; 
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Просто, не правда ли? А если структура данных будет 
+            более сложной? Если будут присутствовать вложенные структуры, 
+            массивы? OK, давайте рассмотрим ещё один пример:</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>struct</FONT> Pnt
+{
+  <FONT color=blue>int</FONT>               x;
+<FONT color=blue>  double</FONT>            y;
+  std::vector&lt;<FONT color=blue>long</FONT>&gt; vec;
+  Clr               color; <FONT color=green>// Clr из предыдущего примера</FONT>
+
+<FONT color=blue>  struct</FONT> LayoutDefault : <FONT color=blue>public</FONT> Layout&lt;Pnt&gt;
+  {
+    LayoutDefault()
+    {
+      Simple   (_T(<FONT color=#007777>"x"    </FONT>), &amp;Pnt::x,     &amp;defaultX  );
+      Attribute(_T(<FONT color=#007777>"y"    </FONT>), &amp;Pnt::y,     &amp;defaultY  );
+      Complex  (_T(<FONT color=#007777>"color"</FONT>), &amp;Pnt::color, &amp;Clr::white);
+      Array    (_T(<FONT color=#007777>"vec"  </FONT>), &amp;Pnt::vec,   _T(<FONT color=#007777>"item"</FONT> ));
+    }  <FONT color=green>//       тег массива                 тег его элемента </FONT>
+  };
+};
+ . . . 
+Pnt pnt;
+pnt.x = <FONT color=#007777>4;</FONT> 
+pnt.y = <FONT color=#007777>3.1415; 
+</FONT>pnt.color = Clr::whitel;
+pnt.vec.push_back(8)<FONT color=#007777>;</FONT> 
+pnt.vec.push_back(16)<FONT color=#007777>;</FONT> 
+Xml::Save(_T(<FONT color=#007777>"color.xml"</FONT>), _T(<FONT color=#007777>"Pnt"</FONT>), pnt);<FONT color=green> </FONT>
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Думаю, если привести результирующий файл, то 
+            объяснения будут излишни. </P>
+            <P><PRE><FONT size=2>
+&lt;?xml version=<FONT color=#007777>"1.0"</FONT> encoding=<FONT color=#007777>"utf-8"</FONT> ?&gt; 
+&lt;Pnt y=<FONT color=#007777>"3.1415"</FONT>&gt;
+  &lt;x&gt;4&lt;/x&gt; 
+  &lt;color red=<FONT color=#007777>"255"</FONT> green=<FONT color=#007777>"255"</FONT> blue=<FONT color=#007777>"255"</FONT> /&gt; 
+  &lt;vec&gt;
+    &lt;item&gt;8&lt;/item&gt; 
+    &lt;item&gt;16&lt;/item&gt; 
+  &lt;/vec&gt;
+&lt;/Pnt&gt;
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Итак, общее представление о возможностях библиотеки 
+            вы, надеюсь, получили. Осталось только рассказать, как работать с 
+            таким важным типом данных, как перечисления. Это тоже совсем не 
+            сложно:</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>enum</FONT> DayOfWeek
+{
+  Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday 
+};
+
+<FONT color=blue>struct</FONT> DayOfWeek_EnumMeta : <FONT color=blue>public</FONT> EnumMeta&lt;DayOfWeek&gt; 
+{
+  DayOfWeek_EnumMeta()
+  {
+    Enumerator(_T(<FONT color=#007777>"Sunday"   </FONT>), Sunday   );
+    Enumerator(_T(<FONT color=#007777>"Monday"   </FONT>), Monday   );
+    Enumerator(_T(<FONT color=#007777>"Tuesday"  </FONT>), Tuesday  );
+    Enumerator(_T(<FONT color=#007777>"Wednesday"</FONT>), Wednesday);
+    Enumerator(_T(<FONT color=#007777>"Thursday" </FONT>), Thursday );
+    Enumerator(_T(<FONT color=#007777>"Friday"   </FONT>), Friday   );
+    Enumerator(_T(<FONT color=#007777>"Saturday" </FONT>), Saturday );
+  }
+};
+
+ENUM_METADATA(DayOfWeek, DayOfWeek_EnumMeta); <FONT color=green>// Без макроса не обойтись 8-(</FONT>
+</FONT></PRE>
+            <P></P>
+            <P align=justify>После этих действий перечисление можно использовать 
+            при разметке структур, в которые оно входит в качестве поля (как 
+            Simple или как Attribute).</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>struct</FONT> Day
+{
+  Day(){}
+  Day(DayOfWeek a_dow, <FONT color=blue>bool</FONT> a_holiday) : dow(a_dow), holiday(a_holiday) {}
+
+  <FONT color=blue>bool</FONT>      holiday;
+  DayOfWeek dow;  
+
+  <FONT color=blue>const</FONT> <FONT color=blue>static</FONT> <FONT color=blue>bool</FONT> defaultHoliday = <FONT color=blue>true</FONT>;
+  <FONT color=blue>const</FONT> <FONT color=blue>static</FONT> DayOfWeek defaultDOW = Sunday;
+
+  <FONT color=blue>struct</FONT> LayoutDefault : <FONT color=blue>public</FONT> Layout&lt;Day&gt;
+  {
+    LayoutDefault()
+    {
+      Simple (_T(<FONT color=#007777>"Holiday"   </FONT>), &amp;Day::holiday, &amp;defaultHoliday);
+      Simple (_T(<FONT color=#007777>"DayOfWeek"</FONT> ), &amp;Day::dow    , &amp;defaultDOW    );
+    }
+  };
+};
+ . . .
+Day day(Sunday, <FONT color=blue>true</FONT>);
+Xml::Save(_T(<FONT color=#007777>"day.xml"</FONT>), _T(<FONT color=#007777>"Day"</FONT>), day);
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Соответствующий xml-файл будет таким:</P>
+            <P><PRE><FONT size=2>
+&lt;?xml version=<FONT color=#007777>"1.0"</FONT> encoding=<FONT color=#007777>"utf-8"</FONT> ?&gt; 
+&lt;Day&gt;
+  &lt;Holiday&gt;<FONT color=blue>true</FONT>&lt;/Holiday&gt; 
+  &lt;DayOfWeek&gt;Sunday&lt;/DayOfWeek&gt; 
+&lt;/Day&gt;
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Вот, собственно, и все главные возможности 
+            библиотеки. Если они вас не заинтересовали, то на этом чтение статьи 
+            можно закончить. Если же сказанное выше представляет для вас 
+            интерес, то я продолжу.</P>
+            <H5>Подробности</H5>
+            <P align=justify>В принципе, можно и не вникать в устройство 
+            библиотеки. Приведённых примеров достаточно, чтобы по аналогии с 
+            ними решать простейшие задачи. Однако лучше всё же заглянуть «под 
+            капот». Это пригодится, если будет сделано что-то не так, и 
+            компилятор выдаст какое-то непонятное диагностическое сообщение. 
+            Стоит предупредить, при работе с библиотекой шаблонов расшифровка 
+            сообщений компилятора бывает порой делом весьма сложным. Знание 
+            деталей тут совсем не помешает. А может быть, кто-то захочет 
+            усовершенствовать библиотеку, дополнить её новыми возможностями. 
+            Надеюсь, что в этом случае сказанное ниже поможет вам лучше 
+            сориентироваться.</P>
+            <BLOCKQUOTE>
+              <TABLE cellPadding=5 width="90%">
+                <TBODY>
+                <TR>
+                  <TD><FONT size=2>
+                    <P align=justify><B><FONT 
+                    color=#667766>СОВЕТ</FONT></B><BR><FONT size=4></FONT>
+                    <P align=justify>Читать дальнейшее лучше всего, изучая на 
+                    экране монитора демонстрационный проект, загруженный в среду 
+                    Visual Studio.</P>
+                    <P></P></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+            <H5><I>«Деревянное» хранилище</I></H5>
+            <P align=justify>В самом начале разработки библиотеки было принято 
+            решение не ограничиваться работой только с XML-файлами. Ведь на 
+            свете есть много иерархически устроенных хранилищ данных, и работу с 
+            ними можно организовать единообразно. Ниже приведён интерфейс, 
+            который был принят для описания хранилища данных в виде дерева, 
+            «деревянного» хранилища:</P>
+            <P><PRE><FONT size=2>
+interface INamedNodeList
+{
+  <FONT color=blue>virtual</FONT> ~INamedNodeList(){}
+<FONT color=blue>  virtual</FONT> INode* GetByName(<FONT color=blue>const</FONT> tstring&amp; name) <FONT color=blue>const</FONT> = 0;
+};
+
+interface INodeArray
+{
+  <FONT color=blue>virtual</FONT> ~INodeArray(){}
+  <FONT color=blue>virtual</FONT> <FONT color=blue>long</FONT>   Count() <FONT color=blue>const</FONT> = 0;
+<FONT color=blue>  virtual</FONT> INode* GetByIndex(<FONT color=blue>long</FONT> index) <FONT color=blue>const</FONT> = 0;
+};
+
+interface INode <FONT color=green>// Абстрактная ветка (элемент или атрибут)</FONT>
+{
+  <FONT color=blue>virtual</FONT> ~INode(){}
+<FONT color=blue>  virtual</FONT> tstring ReadText() <FONT color=blue>const</FONT> = 0;
+<FONT color=blue>  virtual</FONT> <FONT color=blue>void</FONT> WriteText(<FONT color=blue>const</FONT> tstring&amp;) = 0;
+
+<FONT color=blue>  virtual</FONT> INodeArray*     ChildElements(<FONT color=blue>const</FONT> tstring&amp; tag) <FONT color=blue>const</FONT> = 0;
+<FONT color=blue>  virtual</FONT> INamedNodeList* ChildElements() <FONT color=blue>const</FONT> = 0;
+<FONT color=blue>  virtual</FONT> INamedNodeList* Attributes() <FONT color=blue>const</FONT> = 0;
+
+<FONT color=blue>  virtual</FONT> INode* AddElement  (<FONT color=blue>const</FONT> tstring&amp; tag, long index = -1) = 0;
+<FONT color=blue>  virtual</FONT> INode* AddAttribute(<FONT color=blue>const</FONT> tstring&amp; name) = 0;
+};
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Используя XMLDOM, эти интерфейсы реализовать легко, 
+            тем более что названия операторов специально сделаны похожими на 
+            названия операторов Msxml2.DOM. Не стоит тратить здесь время на 
+            реализацию этих интерфейсов, так как она довольно проста. </P>
+            <P align=justify>Подчеркну, что эти интерфейсы можно реализовать для 
+            хранения данных как, к примеру, в Registry, так и в других 
+            «деревянных» хранилищах. Среди прилагающихся исходных текстов вы 
+            найдёте реализацию этих интерфейсов для двух хранилищ (XML-файл и 
+            Registry).</P>
+            <H5><I>Registry</I></H5>
+            <P align=justify>Попробуем для примера сохранить уже знакомую нам 
+            структуру Pnt в реестре. Это можно сделать следующим образом:</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>#include</FONT> <FONT color=#007777>"MSerializerRegistry.h"</FONT>
+ . . . 
+Pnt pnt2;
+ . . .
+Registry::Save(HKEY_CURRENT_USER, _T(<FONT color=#007777>"Software\\Rsdn\\XmlCpp\\Pnt"</FONT>), pnt2);
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Вот примерно как будет выглядеть результат (см. 
+            рисунок 1):</P>
+            <P>
+            <CENTER><A href="http://www.rsdn.ru/File/24/reg.png">Рисунок 1 
+            </A><BR></CENTER>
+            <P></P>
+            <P align=justify>К сожалению, реестр не поддерживает массивы узлов 
+            (ключей), поэтому приходится эмулировать массивы при помощи 
+            специального вида имён узлов.</P>
+            <BLOCKQUOTE>
+              <TABLE cellPadding=5 width="90%">
+                <TBODY>
+                <TR>
+                  <TD><FONT size=2>
+                    <P align=justify><B><FONT 
+                    color=#776666>ПРЕДУПРЕЖДЕНИЕ</FONT></B><BR><FONT 
+                    size=4></FONT>
+                    <P align=justify>При работе с реестром не забывайте о том, 
+                    что, в отличие от XML, регистр имён элементов (ключей) и 
+                    атрибутов (величин) здесь не имеет значения. Это надо 
+                    учитывать при разметке данных и не допускать имён, 
+                    отличающихся только регистром.</P>
+                    <P></P></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+            <H5><I>Метаклассы</I></H5>
+            <P align=justify>Как уже упоминалось, данный вариант библиотеки 
+            накладывает определённые ограничения на структуру данных, 
+            предназначенных для чтения/записи в xml-файл. Принята следующая 
+            модель данных: данные могут быть или примитивными типами, или 
+            структурами (наборами полей разных типов), или массивами 
+            (последовательностями однотипных элементов). Поля и элементы 
+            массивов могут быть данными примитивных типов или же структурами и 
+            массивами. Короче, данные – это примитивы, структуры и массивы, 
+            состоящие из примитивов, структур и массивов, которые в свою очередь 
+            состоят из примитивов, структур и массивов и т.д.</P>
+            <P align=justify>Теперь вам будет легко понять, что такое метакласс. 
+            Метакласс – это тип класса (класс класса, тип типа), то есть 
+            метакласс – это сущность, которая показывает, к какому семейству 
+            структур данных принадлежит данная структура. Это примитив? Это 
+            структура (в узком смысле)? Или это массив?</P>
+            <P align=justify>Попробуем выразить эту мысль на языке C++. 
+            Метакласс превращается в шаблонный тип (параметр шаблона – сам 
+            класс), реализующий следующий интерфейс.</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>template</FONT> &lt;<FONT color=blue>typename</FONT> Data&gt;
+<FONT color=blue>struct</FONT> MetaClass
+{
+<FONT color=blue>  virtual</FONT> ~MetaClass() = 0;
+<FONT color=blue>  virtual</FONT> Data ReadNode (<FONT color=blue>const</FONT> INode&amp;) <FONT color=blue>const</FONT> = 0;
+<FONT color=blue>  virtual</FONT> <FONT color=blue>void</FONT> WriteNode(INode*, <FONT color=blue>const</FONT> Data&amp;) <FONT color=blue>const</FONT> = 0;
+};
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Естественно, что типы, принадлежащие разным 
+            метаклассам, сохраняются и читаются из "деревянного" хранилища 
+            по-разному. Этот факт выражается в том, что имеется три реализации 
+            интерфейса MetaClass.</P>
+            <P align=justify>Первый потомок – это примитивный метакласс:</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>template</FONT> &lt;<FONT color=blue>typename</FONT> PrimType&gt;
+<FONT color=blue>struct</FONT> PrimClassMeta
+  : <FONT color=blue>public</FONT> MetaClass&lt;PrimType&gt;
+{
+  PrimType ReadNode(<FONT color=blue>const</FONT> INode&amp; node) <FONT color=blue>const</FONT>
+  {
+    <FONT color=blue>return</FONT> Primitive&lt;PrimType&gt;::Parse(node.ReadText());
+  }
+
+<FONT color=blue>  void</FONT> WriteNode(INode* pNode, <FONT color=blue>const</FONT> PrimType&amp; prim) <FONT color=blue>const</FONT>
+  {
+    pNode-&gt;WriteText(Primitive&lt;PrimType&gt;::ToString(prim));
+  }
+};
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Реализация примитивного метакласса и сама по себе 
+            примитивна. Этот класс читает текст узла дерева и разбирает его с 
+            помощью некоторого «приспособления» – шаблонного класса Primitive. О 
+            классе Primitive речь будет идти ниже.</P>
+            <P align=justify>Второй метакласс – векторный.</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>template</FONT> &lt;<FONT color=blue>typename</FONT> ItemType&gt;
+<FONT color=blue>struct</FONT> VectorClassMeta
+  : <FONT color=blue>public</FONT> MetaClass&lt;std::vector&lt;ItemType&gt; &gt;
+{
+  VectorClassMeta( ArrayItemName              itemName, 
+                  const MetaClass&lt;ItemType&gt;&amp;  itemClassMeta)
+    : m_itemName(itemName),
+     m_itemClassMeta(itemClassMeta)
+  {}
+  std::vector&lt;ItemType&gt; ReadNode(<FONT color=blue>const</FONT> INode&amp; node) <FONT color=blue>const</FONT> { -skiped- }
+<FONT color=blue>  void</FONT> WriteNode(INode* pNode, <FONT color=blue>const</FONT> std::vector&lt;ItemType&gt;&amp; d)<FONT color=blue>const</FONT> {-skiped-}
+
+<FONT color=blue>private</FONT>:
+  ArrayItemName m_itemName; const MetaClass&lt;ItemType&gt;&amp; m_itemClassMeta;
+};
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Как видите, векторный метакласс для своей работы 
+            нуждается в метаклассе своих элементов и в именах тегов своих 
+            элементов. Этого ему достаточно, чтобы записать/считать себя в/из 
+            xml-файла.</P>
+            <P align=justify>Третий, самый интересный метакласс - 
+            структурный.</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>template</FONT> &lt;<FONT color=blue>typename</FONT> StructType&gt;
+<FONT color=blue>struct</FONT> StructClassMeta
+  : <FONT color=blue>public</FONT> MetaClass&lt;StructType&gt;
+{
+  StructClassMeta(const Layout&lt;StructType&gt;&amp; layout)
+    : m_layout(layout)
+  {}
+  StructType ReadNode(<FONT color=blue>const</FONT> INode&amp; node) <FONT color=blue>const</FONT>  { -skiped- }
+<FONT color=blue>  void</FONT> WriteNode(INode* pNode, <FONT color=blue>const</FONT> StructType&amp; s) <FONT color=blue>const</FONT> { -skiped- }
+
+<FONT color=blue>protected</FONT>:
+  const Layout&lt;StructType&gt;&amp; m_layout;
+};
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Напомню, что структура состоит из полей разного 
+            типа, расположенных в произвольном порядке. Поэтому для своей работы 
+            структурный мета-класс требует полного описания всех типов полей их 
+            положения внутри структуры. Вся эта информация хранится в экземпляре 
+            шаблонного класса Layout. </P>
+            <H5><I>Разметка структуры</I></H5>
+            <P align=justify>Layout – это просто набор (массив) данных о каждом 
+            поле.</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>template</FONT> &lt;<FONT color=blue>typename</FONT> StructType&gt;
+<FONT color=blue>struct</FONT> Layout : std::vector&lt;CPtrShared&lt;FieldAttribute&lt;StructType&gt; &gt; &gt; {skiped}
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Главную роль в разметке играют шаблонные классы 
+            FieldAttribute: </P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>template</FONT> &lt;<FONT color=blue>typename</FONT> StructType&gt;
+<FONT color=blue>struct</FONT> FieldAttrubute : <FONT color=blue>public</FONT> CRefcounted
+{
+  <FONT color=blue>virtual</FONT> <FONT color=blue>void</FONT> ReadField (<FONT color=blue>const</FONT> INode&amp;, StructType*) = 0;
+  <FONT color=blue>virtual</FONT> <FONT color=blue>void</FONT> WriteField(INode*, <FONT color=blue>const</FONT> StructType&amp;) = 0;
+};
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Необходимо пояснить назначение методов ReadField и 
+            WriteField. Эти методы читают и пишут не всю структуру, переданную 
+            им как параметр (как это делают методы метаклассов), а только одно 
+            её поле - то, за которое отвечает данный экземпляр 
+            FieldAttribute.</P>
+            <P align=justify>Как вы, наверное, уже догадались, есть три 
+            реализации интерфейса FieldAttribute – это поле-примитив, 
+            поле-структура, и поле-массив. Приведу реализацию только одного из 
+            них – StructFieldAttribute.</P>
+            <P align=justify>Приведённый ниже листинг необходимо прочесть 
+            внимательно. Это важно для понимания принципов работы 
+библиотеки.</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>template</FONT> &lt;<FONT color=blue>typename</FONT> StructType, <FONT color=blue>typename</FONT> StructFieldType&gt;
+<FONT color=blue>struct</FONT> StructFieldAttrubute : <FONT color=blue>public</FONT> FieldAttrubute&lt;StructType&gt;
+{
+  StructFieldAttrubute( FieldName                      name,
+                        StructFieldType StructType::*  offset,
+                        <FONT color=blue>const</FONT> StructFieldType*         pDefault = NULL,
+<FONT color=blue>                        const</FONT> Layout&lt;StructFieldType&gt;&amp; layout =
+                              DefaultLayout&lt;StructFieldType&gt;())
+    : m_layout(layout), m_name(name), m_offset(offset), m_pDefault(pDefault)
+  {}
+
+<FONT color=blue>  void</FONT> ReadField(<FONT color=blue>const</FONT> INode&amp; node, StructType* pD)
+  {
+    std::auto_ptr&lt;INamedNodeList&gt; pNodeList (node.ChildElements());
+    std::auto_ptr&lt;INode&gt; pNodeChild(pNodeList-&gt;GetByName(m_name));
+<FONT color=blue>    if</FONT> (pNodeChild.get() != NULL)
+      pD-&gt;*m_offset = StructClassMeta&lt;StructFieldType&gt;(m_layout)
+                       .ReadNode(*pNodeChild);
+    <FONT color=blue>else</FONT>
+    { 
+      <FONT color=blue>if</FONT> (m_pDefault == NULL)
+        <FONT color=blue>throw</FONT> MondatoryFieldException(m_name);
+      pD-&gt;*m_offset = *m_pDefault;
+    }
+  }
+
+<FONT color=blue>  void</FONT> WriteField(INode* pNode, <FONT color=blue>const</FONT> StructType&amp; d)
+  {
+    std::auto_ptr&lt;INamedNodeList&gt; pNodeList (pNode-&gt;ChildElements());
+    std::auto_ptr&lt;INode&gt; pNodeChild(pNodeList-&gt;GetByName(m_name));
+<FONT color=blue>    if</FONT> (pNodeChild.get() == NULL)
+      pNodeChild.reset(pNode-&gt;AddElement(m_name));
+    StructClassMeta&lt;StructFieldType&gt;(m_layout)
+     .WriteNode(pNodeChild.get(), d.*m_offset);
+  }
+<FONT color=blue>protected</FONT>:
+<FONT color=green>  // разметка типа
+</FONT>  <FONT color=blue>const</FONT> Layout&lt;StructFieldType&gt;&amp;      m_layout;   
+<FONT color=green>  // имя тега
+</FONT>  FieldName                           m_name;   
+<FONT color=green>  // положение поля в структуре
+</FONT>  StructFieldType StructType::* const m_offset;
+<FONT color=green>  // значение по умолчанию
+</FONT>  <FONT color=blue>const</FONT> StructFieldType * <FONT color=blue>const</FONT>       m_pDefault;
+};
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Обратите внимание на поле m_offset – это указатель 
+            на поле в структуре. Он определяет положение (смещение) поля 
+            относительно начала структуры. С его помощью производится 
+            чтение/запись поля.</P>
+            <P align=justify>Аналогично устроены данные о полях примитива и 
+            полях массивах.</P>
+            <H5><I>Разбор (парсинг) примитивов</I></H5>
+            <P align=justify>Осталось рассказать про примитивы. На самом деле 
+            примитивы – это самые важные классы. Всё происходит именно ради них. 
+            В конечном счете все цепочки вызовов кончаются чтением или записью 
+            строк в тела элементов или в значения атрибутов "деревянного" 
+            хранилища. </P>
+            <P align=justify>Примитив (в данном контексте) – это структура 
+            данных, сохраняемая непосредственно в тексте, поэтому для её 
+            поддержки используется вот такой простейший интерфейс:</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>template</FONT> &lt;<FONT color=blue>typename</FONT> PrimType&gt;
+<FONT color=blue>struct</FONT> Primitive
+{
+<FONT color=blue>  </FONT>static tstring ToString(<FONT color=blue>const</FONT> PrimType&amp;)
+  { 
+<FONT color=blue>    throw</FONT> ParseValueException(<FONT color=#007777>"No primitive specialization"</FONT>);
+  }
+<FONT color=blue>  </FONT>static PrimType Parse(<FONT color=blue>const</FONT> tstring&amp; s) 
+  { 
+<FONT color=blue>    throw</FONT> ParseValueException(<FONT color=#007777>"No primitive specialization"</FONT>);
+  }
+};
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Для каждого примитивного типа нужно обеспечить 
+            специализацию этого шаблона. Например, вот как это сделано для типа 
+            char:</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>template</FONT> &lt;&gt; 
+<FONT color=blue>struct</FONT> Primitive&lt;<FONT color=blue>char</FONT>&gt;
+{
+<FONT color=blue>  static</FONT> tstring ToString(<FONT color=blue>const</FONT> <FONT color=blue>char</FONT>&amp; f)
+  { 
+    tchar sz[8]; 
+    <FONT color=blue>return</FONT> _itot(f, sz, 10); 
+  }
+
+<FONT color=blue>  static</FONT> <FONT color=blue>char</FONT> Parse(<FONT color=blue>const</FONT> tstring&amp; s)
+  { 
+<FONT color=blue>    __int64</FONT> n = _tstoi64(s.c_str());
+<FONT color=blue>    if</FONT> (n &lt; SCHAR_MIN || n &gt; SCHAR_MAX)
+<FONT color=blue>      throw</FONT> ParseValueException(_T(<FONT color=#007777>"char"</FONT>), s);
+<FONT color=blue>    return</FONT> <FONT color=blue>static_cast</FONT>&lt;<FONT color=blue>char</FONT>&gt;(n); 
+  }
+};
+</FONT></PRE>
+            <P></P>
+            <P align=justify>У других примитивов реализация такая же 
+простая.</P>
+            <H5><I>Метаданные своими руками</I></H5>
+            <P align=justify>А где же метаданные создаются? – спросите вы. Где и 
+            когда создаются экземпляры тех объектов, о которых шла речь? 
+            Помните, мы размечали структуру Pnt? Мы создали класс-наследник 
+            Layout&lt;Pnt&gt; и в его конструкторе определяли разметку структуры 
+            с помощью методов Simple, Attribute, Array, Complex? Ниже приведён 
+            текст одного из этих методов:</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>template</FONT> &lt;<FONT color=blue>typename</FONT> FieldType&gt;
+<FONT color=blue>void</FONT> Complex( FieldName                name,
+<FONT color=blue>              </FONT>FieldType StructType::*  offset,
+              <FONT color=blue>const</FONT> FieldType*         pDefault,
+<FONT color=blue>              const</FONT> Layout&lt;FieldType&gt;&amp; layout = DefaultLayout&lt;FieldType&gt;()
+            )
+{ 
+  push_back(<FONT color=blue>new</FONT> StructField&lt;StructType, FieldType&gt;(name,
+                                                   offset,
+                                                   pDefault,
+                                                   layout));
+}
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Как видите, метод всего лишь создаёт атрибут одного 
+            поля и вставляет его в разметку. Но откуда же он берёт разметку 
+            самого поля? Она передаётся в качестве последнего параметра метода, 
+            а он, в свою очередь, имеет значение по умолчанию DefaultLayout(). 
+            Посмотрим на текст этого метода.</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>template</FONT> &lt;<FONT color=blue>typename</FONT> DataType&gt;
+<FONT color=blue>const</FONT> Layout&lt;DataType&gt;&amp; DefaultLayout()
+{
+  static DataType::LayoutDefault g_layout; // метаданные своими руками 
+<FONT color=blue>  return</FONT> g_layout;
+}
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Вот где затаились сами метаданные! Они представлены 
+            как статические переменные процедуры DefaultLayout(). Применён 
+            распространённый способ: статические переменные, не 
+            инициализирующиеся до тех пор, пока не потребуются, – это намного 
+            удобнее и эффективнее открытых глобальных статических переменных. 
+            Метаклассы создаются так же, как и разметка – по требованию. Для 
+            этого есть метод DefaultMetaClass().</P>
+            <P align=justify>Важное замечание: и DefaultLayout(), и 
+            DefaultMetaClass() – это всего лишь значения по умолчанию параметров 
+            вызовов Complex и Array. Если вас не устраивает разметка по 
+            умолчанию, или же её просто нет (класс чужой), то вы можете 
+            определить свои варианты разметки и метакласса.</P>
+            <P align=justify>Вот как можно обеспечить альтернативный способ 
+            сохранения знакомого нам класса Clr: </P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>struct</FONT> Clr_Layout2 : <FONT color=blue>public</FONT> Layout&lt;Clr&gt;
+{
+  Clr_Layout2()
+  {
+    Attribute(_T(<FONT color=#007777>"Red"</FONT>  ), &amp;Clr::r, &amp;Clr::black.r);
+    Attribute(_T(<FONT color=#007777>"Green"</FONT>), &amp;Clr::g, &amp;Clr::black.g);
+    Attribute(_T(<FONT color=#007777>"Blue"</FONT> ), &amp;Clr::b, &amp;Clr::black.b);
+  }
+};
+
+<FONT color=blue>const</FONT> StructMetaClass&lt;Clr&gt;&amp; Clr_MetaClass2()
+{
+  static Clr_Layout2          layout;            // метаданные - разметка. 
+  static StructClassMeta&lt;Clr&gt; metaClass(layout); // метаданные - метакласс 
+  <FONT color=blue>return</FONT> metaClass;
+}
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Теперь мы можем сохранять Clr ещё одним 
+            способом:</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>struct</FONT> LayoutDefault : <FONT color=blue>public</FONT> Layout&lt;Pnt2&gt;
+{
+  LayoutDefault()
+  {
+    ...
+    Complex(_T(<FONT color=#007777>"Clrs"</FONT>), &amp;Pnt2::colors,  _T(<FONT color=#007777>"Clr"</FONT>));<FONT color=green>// разметка по умолчанию</FONT>
+    Complex(_T(<FONT color=#007777>"Clrs2), &amp;Pnt2::colors2, _T("</FONT>Clr2"), Clr_MetaClass2());
+    ...
+  };
+};
+</FONT></PRE>
+            <P></P>
+            <BLOCKQUOTE>
+              <TABLE cellPadding=5 width="90%">
+                <TBODY>
+                <TR>
+                  <TD><FONT size=2>
+                    <P align=justify><B><FONT 
+                    color=#666677>ПРИМЕЧАНИЕ</FONT></B><BR><FONT size=4></FONT>
+                    <P align=justify>Попробуйте обеспечить в программе на C# два 
+                    разных, параллельно работающих варианта сохранения структуры 
+                    данных в xml. Думаю, такая задача заставит вас глубоко 
+                    задуматься. Здесь же мы легко можем одновременно работать с 
+                    одной структурой данных, сохраняя её в файлы разной 
+                    структуры. Ведь мы можем обеспечить одной структуре 
+                    несколько наборов метаданных!</P>
+                    <P></P></FONT></TD></TR></TBODY></TABLE></BLOCKQUOTE>
+            <P align=justify>Давайте еще раз поподробнее проследим путь 
+            (жизненный цикл) метаданных. Как только мы добавляем разметку одного 
+            поля в структуре, компилятор генерирует код процедур, генерирующих 
+            метаданные, код метаклассов, атрибутов полей и примитивов. Если при 
+            исполнении программы код сериализации не исполняется, то метаданные 
+            создаваться не будут. Но стоит один раз исполнить код сериализации, 
+            как будут проинициализированы все необходимые метаданные 
+            (проинициализируются статические переменные-разметки и 
+            переменные-метаклассы, о которых говорилось, отработают все их 
+            конструкторы, в теле которых были написаны разметку структур, 
+            заполнятся карты имён перечислений и т.д.). При последующих вызовах 
+            Xm::Load и Xm::Save эта титаническая работа производиться уже не 
+            будет – метаданные строятся один раз за время исполнения программы. 
+            </P>
+            <H5>Конфигурационные файлы .Net</H5>
+            <P align=justify>Ну вот, кажется, всё сложное позади. Теперь для 
+            самых терпеливых и упорных читателей, для тех, кто дочитал до этого 
+            места, у меня приготовлено «угощение»: давайте научим C++ программы 
+            читать конфигурационные файлы, принятые в среде .Net. Вспомните 
+            обычную структуру этих файлов: </P>
+            <P><PRE><FONT size=2>
+&lt;?xml version=<FONT color=#007777>"1.0"</FONT> encoding=<FONT color=#007777>"utf-8"</FONT> ?&gt;
+&lt;configuration&gt;
+  &lt;appSettings&gt;
+    &lt;add key="TimeoutMillisec" value="2000" /&gt; 
+  &lt;/appSettings&gt;
+&lt;configuration&gt;
+</FONT></PRE>
+            <P></P>
+            <P align=justify>.Net-приложение использует в своей работе раздел 
+            &lt;configuration&gt;&lt;appSettings&gt;, который содержит теги add 
+            c атрибутами key и value. </P>
+            <P align=justify>Создаётся и размечается структура, соответствующая 
+            тегу add:</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>namespace</FONT> dotNet
+{
+<FONT color=blue>  struct</FONT> Pair
+  {
+    tstring key;
+    tstring value;
+
+<FONT color=blue> </FONT>  <FONT color=blue> struct</FONT> LayoutDefault : <FONT color=blue>public</FONT> Layout&lt;Pair&gt;
+    {
+      LayoutDefault()
+      {
+        Attribute(_T(<FONT color=#007777>"key"</FONT>  ), &amp;Pair::key  );
+        Attribute(_T(<FONT color=#007777>"value"</FONT>), &amp;Pair::value);
+      }
+    };
+  };
+}
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Создаётся и размечается структура, соответствующая 
+            всему конфигурационному файлу в целом (точнее его разделу 
+            appSettings):</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>struct</FONT> File
+{
+<FONT color=blue>  typedef</FONT> std::vector&lt;Pair&gt; Pairs;
+  Pairs pairs;
+
+<FONT color=blue>  struct</FONT> LayoutDefault : <FONT color=blue>public</FONT> Layout&lt;File&gt;
+  {
+    LayoutDefault()
+    {
+      Array(_T(<FONT color=#007777>"appSettings"</FONT> ), &amp;File::pairs, _T(<FONT color=#007777>"add"</FONT> ));
+    }
+  };
+};
+</FONT></PRE>
+            <P></P>
+            <P align=justify>И, наконец, нужно позаботиться об удобстве и 
+            эффективности обращения к конфигурационным данным:</P>
+            <P><PRE><FONT size=2>
+<FONT color=blue>struct</FONT> AppSettings
+{
+  <FONT color=blue>typedef</FONT> std::map&lt;tstring, tstring&gt; Values;
+
+  AppSettings(<FONT color=blue>const</FONT> tstring&amp; path)
+  {
+    File file;
+    Xml::Load(path, _T(<FONT color=#007777>"configuration"</FONT>), &amp;file);
+    for_each(file.pairs.begin(), file.pairs.end(),
+        bind1st(mem_fun1&lt;<FONT color=blue>void</FONT>, AppSettings, Pair&gt;(Add),
+        <FONT color=blue>this</FONT>));
+  }
+
+<FONT color=blue>  const</FONT> tstring&amp; GetValue(<FONT color=blue>const</FONT> tstring&amp; k, <FONT color=blue>const</FONT> tstring&amp; d = _T(<FONT color=#007777>""</FONT>)) <FONT color=blue>const</FONT>
+  {
+    Values::const_iterator iter = m_values.find(k);
+    <FONT color=blue>return</FONT> iter == m_values.end() ? d : iter-&gt;second;
+  }
+
+<FONT color=blue>  void</FONT> Add(Pair pair)
+    { m_values.insert(Values::value_type(pair.key, pair.value)); }
+
+<FONT color=blue>protected</FONT>:
+  Values m_values;
+};
+} <FONT color=green>// namespace dotNet</FONT>
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Единожды проделав эти простые шаги, можно 
+            повсеместно использовать этот код для чтения config-файлов:</P>
+            <P><PRE><FONT size=2>
+dotNet::AppSettings appSettings(_T(<FONT color=#007777>"app.exe.config"</FONT>));
+cout &lt;&lt; appSettings.GetValue(_T(<FONT color=#007777>"</FONT>TimeoutMillisec<FONT color=#007777> "</FONT>));
+</FONT></PRE>
+            <P></P>
+            <P align=justify>Не сложнее, чем на C#, не правда ли? Вот. 
+            Пожалуйста, угощайтесь. :)</P>
+            <H5>Заключение</H5>
+            <P align=justify>Кажется, идея оказалась плодотворной. Давайте 
+            подумаем, что ещё можно сделать? </P>
+            <OL>
+              <LI>Во-первых, мне кажется, что неоднократно обсуждавшиеся выше 
+              ограничения структуры сериализуемых типов вполне преодолимы. 
+              Совершенно реально (если потребуется) обеспечить работу с 
+              полиморфными массивами (массивами элементов разного типа) и со 
+              структурами, содержащими указатели и ссылки. В частности, очень 
+              просто это будет сделать, если потребовать, чтобы структура данных 
+              не имела кольцевых ссылок. Класс сериализуемых типов расширится 
+              при этом очень существенно. Да, в общем, и кольцевые ссылки не 
+              очень большая проблема. 
+              <LI>Второе. Очевидно, что никогда не стоит отказываться от 
+              возможности контроля структуры xml-файла по схеме. Значит, 
+              придётся и схему составлять, и структуру данных в исходном тексте 
+              на С++ создавать, и размечать только что созданную структуру 
+              данных. Конечно, можно ограничиться только составлением схемы, а 
+              потом использовать какой либо метод автоматической генерации 
+              готовых, размеченных структур в *.cpp файлах (xslt- 
+              преобразования, например). 
+              <LI>В третьих, можно научиться сериализовать не только поля, но и 
+              свойства класса (put, get -методы). </LI></OL>
+            <P align=justify>Короче, есть ещё над чем поработать. Если у вас 
+            возникнут идеи по развитию данного метода или идеи других подходов к 
+            решению той же задачи, их всегда можно обсудить на форумах rsdn.ru. 
+            Желаю удачи!</P>
+            <H5><BR>
+            <HR style="HEIGHT: 1px" align=left width="50%" color=#b6c8e4 noShade 
+            SIZE=1>
+            </H5><!-- CONTENT END-->
+            <P></P>
+            <P><FONT color=#7688a4><B>Ведущий рассылки: Алекс Jenter</B></FONT> 
+            &nbsp;&nbsp;<A title="Написать письмо   автору рассылки" 
+            href="mailto:jenter@rsdn.ru"><B><FONT 
+            color=#8090a0>jenter@rsdn.ru</FONT></B></A><BR><FONT 
+            color=#8090a0>Публикуемые в рассылке материалы принадлежат сайту 
+            RSDN.</FONT> <FONT color=#7688a4>
+            <P align=right><B>| <A 
+            title="Посмотреть архив рассылки на сервере RSDN" 
+            href="http://rsdn.ru/?archive/vc/?year=2003" target=_top><FONT 
+            color=#8090a0>Предыдущие выпуски</FONT></A> &nbsp;&nbsp;&nbsp; | <A 
+            title="Посмотреть динамику количества подписчиков" 
+            href="http://subscribe.ru/stat/comp.prog.visualc" 
+            target=_blank><FONT color=#8090a0>Статистика рассылки</FONT></A> 
+            </B></P></FONT></FONT></TD></TR></TBODY></TABLE></FONT><!--noindex-->
+      <HR noShade>
+
+      <CENTER><!-- RLE -->
+      <CENTER><I-F-R-A-M-E 
+      src="http://www.linkexchange.ru/cgi-bin/erle.cgi?38241?15234" 
+      scrolling="no" marginheight="0" marginwidth="0" height="60" width="468" 
+      frameborder="0"><A href="http://www.linkexchange.ru/users/038241/goto.map" 
+      target=_top><IMG height=60 alt="RLE Banner Network" 
+      src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/rle.gif" 
+      width=468 border=0></A> </I-F-R-A-M-E>
+      <HR style="LEFT: 10px; TOP: 35px; HEIGHT: 1px" noShade SIZE=2>
+      </CENTER><!-- END RLE  --></CENTER>
+      <CENTER>
+      <HR noShade>
+
+      <TABLE style="BACKGROUND-COLOR: #dff2f2" cellSpacing=0 cellPadding=7 
+      width="100%" bgColor=#dff2f2 background="" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top align=left><A href="http://subscribe.ru/" 
+            target=_top><FONT style="FONT-SIZE: 10pt; COLOR: #000000" 
+            color=#000000 size=2>http://subscribe.ru/</FONT></A> <BR><FONT 
+            style="FONT-SIZE: 10pt; COLOR: #000000" color=#000000 
+            size=2>E-mail:</FONT> <A href="mailto:ask@subscribe.ru"><FONT 
+            style="FONT-SIZE: 10pt; COLOR: #000000" color=#000000 
+            size=2>ask@subscribe.ru</FONT></A> </TD>
+          <TD vAlign=top align=right><A 
+            href="http://subscribe.ru/member/unsub?grp=comp.prog.visualc&amp;email=" 
+            target=_top><FONT style="FONT-SIZE: 10pt; COLOR: #000000" 
+            color=#000000 size=2>Отписаться</FONT></A> <BR><A 
+            href="http://link.subscribe.ru/noad" target=_top><FONT 
+            style="FONT-SIZE: 10pt; COLOR: #000000" color=#000000 size=2>Убрать 
+            рекламу</FONT></A> </TD></TR></TBODY></TABLE></CENTER></TD>
+    <SCRIPT language=JavaScript><!--
+var decor = "td";
+--></SCRIPT>
+
+    <SCRIPT type=text/javascript charset=koi8-r><!--
+
+// размер шрифтов
+var yandex_ad_fontSize = 1;
+
+// внешний вид объявлений директа
+var yandex_direct_fontColor = "000000";
+var yandex_direct_BorderColor = "FBE5C0";
+var yandex_direct_titleColor = "0000CC";
+var yandex_direct_siteurlColor = "006600";
+var yandex_direct_linkColor = "0000CC";
+
+var yandex_r = Math.round(Math.random() * 100000);
+document.write('<sc'+'ript type="text/javascript" charset="windows-1251" src="http://bs.yandex.ru/code/2771?rnd='+yandex_r+'"></'+'sc'+'ript>');
+
+function yandex_direct_print(){}
+
+--></SCRIPT>
+
+    <SCRIPT type=text/javascript><!--
+ var pre = "";
+ var post = "";
+ if (decor == "td2")
+  {
+   pre = '<td width="30%" rowspan="2" class="subscriberu_td" valign="top" bgcolor="#eeeeee">';
+   post = '</td>';
+  }
+ else if (decor == "tr")
+  {
+   pre = '</tr><tr><td width="30%" class="subscriberu_td" valign="top" bgcolor="#eeeeee">';
+   post = '</td>';
+  }
+ else if (decor == "td")
+  {
+   pre = '<td width="30%" class="subscriberu_td" valign="top" bgcolor="#ffffff">';
+   post = '</td>';
+  }
+ document.write(pre);
+// document.write('<table class="subscriberu_table" border=0 cellspacing=3 cellpadding=0 bgcolor="#eeeeee" width="95%" align="center"><tr><td class="subscriberu_td" >');
+ yandex_direct_print();
+// document.write('</td></tr></table>');
+ document.write(post);
+--></SCRIPT>
+  </TR></TBODY></TABLE><!-- Два нижних table вставлены на всякий случай, когда авторы забывают закрывать таблицы --></TABLE></TABLE>
+<TABLE class=subscriberu_table 
+style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD class=subscriberu_td>
+      <HR noShade>
+<!-- рекомендации -->
+      <TABLE class=subscriberu_table 
+      style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+      cellSpacing=0 cellPadding=3 width="100%" bgColor=#ffffff border=0>
+        <FORM action=/member/quick method=post target=_top><INPUT type=hidden 
+        value=arch_recomend name=src> 
+        <TBODY>
+        <TR>
+          <TD class=subscriberu_td rowSpan=7><IMG height=1 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+            width=2></TD>
+          <TD class=subscriberu_td 
+          style="FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+          width="100%" bgColor=#ffc820 colSpan=5>Subscribe.Ru рекомендует:</TD>
+          <TD class=subscriberu_td rowSpan=7><IMG height=1 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+            width=1></TD></TR>
+        <TR bgColor=#fdf8d0>
+          <TD class=subscriberu_td width=3><IMG class=subscriberu_img height=1 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+            width=3></TD>
+          <TD class=subscriberu_td width=22><INPUT type=checkbox 
+            value=esmi.rba.bank name=addgrp></TD>
+          <TD class=subscriberu_td width=22><IMG class=subscriberu_img 
+            height=20 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-media-g.gif" 
+            width=22></TD>
+          <TD class=subscriberu_norm width="100%"><A class=subscriberu_a 
+            style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/catalog/esmi.rba.bank">Журнал БАНКИ И 
+            БИРЖИ</A> <A class=subscriberu_a 
+            href="http://subscribe.ru/archive/esmi.rba.bank"><IMG 
+            class=subscriberu_img height=19 alt=Архив 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-arch.gif" 
+            width=21 border=0></A> <IMG class=subscriberu_img height=19 
+            alt="Платная для подписчиков" 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-pay.gif" 
+            width=21 border=0> </TD></TR>
+        <TR>
+          <TD class=subscriberu_td width=3><IMG class=subscriberu_img height=1 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+            width=3></TD>
+          <TD class=subscriberu_td width=22><INPUT type=checkbox 
+            value=esmi.groteck.kdig name=addgrp></TD>
+          <TD class=subscriberu_td width=22><IMG class=subscriberu_img 
+            height=20 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-media-g.gif" 
+            width=22></TD>
+          <TD class=subscriberu_norm width="100%"><A class=subscriberu_a 
+            style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/catalog/esmi.groteck.kdig">Каталог 
+            "ОБОРУДОВАНИЕ ДЛЯ ЦИФРОВОГО ТЕЛЕВЕЩАНИЯ"</A> <A class=subscriberu_a 
+            href="http://subscribe.ru/archive/esmi.groteck.kdig"><IMG 
+            class=subscriberu_img height=19 alt=Архив 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-arch.gif" 
+            width=21 border=0></A> <IMG class=subscriberu_img height=19 
+            alt="Платная для подписчиков" 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-pay.gif" 
+            width=21 border=0> </TD></TR>
+        <TR bgColor=#fdf8d0>
+          <TD class=subscriberu_td width=3><IMG class=subscriberu_img height=1 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+            width=3></TD>
+          <TD class=subscriberu_td width=22><INPUT type=checkbox 
+            value=esmi.bmc.msfo name=addgrp></TD>
+          <TD class=subscriberu_td width=22><IMG class=subscriberu_img 
+            height=20 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-media-g.gif" 
+            width=22></TD>
+          <TD class=subscriberu_norm width="100%"><A class=subscriberu_a 
+            style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/catalog/esmi.bmc.msfo">Журнал "МСФО. 
+            Практика применения"</A> <A class=subscriberu_a 
+            href="http://subscribe.ru/archive/esmi.bmc.msfo"><IMG 
+            class=subscriberu_img height=19 alt=Архив 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-arch.gif" 
+            width=21 border=0></A> <IMG class=subscriberu_img height=19 
+            alt="Платная для подписчиков" 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-pay.gif" 
+            width=21 border=0> </TD></TR>
+        <TR>
+          <TD class=subscriberu_td width=3><IMG class=subscriberu_img height=1 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+            width=3></TD>
+          <TD class=subscriberu_td width=22><INPUT type=checkbox 
+            value=economics.education.18mio name=addgrp></TD>
+          <TD class=subscriberu_td width=22><IMG class=subscriberu_img 
+            height=20 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-economics-g.gif" 
+            width=22></TD>
+          <TD class=subscriberu_norm width="100%"><A class=subscriberu_a 
+            style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/catalog/economics.education.18mio">18 МИО 
+            Центры финансовой грамотности</A> <A class=subscriberu_a 
+            href="http://subscribe.ru/archive/economics.education.18mio"><IMG 
+            class=subscriberu_img height=19 alt=Архив 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-arch.gif" 
+            width=21 border=0></A> <IMG class=subscriberu_img height=19 
+            alt="Корпоративная рассылка" 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-corp.gif" 
+            width=21 border=0> </TD></TR>
+        <TR bgColor=#fdf8d0>
+          <TD class=subscriberu_td width=3><IMG class=subscriberu_img height=1 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+            width=3></TD>
+          <TD class=subscriberu_td width=22><INPUT type=checkbox 
+            value=esmi.articom.rodents name=addgrp></TD>
+          <TD class=subscriberu_td width=22><IMG class=subscriberu_img 
+            height=20 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-media-g.gif" 
+            width=22></TD>
+          <TD class=subscriberu_norm width="100%"><A class=subscriberu_a 
+            style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/catalog/esmi.articom.rodents">Журнал 
+            "Грызландия"</A> <A class=subscriberu_a 
+            href="http://subscribe.ru/archive/esmi.articom.rodents"><IMG 
+            class=subscriberu_img height=19 alt=Архив 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-arch.gif" 
+            width=21 border=0></A> <IMG class=subscriberu_img height=19 
+            alt="Платная для подписчиков" 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/i-pay.gif" 
+            width=21 border=0> </TD></TR>
+        <TR>
+          <TD class=subscriberu_td align=left colSpan=5><INPUT 
+            class=subscriberu_qq 
+            style="BORDER-RIGHT: #284250 1px solid; BORDER-TOP: #284250 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #284250 1px solid; WIDTH: 160px; COLOR: #284250; BORDER-BOTTOM: #284250 1px solid; FONT-FAMILY: MS Sans Serif, Arial,
+            Helvetica, Geneva; BACKGROUND-COLOR: white" maxLength=100 size=15 
+            value="Ваш e-mail" name=email> <INPUT style="BORDER-RIGHT: #313131 1px solid; BORDER-TOP: #7494a4 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #7494a4 1px solid; WIDTH: 90px; COLOR: #fdf8d0; BORDER-BOTTOM: #313131 1px solid; FONT-FAMILY: MS Sans Serif, Arial,
+Helvetica, Geneva; BACKGROUND-COLOR: #3f6a7f" type=submit value=Подписаться></TD></TR></FORM></TBODY></TABLE><!-- конец рекомендаций -->
+      <TABLE class=subscriberu_table 
+      style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+      cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD class=subscriberu_td><IMG height=9 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/p1-21.gif" 
+            width=19></TD>
+          <TD class=subscriberu_td width="100%" 
+          background="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/p1-24.gif"><IMG 
+            height=9 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+            width=19></TD>
+          <TD class=subscriberu_td><IMG height=9 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/p1-26.gif" 
+            width=12></TD></TR>
+        <TR>
+          <TD class=subscriberu_td 
+          background="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/p1-22.gif"><IMG 
+            height=6 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+            width=19></TD>
+          <TD class=subscriberu_td align=middle width="100%" 
+          background="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/bgr5.gif" 
+          bgColor=#d5f072><A class=subscriberu_a 
+            style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/advert">Рекламодателям</A>&nbsp;&nbsp;<IMG 
+            height=3 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/p1-20.gif" 
+            width=3>&nbsp; <A class=subscriberu_a 
+            style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/pase" target="">Услуги 
+            компании</A>&nbsp;&nbsp;<IMG height=3 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/p1-20.gif" 
+            width=3>&nbsp; <A class=subscriberu_a 
+            style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/about/">О компании</A>&nbsp;&nbsp;<IMG 
+            height=3 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/p1-20.gif" 
+            width=3>&nbsp; <A class=subscriberu_a 
+            style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/advert/partner/">Партнерам</A>&nbsp;&nbsp;<IMG 
+            height=3 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/p1-20.gif" 
+            width=3>&nbsp; <A class=subscriberu_a 
+            style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/about/pr/">Пресс-Центр</A>&nbsp;&nbsp;<IMG 
+            height=3 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/p1-20.gif" 
+            width=3>&nbsp; <!--    <a class="subscriberu_a" href="/faq">Помощь</a>&nbsp;&nbsp;<img src="/images/p1-20.gif" width="3" height="3">&nbsp; --><A 
+            class=subscriberu_a 
+            style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+            href="http://subscribe.ru/feedback">Обратная связь</A> </TD>
+          <TD class=subscriberu_td 
+          background="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/p1-27.gif"><IMG 
+            height=6 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+            width=12></TD></TR>
+        <TR>
+          <TD class=subscriberu_td><IMG height=11 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/p1-23.gif" 
+            width=19></TD>
+          <TD class=subscriberu_td width="100%" 
+          background="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/p1-25.gif"><IMG 
+            height=11 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/1x1.gif" 
+            width=19></TD>
+          <TD class=subscriberu_td><IMG height=11 
+            src="Subscribe_Ru  Программирование на Visual С++ - No_100 (C++ метаданные своими руками).files/p1-28.gif" 
+            width=12></TD></TR></TBODY></TABLE>
+      <CENTER class=subscriberu_center 
+      style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva">©&nbsp;1997-2007&nbsp;<A 
+      class=subscriberu_a 
+      style="FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #284250; FONT-FAMILY: MS Sans Serif, Arial, Helvetica, Geneva" 
+      href="http://iprojects.ru/">ЗАО&nbsp;«Интернет-проекты»</A></CENTER><!--/noindex--></TR></TBODY></TABLE></BODY></HTML>

@@ -1,0 +1,659 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0051)http://www.sources.ru/protocols/smtp_learning.shtml -->
+<HTML>
+	<HEAD>
+		<TITLE>Информационный сервер для программистов - исходники со всего света.</TITLE>
+		<META http-equiv="Content-Type" content="text/html; charset=windows-1251">
+		<META content="программирование на Visual Basic, документация, документы, delphi, pascal, cpp, hardware, web, веб-мастер, советы, описания, доки, manual, Java, C, C++, обучение, исходники, odbc, jdbc, programm, protocols, протоколы, общение, форумapplet, java, design, апплет, дизайн, ява, Free, counters, Trackers, Guestbooks, Access Logs, Banners, Graphics, Banner ads, Fonts, Form Mailer, form mailers, graphics, icons, games, freeware, shareware, forms, guestbooks, Java, Javascript, contests, puzzles, fonts, font resources, E-mail programs, reminder services, product samples, samples, Email services, E-mail services, advertising, graphics, free banner ads, free World Wide Web resources, counters, Trackers, Guestbooks, Access Logs, Banners, Graphics, Banner ads, Fonts, Form Mailer, form mailers, graphics, icons, games, freeware, shareware, forms, guestbooks, Java, Javascript, contests, puzzles, fonts, font resources, E-mail programs, reminder services, product samples, samples, Email services, E-mail services, advertising, graphics, free banner ads, free World Wide Web resources"
+			name="keywords">
+		<META content="pop hypertext sources hypermedia server scripting shtml phtml html developer code base tools open source web site browser free software webmaster cgi dhtml dynamic content netscape explorer shareware download website construction free tutorial news design maintenance page hit cvs mailing list projects httpd mod_perl mod www htdig xml perl scripts script server-side-include apache database MySQL mysql msql postres postresql module linux online cpp Visual Basic JavaScript delphi wap job informer java opengl directx"
+			name="RESOURCE-TYPE">
+		<META content="MSHTML 6.00.2600.0" name="GENERATOR">
+	</HEAD>
+	<BODY bgColor="white">
+		<A name="smtp">
+			<h1 align="center">
+			Простой протокол передачи почты (SMTP)</A></H1>
+		<P align="justify">&nbsp;</P>
+		<DIV align="justify">
+			<OL>
+				<LI>
+					<A href="Smtp.htm#generic">Общие сведения</A>
+				<LI>
+					<A href="Smtp.htm#model">Модель протокола</A>
+				<LI>
+					<A href="Smtp.htm#commands">Команды SMTP</A>
+				<LI>
+					<A href="Smtp.htm#order">Последовательность команд SMTP</A>
+				<LI>
+					<A href="Smtp.htm#responses">Коды ответов SMTP</A>
+				<LI>
+					<A href="Smtp.htm#refs">Ссылки на литературу</A></LI></OL>
+		</DIV>
+		<A name="generic">
+			<H3 align="center">&nbsp;</H3>
+			<H3 align="center">Общие сведения</H3>
+			<P align="justify">
+			Протокол SMTP Протокол SMTP (Simple Mail Transfer Protocol - простой протокол 
+			передачи почты) поддерживает передачу сообщений (электронной почты) между 
+			произвольными узлами сети Internet. Имея механизмы промежуточного хранения 
+			почты и механизмы повышения надежности доставки, протокол SMTP допускает 
+			использование различных транспотных протоколов. Он может работать&nbsp;также в 
+			сетях, не использующих протоколы семейства TCP/IP. Протокол SMTP обеспечивает 
+			как группирование сообщений в адрес одного получателя, так и размножение 
+			нескольких копий сообщения для передачи в разные адреса.</A></P>
+		<P align="justify">
+			<A name="model">&nbsp;</P>
+		<H4 align="center">
+			Модель протокола</A></H4>
+		<P align="justify">Взаимодействие в рамках SMTP строится по принципу двусторонней 
+			связи, которая устанавливается между отправителем и получателем почтового 
+			сообщения. При этом отправитель инициирует соединение и посылает запросы на 
+			обслуживание, а получатель - отвечает на эти запросы. Фактически отправитель 
+			выступает в роли клиента, а получатель - сервера.</P>
+		<P><IMG height="290" src="Smtp.files/mailfig5.gif" width="568" allign="center">
+		</P>
+		<P align="justify">Канал связи устанавливается непосредственно между отправителем и 
+			получателем сообщения. По умолчанию за SMTP зарезервирован порт номер 25.</P>
+		<P><A name="commands">&nbsp;</P>
+		<H3 align="center">Команды SMTP
+		</H3>
+		<P align="justify"></A>Простой протокол передачи почты обеспечивает двухсторонний 
+			обмен сообщениями между локальным клиентом и удаленным сервером. Клиент 
+			шлет команды серверу, а он, в свою очередь, отвечает клиенту. Другими 
+			словами, протокол SMTP требует получать ответы (они описаны в этой главе) от 
+			приемника команд SMTP. Обмен командами и ответами на них называется почтовой 
+			транзакцией (mail transaction). Данные при обмене через SMTP передаются в 
+			формате NVT ASCII.&nbsp;NVT нужен затем, чтобы скрыть различия в восприятии 
+			разными компьютерами разных символов, например переводов каретки, переводов 
+			строки, маркеров конца строки, очистки экрана и т. д. Символ в NVT состоит из 
+			семи битов набора ASCII и является буквой, цифрой или знаком пунктуации. Семи 
+			битный набор ASCII часто называется NVT ASCII. Кроме того, команды тоже 
+			передаются в формате NVT ASCII. Команды передаются в форме ключевых слов, а не 
+			специальных символов, и указывают на необходимость совершить ту или иную 
+			операцию. В табл.1 приведен список ключевых слов (команд), определенный в 
+			спецификации SMTP - RFC 821.</P>
+		<P>Таблица 1.<I> Команды простого протокола передачи почты (SMTP)</I></P>
+		<TABLE cellSpacing="1" cellPadding="7" width="90%" border="1">
+			<TBODY>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center">Команда</P>
+					</TD>
+					<TD vAlign="middle" width="16%">
+						<P align="center">Обязательна</P>
+					</TD>
+					<TD vAlign="middle" width="68%">
+						<P align="center">Описание</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><B><TT>HELO</TT></B></P>
+					</TD>
+					<TD vAlign="middle" width="16%">
+						<P align="center">X</P>
+					</TD>
+					<TD vAlign="middle" width="68%">Идентифицирует модуль-передатчик для 
+						модуля-приемника (hello).</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><B><TT>MAIL</TT></B></P>
+					</TD>
+					<TD vAlign="middle" width="16%">
+						<P align="center">X</P>
+					</TD>
+					<TD vAlign="middle" width="68%">Начинает почтовую транзакцию, которая завершается 
+						передачей данных в один или несколько почтовых ящиков (mail).</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><TT><B>RCPT</B></TT></P>
+					</TD>
+					<TD vAlign="middle" width="16%">
+						<P align="center">X</P>
+					</TD>
+					<TD vAlign="middle" width="68%">Идентифицирует получателя почтового сообщения 
+						(recipient).</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><TT><B>DATA</B></TT></P>
+					</TD>
+					<TD vAlign="middle" width="16%">&nbsp;</TD>
+					<TD vAlign="middle" width="68%">Строки, следующие за этой командой, рассматриваются 
+						получателем как данные почтового сообщения. В случае SMTP, почтовое сообщение 
+						заканчивается комбинацией символов: CRLF-точка-CRLF.</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><TT><B>RSET</B></TT></P>
+					</TD>
+					<TD vAlign="middle" width="16%">&nbsp;</TD>
+					<TD vAlign="middle" width="68%">Прерывает текущую почтовую транзакцию (reset).</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><TT><B>NOOP</B></TT></P>
+					</TD>
+					<TD vAlign="middle" width="16%">&nbsp;</TD>
+					<TD vAlign="middle" width="68%">Требует от получателя не предпринимать никаких 
+						действий, а только выдать ответ ОК. Используется главным образом для 
+						тестирования.(No operation).</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><TT><B>QUIT</B></TT></P>
+					</TD>
+					<TD vAlign="middle" width="16%">&nbsp;</TD>
+					<TD vAlign="middle" width="68%">Требует выдать ответ ОК и закрыть текущее 
+						соединение.</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><TT><B>VRFY</B></TT></P>
+					</TD>
+					<TD vAlign="middle" width="16%">&nbsp;</TD>
+					<TD vAlign="middle" width="68%">Требует от приемника подтвердить, что ее аргумент 
+						является действительным именем пользователя. (См. примечание.).</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><TT><B>SEND</B></TT></P>
+					</TD>
+					<TD vAlign="middle" width="16%">&nbsp;</TD>
+					<TD vAlign="middle" width="68%">Начинает почтовую транзакцию, доставляющую данные 
+						на один или несколько терминалов (а не в почтовый ящик).</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><TT><B>SOML</B></TT></P>
+					</TD>
+					<TD vAlign="middle" width="16%">&nbsp;</TD>
+					<TD vAlign="middle" width="68%">Начинает транзакцию MAIL или SEND, доставляющую 
+						данные на один или несколько терминалов или в почтовые ящики.</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><TT><B>SAML</B></TT></P>
+					</TD>
+					<TD vAlign="middle" width="16%">&nbsp;</TD>
+					<TD vAlign="middle" width="68%">Начинает транзакцию MAIL и SEND, доставляющие 
+						данные на один или несколько терминалов и в почтовые ящики.</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><TT><B>EXPN</B></TT></P>
+					</TD>
+					<TD vAlign="middle" width="16%">&nbsp;</TD>
+					<TD vAlign="middle" width="68%">Команда SMTP-приемнику подтвердить, действительно 
+						ли аргумент является адресом почтовой рассылки и если да, вернуть адрес 
+						получателя сообщения (expand).</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><TT><B>HELP</B></TT></P>
+					</TD>
+					<TD vAlign="middle" width="16%">&nbsp;</TD>
+					<TD vAlign="middle" width="68%">Команда SMTP-приемнику вернуть сообщение-справку о 
+						его командах.</TD>
+				</TR>
+				<TR>
+					<TD vAlign="middle" width="16%">
+						<P align="center"><TT><B>TURN</B></TT></P>
+					</TD>
+					<TD vAlign="middle" width="16%">&nbsp;</TD>
+					<TD vAlign="middle" width="68%">Команда SMTP-приемнику либо сказать ОК и поменяться 
+						ролями, то есть стать STMP- передатчиком, либо послать сообщение-отказ и 
+						остаться в роли SMTP-приемника.</TD>
+				</TR>
+			</TBODY></TABLE>
+		<P align="justify"><B>Примечание</B>: В RFC 821 сказано, что команда VRFY не 
+			является обязательной для минимального набора команд SMTP. Однако в RFC 1123 
+			&lt;Требования для сетевых компьютеров Internet - приложения и обеспечение 
+			работы&gt; (Requirements for Internet Hosts - Application and Support,Braden, 
+			1989), команда VRFY фигурирует в списке обязательных для Internet команд 
+			реализации SMTP.</P>
+		<P align="justify">В соответствии со спецификацией команды, помеченные крестиком 
+			(X) в табл.1, обязаны присутствовать в любой реализации SMTP. Остальные команды 
+			SMTP могут быть реализованы дополнительно. Каждая SMTP-команда должна 
+			заканчиваться либо пробелом (если у нее есть аргумент), либо комбинацией CRLF. 
+			В описании команд употреблялось слово &lt;данные&gt, а не &lt;сообщение&gt;. Этим 
+			подчеркивалось, что, кроме текста, SMTP позволяет передавать и двоичную 
+			информацию, например графические или звуковые файлы. Другими словами, SMTP 
+			способен передавать данные любого содержания, а не только текстовые сообщения. 
+			Это значит, что, рассматривая вопросы, касающиеся SMTP, не забывайте, что 
+			термин "сообщениее" обозначает не только текстовые данные.</P>
+		<P>&nbsp;</P>
+		<H4 align="center"><A name="order">Последовательность команд SMTP</A></H4>
+		<P align="justify">
+			Как мы уже отмечали, SMTP обеспечивает двухстороннюю связь между агентами 
+			передачи почты, клиентом и сервером. Клиенты шлют команды серверу, а серверы 
+			отвечают клиентам. Однако SMTP оговаривает последовательность SMTP-команд. 
+			Лучший способ понять это - взглянуть на образец почтовой транзакции. Следующий 
+			пример (он взят целиком из RFC 821) демонстрирует типичную почтовую транзакцию. 
+			В примере фигурирует мистер Smith (на компьютере usc.edu), посылающий сообщения 
+			мистерам Jones, Green и Brown (на компьютере mit.edu). Агент передачи почты 
+			хоста mit.edu принимает почту для мистеров Jones и Brown, однако не знает, где 
+			расположен почтовый ящик мистера Green.</P>
+		<P align="justify">Для целей дальнейшего повествования каждой строке присвоен номер 
+			и обозначено, кому они принадлежат - передатчику или приемнику. Текст справа от 
+			слов &lt;RECEIVER&gt; или &lt;SENDER&gt; содержит действительно передаваемые 
+			данные. Трехзначные цифровые комбинации в начале передаваемых строк обозначают 
+			коды ответа (их значение объясняется позже). Ответ SMTP похож на 
+			сообщения-подтверждения о доставке, поскольку появляется лишь в том случае, 
+			когда приемник получил данные.</P>
+		<TABLE cellSpacing="0" cellPadding="7" width="90%" border="0">
+			<TBODY>
+				<TR>
+					<TD width="6%"><TT>1 </TT>
+					</TD>
+					<TD width="17%"><TT>SERVER&nbsp; </TT>
+					</TD>
+					<TD width="77%"><TT>220 mit.edu Simple Mail Transfer Service Ready </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>2 </TT>
+					</TD>
+					<TD width="17%"><TT>CLIENT </TT>
+					</TD>
+					<TD width="77%"><TT>HELO usc.edu </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>3 </TT>
+					</TD>
+					<TD width="17%"><TT><TT>SERVER&nbsp;</TT> </TT>
+					</TD>
+					<TD width="77%"><TT>250 mit.edu </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>4 </TT>
+					</TD>
+					<TD width="17%"><TT>CLIENT </TT>
+					</TD>
+					<TD width="77%"><TT>MAIL FROM: &lt;Smith@usc.edu&gt; </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>5 </TT>
+					</TD>
+					<TD width="17%"><TT><TT>SERVER&nbsp;</TT> </TT>
+					</TD>
+					<TD width="77%"><TT>250 OK </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>6 </TT>
+					</TD>
+					<TD width="17%"><TT><TT>CLIENT</TT>&nbsp; </TT>
+					</TD>
+					<TD width="77%"><TT>RCPT TO:&lt;Jones@mit.edu&gt; </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>7 </TT>
+					</TD>
+					<TD width="17%"><TT><TT>SERVER&nbsp;</TT> </TT>
+					</TD>
+					<TD width="77%"><TT>250 OK </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>8 </TT>
+					</TD>
+					<TD width="17%"><TT><TT>CLIENT</TT> </TT>
+					</TD>
+					<TD width="77%"><TT>RCPT TO:&lt;Green@mit.edu&gt; </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>9 </TT>
+					</TD>
+					<TD width="17%"><TT><TT><TT>SERVER&nbsp;</TT></TT> </TT>
+					</TD>
+					<TD width="77%"><TT>550 No such user here </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>10 </TT>
+					</TD>
+					<TD width="17%"><TT><TT>CLIENT</TT> </TT>
+					</TD>
+					<TD width="77%"><TT>RCPT TO:&lt;Brown@mit.edu&gt; </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>11 </TT>
+					</TD>
+					<TD width="17%"><TT><TT><TT>SERVER&nbsp;</TT></TT> </TT>
+					</TD>
+					<TD width="77%"><TT>250 OK </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>12 </TT>
+					</TD>
+					<TD width="17%"><TT><TT>CLIENT</TT>&nbsp; </TT>
+					</TD>
+					<TD width="77%"><TT>DATA </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>13 </TT>
+					</TD>
+					<TD width="17%"><TT><TT><TT>SERVER&nbsp;</TT></TT> </TT>
+					</TD>
+					<TD width="77%"><TT>354 Start mail input; end with &lt;CRLF&gt;.&lt;CRLF&gt; </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>14 </TT>
+					</TD>
+					<TD width="17%"><TT><TT>CLIENT</TT>&nbsp; </TT>
+					</TD>
+					<TD width="77%"><TT>Blah blah blah... </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>15 </TT>
+					</TD>
+					<TD width="17%"><TT><TT>CLIENT</TT> </TT>
+					</TD>
+					<TD width="77%"><TT>...etc. etc. etc. </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>16 </TT>
+					</TD>
+					<TD width="17%"><TT><TT>CLIENT</TT>&nbsp; </TT>
+					</TD>
+					<TD width="77%"><TT>. </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>17 </TT>
+					</TD>
+					<TD width="17%"><TT><TT><TT>SERVER&nbsp;</TT></TT> </TT>
+					</TD>
+					<TD width="77%"><TT>250 OK </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>18 </TT>
+					</TD>
+					<TD width="17%"><TT><TT>CLIENT</TT>&nbsp; </TT>
+					</TD>
+					<TD width="77%"><TT>QUIT </TT>
+					</TD>
+				</TR>
+				<TR>
+					<TD width="6%"><TT>19 </TT>
+					</TD>
+					<TD width="17%"><TT><TT><TT>SERVER&nbsp;</TT></TT> </TT>
+					</TD>
+					<TD width="77%"><TT>221 mit.edu Service closing transmission channel </TT>
+					</TD>
+				</TR>
+			</TBODY></TABLE>
+		<P align="justify">Как видно из строки 1, когда SMTP-клиент устанавливает 
+			TCP-соединение с портом протокола 25, SMTP-сервер отвечает кодом 220. Это 
+			означает, что соединение успешно установлено:</P>
+		<P><TT>1. <TT><TT>SERVER</TT></TT>: 220 mit.edu Simple Mail Transfer Service Ready</TT></P>
+		<P align="justify">После того как&nbsp;почтовые приложения&nbsp;компьютеров mit.edu 
+			и usc.edu установили соединение и обменялись приветствием, первой командой, 
+			согласно спецификации, должна быть команда <TT><B>HELO</B></TT>. Как указано в 
+			строке 2, SMTP-клиент передает <TT><B>HELO</B></TT>, указывая имя своего 
+			компьютера в качестве аргумента. Другими словами, он сообщает: &lt;Привет, я - 
+			usc.edu&gt;. Команда <TT><B>HELO</B></TT> употребляется с аргументом, как 
+			показано ниже:</P>
+		<P><TT>&nbsp;</P>
+		<P>2. CLIENT: HELO usc.edu</TT></P>
+		<P align="justify">В ответ на <TT><B>HELO</B></TT> приемник выдает код 250, сообщая 
+			передатчику о том, что команда принята и обработана:</P>
+		<P><TT>&nbsp;</P>
+		<P>3. <TT><TT>SERVER</TT></TT>: 250 mit.edu</TT></P>
+		<P align="justify">После установления TCP-соединения и идентификации (при помощи <TT><B>HELO</B></TT>) 
+			SMTP-клиент приступает к почтовой транзакции. Для начала он выполняет одну из 
+			следующих команд: <TT><B>MAIL, SEND, SOML </B></TT>или <TT><B>SAML</B></TT>. В 
+			нашем примере использована команда <TT><B>MAIL</B></TT>:</P>
+		<P><TT>&nbsp;</P>
+		<P>4. CLIENT: MAIL FROM:&lt;Smith@usc.edu&gt;</TT></P>
+		<P align="justify">Все четыре команды, <TT><B>MAIL, SEND, SOML </B></TT>и<TT><B> SAML</B></TT>, 
+			имеют одинаковый синтаксис:</P>
+		<P><TT><B>&nbsp;</P>
+		<P>MAIL</B> &lt;пробел&gt; FROM:&lt;reverse-path&gt; &lt;carriage-return 
+			line-feed&gt;</TT>
+		</P>
+		<P>&nbsp;</P>
+		<P align="justify"><B>Примечание</B>: Команды <TT><B>SEND, SOML</B></TT> и <TT><B>SAML</B></TT>
+			дополнительны и используются довольно редко.</P>
+		<P align="justify">Аргумент &lt;обратный путь&gt; (reverse path) указывает серверу, 
+			кому в случае ошибки отослать соответствующее сообщение. Мы еще рассмотрим его 
+			подробнее. На данный момент для нас важно, что в аргументе содержится адрес 
+			источника сообщения (в нашем случае, Smith@usc,edu). После того как сервер 
+			выдал код ответа 250 (строка 5), согласившись обработать сообщение от 
+			Smith@usc.edUt необходимо указать получателя сообщения. Это делается при помощи 
+			команды RCPT. Команда RCPT имеет аргумент - имя получателя. На одну команду 
+			приходится только одно имя, поэтому, если получателей несколько, команда <TT><B>RCPT</B></TT>
+			выдается несколько раз. В нашем примере команды <TT><B>RCPT</B></TT> выполняются 
+			в строках 6, 8 и 10. Синтаксис <TT><B>RCPT</B></TT> похож на синтаксис команды <TT><B>MAIL</B></TT>:</P>
+		<P>&nbsp;</P>
+		<P><TT>RCPT &lt;пробел&gt; TO:&lt;forward-path&gt; &lt;CRLF&gt;</TT></P>
+		<P><TT></TT>&nbsp;</P>
+		<P align="justify">Однако, в отличие от <TT><B>MAIL</B></TT>, аргумент <TT><B>RCPT</B></TT>
+			начинается со слова &lt;ТО:&gt;. Содержимое аргумента - путь передачи сообщения 
+			(forward path), а не обратный путь. На данный момент для нас важно, что в пути 
+			передачи сообщения указано имя почтового ящика получателя. Выдав команду <TT><B>RCPT</B></TT>, 
+			МТА-клиент ожидает получить ответ с кодом 250. Однако в ответ на восьмую строку</P>
+		<P><TT>&nbsp;</P>
+		<P>8. CLIENT: RCPT TO:&lt;Green@mit.edu&gt;</TT></P>
+		<P>сервер отвечает кодом 550:</P>
+		<P><TT></TT>&nbsp;</P>
+		<P><TT>9. <TT><TT>SERVER</TT></TT>: 550 No such user here</TT></P>
+		<P align="justify">Код ответа 550 означает, что&nbsp;сервер не в состоянии 
+			выполнить запрос клиента, поскольку не знает, как доставить почту указанному 
+			пользователю. То есть, скорее всего, у мистера по фамилии Green нет почтового 
+			ящика (Green@mit,edu) на этом компьютере. В протоколе SMTP сказано, что сервер 
+			обязан информировать клиента об отсутствии почтового ящика получателя 
+			сообщения. Однако в спецификации SMTP ничего не говорится о том, как клиент 
+			должен реагировать на это сообщение.</P>
+		<P align="justify">После того как посланы все команды <TT><B>RCPT</B></TT>, клиент 
+			начинает передачу данных при помощи команды <TT><B>DATA</B></TT>. В строке 12 
+			показано, как клиент (передатчик) высылает команду <TT><B>DATA</B></TT>, в 
+			строке 13 - как сервер отвечает кодом 354. Этот код означает, что передача 
+			данных разрешена и должна заканчиваться комбинацией CRLF-&lt;точка&gt;-CRLF 
+			(новой строкой, содержащей только точку).</P>
+		<P><TT>&nbsp;</P>
+		<P>12. CLIENT: DATA<BR>
+			13. <TT><TT>SERVER</TT></TT>: 354 Start mail input; end with 
+			&lt;CRLF&gt;.&lt;CRLF&gt;</TT></P>
+		<P align="justify">После того как получен код 354, клиент может начать передачу 
+			данных. сервер, в свою очередь, помещает принятые данные в очереди входящих 
+			сообщений. Сервер не высылает никаких ответов до тех пор, пока не получит 
+			комбинацию CRLF-точка-CRLF от клиента, означающую конец передачи данных. Как 
+			показано в строках 16 и 17, в ответ на полученную комбинацию 
+			CRLF-&lt;точка&gt;-CRLF, сервер выдает код 250. Как мы уже говорили, код ответа 
+			250 означает успешное окончание операции:</P>
+		<P><TT>&nbsp;</P>
+		<P>16. CLIENT: .<BR>
+			17. <TT><TT>SERVER</TT></TT>: 250 OK</TT>
+		</P>
+		<P>&nbsp;</P>
+		<P align="justify">Для того чтобы закончить почтовую транзакцию, клиент, по 
+			правилам SMTP, обязан послать команду <TT><B>QUIT</B></TT>. Сервер, в свою 
+			очередь, отвечает кодом 221. Этот код подтверждает клиенту, что соединение 
+			будет закрыто, после чего соединение действительно закрывается:</P>
+		<P><TT>&nbsp;</P>
+		<P>18. CLIENT: QUIT<BR>
+			19. <TT><TT>SERVER</TT></TT>: 221 mit.edu Service closing transmission 
+			channel</TT></P>
+		<P align="justify">В любой момент во время транзакции клиент может использовать 
+			команды <TT><B>NOOP, HELP, EXPN</B></TT> и <TT><B>VRFY</B></TT> . В ответ на 
+			каждую команду сервер высылает клиенту определенную информацию. Конечно, в 
+			зависимости от ответа клиент может предпринять определенные действия, однако 
+			спецификация SMTP ничего не говорит по этому поводу. Например, клиент-МТА может 
+			передать команду VRFY для того, чтобы убедиться, что имя пользователя 
+			действительно. Если сервер ответит, что данного имени не существует, клиент 
+			может не передавать почту для этого пользователя. В спецификации SMTP, однако, 
+			на этот счет нет никаких указаний - клиент может ничего не делать в ответ на 
+			команду <TT><B>VRFY</B></TT>. Клиент может ничего не делать также в ответ на 
+			команды <TT><B>NOOP</B></TT>, <TT><B>HELP</B></TT> и <TT><B>EXPN</B></TT> - 
+			ответственность целиком лежит на разработчике конкретной реализации приложения.</P>
+		<P><A name="responses">&nbsp;</P>
+		<H3 align="center">Коды ответов SMTP</A></H3>
+		<P align="justify">В спецификации SMTP требуется, чтобы сервер отвечал на каждую 
+			команду SMTP-клиента. Сервер отвечает трехзначной комбинацией цифр, называемой 
+			кодом ответа. Вместе с кодом ответа, как правило, передается одна или несколько 
+			строк текстовой информации.</P>
+		<P align="justify"><B>Примечание</B>: Несколько строк текста, как правило, 
+			сопровождают только команды <TT><B>EXPN</B></TT> и <TT><B>HELP</B></TT>.В 
+			спецификации SMTP, однако, ответ на любую команду может состоять из нескольких 
+			строк текста.</P>
+		<P align="justify">Каждая цифра в коде ответа имеет определенный смысл. Первая 
+			цифра означает, было ли выполнение команды успешно (2), неуспешно (5) или еще 
+			не закончилось (3). Как указано в приложении Е документа RFC 821, простой 
+			SMTP-клиент может анализировать только первую цифру в ответе сервера, и на 
+			основании ее продолжать свои действия. Вторая и третья цифры кода ответа 
+			разъясняют значение первой. Если вы разрабатываете SMTP-приложение, обязательно 
+			изучите конструкцию всех кодов SMTP-ответа. То, как коды составлены в самом 
+			SMTP - превосходный образец грамотного подхода к делу. В табл.2 приведены 
+			возможные значения кодов ответа SMTP, определенные в RFC 821.</P>
+		<P>Таблица 2. <I>Коды ответа SMTP и их значение</I></P>
+		<TABLE cellSpacing="1" cellPadding="7" width="90%" border="1">
+			<TBODY>
+				<TR>
+					<TD vAlign="top" width="9%">Код</TD>
+					<TD vAlign="top" width="91%">
+						<P align="center">Значение</P>
+					</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">211</TD>
+					<TD vAlign="top" width="91%">Ответ о состоянии системы или помощь</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">214</TD>
+					<TD vAlign="top" width="91%">Сообщение-подсказка (помощь)</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">220</TD>
+					<TD vAlign="top" width="91%">&lt;имя_домена&gt; служба готова к работе</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">221</TD>
+					<TD vAlign="top" width="91%">&lt;имя_домена&gt; служба закрывает канал связи</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">250</TD>
+					<TD vAlign="top" width="91%">Запрошенное действие почтовой транзакции успешно 
+						завершилось</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">251</TD>
+					<TD vAlign="top" width="91%">Данный адресат не является местным; сообщение будет 
+						передано по маршруту &lt;forward-path&gt;</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">354</TD>
+					<TD vAlign="top" width="91%">Начинай передачу сообщения. Сообщение заканчивается 
+						комбинацией CRLF-точка-CRLF</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">421</TD>
+					<TD vAlign="top" width="91%">&lt;имя_домена&gt; служба недоступна; соединение 
+						закрывается</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">450</TD>
+					<TD vAlign="top" width="91%">Запрошенная команда почтовой транзакции не выполнена, 
+						так как почтовый ящик недоступен</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">451</TD>
+					<TD vAlign="top" width="91%">Запрошенная команда не выполнена; произошла локальная 
+						ошибка при обработке сообщения</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">452</TD>
+					<TD vAlign="top" width="91%">Запрошенная команда не выполнена; системе не хватило 
+						ресурсов</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">500</TD>
+					<TD vAlign="top" width="91%">Синтаксическая ошибка в тексте команды; команда не 
+						опознана</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">501</TD>
+					<TD vAlign="top" width="91%">Синтаксическая ошибка в аргументах или параметрах 
+						команды</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">502</TD>
+					<TD vAlign="top" width="91%">Данная команда не реализована</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">503</TD>
+					<TD vAlign="top" width="91%">Неверная последовательность команд</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">504</TD>
+					<TD vAlign="top" width="91%">У данной команды не может быть аргументов</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">550</TD>
+					<TD vAlign="top" width="91%">Запрошенная команда не выполнена, так как почтовый 
+						ящик недоступен</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">551</TD>
+					<TD vAlign="top" width="91%">Данный адресат не является местным; попробуйте 
+						передать сообщение по маршруту &lt;forward-path&gt;</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">552</TD>
+					<TD vAlign="top" width="91%">Запрошенная команда почтовой транзакции прервана; 
+						дисковое пространство, доступное системе, переполнилось</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">553</TD>
+					<TD vAlign="top" width="91%">Запрошенная команда не выполнена; указано недопустимое 
+						имя почтового ящика</TD>
+				</TR>
+				<TR>
+					<TD vAlign="top" width="9%">554</TD>
+					<TD vAlign="top" width="91%">Транзакция не выполнена</TD>
+				</TR>
+			</TBODY></TABLE>
+		<P><A name="refs"></P>
+		<H3 align="center">&nbsp;</H3>
+		<H3 align="center">Ссылки на литературу</H3>
+		<DIV align="justify">
+			<TABLE id="Table1" border="0">
+				<TR vAlign="top">
+					<TD><A name="1">[1] </A>
+					<TD>
+						<P align="left">Эд Уилсон&nbsp;"Реальные сценарии, простые примеры, множество 
+							иллюстраций" М: "Лори", 2002 г</P>
+					</TD>
+				<TR vAlign="top">
+					<TD><A name="2">[2] </A>
+					<TD>Postel, J, (ed.) "Simple mail transfer protocol", RFC 821, USC/Information 
+						Sciences Institute, September 1981.
+					</TD>
+				</TR>
+			</TABLE>
+			<SCRIPT language="JavaScript"> var loc = ''; </SCRIPT>
+			<SCRIPT language="JavaScript1.4">try{ var loc = escape(top.location.href); }catch(e){;}</SCRIPT>
+			<SCRIPT language="JavaScript">
+ document.write("<SC"+"RIPT language='JavaScript' src='http://ad.strict.tbn.ru/bb.cgi?cmd=ad&hreftarget=_blank&pubid=2850676&pg=3&r=js&ssi=nofillers&vbn=353&num=1&w=468&h=60&&ref="+escape(document.referrer)+"&loc="+loc+"&nocache="+Math.round(Math.random()*999111)+"'>\n</SC"+"RIPT>");
+			</SCRIPT>
+		</DIV>
+		<P></A>&nbsp;</P>
+		<P>&nbsp;</P>
+	</BODY>
+</HTML>

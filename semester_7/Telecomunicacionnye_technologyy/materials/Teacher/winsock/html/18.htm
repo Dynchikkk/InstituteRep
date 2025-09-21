@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://doc.mpv.ru/steps/mfc/net/socket/18.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="18.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 18 - тСМЙЖХЪ inet_ntoa().</H2></FONT>
+<P>йНМБЕПРХПСЕР ЮДПЕЯ Б ЯРЮМДЮПРМШИ ТНПЛЮР ХМРЕПМЕР: <PRE>char FAR * inet_ntoa
+(
+	struct in_addr in  
+);
+</PRE>
+<P>оНОПНАСЕЛ ХГЛЕМХРЭ "<A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/17.html">ьЮЦ 17 - тСМЙЖХЪ 
+inet_addr()</A>": <PRE>#include "stdafx.h"
+#include "iostream.h"
+#include "winsock.h"
+
+#pragma comment(lib,"wsock32.lib")
+
+void main()
+{
+	in_addr adr1;
+	in_addr adr2;
+	adr1.s_addr=inet_addr("124.23.45.67");
+	adr2.s_addr=inet_addr("as.34.34.56");
+	if (adr1.s_addr!=INADDR_NONE) cout &lt;&lt; " adr1 correct" &lt;&lt; endl;
+	else cout &lt;&lt; " adr1 incorect " &lt;&lt; endl;
+	if (adr2.s_addr!=INADDR_NONE) cout &lt;&lt; " adr2 correct" &lt;&lt; endl;
+	else cout &lt;&lt; " adr2 incorect" &lt;&lt; endl;
+	cout &lt;&lt; inet_ntoa(adr1) &lt;&lt; endl;
+	cout &lt;&lt; inet_ntoa(adr2) &lt;&lt; endl;
+}
+</PRE>
+<P>пЕГСКЭРЮР РЮЙНИ: <PRE>adr1 correct
+adr2 incorect
+124.23.45.67
+255.255.255.255
+Press any key to continue
+</PRE>
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/17.html">оПЕДШДСЫХИ ЬЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/19.html">яКЕДСЧЫХИ ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="18.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>

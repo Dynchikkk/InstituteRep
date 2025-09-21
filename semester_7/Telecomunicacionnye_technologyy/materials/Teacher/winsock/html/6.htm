@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0045)http://doc.mpv.ru/steps/mfc/net/socket/6.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=koi8-r">
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY text=black vLink=blue aLink=red link=blue bgColor=white><LINK 
+href="6.files/1.css" type=text/css rel=stylesheet><FONT color=red>
+<H2 align=center>ьЮЦ 6 - яБЪГЭ НЙМЮ Я ЯНЙЕРНЛ ДКЪ ОНКСВЕМХЪ 
+ЯННАЫЕМХИ</H2></FONT>дЕКЮЕЛ ЕЫЕ НДХМ ОПНЕЙР. мС ЖХТПШ РЮЛ РНКЭЙН ЛЕМЪЧРЯЪ. ю 
+ОПНЕЙР РЮЙНИ ФЕ. 
+<P>оПХ ПЮАНРЕ ЯЕПБЕПЮ :-) ЕЛС АСДСР ОНЯШКЮРЭЯЪ ЯННАЫЕМХЪ. бНР ДКЪ ХУ ОНКСВЕМХЪ 
+МЕНАУНДХЛН СЙЮГЮРЭ ЙСДЮ НМХ ОНИДСР. щРН ДЕКЮЕРЯЪ ТСМЙЖХЕИ <B>WSAAsyncSelect</B>. 
+рНКЭЙН ГДЕЯЭ ЕЯРЭ НДМЮ ГЮЦБНГДЙЮ. б ЩРНИ ТСМЙЖХХ ЕЯРЭ НДХМ ОЮПЮЛЕРП <B>HWND</B>. 
+ю С МЮЯ ЙНМЯНКЭМНЕ ОПХКНФЕМХЕ. х ОПНЯРН РЮЙ БШ ЕЦН МЕ ОНКСВХРЕ. щРН Б <B>MFC</B> 
+ХКХ ОПХ ВХЯРНЛ ЙНДХПНБЮМХХ МЮ <B>C</B> НМ ОНКСВЮЕРЭЯЪ ЮБРНЛЮРНЛ. мЕР СФ. гДЕЯЭ 
+МСФМЮ ТСМЙЖХЪ. лШ АСДЕЛ МЮУНДХРЭ <B>HWND</B> ХЯОНКЭГСЪ ТСМЙЖХЧ <B>WIN32 API</B> 
+Я ХЛЕМЕЛ <B>FindWindow</B> НМЮ МЮЛ ЙЮЙ ПЮГ Х БЕПМЕР <B>HWND</B> НЙМЮ. 
+<P>щРЮ ТСМЙЖХЪ МЮУНДХРЯЪ Б <B>USER32.DLL</B> ДКЪ РНЦН, ВРНАШ ЕЧ БНЯОНКЭГНБЮРЭЯЪ 
+МЮЛ МСФЕМ <B>USER32.LIB</B>. оНДЙКЧВХРЕ Е╦. 
+<P><IMG alt="step6.gif (5057 b)" src="6.files/step6.gif" border=2> 
+<P>дКЪ РНЦН, ВРНАШ БНЯОНКЭГНБЮРЭЯЪ ХЛЕМЕЛ НЙМЮ ЕЦН МСФМН ГМЮРЭ. рЮЙ КСВЬЕ ЯЮЛНЛС 
+ЕЦН ДЮРЭ Х МЕ ЦЮДЮРЭ. ъ ЕЦН НОПЕДЕКХК ЙЮЙ: <PRE>#define NAME_SERVER_SOCKET "This is HTTP server version 1.0"
+ю РЕОЕПЭ ТСМЙЖХЪ ОНКСВЕМХЪ HWND 
+
+HWND GetConsoleHWND()
+{
+	SetConsoleTitle(NAME_SERVER_SOCKET);
+	HWND hwndConsoleWindow;
+	hwndConsoleWindow=FindWindow(NULL, NAME_SERVER_SOCKET);
+	if (hwndConsoleWindow==0)
+	{
+		printf("Error Find Window");
+		exit(0);
+	}
+	return hwndConsoleWindow;
+}
+</PRE>яЛНРПХРЕ, ТСМЙЖХЕИ <B>SetConsoleTitle</B> Ъ СЯРЮМЮБКХБЮЧ ЯБН╦ МЮГБЮМХЕ 
+НЙМЮ. х ХЫС ЩРН НЙМН. 
+<P>йЮЙ БЯЕЦДЮ Ъ БШМЕЯ ЯРЮПШИ ЬЮЦ Б ТСМЙЖХЧ. <PRE>void LinkSoketPort();
+</PRE>йПНЛЕ РНЦН Ъ ДНАЮБХК Б ЙНМЕЖ <B>main</B> ТСМЙЖХЧ <B>SLEEP</B>, ЯКХЬЙНЛ 
+АШЯРПН С ЛЕМЪ ОПНОЮДЮЕР НЙМН :-) уНРЪ ГЮОСЯЙЮРЭ ОПНЦПЮЛЛС ЛНФМН Х Б ЯЕЮМЯЕ <B>MS 
+DOS</B>, МН ОНВЕЛС-РН <B>Norton Commander</B>'Ю С ЛЕМЪ МЕР :-))), Ю ОНКЭГНБЮРЭЯЪ 
+<B>CD</B> ОПХ ДКХММШУ ХЛЕМЮУ ЙЮРЮКНЦНБ ЛМЕ МЕ УНВЕРЯЪ. <PRE>void main()
+{
+	StartWinSock();
+	WaitSocket();
+	StopWinSock();
+	Sleep(1000);
+	printf("Cansel Work \n");
+}
+</PRE>хРЮЙ Й ДЕКС. бНР ЙНД. <PRE>void WaitSocket()
+{
+	SocketGetHostName();
+	CreateSocket();
+	LinkSoketPort();
+    	int Errors;
+	Errors=WSAAsyncSelect(servsocket,GetConsoleHWND(),WM_SERVER_ACCEPT, FD_ACCEPT);
+	if (Errors == SOCKET_ERROR)
+	{
+		printf(" AsyncSelect BAD !!! \n");
+		exit(1);
+	}
+	else printf("God AsyncSelect  !!!!!!! \n");
+
+	
+	CloseScoket();
+}
+</PRE>тСМЙЖХЪ <B>WSAAsyncSelect</B> ЯБЪГШБЮЕР ЯННАЫЕМХЪ ЯНЙЕРНБ Я НЙМНЛ. <PRE>int WSAAsyncSelect ( 
+  SOCKET s,
+  HWND hWnd,          
+  unsigned int wMsg, 
+  long lEvent 
+ );
+</PRE>гДЕЯЭ ХМРЕПЕЯЕМ ОЮПЮЛЕРП <B>unsigned int wMsg</B> - ЩРНР ОЮПЮЛЕРП ЦНБНПХР 
+Н РНЛ, ЙЮЙНЕ ЯННАЫЕМХЕ АСДЕР ОНЯКЮМН Б ЯКСВЮЕ ОНДЙКЧВЕМХЪ Й ЯЕПБЕПС. ъ ЕЦН 
+НОХЯЮК БНР РЮЙ. <PRE>const int WM_SERVER_ACCEPT = WM_USER+1;
+</PRE>оПХ СЯОЕЬМНЛ БШОНКМЕМХХ ТСМЙЖХХ БНГБПЮЫЮЕРЯЪ МНКЭ, ХМЮВЕ 
+<B>SOCKET_ERROR</B>. 
+<P>
+<HR>
+
+<CENTER><FONT size=2><A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/prog/step6.rar">гЮЦПСГХРЭ 
+ОПНЕЙР</A> | <A href="http://doc.mpv.ru/steps/mfc/net/socket/5.html">оПЕДШДСЫХИ 
+ЬЮЦ</A> | <A href="http://doc.mpv.ru/steps/mfc/net/socket/7.html">яКЕДСЧЫХИ 
+ьЮЦ</A> | <A 
+href="http://doc.mpv.ru/steps/mfc/net/socket/socket.html">нЦКЮБКЕМХЕ</A></FONT></CENTER>
+<HR>
+
+<CENTER><FONT size=2>By <A href="mailto:kaev@yandex.ru">Artem</A>.</CENTER>
+<SCRIPT src="6.files/banners.htm"></SCRIPT>
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM></TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+</BODY></HTML>
