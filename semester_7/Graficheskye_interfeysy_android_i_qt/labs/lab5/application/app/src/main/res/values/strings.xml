@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Учебное приложение</string>
+
+    <!-- Hints / labels -->
+    <string name="hint_login">Логин</string>
+    <string name="hint_password">Пароль</string>
+    <string name="hint_name">Имя</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_auth_logs">Лог авторизации</string>
+    <string name="label_name">Имя</string>
+    <string name="label_email">Email</string>
+    <string name="label_login">Логин</string>
+
+    <!-- Buttons -->
+    <string name="btn_login">Вход</string>
+    <string name="btn_register">Регистрация</string>
+    <string name="btn_exit">Выход</string>
+    <string name="btn_profile">Профиль</string>
+    <string name="btn_settings">Настройки</string>
+    <string name="btn_admin">Администрирование</string>
+    <string name="btn_save">Сохранить</string>
+    <string name="btn_theme">Сменить тему</string>
+    <string name="btn_make_admin">Сделать администратором</string>
+    <string name="btn_show_logs">Показать лог авторизаций</string>
+    <string name="btn_clear_logs">Очистить лог</string>
+
+    <!-- Misc -->
+    <string name="toast_invalid">Неверный логин или пароль</string>
+    <string name="toast_reg_ok">Регистрация успешна</string>
+    <string name="toast_reg_err">Ошибка регистрации</string>
+    <string name="toast_became_admin">Пользователь стал администратором</string>
+</resources>
