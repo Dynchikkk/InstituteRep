@@ -33,12 +33,13 @@ class ProfileActivity : AppCompatActivity() {
         val currentUser = db.getUserById(currentUserId)
 
         profileUser?.let {
-            tvName.text = "Имя    ${it.name}"
-            tvEmail.text = "Email    ${it.email}"
-            tvLogin.text = "Логин    ${it.login}"
+            tvName.text = "${getString(R.string.label_name)}: ${it.name}"
+            tvEmail.text = "${getString(R.string.label_email)}: ${it.email}"
+            tvLogin.text = "${getString(R.string.label_login)}: ${it.login}"
         }
 
-        if (currentUser != null && currentUser.isAdmin == 1 && profileUser != null && profileUser.id != currentUser.id) {
+        if (currentUser != null && currentUser.isAdmin == 1 &&
+            profileUser != null && profileUser.isAdmin == 0  && profileUser.id != currentUser.id) {
             btnMakeAdmin.visibility = View.VISIBLE
             btnMakeAdmin.setOnClickListener {
                 db.makeAdmin(profileUser.id)

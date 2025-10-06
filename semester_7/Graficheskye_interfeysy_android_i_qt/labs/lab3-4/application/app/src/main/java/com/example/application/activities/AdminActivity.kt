@@ -12,9 +12,13 @@ import com.example.application.R
 class AdminActivity : Activity() {
     private lateinit var db: DatabaseHelper
 
+    private var currentUserId: Int = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin)
+
+        currentUserId = intent.getIntExtra("currentUserId", -1)
 
         db = DatabaseHelper(this)
         val users = db.getAllUsers()
@@ -29,6 +33,7 @@ class AdminActivity : Activity() {
         listView.setOnItemClickListener { _, _, position, _ ->
             val intent = Intent(this, ProfileActivity::class.java)
             intent.putExtra("userId", users[position].id)
+            intent.putExtra("currentUserId", currentUserId)
             startActivity(intent)
         }
 

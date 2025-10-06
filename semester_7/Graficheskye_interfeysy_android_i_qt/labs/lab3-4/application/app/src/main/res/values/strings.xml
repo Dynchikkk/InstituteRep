@@ -7,6 +7,9 @@
     <string name="hint_name">Имя</string>
     <string name="hint_email">Email</string>
     <string name="hint_auth_logs">Лог авторизации</string>
+    <string name="label_name">Имя</string>
+    <string name="label_email">Email</string>
+    <string name="label_login">Логин</string>
 
     <!-- Buttons -->
     <string name="btn_login">Вход</string>

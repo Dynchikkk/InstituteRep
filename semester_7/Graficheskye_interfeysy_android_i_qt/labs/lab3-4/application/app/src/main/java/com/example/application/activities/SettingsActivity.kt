@@ -14,7 +14,6 @@ class SettingsActivity : AppCompatActivity() {
 
         val btnTheme = findViewById<Button>(R.id.btnTheme)
         btnTheme.setOnClickListener {
-            // Переключаем глобальную тему (SharedPreferences) и воссоздаем activity чтобы применить
             ThemeManager.toggleTheme(this)
             recreate()
         }

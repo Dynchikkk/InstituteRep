@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatDelegate
 
 object ThemeManager {
     private const val PREFS = "app_prefs"
-    private const val KEY_THEME = "theme_mode" // values: AppCompatDelegate.MODE_NIGHT_NO or MODE_NIGHT_YES
+    private const val KEY_THEME = "theme_mode"
 
     fun applyTheme(context: Context) {
         val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
