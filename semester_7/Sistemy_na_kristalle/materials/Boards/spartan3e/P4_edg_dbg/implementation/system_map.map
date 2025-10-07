@@ -1,0 +1,73 @@
+Release 9.1i Map J.30
+Xilinx Map Application Log File for Design 'system'
+
+Design Information
+------------------
+Command Line   : map -o system_map.ncd -pr b system.ngd system.pcf 
+Target Device  : xc3s500e
+Target Package : fg320
+Target Speed   : -4
+Mapper Version : spartan3e -- $Revision: 1.36 $
+Mapped Date    : Thu Oct 11 20:48:21 2007
+
+Mapping design into LUTs...
+Writing file system_map.ngm...
+Running directed packing...
+Running delay-based LUT packing...
+Running related packing...
+Writing design file "system_map.ncd"...
+
+Design Summary
+--------------
+
+Design Summary:
+Number of errors:      0
+Number of warnings:    2
+Logic Utilization:
+  Number of Slice Flip Flops:         896 out of   9,312    9%
+  Number of 4 input LUTs:           1,127 out of   9,312   12%
+Logic Distribution:
+  Number of occupied Slices:                        1,081 out of   4,656   23%
+    Number of Slices containing only related logic:   1,081 out of   1,081  100%
+    Number of Slices containing unrelated logic:          0 out of   1,081    0%
+      *See NOTES below for an explanation of the effects of unrelated logic
+Total Number of 4 input LUTs:          1,587 out of   9,312   17%
+  Number used as logic:              1,127
+  Number used as a route-thru:          89
+  Number used for Dual Port RAMs:      256
+    (Two LUTs used per Dual Port RAM)
+  Number used as Shift registers:      115
+  Number of bonded IOBs:               14 out of     232    6%
+    IOB Flip Flops:                    12
+  Number of Block RAMs:                8 out of      20   40%
+  Number of GCLKs:                     2 out of      24    8%
+  Number of DCMs:                      1 out of       4   25%
+  Number of BSCANs:                    1 out of       1  100%
+  Number of MULT18X18SIOs:              3 out of      20   15%
+
+Total equivalent gate count for design:  570,592
+Additional JTAG gate count for IOBs:  672
+Peak Memory Usage:  181 MB
+Total REAL time to MAP completion:  8 secs 
+Total CPU time to MAP completion:   8 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Mapping completed.
+See MAP report file "system_map.mrp" for details.

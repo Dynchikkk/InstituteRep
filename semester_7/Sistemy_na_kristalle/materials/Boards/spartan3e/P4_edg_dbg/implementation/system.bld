@@ -1,0 +1,65 @@
+Release 9.1i ngdbuild J.30
+Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -p xc3s500efg320-4 -nt timestamp -bm system.bmm
+F:/zRabG/Xlnx/UPR2007/P4_edg_dbg/implementation/system.ngc -uc system.ucf
+system.ngd
+
+Reading NGO file "F:/zRabG/Xlnx/UPR2007/P4_edg_dbg/implementation/system.ngc"
+...
+Loading design module
+"F:/zRabG/Xlnx/UPR2007/P4_edg_dbg/implementation/microblaze_0_wrapper.ngc"...
+Loading design module
+"F:/zRabG/Xlnx/UPR2007/P4_edg_dbg/implementation/ilmb_wrapper.ngc"...
+Loading design module
+"F:/zRabG/Xlnx/UPR2007/P4_edg_dbg/implementation/dlmb_wrapper.ngc"...
+Loading design module
+"F:/zRabG/Xlnx/UPR2007/P4_edg_dbg/implementation/dlmb_cntlr_wrapper.ngc"...
+Loading design module
+"F:/zRabG/Xlnx/UPR2007/P4_edg_dbg/implementation/ilmb_cntlr_wrapper.ngc"...
+Loading design module
+"F:/zRabG/Xlnx/UPR2007/P4_edg_dbg/implementation/lmb_bram_wrapper.ngc"...
+Loading design module
+"F:/zRabG/Xlnx/UPR2007/P4_edg_dbg/implementation/mb_opb_wrapper.ngc"...
+Loading design module
+"F:/zRabG/Xlnx/UPR2007/P4_edg_dbg/implementation/leds_8bit_wrapper.ngc"...
+Loading design module
+"F:/zRabG/Xlnx/UPR2007/P4_edg_dbg/implementation/dip_switches_4bit_wrapper.ngc".
+..
+Loading design module
+"F:/zRabG/Xlnx/UPR2007/P4_edg_dbg/implementation/dcm_0_wrapper.ngc"...
+Loading design module
+"F:/zRabG/Xlnx/UPR2007/P4_edg_dbg/implementation/opb_mdm_0_wrapper.ngc"...
+
+Applying constraints in "system.ucf" to the design...
+
+Checking timing specifications ...
+INFO:XdmHelpers:851 - TNM "sys_clk_pin", used in period specification
+   "TS_sys_clk_pin", was traced into DCM_SP instance
+   "dcm_0/dcm_0/Using_Virtex.DCM_INST". The following new TNM groups and period
+   specifications were generated at the DCM_SP output(s):
+   CLK0: TS_dcm_0_dcm_0_CLK0_BUF=PERIOD dcm_0_dcm_0_CLK0_BUF TS_sys_clk_pin*1
+HIGH 50%
+
+Processing BMM file ...
+
+Checking expanded design ...
+WARNING:NgdBuild:478 - clock net opb_mdm_0/bscan_drck1 with clock driver
+   opb_mdm_0/opb_mdm_0/BUFG_DRCK1 drives no clock pins
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   1
+
+Total memory usage is 74124 kilobytes
+
+Writing NGD file "system.ngd" ...
+
+Writing NGDBUILD log file "system.bld"...

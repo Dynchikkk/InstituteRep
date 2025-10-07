@@ -1,0 +1,1486 @@
+Release 9.1i Map J.30
+Xilinx Mapping Report File for Design 'system'
+
+Design Information
+------------------
+Command Line   : map -o system_map.ncd -pr b system.ngd system.pcf 
+Target Device  : xc3s500e
+Target Package : fg320
+Target Speed   : -4
+Mapper Version : spartan3e -- $Revision: 1.36 $
+Mapped Date    : Thu Oct 11 20:48:21 2007
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    2
+Logic Utilization:
+  Number of Slice Flip Flops:         896 out of   9,312    9%
+  Number of 4 input LUTs:           1,127 out of   9,312   12%
+Logic Distribution:
+  Number of occupied Slices:                        1,081 out of   4,656   23%
+    Number of Slices containing only related logic:   1,081 out of   1,081  100%
+    Number of Slices containing unrelated logic:          0 out of   1,081    0%
+      *See NOTES below for an explanation of the effects of unrelated logic
+Total Number of 4 input LUTs:          1,587 out of   9,312   17%
+  Number used as logic:              1,127
+  Number used as a route-thru:          89
+  Number used for Dual Port RAMs:      256
+    (Two LUTs used per Dual Port RAM)
+  Number used as Shift registers:      115
+  Number of bonded IOBs:               14 out of     232    6%
+    IOB Flip Flops:                    12
+  Number of Block RAMs:                8 out of      20   40%
+  Number of GCLKs:                     2 out of      24    8%
+  Number of DCMs:                      1 out of       4   25%
+  Number of BSCANs:                    1 out of       1  100%
+  Number of MULT18X18SIOs:              3 out of      20   15%
+
+Total equivalent gate count for design:  570,592
+Additional JTAG gate count for IOBs:  672
+Peak Memory Usage:  181 MB
+Total REAL time to MAP completion:  8 secs 
+Total CPU time to MAP completion:   8 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Modular Design Summary
+Section 11 - Timing Report
+Section 12 - Configuration String Information
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:LIT:243 - Logical network mb_opb_OPB_seqAddr has no load.
+WARNING:LIT:395 - The above warning message base_net_load_rule is repeated 294
+   more times for the following (max. 5 shown):
+   ilmb_LMB_ReadStrobe,
+   net_vcc2<0>,
+   mb_opb_OPB_ABus<30>,
+   mb_opb_OPB_ABus<31>,
+   mb_opb_OPB_BE<0>
+   To see the details of these warning messages, please use the -detail switch.
+
+Section 3 - Informational
+-------------------------
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:MapLib:863 - The following Virtex BUFG(s) is/are being retargeted to
+   Virtex2 BUFGMUX(s) with input tied to I0 and Select pin tied to constant 0:
+   BUFG symbol "dcm_0/dcm_0/Using_BUGF_for_CLK0.CLK0_BUFG_INST" (output
+   signal=dlmb_port_BRAM_Clk),
+   BUFG symbol "opb_mdm_0/opb_mdm_0/BUFG_DRCK1" (output
+   signal=opb_mdm_0/bscan_drck1),
+   BUFG symbol "opb_mdm_0/opb_mdm_0/BUFG_DRCK2" (output
+   signal=microblaze_0_Dbg_Clk)
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs in the
+   schematic.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+ 357 block(s) removed
+  83 block(s) optimized away
+ 419 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "mb_opb_OPB_seqAddr" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_seqAddr_I/Y_0_or00001" (ROM) removed.
+The signal "ilmb_LMB_ReadStrobe" is loadless and has been removed.
+ Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/Using_FPGA.iFetch_Virtex2.iFetch_MuxCY_
+3/MUXCY_L_BUF" (BUF) removed.
+  The signal
+"microblaze_0/microblaze_0/Area.Decode_I/Using_FPGA.iFetch_Virtex2.iFetch_MuxCY_
+3/O" is loadless and has been removed.
+   Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/Using_FPGA.iFetch_Virtex2.iFetch_MuxCY_
+3" (MUX) removed.
+    The signal "microblaze_0/microblaze_0/Area.Decode_I/iFetch_In_Progress_n" is
+loadless and has been removed.
+     Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/iFetch_In_Progress_n1_INV_0" (BUF)
+removed.
+The signal "net_vcc2<0>" is loadless and has been removed.
+ Loadless block "XST_VCC" (ONE) removed.
+The signal "mb_opb_OPB_ABus<30>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_ABus_I/Y_30_or00001" (ROM) removed.
+  The signal "mb_opb_M_ABus<30>" is loadless and has been removed.
+   Loadless block
+"microblaze_0/microblaze_0/Area.Using_Ext_Databus.Using_D_OPB.DOPB_Interface_I2/
+DM_ABus_30" (SFF) removed.
+    The signal "dlmb_LMB_ABus<30>" is loadless and has been removed.
+     Loadless block
+"microblaze_0/microblaze_0/Area.Byte_Doublet_Handle_I/Using_FPGA.Data_Size_Is_32
+.LOW_ADDR_OUT_LEFT_I" (ROM) removed.
+  The signal "mb_opb_M_ABus<62>" is loadless and has been removed.
+   Loadless block
+"microblaze_0/microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/IM_ABus_30" (SFF)
+removed.
+    The signal
+"microblaze_0/microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr<30>" is
+loadless and has been removed.
+     Loadless block
+"microblaze_0/microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_30" (FF)
+removed.
+      The signal "ilmb_LMB_ABus<30>" is loadless and has been removed.
+The signal "mb_opb_OPB_ABus<31>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_ABus_I/Y_31_or00001" (ROM) removed.
+  The signal "mb_opb_M_ABus<31>" is loadless and has been removed.
+   Loadless block
+"microblaze_0/microblaze_0/Area.Using_Ext_Databus.Using_D_OPB.DOPB_Interface_I2/
+DM_ABus_31" (SFF) removed.
+    The signal "dlmb_LMB_ABus<31>" is loadless and has been removed.
+     Loadless block
+"microblaze_0/microblaze_0/Area.Byte_Doublet_Handle_I/Using_FPGA.Data_Size_Is_32
+.LOW_ADDR_OUT_RIGHT_I" (ROM) removed.
+  The signal "mb_opb_M_ABus<63>" is loadless and has been removed.
+   Loadless block
+"microblaze_0/microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/IM_ABus_31" (SFF)
+removed.
+    The signal
+"microblaze_0/microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr<31>" is
+loadless and has been removed.
+     Loadless block
+"microblaze_0/microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_31" (FF)
+removed.
+      The signal "ilmb_LMB_ABus<31>" is loadless and has been removed.
+The signal "mb_opb_OPB_BE<0>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_BE_I/Y_0_or00001" (ROM) removed.
+  The signal "mb_opb_M_BE<0>" is loadless and has been removed.
+   Loadless block
+"microblaze_0/microblaze_0/Area.Using_Ext_Databus.Using_D_OPB.DOPB_Interface_I2/
+DM_BE_0" (SFF) removed.
+The signal "mb_opb_OPB_BE<1>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_BE_I/Y_1_or00001" (ROM) removed.
+  The signal "mb_opb_M_BE<1>" is loadless and has been removed.
+   Loadless block
+"microblaze_0/microblaze_0/Area.Using_Ext_Databus.Using_D_OPB.DOPB_Interface_I2/
+DM_BE_1" (SFF) removed.
+The signal "mb_opb_OPB_BE<2>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_BE_I/Y_2_or00001" (ROM) removed.
+  The signal "mb_opb_M_BE<2>" is loadless and has been removed.
+   Loadless block
+"microblaze_0/microblaze_0/Area.Using_Ext_Databus.Using_D_OPB.DOPB_Interface_I2/
+DM_BE_2" (SFF) removed.
+The signal "microblaze_0/Trace_Data_Write" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write" (FF) removed.
+The signal "microblaze_0/MB_Halted" is loadless and has been removed.
+ Loadless block
+"microblaze_0/microblaze_0/Area.Implement_Debug_Logic.Debug_I/MB_Halted" (FF)
+removed.
+The signal "microblaze_0/Trace_Jump_Taken" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Jump_Taken" (SFF) removed.
+  The signal "microblaze_0/microblaze_0/jump_inv" is loadless and has been
+removed.
+   Loadless block "microblaze_0/microblaze_0/jump_inv1_INV_0" (BUF) removed.
+The signal "microblaze_0/Trace_Delay_Slot" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Delay_Slot" (FF) removed.
+The signal "microblaze_0/Trace_Exception_Kind<0>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Exception_Taken" (FF) removed.
+The signal "microblaze_0/Trace_Data_Read" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Read" (FF) removed.
+The signal "microblaze_0/Trace_Data_Access" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Access" (FF) removed.
+  The signal "microblaze_0/microblaze_0/mem_Strobe" is loadless and has been
+removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Mem_Strobe1" (ROM)
+removed.
+The signal "microblaze_0/Trace_Reg_Write" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Reg_Write1" (ROM) removed.
+  The signal "microblaze_0/microblaze_0/trace_reg_write_i" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/trace_reg_write_i" (SFF) removed.
+    The signal "microblaze_0/microblaze_0/reg_Write_I_inv" is loadless and has been
+removed.
+     Loadless block "microblaze_0/microblaze_0/reg_Write_I_inv1" (ROM) removed.
+  The signal "microblaze_0/Trace_Valid_Instr" is loadless and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Trace_Valid_Instr1"
+(ROM) removed.
+    The signal "microblaze_0/microblaze_0/Area.Decode_I/jump2_I_1<0>" is loadless
+and has been removed.
+     Loadless block "microblaze_0/microblaze_0/Area.Decode_I/jump2_I_1_0" (SFF)
+removed.
+    The signal "microblaze_0/microblaze_0/Area.Decode_I/mul_Executing_done" is
+loadless and has been removed.
+     Loadless block "microblaze_0/microblaze_0/Area.Decode_I/mul_Executing_done"
+(SFF) removed.
+      The signal "microblaze_0/microblaze_0/Area.Decode_I/mul_Executing_done_and0000"
+is loadless and has been removed.
+       Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/mul_Executing_done_and00001" (ROM)
+removed.
+        The signal "microblaze_0/microblaze_0/Area.Decode_I/mul_Executing_delayed" is
+loadless and has been removed.
+         Loadless block "microblaze_0/microblaze_0/Area.Decode_I/mul_Executing_delayed"
+(SFF) removed.
+    The signal "microblaze_0/microblaze_0/Area.Decode_I/trace_valid_instr_part1" is
+loadless and has been removed.
+     Loadless block "microblaze_0/microblaze_0/Area.Decode_I/trace_valid_instr_part1"
+(SFF) removed.
+      The signal
+"microblaze_0/microblaze_0/Area.Decode_I/trace_valid_instr_part1_or0000" is
+loadless and has been removed.
+       Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/trace_valid_instr_part1_or0000" (MUX)
+removed.
+        The signal "microblaze_0/N735" is loadless and has been removed.
+         Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/trace_valid_instr_part1_or0000_F" (ROM)
+removed.
+          The signal "microblaze_0/microblaze_0/Area.Decode_I/ex_Valid_1st_cycle<0>" is
+loadless and has been removed.
+           Loadless block "microblaze_0/microblaze_0/Area.Decode_I/ex_Valid_1st_cycle_0"
+(SFF) removed.
+            The signal
+"microblaze_0/microblaze_0/Area.Decode_I/ex_Valid_1st_cycle_0_not0001" is
+loadless and has been removed.
+             Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/ex_Valid_1st_cycle_0_not00011" (ROM)
+removed.
+            The signal "microblaze_0/microblaze_0/Area.Decode_I/ex_Valid_1st_cycle_0_or0000"
+is loadless and has been removed.
+             Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/ex_Valid_1st_cycle_0_or00001" (ROM)
+removed.
+        The signal "microblaze_0/N736" is loadless and has been removed.
+         Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/trace_valid_instr_part1_or0000_G" (ROM)
+removed.
+    The signal "microblaze_0/microblaze_0/Area.Decode_I/Blocked_Valid_Instr" is
+loadless and has been removed.
+     Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Blocked_Valid_Instr"
+(SFF) removed.
+      The signal "microblaze_0/microblaze_0/Area.Decode_I/Blocked_Valid_Instr_or0000"
+is loadless and has been removed.
+       Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/Blocked_Valid_Instr_or00001" (ROM)
+removed.
+The signal "microblaze_0/Trace_OF_PipeRun" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_OF_PipeRun" (SFF) removed.
+  The signal "microblaze_0/microblaze_0/of_PipeRun_inv" is loadless and has been
+removed.
+   Loadless block "microblaze_0/microblaze_0/of_PipeRun_inv1_INV_0" (BUF) removed.
+The signal "microblaze_0/Trace_PC<0>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_0" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<0>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<0>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Area.Decode_I/Use_Store_Instr_Addr" is
+loadless and has been removed.
+     Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Use_Store_Instr_Addr"
+(SFF) removed.
+      The signal "microblaze_0/microblaze_0/Area.Decode_I/Use_Store_Instr_Addr_or0000"
+is loadless and has been removed.
+       Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/Use_Store_Instr_Addr_or00001" (ROM)
+removed.
+        The signal
+"microblaze_0/microblaze_0/Area.Decode_I/Load_Store_Instr_Addr_Stored" is
+loadless and has been removed.
+         Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/Load_Store_Instr_Addr_Stored" (SFF)
+removed.
+          The signal "microblaze_0/microblaze_0/Load_Store_Instr_Addr" is loadless and has
+been removed.
+           Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/Load_Store_Instr_Addr_i_and00001" (ROM)
+removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<0>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_0" (FF) removed.
+The signal "microblaze_0/Trace_PC<1>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_1" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<1>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<1>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<1>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_1" (FF) removed.
+The signal "microblaze_0/Trace_PC<2>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_2" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<2>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<2>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<2>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_2" (FF) removed.
+The signal "microblaze_0/Trace_PC<3>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_3" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<3>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<3>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<3>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_3" (FF) removed.
+The signal "microblaze_0/Trace_PC<4>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_4" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<4>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<4>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<4>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_4" (FF) removed.
+The signal "microblaze_0/Trace_PC<5>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_5" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<5>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<5>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<5>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_5" (FF) removed.
+The signal "microblaze_0/Trace_PC<6>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_6" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<6>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<6>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<6>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_6" (FF) removed.
+The signal "microblaze_0/Trace_PC<7>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_7" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<7>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<7>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<7>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_7" (FF) removed.
+The signal "microblaze_0/Trace_PC<8>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_8" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<8>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<8>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<8>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_8" (FF) removed.
+The signal "microblaze_0/Trace_PC<9>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_9" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<9>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<9>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<9>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_9" (FF) removed.
+The signal "microblaze_0/Trace_PC<10>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_10" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<10>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<10>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<10>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_10" (FF) removed.
+The signal "microblaze_0/Trace_PC<11>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_11" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<11>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<11>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<11>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_11" (FF) removed.
+The signal "microblaze_0/Trace_PC<12>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_12" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<12>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<12>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<12>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_12" (FF) removed.
+The signal "microblaze_0/Trace_PC<13>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_13" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<13>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<13>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<13>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_13" (FF) removed.
+The signal "microblaze_0/Trace_PC<14>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_14" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<14>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<14>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<14>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_14" (FF) removed.
+The signal "microblaze_0/Trace_PC<15>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_15" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<15>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<15>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<15>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_15" (FF) removed.
+The signal "microblaze_0/Trace_PC<16>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_16" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<16>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<16>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<16>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_16" (FF) removed.
+The signal "microblaze_0/Trace_PC<17>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_17" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<17>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<17>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<17>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_17" (FF) removed.
+The signal "microblaze_0/Trace_PC<18>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_18" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<18>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<18>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<18>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_18" (FF) removed.
+The signal "microblaze_0/Trace_PC<19>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_19" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<19>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<19>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<19>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_19" (FF) removed.
+The signal "microblaze_0/Trace_PC<20>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_20" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<20>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<20>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<20>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_20" (FF) removed.
+The signal "microblaze_0/Trace_PC<21>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_21" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<21>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<21>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<21>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_21" (FF) removed.
+The signal "microblaze_0/Trace_PC<22>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_22" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<22>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<22>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<22>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_22" (FF) removed.
+The signal "microblaze_0/Trace_PC<23>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_23" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<23>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<23>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<23>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_23" (FF) removed.
+The signal "microblaze_0/Trace_PC<24>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_24" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<24>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<24>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<24>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_24" (FF) removed.
+The signal "microblaze_0/Trace_PC<25>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_25" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<25>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<25>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<25>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_25" (FF) removed.
+The signal "microblaze_0/Trace_PC<26>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_26" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<26>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<26>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<26>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_26" (FF) removed.
+The signal "microblaze_0/Trace_PC<27>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_27" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<27>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<27>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<27>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_27" (FF) removed.
+The signal "microblaze_0/Trace_PC<28>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_28" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<28>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<28>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<28>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_28" (FF) removed.
+The signal "microblaze_0/Trace_PC<29>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_29" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<29>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<29>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<29>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_29" (FF) removed.
+The signal "microblaze_0/Trace_PC<30>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_30" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<30>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<30>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<30>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_30" (FF) removed.
+The signal "microblaze_0/Trace_PC<31>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_PC_31" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Trace_PC_mux0001<31>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Trace_PC_mux0001<31>1" (ROM) removed.
+    The signal "microblaze_0/microblaze_0/Instr_Addr_Stored_1<31>" is loadless and
+has been removed.
+     Loadless block "microblaze_0/microblaze_0/Instr_Addr_Stored_1_31" (FF) removed.
+The signal "microblaze_0/Trace_Data_Byte_Enable<0>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Byte_Enable_0" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Byte_Enable<1>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Byte_Enable_1" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Byte_Enable<2>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Byte_Enable_2" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Byte_Enable<3>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Byte_Enable_3" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<0>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_0" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<1>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_1" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<2>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_2" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<3>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_3" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<4>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_4" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<5>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_5" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<6>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_6" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<7>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_7" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<8>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_8" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<9>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_9" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<10>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_10" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<11>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_11" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<12>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_12" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<13>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_13" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<14>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_14" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<15>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_15" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<16>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_16" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<17>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_17" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<18>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_18" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<19>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_19" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<20>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_20" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<21>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_21" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<22>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_22" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<23>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_23" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<24>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_24" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<25>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_25" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<26>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_26" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<27>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_27" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<28>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_28" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<29>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_29" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<30>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_30" (FF)
+removed.
+The signal "microblaze_0/Trace_Data_Write_Value<31>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Write_Value_31" (FF)
+removed.
+The signal "microblaze_0/Trace_Reg_Addr<0>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Reg_Addr_0" (FF) removed.
+The signal "microblaze_0/Trace_Reg_Addr<1>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Reg_Addr_1" (FF) removed.
+The signal "microblaze_0/Trace_Reg_Addr<2>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Reg_Addr_2" (FF) removed.
+The signal "microblaze_0/Trace_Reg_Addr<3>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Reg_Addr_3" (FF) removed.
+The signal "microblaze_0/Trace_Reg_Addr<4>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Reg_Addr_4" (FF) removed.
+The signal "microblaze_0/Trace_Exception_Kind<1>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Exception_Kind_1" (SFF) removed.
+  The signal "microblaze_0/N689" is loadless and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Exception_Kind<29>11"
+(ROM) removed.
+The signal "microblaze_0/Trace_Exception_Kind<2>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Exception_Kind_2" (FF) removed.
+  The signal "microblaze_0/microblaze_0/exception_kind<30>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Exception_Kind<30>1"
+(ROM) removed.
+The signal "microblaze_0/Trace_Exception_Kind<3>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Exception_Kind_3" (FF) removed.
+  The signal "microblaze_0/microblaze_0/exception_kind<31>" is loadless and has
+been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Exception_Kind<31>1"
+(ROM) removed.
+The signal "microblaze_0/Trace_MSR_Reg<7>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_MSR_Reg_7" (FF) removed.
+The signal "microblaze_0/Trace_MSR_Reg<8>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_MSR_Reg_8" (FF) removed.
+The signal "microblaze_0/Trace_MSR_Reg<9>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_MSR_Reg_9" (FF) removed.
+The signal "microblaze_0/Trace_MSR_Reg<10>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_MSR_Reg_10" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<0>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_0" (FF) removed.
+  The signal "dlmb_LMB_ABus<0>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<1>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_1" (FF) removed.
+  The signal "dlmb_LMB_ABus<1>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<2>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_2" (FF) removed.
+  The signal "dlmb_LMB_ABus<2>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<3>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_3" (FF) removed.
+  The signal "dlmb_LMB_ABus<3>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<4>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_4" (FF) removed.
+  The signal "dlmb_LMB_ABus<4>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<5>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_5" (FF) removed.
+  The signal "dlmb_LMB_ABus<5>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<6>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_6" (FF) removed.
+  The signal "dlmb_LMB_ABus<6>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<7>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_7" (FF) removed.
+  The signal "dlmb_LMB_ABus<7>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<8>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_8" (FF) removed.
+  The signal "dlmb_LMB_ABus<8>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<9>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_9" (FF) removed.
+  The signal "dlmb_LMB_ABus<9>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<10>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_10" (FF) removed.
+  The signal "dlmb_LMB_ABus<10>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<11>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_11" (FF) removed.
+  The signal "dlmb_LMB_ABus<11>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<12>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_12" (FF) removed.
+  The signal "dlmb_LMB_ABus<12>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<13>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_13" (FF) removed.
+  The signal "dlmb_LMB_ABus<13>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<14>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_14" (FF) removed.
+  The signal "dlmb_LMB_ABus<14>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<15>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_15" (FF) removed.
+  The signal "dlmb_LMB_ABus<15>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<16>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_16" (FF) removed.
+  The signal "dlmb_LMB_ABus<16>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<17>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_17" (FF) removed.
+  The signal "dlmb_LMB_ABus<17>" is loadless and has been removed.
+The signal "microblaze_0/Trace_Data_Address<18>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_18" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<19>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_19" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<20>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_20" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<21>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_21" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<22>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_22" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<23>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_23" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<24>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_24" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<25>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_25" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<26>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_26" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<27>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_27" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<28>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_28" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<29>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_29" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<30>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_30" (FF) removed.
+The signal "microblaze_0/Trace_Data_Address<31>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Data_Address_31" (FF) removed.
+The signal "microblaze_0/Trace_Instruction<0>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_0" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<0>" is loadless and
+has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_0" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<1>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_1" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<1>" is loadless and
+has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_1" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<2>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_2" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<2>" is loadless and
+has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_2" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<3>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_3" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<3>" is loadless and
+has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_3" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<4>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_4" (FF) removed.
+The signal "microblaze_0/Trace_Instruction<5>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_5" (FF) removed.
+The signal "microblaze_0/Trace_Instruction<6>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_6" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<6>" is loadless and
+has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_6" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<7>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_7" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<7>" is loadless and
+has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_7" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<8>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_8" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<8>" is loadless and
+has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_8" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<9>" is loadless and has been removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_9" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<9>" is loadless and
+has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_9" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<10>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_10" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<10>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_10" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<11>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_11" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<11>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_11" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<12>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_12" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<12>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_12" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<13>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_13" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<13>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_13" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<14>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_14" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<14>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_14" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<15>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_15" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<15>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_15" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<16>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_16" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<16>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_16" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<17>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_17" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<17>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_17" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<18>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_18" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<18>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_18" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<19>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_19" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<19>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_19" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<20>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_20" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<20>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_20" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<21>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_21" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<21>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_21" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<22>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_22" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<22>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_22" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<23>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_23" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<23>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_23" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<24>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_24" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<24>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_24" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<25>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_25" (FF) removed.
+The signal "microblaze_0/Trace_Instruction<26>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_26" (FF) removed.
+The signal "microblaze_0/Trace_Instruction<27>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_27" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<27>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_27" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<28>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_28" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<28>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_28" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<29>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_29" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<29>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_29" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<30>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_30" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<30>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_30" (SFF)
+removed.
+The signal "microblaze_0/Trace_Instruction<31>" is loadless and has been
+removed.
+ Loadless block "microblaze_0/microblaze_0/Trace_Instruction_31" (FF) removed.
+  The signal "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX<31>" is loadless
+and has been removed.
+   Loadless block "microblaze_0/microblaze_0/Area.Decode_I/Instr_EX_31" (SFF)
+removed.
+The signal
+"microblaze_0/microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[0].PC_
+Bit_I/MUXCY_X/LO" is loadless and has been removed.
+ Loadless block
+"microblaze_0/microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[0].PC_
+Bit_I/MUXCY_X/MUXCY_L_BUF" (BUF) removed.
+  The signal
+"microblaze_0/microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[0].PC_
+Bit_I/MUXCY_X/O" is loadless and has been removed.
+   Loadless block
+"microblaze_0/microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[0].PC_
+Bit_I/MUXCY_X" (MUX) removed.
+The signal
+"microblaze_0/microblaze_0/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFF
+s[1].buffer_Addr_MUXCY_L/LO" is loadless and has been removed.
+ Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFF
+s[1].buffer_Addr_MUXCY_L/MUXCY_L_BUF" (BUF) removed.
+  The signal
+"microblaze_0/microblaze_0/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFF
+s[1].buffer_Addr_MUXCY_L/O" is loadless and has been removed.
+   Loadless block
+"microblaze_0/microblaze_0/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFF
+s[1].buffer_Addr_MUXCY_L" (MUX) removed.
+The signal "mb_opb/OPB_hwAck" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_hwAck_I/Y_0_or00001" (ROM) removed.
+  The signal "ilmb_LMB_BE<0>" is loadless and has been removed.
+The signal "mb_opb/OPB_dwAck" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_dwAck_I/Y_0_or00001" (ROM) removed.
+The signal "mb_opb/OPB_dwXfer" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_dwXfer_I/Y_0_or00001" (ROM) removed.
+The signal "mb_opb/OPB_beXfer" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_beXfer_I/Y_0_or00001" (ROM) removed.
+The signal "mb_opb/OPB_fwXfer" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_fwXfer_I/Y_0_or00001" (ROM) removed.
+The signal "mb_opb/OPB_fwAck" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_fwAck_I/Y_0_or00001" (ROM) removed.
+The signal "mb_opb/OPB_hwXfer" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_hwXfer_I/Y_0_or00001" (ROM) removed.
+The signal "mb_opb/OPB_beAck" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_beAck_I/Y_0_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<0>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_0_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<1>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_1_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<2>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_2_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<3>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_3_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<4>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_4_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<5>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_5_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<6>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_6_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<7>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_7_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<8>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_8_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<9>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_9_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<10>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_10_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<11>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_11_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<12>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_12_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<13>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_13_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<14>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_14_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<15>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_15_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<16>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_16_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<17>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_17_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<18>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_18_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<19>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_19_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<20>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_20_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<21>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_21_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<22>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_22_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<23>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_23_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<24>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_24_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<25>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_25_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<26>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_26_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<27>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_27_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<28>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_28_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<29>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_29_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<30>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_30_or00001" (ROM) removed.
+The signal "mb_opb/OPB_wrDBus<31>" is loadless and has been removed.
+ Loadless block "mb_opb/mb_opb/OPB_wrDBus_I/Y_31_or00001" (ROM) removed.
+The signal "dcm_0/CLKFX180" is loadless and has been removed.
+The signal "dcm_0/CLKDV" is loadless and has been removed.
+The signal "dcm_0/CLKFX" is loadless and has been removed.
+The signal "dcm_0/CLK2X180" is loadless and has been removed.
+The signal "dcm_0/CLK180" is loadless and has been removed.
+The signal "dcm_0/CLK90" is loadless and has been removed.
+The signal "dcm_0/LOCKED" is loadless and has been removed.
+The signal "dcm_0/CLK2X" is loadless and has been removed.
+The signal "dcm_0/CLK270" is loadless and has been removed.
+The signal "dcm_0/PSDONE" is loadless and has been removed.
+The signal "dcm_0/STATUS<7>" is loadless and has been removed.
+The signal "dcm_0/STATUS<6>" is loadless and has been removed.
+The signal "dcm_0/STATUS<5>" is loadless and has been removed.
+The signal "dcm_0/STATUS<4>" is loadless and has been removed.
+The signal "dcm_0/STATUS<3>" is loadless and has been removed.
+The signal "dcm_0/STATUS<2>" is loadless and has been removed.
+The signal "dcm_0/STATUS<1>" is loadless and has been removed.
+The signal "dcm_0/STATUS<0>" is loadless and has been removed.
+The signal "dcm_0/N2" is loadless and has been removed.
+ Loadless block "dcm_0/XST_GND" (ZERO) removed.
+The signal "dcm_0/N3" is loadless and has been removed.
+ Loadless block "dcm_0/XST_VCC" (ONE) removed.
+The signal "opb_mdm_0/Interrupt" is loadless and has been removed.
+ Loadless block "opb_mdm_0/opb_mdm_0/MDM_Core_I1/Interrupt1" (ROM) removed.
+  The signal "opb_mdm_0/opb_mdm_0/MDM_Core_I1/tx_Buffer_Empty_Pre" is loadless and
+has been removed.
+   Loadless block "opb_mdm_0/opb_mdm_0/MDM_Core_I1/TX_Buffer_Empty_FDRE" (SFF)
+removed.
+    The signal "opb_mdm_0/opb_mdm_0/MDM_Core_I1/tx_Buffer_Empty" is loadless and has
+been removed.
+     Loadless block
+"opb_mdm_0/opb_mdm_0/MDM_Core_I1/JTAG_CONTROL_I/TX_Buffer_Empty1_INV_0" (BUF)
+removed.
+The signal "opb_mdm_0/bscan_drck1" is loadless and has been removed.
+ Loadless block "opb_mdm_0/opb_mdm_0/BUFG_DRCK1" (CKBUF) removed.
+  The signal "opb_mdm_0/opb_mdm_0/drck1_i" is loadless and has been removed.
+The signal "opb_mdm_0/bscan_reset" is loadless and has been removed.
+The signal "opb_mdm_0/bscan_sel1" is loadless and has been removed.
+Loadless block
+"dip_switches_4bit/dip_switches_4bit/OPB_IPIF_I/OPB_BAM_I/PER_AR_GEN[0].PER_CE_G
+EN[0].MULTIPLE_CES_THIS_CS_GEN.CE_I/XST_WA.GEN_DECODE[0].MUXCY_I" (MUX) removed.
+ The signal
+"dip_switches_4bit/dip_switches_4bit/OPB_IPIF_I/OPB_BAM_I/PER_AR_GEN[0].PER_CE_G
+EN[0].MULTIPLE_CES_THIS_CS_GEN.CE_I/lut_out<0>" is loadless and has been
+removed.
+  Loadless block
+"dip_switches_4bit/dip_switches_4bit/OPB_IPIF_I/OPB_BAM_I/PER_AR_GEN[0].PER_CE_G
+EN[0].MULTIPLE_CES_THIS_CS_GEN.CE_I/lut_out_0_not00001_INV_0" (BUF) removed.
+   The signal
+"dip_switches_4bit/dip_switches_4bit/OPB_IPIF_I/OPB_BAM_I/opb_abus_s0<29>" is
+loadless and has been removed.
+    Loadless block
+"dip_switches_4bit/dip_switches_4bit/OPB_IPIF_I/OPB_BAM_I/opb_abus_s0_29" (FF)
+removed.
+Loadless block
+"dip_switches_4bit/dip_switches_4bit/OPB_IPIF_I/OPB_BAM_I/PER_AR_GEN[0].PER_CE_G
+EN[1].MULTIPLE_CES_THIS_CS_GEN.CE_I/XST_WA.GEN_DECODE[0].MUXCY_I" (MUX) removed.
+ The signal
+"dip_switches_4bit/dip_switches_4bit/OPB_IPIF_I/OPB_BAM_I/PER_AR_GEN[0].PER_CE_G
+EN[1].MULTIPLE_CES_THIS_CS_GEN.CE_I/XST_WA.GEN_DECODE[0].MUXCY_I_rt" is loadless
+and has been removed.
+  Loadless block
+"dip_switches_4bit/dip_switches_4bit/OPB_IPIF_I/OPB_BAM_I/PER_AR_GEN[0].PER_CE_G
+EN[1].MULTIPLE_CES_THIS_CS_GEN.CE_I/XST_WA.GEN_DECODE[0].MUXCY_I_rt" (ROM)
+removed.
+Loadless block
+"leds_8bit/leds_8bit/OPB_IPIF_I/OPB_BAM_I/PER_AR_GEN[0].PER_CE_GEN[0].MULTIPLE_C
+ES_THIS_CS_GEN.CE_I/XST_WA.GEN_DECODE[0].MUXCY_I" (MUX) removed.
+ The signal
+"leds_8bit/leds_8bit/OPB_IPIF_I/OPB_BAM_I/PER_AR_GEN[0].PER_CE_GEN[0].MULTIPLE_C
+ES_THIS_CS_GEN.CE_I/lut_out<0>" is loadless and has been removed.
+  Loadless block
+"leds_8bit/leds_8bit/OPB_IPIF_I/OPB_BAM_I/PER_AR_GEN[0].PER_CE_GEN[0].MULTIPLE_C
+ES_THIS_CS_GEN.CE_I/lut_out_0_not00001_INV_0" (BUF) removed.
+Loadless block
+"leds_8bit/leds_8bit/OPB_IPIF_I/OPB_BAM_I/PER_AR_GEN[0].PER_CE_GEN[1].MULTIPLE_C
+ES_THIS_CS_GEN.CE_I/XST_WA.GEN_DECODE[0].MUXCY_I" (MUX) removed.
+ The signal
+"leds_8bit/leds_8bit/OPB_IPIF_I/OPB_BAM_I/PER_AR_GEN[0].PER_CE_GEN[1].MULTIPLE_C
+ES_THIS_CS_GEN.CE_I/XST_WA.GEN_DECODE[0].MUXCY_I_rt" is loadless and has been
+removed.
+  Loadless block
+"leds_8bit/leds_8bit/OPB_IPIF_I/OPB_BAM_I/PER_AR_GEN[0].PER_CE_GEN[1].MULTIPLE_C
+ES_THIS_CS_GEN.CE_I/XST_WA.GEN_DECODE[0].MUXCY_I_rt" (ROM) removed.
+The signal "lmb_bram/N2" is sourceless and has been removed.
+The signal "lmb_bram/N3" is sourceless and has been removed.
+The signal "lmb_bram/lmb_bram/N0" is sourceless and has been removed.
+The signal "lmb_bram/lmb_bram/N1" is sourceless and has been removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "ilmb_LMB_ABus<0>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<1>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<2>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<3>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<4>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<5>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<6>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<7>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<8>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<9>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<10>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<11>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<12>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<13>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<14>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<15>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<16>" is unused and has been removed.
+The signal "ilmb_LMB_ABus<17>" is unused and has been removed.
+The signal
+"microblaze_0/microblaze_0/Area.Implement_Debug_Logic.Debug_I/Want_to_Stop_not00
+01" is unused and has been removed.
+The signal
+"microblaze_0/microblaze_0/Area.Implement_Debug_Logic.Debug_I/dbg_stop_i_not0001
+" is unused and has been removed.
+The signal
+"microblaze_0/microblaze_0/Area.Implement_Debug_Logic.Debug_I/dbg_stop_i_mux0000
+" is unused and has been removed.
+ Unused block
+"microblaze_0/microblaze_0/Area.Implement_Debug_Logic.Debug_I/dbg_stop_i_mux0000
+1" (ROM) removed.
+The signal
+"microblaze_0/microblaze_0/Area.Implement_Debug_Logic.Debug_I/dbg_stop_i" is
+unused and has been removed.
+The signal
+"microblaze_0/microblaze_0/Area.Implement_Debug_Logic.Debug_I/control_reg<3>" is
+unused and has been removed.
+ Unused block
+"microblaze_0/microblaze_0/Area.Implement_Debug_Logic.Debug_I/control_reg_3"
+(FF) removed.
+The signal
+"microblaze_0/microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/valid_retry" is
+unused and has been removed.
+The signal
+"microblaze_0/microblaze_0/Area.Using_Ext_Databus.Using_D_OPB.DOPB_Interface_I2/
+valid_retry" is unused and has been removed.
+The signal "mb_opb/mb_opb/OPB_toutSup_inv" is unused and has been removed.
+Unused block "lmb_bram/XST_GND" (ZERO) removed.
+Unused block "lmb_bram/XST_VCC" (ONE) removed.
+Unused block "lmb_bram/lmb_bram/XST_GND" (ZERO) removed.
+Unused block "lmb_bram/lmb_bram/XST_VCC" (ONE) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+GND 		dip_switches_4bit/XST_GND
+VCC 		dip_switches_4bit/XST_VCC
+GND 		dlmb/XST_GND
+VCC 		dlmb/XST_VCC
+GND 		dlmb_cntlr/XST_GND
+VCC 		dlmb_cntlr/XST_VCC
+GND 		ilmb/XST_GND
+VCC 		ilmb/XST_VCC
+GND 		ilmb_cntlr/XST_GND
+VCC 		ilmb_cntlr/XST_VCC
+LUT4 		ilmb_cntlr/ilmb_cntlr/lmb_we_0_and00001
+LUT4 		ilmb_cntlr/ilmb_cntlr/lmb_we_1_and00001
+LUT4 		ilmb_cntlr/ilmb_cntlr/lmb_we_2_and00001
+LUT4 		ilmb_cntlr/ilmb_cntlr/lmb_we_3_and00001
+GND 		leds_8bit/XST_GND
+VCC 		leds_8bit/XST_VCC
+FD 		leds_8bit/leds_8bit/gpio_core_1/gpio_Data_In_0
+   optimized to 0
+FD 		leds_8bit/leds_8bit/gpio_core_1/gpio_Data_In_1
+   optimized to 0
+FD 		leds_8bit/leds_8bit/gpio_core_1/gpio_Data_In_2
+   optimized to 0
+FD 		leds_8bit/leds_8bit/gpio_core_1/gpio_Data_In_3
+   optimized to 0
+FD 		leds_8bit/leds_8bit/gpio_core_1/gpio_Data_In_4
+   optimized to 0
+FD 		leds_8bit/leds_8bit/gpio_core_1/gpio_Data_In_5
+   optimized to 0
+FD 		leds_8bit/leds_8bit/gpio_core_1/gpio_Data_In_6
+   optimized to 0
+FD 		leds_8bit/leds_8bit/gpio_core_1/gpio_Data_In_7
+   optimized to 0
+GND 		mb_opb/XST_GND
+VCC 		mb_opb/XST_VCC
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_errAck_I/Y_0_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_0_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_10_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_11_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_12_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_13_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_14_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_15_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_16_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_17_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_18_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_19_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_1_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_20_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_21_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_22_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_23_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_2_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_3_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_4_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_5_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_6_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_7_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_8_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_rdDBus_I/Y_9_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_retry_I/Y_0_or00001
+LUT3 		mb_opb/mb_opb/ARBITER_HAS_NO_PROC_INTF.OPB_toutSup_I/Y_0_or00001
+LUT3 		mb_opb/mb_opb/OPB_toutSup_inv1
+GND 		microblaze_0/XST_GND
+VCC 		microblaze_0/XST_VCC
+LUT4 		microblaze_0/microblaze_0/Area.Decode_I/take_intr_0_and000011
+FDRE 		microblaze_0/microblaze_0/Area.Implement_Debug_Logic.Debug_I/Want_to_Stop
+   optimized to 0
+LUT2
+		microblaze_0/microblaze_0/Area.Implement_Debug_Logic.Debug_I/Want_to_Stop_not0
+0011
+FDRE 		microblaze_0/microblaze_0/Area.Implement_Debug_Logic.Debug_I/dbg_stop_i
+   optimized to 0
+LUT3
+		microblaze_0/microblaze_0/Area.Implement_Debug_Logic.Debug_I/dbg_stop_i_not000
+11
+LUT2
+		microblaze_0/microblaze_0/Area.Using_Ext_Databus.Using_D_OPB.DOPB_Interface_I2
+/valid_retry1
+FDR
+		microblaze_0/microblaze_0/Area.Using_Ext_Databus.Using_D_OPB.DOPB_Interface_I2
+/valid_retry_d1
+   optimized to 0
+LUT2 		microblaze_0/microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/access_error1
+LUT2 		microblaze_0/microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/valid_retry1
+FDR 		microblaze_0/microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/valid_retry_d1
+   optimized to 0
+GND 		opb_mdm_0/XST_GND
+VCC 		opb_mdm_0/XST_VCC
+MUXCY_L
+		microblaze_0/microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[31].P
+C_Bit_I/MUXCY_X
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | IOB Type         | Direction | IO Standard | Drive    | Slew | Reg (s)      | Resistor | IBUF/IFD  |
+|                                    |                  |           |             | Strength | Rate |              |          | Delay     |
++-----------------------------------------------------------------------------------------------------------------------------------------+
+| fpga_0_DIP_Switches_4Bit_GPIO_in_p | IBUF             | INPUT     | LVCMOS33    |          |      | IFF1         | PULLDOWN | 0 / 2     |
+| in<0>                              |                  |           |             |          |      |              |          |           |
+| fpga_0_DIP_Switches_4Bit_GPIO_in_p | IBUF             | INPUT     | LVCMOS33    |          |      | IFF1         | PULLDOWN | 0 / 2     |
+| in<1>                              |                  |           |             |          |      |              |          |           |
+| fpga_0_DIP_Switches_4Bit_GPIO_in_p | IBUF             | INPUT     | LVCMOS33    |          |      | IFF1         | PULLDOWN | 0 / 2     |
+| in<2>                              |                  |           |             |          |      |              |          |           |
+| fpga_0_DIP_Switches_4Bit_GPIO_in_p | IBUF             | INPUT     | LVCMOS33    |          |      | IFF1         | PULLDOWN | 0 / 2     |
+| in<3>                              |                  |           |             |          |      |              |          |           |
+| fpga_0_LEDs_8Bit_GPIO_d_out_pin<0> | IOB              | OUTPUT    | LVCMOS33    | 12       | SLOW | OFF1         |          | 0 / 0     |
+| fpga_0_LEDs_8Bit_GPIO_d_out_pin<1> | IOB              | OUTPUT    | LVCMOS33    | 12       | SLOW | OFF1         |          | 0 / 0     |
+| fpga_0_LEDs_8Bit_GPIO_d_out_pin<2> | IOB              | OUTPUT    | LVCMOS33    | 12       | SLOW | OFF1         |          | 0 / 0     |
+| fpga_0_LEDs_8Bit_GPIO_d_out_pin<3> | IOB              | OUTPUT    | LVCMOS33    | 12       | SLOW | OFF1         |          | 0 / 0     |
+| fpga_0_LEDs_8Bit_GPIO_d_out_pin<4> | IOB              | OUTPUT    | LVCMOS33    | 12       | SLOW | OFF1         |          | 0 / 0     |
+| fpga_0_LEDs_8Bit_GPIO_d_out_pin<5> | IOB              | OUTPUT    | LVCMOS33    | 12       | SLOW | OFF1         |          | 0 / 0     |
+| fpga_0_LEDs_8Bit_GPIO_d_out_pin<6> | IOB              | OUTPUT    | LVCMOS33    | 12       | SLOW | OFF1         |          | 0 / 0     |
+| fpga_0_LEDs_8Bit_GPIO_d_out_pin<7> | IOB              | OUTPUT    | LVCMOS33    | 12       | SLOW | OFF1         |          | 0 / 0     |
+| sys_clk_pin                        | IBUF             | INPUT     | LVCMOS33    |          |      |              |          | 0 / 0     |
+| sys_rst_pin                        | IBUF             | INPUT     | LVCMOS33    |          |      |              | PULLDOWN | 0 / 0     |
++-----------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+
+----------------------
+
+Section 10 - Modular Design Summary
+-----------------------------------
+Modular Design not used for this design.
+
+Section 11 - Timing Report
+--------------------------
+This design was not run using timing mode.
+
+Section 12 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings

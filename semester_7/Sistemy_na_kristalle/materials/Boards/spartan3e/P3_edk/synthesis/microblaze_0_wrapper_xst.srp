@@ -1,0 +1,2349 @@
+Release 9.1i - xst J.30
+Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+--> 
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+     9.1) Device utilization summary
+     9.2) Partition Resource Summary
+     9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input Format                       : MIXED
+Input File Name                    : "microblaze_0_wrapper_xst.prj"
+
+---- Target Parameters
+Target Device                      : xc3s500efg320-4
+Output File Name                   : "../implementation/microblaze_0_wrapper.ngc"
+
+---- Source Options
+Top Module Name                    : microblaze_0_wrapper
+
+---- Target Options
+Add IO Buffers                     : NO
+
+---- General Options
+Optimization Goal                  : speed
+Optimization Effort                : 1
+Hierarchy Separator                : /
+
+---- Other Options
+Cores Search Directories           : {../implementation}
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/microblaze_types_pkg.vhd" in Library microblaze_v6_00_a.
+Package <MicroBlaze_Types> compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/microblaze_types_pkg_body.vhd" in Library microblaze_v6_00_a.
+Package body <MicroBlaze_Types> compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/microblaze_isa_be_pkg.vhd" in Library microblaze_v6_00_a.
+Package <MicroBlaze_ISA> compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/find_first_bit.vhd" in Library microblaze_v6_00_a.
+Entity <find_first_bit> compiled.
+Entity <find_first_bit> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/fpu_addsub.vhd" in Library microblaze_v6_00_a.
+Entity <FPU_ADDSUB> compiled.
+Entity <FPU_ADDSUB> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/fpu_mul.vhd" in Library microblaze_v6_00_a.
+Entity <FPU_MUL> compiled.
+Entity <FPU_MUL> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/fpu_div.vhd" in Library microblaze_v6_00_a.
+Entity <FPU_DIV> compiled.
+Entity <FPU_DIV> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/wb_mux_bit_gti.vhd" in Library microblaze_v6_00_a.
+Entity <WB_Mux_Bit> compiled.
+Entity <WB_Mux_Bit> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/dsp_module.vhd" in Library microblaze_v6_00_a.
+Entity <dsp_module> compiled.
+Entity <dsp_module> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/alu_bit.vhd" in Library microblaze_v6_00_a.
+Entity <ALU_Bit> compiled.
+Entity <ALU_Bit> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/mux4.vhd" in Library microblaze_v6_00_a.
+Entity <mux4> compiled.
+Entity <mux4> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/pc_bit.vhd" in Library microblaze_v6_00_a.
+Entity <PC_Bit> compiled.
+Entity <PC_Bit> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/msr_reg_bit.vhd" in Library microblaze_v6_00_a.
+Entity <MSR_Reg_Bit> compiled.
+Entity <MSR_Reg_Bit> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/result_mux_bit.vhd" in Library microblaze_v6_00_a.
+Entity <Result_Mux_Bit> compiled.
+Entity <Result_Mux_Bit> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/shift_logic_bit.vhd" in Library microblaze_v6_00_a.
+Entity <Shift_Logic_Bit> compiled.
+Entity <Shift_Logic_Bit> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/carry_equal.vhd" in Library microblaze_v6_00_a.
+Entity <carry_equal> compiled.
+Entity <carry_equal> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/operand_select_bit.vhd" in Library microblaze_v6_00_a.
+Entity <Operand_Select_Bit> compiled.
+Entity <Operand_Select_Bit> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/register_file_bit.vhd" in Library microblaze_v6_00_a.
+Entity <Register_File_Bit> compiled.
+Entity <Register_File_Bit> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/address_hit.vhd" in Library microblaze_v6_00_a.
+Entity <address_hit> compiled.
+Entity <address_hit> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/address_data_hit.vhd" in Library microblaze_v6_00_a.
+Entity <address_data_hit> compiled.
+Entity <address_data_hit> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/ram_module.vhd" in Library microblaze_v6_00_a.
+Entity <RAM_Module> compiled.
+Entity <RAM_Module> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/comparator.vhd" in Library microblaze_v6_00_a.
+Entity <comparator> compiled.
+Entity <comparator> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/carry_and.vhd" in Library microblaze_v6_00_a.
+Entity <carry_and> compiled.
+Entity <carry_and> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/carry_or.vhd" in Library microblaze_v6_00_a.
+Entity <carry_or> compiled.
+Entity <carry_or> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/register_file_gti.vhd" in Library microblaze_v6_00_a.
+Entity <Register_File_gti> compiled.
+Entity <Register_File_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/operand_select_gti.vhd" in Library microblaze_v6_00_a.
+Entity <Operand_Select_gti> compiled.
+Entity <Operand_Select_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/alu.vhd" in Library microblaze_v6_00_a.
+Entity <ALU> compiled.
+Entity <ALU> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/shift_logic_gti.vhd" in Library microblaze_v6_00_a.
+Entity <Shift_Logic_Module_gti> compiled.
+Entity <Shift_Logic_Module_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/mul_unit.vhd" in Library microblaze_v6_00_a.
+Entity <mul_unit> compiled.
+Entity <mul_unit> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/barrel_shifter_gti.vhd" in Library microblaze_v6_00_a.
+Entity <Barrel_Shifter_gti> compiled.
+Entity <Barrel_Shifter_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/wb_mux_gti.vhd" in Library microblaze_v6_00_a.
+Entity <WB_Mux> compiled.
+Entity <WB_Mux> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/zero_detect_gti.vhd" in Library microblaze_v6_00_a.
+Entity <Zero_Detect_gti> compiled.
+Entity <Zero_Detect_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/byte_doublet_handle_gti.vhd" in Library microblaze_v6_00_a.
+Entity <Byte_Doublet_Handle_gti> compiled.
+Entity <Byte_Doublet_Handle_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/data_flow_logic_gti.vhd" in Library microblaze_v6_00_a.
+Entity <Data_Flow_Logic> compiled.
+Entity <Data_Flow_Logic> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/msr_reg_gti.vhd" in Library microblaze_v6_00_a.
+Entity <msr_reg_gti> compiled.
+Entity <msr_reg_gti> (Architecture <msr_reg>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/exception_registers_gti.vhd" in Library microblaze_v6_00_a.
+Entity <exception_registers_gti> compiled.
+Entity <exception_registers_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/fsl_module_gti.vhd" in Library microblaze_v6_00_a.
+Entity <FSL_Module_gti> compiled.
+Entity <FSL_Module_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/div_unit_gti.vhd" in Library microblaze_v6_00_a.
+Entity <Div_unit_gti> compiled.
+Entity <Div_unit_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/fpu.vhd" in Library microblaze_v6_00_a.
+Entity <Fpu> compiled.
+Entity <Fpu> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/pvr.vhd" in Library microblaze_v6_00_a.
+Entity <PVR> compiled.
+Entity <PVR> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/pc_module_gti.vhd" in Library microblaze_v6_00_a.
+Entity <PC_Module_gti> compiled.
+Entity <PC_Module_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/prefetch_buffer_gti.vhd" in Library microblaze_v6_00_a.
+Entity <PreFetch_Buffer_gti> compiled.
+Entity <PreFetch_Buffer_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/jump_logic_gti.vhd" in Library microblaze_v6_00_a.
+Entity <jump_logic> compiled.
+Entity <jump_logic> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/data_read_steering.vhd" in Library microblaze_v6_00_a.
+Entity <Data_Read_Steering> compiled.
+Entity <Data_Read_Steering> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/mux4_8.vhd" in Library microblaze_v6_00_a.
+Entity <mux4_8> compiled.
+Entity <mux4_8> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/register_file.vhd" in Library microblaze_v6_00_a.
+Entity <Register_File> compiled.
+Entity <Register_File> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/operand_select.vhd" in Library microblaze_v6_00_a.
+Entity <Operand_Select> compiled.
+Entity <Operand_Select> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/shift_logic.vhd" in Library microblaze_v6_00_a.
+Entity <Shift_Logic_Module> compiled.
+Entity <Shift_Logic_Module> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/barrel_shifter.vhd" in Library microblaze_v6_00_a.
+Entity <barrel_shift> compiled.
+Entity <barrel_shift> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/div_unit.vhd" in Library microblaze_v6_00_a.
+Entity <Div_unit> compiled.
+Entity <Div_unit> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/result_mux.vhd" in Library microblaze_v6_00_a.
+Entity <Result_Mux> compiled.
+Entity <Result_Mux> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/zero_detect.vhd" in Library microblaze_v6_00_a.
+Entity <Zero_Detect> compiled.
+Entity <Zero_Detect> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/msr_reg.vhd" in Library microblaze_v6_00_a.
+Entity <MSR_Reg> compiled.
+Entity <MSR_Reg> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/pc_module.vhd" in Library microblaze_v6_00_a.
+Entity <PC_Module> compiled.
+Entity <PC_Module> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/prefetch_buffer.vhd" in Library microblaze_v6_00_a.
+Entity <PreFetch_Buffer> compiled.
+Entity <PreFetch_Buffer> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/interrupt_mode_converter.vhd" in Library microblaze_v6_00_a.
+Entity <interrupt_mode_converter> compiled.
+Entity <interrupt_mode_converter> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/decode.vhd" in Library microblaze_v6_00_a.
+Entity <Decode> compiled.
+Entity <Decode> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/data_flow.vhd" in Library microblaze_v6_00_a.
+Entity <Data_Flow> compiled.
+Entity <Data_Flow> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/byte_doublet_handle.vhd" in Library microblaze_v6_00_a.
+Entity <Byte_Doublet_Handle> compiled.
+Entity <Byte_Doublet_Handle> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/dopb_interface.vhd" in Library microblaze_v6_00_a.
+Entity <DOPB_Interface> compiled.
+Entity <DOPB_Interface> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/iopb_interface.vhd" in Library microblaze_v6_00_a.
+Entity <IOPB_Interface> compiled.
+Entity <IOPB_Interface> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/debug.vhd" in Library microblaze_v6_00_a.
+Entity <Debug> compiled.
+Entity <Debug> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/fsl_module.vhd" in Library microblaze_v6_00_a.
+Entity <FSL_Module> compiled.
+Entity <FSL_Module> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/icache.vhd" in Library microblaze_v6_00_a.
+Entity <ICache> compiled.
+Entity <ICache> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/dcache.vhd" in Library microblaze_v6_00_a.
+Entity <DCache> compiled.
+Entity <DCache> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/exception_registers.vhd" in Library microblaze_v6_00_a.
+Entity <exception_registers> compiled.
+Entity <exception_registers> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/instr_mux.vhd" in Library microblaze_v6_00_a.
+Entity <instr_mux> compiled.
+Entity <instr_mux> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/decode_gti.vhd" in Library microblaze_v6_00_a.
+Entity <Decode_gti> compiled.
+Entity <Decode_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/data_flow_gti.vhd" in Library microblaze_v6_00_a.
+Entity <Data_Flow_gti> compiled.
+Entity <Data_Flow_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/read_data_mux_gti.vhd" in Library microblaze_v6_00_a.
+Entity <read_data_mux> compiled.
+Entity <read_data_mux> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/dcache_gti.vhd" in Library microblaze_v6_00_a.
+Entity <DCache_gti> compiled.
+Entity <DCache_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/icache_gti.vhd" in Library microblaze_v6_00_a.
+Entity <ICache_gti> compiled.
+Entity <ICache_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/debug_gti.vhd" in Library microblaze_v6_00_a.
+Entity <Debug_gti> compiled.
+Entity <Debug_gti> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/carry_and_or.vhd" in Library microblaze_v6_00_a.
+Entity <carry_and_or> compiled.
+Entity <carry_and_or> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/carry_or_vec.vhd" in Library microblaze_v6_00_a.
+Entity <carry_or_vec> compiled.
+Entity <carry_or_vec> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/all_zero_detect.vhd" in Library microblaze_v6_00_a.
+Entity <all_zero_detect> compiled.
+Entity <all_zero_detect> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/all_one_detect.vhd" in Library microblaze_v6_00_a.
+Entity <all_one_detect> compiled.
+Entity <all_one_detect> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/mux2_8.vhd" in Library microblaze_v6_00_a.
+Entity <mux2_8> compiled.
+Entity <mux2_8> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/add_sub_with_const.vhd" in Library microblaze_v6_00_a.
+Entity <add_sub_with_const> compiled.
+Entity <add_sub_with_const> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/subtract_with_borrow.vhd" in Library microblaze_v6_00_a.
+Entity <subtract_with_borrow> compiled.
+Entity <subtract_with_borrow> (Architecture <IMP>) compiled.
+Compiling vhdl file "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/microblaze.vhd" in Library microblaze_v6_00_a.
+Entity <MicroBlaze> compiled.
+Entity <MicroBlaze> (Architecture <IMP>) compiled.
+Compiling vhdl file "F:/zRabG/Xlnx/UPR2007/P3_edk/hdl/microblaze_0_wrapper.vhd" in Library work.
+Entity <microblaze_0_wrapper> compiled.
+Entity <microblaze_0_wrapper> (Architecture <STRUCTURE>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <microblaze_0_wrapper> in library <work> (architecture <STRUCTURE>).
+
+Analyzing hierarchy for entity <microblaze> in library <microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_ADDR_TAG_BITS = 0
+	C_ALLOW_DCACHE_WR = 1
+	C_ALLOW_ICACHE_WR = 1
+	C_AREA_OPTIMIZED = 1
+	C_CACHE_BYTE_SIZE = 8192
+	C_D_LMB = 1
+	C_D_OPB = 1
+	C_DATA_SIZE = 32
+	C_DCACHE_ADDR_TAG = 0
+	C_DCACHE_BASEADDR = "00000000000000000000000000000000"
+	C_DCACHE_BYTE_SIZE = 8192
+	C_DCACHE_HIGHADDR = "00111111111111111111111111111111"
+	C_DCACHE_LINE_LEN = 4
+	C_DCACHE_USE_FSL = 1
+	C_DEBUG_ENABLED = 0
+	C_DIV_ZERO_EXCEPTION = 0
+	C_DOPB_BUS_EXCEPTION = 0
+	C_DYNAMIC_BUS_SIZING = 1
+	C_EDGE_IS_POSITIVE = 1
+	C_FAMILY = "spartan3e"
+	C_FPU_EXCEPTION = 0
+	C_FSL_DATA_SIZE = 32
+	C_FSL_LINKS = 0
+	C_I_LMB = 1
+	C_I_OPB = 1
+	C_ICACHE_BASEADDR = "00000000000000000000000000000000"
+	C_ICACHE_HIGHADDR = "00111111111111111111111111111111"
+	C_ICACHE_LINE_LEN = 4
+	C_ICACHE_USE_FSL = 1
+	C_ILL_OPCODE_EXCEPTION = 0
+	C_INSTANCE = "microblaze_0"
+	C_INTERRUPT_IS_EDGE = 0
+	C_IOPB_BUS_EXCEPTION = 0
+	C_NUMBER_OF_PC_BRK = 1
+	C_NUMBER_OF_RD_ADDR_BRK = 0
+	C_NUMBER_OF_WR_ADDR_BRK = 0
+	C_OPCODE_0x0_ILLEGAL = 0
+	C_PVR = 0
+	C_PVR_USER1 = "00000000"
+	C_PVR_USER2 = "00000000000000000000000000000000"
+	C_RESET_MSR = "00000000000000000000000000000000"
+	C_SCO = 0
+	C_UNALIGNED_EXCEPTIONS = 0
+	C_USE_BARREL = 0
+	C_USE_DCACHE = 0
+	C_USE_DIV = 0
+	C_USE_FPU = 0
+	C_USE_HW_MUL = 1
+	C_USE_ICACHE = 0
+	C_USE_MSR_INSTR = 1
+	C_USE_PCMP_INSTR = 1
+
+Analyzing hierarchy for entity <interrupt_mode_converter> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_INTERRUPT_IS_EDGE = false
+	C_EDGE_IS_POSITIVE = true
+
+Analyzing hierarchy for entity <Decode> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_DATA_SIZE = 32
+	C_DEBUG_ENABLED = 0
+	C_DETECT_OPCODE_0x0 = false
+	C_DIV_ZERO_EXCEPTION = 0
+	C_DOPB_BUS_EXCEPTION = 0
+	C_DPLB_BUS_EXCEPTION = 0
+	C_FPU_EXCEPTION = 0
+	C_FSL_LINKS = 0
+	C_ILL_OPCODE_EXCEPTION = 0
+	C_IOPB_BUS_EXCEPTION = 0
+	C_IPLB_BUS_EXCEPTION = 0
+	C_PVR = 0
+	C_TARGET = "spartan3e"
+	C_UNALIGNED_EXCEPTIONS = 0
+	C_USE_BARREL = 0
+	C_USE_DCACHE = 0
+	C_USE_DIV = 0
+	C_USE_FPU_bool = false
+	C_USE_ICACHE = 0
+	C_USE_MSR_INSTR = 1
+	C_USE_MUL64 = false
+	C_USE_MUL_INSTR = true
+	C_USE_PCMP_INSTR = true
+
+Analyzing hierarchy for entity <Data_Flow> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_ADDR_TAG_BITS = 0
+	C_ALLOW_DCACHE_WR = 1
+	C_ALLOW_ICACHE_WR = 1
+	C_AREA_OPTIMIZED = 1
+	C_BUFFER_SIZE = 16
+	C_CACHE_BYTE_SIZE = 8192
+	C_D_LMB = 1
+	C_D_OPB = 1
+	C_D_PLB = 0
+	C_DATA_SIZE = 32
+	C_DCACHE_ADDR_TAG = 0
+	C_DCACHE_BASEADDR = "00000000000000000000000000000000"
+	C_DCACHE_BYTE_SIZE = 8192
+	C_DCACHE_HIGHADDR = "00111111111111111111111111111111"
+	C_DCACHE_LINE_LEN = 4
+	C_DCACHE_USE_FSL = 1
+	C_DEBUG_ENABLED = 0
+	C_DIV_ZERO_EXCEPTION = 0
+	C_DOPB_BUS_EXCEPTION = 0
+	C_DPLB_BUS_EXCEPTION = 0
+	C_EDGE_IS_POSITIVE = 1
+	C_EXCEPTION_ADDR = "00000020"
+	C_EXT_BRK_ADDR = "00000018"
+	C_FPU_EXCEPTION = 0
+	C_FSL_LINKS = 0
+	C_I_LMB = 1
+	C_I_OPB = 1
+	C_I_PLB = 0
+	C_ICACHE_BASEADDR = "00000000000000000000000000000000"
+	C_ICACHE_HIGHADDR = "00111111111111111111111111111111"
+	C_ICACHE_LINE_LEN = 4
+	C_ICACHE_USE_FSL = 1
+	C_ILL_OPCODE_EXCEPTION = 0
+	C_INTERCONNECT = 0
+	C_INTERRUPT_ADDR = "00000010"
+	C_INTERRUPT_IS_EDGE = 0
+	C_IOPB_BUS_EXCEPTION = 0
+	C_IPLB_BUS_EXCEPTION = 0
+	C_MB_VERSION = "00000100"
+	C_NUMBER_OF_PC_BRK = 1
+	C_NUMBER_OF_RD_ADDR_BRK = 0
+	C_NUMBER_OF_WR_ADDR_BRK = 0
+	C_OPCODE_0x0_ILLEGAL = 0
+	C_PC_START_ADDR = "00000000"
+	C_PVR = 0
+	C_PVR_USER1 = "00000000"
+	C_PVR_USER2 = "00000000000000000000000000000000"
+	C_RESET_MSR = "00000000000"
+	C_TARGET = "spartan3e"
+	C_UNALIGNED_EXCEPTIONS = 0
+	C_USE_BARREL = 0
+	C_USE_DCACHE = 0
+	C_USE_DIV = 0
+	C_USE_EXCEPTIONS = false
+	C_USE_FPU_bool = false
+	C_USE_HW_MUL = true
+	C_USE_ICACHE = 0
+	C_USE_MSR_INSTR = 1
+	C_USE_MUL64 = false
+	C_USE_PCMP_INSTR = true
+
+Analyzing hierarchy for entity <Byte_Doublet_Handle> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_DATA_SIZE = 32
+	C_OPB_WIDTH = 32
+	C_TARGET = "spartan3e"
+
+Analyzing hierarchy for entity <DOPB_Interface> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_DELAYED_DATA_STROBE = false
+	C_OPB_WIDTH = 32
+
+Analyzing hierarchy for entity <IOPB_Interface> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_OPB_WIDTH = 32
+
+Analyzing hierarchy for entity <instr_mux> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_DEBUG_ENABLED = false
+	C_USE_I_EXT = true
+	C_USE_I_LMB = true
+	C_USE_ICACHE = false
+
+Analyzing hierarchy for entity <PreFetch_Buffer> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_IEXT_BUS_EXCEPTION = 0
+	C_TARGET = "spartan3e"
+
+Analyzing hierarchy for entity <Register_File> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_DATA_SIZE = 32
+	C_TARGET = "spartan3e"
+
+Analyzing hierarchy for entity <Operand_Select> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_DATA_SIZE = 32
+	C_DEBUG_ENABLED = 0
+	C_EXCEPTION_ADDR = "00000020"
+	C_EXT_BRK_ADDR = "00000018"
+	C_INTERRUPT_ADDR = "00000010"
+	C_PVR = 0
+	C_TARGET = "spartan3e"
+	C_USE_EXCEPTIONS = false
+	C_USE_FPU_bool = false
+
+Analyzing hierarchy for entity <ALU> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+	C_AREA_OPTIMIZED = 1
+
+Analyzing hierarchy for entity <Shift_Logic_Module> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+	C_DATA_SIZE = 32
+	C_USE_PCMP_INSTR = true
+
+Analyzing hierarchy for entity <mul_unit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_USE_MUL64 = false
+	C_TARGET = "spartan3e"
+	C_USE_HW_MUL = true
+
+Analyzing hierarchy for entity <Result_Mux> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_DATA_SIZE = 32
+	C_TARGET = "spartan3e"
+
+Analyzing hierarchy for entity <Zero_Detect> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+	C_DATA_SIZE = 32
+
+Analyzing hierarchy for entity <MSR_Reg> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_DATA_SIZE = 32
+	C_FSL_LINKS = 0
+	C_PVR = 0
+	C_RESET_MSR = "00000000000"
+	C_TARGET = "spartan3e"
+	C_USE_D_EXT = true
+	C_USE_DCACHE = false
+	C_USE_DIV = false
+	C_USE_EXCEPTIONS = false
+	C_USE_ICACHE = false
+	C_USE_MSR_INSTR = 1
+
+Analyzing hierarchy for entity <PC_Module> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_DATA_SIZE = 32
+	C_PC_START_ADDR = "00000000"
+	C_TARGET = "spartan3e"
+
+Analyzing hierarchy for entity <PVR> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_ADDR_TAG_BITS = 0
+	C_ALLOW_DCACHE_WR = 1
+	C_ALLOW_ICACHE_WR = 1
+	C_AREA_OPTIMIZED = true
+	C_CACHE_BYTE_SIZE = 8192
+	C_D_LMB = 1
+	C_D_OPB = 1
+	C_D_PLB = 0
+	C_DCACHE_ADDR_TAG = 0
+	C_DCACHE_BASEADDR = "00000000000000000000000000000000"
+	C_DCACHE_BYTE_SIZE = 8192
+	C_DCACHE_HIGHADDR = "00111111111111111111111111111111"
+	C_DCACHE_LINE_LEN = 4
+	C_DCACHE_USE_FSL = 1
+	C_DEBUG_ENABLED = 0
+	C_DIV_ZERO_EXCEPTION = 0
+	C_DOPB_BUS_EXCEPTION = 0
+	C_DPLB_BUS_EXCEPTION = 0
+	C_EDGE_IS_POSITIVE = 1
+	C_FPU_EXCEPTION = 0
+	C_FSL_LINKS = 0
+	C_I_LMB = 1
+	C_I_OPB = 1
+	C_I_PLB = 0
+	C_ICACHE_BASEADDR = "00000000000000000000000000000000"
+	C_ICACHE_HIGHADDR = "00111111111111111111111111111111"
+	C_ICACHE_LINE_LEN = 4
+	C_ICACHE_USE_FSL = 1
+	C_ILL_OPCODE_EXCEPTION = 0
+	C_INTERCONNECT = 0
+	C_INTERRUPT_IS_EDGE = 0
+	C_IOPB_BUS_EXCEPTION = 0
+	C_IPLB_BUS_EXCEPTION = 0
+	C_MB_VERSION = "00000100"
+	C_NUMBER_OF_PC_BRK = 1
+	C_NUMBER_OF_RD_ADDR_BRK = 0
+	C_NUMBER_OF_WR_ADDR_BRK = 0
+	C_OPCODE_0x0_ILLEGAL = 0
+	C_PVR = 0
+	C_PVR_USER1 = "00000000"
+	C_PVR_USER2 = "00000000000000000000000000000000"
+	C_RESET_MSR = "00000000000"
+	C_TARGET = "spartan3e"
+	C_UNALIGNED_EXCEPTIONS = 0
+	C_USE_BARREL = false
+	C_USE_DCACHE = 0
+	C_USE_DIV = false
+	C_USE_FPU = false
+	C_USE_HW_MUL = true
+	C_USE_ICACHE = 0
+	C_USE_MSR_INSTR = true
+	C_USE_MUL64 = false
+	C_USE_PCMP_INSTR = true
+
+Analyzing hierarchy for entity <Data_Read_Steering> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+
+Analyzing hierarchy for entity <mux4_8> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_BE = true
+	C_TARGET = "spartan3e"
+
+Analyzing hierarchy for entity <Register_File_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+
+Analyzing hierarchy for entity <Operand_Select_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+	C_ONLY_PC = false
+	C_LOWER_HALFWORD = true
+	C_INTERRUPT_ADDR_BIT = '0'
+	C_EXT_BRK_ADDR_BIT = '0'
+	C_EXCEPTION_ADDR_BIT = '0'
+	C_DEBUG_ENABLED = 0
+
+Analyzing hierarchy for entity <Operand_Select_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+	C_ONLY_PC = false
+	C_LOWER_HALFWORD = true
+	C_INTERRUPT_ADDR_BIT = '0'
+	C_EXT_BRK_ADDR_BIT = '1'
+	C_EXCEPTION_ADDR_BIT = '0'
+	C_DEBUG_ENABLED = 0
+
+Analyzing hierarchy for entity <Operand_Select_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+	C_ONLY_PC = false
+	C_LOWER_HALFWORD = true
+	C_INTERRUPT_ADDR_BIT = '1'
+	C_EXT_BRK_ADDR_BIT = '1'
+	C_EXCEPTION_ADDR_BIT = '0'
+	C_DEBUG_ENABLED = 0
+
+Analyzing hierarchy for entity <Operand_Select_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+	C_ONLY_PC = false
+	C_LOWER_HALFWORD = true
+	C_INTERRUPT_ADDR_BIT = '0'
+	C_EXT_BRK_ADDR_BIT = '0'
+	C_EXCEPTION_ADDR_BIT = '1'
+	C_DEBUG_ENABLED = 0
+
+Analyzing hierarchy for entity <Operand_Select_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+	C_ONLY_PC = true
+	C_LOWER_HALFWORD = true
+	C_INTERRUPT_ADDR_BIT = '0'
+	C_EXT_BRK_ADDR_BIT = '0'
+	C_EXCEPTION_ADDR_BIT = '0'
+	C_DEBUG_ENABLED = 0
+
+Analyzing hierarchy for entity <Operand_Select_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_DEBUG_ENABLED = 0
+	C_EXT_BRK_ADDR_BIT = '0'
+	C_ONLY_PC = true
+	C_LOWER_HALFWORD = false
+	C_EXCEPTION_ADDR_BIT = '0'
+	C_TARGET = "spartan3e"
+	C_INTERRUPT_ADDR_BIT = '0'
+
+Analyzing hierarchy for entity <Operand_Select_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_DEBUG_ENABLED = 0
+	C_TARGET = "spartan3e"
+	C_EXCEPTION_ADDR_BIT = '0'
+	C_ONLY_PC = false
+	C_INTERRUPT_ADDR_BIT = '0'
+	C_EXT_BRK_ADDR_BIT = '0'
+	C_LOWER_HALFWORD = false
+
+Analyzing hierarchy for entity <ALU_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+	C_LAST_BIT = false
+
+Analyzing hierarchy for entity <ALU_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_LAST_BIT = true
+	C_TARGET = "spartan3e"
+
+Analyzing hierarchy for entity <Shift_Logic_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+
+Analyzing hierarchy for entity <carry_equal> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_U_SET = "pcmp_t"
+	C_TARGET = "spartan3e"
+	C_X = 0
+	C_Y = 0
+	Size = 8
+
+Analyzing hierarchy for entity <Result_Mux_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+
+Analyzing hierarchy for entity <MSR_Reg_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+
+Analyzing hierarchy for entity <PC_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+	C_RESET_VALUE = '0'
+
+Analyzing hierarchy for entity <PC_Bit> in library <Microblaze_v6_00_a> (architecture <IMP>) with generics.
+	C_TARGET = "spartan3e"
+	C_RESET_VALUE = '1'
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <microblaze_0_wrapper> in library <work> (Architecture <STRUCTURE>).
+    Set user-defined property "X_CORE_INFO =  microblaze_v6_00_a" for unit <microblaze>.
+Entity <microblaze_0_wrapper> analyzed. Unit <microblaze_0_wrapper> generated.
+
+Analyzing generic Entity <microblaze> in library <microblaze_v6_00_a> (Architecture <IMP>).
+	C_DCACHE_BYTE_SIZE = 8192
+	C_DCACHE_LINE_LEN = 4
+	C_DCACHE_HIGHADDR = "00111111111111111111111111111111"
+	C_DIV_ZERO_EXCEPTION = 0
+	C_DCACHE_ADDR_TAG = 0
+	C_DEBUG_ENABLED = 0
+	C_DCACHE_USE_FSL = 1
+	C_D_LMB = 1
+	C_ALLOW_DCACHE_WR = 1
+	C_DCACHE_BASEADDR = "00000000000000000000000000000000"
+	C_AREA_OPTIMIZED = 1
+	C_CACHE_BYTE_SIZE = 8192
+	C_D_OPB = 1
+	C_ADDR_TAG_BITS = 0
+	C_DATA_SIZE = 32
+	C_ALLOW_ICACHE_WR = 1
+	C_ICACHE_BASEADDR = "00000000000000000000000000000000"
+	C_ICACHE_HIGHADDR = "00111111111111111111111111111111"
+	C_NUMBER_OF_RD_ADDR_BRK = 0
+	C_ICACHE_LINE_LEN = 4
+	C_USE_PCMP_INSTR = 1
+	C_USE_DCACHE = 0
+	C_USE_BARREL = 0
+	C_UNALIGNED_EXCEPTIONS = 0
+	C_PVR = 0
+	C_USE_ICACHE = 0
+	C_NUMBER_OF_PC_BRK = 1
+	C_FSL_LINKS = 0
+	C_FSL_DATA_SIZE = 32
+	C_SCO = 0
+	C_FAMILY = "spartan3e"
+	C_I_LMB = 1
+	C_USE_HW_MUL = 1
+	C_IOPB_BUS_EXCEPTION = 0
+	C_NUMBER_OF_WR_ADDR_BRK = 0
+	C_OPCODE_0x0_ILLEGAL = 0
+	C_FPU_EXCEPTION = 0
+	C_EDGE_IS_POSITIVE = 1
+	C_PVR_USER1 = "00000000"
+	C_PVR_USER2 = "00000000000000000000000000000000"
+	C_RESET_MSR = "00000000000000000000000000000000"
+	C_I_OPB = 1
+	C_INTERRUPT_IS_EDGE = 0
+	C_INSTANCE = "microblaze_0"
+	C_USE_MSR_INSTR = 1
+	C_DYNAMIC_BUS_SIZING = 1
+	C_DOPB_BUS_EXCEPTION = 0
+	C_ICACHE_USE_FSL = 1
+	C_ILL_OPCODE_EXCEPTION = 0
+	C_USE_FPU = 0
+	C_USE_DIV = 0
+    Set property "syn_keep = TRUE" for signal <alu_Op>.
+WARNING:Xst:753 - "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/microblaze.vhd" line 2386: Unconnected output port 'Branch_Instr' of component 'Decode'.
+WARNING:Xst:753 - "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/microblaze.vhd" line 2770: Unconnected output port 'WB_DOPB_Data_Strobe' of component 'DOPB_Interface'.
+INFO:Xst:2679 - Register <Trace_EX_PipeRun> in unit <microblaze> has a constant value of 1 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <Trace_MEM_PipeRun> in unit <microblaze> has a constant value of 1 during circuit operation. The register is replaced by logic.
+Entity <microblaze> analyzed. Unit <microblaze> generated.
+
+Analyzing generic Entity <interrupt_mode_converter> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_EDGE_IS_POSITIVE = true
+	C_INTERRUPT_IS_EDGE = false
+Entity <interrupt_mode_converter> analyzed. Unit <interrupt_mode_converter> generated.
+
+Analyzing generic Entity <Decode> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_TARGET = "spartan3e"
+	C_USE_PCMP_INSTR = true
+	C_DETECT_OPCODE_0x0 = false
+	C_DPLB_BUS_EXCEPTION = 0
+	C_FSL_LINKS = 0
+	C_IPLB_BUS_EXCEPTION = 0
+	C_USE_FPU_bool = false
+	C_USE_ICACHE = 0
+	C_ILL_OPCODE_EXCEPTION = 0
+	C_DATA_SIZE = 32
+	C_USE_MUL_INSTR = true
+	C_USE_DCACHE = 0
+	C_FPU_EXCEPTION = 0
+	C_USE_MUL64 = false
+	C_USE_DIV = 0
+	C_USE_MSR_INSTR = 1
+	C_UNALIGNED_EXCEPTIONS = 0
+	C_IOPB_BUS_EXCEPTION = 0
+	C_USE_BARREL = 0
+	C_DIV_ZERO_EXCEPTION = 0
+	C_DOPB_BUS_EXCEPTION = 0
+	C_DEBUG_ENABLED = 0
+	C_PVR = 0
+    Set user-defined property "KEEP =  true" for signal <of_PipeRun_s_I>.
+    Set user-defined property "INIT =  0040" for instance <Using_FPGA.of_PipeRun_Virtex2.of_PipeRun_Select_LUT4> in unit <Decode>.
+    Set user-defined property "INIT =  0004" for instance <Using_FPGA.of_PipeRun_Virtex2.of_PipeRun_without_dready_LUT4> in unit <Decode>.
+    Set user-defined property "INIT =  2000" for instance <Using_FPGA.OpSel1_SPR_Select_LUT_1> in unit <Decode>.
+    Set user-defined property "INIT =  0200" for instance <Using_FPGA.OpSel1_SPR_Select_LUT_2> in unit <Decode>.
+    Set user-defined property "INIT =  04" for instance <Using_FPGA.OpSel1_SPR_Select_LUT_3> in unit <Decode>.
+    Set user-defined property "INIT =  15" for instance <Using_FPGA.OpSel1_SPR_Select_LUT_4> in unit <Decode>.
+    Set user-defined property "INIT =  8421" for instance <Using_FPGA.Res_Forward1_LUT1> in unit <Decode>.
+    Set user-defined property "INIT =  8421" for instance <Using_FPGA.Res_Forward1_LUT2> in unit <Decode>.
+    Set user-defined property "INIT =  9000" for instance <Using_FPGA.Res_Forward1_LUT3> in unit <Decode>.
+    Set user-defined property "INIT =  80" for instance <Using_FPGA.Res_Forward1_LUT4> in unit <Decode>.
+    Set user-defined property "INIT =  8421" for instance <Using_FPGA.Res_Forward2_LUT1> in unit <Decode>.
+    Set user-defined property "INIT =  8421" for instance <Using_FPGA.Res_Forward2_LUT2> in unit <Decode>.
+    Set user-defined property "INIT =  9000" for instance <Using_FPGA.Res_Forward2_LUT3> in unit <Decode>.
+    Set user-defined property "INIT =  80" for instance <Using_FPGA.Res_Forward2_LUT4> in unit <Decode>.
+    Set user-defined property "INIT =  0" for instance <Using_FPGA.ALU_OP0_FDRSE> in unit <Decode>.
+    Set user-defined property "INIT =  0" for instance <Using_FPGA.ALU_OP1_FDRSE> in unit <Decode>.
+    Set user-defined property "INIT =  0" for instance <Using_FPGA.Force1_FDRE> in unit <Decode>.
+    Set user-defined property "INIT =  0" for instance <Using_FPGA.Force2_FDRE> in unit <Decode>.
+    Set user-defined property "INIT =  0" for instance <Using_FPGA.Force_Val1_FDRE> in unit <Decode>.
+    Set user-defined property "INIT =  0" for instance <Using_FPGA.Force_Val2_FDRSE> in unit <Decode>.
+    Set user-defined property "INIT =  0" for instance <Using_FPGA.Use_Reg_Neg_S_FDRE> in unit <Decode>.
+    Set user-defined property "INIT =  0" for instance <Using_FPGA.Use_Reg_Neg_DI_FDRE> in unit <Decode>.
+    Set user-defined property "INIT =  1" for instance <Using_FPGA.Reg_Test_Equal_FDSE> in unit <Decode>.
+    Set user-defined property "INIT =  0" for instance <Using_FPGA.Reg_Test_Equal_N_FDRE> in unit <Decode>.
+    Set user-defined property "INIT =  B4" for instance <Using_FPGA.force_jump1_Virtex2.force_jump1_LUT3> in unit <Decode>.
+    Set user-defined property "INIT =  B4" for instance <Using_FPGA.force_di1_LUT3> in unit <Decode>.
+    Set user-defined property "INIT =  0200" for instance <Using_FPGA.force_jump2_LUT4> in unit <Decode>.
+    Set user-defined property "INIT =  AABA" for instance <Using_FPGA.force_di2_LUT4> in unit <Decode>.
+    Set user-defined property "INIT =  0" for instance <Using_FPGA.Ext_NM_BRK_FDRSE> in unit <Decode>.
+Entity <Decode> analyzed. Unit <Decode> generated.
+
+Analyzing generic Entity <PreFetch_Buffer> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_TARGET = "spartan3e"
+	C_IEXT_BUS_EXCEPTION = 0
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[0].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[1].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[2].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[3].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[4].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[5].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[6].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[7].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[8].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[9].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[10].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[11].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[12].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[13].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[14].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[15].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[16].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[17].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[18].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[19].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[20].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[21].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[22].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[23].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[24].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[25].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[26].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[27].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[28].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[29].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[30].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0000" for instance <Using_FPGA.PreFetch_Buffers[31].SRL16E_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  1" for instance <Using_FPGA.Buffer_DFFs[1].FDS_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  1" for instance <Using_FPGA.Buffer_DFFs[2].FDS_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  1" for instance <Using_FPGA.Buffer_DFFs[3].FDS_I> in unit <PreFetch_Buffer>.
+    Set user-defined property "INIT =  0" for instance <Using_FPGA.of_valid_FDR_I> in unit <PreFetch_Buffer>.
+Entity <PreFetch_Buffer> analyzed. Unit <PreFetch_Buffer> generated.
+
+Analyzing generic Entity <Data_Flow> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_FSL_LINKS = 0
+	C_FPU_EXCEPTION = 0
+	C_EXCEPTION_ADDR = "00000020"
+	C_I_LMB = 1
+	C_DOPB_BUS_EXCEPTION = 0
+	C_EDGE_IS_POSITIVE = 1
+	C_EXT_BRK_ADDR = "00000018"
+	C_I_OPB = 1
+	C_DPLB_BUS_EXCEPTION = 0
+	C_AREA_OPTIMIZED = 1
+	C_I_PLB = 0
+	C_DCACHE_USE_FSL = 1
+	C_DIV_ZERO_EXCEPTION = 0
+	C_DCACHE_BYTE_SIZE = 8192
+	C_BUFFER_SIZE = 16
+	C_ALLOW_ICACHE_WR = 1
+	C_ICACHE_LINE_LEN = 4
+	C_DCACHE_LINE_LEN = 4
+	C_ICACHE_USE_FSL = 1
+	C_INTERCONNECT = 0
+	C_ALLOW_DCACHE_WR = 1
+	C_D_PLB = 0
+	C_DEBUG_ENABLED = 0
+	C_IOPB_BUS_EXCEPTION = 0
+	C_INTERRUPT_ADDR = "00000010"
+	C_DCACHE_HIGHADDR = "00111111111111111111111111111111"
+	C_DCACHE_BASEADDR = "00000000000000000000000000000000"
+	C_DATA_SIZE = 32
+	C_ADDR_TAG_BITS = 0
+	C_CACHE_BYTE_SIZE = 8192
+	C_D_LMB = 1
+	C_INTERRUPT_IS_EDGE = 0
+	C_D_OPB = 1
+	C_ILL_OPCODE_EXCEPTION = 0
+	C_ICACHE_BASEADDR = "00000000000000000000000000000000"
+	C_DCACHE_ADDR_TAG = 0
+	C_ICACHE_HIGHADDR = "00111111111111111111111111111111"
+	C_IPLB_BUS_EXCEPTION = 0
+	C_MB_VERSION = "00000100"
+	C_NUMBER_OF_PC_BRK = 1
+	C_NUMBER_OF_RD_ADDR_BRK = 0
+	C_NUMBER_OF_WR_ADDR_BRK = 0
+	C_OPCODE_0x0_ILLEGAL = 0
+	C_PC_START_ADDR = "00000000"
+	C_PVR = 0
+	C_PVR_USER1 = "00000000"
+	C_PVR_USER2 = "00000000000000000000000000000000"
+	C_RESET_MSR = "00000000000"
+	C_TARGET = "spartan3e"
+	C_UNALIGNED_EXCEPTIONS = 0
+	C_USE_BARREL = 0
+	C_USE_DCACHE = 0
+	C_USE_DIV = 0
+	C_USE_EXCEPTIONS = false
+	C_USE_FPU_bool = false
+	C_USE_HW_MUL = true
+	C_USE_ICACHE = 0
+	C_USE_MSR_INSTR = 1
+	C_USE_MUL64 = false
+	C_USE_PCMP_INSTR = true
+    Set property "syn_keep = TRUE" for signal <op2_i>.
+Entity <Data_Flow> analyzed. Unit <Data_Flow> generated.
+
+Analyzing generic Entity <Register_File> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DATA_SIZE = 32
+	C_TARGET = "spartan3e"
+Entity <Register_File> analyzed. Unit <Register_File> generated.
+
+Analyzing generic Entity <Register_File_Bit> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  0000" for instance <Using_Virtex4_and_S3.RAM16x1D_Reg1_Low> in unit <Register_File_Bit>.
+    Set user-defined property "INIT =  0000" for instance <Using_Virtex4_and_S3.RAM16x1D_Reg1_High> in unit <Register_File_Bit>.
+    Set user-defined property "INIT =  CA" for instance <Using_Virtex4_and_S3.Data_Write_Mux> in unit <Register_File_Bit>.
+    Set user-defined property "INIT =  CA" for instance <Using_Virtex4_and_S3.Reg1_Mux> in unit <Register_File_Bit>.
+    Set user-defined property "INIT =  0000" for instance <Using_Virtex4_and_S3.RAM16x1D_Reg2_Low> in unit <Register_File_Bit>.
+    Set user-defined property "INIT =  0000" for instance <Using_Virtex4_and_S3.RAM16x1D_Reg2_High> in unit <Register_File_Bit>.
+    Set user-defined property "INIT =  CA" for instance <Using_Virtex4_and_S3.Reg2_Mux> in unit <Register_File_Bit>.
+Entity <Register_File_Bit> analyzed. Unit <Register_File_Bit> generated.
+
+Analyzing generic Entity <Operand_Select> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DEBUG_ENABLED = 0
+	C_DATA_SIZE = 32
+	C_EXCEPTION_ADDR = "00000020"
+	C_EXT_BRK_ADDR = "00000018"
+	C_INTERRUPT_ADDR = "00000010"
+	C_PVR = 0
+	C_TARGET = "spartan3e"
+	C_USE_EXCEPTIONS = false
+	C_USE_FPU_bool = false
+Entity <Operand_Select> analyzed. Unit <Operand_Select> generated.
+
+Analyzing generic Entity <Operand_Select_Bit.1> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DEBUG_ENABLED = 0
+	C_EXCEPTION_ADDR_BIT = '0'
+	C_EXT_BRK_ADDR_BIT = '0'
+	C_INTERRUPT_ADDR_BIT = '0'
+	C_LOWER_HALFWORD = true
+	C_ONLY_PC = false
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  CA" for instance <Op1_Mux2_1> in unit <Operand_Select_Bit.1>.
+    Set user-defined property "INIT =  CAC0" for instance <Both_PC_and_MSR.Op1_Mux2_2> in unit <Operand_Select_Bit.1>.
+    Set user-defined property "INIT =  0" for instance <Op1_DFF> in unit <Operand_Select_Bit.1>.
+    Set user-defined property "INIT =  0" for instance <Op1_Reg_DFF> in unit <Operand_Select_Bit.1>.
+    Set user-defined property "INIT =  00CA" for instance <Intr_Addr_bit_is_0.Op2_Mux2_1> in unit <Operand_Select_Bit.1>.
+    Set user-defined property "INIT =  10" for instance <Lower_Part.Op2_Mux2_2> in unit <Operand_Select_Bit.1>.
+    Set user-defined property "INIT =  0" for instance <Op2_DFF> in unit <Operand_Select_Bit.1>.
+Entity <Operand_Select_Bit.1> analyzed. Unit <Operand_Select_Bit.1> generated.
+
+Analyzing generic Entity <Operand_Select_Bit.2> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DEBUG_ENABLED = 0
+	C_EXCEPTION_ADDR_BIT = '0'
+	C_EXT_BRK_ADDR_BIT = '1'
+	C_INTERRUPT_ADDR_BIT = '0'
+	C_LOWER_HALFWORD = true
+	C_ONLY_PC = false
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  CA" for instance <Op1_Mux2_1> in unit <Operand_Select_Bit.2>.
+    Set user-defined property "INIT =  CAC0" for instance <Both_PC_and_MSR.Op1_Mux2_2> in unit <Operand_Select_Bit.2>.
+    Set user-defined property "INIT =  0" for instance <Op1_DFF> in unit <Operand_Select_Bit.2>.
+    Set user-defined property "INIT =  0" for instance <Op1_Reg_DFF> in unit <Operand_Select_Bit.2>.
+    Set user-defined property "INIT =  00CA" for instance <Intr_Addr_bit_is_0.Op2_Mux2_1> in unit <Operand_Select_Bit.2>.
+    Set user-defined property "INIT =  54" for instance <Lower_Part.Op2_Mux2_2> in unit <Operand_Select_Bit.2>.
+    Set user-defined property "INIT =  0" for instance <Op2_DFF> in unit <Operand_Select_Bit.2>.
+Entity <Operand_Select_Bit.2> analyzed. Unit <Operand_Select_Bit.2> generated.
+
+Analyzing generic Entity <Operand_Select_Bit.3> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DEBUG_ENABLED = 0
+	C_EXCEPTION_ADDR_BIT = '0'
+	C_EXT_BRK_ADDR_BIT = '1'
+	C_INTERRUPT_ADDR_BIT = '1'
+	C_LOWER_HALFWORD = true
+	C_ONLY_PC = false
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  CA" for instance <Op1_Mux2_1> in unit <Operand_Select_Bit.3>.
+    Set user-defined property "INIT =  CAC0" for instance <Both_PC_and_MSR.Op1_Mux2_2> in unit <Operand_Select_Bit.3>.
+    Set user-defined property "INIT =  0" for instance <Op1_DFF> in unit <Operand_Select_Bit.3>.
+    Set user-defined property "INIT =  0" for instance <Op1_Reg_DFF> in unit <Operand_Select_Bit.3>.
+    Set user-defined property "INIT =  FFCA" for instance <Intr_Addr_bit_is_1.Op2_Mux2_1> in unit <Operand_Select_Bit.3>.
+    Set user-defined property "INIT =  54" for instance <Lower_Part.Op2_Mux2_2> in unit <Operand_Select_Bit.3>.
+    Set user-defined property "INIT =  0" for instance <Op2_DFF> in unit <Operand_Select_Bit.3>.
+Entity <Operand_Select_Bit.3> analyzed. Unit <Operand_Select_Bit.3> generated.
+
+Analyzing generic Entity <Operand_Select_Bit.4> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DEBUG_ENABLED = 0
+	C_EXCEPTION_ADDR_BIT = '1'
+	C_EXT_BRK_ADDR_BIT = '0'
+	C_INTERRUPT_ADDR_BIT = '0'
+	C_LOWER_HALFWORD = true
+	C_ONLY_PC = false
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  CA" for instance <Op1_Mux2_1> in unit <Operand_Select_Bit.4>.
+    Set user-defined property "INIT =  CAC0" for instance <Both_PC_and_MSR.Op1_Mux2_2> in unit <Operand_Select_Bit.4>.
+    Set user-defined property "INIT =  0" for instance <Op1_DFF> in unit <Operand_Select_Bit.4>.
+    Set user-defined property "INIT =  0" for instance <Op1_Reg_DFF> in unit <Operand_Select_Bit.4>.
+    Set user-defined property "INIT =  00CA" for instance <Intr_Addr_bit_is_0.Op2_Mux2_1> in unit <Operand_Select_Bit.4>.
+    Set user-defined property "INIT =  BA" for instance <Lower_Part.Op2_Mux2_2> in unit <Operand_Select_Bit.4>.
+    Set user-defined property "INIT =  0" for instance <Op2_DFF> in unit <Operand_Select_Bit.4>.
+Entity <Operand_Select_Bit.4> analyzed. Unit <Operand_Select_Bit.4> generated.
+
+Analyzing generic Entity <Operand_Select_Bit.5> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DEBUG_ENABLED = 0
+	C_EXCEPTION_ADDR_BIT = '0'
+	C_EXT_BRK_ADDR_BIT = '0'
+	C_INTERRUPT_ADDR_BIT = '0'
+	C_LOWER_HALFWORD = true
+	C_ONLY_PC = true
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  CA" for instance <Op1_Mux2_1> in unit <Operand_Select_Bit.5>.
+    Set user-defined property "INIT =  8" for instance <Only_PC.Op1_Mux2_2> in unit <Operand_Select_Bit.5>.
+    Set user-defined property "INIT =  0" for instance <Op1_DFF> in unit <Operand_Select_Bit.5>.
+    Set user-defined property "INIT =  0" for instance <Op1_Reg_DFF> in unit <Operand_Select_Bit.5>.
+    Set user-defined property "INIT =  00CA" for instance <Intr_Addr_bit_is_0.Op2_Mux2_1> in unit <Operand_Select_Bit.5>.
+    Set user-defined property "INIT =  10" for instance <Lower_Part.Op2_Mux2_2> in unit <Operand_Select_Bit.5>.
+    Set user-defined property "INIT =  0" for instance <Op2_DFF> in unit <Operand_Select_Bit.5>.
+Entity <Operand_Select_Bit.5> analyzed. Unit <Operand_Select_Bit.5> generated.
+
+Analyzing generic Entity <Operand_Select_Bit.6> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_TARGET = "spartan3e"
+	C_ONLY_PC = true
+	C_LOWER_HALFWORD = false
+	C_INTERRUPT_ADDR_BIT = '0'
+	C_EXT_BRK_ADDR_BIT = '0'
+	C_EXCEPTION_ADDR_BIT = '0'
+	C_DEBUG_ENABLED = 0
+    Set user-defined property "INIT =  CA" for instance <Op1_Mux2_1> in unit <Operand_Select_Bit.6>.
+    Set user-defined property "INIT =  8" for instance <Only_PC.Op1_Mux2_2> in unit <Operand_Select_Bit.6>.
+    Set user-defined property "INIT =  0" for instance <Op1_DFF> in unit <Operand_Select_Bit.6>.
+    Set user-defined property "INIT =  0" for instance <Op1_Reg_DFF> in unit <Operand_Select_Bit.6>.
+    Set user-defined property "INIT =  00CA" for instance <Intr_Addr_bit_is_0.Op2_Mux2_1> in unit <Operand_Select_Bit.6>.
+    Set user-defined property "INIT =  00CA" for instance <Upper_Part.Exc_Addr_Bit_Is_0.Op2_Mux2_2> in unit <Operand_Select_Bit.6>.
+    Set user-defined property "INIT =  0" for instance <Op2_DFF> in unit <Operand_Select_Bit.6>.
+Entity <Operand_Select_Bit.6> analyzed. Unit <Operand_Select_Bit.6> generated.
+
+Analyzing generic Entity <Operand_Select_Bit.7> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DEBUG_ENABLED = 0
+	C_EXCEPTION_ADDR_BIT = '0'
+	C_EXT_BRK_ADDR_BIT = '0'
+	C_INTERRUPT_ADDR_BIT = '0'
+	C_LOWER_HALFWORD = false
+	C_ONLY_PC = false
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  CA" for instance <Op1_Mux2_1> in unit <Operand_Select_Bit.7>.
+    Set user-defined property "INIT =  CAC0" for instance <Both_PC_and_MSR.Op1_Mux2_2> in unit <Operand_Select_Bit.7>.
+    Set user-defined property "INIT =  0" for instance <Op1_DFF> in unit <Operand_Select_Bit.7>.
+    Set user-defined property "INIT =  0" for instance <Op1_Reg_DFF> in unit <Operand_Select_Bit.7>.
+    Set user-defined property "INIT =  00CA" for instance <Intr_Addr_bit_is_0.Op2_Mux2_1> in unit <Operand_Select_Bit.7>.
+    Set user-defined property "INIT =  00CA" for instance <Upper_Part.Exc_Addr_Bit_Is_0.Op2_Mux2_2> in unit <Operand_Select_Bit.7>.
+    Set user-defined property "INIT =  0" for instance <Op2_DFF> in unit <Operand_Select_Bit.7>.
+Entity <Operand_Select_Bit.7> analyzed. Unit <Operand_Select_Bit.7> generated.
+
+Analyzing generic Entity <ALU> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_AREA_OPTIMIZED = 1
+	C_TARGET = "spartan3e"
+Entity <ALU> analyzed. Unit <ALU> generated.
+
+Analyzing generic Entity <ALU_Bit.1> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_LAST_BIT = false
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  A678" for instance <Not_Last_Bit.I_ALU_LUT> in unit <ALU_Bit.1>.
+Entity <ALU_Bit.1> analyzed. Unit <ALU_Bit.1> generated.
+
+Analyzing generic Entity <ALU_Bit.2> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_LAST_BIT = true
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  A678" for instance <Last_Bit_VirtexII.I_ALU_LUT_1> in unit <ALU_Bit.2>.
+    Set user-defined property "INIT =  FA0A" for instance <Last_Bit_VirtexII.I_ALU_LUT_2> in unit <ALU_Bit.2>.
+Entity <ALU_Bit.2> analyzed. Unit <ALU_Bit.2> generated.
+
+Analyzing generic Entity <Shift_Logic_Module> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DATA_SIZE = 32
+	C_TARGET = "spartan3e"
+	C_USE_PCMP_INSTR = true
+    Set user-defined property "INIT =  0002" for instance <Use_PCMP_instr.Using_FPGA.pcmp_00_lut_0> in unit <Shift_Logic_Module>.
+    Set user-defined property "INIT =  00FC" for instance <Use_PCMP_instr.Using_FPGA.pcmp_00_lut_1> in unit <Shift_Logic_Module>.
+    Set user-defined property "INIT =  FF0C" for instance <Use_PCMP_instr.Using_FPGA.pcmp_00_lut_2> in unit <Shift_Logic_Module>.
+    Set user-defined property "INIT =  8000" for instance <Use_PCMP_instr.Using_FPGA.pcmp_10_lut> in unit <Shift_Logic_Module>.
+    Set user-defined property "INIT =  7FFF" for instance <Use_PCMP_instr.Using_FPGA.pcmp_11_lut> in unit <Shift_Logic_Module>.
+    Set user-defined property "INIT =  E" for instance <Use_PCMP_instr.Using_FPGA.shift_logic_result_i_lut_0> in unit <Shift_Logic_Module>.
+    Set user-defined property "INIT =  E" for instance <Use_PCMP_instr.Using_FPGA.shift_logic_result_i_lut_1> in unit <Shift_Logic_Module>.
+    Set user-defined property "INIT =  F0EE" for instance <Use_PCMP_instr.Using_FPGA.shift_logic_result_i_lut_2> in unit <Shift_Logic_Module>.
+Entity <Shift_Logic_Module> analyzed. Unit <Shift_Logic_Module> generated.
+
+Analyzing generic Entity <Shift_Logic_Bit> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  468E" for instance <Logic_LUT> in unit <Shift_Logic_Bit>.
+    Set user-defined property "INIT =  FCAA" for instance <Shift_LUT> in unit <Shift_Logic_Bit>.
+Entity <Shift_Logic_Bit> analyzed. Unit <Shift_Logic_Bit> generated.
+
+Analyzing generic Entity <carry_equal> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_TARGET = "spartan3e"
+	C_U_SET = "pcmp_t"
+	C_X = 0
+	C_Y = 0
+	Size = 8
+Entity <carry_equal> analyzed. Unit <carry_equal> generated.
+
+Analyzing generic Entity <mul_unit> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_TARGET = "spartan3e"
+	C_USE_HW_MUL = true
+	C_USE_MUL64 = false
+Entity <mul_unit> analyzed. Unit <mul_unit> generated.
+
+Analyzing generic Entity <Result_Mux> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DATA_SIZE = 32
+	C_TARGET = "spartan3e"
+Entity <Result_Mux> analyzed. Unit <Result_Mux> generated.
+
+Analyzing generic Entity <Result_Mux_Bit> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  EFE0" for instance <Mul_ALU_Mux> in unit <Result_Mux_Bit>.
+    Set user-defined property "INIT =  E040" for instance <Data_Shift_Mux> in unit <Result_Mux_Bit>.
+    Set user-defined property "INIT =  0" for instance <EX_Result_DFF> in unit <Result_Mux_Bit>.
+Entity <Result_Mux_Bit> analyzed. Unit <Result_Mux_Bit> generated.
+
+Analyzing generic Entity <Zero_Detect> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DATA_SIZE = 32
+	C_TARGET = "spartan3e"
+Entity <Zero_Detect> analyzed. Unit <Zero_Detect> generated.
+
+Analyzing generic Entity <MSR_Reg> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DATA_SIZE = 32
+	C_FSL_LINKS = 0
+	C_PVR = 0
+	C_RESET_MSR = "00000000000"
+	C_TARGET = "spartan3e"
+	C_USE_D_EXT = true
+	C_USE_DCACHE = false
+	C_USE_DIV = false
+	C_USE_EXCEPTIONS = false
+	C_USE_ICACHE = false
+	C_USE_MSR_INSTR = 1
+Entity <MSR_Reg> analyzed. Unit <MSR_Reg> generated.
+
+Analyzing generic Entity <MSR_Reg_Bit> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  0" for instance <MSR_I> in unit <MSR_Reg_Bit>.
+Entity <MSR_Reg_Bit> analyzed. Unit <MSR_Reg_Bit> generated.
+
+Analyzing generic Entity <PC_Module> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DATA_SIZE = 32
+	C_PC_START_ADDR = "00000000"
+	C_TARGET = "spartan3e"
+    Set property "MAX_FANOUT = 1000" for signal <normal_piperun>.
+    Set user-defined property "USELOWSKEWLINES =  yes" for signal <pc_write_I>.
+    Set property "MAX_FANOUT = 1000" for signal <pc_write_I>.
+Entity <PC_Module> analyzed. Unit <PC_Module> generated.
+
+Analyzing generic Entity <PC_Bit.1> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_TARGET = "spartan3e"
+	C_RESET_VALUE = '0'
+    Set user-defined property "INIT =  F066" for instance <SUM_I> in unit <PC_Bit.1>.
+    Set user-defined property "INIT =  AACA" for instance <NewPC_Mux> in unit <PC_Bit.1>.
+    Set user-defined property "INIT =  0" for instance <Reset_DFF.PC_IF_DFF> in unit <PC_Bit.1>.
+    Set user-defined property "INIT =  0000" for instance <PC_OF_Buffer> in unit <PC_Bit.1>.
+    Set user-defined property "INIT =  0" for instance <PC_EX_DFF> in unit <PC_Bit.1>.
+Entity <PC_Bit.1> analyzed. Unit <PC_Bit.1> generated.
+
+Analyzing generic Entity <PC_Bit.2> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_TARGET = "spartan3e"
+	C_RESET_VALUE = '1'
+    Set user-defined property "INIT =  F066" for instance <SUM_I> in unit <PC_Bit.2>.
+    Set user-defined property "INIT =  AACA" for instance <NewPC_Mux> in unit <PC_Bit.2>.
+    Set user-defined property "INIT =  1" for instance <Set_DFF.PC_IF_DFF> in unit <PC_Bit.2>.
+    Set user-defined property "INIT =  0000" for instance <PC_OF_Buffer> in unit <PC_Bit.2>.
+    Set user-defined property "INIT =  0" for instance <PC_EX_DFF> in unit <PC_Bit.2>.
+Entity <PC_Bit.2> analyzed. Unit <PC_Bit.2> generated.
+
+Analyzing generic Entity <PVR> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_ADDR_TAG_BITS = 0
+	C_ALLOW_DCACHE_WR = 1
+	C_ALLOW_ICACHE_WR = 1
+	C_AREA_OPTIMIZED = true
+	C_CACHE_BYTE_SIZE = 8192
+	C_D_LMB = 1
+	C_D_OPB = 1
+	C_D_PLB = 0
+	C_DCACHE_ADDR_TAG = 0
+	C_DCACHE_BASEADDR = "00000000000000000000000000000000"
+	C_DCACHE_BYTE_SIZE = 8192
+	C_DCACHE_HIGHADDR = "00111111111111111111111111111111"
+	C_DCACHE_LINE_LEN = 4
+	C_DCACHE_USE_FSL = 1
+	C_DEBUG_ENABLED = 0
+	C_DIV_ZERO_EXCEPTION = 0
+	C_DOPB_BUS_EXCEPTION = 0
+	C_DPLB_BUS_EXCEPTION = 0
+	C_EDGE_IS_POSITIVE = 1
+	C_FPU_EXCEPTION = 0
+	C_FSL_LINKS = 0
+	C_I_LMB = 1
+	C_I_OPB = 1
+	C_I_PLB = 0
+	C_ICACHE_BASEADDR = "00000000000000000000000000000000"
+	C_ICACHE_HIGHADDR = "00111111111111111111111111111111"
+	C_ICACHE_LINE_LEN = 4
+	C_ICACHE_USE_FSL = 1
+	C_ILL_OPCODE_EXCEPTION = 0
+	C_INTERCONNECT = 0
+	C_INTERRUPT_IS_EDGE = 0
+	C_IOPB_BUS_EXCEPTION = 0
+	C_IPLB_BUS_EXCEPTION = 0
+	C_MB_VERSION = "00000100"
+	C_NUMBER_OF_PC_BRK = 1
+	C_NUMBER_OF_RD_ADDR_BRK = 0
+	C_NUMBER_OF_WR_ADDR_BRK = 0
+	C_OPCODE_0x0_ILLEGAL = 0
+	C_PVR = 0
+	C_PVR_USER1 = "00000000"
+	C_PVR_USER2 = "00000000000000000000000000000000"
+	C_RESET_MSR = "00000000000"
+	C_TARGET = "spartan3e"
+	C_UNALIGNED_EXCEPTIONS = 0
+	C_USE_BARREL = false
+	C_USE_DCACHE = 0
+	C_USE_DIV = false
+	C_USE_FPU = false
+	C_USE_HW_MUL = true
+	C_USE_ICACHE = 0
+	C_USE_MSR_INSTR = true
+	C_USE_MUL64 = false
+	C_USE_PCMP_INSTR = true
+Entity <PVR> analyzed. Unit <PVR> generated.
+
+Analyzing generic Entity <Byte_Doublet_Handle> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DATA_SIZE = 32
+	C_OPB_WIDTH = 32
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  8A8F" for instance <Using_FPGA.Data_Size_Is_32.BYTE_0_I> in unit <Byte_Doublet_Handle>.
+    Set user-defined property "INIT =  0BAB" for instance <Using_FPGA.Data_Size_Is_32.BYTE_1_I> in unit <Byte_Doublet_Handle>.
+    Set user-defined property "INIT =  454F" for instance <Using_FPGA.Data_Size_Is_32.BYTE_2_I> in unit <Byte_Doublet_Handle>.
+    Set user-defined property "INIT =  151F" for instance <Using_FPGA.Data_Size_Is_32.BYTE_3_I> in unit <Byte_Doublet_Handle>.
+    Set user-defined property "INIT =  AB" for instance <Using_FPGA.Data_Size_Is_32.Use_Dynamic_Bus_Sizing.READ_SEL_LEFT_I> in unit <Byte_Doublet_Handle>.
+    Set user-defined property "INIT =  B" for instance <Using_FPGA.Data_Size_Is_32.Use_Dynamic_Bus_Sizing.READ_SEL_RIGHT_I> in unit <Byte_Doublet_Handle>.
+    Set user-defined property "INIT =  E" for instance <Using_FPGA.Data_Size_Is_32.Use_Dynamic_Bus_Sizing.WRITE_MSB_SEL_LEFT_I> in unit <Byte_Doublet_Handle>.
+    Set user-defined property "INIT =  A8" for instance <Using_FPGA.Data_Size_Is_32.LOW_ADDR_OUT_LEFT_I> in unit <Byte_Doublet_Handle>.
+    Set user-defined property "INIT =  8" for instance <Using_FPGA.Data_Size_Is_32.LOW_ADDR_OUT_RIGHT_I> in unit <Byte_Doublet_Handle>.
+Entity <Byte_Doublet_Handle> analyzed. Unit <Byte_Doublet_Handle> generated.
+
+Analyzing generic Entity <Data_Read_Steering> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[0].LUT30_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[0].LUT31_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[1].LUT30_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[1].LUT31_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[2].LUT30_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[2].LUT31_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[3].LUT30_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[3].LUT31_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[4].LUT30_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[4].LUT31_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[5].LUT30_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[5].LUT31_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[6].LUT30_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[6].LUT31_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[7].LUT30_I> in unit <Data_Read_Steering>.
+    Set user-defined property "INIT =  CA" for instance <GEN_LOOP[7].LUT31_I> in unit <Data_Read_Steering>.
+Entity <Data_Read_Steering> analyzed. Unit <Data_Read_Steering> generated.
+
+Analyzing generic Entity <mux4_8> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_BE = true
+	C_TARGET = "spartan3e"
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[0].LUT30_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[0].LUT31_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[1].LUT30_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[1].LUT31_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[2].LUT30_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[2].LUT31_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[3].LUT30_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[3].LUT31_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[4].LUT30_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[4].LUT31_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[5].LUT30_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[5].LUT31_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[6].LUT30_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[6].LUT31_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[7].LUT30_I> in unit <mux4_8>.
+    Set user-defined property "INIT =  CA" for instance <GEN_4.GEN4_LOOP[7].LUT31_I> in unit <mux4_8>.
+Entity <mux4_8> analyzed. Unit <mux4_8> generated.
+
+Analyzing generic Entity <DOPB_Interface> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DELAYED_DATA_STROBE = false
+	C_OPB_WIDTH = 32
+Entity <DOPB_Interface> analyzed. Unit <DOPB_Interface> generated.
+
+Analyzing generic Entity <IOPB_Interface> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_OPB_WIDTH = 32
+Entity <IOPB_Interface> analyzed. Unit <IOPB_Interface> generated.
+
+Analyzing generic Entity <instr_mux> in library <Microblaze_v6_00_a> (Architecture <IMP>).
+	C_DEBUG_ENABLED = false
+	C_USE_I_EXT = true
+	C_USE_I_LMB = true
+	C_USE_ICACHE = false
+Entity <instr_mux> analyzed. Unit <instr_mux> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <interrupt_mode_converter>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/interrupt_mode_converter.vhd".
+WARNING:Xst:647 - Input <Clk> is never used.
+WARNING:Xst:647 - Input <Interrupt_taken> is never used.
+Unit <interrupt_mode_converter> synthesized.
+
+
+Synthesizing Unit <DOPB_Interface>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/dopb_interface.vhd".
+    Found 1-bit register for signal <DM_RNW>.
+    Found 1-bit register for signal <DM_busLock>.
+    Found 32-bit register for signal <WB_DOPB_Read_Data>.
+    Found 1-bit register for signal <WB_DOPB_Data_Strobe>.
+    Found 4-bit register for signal <DM_BE>.
+    Found 1-bit register for signal <MEM_DOPB_Exception>.
+    Found 32-bit register for signal <DM_DBus>.
+    Found 32-bit register for signal <DM_ABus>.
+    Found 1-bit register for signal <dM_select_i>.
+    Found 1-bit register for signal <mem_access_completed>.
+    Found 1-bit register for signal <valid_retry_d1>.
+    Summary:
+	inferred 107 D-type flip-flop(s).
+Unit <DOPB_Interface> synthesized.
+
+
+Synthesizing Unit <IOPB_Interface>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/iopb_interface.vhd".
+WARNING:Xst:647 - Input <IB_Fetch> is never used.
+    Register <iM_select_i> equivalent to <IM_RNW> has been removed
+    Found 1-bit register for signal <IOPB_Exception>.
+    Found 4-bit register for signal <IM_BE>.
+    Found 32-bit register for signal <IM_ABus>.
+    Found 32-bit register for signal <IOPB_Data>.
+    Found 1-bit register for signal <IM_RNW>.
+    Found 1-bit register for signal <ib_addr_strobe_d1>.
+    Found 32-bit register for signal <instr_addr>.
+    Found 1-bit register for signal <mem_access_completed>.
+    Found 1-bit register for signal <request_hold>.
+    Found 1-bit register for signal <valid_retry_d1>.
+    Summary:
+	inferred 106 D-type flip-flop(s).
+Unit <IOPB_Interface> synthesized.
+
+
+Synthesizing Unit <instr_mux>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/instr_mux.vhd".
+WARNING:Xst:647 - Input <IDebug_data> is never used.
+WARNING:Xst:647 - Input <IDebug_data_strobe> is never used.
+WARNING:Xst:647 - Input <ICache_data> is never used.
+WARNING:Xst:647 - Input <IEXT_data_strobe> is never used.
+Unit <instr_mux> synthesized.
+
+
+Synthesizing Unit <PVR>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/pvr.vhd".
+WARNING:Xst:647 - Input <Clk> is never used.
+WARNING:Xst:647 - Input <Reset> is never used.
+WARNING:Xst:647 - Input <MEM_Sel_SPR_PVR<0>> is never used.
+WARNING:Xst:647 - Input <MEM_PipeRun<0>> is never used.
+WARNING:Xst:647 - Input <MEM_PVR_Select> is never used.
+WARNING:Xst:647 - Input <WB_Sel_SPR_PVR<0>> is never used.
+Unit <PVR> synthesized.
+
+
+Synthesizing Unit <PreFetch_Buffer>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/prefetch_buffer.vhd".
+WARNING:Xst:646 - Signal <buffer_Addr_Carry<1>> is assigned but never used.
+    Found 3-bit xor2 for signal <buffer_Addr_Sum>.
+Unit <PreFetch_Buffer> synthesized.
+
+
+Synthesizing Unit <mul_unit>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/mul_unit.vhd".
+WARNING:Xst:647 - Input <EX_Mulhsu_Instr<0>> is never used.
+WARNING:Xst:647 - Input <EX_Not_Mul_Op<0>> is never used.
+WARNING:Xst:647 - Input <EX_Mulh_Instr<0>> is never used.
+WARNING:Xst:647 - Input <EX_Mulhu_Instr<0>> is never used.
+WARNING:Xst:1780 - Signal <wb_mul64_result> is never used or assigned.
+WARNING:Xst:646 - Signal <wb_prod_BD_plus_AD_plus_BC<0>> is assigned but never used.
+WARNING:Xst:646 - Signal <mem_PipeRun_i> is assigned but never used.
+WARNING:Xst:1780 - Signal <mem_prod_AD_plus_BC_high_I> is never used or assigned.
+WARNING:Xst:1780 - Signal <mem_PipeRun_and_not_mul32_op> is never used or assigned.
+WARNING:Xst:1780 - Signal <mem_PipeRun_and_not_mul64_op> is never used or assigned.
+WARNING:Xst:1780 - Signal <mem_mulh_instr> is never used or assigned.
+WARNING:Xst:1780 - Signal <wb_mul32_result> is never used or assigned.
+WARNING:Xst:1780 - Signal <mem_mulhu_instr> is never used or assigned.
+WARNING:Xst:1780 - Signal <wb_prod_AD_plus_BC_high> is never used or assigned.
+WARNING:Xst:1780 - Signal <mem_mul64_instr> is never used or assigned.
+WARNING:Xst:1780 - Signal <wb_prod_AC> is never used or assigned.
+WARNING:Xst:646 - Signal <wb_prod_BD<0:15>> is assigned but never used.
+WARNING:Xst:1780 - Signal <mem_prod_AC> is never used or assigned.
+WARNING:Xst:646 - Signal <mem_prod_AD<0:19>> is assigned but never used.
+WARNING:Xst:646 - Signal <mem_prod_BC<0:19>> is assigned but never used.
+WARNING:Xst:646 - Signal <mem_prod_BD<0:3>> is assigned but never used.
+WARNING:Xst - Property "use_dsp48" is not applicable for this technology.
+    Found 17-bit adder for signal <mem_prod_AD_plus_BC_I>.
+    Found 17-bit adder for signal <mem_prod_BD_plus_AD_plus_BC>.
+    Found 32-bit register for signal <wb_prod_BD>.
+    Found 17-bit register for signal <wb_prod_BD_plus_AD_plus_BC>.
+    Summary:
+	inferred  49 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+Unit <mul_unit> synthesized.
+
+
+Synthesizing Unit <Zero_Detect>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/zero_detect.vhd".
+Unit <Zero_Detect> synthesized.
+
+
+Synthesizing Unit <Register_File_Bit>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/register_file_bit.vhd".
+Unit <Register_File_Bit> synthesized.
+
+
+Synthesizing Unit <Operand_Select_Bit_1>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/operand_select_bit.vhd".
+WARNING:Xst:647 - Input <Use_Imm_Reg<0>> is never used.
+WARNING:Xst:647 - Input <Reset<0>> is never used.
+WARNING:Xst:647 - Input <Sign_Imm> is never used.
+WARNING:Xst:646 - Signal <exception_or_brk_I> is assigned but never used.
+Unit <Operand_Select_Bit_1> synthesized.
+
+
+Synthesizing Unit <Operand_Select_Bit_2>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/operand_select_bit.vhd".
+WARNING:Xst:647 - Input <Use_Imm_Reg<0>> is never used.
+WARNING:Xst:647 - Input <Reset<0>> is never used.
+WARNING:Xst:647 - Input <Sign_Imm> is never used.
+WARNING:Xst:646 - Signal <exception_or_brk_I> is assigned but never used.
+Unit <Operand_Select_Bit_2> synthesized.
+
+
+Synthesizing Unit <Operand_Select_Bit_3>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/operand_select_bit.vhd".
+WARNING:Xst:647 - Input <Use_Imm_Reg<0>> is never used.
+WARNING:Xst:647 - Input <Reset<0>> is never used.
+WARNING:Xst:647 - Input <Sign_Imm> is never used.
+WARNING:Xst:646 - Signal <exception_or_brk_I> is assigned but never used.
+Unit <Operand_Select_Bit_3> synthesized.
+
+
+Synthesizing Unit <Operand_Select_Bit_4>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/operand_select_bit.vhd".
+WARNING:Xst:647 - Input <Use_Imm_Reg<0>> is never used.
+WARNING:Xst:647 - Input <Reset<0>> is never used.
+WARNING:Xst:647 - Input <Sign_Imm> is never used.
+WARNING:Xst:646 - Signal <exception_or_brk_I> is assigned but never used.
+Unit <Operand_Select_Bit_4> synthesized.
+
+
+Synthesizing Unit <Operand_Select_Bit_5>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/operand_select_bit.vhd".
+WARNING:Xst:647 - Input <Use_Imm_Reg<0>> is never used.
+WARNING:Xst:647 - Input <Reset<0>> is never used.
+WARNING:Xst:647 - Input <Sign_Imm> is never used.
+WARNING:Xst:647 - Input <Enable_MSR> is never used.
+WARNING:Xst:647 - Input <MSR> is never used.
+WARNING:Xst:646 - Signal <exception_or_brk_I> is assigned but never used.
+Unit <Operand_Select_Bit_5> synthesized.
+
+
+Synthesizing Unit <Operand_Select_Bit_6>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/operand_select_bit.vhd".
+WARNING:Xst:647 - Input <Reset<0>> is never used.
+WARNING:Xst:647 - Input <Take_Ext_BRK<0>> is never used.
+WARNING:Xst:647 - Input <Enable_MSR> is never used.
+WARNING:Xst:647 - Input <MSR> is never used.
+WARNING:Xst:646 - Signal <take_Exception_I> is assigned but never used.
+Unit <Operand_Select_Bit_6> synthesized.
+
+
+Synthesizing Unit <Operand_Select_Bit_7>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/operand_select_bit.vhd".
+WARNING:Xst:647 - Input <Reset<0>> is never used.
+WARNING:Xst:647 - Input <Take_Ext_BRK<0>> is never used.
+WARNING:Xst:646 - Signal <take_Exception_I> is assigned but never used.
+Unit <Operand_Select_Bit_7> synthesized.
+
+
+Synthesizing Unit <ALU_Bit_1>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/alu_bit.vhd".
+WARNING:Xst:647 - Input <EX_CMP_Op<0>> is never used.
+WARNING:Xst:647 - Input <EX_Unsigned_Op<0>> is never used.
+Unit <ALU_Bit_1> synthesized.
+
+
+Synthesizing Unit <ALU_Bit_2>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/alu_bit.vhd".
+    Found 1-bit xor2 for signal <maintain_sign_n$xor0000> created at line 213.
+Unit <ALU_Bit_2> synthesized.
+
+
+Synthesizing Unit <Shift_Logic_Bit>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/shift_logic_bit.vhd".
+Unit <Shift_Logic_Bit> synthesized.
+
+
+Synthesizing Unit <carry_equal>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/carry_equal.vhd".
+    Found 1-bit xor2 for signal <sel_0$xor0000>.
+    Found 1-bit xor2 for signal <sel_0$xor0001>.
+    Found 1-bit xor2 for signal <sel_1$xor0000>.
+    Found 1-bit xor2 for signal <sel_1$xor0001>.
+    Found 1-bit xor2 for signal <sel_2$xor0000>.
+    Found 1-bit xor2 for signal <sel_2$xor0001>.
+    Found 1-bit xor2 for signal <sel_3$xor0000>.
+    Found 1-bit xor2 for signal <sel_3$xor0001>.
+Unit <carry_equal> synthesized.
+
+
+Synthesizing Unit <Result_Mux_Bit>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/result_mux_bit.vhd".
+Unit <Result_Mux_Bit> synthesized.
+
+
+Synthesizing Unit <MSR_Reg_Bit>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/msr_reg_bit.vhd".
+Unit <MSR_Reg_Bit> synthesized.
+
+
+Synthesizing Unit <PC_Bit_1>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/pc_bit.vhd".
+Unit <PC_Bit_1> synthesized.
+
+
+Synthesizing Unit <PC_Bit_2>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/pc_bit.vhd".
+Unit <PC_Bit_2> synthesized.
+
+
+Synthesizing Unit <Data_Read_Steering>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/data_read_steering.vhd".
+Unit <Data_Read_Steering> synthesized.
+
+
+Synthesizing Unit <mux4_8>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/mux4_8.vhd".
+Unit <mux4_8> synthesized.
+
+
+Synthesizing Unit <Decode>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/decode.vhd".
+WARNING:Xst:647 - Input <Div_By_Zero> is never used.
+WARNING:Xst:647 - Input <word_r1_r2_unalignment> is never used.
+WARNING:Xst:647 - Input <MB_Get_Control> is never used.
+WARNING:Xst:647 - Input <MB_Put_Full> is never used.
+WARNING:Xst:647 - Input <EIP_Active<0>> is never used.
+WARNING:Xst:647 - Input <D_Exception> is never used.
+WARNING:Xst:647 - Input <Enable_BusLock<0>> is never used.
+WARNING:Xst:647 - Input <word_r1_imm_unalignment> is never used.
+WARNING:Xst:647 - Input <MB_Get_Exists> is never used.
+WARNING:Xst:647 - Input <halfword_unalignment> is never used.
+WARNING:Xst:647 - Input <ESR> is never used.
+WARNING:Xst:647 - Input <I_Exception> is never used.
+WARNING:Xst:646 - Signal <DExt_Exception> is assigned but never used.
+WARNING:Xst:646 - Signal <unalignment_exc> is assigned but never used.
+WARNING:Xst:646 - Signal <Div_Exception> is assigned but never used.
+WARNING:Xst:646 - Signal <IExt_Exception_EX> is assigned but never used.
+WARNING:Xst:646 - Signal <Illegal_Opcode_I> is assigned but never used.
+WARNING:Xst:1780 - Signal <MB_Put> is never used or assigned.
+WARNING:Xst:646 - Signal <quadlet_i<0>> is assigned but never used.
+WARNING:Xst:1780 - Signal <MB_Get> is never used or assigned.
+WARNING:Xst:646 - Signal <Illegal_Opcode_EX> is assigned but never used.
+WARNING:Xst:646 - Signal <if_valid<0>> is assigned but never used.
+    Found 1-bit register for signal <Valid_Instr>.
+    Found 1-bit register for signal <Interrupt_Taken>.
+    Found 3-bit register for signal <FPU_Cond>.
+    Found 1-bit register for signal <MSRclr_Instr<0>>.
+    Found 32-bit register for signal <Instr_EX>.
+    Found 1-bit register for signal <PCMP_Instr<0>>.
+    Found 1-bit register for signal <Use_Store_Instr_Addr>.
+    Found 3-bit register for signal <FPU_Op>.
+    Found 1-bit register for signal <Sext8<0>>.
+    Found 1-bit register for signal <Branch_Instr>.
+    Found 1-bit register for signal <Not_Div_Op>.
+    Found 1-bit register for signal <Shift_Carry_In>.
+    Found 1-bit register for signal <Sign_Extend<0>>.
+    Found 1-bit register for signal <Compare_Instr>.
+    Found 1-bit register for signal <Sext16<0>>.
+    Found 2-bit register for signal <Shift_Oper>.
+    Found 2-bit register for signal <Logic_Oper>.
+    Found 1-bit register for signal <Select_Logic<0>>.
+    Found 1-bit register for signal <Unsigned_Op>.
+    Found 1-bit register for signal <Carry_In>.
+    Found 1-bit register for signal <Not_FPU_Op>.
+    Found 2-bit register for signal <Result_Sel>.
+    Found 1-bit register for signal <EX_delayslot_Instr<0>>.
+    Found 1-bit register for signal <Blocked_Valid_Instr>.
+    Found 1-bit register for signal <break_Pipe_i<0>>.
+    Found 1-bit register for signal <bs_first<0>>.
+    Found 1-bit register for signal <byte_i<0>>.
+    Found 1-bit register for signal <d_AS_I>.
+    Found 1-bit register for signal <div_first<0>>.
+    Found 1-bit register for signal <div_started>.
+    Found 1-bit register for signal <doublet_i<0>>.
+    Found 1-bit register for signal <doublet_Read_i<0>>.
+    Found 1-bit register for signal <enable_Interrupts_I<0>>.
+    Found 1-bit register for signal <ex_not_mul_op_i<0>>.
+    Found 1-bit register for signal <ex_Valid<0>>.
+    Found 1-bit register for signal <ex_Valid_1st_cycle<0>>.
+    Found 1-bit register for signal <fpu_first<0>>.
+    Found 1-bit register for signal <fpu_started>.
+    Found 1-bit register for signal <iFetch_In_Progress<0>>.
+    Found 1-bit register for signal <inHibit_EX<0>>.
+    Found 1-bit register for signal <jump2_I<0>>.
+    Found 1-bit register for signal <jump2_I_1<0>>.
+    Found 1-bit register for signal <load_Store_i<0>>.
+    Found 1-bit register for signal <Load_Store_Instr_Addr_Stored>.
+    Found 1-bit register for signal <missed_IFetch<0>>.
+    Found 1-bit register for signal <msrxxx_carry>.
+    Found 1-bit xor2 for signal <msrxxx_carry$xor0000> created at line 2101.
+    Found 1-bit register for signal <MSRxxx_Instr_i<0>>.
+    Found 1-bit register for signal <msrxxx_write_carry>.
+    Found 1-bit register for signal <mtsmsr_write_i<0>>.
+    Found 1-bit register for signal <mul_Executing<0>>.
+    Found 1-bit register for signal <mul_Executing_delayed>.
+    Found 1-bit register for signal <mul_Executing_done>.
+    Found 1-bit register for signal <mul_first<0>>.
+    Found 1-bit register for signal <mul_second<0>>.
+    Found 1-bit register for signal <nonvalid_IFetch_n>.
+    Found 1-bit register for signal <pvr_first<0>>.
+    Found 1-bit register for signal <quadlet_Read_i<0>>.
+    Found 1-bit register for signal <reset_BIP_I<0>>.
+    Found 1-bit register for signal <select_ALU_Carry<0>>.
+    Found 1-bit register for signal <set_BIP_I<0>>.
+    Found 1-bit register for signal <Start_Div_i>.
+    Found 1-bit register for signal <Start_FPU_i>.
+    Found 1-bit register for signal <take_Break<0>>.
+    Found 1-bit register for signal <take_intr<0>>.
+    Found 1-bit register for signal <take_NM_Break<0>>.
+    Found 1-bit register for signal <trace_valid_instr_part1>.
+    Found 1-bit register for signal <using_Imm<0>>.
+    Found 5-bit register for signal <write_Addr_I>.
+    Found 1-bit register for signal <write_Carry_I<0>>.
+    Found 1-bit register for signal <Write_DCache_I<0>>.
+    Found 1-bit register for signal <Write_DIV_result<0>>.
+    Found 1-bit register for signal <Write_FPU_result<0>>.
+    Found 1-bit register for signal <write_FSR_I<0>>.
+    Found 1-bit register for signal <Write_ICache_I<0>>.
+    Found 1-bit register for signal <write_MSR_I<0>>.
+    Found 1-bit register for signal <write_Reg<0>>.
+    Found 1-bit register for signal <writing<0>>.
+    Summary:
+	inferred 119 D-type flip-flop(s).
+Unit <Decode> synthesized.
+
+
+Synthesizing Unit <Byte_Doublet_Handle>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/byte_doublet_handle.vhd".
+WARNING:Xst:647 - Input <Clk> is never used.
+    Found 1-bit xor3 for signal <Low_Addr<0>>.
+    Found 1-bit xor2 for signal <Low_Addr<1>>.
+    Summary:
+	inferred   1 Xor(s).
+Unit <Byte_Doublet_Handle> synthesized.
+
+
+Synthesizing Unit <Register_File>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/register_file.vhd".
+WARNING:Xst:647 - Input <Reset<0>> is never used.
+Unit <Register_File> synthesized.
+
+
+Synthesizing Unit <Operand_Select>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/operand_select.vhd".
+WARNING:Xst:647 - Input <MFS_Reg_Sel> is never used.
+WARNING:Xst:647 - Input <EAR> is never used.
+WARNING:Xst:647 - Input <BTR> is never used.
+WARNING:Xst:647 - Input <ESR> is never used.
+WARNING:Xst:647 - Input <FSR> is never used.
+    Found 16-bit register for signal <imm_Reg>.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+Unit <Operand_Select> synthesized.
+
+
+Synthesizing Unit <ALU>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/alu.vhd".
+WARNING:Xst:647 - Input <EX_Use_Carry<0>> is never used.
+WARNING:Xst:1780 - Signal <ex_Use_Carry_stdl> is never used or assigned.
+WARNING:Xst:1780 - Signal <ex_subtract_op> is never used or assigned.
+WARNING:Xst:1780 - Signal <select_carry_in> is never used or assigned.
+Unit <ALU> synthesized.
+
+
+Synthesizing Unit <Shift_Logic_Module>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/shift_logic.vhd".
+Unit <Shift_Logic_Module> synthesized.
+
+
+Synthesizing Unit <Result_Mux>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/result_mux.vhd".
+WARNING:Xst:647 - Input <Reset<0>> is never used.
+WARNING:Xst:647 - Input <Op1<0:15>> is never used.
+WARNING:Xst:647 - Input <Op1<17:23>> is never used.
+WARNING:Xst:647 - Input <Op1<25:31>> is never used.
+Unit <Result_Mux> synthesized.
+
+
+Synthesizing Unit <MSR_Reg>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/msr_reg.vhd".
+WARNING:Xst:647 - Input <Op1<21>> is never used.
+WARNING:Xst:647 - Input <Op2<21>> is never used.
+WARNING:Xst:646 - Signal <we_Bits<22:27>> is assigned but never used.
+WARNING:Xst:646 - Signal <rst_Values<29>> is assigned but never used.
+WARNING:Xst:646 - Signal <rst_Values_I<22:27>> is assigned but never used.
+WARNING:Xst:646 - Signal <set_Values_I<22:27>> is assigned but never used.
+WARNING:Xst:646 - Signal <new_Value_I<22:27>> is assigned but never used.
+Unit <MSR_Reg> synthesized.
+
+
+Synthesizing Unit <PC_Module>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/pc_module.vhd".
+WARNING:Xst:646 - Signal <Carry<0>> is assigned but never used.
+    Found 2x32-bit ROM for signal <increment>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <PC_Module> synthesized.
+
+
+Synthesizing Unit <Data_Flow>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/data_flow.vhd".
+WARNING:Xst:647 - Input <Left_Shift> is never used.
+WARNING:Xst:647 - Input <FPU_Cond> is never used.
+WARNING:Xst:647 - Input <Dbg_Inhibit_EX> is never used.
+WARNING:Xst:647 - Input <Start_Div> is never used.
+WARNING:Xst:647 - Input <FPU_Op> is never used.
+WARNING:Xst:647 - Input <Arith_Shift> is never used.
+WARNING:Xst:647 - Input <Start_FPU> is never used.
+WARNING:Xst:647 - Input <FSR_Write<0>> is never used.
+WARNING:Xst:1780 - Signal <fpu_done_i> is never used or assigned.
+WARNING:Xst:646 - Signal <not_Barrel_Op_i> is assigned but never used.
+WARNING:Xst:1780 - Signal <fpu_excep_i> is never used or assigned.
+WARNING:Xst:1780 - Signal <start_fpu_i> is never used or assigned.
+WARNING:Xst:1780 - Signal <fpu_div_done> is never used or assigned.
+WARNING:Xst:1780 - Signal <not_FPU_Instr> is never used or assigned.
+WARNING:Xst:646 - Signal <EX_not_Mul_Op_i<0>> is assigned but never used.
+WARNING:Xst:1780 - Signal <hold_fpu_excep> is never used or assigned.
+WARNING:Xst:1780 - Signal <fsr_Write_i> is never used or assigned.
+WARNING:Xst:646 - Signal <not_Div_Op_i> is assigned but never used.
+WARNING:Xst:646 - Signal <WB_PVR> is assigned but never used.
+WARNING:Xst:646 - Signal <not_FPU_Op_i> is assigned but never used.
+Unit <Data_Flow> synthesized.
+
+
+Synthesizing Unit <microblaze>.
+    Related source file is "f:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v6_00_a/hdl/vhdl/microblaze.vhd".
+WARNING:Xst:647 - Input <FSL0_S_Control> is never used.
+WARNING:Xst:647 - Input <FSL4_S_Exists> is never used.
+WARNING:Xst:647 - Input <FSL1_S_Control> is never used.
+WARNING:Xst:647 - Input <FSL4_M_Full> is never used.
+WARNING:Xst:647 - Input <FSL6_S_Data> is never used.
+WARNING:Xst:647 - Input <FSL1_S_Data> is never used.
+WARNING:Xst:647 - Input <FSL2_S_Control> is never used.
+WARNING:Xst:647 - Input <FSL3_S_Exists> is never used.
+WARNING:Xst:647 - Input <ICACHE_FSL_IN_Exists> is never used.
+WARNING:Xst:647 - Input <Dbg_Reg_En> is never used.
+WARNING:Xst:647 - Input <FSL3_S_Control> is never used.
+WARNING:Xst:647 - Input <DWait> is never used.
+WARNING:Xst:647 - Input <Dbg_TDI> is never used.
+WARNING:Xst:647 - Input <Dbg_Clk> is never used.
+WARNING:Xst:647 - Input <FSL3_M_Full> is never used.
+WARNING:Xst:647 - Input <FSL5_S_Data> is never used.
+WARNING:Xst:647 - Input <ICACHE_FSL_IN_Data> is never used.
+WARNING:Xst:647 - Input <DCACHE_FSL_IN_Control> is never used.
+WARNING:Xst:647 - Input <FSL0_S_Data> is never used.
+WARNING:Xst:647 - Input <FSL4_S_Control> is never used.
+WARNING:Xst:647 - Input <FSL2_S_Exists> is never used.
+WARNING:Xst:647 - Input <ICACHE_FSL_IN_Control> is never used.
+WARNING:Xst:647 - Input <FSL5_S_Control> is never used.
+WARNING:Xst:647 - Input <FSL7_S_Exists> is never used.
+WARNING:Xst:647 - Input <FSL7_M_Full> is never used.
+WARNING:Xst:647 - Input <ICACHE_FSL_OUT_Full> is never used.
+WARNING:Xst:647 - Input <Dbg_Stop> is never used.
+WARNING:Xst:647 - Input <FSL2_M_Full> is never used.
+WARNING:Xst:647 - Input <FSL4_S_Data> is never used.
+WARNING:Xst:647 - Input <FSL6_S_Control> is never used.
+WARNING:Xst:647 - Input <FSL1_S_Exists> is never used.
+WARNING:Xst:647 - Input <DCACHE_FSL_IN_Exists> is never used.
+WARNING:Xst:647 - Input <FSL7_S_Control> is never used.
+WARNING:Xst:647 - Input <FSL6_S_Exists> is never used.
+WARNING:Xst:647 - Input <FSL6_M_Full> is never used.
+WARNING:Xst:647 - Input <FSL1_M_Full> is never used.
+WARNING:Xst:647 - Input <FSL3_S_Data> is never used.
+WARNING:Xst:647 - Input <FSL0_S_Exists> is never used.
+WARNING:Xst:647 - Input <Dbg_Capture> is never used.
+WARNING:Xst:647 - Input <FSL5_S_Exists> is never used.
+WARNING:Xst:647 - Input <DCACHE_FSL_OUT_Full> is never used.
+WARNING:Xst:647 - Input <FSL5_M_Full> is never used.
+WARNING:Xst:647 - Input <FSL7_S_Data> is never used.
+WARNING:Xst:647 - Input <DCACHE_FSL_IN_Data> is never used.
+WARNING:Xst:647 - Input <FSL0_M_Full> is never used.
+WARNING:Xst:647 - Input <FSL2_S_Data> is never used.
+WARNING:Xst:647 - Input <Dbg_Update> is never used.
+WARNING:Xst:1780 - Signal <valid_dcache_access> is never used or assigned.
+WARNING:Xst:1780 - Signal <Command_Reg_D> is never used or assigned.
+WARNING:Xst:646 - Signal <SW_Instr> is assigned but never used.
+WARNING:Xst:646 - Signal <ex_load_btr<0>> is assigned but never used.
+WARNING:Xst:646 - Signal <EX_delayslot_Instr<0>> is assigned but never used.
+WARNING:Xst:646 - Signal <iRead_Strobe_No_Dbg> is assigned but never used.
+WARNING:Xst:646 - Signal <Valid_Instr_i> is assigned but never used.
+WARNING:Xst:646 - Signal <Write_ICache<0>> is assigned but never used.
+WARNING:Xst:646 - Signal <Load_EAR<0>> is assigned but never used.
+WARNING:Xst:646 - Signal <reg_Write_dbg_S> is assigned but never used.
+WARNING:Xst:646 - Signal <Div_Zero_Exception0> is assigned but never used.
+WARNING:Xst:646 - Signal <Word_Access> is assigned but never used.
+WARNING:Xst:646 - Signal <DCache_Enabled<0>> is assigned but never used.
+WARNING:Xst:646 - Signal <op1> is assigned but never used.
+WARNING:Xst:646 - Signal <op2> is assigned but never used.
+WARNING:Xst:646 - Signal <raw_Data_Addr<30:31>> is assigned but never used.
+WARNING:Xst:646 - Signal <DExt_Bus_Exception> is assigned but never used.
+WARNING:Xst:1780 - Signal <valid_icache_access> is never used or assigned.
+WARNING:Xst:646 - Signal <iWrite_Strobe_No_Dbg> is assigned but never used.
+WARNING:Xst:1780 - Signal <FSL_S_Exists> is never used or assigned.
+WARNING:Xst:646 - Signal <Ok_To_Stop> is assigned but never used.
+WARNING:Xst:646 - Signal <Load_ESR<0>> is assigned but never used.
+WARNING:Xst:646 - Signal <PC_OF> is assigned but never used.
+WARNING:Xst:1780 - Signal <FSL_S_Read> is never used or assigned.
+WARNING:Xst:1780 - Signal <FSL_S_Control> is never used or assigned.
+WARNING:Xst:646 - Signal <Unaligned_Exception> is assigned but never used.
+WARNING:Xst:1780 - Signal <FSL_M_Full> is never used or assigned.
+WARNING:Xst:646 - Signal <FSL_Control_Bit> is assigned but never used.
+WARNING:Xst:646 - Signal <IExt_Bus_Exception> is assigned but never used.
+WARNING:Xst:646 - Signal <Not_MB_Get_Op> is assigned but never used.
+WARNING:Xst:646 - Signal <Illegal_Opcode_Exception> is assigned but never used.
+WARNING:Xst:646 - Signal <MB_Put_Write> is assigned but never used.
+WARNING:Xst:1780 - Signal <FSL_M_Data> is never used or assigned.
+WARNING:Xst:646 - Signal <ICache_Enabled<0>> is assigned but never used.
+WARNING:Xst:646 - Signal <Clr_ESR<0>> is assigned but never used.
+WARNING:Xst:1780 - Signal <intM_DBus> is never used or assigned.
+WARNING:Xst:1780 - Signal <intM_ABus> is never used or assigned.
+WARNING:Xst:1780 - Signal <Control_Reg_D> is never used or assigned.
+WARNING:Xst:1780 - Signal <FSL_S_Data> is never used or assigned.
+WARNING:Xst:646 - Signal <MB_Get_Read> is assigned but never used.
+WARNING:Xst:646 - Signal <Write_DCache<0>> is assigned but never used.
+WARNING:Xst:646 - Signal <FPU_Exception0> is assigned but never used.
+WARNING:Xst:1780 - Signal <FSL_M_Write> is never used or assigned.
+    Found 32-bit register for signal <Trace_PC>.
+    Found 1-bit register for signal <Trace_Data_Write>.
+    Found 4-bit register for signal <Trace_Data_Byte_Enable>.
+    Found 32-bit register for signal <Trace_Data_Write_Value>.
+    Found 1-bit register for signal <Trace_Jump_Taken>.
+    Found 5-bit register for signal <Trace_Reg_Addr>.
+    Found 1-bit register for signal <Trace_Delay_Slot>.
+    Found 4-bit register for signal <Trace_Exception_Kind>.
+    Found 11-bit register for signal <Trace_MSR_Reg>.
+    Found 1-bit register for signal <Trace_Exception_Taken>.
+    Found 1-bit register for signal <Trace_Data_Read>.
+    Found 32-bit register for signal <Trace_Data_Address>.
+    Found 32-bit register for signal <Trace_Instruction>.
+    Found 1-bit register for signal <Trace_Data_Access>.
+    Found 1-bit register for signal <Trace_OF_PipeRun>.
+    Found 32-bit register for signal <Instr_Addr_Stored>.
+    Found 32-bit register for signal <Instr_Addr_Stored_1>.
+    Found 1-bit register for signal <mem_access>.
+    Found 1-bit register for signal <reset_i>.
+    Found 1-bit register for signal <Trace_Delay_Slot_early>.
+    Found 1-bit register for signal <trace_reg_write_i>.
+    Summary:
+	inferred 227 D-type flip-flop(s).
+Unit <microblaze> synthesized.
+
+
+Synthesizing Unit <microblaze_0_wrapper>.
+    Related source file is "F:/zRabG/Xlnx/UPR2007/P3_edk/hdl/microblaze_0_wrapper.vhd".
+Unit <microblaze_0_wrapper> synthesized.
+
+WARNING:Xst:524 - All outputs of the instance <PVR_I> of the block <PVR> are unconnected in block <Data_Flow>.
+   This instance will be removed from the design along with all underlying logic
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 2x32-bit ROM                                          : 1
+# Adders/Subtractors                                   : 2
+ 17-bit adder                                          : 2
+# Registers                                            : 152
+ 1-bit register                                        : 125
+ 11-bit register                                       : 1
+ 16-bit register                                       : 1
+ 17-bit register                                       : 1
+ 2-bit register                                        : 3
+ 3-bit register                                        : 2
+ 32-bit register                                       : 13
+ 4-bit register                                        : 4
+ 5-bit register                                        : 2
+# Xors                                                 : 39
+ 1-bit xor2                                            : 38
+ 1-bit xor3                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Loading device for application Rf_Device from file '3s500e.nph' in environment f:\Xilinx91i.
+WARNING:Xst:2677 - Node <wb_prod_BD_15> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_14> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_13> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_12> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_11> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_10> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_9> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_8> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_7> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_6> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_5> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_4> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_3> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_2> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_1> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_0> of sequential type is unconnected in block <mul_unit>.
+WARNING:Xst:2677 - Node <wb_prod_BD_plus_AD_plus_BC_0> of sequential type is unconnected in block <mul_unit>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 2x32-bit ROM                                          : 1
+# Adders/Subtractors                                   : 2
+ 17-bit adder                                          : 2
+# Registers                                            : 817
+ Flip-Flops                                            : 817
+# Xors                                                 : 39
+ 1-bit xor2                                            : 38
+ 1-bit xor3                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch  <div_first_0> has a constant value of 0 in block <Decode>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <fpu_first_0> has a constant value of 0 in block <Decode>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <pvr_first_0> has a constant value of 0 in block <Decode>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <bs_first_0> has a constant value of 0 in block <Decode>.
+INFO:Xst:2261 - The FF/Latch <IM_BE_3> in Unit <IOPB_Interface> is equivalent to the following 4 FFs/Latches, which will be removed : <IM_BE_2> <IM_BE_1> <IM_BE_0> <IM_RNW> 
+INFO:Xst:2261 - The FF/Latch <Instr_EX_24> in Unit <Decode> is equivalent to the following FF/Latch, which will be removed : <FPU_Op_2> 
+INFO:Xst:2261 - The FF/Latch <Instr_EX_25> in Unit <Decode> is equivalent to the following 2 FFs/Latches, which will be removed : <Shift_Oper_0> <FPU_Cond_0> 
+INFO:Xst:2261 - The FF/Latch <Instr_EX_5> in Unit <Decode> is equivalent to the following FF/Latch, which will be removed : <Logic_Oper_1> 
+INFO:Xst:2261 - The FF/Latch <Instr_EX_23> in Unit <Decode> is equivalent to the following FF/Latch, which will be removed : <FPU_Op_1> 
+INFO:Xst:2261 - The FF/Latch <Instr_EX_4> in Unit <Decode> is equivalent to the following FF/Latch, which will be removed : <Logic_Oper_0> 
+INFO:Xst:2261 - The FF/Latch <Instr_EX_22> in Unit <Decode> is equivalent to the following FF/Latch, which will be removed : <FPU_Op_0> 
+INFO:Xst:2261 - The FF/Latch <Instr_EX_27> in Unit <Decode> is equivalent to the following FF/Latch, which will be removed : <FPU_Cond_2> 
+INFO:Xst:2261 - The FF/Latch <Instr_EX_26> in Unit <Decode> is equivalent to the following 2 FFs/Latches, which will be removed : <Shift_Oper_1> <FPU_Cond_1> 
+WARNING:Xst:1293 - FF/Latch  <Write_DIV_result_0> has a constant value of 0 in block <Decode>.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch  <Write_FPU_result_0> has a constant value of 0 in block <Decode>.
+INFO:Xst:1901 - Instance Use_HW_MUL.Using_MULT18x18_Architecture.Using_FPGA.MULT18x18S_BD in unit mul_unit of type MULT18X18S has been replaced by MULT18X18SIO
+INFO:Xst:1901 - Instance Use_HW_MUL.Using_MULT18x18_Architecture.Using_FPGA.MULT18x18S_AD in unit mul_unit of type MULT18X18S has been replaced by MULT18X18SIO
+INFO:Xst:1901 - Instance Use_HW_MUL.Using_MULT18x18_Architecture.Using_FPGA.MULT18x18S_BC in unit mul_unit of type MULT18X18S has been replaced by MULT18X18SIO
+
+Optimizing unit <microblaze_0_wrapper> ...
+
+Optimizing unit <DOPB_Interface> ...
+
+Optimizing unit <IOPB_Interface> ...
+
+Optimizing unit <PreFetch_Buffer> ...
+
+Optimizing unit <mul_unit> ...
+
+Optimizing unit <Data_Read_Steering> ...
+
+Optimizing unit <mux4_8> ...
+
+Optimizing unit <Decode> ...
+
+Optimizing unit <Byte_Doublet_Handle> ...
+
+Optimizing unit <Register_File> ...
+
+Optimizing unit <Operand_Select> ...
+
+Optimizing unit <ALU> ...
+
+Optimizing unit <Shift_Logic_Module> ...
+
+Optimizing unit <Result_Mux> ...
+
+Optimizing unit <MSR_Reg> ...
+
+Optimizing unit <PC_Module> ...
+
+Optimizing unit <microblaze> ...
+WARNING:Xst:1303 - From in and out of unit Area.Data_Flow_I/PC_Module_I, both signals normal_piperun and Area.Decode_I/of_PipeRun_s_I have a KEEP attribute, signal normal_piperun will be lost.
+WARNING:Xst:1710 - FF/Latch  <microblaze_0/Trace_MSR_Reg_0> (without init value) has a constant value of 0 in block <microblaze_0_wrapper>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <microblaze_0/Trace_MSR_Reg_1> (without init value) has a constant value of 0 in block <microblaze_0_wrapper>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <microblaze_0/Trace_MSR_Reg_2> (without init value) has a constant value of 0 in block <microblaze_0_wrapper>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <microblaze_0/Trace_MSR_Reg_3> (without init value) has a constant value of 0 in block <microblaze_0_wrapper>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <microblaze_0/Trace_MSR_Reg_4> (without init value) has a constant value of 0 in block <microblaze_0_wrapper>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <microblaze_0/Trace_MSR_Reg_5> (without init value) has a constant value of 0 in block <microblaze_0_wrapper>.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch  <microblaze_0/Trace_MSR_Reg_6> (without init value) has a constant value of 0 in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/Interrupt_Taken> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/Valid_Instr> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/Start_Div_i> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/Start_FPU_i> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_FSR_I_0> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/Write_DCache_I_0> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/Not_FPU_Op> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/Write_ICache_I_0> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/Branch_Instr> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/EX_delayslot_Instr_0> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/Not_Div_Op> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/fpu_started> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/div_started> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/IOPB_Exception> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Using_Ext_Databus.Using_D_OPB.DOPB_Interface_I2/MEM_DOPB_Exception> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Using_Ext_Databus.Using_D_OPB.DOPB_Interface_I2/WB_DOPB_Data_Strobe> of sequential type is unconnected in block <microblaze_0_wrapper>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_12> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_12> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_13> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_13> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_25> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_25> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_14> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_14> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_26> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_26> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_27> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_27> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_28> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_28> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_29> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_29> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_30> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_30> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_0> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_0> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_1> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_110> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_2> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_2> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_3> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_3> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_15> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_15> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_4> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_4> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_16> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_16> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_5> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_5> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_17> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_17> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_6> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_6> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_18> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_18> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_7> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_7> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_19> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_19> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_8> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_8> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_31> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_31> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_20> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_20> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_21> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_21> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_22> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_22> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_23> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_23> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_24> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_24> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_9> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_9> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_10> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_10> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Trace_Exception_Taken> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Trace_Exception_Kind_0> 
+INFO:Xst:2261 - The FF/Latch <microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/instr_addr_11> in Unit <microblaze_0_wrapper> is equivalent to the following FF/Latch, which will be removed : <microblaze_0/Instr_Addr_Stored_11> 
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_2_2> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_2_3> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_2_4> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_2_5> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_2_6> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_2_7> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_2_8> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_2_9> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_2_10> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_2_11> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_2_12> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_3_2> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_3_3> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_3_4> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_3_5> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_3_6> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_3_7> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_3_8> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_3_9> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_3_10> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_3_11> of sequential type is unconnected in block <microblaze_0_wrapper>.
+WARNING:Xst:2677 - Node <microblaze_0/Area.Decode_I/write_Addr_I_3_12> of sequential type is unconnected in block <microblaze_0_wrapper>.
+FlipFlop microblaze_0/Area.Decode_I/write_Addr_I_2 has been replicated 12 time(s)
+FlipFlop microblaze_0/Area.Decode_I/write_Addr_I_3 has been replicated 12 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 743
+ Flip-Flops                                            : 743
+
+=========================================================================
+
+=========================================================================
+*                          Partition Report                             *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+Top Level Output File Name         : ../implementation/microblaze_0_wrapper.ngc
+Output Format                      : ngc
+Optimization Goal                  : speed
+Keep Hierarchy                     : no
+
+Design Statistics
+# IOs                              : 1338
+
+Cell Usage :
+# BELS                             : 1278
+#      GND                         : 1
+#      INV                         : 5
+#      LUT1                        : 7
+#      LUT2                        : 75
+#      LUT2_D                      : 1
+#      LUT2_L                      : 3
+#      LUT3                        : 347
+#      LUT3_D                      : 3
+#      LUT3_L                      : 2
+#      LUT4                        : 427
+#      LUT4_D                      : 5
+#      LUT4_L                      : 6
+#      MULT_AND                    : 32
+#      MUXCY                       : 15
+#      MUXCY_L                     : 114
+#      MUXF5                       : 151
+#      VCC                         : 1
+#      XORCY                       : 83
+# FlipFlops/Latches                : 743
+#      FD                          : 181
+#      FDCE                        : 1
+#      FDE                         : 192
+#      FDR                         : 84
+#      FDRE                        : 235
+#      FDRS                        : 3
+#      FDRSE                       : 11
+#      FDS                         : 4
+#      FDSE                        : 32
+# RAMS                             : 128
+#      RAM16X1D                    : 128
+# Shift Registers                  : 64
+#      SRL16E                      : 64
+# MULTs                            : 3
+#      MULT18X18SIO                : 3
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                     565  out of   4656    12%  
+ Number of Slice Flip Flops:           743  out of   9312     7%  
+ Number of 4 input LUTs:              1201  out of   9312    12%  
+    Number used as logic:              881
+    Number used as Shift registers:     64
+    Number used as RAMs:               256
+ Number of IOs:                       1338
+ Number of bonded IOBs:                  0  out of    232     0%  
+ Number of MULT18X18SIOs:                3  out of     20    15%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                                                                                                                    | Load  |
+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+-------+
+FSL3_S_CLK                         | NONE(microblaze_0/Area.Data_Flow_I/Register_File_I/Using_FPGA.Gen_RegFile[1].Register_File_Bit_I/Using_Virtex4_and_S3.RAM16x1D_Reg2_High)| 938   |
+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+--------------------------------------------+-------------------------------------------+-------+
+Control Signal                              | Buffer(FF name)                           | Load  |
+--------------------------------------------+-------------------------------------------+-------+
+microblaze_0/reset_i(microblaze_0/reset_i:Q)| NONE(microblaze_0/Area.Decode_I/jump2_I_0)| 1     |
+--------------------------------------------+-------------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 10.309ns (Maximum Frequency: 97.001MHz)
+   Minimum input arrival time before clock: 7.310ns
+   Maximum output required time after clock: 8.165ns
+   Maximum combinational path delay: 1.898ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'FSL3_S_CLK'
+  Clock period: 10.309ns (frequency: 97.001MHz)
+  Total number of paths / destination ports: 79101 / 3181
+-------------------------------------------------------------------------
+Delay:               10.309ns (Levels of Logic = 4)
+  Source:            microblaze_0/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.PreFetch_Buffers[0].SRL16E_I (FF)
+  Destination:       microblaze_0/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/Op1_DFF (FF)
+  Source Clock:      FSL3_S_CLK rising
+  Destination Clock: FSL3_S_CLK rising
+
+  Data Path: microblaze_0/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.PreFetch_Buffers[0].SRL16E_I to microblaze_0/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/Op1_DFF
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     SRL16E:CLK->Q        24   3.706   1.427  microblaze_0/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.PreFetch_Buffers[0].SRL16E_I (microblaze_0/Area.Decode_I/instr_OF<0>)
+     LUT4:I0->O            1   0.704   0.595  microblaze_0/Area.Decode_I/Using_FPGA.OpSel1_SPR_Select_LUT_1 (microblaze_0/Area.Decode_I/opsel1_SPR_Select_1)
+     LUT3:I0->O            1   0.704   0.000  microblaze_0/Area.Decode_I/Using_FPGA.OpSel1_SPR_Select_LUT_4 (microblaze_0/Area.Decode_I/opsel1_SPR_Select)
+     MUXCY_L:S->LO        32   0.864   1.262  microblaze_0/Area.Decode_I/Using_FPGA.OpSel1_SPR_MUXCY_1 (microblaze_0/opsel1_SPR)
+     MUXF5:S->O            1   0.739   0.000  microblaze_0/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/Op1_MUXF5 (microblaze_0/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/op1_I)
+     FDE:D                     0.308          microblaze_0/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/Op1_DFF
+    ----------------------------------------
+    Total                     10.309ns (7.025ns logic, 3.284ns route)
+                                       (68.1% logic, 31.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'FSL3_S_CLK'
+  Total number of paths / destination ports: 2939 / 1198
+-------------------------------------------------------------------------
+Offset:              7.310ns (Levels of Logic = 6)
+  Source:            DREADY (PAD)
+  Destination:       microblaze_0/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/Op2_DFF (FF)
+  Destination Clock: FSL3_S_CLK rising
+
+  Data Path: DREADY to microblaze_0/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/Op2_DFF
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LUT2:I0->O            3   0.704   0.566  microblaze_0/combined_dready1 (microblaze_0/combined_dready)
+     LUT4:I2->O            5   0.704   0.668  microblaze_0/Area.Decode_I/write_Reg_I_0_and000115 (microblaze_0/Area.Decode_I/write_Reg_I)
+     LUT4:I2->O            1   0.704   0.455  microblaze_0/Area.Decode_I/Using_FPGA.Res_Forward1_LUT3 (microblaze_0/Area.Decode_I/res_forward1_3)
+     LUT3:I2->O           32   0.704   1.297  microblaze_0/Area.Decode_I/Using_FPGA.Res_Forward1_LUT4 (microblaze_0/res_Forward1)
+     LUT3:I2->O            2   0.704   0.000  microblaze_0/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/Op1_Mux2_1 (microblaze_0/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/op1_Reg)
+     MUXF5:I0->O           1   0.321   0.000  microblaze_0/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/Op1_MUXF5 (microblaze_0/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/op1_I)
+     FDE:D                     0.308          microblaze_0/Area.Data_Flow_I/Operand_Select_I/Using_FPGA.OpSelect_Bits[24].Operand_Select_Bit_I/Op1_DFF
+    ----------------------------------------
+    Total                      7.310ns (4.324ns logic, 2.986ns route)
+                                       (59.2% logic, 40.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'FSL3_S_CLK'
+  Total number of paths / destination ports: 10005 / 402
+-------------------------------------------------------------------------
+Offset:              8.165ns (Levels of Logic = 33)
+  Source:            microblaze_0/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFFs[1].FDS_I (FF)
+  Destination:       INSTR_ADDR<0> (PAD)
+  Source Clock:      FSL3_S_CLK rising
+
+  Data Path: microblaze_0/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFFs[1].FDS_I to INSTR_ADDR<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS:C->Q             67   0.591   1.352  microblaze_0/Area.Decode_I/PreFetch_Buffer_I/Using_FPGA.Buffer_DFFs[1].FDS_I (microblaze_0/buffer_Addr<1>)
+     LUT3:I1->O            1   0.704   0.595  microblaze_0/Area.Decode_I/PC_Incr_0_and00001 (microblaze_0/pc_Incr)
+     LUT4:I0->O            1   0.704   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[29].PC_Bit_I/SUM_I (microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[29].PC_Bit_I/xor_Sum)
+     MUXCY_L:S->LO         1   0.464   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[29].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<29>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[28].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<28>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[27].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<27>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[26].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<26>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[25].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<25>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[24].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<24>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[23].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<23>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[22].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<22>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[21].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<21>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[20].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<20>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[19].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<19>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[18].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<18>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[17].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<17>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[16].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<16>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[15].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<15>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[14].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<14>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[13].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<13>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[12].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<12>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[11].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<11>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[10].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<10>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[9].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<9>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[8].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<8>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[7].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<7>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[6].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<6>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[5].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<5>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[4].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<4>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[3].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<3>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[2].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<2>)
+     MUXCY_L:CI->LO        1   0.059   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[1].PC_Bit_I/MUXCY_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Carry<1>)
+     XORCY:CI->O           1   0.804   0.595  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[0].PC_Bit_I/XOR_X (microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[0].PC_Bit_I/pc_Sum)
+     LUT4:I0->O            2   0.704   0.000  microblaze_0/Area.Data_Flow_I/PC_Module_I/Using_FPGA.PC_GEN[0].PC_Bit_I/NewPC_Mux (INSTR_ADDR<0>)
+    ----------------------------------------
+    Total                      8.165ns (5.623ns logic, 2.542ns route)
+                                       (68.9% logic, 31.1% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 24 / 23
+-------------------------------------------------------------------------
+Delay:               1.898ns (Levels of Logic = 2)
+  Source:            IREADY (PAD)
+  Destination:       IM_REQUEST (PAD)
+
+  Data Path: IREADY to IM_REQUEST
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LUT4:I2->O            1   0.704   0.455  microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/iM_request_i_SW0 (N103)
+     LUT4:I2->O            1   0.704   0.000  microblaze_0/Area.Using_I_OPB.IOPB_Interface_I/iM_request_i (IM_REQUEST)
+    ----------------------------------------
+    Total                      1.898ns (1.443ns logic, 0.455ns route)
+                                       (76.0% logic, 24.0% route)
+
+=========================================================================
+CPU : 42.48 / 42.72 s | Elapsed : 43.00 / 43.00 s
+ 
+--> 
+
+Total memory usage is 226348 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  295 (   0 filtered)
+Number of infos    :   48 (   0 filtered)
+

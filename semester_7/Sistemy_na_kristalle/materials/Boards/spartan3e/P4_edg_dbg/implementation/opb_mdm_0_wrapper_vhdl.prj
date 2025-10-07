@@ -1,0 +1,8 @@
+vhdl proc_common_v1_00_c "f:\EDK\hw\XilinxProcessorIPLib\pcores\proc_common_v1_00_c\hdl\vhdl\pselect.vhd"
+vhdl proc_common_v1_00_c "f:\EDK\hw\XilinxProcessorIPLib\pcores\proc_common_v1_00_c\hdl\vhdl\family.vhd"
+vhdl opb_mdm_v2_00_a "f:\EDK\hw\XilinxProcessorIPLib\pcores\opb_mdm_v2_00_a\hdl\vhdl\bscan_virtex.vhd"
+vhdl opb_mdm_v2_00_a "f:\EDK\hw\XilinxProcessorIPLib\pcores\opb_mdm_v2_00_a\hdl\vhdl\srl_fifo.vhd"
+vhdl opb_mdm_v2_00_a "f:\EDK\hw\XilinxProcessorIPLib\pcores\opb_mdm_v2_00_a\hdl\vhdl\jtag_control.vhd"
+vhdl opb_mdm_v2_00_a "f:\EDK\hw\XilinxProcessorIPLib\pcores\opb_mdm_v2_00_a\hdl\vhdl\mdm_core.vhd"
+vhdl opb_mdm_v2_00_a "f:\EDK\hw\XilinxProcessorIPLib\pcores\opb_mdm_v2_00_a\hdl\vhdl\mdm.vhd"
+vhdl work "F:\zRabG\Xlnx\UPR2007\P4_edg_dbg\hdl\opb_mdm_0_wrapper.vhd"

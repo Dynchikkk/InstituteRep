@@ -1,0 +1,11 @@
+run
+-opt_mode speed
+-opt_level 1
+-p xc3s500efg320-4
+-top dlmb_wrapper
+-ifmt MIXED
+-ifn dlmb_wrapper_xst.prj
+-ofn ../implementation/dlmb_wrapper.ngc
+-hierarchy_separator /
+-iobuf NO
+-sd {../implementation}
