@@ -1,0 +1,22 @@
+start:
+    CLR P3.3            ; Display "O"
+    SETB P3.4           
+    MOV P1, #11000000b  
+    MOV P1, #0FFh       
+    SETB P3.3           
+    CLR P3.4            
+    
+    MOV A, P2           ; Read all switch states
+    ANL A, #01000000b   ; Mask out only bit 6 (SW6)
+    JNZ ON              ; If result ≠ 0, SW6=1 → jump to ON
+
+OFF:
+    MOV P1, #10001110b  ; Display "FF"
+    CLR P3.3            
+    MOV P1, #0FFh       
+    SJMP start          
+
+ON:
+    MOV P1, #10101011b  ; Display "n"
+    MOV P1, #0FFh       
+    SJMP start  
