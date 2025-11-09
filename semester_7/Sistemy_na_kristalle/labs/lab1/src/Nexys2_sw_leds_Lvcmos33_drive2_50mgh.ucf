@@ -1,0 +1,33 @@
+# clock pin for Nexys 2 Board
+NET "clk"  LOC = "B8"  ; # Bank = 0, Type = GCLK
+NET "clk" TNM_NET = "clk";
+TIMESPEC "TS_clk" = PERIOD "clk" 20 ns HIGH 50 %;
+
+# Buttons
+#NET "btn<0>"  LOC = "B18" | IOSTANDARD = LVCMOS33 ; # Bank = 1
+#NET "btn<1>"  LOC = "D18" | IOSTANDARD = LVCMOS33 ; # Bank = 1
+#NET "btn<2>"  LOC = "E18" | IOSTANDARD = LVCMOS33 ; # Bank = 1
+#NET "btn<3>"  LOC = "H13" | IOSTANDARD = LVCMOS33 ; # Bank = 1
+
+# Leds
+NET "led<0>"  LOC = "J14" | IOSTANDARD = LVCMOS33  | SLEW = SLOW  | DRIVE = 2 ; # Bank = 1
+NET "led<1>"  LOC = "J15" | IOSTANDARD = LVCMOS33  | SLEW = SLOW  | DRIVE = 2 ; # Bank = 1
+NET "led<2>"  LOC = "K15" | IOSTANDARD = LVCMOS33  | SLEW = SLOW  | DRIVE = 2 ; # Bank = 1
+NET "led<3>"  LOC = "K14" | IOSTANDARD = LVCMOS33  | SLEW = SLOW  | DRIVE = 2 ; # Bank = 1
+NET "led<4>"  LOC = "E17" | IOSTANDARD = LVCMOS33  | SLEW = SLOW  | DRIVE = 2 ; # Bank = 1
+NET "led<5>"  LOC = "P15" | IOSTANDARD = LVCMOS33  | SLEW = SLOW  | DRIVE = 2 ; # Bank = 1
+NET "led<6>"  LOC = "F4"  | IOSTANDARD = LVCMOS33  | SLEW = SLOW  | DRIVE = 2 ; # Bank = 3
+NET "led<7>"  LOC = "R4"  | IOSTANDARD = LVCMOS33  | SLEW = SLOW  | DRIVE = 2 ; # Bank = 3
+
+# Switches
+NET "sw<0>"  LOC = "G18" | IOSTANDARD = LVCMOS33 ; # Bank = 1
+NET "sw<1>"  LOC = "H18" | IOSTANDARD = LVCMOS33 ; # Bank = 1
+NET "sw<2>"  LOC = "K18" | IOSTANDARD = LVCMOS33 ; # Bank = 1
+NET "sw<3>"  LOC = "K17" | IOSTANDARD = LVCMOS33 ; # Bank = 1
+NET "sw<4>"  LOC = "L14" | IOSTANDARD = LVCMOS33 ; # Bank = 1
+NET "sw<5>"  LOC = "L13" | IOSTANDARD = LVCMOS33 ; # Bank = 1
+NET "sw<6>"  LOC = "N17" | IOSTANDARD = LVCMOS33 ; # Bank = 1
+NET "sw<7>"  LOC = "R17" | IOSTANDARD = LVCMOS33 ; # Bank = 1
+
+CONFIG PROHIBIT = n9,r14,r13,p13,t12,n11,r11,p10,r10,t15,v15,v9,v12,t16,u15,t14,v13,u13;
+CONFIG PROHIBIT = t2,n7,r6,h5,p7,r5,d3,l1,l4,l6,m4,n5,p1,p2,r2,l3,l5,m3,m6,l2,n4,r3,t1;

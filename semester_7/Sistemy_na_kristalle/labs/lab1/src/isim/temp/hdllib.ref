@@ -1,0 +1,10 @@
+AR picoblaze_top behavioral C:/Xilinx91i/snk/z_picoSP36_top.vhd sub00/vhpl07 1761496124
+AR kcpsm3 low_level_definition C:/Xilinx91i/snk/kcpsm3.vhd sub00/vhpl01 1761496118
+AR embedded_kcpsm3 connectivity C:/Xilinx91i/snk/embedded_kcpsm3.vhd sub00/vhpl05 1761496122
+EN prog_rom NULL C:/Xilinx91i/snk/PROG_ROM.VHD sub00/vhpl02 1761496119
+EN kcpsm3 NULL C:/Xilinx91i/snk/kcpsm3.vhd sub00/vhpl00 1761496117
+AR tb1 behavior C:/Xilinx91i/snk/tb1.vhd sub00/vhpl09 1761496126
+EN picoblaze_top NULL C:/Xilinx91i/snk/z_picoSP36_top.vhd sub00/vhpl06 1761496123
+EN tb1 NULL C:/Xilinx91i/snk/tb1.vhd sub00/vhpl08 1761496125
+AR prog_rom low_level_definition C:/Xilinx91i/snk/PROG_ROM.VHD sub00/vhpl03 1761496120
+EN embedded_kcpsm3 NULL C:/Xilinx91i/snk/embedded_kcpsm3.vhd sub00/vhpl04 1761496121

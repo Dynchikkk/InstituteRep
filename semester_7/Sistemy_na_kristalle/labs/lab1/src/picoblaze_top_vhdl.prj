@@ -1,0 +1,4 @@
+vhdl work "C:\Xilinx91i\snk\kcpsm3.vhd"
+vhdl work "C:\Xilinx91i\snk\PROG_ROM.VHD"
+vhdl work "C:\Xilinx91i\snk\embedded_kcpsm3.vhd"
+vhdl work "C:\Xilinx91i\snk\z_picoSP36_top.vhd"

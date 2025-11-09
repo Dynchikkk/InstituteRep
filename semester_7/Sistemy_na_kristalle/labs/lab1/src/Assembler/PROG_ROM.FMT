@@ -1,0 +1,29 @@
+       ; y = 5x + 2
+       ; P0 (port 00) Ч вход x (SW[3:0])
+       ; P1 (port 01) Ч выход y (LED[7:0])
+       ;
+       ;start:
+       ;    INPUT  s0,00        ; s0 <- x
+       ;    AND    s0,0F        ; оставить только 4 младших бита (x=0..15)
+       ;
+       ;    LOAD   s2,s0        ; s2 = x
+       ;    SL0    s2           ; s2 = 2x
+       ;    SL0    s2           ; s2 = 4x
+       ;    ADD    s2,s0        ; s2 = 5x
+       ;    ADD    s2,02        ; s2 = 5x + 2
+       ;    OUTPUT s2,01        ; y -> порт 01 (LED)
+       ;    JUMP   start
+start: 
+       LOAD s1, 05
+       ADD s1, 01
+       ADDCY s1, 03
+       SUB s1, 02
+       SUBCY s1, 04
+       AND s1, 07
+       OR s1, 08
+       STORE s1, 10
+       FETCH s2, 10
+       OUTPUT s2, 01
+       INPUT s0, 00
+       OUTPUT s0, 01
+       JUMP start

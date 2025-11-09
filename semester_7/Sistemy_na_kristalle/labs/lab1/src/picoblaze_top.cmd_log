@@ -1,0 +1,2 @@
+xst -ise "C:/Xilinx91i/snk/snk.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+ngdbuild -ise "C:/Xilinx91i/snk/snk.ise" -intstyle ise -dd _ngo -nt timestamp -uc "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" -p xc3s500e-fg320-5 "picoblaze_top.ngc" picoblaze_top.ngd
