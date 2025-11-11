@@ -3,68 +3,48 @@
 namespace Server.Core
 {
     /// <summary>
-    /// Core HTTP server based on HttpListener. 
-    /// Listens to requests and dispatches them to the router.
+    /// Basic asynchronous HTTP server built on HttpListener.
     /// </summary>
     public class HttpServer
     {
-        private readonly HttpListener _listener;
+        private readonly HttpListener _listener = new();
         private readonly Router _router;
-        private bool _isRunning;
 
         public HttpServer(string prefix, Router router)
         {
-            _listener = new HttpListener();
-            _listener.Prefixes.Add(prefix.EndsWith("/") ? prefix : prefix + "/");
             _router = router;
+            _listener.Prefixes.Add(prefix);
         }
 
-        public async Task StartAsync(CancellationToken cancellationToken = default)
+        public async Task StartAsync(CancellationToken token = default)
         {
-            _isRunning = true;
             _listener.Start();
-            Console.WriteLine($"[SERVER] Listening on {_listener.Prefixes.First()}");
+            Console.WriteLine($"[Server] Listening on {_listener.Prefixes.First()}");
 
-            while (_isRunning && !cancellationToken.IsCancellationRequested)
+            while (!token.IsCancellationRequested)
             {
-                try
-                {
-                    var context = await _listener.GetContextAsync();
-                    _ = HandleRequestAsync(context);
-                }
-                catch (HttpListenerException ex) when (ex.ErrorCode == 995) // cancelled
-                {
-                    break;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"[ERROR] Listener exception: {ex.Message}");
-                }
+                var context = await _listener.GetContextAsync();
+                _ = Task.Run(() => HandleRequestAsync(context));
             }
 
             _listener.Stop();
-            Console.WriteLine("[SERVER] Stopped");
         }
 
-        private async Task HandleRequestAsync(HttpListenerContext listenerContext)
+        private async Task HandleRequestAsync(HttpListenerContext context)
         {
-            var context = new HttpContext(listenerContext);
-
             try
             {
-                await _router.RouteAsync(context);
+                var httpContext = new HttpContext(context);
+                await _router.RouteAsync(httpContext);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[ERROR] Unhandled request exception: {ex}");
-                await context.WriteJsonAsync(new { error = "Internal server error" }, HttpStatusCode.InternalServerError);
+                Console.WriteLine($"[Error] {ex.Message}");
+                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                await using var writer = new StreamWriter(context.Response.OutputStream);
+                await writer.WriteAsync("Internal Server Error");
+                context.Response.Close();
             }
-        }
-
-        public void Stop()
-        {
-            _isRunning = false;
-            _listener.Stop();
         }
     }
 }

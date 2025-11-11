@@ -1,5 +1,5 @@
-﻿using DataAccess.Abstractions.Config;
-using DataAccess.Abstractions.Core;
+﻿using DataAccess.Abstractions.Core;
+using DataAccess.Sqlite.Config;
 using Microsoft.Data.Sqlite;
 
 namespace DataAccess.Sqlite.Core
@@ -9,9 +9,9 @@ namespace DataAccess.Sqlite.Core
     /// </summary>
     public class SqliteDatabaseInitializer : IDatabaseInitializer
     {
-        private readonly DatabaseSettings _settings;
+        private readonly SqliteDatabaseSettings _settings;
 
-        public SqliteDatabaseInitializer(DatabaseSettings settings)
+        public SqliteDatabaseInitializer(SqliteDatabaseSettings settings)
         {
             _settings = settings;
         }

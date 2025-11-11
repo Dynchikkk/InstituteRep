@@ -1,13 +1,14 @@
 ﻿using DataAccess.Abstractions.Core;
+using DataAccess.Sqlite.Config;
 using Microsoft.Data.Sqlite;
 
 public class SqliteConnectionFactory : IDatabaseConnectionFactory<SqliteConnection>
 {
     private readonly string _connectionString;
 
-    public SqliteConnectionFactory(string connectionString)
+    public SqliteConnectionFactory(SqliteDatabaseSettings databaseSettings)
     {
-        _connectionString = connectionString;
+        _connectionString = databaseSettings.ConnectionString;
     }
 
     public SqliteConnection CreateConnection()
