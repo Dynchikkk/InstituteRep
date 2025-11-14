@@ -24,28 +24,23 @@ Any
 --
 &
 ## CLOCK
+
+RB1
+Always
+Never
+Low
+10
+10
+
+--
 &
 ## STIMULUSFILE
 &
 ## RESPONSEFILE
 &
 ## ASYNCH
-Pin
-RB0
-Set High
-
-
--1
---
-Pin
-RB0
-Set Low
-
-
--1
---
 &
 ## ADVANCEDSCL
 
-0
+1
 &

@@ -1,86 +1,92 @@
-MPASM  5.35                        SOURCE.ASM   9-26-2025  22:00:53         PAGE  1
+MPASM  5.35                        SOURCE.ASM   11-14-2025  21:14:06         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00001     list        p=16f887        ; целевой микроконтроллер
-                      00002     #include    <p16f887.inc>   ; определения регистров и констант для PIC16F887
+                      00001     list        p=16f887    ; list directive to define processor
+                      00002     #include    <p16f887.inc>   ; processor specific variable definitions
                       00001         LIST
                       00002 ; P16F887.INC  Standard Header File, Version 1.00    Microchip Technology, Inc.
                       00617         LIST
-                      00003 
-2007   23EC           00004     __CONFIG    _CONFIG1, _LVP_OFF&_FCMEN_OFF&_IESO_OFF&_BOR_ON&_CPD_OFF&_CP_OFF&_MCLRE_ON&_PWRTE_ON&_WD
+2007   23EC           00003     __CONFIG    _CONFIG1, _LVP_OFF&_FCMEN_OFF&_IESO_OFF&_BOR_ON&_CPD_OFF&_CP_OFF&_MCLRE_ON&_PWRTE_ON&_WD
                             T_ON&_INTRC_OSC_NOCLKOUT
-2008   3EFF           00005     __CONFIG    _CONFIG2, _WRT_OFF & _BOR21V
-                      00006 
-                      00007 ; Сегмент с прямым доступом - для переменных, используемых в ISR (сохранение контекста)
-                      00008 INT_VAR     UDATA_SHR
-0000                  00009 w_temp      RES     1         ; временная ячейка для сохранения W при входе в прерывание
-0001                  00010 status_temp RES     1         ; временная ячейка для сохранения STATUS
-0002                  00011 pclath_temp RES     1         ; временная ячейка для сохранения PCLATH
-                      00012 
-                      00013 ; Обычный сегмент данных
-                      00014 TEMP_VAR    UDATA
-0000                  00015 count1      RES 2             ; двухбайтовый счётчик задержки (count1 и count1+1)
-                      00016 
-                      00017 ;**********************************************************************
-                      00018 RESET_VECTOR    CODE    0x0000 ; вектор сброса
-0000   30??           00019     movlw HIGH start          ; загрузить старшую часть адреса start в W
-0001   008A           00020     movwf PCLATH              ; записать её в PCLATH (нужно для переходов >256)
-0002   2???           00021     goto    start             ; переход на метку start
-                      00022 
-                      00023 INT_VECTOR      CODE    0x0004 ; вектор прерывания
-0004   00??           00024     movwf   w_temp            ; Сохранить W в w_temp (W содержимое теряется при вызове ISR)
-0005   0803           00025     movf    STATUS,w          ; загрузить STATUS в W
-0006   00??           00026     movwf   status_temp       ; сохранить STATUS
-0007   080A           00027     movf    PCLATH,w          ; загрузить PCLATH в W
-0008   00??           00028     movwf   pclath_temp       ; сохранить PCLATH
-                      00029 
-0009   08??           00030     movf    pclath_temp,w     ; восстановить PCLATH из pclath_temp
-000A   008A           00031     movwf   PCLATH
-000B   08??           00032     movf    status_temp,w     ; восстановить STATUS
-000C   0083           00033     movwf   STATUS
-000D   0E??           00034     swapf   w_temp,f          ; меняет местами стар/млад нибблы w_temp и сохраняет в w_temp
-000E   0E??           00035     swapf   w_temp,w          ; затем помещает результат в W (восстанавливает W только частично/необычно
-                            )
-000F   0009           00036     retfie                    ; возврат из прерывания (восстанавливает GIE)
-                      00037 
-                      00038 MAIN_PROG       CODE
-                      00039 
-0000                  00040 start
-0000   3000           00041         movlw 0x00
-0001   1683 1303      00042         banksel TRISD               ; выбрать банк, содержащий TRISD
+2008   3EFF           00004     __CONFIG    _CONFIG2, _WRT_OFF & _BOR21V
+                      00005 ; Обычный сегмент данных
+                      00006 TEMP_VAR    UDATA           ; explicit address specified is not required
+0000                  00007 count1      RES 2
+                      00008 ;**********************************************************************
+                      00009 RESET_VECTOR    CODE    0x0000 ; processor reset vector
+0000   30??           00010     movlw HIGH start
+0001   008A           00011     movwf PCLATH
+0002   2???           00012     goto start              ; go to beginning of program
+                      00013 
+                      00014 INT_VECTOR      CODE    0x0004 ; interrupt vector location
+                      00015 МАIN_PROG    CODE
+0000                  00016 start    ; начало программы
+                      00017 
+Warning[203]: Found opcode in column 1. (movlw)
+0000   3000           00018 movlw 0x00    ; пересылка константы в регистр w (буфер)
+Warning[205]: Found directive in column 1. (banksel)
+0001   1683 1303      00019 banksel TRISD    ; выбор страницы памяти
+Warning[203]: Found opcode in column 1. (movwf)
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0003   0088           00043         movwf TRISD                 ; TRISD = 0x00 -> порт D как выходы
-                      00044         
-0004   3001           00045         movlw 0x01                  ; новое начальное значение 0x01 (00000001)
-0005   1283 1303      00046         banksel PORTD               ; выбрать банк PORTD
-0007   0088           00047         movwf PORTD                 ; записать 0x01 PORTD 
-MPASM  5.35                        SOURCE.ASM   9-26-2025  22:00:53         PAGE  2
+0003   0088           00020 movwf TRISD    ; занесение в TRISD значения из регистра w (0)
+Warning[203]: Found opcode in column 1. (movlw)
+0004   30FF           00021 movlw 0xff    ; пересылка 0xff в регистр w (буфер)
+Warning[203]: Found opcode in column 1. (movwf)
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0005   0086           00022 movwf TRISB    ; занесение в TRISD значения из регистра w (0xff)
+Warning[205]: Found directive in column 1. (banksel)
+0006   1683 1703      00023 banksel ANSELH   ; выбор страницы памяти
+Warning[203]: Found opcode in column 1. (movlw)
+0008   303B           00024 movlw 0x3b    ; пересылка константы в регистр w (буфер)
+Warning[203]: Found opcode in column 1. (movwf)
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0009   0089           00025 movwf ANSELH    ; занесение в ANSELH значения из регистра w (0xff)
+Warning[205]: Found directive in column 1. (banksel)
+000A   1283 1303      00026 banksel PORTD    ; выбор страницы памяти
+Warning[203]: Found opcode in column 1. (movwf)
+000C   0088           00027 movwf PORTD    ; занесение в PORTD значения из регистра w (0x3d)
+                      00028 
+000D                  00029 ml
+Warning[203]: Found opcode in column 1. (bsf)
+000D   1488           00030 bsf PORTD,1    ; установка в PORTD в 1 бит "1"
+Warning[203]: Found opcode in column 1. (bsf)
+000E   1508           00031 bsf PORTD,2    ; установка в PORTD в 2 бит "1"
+Warning[203]: Found opcode in column 1. (bcf)
+000F   1188           00032 bcf PORTD,3    ; очистка 3 бита в PORTD
+Warning[203]: Found opcode in column 1. (CLRWDT)
+MPASM  5.35                        SOURCE.ASM   11-14-2025  21:14:06         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00048 
-0008                  00049 maincycle
-0008   0064           00050     CLRWDT                     ; очистить сторожевой таймер (WDT)
-0009                  00051 pause
-0009   0B??           00052     decfsz count1,1            ; декремент младшего байта count1; если 0->skip следующую строчку
-000A   2???           00053     goto pause                 ; если не равен нулю — возвращаемся в pause
-000B   0B??           00054     decfsz count1+1,1          ; декремент старшего байта count1+1; если не ноль — goto pause
-000C   2???           00055     goto pause                 ; (эта строка: появление — в коде; логика: при старшем не-нуле goto pause
-                            )
-                      00056         
-                      00057 ; Сдвиг содержимого регистра влево без учета бита переноса
-000D   0D08           00058     rlf PORTD,0                ; rotate left PORTD, результат записан обратно в PORTD (d = 0)
-000E   0D88           00059     rlf PORTD,1                ; rotate left PORTD, результат записан в W (d = 1) — файл не изменится
-                      00060         
-000F   2???           00061     goto maincycle             ; бесконечный цикл
-                      00062 
-23EC 3EFF             00063   END
-MPASM  5.35                        SOURCE.ASM   9-26-2025  22:00:53         PAGE  3
+0010   0064           00033 CLRWDT    ; сброс ждущего таймера
+                      00034 
+Warning[203]: Found opcode in column 1. (btfsc)
+0011   1886           00035 btfsc PORTB,1    ; проверка 1 бита в PORTB, пропуск следующей команды, если там 0
+Warning[203]: Found opcode in column 1. (goto)
+0012   2???           00036 goto ml    ; переход в метку ml
+                      00037 
+0013                  00038 m2
+Warning[203]: Found opcode in column 1. (bcf)
+0013   1088           00039 bcf PORTD,1    ; очистка 1 бита в PORTD
+Warning[203]: Found opcode in column 1. (bcf)
+0014   1108           00040 bcf PORTD,2    ; очистка 2 бита в PORTD
+Warning[203]: Found opcode in column 1. (bsf)
+0015   1588           00041 bsf PORTD,3    ; установка в PORTD в 3 бит "1"
+                      00042 
+Warning[203]: Found opcode in column 1. (btfsc)
+0016   1886           00043 btfsc PORTB,1    ; проверка 1 бита в PORTB, пропуск следующей команды, если там 0
+Warning[203]: Found opcode in column 1. (goto)
+0017   2???           00044 goto ml    ; переход в метку ml
+Warning[203]: Found opcode in column 1. (goto)
+0018   2???           00045 goto m2    ; переход в метку m2
+Warning[205]: Found directive in column 1. (end)
+23EC 3EFF             00046 end
+MPASM  5.35                        SOURCE.ASM   11-14-2025  21:14:06         PAGE  3
 
 
 SYMBOL TABLE
@@ -139,7 +145,7 @@ BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
 BRG9                              00000001
-MPASM  5.35                        SOURCE.ASM   9-26-2025  22:00:53         PAGE  4
+MPASM  5.35                        SOURCE.ASM   11-14-2025  21:14:06         PAGE  4
 
 
 SYMBOL TABLE
@@ -198,7 +204,7 @@ CHS2                              00000004
 CHS3                              00000005
 CKE                               00000006
 CKP                               00000004
-MPASM  5.35                        SOURCE.ASM   9-26-2025  22:00:53         PAGE  5
+MPASM  5.35                        SOURCE.ASM   11-14-2025  21:14:06         PAGE  5
 
 
 SYMBOL TABLE
@@ -257,7 +263,7 @@ IOCB2                             00000002
 IOCB3                             00000003
 IOCB4                             00000004
 IOCB5                             00000005
-MPASM  5.35                        SOURCE.ASM   9-26-2025  22:00:53         PAGE  6
+MPASM  5.35                        SOURCE.ASM   11-14-2025  21:14:06         PAGE  6
 
 
 SYMBOL TABLE
@@ -316,7 +322,7 @@ PIR2                              0000000D
 PORTA                             00000005
 PORTB                             00000006
 PORTC                             00000007
-MPASM  5.35                        SOURCE.ASM   9-26-2025  22:00:53         PAGE  7
+MPASM  5.35                        SOURCE.ASM   11-14-2025  21:14:06         PAGE  7
 
 
 SYMBOL TABLE
@@ -375,7 +381,7 @@ SREN                              00000005
 SSPADD                            00000093
 SSPBUF                            00000013
 SSPCON                            00000014
-MPASM  5.35                        SOURCE.ASM   9-26-2025  22:00:53         PAGE  8
+MPASM  5.35                        SOURCE.ASM   11-14-2025  21:14:06         PAGE  8
 
 
 SYMBOL TABLE
@@ -434,7 +440,7 @@ TOUTPS1                           00000004
 TOUTPS2                           00000005
 TOUTPS3                           00000006
 TRISA                             00000085
-MPASM  5.35                        SOURCE.ASM   9-26-2025  22:00:53         PAGE  9
+MPASM  5.35                        SOURCE.ASM   11-14-2025  21:14:06         PAGE  9
 
 
 SYMBOL TABLE
@@ -493,7 +499,7 @@ WPUB7                             00000007
 WR                                00000001
 WREN                              00000002
 WRERR                             00000003
-MPASM  5.35                        SOURCE.ASM   9-26-2025  22:00:53         PAGE 10
+MPASM  5.35                        SOURCE.ASM   11-14-2025  21:14:06         PAGE 10
 
 
 SYMBOL TABLE
@@ -546,21 +552,18 @@ _XT_OSC                           00003FF9
 __16F887                          00000001
 __DEBUG                           1
 count1                            00000000
-maincycle                         00000008
-pause                             00000009
-pclath_temp                       00000002
+m2                                00000013
+ml                                0000000D
 start                             00000000
-status_temp                       00000001
-w_temp                            00000000
-MPASM  5.35                        SOURCE.ASM   9-26-2025  22:00:53         PAGE 11
 
+MPASM  5.35                        SOURCE.ASM   11-14-2025  21:14:06         PAGE 11
 
 
 
 
 
 Errors   :     0
-Warnings :     0 reported,     0 suppressed
-Messages :     1 reported,     0 suppressed
+Warnings :    23 reported,     0 suppressed
+Messages :     3 reported,     0 suppressed
 
 
