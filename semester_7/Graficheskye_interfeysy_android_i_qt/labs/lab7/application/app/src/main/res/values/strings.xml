@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Учебное приложение</string>
+
+    <string name="btn_login">Войти</string>
+    <string name="btn_register">Регистрация</string>
+    <string name="msg_login_error">Неверный логин или пароль</string>
+
+    <string name="hint_name">Имя</string>
+    <string name="hint_email">Электронная почта</string>
+    <string name="hint_login">Логин</string>
+    <string name="hint_password">Пароль</string>
+    <string name="btn_save">Сохранить</string>
+    <string name="btn_take_photo">Сделать фото</string>
+    <string name="msg_fill_fields">Заполните все поля</string>
+    <string name="msg_register_success">Регистрация успешна</string>
+    <string name="msg_register_error">Ошибка регистрации</string>
+    <string name="msg_camera_unavailable">Камера недоступна</string>
+
+    <string name="btn_make_admin">Сделать администратором</string>
+    <string name="msg_now_admin">Пользователь теперь администратор</string>
+
+    <string name="btn_profile">Профиль</string>
+    <string name="btn_settings">Настройки</string>
+    <string name="btn_admin">Администрирование</string>
+    <string name="btn_start_game">Старт</string>
+    <string name="btn_exit">Выход</string>
+
+    <string name="game_title">Игра: Камень, Ножницы, Бумага</string>
+    <string name="btn_rock">Камень</string>
+    <string name="btn_scissors">Ножницы</string>
+    <string name="btn_paper">Бумага</string>
+    <string name="btn_back">Назад</string>
+    <string name="msg_choose">Сделайте выбор</string>
+    <string name="msg_draw">Ничья!</string>
+    <string name="msg_win">Вы выиграли!</string>
+    <string name="msg_lose">Вы проиграли!</string>
+    <string name="msg_vibration_not_supported">Вибрация не поддерживается</string>
+
+    <string name="settings_title">Настройки</string>
+    <string name="btn_theme">Сменить тему</string>
+    <string name="btn_back_to_menu">Назад в меню</string>
+
+    <string name="btn_show_logs">Показать лог авторизаций</string>
+
+    <string name="hint_auth_logs">Лог авторизаций</string>
+    <string name="btn_clear_logs">Очистить лог</string>
+
+</resources>
