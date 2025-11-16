@@ -13,7 +13,7 @@ public class SqliteConnectionFactory : IDatabaseConnectionFactory<SqliteConnecti
 
     public SqliteConnection CreateConnection()
     {
-        var conn = new SqliteConnection(_connectionString);
+        SqliteConnection conn = new(_connectionString);
         conn.Open();
         return conn;
     }

@@ -17,7 +17,7 @@ internal class Program
         Console.WriteLine("🚀 Starting SupplierClient Server...\n");
 
         // --- Initialize database ---
-        var factory = InitializeDatabase();
+        IDatabaseConnectionFactory<SqliteConnection> factory = InitializeDatabase();
 
         // --- Seed demo data if debug mode ---
         if (Debugger.IsAttached ||
@@ -27,16 +27,16 @@ internal class Program
         }
 
         // --- Initialize repositories ---
-        var repositories = InitializeRepositories(factory);
+        Dictionary<Type, object> repositories = InitializeRepositories(factory);
 
         // --- Initialize services ---
-        var services = InitializeServices(repositories);
+        Dictionary<Type, object> services = InitializeServices(repositories);
 
         // --- Initialize controllers ---
-        var controllers = InitializeControllers(services);
+        Dictionary<Type, object> controllers = InitializeControllers(services);
 
         // --- Configure routes ---
-        var router = ConfigureRoutes(controllers);
+        Router router = ConfigureRoutes(controllers);
 
         // --- Start HTTP server ---
         await StartServer(router);
@@ -46,13 +46,13 @@ internal class Program
     {
         Console.WriteLine("[DB] Initializing database...");
 
-        var databaseSettings = new SqliteDatabaseSettings
+        SqliteDatabaseSettings databaseSettings = new()
         {
             ConnectionString = "Data Source=database.db"
         };
 
-        var factory = new SqliteConnectionFactory(databaseSettings);
-        var initializer = new SqliteDatabaseInitializer(databaseSettings);
+        SqliteConnectionFactory factory = new(databaseSettings);
+        SqliteDatabaseInitializer initializer = new(databaseSettings);
         initializer.Initialize();
 
         Console.WriteLine("[DB] Database initialized.\n");
@@ -61,10 +61,10 @@ internal class Program
 
     private static async Task SeedDemoData(IDatabaseConnectionFactory<SqliteConnection> factory)
     {
-        var seeder = new SqliteDataSeeder(factory);
+        SqliteDataSeeder seeder = new(factory);
 
         Console.WriteLine("[Seeder] Checking if database is empty...");
-        var empty = await seeder.IsEmptyAsync();
+        bool empty = await seeder.IsEmptyAsync();
         if (empty)
         {
             Console.WriteLine("[Seeder] Database empty — seeding demo data...");
@@ -80,7 +80,7 @@ internal class Program
     private static Dictionary<Type, object> InitializeRepositories(IDatabaseConnectionFactory<SqliteConnection> factory)
     {
         Console.WriteLine("[Repos] Initializing repositories...");
-        var repos = new Dictionary<Type, object>
+        Dictionary<Type, object> repos = new()
         {
             [typeof(IClientRepository)] = new SqliteClientRepository(factory),
             [typeof(ISupplierRepository)] = new SqliteSupplierRepository(factory),
@@ -97,7 +97,7 @@ internal class Program
     private static Dictionary<Type, object> InitializeServices(Dictionary<Type, object> repos)
     {
         Console.WriteLine("[Services] Initializing services...");
-        var services = new Dictionary<Type, object>
+        Dictionary<Type, object> services = new()
         {
             [typeof(AuthService)] = new AuthService(
                 (IClientRepository)repos[typeof(IClientRepository)],
@@ -123,7 +123,7 @@ internal class Program
     private static Dictionary<Type, object> InitializeControllers(Dictionary<Type, object> services)
     {
         Console.WriteLine("[Controllers] Initializing controllers...");
-        var controllers = new Dictionary<Type, object>
+        Dictionary<Type, object> controllers = new()
         {
             [typeof(AuthController)] = new AuthController((AuthService)services[typeof(AuthService)]),
             [typeof(MessageController)] = new MessageController((MessageService)services[typeof(MessageService)]),
@@ -139,7 +139,7 @@ internal class Program
     private static Router ConfigureRoutes(Dictionary<Type, object> controllers)
     {
         Console.WriteLine("[Router] Configuring routes...");
-        var router = new Router();
+        Router router = new();
 
         router.Register("POST", "/auth/login", ((AuthController)controllers[typeof(AuthController)]).Login);
 
@@ -160,6 +160,13 @@ internal class Program
         router.Register("GET", "/categories", ((CategoryController)controllers[typeof(CategoryController)]).GetAll);
         router.Register("POST", "/categories/add", ((CategoryController)controllers[typeof(CategoryController)]).Add);
 
+        router.Register("GET", "/ping", async ctx =>
+        {
+            await ctx.WriteTextAsync(
+                $"PONG\nMethod: {ctx.Request.HttpMethod}\nRawUrl: {ctx.Request.RawUrl}"
+            );
+        });
+
         Console.WriteLine("[Router] Routes configured.\n");
         return router;
     }
@@ -167,8 +174,8 @@ internal class Program
     private static async Task StartServer(Router router)
     {
         Console.WriteLine("[Server] Starting HTTP server at http://localhost:8080/ ...");
-        var server = new HttpServer("http://localhost:8080/", router);
-        var cts = new CancellationTokenSource();
+        HttpServer server = new("http://localhost:8080/", router);
+        CancellationTokenSource cts = new();
 
         Console.CancelKeyPress += (s, e) =>
         {

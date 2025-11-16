@@ -2,41 +2,43 @@
 using Server.Dtos;
 using Server.Services;
 
-namespace Server.Controllers
+namespace Server.Controllers;
+
+public class BasketController : ControllerBase
 {
-    public class BasketController : ControllerBase
+    private readonly BasketService _svc;
+
+    public BasketController(BasketService svc)
     {
-        private readonly BasketService _svc;
+        _svc = svc;
+    }
 
-        public BasketController(BasketService svc) => _svc = svc;
-
-        // POST /basket/build
-        // body: { clientId, categoryId, quantity }
-        public async Task Build(HttpContext ctx)
+    // POST /basket/build
+    // body: { clientId, categoryId, quantity }
+    public async Task Build(HttpContext ctx)
+    {
+        BuildBasketDto? req = await ctx.ReadJsonAsync<BuildBasketDto>();
+        if (req == null)
         {
-            var req = await ctx.ReadJsonAsync<BuildBasketDto>();
-            if (req == null)
-            {
-                await Error(ctx, "Invalid body");
-                return;
-            }
-
-            var basket = await _svc.BuildAsync(req.ClientId, req.CategoryId, req.Quantity);
-            await Json(ctx, basket);
+            await Error(ctx, "Invalid body");
+            return;
         }
 
-        // GET /basket?clientId=...
-        public async Task Get(HttpContext ctx)
-        {
-            var q = ctx.Request.QueryString;
-            if (!int.TryParse(q["clientId"], out var clientId))
-            {
-                await Error(ctx, "clientId required");
-                return;
-            }
+        IEnumerable<SharedModels.BasketItem> basket = await _svc.BuildAsync(req.ClientId, req.CategoryId, req.Quantity);
+        await Json(ctx, basket);
+    }
 
-            var items = await _svc.GetByClientAsync(clientId);
-            await Json(ctx, items);
+    // GET /basket?clientId=...
+    public async Task Get(HttpContext ctx)
+    {
+        System.Collections.Specialized.NameValueCollection q = ctx.Request.QueryString;
+        if (!int.TryParse(q["clientId"], out int clientId))
+        {
+            await Error(ctx, "clientId required");
+            return;
         }
+
+        IEnumerable<SharedModels.BasketItem> items = await _svc.GetByClientAsync(clientId);
+        await Json(ctx, items);
     }
 }

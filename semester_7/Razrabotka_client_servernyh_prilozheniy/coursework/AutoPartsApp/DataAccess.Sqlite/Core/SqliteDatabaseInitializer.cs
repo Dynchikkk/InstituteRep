@@ -2,27 +2,27 @@
 using DataAccess.Sqlite.Config;
 using Microsoft.Data.Sqlite;
 
-namespace DataAccess.Sqlite.Core
+namespace DataAccess.Sqlite.Core;
+
+/// <summary>
+/// Initializes SQLite database (creates tables if missing).
+/// </summary>
+public class SqliteDatabaseInitializer : IDatabaseInitializer
 {
-    /// <summary>
-    /// Initializes SQLite database (creates tables if missing).
-    /// </summary>
-    public class SqliteDatabaseInitializer : IDatabaseInitializer
+    private readonly SqliteDatabaseSettings _settings;
+
+    public SqliteDatabaseInitializer(SqliteDatabaseSettings settings)
     {
-        private readonly SqliteDatabaseSettings _settings;
+        _settings = settings;
+    }
 
-        public SqliteDatabaseInitializer(SqliteDatabaseSettings settings)
-        {
-            _settings = settings;
-        }
+    public void Initialize()
+    {
+        using SqliteConnection connection = new(_settings.ConnectionString);
+        connection.Open();
 
-        public void Initialize()
-        {
-            using var connection = new SqliteConnection(_settings.ConnectionString);
-            connection.Open();
-
-            var cmd = connection.CreateCommand();
-            cmd.CommandText = @"
+        SqliteCommand cmd = connection.CreateCommand();
+        cmd.CommandText = @"
                 CREATE TABLE IF NOT EXISTS Clients (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     Name TEXT,
@@ -70,7 +70,6 @@ namespace DataAccess.Sqlite.Core
                     PartId INTEGER,
                     Quantity INTEGER
                 );";
-            cmd.ExecuteNonQuery();
-        }
+        _ = cmd.ExecuteNonQuery();
     }
 }

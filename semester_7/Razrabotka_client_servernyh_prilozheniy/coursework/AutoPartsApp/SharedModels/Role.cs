@@ -1,8 +1,7 @@
-﻿namespace SharedModels
+﻿namespace SharedModels;
+
+public enum Role
 {
-    public enum Role
-    {
-        Client,
-        Supplier
-    }
+    Client,
+    Supplier
 }

@@ -1,31 +1,30 @@
 ﻿using System.Net;
 
-namespace Server.Core
+namespace Server.Core;
+
+/// <summary>
+/// Simple routing system to map (method, path) to a specific handler.
+/// </summary>
+public class Router
 {
-    /// <summary>
-    /// Simple routing system to map (method, path) to a specific handler.
-    /// </summary>
-    public class Router
+    private readonly Dictionary<(string method, string path), Func<HttpContext, Task>> _routes = [];
+
+    public void Register(string method, string path, Func<HttpContext, Task> handler)
     {
-        private readonly Dictionary<(string method, string path), Func<HttpContext, Task>> _routes = new();
+        _routes[(method.ToUpperInvariant(), path.ToLowerInvariant())] = handler;
+    }
 
-        public void Register(string method, string path, Func<HttpContext, Task> handler)
+    public async Task RouteAsync(HttpContext context)
+    {
+        (string HttpMethod, string) key = (context.HttpMethod, context.Path.ToLowerInvariant());
+
+        if (_routes.TryGetValue(key, out Func<HttpContext, Task>? handler))
         {
-            _routes[(method.ToUpperInvariant(), path.ToLowerInvariant())] = handler;
+            await handler(context);
         }
-
-        public async Task RouteAsync(HttpContext context)
+        else
         {
-            var key = (context.HttpMethod, context.Path.ToLowerInvariant());
-
-            if (_routes.TryGetValue(key, out var handler))
-            {
-                await handler(context);
-            }
-            else
-            {
-                await context.WriteTextAsync("Route not found", HttpStatusCode.NotFound);
-            }
+            await context.WriteTextAsync("Route not found", HttpStatusCode.NotFound);
         }
     }
 }

@@ -1,10 +1,9 @@
-﻿namespace DataAccess.Abstractions.Config
+﻿namespace DataAccess.Abstractions.Config;
+
+/// <summary>
+/// Common database configuration.
+/// </summary>
+public class DatabaseSettings
 {
-    /// <summary>
-    /// Common database configuration.
-    /// </summary>
-    public class DatabaseSettings
-    {
-        public string ConnectionString { get; set; } = "Data Source=database.db";
-    }
+    public string ConnectionString { get; set; } = "Data Source=database.db";
 }

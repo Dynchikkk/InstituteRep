@@ -2,26 +2,28 @@
 using Server.Dtos;
 using Server.Services;
 
-namespace Server.Controllers
+namespace Server.Controllers;
+
+public class AuthController : ControllerBase
 {
-    public class AuthController : ControllerBase
+    private readonly AuthService _auth;
+
+    public AuthController(AuthService auth)
     {
-        private readonly AuthService _auth;
+        _auth = auth;
+    }
 
-        public AuthController(AuthService auth) => _auth = auth;
-
-        // POST /auth/login
-        public async Task Login(HttpContext ctx)
+    // POST /auth/login
+    public async Task Login(HttpContext ctx)
+    {
+        LoginRequestDto? req = await ctx.ReadJsonAsync<LoginRequestDto>();
+        if (req == null)
         {
-            var req = await ctx.ReadJsonAsync<LoginRequestDto>();
-            if (req == null)
-            {
-                await Error(ctx, "Invalid JSON body");
-                return;
-            }
-
-            var res = await _auth.LoginAsync(req.Login, req.Password);
-            await Json(ctx, res);
+            await Error(ctx, "Invalid JSON body");
+            return;
         }
+
+        AuthResultDto res = await _auth.LoginAsync(req.Login, req.Password);
+        await Json(ctx, res);
     }
 }

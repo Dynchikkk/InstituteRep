@@ -4,113 +4,109 @@ using DataAccess.Sqlite.Helpers;
 using Microsoft.Data.Sqlite;
 using SharedModels;
 
-namespace DataAccess.Sqlite.Repositories
+namespace DataAccess.Sqlite.Repositories;
+
+/// <summary>
+/// SQLite implementation of IClientRepository.
+/// </summary>
+public class SqliteClientRepository : IClientRepository
 {
-    /// <summary>
-    /// SQLite implementation of IClientRepository.
-    /// </summary>
-    public class SqliteClientRepository : IClientRepository
+    private readonly IDatabaseConnectionFactory<SqliteConnection> _factory;
+
+    public SqliteClientRepository(IDatabaseConnectionFactory<SqliteConnection> factory)
     {
-        private readonly IDatabaseConnectionFactory<SqliteConnection> _factory;
+        _factory = factory;
+    }
 
-        public SqliteClientRepository(IDatabaseConnectionFactory<SqliteConnection> factory)
+    public async Task<IEnumerable<Client>> GetAllAsync()
+    {
+        List<Client> result = [];
+        using SqliteConnection conn = _factory.CreateConnection();
+        using SqliteCommand cmd = new("SELECT Id, Name, Login, Password FROM Clients;", conn);
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
+
+        while (await reader.ReadAsync())
         {
-            _factory = factory;
-        }
-
-        public async Task<IEnumerable<Client>> GetAllAsync()
-        {
-            var result = new List<Client>();
-            using var conn = _factory.CreateConnection();
-            using var cmd = new SqliteCommand("SELECT Id, Name, Login, Password FROM Clients;", conn);
-            using var reader = await cmd.ExecuteReaderAsync();
-
-            while (await reader.ReadAsync())
+            result.Add(new Client
             {
-                result.Add(new Client
-                {
-                    Id = reader.GetInt32(0),
-                    Name = reader.GetString(1),
-                    Login = reader.GetString(2),
-                    Password = reader.GetString(3)
-                });
-            }
-            return result;
+                Id = reader.GetInt32(0),
+                Name = reader.GetString(1),
+                Login = reader.GetString(2),
+                Password = reader.GetString(3)
+            });
         }
 
-        public async Task<Client?> GetByIdAsync(int id)
-        {
-            using var conn = _factory.CreateConnection();
-            using var cmd = new SqliteCommand("SELECT Id, Name, Login, Password FROM Clients WHERE Id = @id;", conn);
-            cmd.Parameters.AddWithValue("@id", id);
+        return result;
+    }
 
-            using var reader = await cmd.ExecuteReaderAsync();
-            if (await reader.ReadAsync())
+    public async Task<Client?> GetByIdAsync(int id)
+    {
+        using SqliteConnection conn = _factory.CreateConnection();
+        using SqliteCommand cmd = new("SELECT Id, Name, Login, Password FROM Clients WHERE Id = @id;", conn);
+        _ = cmd.Parameters.AddWithValue("@id", id);
+
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
+        return await reader.ReadAsync()
+            ? new Client
             {
-                return new Client
-                {
-                    Id = reader.GetInt32(0),
-                    Name = reader.GetString(1),
-                    Login = reader.GetString(2),
-                    Password = reader.GetString(3)
-                };
+                Id = reader.GetInt32(0),
+                Name = reader.GetString(1),
+                Login = reader.GetString(2),
+                Password = reader.GetString(3)
             }
-            return null;
-        }
+            : null;
+    }
 
-        public async Task<Client?> GetByLoginAsync(string login)
-        {
-            using var conn = _factory.CreateConnection();
-            using var cmd = new SqliteCommand("SELECT Id, Name, Login, Password FROM Clients WHERE Login = @login;", conn);
-            cmd.Parameters.AddWithValue("@login", login);
+    public async Task<Client?> GetByLoginAsync(string login)
+    {
+        using SqliteConnection conn = _factory.CreateConnection();
+        using SqliteCommand cmd = new("SELECT Id, Name, Login, Password FROM Clients WHERE Login = @login;", conn);
+        _ = cmd.Parameters.AddWithValue("@login", login);
 
-            using var reader = await cmd.ExecuteReaderAsync();
-            if (await reader.ReadAsync())
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
+        return await reader.ReadAsync()
+            ? new Client
             {
-                return new Client
-                {
-                    Id = reader.GetInt32(0),
-                    Name = reader.GetString(1),
-                    Login = reader.GetString(2),
-                    Password = reader.GetString(3)
-                };
+                Id = reader.GetInt32(0),
+                Name = reader.GetString(1),
+                Login = reader.GetString(2),
+                Password = reader.GetString(3)
             }
-            return null;
-        }
+            : null;
+    }
 
-        public async Task<int> AddAsync(Client client)
-        {
-            using var conn = _factory.CreateConnection();
-            using var cmd = new SqliteCommand(
-                "INSERT INTO Clients (Name, Login, Password) VALUES (@n, @l, @p); SELECT last_insert_rowid();", conn);
+    public async Task<int> AddAsync(Client client)
+    {
+        using SqliteConnection conn = _factory.CreateConnection();
+        using SqliteCommand cmd = new(
+            "INSERT INTO Clients (Name, Login, Password) VALUES (@n, @l, @p); SELECT last_insert_rowid();", conn);
 
-            cmd.Parameters.AddWithValue("@n", client.Name);
-            cmd.Parameters.AddWithValue("@l", client.Login);
-            cmd.Parameters.AddWithValue("@p", client.Password);
+        _ = cmd.Parameters.AddWithValue("@n", client.Name);
+        _ = cmd.Parameters.AddWithValue("@l", client.Login);
+        _ = cmd.Parameters.AddWithValue("@p", client.Password);
 
-            return await cmd.ExecuteInsertAndGetIdAsync();
-        }
+        return await cmd.ExecuteInsertAndGetIdAsync();
+    }
 
-        public async Task UpdateAsync(Client client)
-        {
-            using var conn = _factory.CreateConnection();
-            using var cmd = new SqliteCommand(
-                "UPDATE Clients SET Name=@n, Login=@l, Password=@p WHERE Id=@id;", conn);
+    public async Task UpdateAsync(Client client)
+    {
+        using SqliteConnection conn = _factory.CreateConnection();
+        using SqliteCommand cmd = new(
+            "UPDATE Clients SET Name=@n, Login=@l, Password=@p WHERE Id=@id;", conn);
 
-            cmd.Parameters.AddWithValue("@id", client.Id);
-            cmd.Parameters.AddWithValue("@n", client.Name);
-            cmd.Parameters.AddWithValue("@l", client.Login);
-            cmd.Parameters.AddWithValue("@p", client.Password);
+        _ = cmd.Parameters.AddWithValue("@id", client.Id);
+        _ = cmd.Parameters.AddWithValue("@n", client.Name);
+        _ = cmd.Parameters.AddWithValue("@l", client.Login);
+        _ = cmd.Parameters.AddWithValue("@p", client.Password);
 
-            await cmd.ExecuteNonQueryAsync();
-        }
+        _ = await cmd.ExecuteNonQueryAsync();
+    }
 
-        public async Task DeleteAsync(int id)
-        {
-            using var conn = _factory.CreateConnection();
-            using var cmd = new SqliteCommand("DELETE FROM Clients WHERE Id=@id;", conn);
-            cmd.Parameters.AddWithValue("@id", id);
-            await cmd.ExecuteNonQueryAsync();
-        }
+    public async Task DeleteAsync(int id)
+    {
+        using SqliteConnection conn = _factory.CreateConnection();
+        using SqliteCommand cmd = new("DELETE FROM Clients WHERE Id=@id;", conn);
+        _ = cmd.Parameters.AddWithValue("@id", id);
+        _ = await cmd.ExecuteNonQueryAsync();
     }
 }

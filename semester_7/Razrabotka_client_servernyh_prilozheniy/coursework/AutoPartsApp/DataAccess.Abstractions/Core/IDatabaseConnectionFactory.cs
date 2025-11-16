@@ -1,12 +1,11 @@
 ﻿using System.Data;
 
-namespace DataAccess.Abstractions.Core
+namespace DataAccess.Abstractions.Core;
+
+/// <summary>
+/// Defines contract for creating database connections.
+/// </summary>
+public interface IDatabaseConnectionFactory<TConnection> where TConnection : IDbConnection
 {
-    /// <summary>
-    /// Defines contract for creating database connections.
-    /// </summary>
-    public interface IDatabaseConnectionFactory<TConnection> where TConnection : IDbConnection
-    {
-        TConnection CreateConnection();
-    }
+    TConnection CreateConnection();
 }
