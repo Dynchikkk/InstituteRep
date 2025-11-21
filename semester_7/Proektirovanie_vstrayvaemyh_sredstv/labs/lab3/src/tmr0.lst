@@ -1,0 +1,68 @@
+MPASM  5.35                          TMR0.ASM   10-12-2024  13:52:52         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;**********************************************************************
+                      00002 
+                      00003 
+Error[105]  : Cannot open file (Include File "p16F84 .inc" not found)
+                      00004         #include <p16F84 .inc>        ; processor specific variable definitions
+                      00005 
+Error[113]  : Symbol not previously defined (_CP_OFF)
+Error[113]  : Symbol not previously defined (_WDT_ON)
+Error[113]  : Symbol not previously defined (_PWRTE_ON)
+Error[113]  : Symbol not previously defined (_RC_OSC)
+Error[126]  : Argument out of range (not a valid config register address)
+                      00006         __CONFIG   _CP_OFF & _WDT_ON & _PWRTE_ON & _RC_OSC
+                      00007 
+                      00008 ;таймер 0 без предделителя
+                      00009 
+                      00010 ;**********************************************************************
+                      00011 RESET_VECTOR  CODE    0x000       ; processor reset vector
+0000   2???           00012         goto start
+                      00013         CODE    0x004
+0004   2???           00014         goto m2
+                      00015 MAIN    CODE
+Error[113]  : Symbol not previously defined (STATUS)
+0000   1680           00016 start bsf STATUS, 5     ;банк памяти 01
+0001   3008           00017         movlw 0x08
+Error[113]  : Symbol not previously defined (OPTION_REG)
+0002   0080           00018         movwf OPTION_REG
+                      00019 
+Error[113]  : Symbol not previously defined (STATUS)
+0003   1280           00020         bcf STATUS, 5
+0004   30A0           00021         movlw 0xA0
+Error[113]  : Symbol not previously defined (INTCON)
+0005   0080           00022         movwf INTCON
+0006   30F6           00023         movlw 0xF6
+Error[113]  : Symbol not previously defined (TMR0)
+0007   0080           00024         movwf TMR0
+0008   0000           00025 m1  NOP
+0009   2???           00026         goto m1
+000A   30A0           00027 m2      movlw 0xA0
+Error[113]  : Symbol not previously defined (INTCON)
+000B   0080           00028         movwf INTCON
+000C   30F6           00029         movlw 0xF6
+Error[113]  : Symbol not previously defined (TMR0)
+000D   0080           00030         movwf TMR0
+000E   0008           00031         RETURN
+                      00032         END 
+MPASM  5.35                          TMR0.ASM   10-12-2024  13:52:52         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+__16F887                          00000001
+__DEBUG                           1
+m1                                00000008
+m2                                0000000A
+start                             00000000
+
+Errors   :    13
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

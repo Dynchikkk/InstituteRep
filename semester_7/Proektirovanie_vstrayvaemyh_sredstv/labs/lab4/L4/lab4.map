@@ -1,0 +1,49 @@
+MPLINK 4.35, Linker
+Linker Map File - Created Sat Nov 16 13:57:22 2024
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+             RESET_VECTOR       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                MAIN_PROG       code   0x000003    program   0x00005a
+     .config_2007_PROG4.O       code   0x002007    program   0x000002
+     .config_2008_PROG4.O       code   0x002008    program   0x000002
+                 TEMP_VAR      udata   0x000020       data   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00002f      
+                            0x002007    0x002008      
+            50 out of 8455 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    Delay   0x000003    program     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+                       m1   0x000020    program     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+                     pass   0x00002d    program     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+                       re   0x000003    program     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+                     rest   0x000024    program     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+                    start   0x000007    program     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+                   count1   0x000020       data     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    Delay   0x000003    program     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+                       re   0x000003    program     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+                    start   0x000007    program     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+                       m1   0x000020    program     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+                     rest   0x000024    program     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+                     pass   0x00002d    program     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+                   count1   0x000020       data     static C:\Users\snachi\Desktop\MPLAB_IDE_8_46\L4\prog4.asm
+
+
