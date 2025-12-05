@@ -1,0 +1,291 @@
+;===============================================================================
+; UART INITIALIZATION — MODE 1 (8-BIT UART, VARIABLE BAUD RATE)
+;===============================================================================
+
+        CLR     SM0                ; Select UART Mode 1: SM0=0, SM1=1
+        SETB    SM1                ; Mode 1 → 1 start bit, 8 data bits, 1 stop bit
+
+
+;-------------------------------------------------------------------------------
+; Enable Double Baud Rate (PCON.7 = SMOD = 1)
+;-------------------------------------------------------------------------------
+
+        MOV     A, PCON            ; Preserve other PCON bits
+        SETB    ACC.7              ; Set SMOD=1 → double UART baud rate
+        MOV     PCON, A            ; Write modified value back
+
+
+;-------------------------------------------------------------------------------
+; Enable UART Receiver
+;-------------------------------------------------------------------------------
+
+        SETB    REN                ; Enable UART reception (REN=1)
+
+
+;===============================================================================
+; TIMER1 CONFIGURATION FOR UART BAUD RATE GENERATION
+; Timer1 → Mode 2 (8-bit auto-reload)
+; Reload value = 243 → 13-cycle reload (frequency depends on Fosc and SMOD)
+;===============================================================================
+
+        MOV     TMOD, #20H         ; Timer1 Mode 2, Timer0 unchanged
+        MOV     TH1,  #243         ; Auto-reload value
+        MOV     TL1,  #243         ; Initial timer value
+        SETB    TR1                ; Start Timer1
+
+
+;===============================================================================
+; UART RECEIVE BUFFER INITIALIZATION
+; R1 → pointer to RAM buffer
+; R0 → remaining number of bytes to receive
+;===============================================================================
+
+        MOV     R1, #47H           ; Base address of receive buffer
+        MOV     R0, #0AH           ; Expect to receive 10 bytes
+
+
+;===============================================================================
+; UART RECEIVE LOOP
+; Each received byte may include a parity flag inside bit7
+;===============================================================================
+
+RECEIVE_BYTE:
+        JNB     RI, $              ; Wait until RI=1 (byte received)
+        CLR     RI                 ; Must clear RI manually
+
+        MOV     A, SBUF            ; Fetch received byte
+
+
+;-------------------------------------------------------------------------------
+; PARITY PROCESSING
+; Bit7 of received byte may indicate presence of parity bit.
+; If ACC.7 = 1 → parity information included
+;
+; Steps:
+;   1) Clear ACC.7 to restore original 7-bit/8-bit data
+;   2) CPU automatically updates flag P with parity of ACC
+;   3) Store parity mode flags into register B:
+;         B.4 = 1 → parity used
+;         B.0 = 0/1 → parity type (even/odd)
+;-------------------------------------------------------------------------------
+
+        JNB     ACC.7, STORE_BYTE  ; If bit7=0 → no parity → skip
+
+        CLR     ACC.7              ; Remove parity flag bit (updates P flag)
+
+        JNB     P, PARITY_EVEN     ; If P=0 → even number of 1s
+
+        ; Odd parity detected
+        MOV     B, #10H            ; B = 0001 0000b → parity enabled, odd
+        SJMP    STORE_BYTE
+
+PARITY_EVEN:
+        MOV     B, #11H            ; B = 0001 0001b → parity enabled, even
+
+
+;-------------------------------------------------------------------------------
+; STORE RECEIVED BYTE (parity removed)
+;-------------------------------------------------------------------------------
+
+STORE_BYTE:
+        MOV     @R1, A             ; Store data to buffer
+        INC     R1                 ; Move to next location
+
+        DEC     R0                 ; Decrease remaining count
+        MOV     A, R0
+        JNZ     RECEIVE_BYTE       ; Receive next byte
+
+        CLR     REN                ; Disable receiver when done
+
+
+;===============================================================================
+; RESET DATA POINTER
+;===============================================================================
+
+        MOV R1, #47H               ; Reset pointer to start of received data
+
+
+;===============================================================================
+; LCD INITIALIZATION (4-bit INTERFACE MODE, HD44780 COMPATIBLE)
+; RS = P1.3, E = P1.2, Data (DB7..DB4) = P1.7..P1.4
+; All commands are sent as two nibbles (high nibble first)
+;===============================================================================
+
+        CLR P1.3                   ; RS=0 → command mode
+
+
+;===============================================================================
+; FUNCTION SET — ENTER 4-BIT MODE (sent as 3 separate high-nibble writes)
+; Sequence required by HD44780 spec (see datasheet pp. 39–42)
+;===============================================================================
+
+        ;--- First high nibble: 0010b → request 4-bit mode ---------------------
+
+        CLR P1.7                  ; DB7=0
+        CLR P1.6                  ; DB6=0
+        SETB P1.5                 ; DB5=1
+        CLR P1.4                  ; DB4=0
+
+        SETB P1.2                 ; E=1
+        CLR  P1.2                 ; E=0 → latch nibble
+        CALL delay
+
+
+        ;--- Second identical high nibble: required by initialization protocol --
+
+        SETB P1.2
+        CLR  P1.2
+
+
+        ;--- Third nibble (low part of function set): N=1, F=0 -----------------
+
+        SETB P1.7                 ; DB3=1 (N=1 → 2 lines)
+        ; DB2..DB0 kept =0         (F=0 → 5x8 font)
+
+        SETB P1.2
+        CLR  P1.2
+        CALL delay
+
+
+;===============================================================================
+; ENTRY MODE SET — CURSOR INCREMENT, NO DISPLAY SHIFT
+; Command: 0000 0110b
+;===============================================================================
+
+        ; High nibble = 0000
+        CLR P1.7
+        CLR P1.6
+        CLR P1.5
+        CLR P1.4
+
+        SETB P1.2
+        CLR  P1.2
+
+        ; Low nibble = 0110 (I/D=1 → increment, S=0 → no shift)
+        SETB P1.7                 ; DB3=1 → identifies command type
+        SETB P1.6                 ; DB2=1 → increment cursor
+        ; DB1=0 (S=0)
+        ; DB0=0
+
+        SETB P1.2
+        CLR  P1.2
+        CALL delay
+
+
+;===============================================================================
+; DISPLAY CONTROL — DISPLAY ON, CURSOR ON, BLINK ON
+; Command: 0000 1111b
+;===============================================================================
+
+        ; High nibble = 0000
+        CLR P1.7
+        CLR P1.6
+        CLR P1.5
+        CLR P1.4
+
+        SETB P1.2
+        CLR  P1.2
+
+        ; Low nibble = 1111 (D=1, C=1, B=1)
+        SETB P1.7                 ; DB3=1
+        SETB P1.6                 ; DB2=1 → display ON
+        SETB P1.5                 ; DB1=1 → cursor ON
+        SETB P1.4                 ; DB0=1 → blink ON
+
+        SETB P1.2
+        CLR  P1.2
+        CALL delay
+
+
+;===============================================================================
+; CURSOR/DISPLAY SHIFT — CURSOR MOVE RIGHT
+; Command: 0001 0110b (cursor shift to the right)
+;===============================================================================
+
+        ; High nibble = 0000
+        CLR P1.7
+        CLR P1.6
+        CLR P1.5
+        CLR P1.4
+
+        SETB P1.2
+        CLR  P1.2
+
+        ; Low nibble = 0110 (S/C=0 → move cursor, R/L=1 → right)
+        CLR  P1.7                ; DB3=0 → cursor shift, not display shift
+        SETB P1.6                ; DB2=1 → shift right
+        SETB P1.5                ; DB1=1 (don’t care)
+        CLR  P1.4                ; DB0=0
+
+        SETB P1.2
+        CLR  P1.2
+        CALL delay
+
+
+;===============================================================================
+; SEND RECEIVED BUFFER TO LCD (RS=1 → data mode)
+;===============================================================================
+
+        SETB P1.3                 ; RS=1 → write character data
+        MOV  R1, #47H             ; Pointer to ASCII buffer
+
+DISPLAY_LOOP:
+        MOV     A, @R1            ; Load byte from buffer
+        JZ      FINISH            ; 0x00 → end of string
+        CALL    sendCharacter     ; Send ASCII to LCD
+        INC     R1
+        JMP     DISPLAY_LOOP
+
+
+FINISH:
+        JMP     $                 ; Halt
+
+
+;===============================================================================
+; sendCharacter — SEND ONE ASCII BYTE IN 4-BIT MODE
+; Sends high nibble first, then low nibble
+;===============================================================================
+
+sendCharacter:
+
+        ;--- High nibble (ACC.7..ACC.4) ----------------------------------------
+
+        MOV C, ACC.7
+        MOV P1.7, C
+        MOV C, ACC.6
+        MOV P1.6, C
+        MOV C, ACC.5
+        MOV P1.5, C
+        MOV C, ACC.4
+        MOV P1.4, C
+
+        SETB P1.2
+        CLR  P1.2                 ; latch high nibble
+
+
+        ;--- Low nibble (ACC.3..ACC.0) -----------------------------------------
+
+        MOV C, ACC.3
+        MOV P1.7, C
+        MOV C, ACC.2
+        MOV P1.6, C
+        MOV C, ACC.1
+        MOV P1.5, C
+        MOV C, ACC.0
+        MOV P1.4, C
+
+        SETB P1.2
+        CLR  P1.2                 ; latch low nibble
+
+        CALL delay
+        RET
+
+
+;===============================================================================
+; delay — SHORT SOFTWARE DELAY
+;===============================================================================
+
+delay:
+        MOV R0, #50
+    DJNZ R0, $
+        RET
