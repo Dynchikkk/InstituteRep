@@ -1,0 +1,200 @@
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Регистры:
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; s0 = сумма
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; s1 = текущие значения тумблеров (SW)
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; s2 = текущее состояние кнопок
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; s3 = предыдущее состояние кнопок
+      LABEL-start
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Инициализация
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-s0
+   OPERAND2-00
+    COMMENT-; обнуляем сумму
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-s3
+   OPERAND2-00
+    COMMENT-; обнуляем предыдущие состояния кнопок
+      LABEL-main_loop
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Чтение входных данных
+      LABEL-
+INSTRUCTION-INPUT
+   OPERAND1-s1
+   OPERAND2-01
+    COMMENT-; s1 <- SW (порт 1)
+      LABEL-
+INSTRUCTION-INPUT
+   OPERAND1-s2
+   OPERAND2-02
+    COMMENT-; s2 <- BTN (порт 2)
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Проверка BTN3 (сложение при отпускании)
+      LABEL-
+INSTRUCTION-CALL
+   OPERAND1-check_btn3
+   OPERAND2-
+    COMMENT-
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Проверка BTN1 (сброс при отпускании)
+      LABEL-
+INSTRUCTION-CALL
+   OPERAND1-check_btn1
+   OPERAND2-
+    COMMENT-
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Вывод текущей суммы
+      LABEL-
+INSTRUCTION-OUTPUT
+   OPERAND1-s0
+   OPERAND2-00
+    COMMENT-; вывод суммы на порт 0 (LED)
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Сохраняем текущее состояние кнопок
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-s3
+   OPERAND2-s2
+    COMMENT-
+      LABEL-
+INSTRUCTION-JUMP
+   OPERAND1-main_loop
+   OPERAND2-
+    COMMENT-
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Подпрограмма проверки BTN3 (сложение)
+      LABEL-check_btn3
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+      LABEL-
+INSTRUCTION-TEST
+   OPERAND1-s3
+   OPERAND2-08
+    COMMENT-; проверяем бит 3 (BTN3) в предыдущем состоянии
+      LABEL-
+INSTRUCTION-JUMP
+   OPERAND1-Z
+   OPERAND2-btn3_done
+    COMMENT-
+      LABEL-
+INSTRUCTION-TEST
+   OPERAND1-s2
+   OPERAND2-08
+    COMMENT-; проверяем бит 3 (BTN3) в текущем состоянии
+      LABEL-
+INSTRUCTION-JUMP
+   OPERAND1-NZ
+   OPERAND2-btn3_done
+    COMMENT-
+      LABEL-
+INSTRUCTION-ADD
+   OPERAND1-s0
+   OPERAND2-s1
+    COMMENT-; добавляем значение SW к сумме
+      LABEL-btn3_done
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+      LABEL-
+INSTRUCTION-RETURN
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Подпрограмма проверки BTN1 (сброс)
+      LABEL-check_btn1
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+      LABEL-
+INSTRUCTION-TEST
+   OPERAND1-s3
+   OPERAND2-02
+    COMMENT-; проверяем бит 1 (BTN1) в предыдущем состоянии
+      LABEL-
+INSTRUCTION-JUMP
+   OPERAND1-Z
+   OPERAND2-btn1_done
+    COMMENT-
+      LABEL-
+INSTRUCTION-TEST
+   OPERAND1-s2
+   OPERAND2-02
+    COMMENT-; проверяем бит 1 (BTN1) в текущем состоянии
+      LABEL-
+INSTRUCTION-JUMP
+   OPERAND1-NZ
+   OPERAND2-btn1_done
+    COMMENT-
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-s0
+   OPERAND2-00
+    COMMENT-; обнуляем сумму
+      LABEL-btn1_done
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+      LABEL-
+INSTRUCTION-RETURN
+   OPERAND1-
+   OPERAND2-
+    COMMENT-

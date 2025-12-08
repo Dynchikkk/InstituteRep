@@ -1,0 +1,37 @@
+Table of addresses and their specified labels.
+
+000  start
+001  main_loop
+009  hardware_multiply
+00A  display_result
+00D  toggle_mode
+011  set_software
+012  mode_changed
+013  software_multiply
+018  multiply_loop
+01B  multiply_done
+01C  hardware_multiply_emu
+020  hw_mult_loop
+023  no_add
+028  display_number
+039  digit_to_seg
+058  seg_0
+05A  seg_1
+05C  seg_2
+05E  seg_3
+060  seg_4
+062  seg_5
+064  seg_6
+066  seg_7
+068  seg_8
+06A  seg_9
+06C  seg_A
+06E  seg_B
+070  seg_C
+072  seg_D
+074  seg_E
+076  seg_F
+078  delay
+079  delay_loop
+07C  delay_short
+07D  delay_short_loop

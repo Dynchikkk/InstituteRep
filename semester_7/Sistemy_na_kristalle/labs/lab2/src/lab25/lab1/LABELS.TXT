@@ -1,0 +1,24 @@
+Table of addresses and their specified labels.
+
+000  start
+002  main_loop
+00A  increment_digit
+00E  inc_done
+00F  decrement_digit
+013  dec_done
+014  reset_digit
+017  display_digit
+02C  show_0
+02E  show_1
+030  show_2
+032  show_3
+034  show_4
+036  show_5
+038  show_6
+03A  show_7
+03C  show_8
+03E  show_9
+040  output_digit
+043  display_done
+044  delay
+045  delay_loop

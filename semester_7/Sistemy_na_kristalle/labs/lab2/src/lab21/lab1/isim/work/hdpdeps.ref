@@ -1,0 +1,174 @@
+V3 108
+FL $XILINX/verilog/src/glbl.v 2006/12/02.04:44:50 J.30
+MO work/glbl FL $XILINX/verilog/src/glbl.v
+FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd 2002/08/30.17:05:26 J.30
+EN work/data_bus_mux4 1757921805 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/data_bus_mux4/low_level_definition 1757921806 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/data_bus_mux4 1757921805 CP LUT3 CP FD CP string CP label CP MUXF5
+EN work/shift_rotate_process 1757921807 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/shift_rotate_process/low_level_definition 1757921808 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/shift_rotate_process 1757921807 CP LUT3 CP MUXF5 CP string CP label \
+      CP FD
+EN work/logical_bus_processing 1757921809 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/logical_bus_processing/low_level_definition 1757921810 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/logical_bus_processing 1757921809 CP string CP label CP LUT4 CP FD
+EN work/arithmetic_process 1757921811 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/arithmetic_process/low_level_definition 1757921812 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/arithmetic_process 1757921811 CP LUT3 CP string CP label CP MUXCY \
+      CP XORCY CP FD CP LUT2
+EN work/flag_logic 1757921813 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/flag_logic/low_level_definition 1757921814 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/flag_logic 1757921813 CP LUT4 CP LUT2 CP MUXCY CP FD CP LUT3 CP FDRE
+EN work/data_bus_mux2 1757921815 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/data_bus_mux2/low_level_definition 1757921816 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/data_bus_mux2 1757921815 CP LUT4 CP string CP label CP LUT3
+EN work/ALU_control_mux2 1757921817 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/ALU_control_mux2/low_level_definition 1757921818 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/ALU_control_mux2 1757921817 CP string CP label CP LUT3
+EN work/data_register_bank 1757921819 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/data_register_bank/low_level_definition 1757921820 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/data_register_bank 1757921819 CP LUT4 CP FD CP LUT2 CP string CP label \
+      CP RAM16X1D
+EN work/T_state_and_Reset 1757921821 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/T_state_and_Reset/low_level_definition 1757921822 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/T_state_and_Reset 1757921821 CP FDS CP LUT1 CP FDR
+EN work/interrupt_logic 1757921823 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/interrupt_logic/low_level_definition 1757921824 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/interrupt_logic 1757921823 CP LUT3 CP LUT4 CP MUXCY CP LUT2 CP FDRE \
+      CP FDR CP FDE
+EN work/IO_strobe_logic 1757921825 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/IO_strobe_logic/low_level_definition 1757921826 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/IO_strobe_logic 1757921825 CP LUT2 CP LUT4 CP FDR
+EN work/stack_ram 1757921827 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/stack_ram/low_level_definition 1757921828 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/stack_ram 1757921827 CP INV CP string CP label CP RAM16X1S CP FD
+EN work/stack_counter 1757921829 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/stack_counter/low_level_definition 1757921830 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/stack_counter 1757921829 CP INV CP LUT2 CP LUT4 CP LUT3 CP MUXCY CP FDRE \
+      CP string CP label CP XORCY
+EN work/program_counter 1757921831 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/program_counter/low_level_definition 1757921832 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/program_counter 1757921831 CP LUT4 CP LUT2 CP LUT3 CP MUXCY CP INV \
+      CP string CP label CP FDRSE CP XORCY
+EN work/kcpsm 1757921833 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254
+AR work/kcpsm/macro_level_definition 1757921834 \
+      FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd \
+      EN work/kcpsm 1757921833 CP T_state_and_Reset CP interrupt_logic \
+      CP IO_strobe_logic CP data_register_bank CP data_bus_mux2 CP ALU_control_mux2 \
+      CP logical_bus_processing CP arithmetic_process CP shift_rotate_process \
+      CP data_bus_mux4 CP flag_logic CP stack_ram CP stack_counter \
+      CP program_counter
+FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/PROG_ROM.VHD 2020/10/19.07:27:16 J.30
+FL D:/CHK/lab1/lab1/../../SoC_bac/Lab/PicoBlazeForSp2/z_picoSP2_top.vhd 2006/09/10.18:38:38 J.30
+FL D:/CHK/lab1/lab1/embedded_kcpsm.vhd 2006/09/10.08:38:46 J.30
+EN work/embedded_kcpsm 1757921837 FL D:/CHK/lab1/lab1/embedded_kcpsm.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/embedded_kcpsm/connectivity 1757921838 \
+      FL D:/CHK/lab1/lab1/embedded_kcpsm.vhd EN work/embedded_kcpsm 1757921837 \
+      CP kcpsm CP prog_rom
+FL D:/CHK/lab1/lab1/embedded_kcpsm3.vhd 2010/03/22.11:05:44 J.30
+FL D:/CHK/lab1/lab1/kcpsm3.vhd 2010/03/19.16:09:28 J.30
+FL D:/CHK/lab1/lab1/PROG_ROM.VHD 2025/10/13.10:21:10 J.30
+FL D:/CHK/lab1/lab1/tb1.tfw 2025/09/15.10:36:40 J.30
+FL D:/CHK/lab1/lab1/tb1.vhd 2025/09/29.11:14:56 J.30
+FL D:/CHK/lab1/lab1/z_picoSP36_top.vhd 2025/09/29.11:02:10 J.30
+FL Z:/xl/CHK/lab1/lab1/embedded_kcpsm3.vhd 2010/03/22.13:05:44 J.30
+FL Z:/xl/CHK/lab1/lab1/kcpsm3.vhd 2010/03/19.18:09:28 J.30
+FL Z:/xl/CHK/lab1/lab1/PROG_ROM.VHD 2025/10/21.17:07:45 J.30
+FL Z:/xl/CHK/lab1/lab1/tb1.vhd 2025/09/29.13:14:56 J.30
+FL Z:/xl/CHK/lab1/lab1/tb2.tfw 2025/09/29.16:28:54 J.30
+MO work/tb2 FL Z:/xl/CHK/lab1/lab1/tb2.tfw MI picoblaze_top
+FL Z:/xl/CHK/lab1/lab1/z_picoSP36_top.vhd 2025/09/29.13:02:10 J.30
+FL Z:/xl/CHK/lab21/lab1/embedded_kcpsm3.vhd 2025/10/24.17:20:49 J.30
+EN work/embedded_kcpsm3 1764712246 FL Z:/xl/CHK/lab21/lab1/embedded_kcpsm3.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254
+AR work/embedded_kcpsm3/connectivity 1764712247 \
+      FL Z:/xl/CHK/lab21/lab1/embedded_kcpsm3.vhd EN work/embedded_kcpsm3 1764712246 \
+      CP kcpsm3 CP prog_rom
+FL Z:/xl/CHK/lab21/lab1/kcpsm3.vhd 2025/10/24.17:20:52 J.30
+EN work/kcpsm3 1761494590 FL Z:/xl/CHK/lab21/lab1/kcpsm3.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/kcpsm3/low_level_definition 1761494591 \
+      FL Z:/xl/CHK/lab21/lab1/kcpsm3.vhd EN work/kcpsm3 1761494590 CP LUT2 CP FD \
+      CP FDS CP FDR CP LUT4 CP FDE CP LUT3 CP FDRE CP MUXCY CP XORCY CP INV CP FDRSE \
+      CP RAM16X1D CP RAM64X1S CP MUXF5 CP RAM32X1S
+FL Z:/xl/CHK/lab21/lab1/PROG_ROM.VHD 2025/12/03.01:23:49 J.30
+EN work/prog_rom 1764712244 FL Z:/xl/CHK/lab21/lab1/PROG_ROM.VHD \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/prog_rom/low_level_definition 1764712245 \
+      FL Z:/xl/CHK/lab21/lab1/PROG_ROM.VHD EN work/prog_rom 1764712244 \
+      CP RAMB16_S18
+FL Z:/xl/CHK/lab21/lab1/tb1.vhd 2025/11/26.15:46:46 J.30
+EN work/tb1 1764760804 FL Z:/xl/CHK/lab21/lab1/tb1.vhd PB ieee/std_logic_1164 1164799246
+AR work/tb1/behavior 1764760805 \
+      FL Z:/xl/CHK/lab21/lab1/tb1.vhd EN work/tb1 1764760804 CP picoblaze_top
+FL Z:/xl/CHK/lab21/lab1/z_picoSP36_top.vhd 2025/12/03.15:19:49 J.30
+EN work/picoblaze_top 1764760802 FL Z:/xl/CHK/lab21/lab1/z_picoSP36_top.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB UNISIM PH unisim/VCOMPONENTS 1164800548
+AR work/picoblaze_top/Behavioral 1764760803 \
+      FL Z:/xl/CHK/lab21/lab1/z_picoSP36_top.vhd EN work/picoblaze_top 1764760802 \
+      CP embedded_kcpsm3

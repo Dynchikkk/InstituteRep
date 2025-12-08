@@ -1,0 +1,97 @@
+Release 9.1i ngdbuild J.30
+Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+
+Command Line: C:\Xilinx91i\bin\nt\ngdbuild.exe -ise
+Z:/xl/CHK/lab24/lab1/lab1.ise -intstyle ise -dd _ngo -nt timestamp -uc
+Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf -p xc3s500e-fg320-5 picoblaze_top.ngc
+picoblaze_top.ngd
+
+Reading NGO file "Z:/xl/CHK/lab24/lab1/picoblaze_top.ngc" ...
+
+Applying constraints in "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" to the
+design...
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 13: Could
+   not find net(s) 'led<0>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 14: Could
+   not find net(s) 'led<1>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 15: Could
+   not find net(s) 'led<2>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 16: Could
+   not find net(s) 'led<3>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 17: Could
+   not find net(s) 'led<4>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 18: Could
+   not find net(s) 'led<5>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 19: Could
+   not find net(s) 'led<6>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 20: Could
+   not find net(s) 'led<7>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 23: Could
+   not find net(s) 'sw<0>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 24: Could
+   not find net(s) 'sw<1>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 25: Could
+   not find net(s) 'sw<2>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 26: Could
+   not find net(s) 'sw<3>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 27: Could
+   not find net(s) 'sw<4>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 28: Could
+   not find net(s) 'sw<5>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 29: Could
+   not find net(s) 'sw<6>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:NgdBuild:755 - "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" Line 30: Could
+   not find net(s) 'sw<7>' in the design.  To suppress this error specify the
+   correct net name or remove the constraint.  The 'Allow Unmatched LOC
+   Constraints' ISE property can also be set ( -aul switch for command line
+   users).
+ERROR:Parsers:11 - Encountered unrecognized constraint while parsing.
+ERROR:NgdBuild:19 - Errors found while parsing constraint file
+   "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf".
+
+Writing NGDBUILD log file "picoblaze_top.bld"...

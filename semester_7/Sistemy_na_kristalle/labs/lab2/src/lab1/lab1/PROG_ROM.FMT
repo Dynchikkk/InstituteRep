@@ -1,0 +1,10 @@
+beg0: INPUT s0, 00  ;s0 <- P0 (port0)
+      LOAD s2, s0   ;s2 <- s0
+      LOAD s1, s2
+      SL0 s1
+      SL0 s1
+      SL0 s2
+      ADD s2, s1
+      ADD s2, 01
+      OUTPUT s2, 01 ;s2 -> port1
+      JUMP beg0

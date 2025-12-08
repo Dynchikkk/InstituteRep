@@ -1,0 +1,5 @@
+vhdl work "kcpsm3.vhd"
+vhdl work "PROG_ROM.VHD"
+vhdl work "embedded_kcpsm3.vhd"
+vhdl work "z_picoSP36_top.vhd"
+vhdl work "tb1.vhd"

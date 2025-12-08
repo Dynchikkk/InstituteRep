@@ -1,0 +1,23 @@
+   
+
+
+;load   	s1,05
+;add	s1,01
+;addcy	s1,ff
+;sub	s1,02
+;subcy	s1,0f
+;and	s1,07
+;or	s1,08
+;store	s1,01	
+;fetch	s2,01	;чтение из €чейки —ќ«” в регистр
+	
+
+
+;	load   	s1,03
+;l1:	add	s1,01
+;	jump	l1
+
+
+load   	s1,05
+output 	s1,01
+input	s0,00

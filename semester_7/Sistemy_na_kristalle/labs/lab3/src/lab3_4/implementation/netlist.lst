@@ -1,0 +1,15 @@
+/home/ise/DATAN/max/lab3_4/implementation/system.ngc 1762871809
+/home/ise/DATAN/max/lab3_4/implementation/system_microblaze_0_wrapper.ngc 1762871763
+/home/ise/DATAN/max/lab3_4/implementation/system_mb_plb_wrapper.ngc 1762871704
+/home/ise/DATAN/max/lab3_4/implementation/system_ilmb_wrapper.ngc 1762871765
+/home/ise/DATAN/max/lab3_4/implementation/system_dlmb_wrapper.ngc 1762871768
+/home/ise/DATAN/max/lab3_4/implementation/system_dlmb_cntlr_wrapper.ngc 1762871715
+/home/ise/DATAN/max/lab3_4/implementation/system_ilmb_cntlr_wrapper.ngc 1762871718
+/home/ise/DATAN/max/lab3_4/implementation/system_lmb_bram_wrapper.ngc 1762871722
+/home/ise/DATAN/max/lab3_4/implementation/system_dip_switches_wrapper.ngc 1762871729
+/home/ise/DATAN/max/lab3_4/implementation/system_generic_gpio_wrapper.ngc 1762871737
+/home/ise/DATAN/max/lab3_4/implementation/system_generic_gpio_1_wrapper.ngc 1762871744
+/home/ise/DATAN/max/lab3_4/implementation/system_clock_generator_0_wrapper.ngc 1762871770
+/home/ise/DATAN/max/lab3_4/implementation/system_mdm_0_wrapper.ngc 1762871755
+/home/ise/DATAN/max/lab3_4/implementation/system_proc_sys_reset_0_wrapper.ngc 1762871759
+OK

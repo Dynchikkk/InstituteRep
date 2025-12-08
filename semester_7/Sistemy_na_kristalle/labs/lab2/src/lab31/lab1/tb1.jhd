@@ -1,0 +1,3 @@
+MODULE tb1
+SUBMODULE picoblaze_top
+INSTANCE UUT

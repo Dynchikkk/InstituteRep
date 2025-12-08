@@ -1,0 +1,19 @@
+    LOAD s0, 00
+
+main:
+    CALL delay
+    ADD  s0, 01
+    OUTPUT s0, 01
+    JUMP main
+
+delay:
+    INPUT s1, 01
+    AND  s1, 3C      ; маска для sw5..sw2 (биты 2..5)
+    SR0  s1
+    SR0  s1
+    LOAD s2, s1
+
+l1:
+    SUB s2, 01
+    JUMP NZ, l1
+    RETURN

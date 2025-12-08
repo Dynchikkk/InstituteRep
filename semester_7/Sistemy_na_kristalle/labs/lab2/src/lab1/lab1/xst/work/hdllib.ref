@@ -1,0 +1,8 @@
+AR picoblaze_top behavioral //vboxsvr/winxptogetherfolder/xl/CHK/lab1/lab1/z_picoSP36_top.vhd sub00/vhpl01 1764707922
+AR kcpsm3 low_level_definition //vboxsvr/winxptogetherfolder/xl/CHK/lab1/lab1/kcpsm3.vhd sub00/vhpl03 1764707916
+AR embedded_kcpsm3 connectivity //vboxsvr/winxptogetherfolder/xl/CHK/lab1/lab1/embedded_kcpsm3.vhd sub00/vhpl07 1764707920
+EN prog_rom NULL //vboxsvr/winxptogetherfolder/xl/CHK/lab1/lab1/PROG_ROM.VHD sub00/vhpl04 1764707917
+EN kcpsm3 NULL //vboxsvr/winxptogetherfolder/xl/CHK/lab1/lab1/kcpsm3.vhd sub00/vhpl02 1764707915
+EN picoblaze_top NULL //vboxsvr/winxptogetherfolder/xl/CHK/lab1/lab1/z_picoSP36_top.vhd sub00/vhpl00 1764707921
+AR prog_rom low_level_definition //vboxsvr/winxptogetherfolder/xl/CHK/lab1/lab1/PROG_ROM.VHD sub00/vhpl05 1764707918
+EN embedded_kcpsm3 NULL //vboxsvr/winxptogetherfolder/xl/CHK/lab1/lab1/embedded_kcpsm3.vhd sub00/vhpl06 1764707919

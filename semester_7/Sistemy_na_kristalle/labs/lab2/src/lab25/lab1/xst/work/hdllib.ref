@@ -1,0 +1,8 @@
+AR picoblaze_top behavioral Z:/xl/CHK/lab25/lab1/z_picoSP36_top.vhd sub00/vhpl01 1761553647
+AR kcpsm3 low_level_definition D:/CHK/lab1/lab1/kcpsm3.vhd sub00/vhpl03 1760342464
+AR embedded_kcpsm3 connectivity D:/CHK/lab1/lab1/embedded_kcpsm3.vhd sub00/vhpl07 1760342468
+EN prog_rom NULL D:/CHK/lab1/lab1/PROG_ROM.VHD sub00/vhpl04 1760342465
+EN kcpsm3 NULL D:/CHK/lab1/lab1/kcpsm3.vhd sub00/vhpl02 1760342463
+EN picoblaze_top NULL Z:/xl/CHK/lab25/lab1/z_picoSP36_top.vhd sub00/vhpl00 1761553646
+AR prog_rom low_level_definition D:/CHK/lab1/lab1/PROG_ROM.VHD sub00/vhpl05 1760342466
+EN embedded_kcpsm3 NULL D:/CHK/lab1/lab1/embedded_kcpsm3.vhd sub00/vhpl06 1760342467

@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include "xgpio_l.h"
+#include "xparameters.h"
+
+int main() {
+	u32 input_val = 0,
+		output_val = 0;
+
+	XGpio_WriteReg(XPAR_LEDS_BASEADDR, XGPIO_TRI_OFFSET, 0);
+	while (1) {
+		input_val = Xil_In32(XPAR_DIP_SWITCHES_BASEADDR);
+		input_val = input_val & 0x3F;
+
+		output_val = (3 * input_val) + 4;
+		output_val = output_val & 0x7F;
+
+		Xil_Out32(XPAR_LEDS_BASEADDR, output_val);
+	}
+	return 0;
+}

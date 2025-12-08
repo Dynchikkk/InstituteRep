@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="system.bit" key="lab3_4_hw_platform-bitFile"/>
+	<item value="system_bd.bmm" key="lab3_4_hw_platform-bmmFile"/>
+	<item value="C:\Users\student\Desktop\max\lab3_4\SDK\SDK_Export\workspace\lab3_6\Debug\lab3_6.elf" key="lab3_4_hw_platform-microblaze_0-initElf"/>
+</section>

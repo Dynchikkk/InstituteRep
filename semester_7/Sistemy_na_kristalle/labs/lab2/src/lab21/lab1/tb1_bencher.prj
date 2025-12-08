@@ -1,0 +1,4 @@
+vhdl work "../../SoC_bac/Lab/PicoBlazeForSp2/kcpsm.vhd"
+vhdl work "../../SoC_bac/Lab/PicoBlazeForSp2/PROG_ROM.VHD"
+vhdl work "embedded_kcpsm.vhd"
+vhdl work "../../SoC_bac/Lab/PicoBlazeForSp2/z_picoSP2_top.vhd"

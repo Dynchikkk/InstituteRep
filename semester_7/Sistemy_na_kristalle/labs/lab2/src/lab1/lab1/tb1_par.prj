@@ -1,0 +1,3 @@
+verilog work "netgen/par/picoblaze_top_timesim.v"
+vhdl work "tb1.vhd"
+verilog work "C:/Xilinx91i/verilog/src/glbl.v"

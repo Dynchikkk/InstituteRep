@@ -1,0 +1,64 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 9.1i
+//  \   \         Application : ISE
+//  /   /         Filename : tb1.tfw
+// /___/   /\     Timestamp : Mon Sep 15 10:36:39 2025
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: tb1
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module tb1;
+    reg clk = 1'b0;
+    reg [7:0] vh = 8'b00000000;
+    wire rez_beg;
+    wire [7:0] vih;
+
+    parameter PERIOD = 20;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for clk
+    begin
+        #OFFSET;
+        forever
+        begin
+            clk = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) clk = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    picoblaze_top UUT (
+        .clk(clk),
+        .vh(vh),
+        .rez_beg(rez_beg),
+        .vih(vih));
+
+    initial begin
+        // -------------  Current Time:  5ns
+        #5;
+        vh = 8'b00000001;
+        // -------------------------------------
+        // -------------  Current Time:  305ns
+        #300;
+        vh = 8'b00000011;
+        // -------------------------------------
+        // -------------  Current Time:  605ns
+        #300;
+        vh = 8'b00000100;
+        // -------------------------------------
+    end
+
+endmodule
+

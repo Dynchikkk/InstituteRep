@@ -1,0 +1,10 @@
+      ; output <= (input(i)+input(i-1))/2
+      ; p0-input(i),  p1-output
+      ; s0-input(i),  s1-input(i-1),  s2-output
+      LOAD s1, 05   ;s1 <- 00
+beg0: INPUT s0, 00  ;s0 <- P0 (port0)
+      LOAD s2, s0   ;s2 <- s0
+      ADD s2, s1    ;s2 <- s2+s1 (s1+s0)
+      ;       sra    s2       ;s2 <= s2/2
+      OUTPUT s2, 01 ;s2 -> port5
+      JUMP beg0     ;

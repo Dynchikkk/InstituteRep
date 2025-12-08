@@ -1,0 +1,196 @@
+; Регистры:
+; s0 = первый сомножитель (sw)
+; s1 = второй сомножитель (btn) 
+; s2 = результат умножения
+; s3 = временный регистр
+; s4 = счетчик
+; s5 = режим (0=программный, 1=аппаратный)
+
+start:
+    LOAD s5, 00        ; начальный режим - программное умножение
+
+main_loop:
+    ; Чтение входных данных
+    INPUT s0, 00       ; s0 <- первый сомножитель (sw)
+    INPUT s1, 01       ; s1 <- второй сомножитель (btn)
+    
+    ; Проверка кнопки для переключения режима (бит 7 кнопки)
+    TEST s1, 80        ; проверяем бит 7 (кнопка переключения режима)
+    CALL NZ, toggle_mode
+    
+    ; Выбор способа умножения
+    TEST s5, 01
+    JUMP NZ, hardware_multiply
+    
+    ; Программное умножение
+    CALL software_multiply
+    JUMP display_result
+    
+hardware_multiply:
+    ; Аппаратное умножение
+    CALL hardware_multiply_emu
+    
+display_result:
+    ; Вывод результата
+    OUTPUT s2, 02      ; вывод на светодиоды для отладки
+    CALL display_number ; вывод на 7-сегментный индикатор
+    
+    ;CALL delay
+    JUMP main_loop
+
+; Подпрограмма переключения режима
+toggle_mode:
+    TEST s5, 01
+    JUMP NZ, set_software
+    ; Переключаем на аппаратный режим
+    LOAD s5, 01
+    JUMP mode_changed
+set_software:
+    ; Переключаем на программный режим
+    LOAD s5, 00
+mode_changed:
+    RETURN
+
+; Программное умножение (сложение в цикле)
+software_multiply:
+    LOAD s2, 00        ; обнуляем результат
+    AND s1, 0F        ; используем только младшие 4 бита
+    LOAD s4, s1        ; счетчик = второй сомножитель
+    COMPARE s4, 00
+    JUMP Z, multiply_done
+    
+multiply_loop:
+    ADD s2, s0         ; добавляем первый сомножитель
+    SUB s4, 01         ; уменьшаем счетчик
+    JUMP NZ, multiply_loop
+    
+multiply_done:
+    RETURN
+
+; Аппаратное умножение (эмуляция через сдвиги и сложения)
+hardware_multiply_emu:
+    LOAD s2, 00        ; обнуляем результат
+    AND s1, 0F        ; используем только младшие 4 бита
+    LOAD s3, s0        ; копируем первый сомножитель
+    LOAD s4, 08        ; счетчик битов = 8
+    
+hw_mult_loop:
+    TEST s1, 01        ; проверяем младший бит второго сомножителя
+    JUMP Z, no_add
+    ADD s2, s3         ; добавляем сдвинутый первый сомножитель
+    
+no_add:
+    SR0 s1             ; сдвигаем второй сомножитель вправо
+    SL0 s3             ; сдвигаем копию первого сомножителя влево
+    SUB s4, 01         ; уменьшаем счетчик битов
+    JUMP NZ, hw_mult_loop
+    
+    RETURN
+
+; Подпрограмма отображения числа на 7-сегментном индикаторе
+display_number:
+    ; Младшая цифра
+    LOAD s3, s2
+    AND s3, 0F        ; младшая цифра
+    CALL digit_to_seg
+    OUTPUT s1, 00      ; выводим сегменты
+    LOAD s1, 0E       ; выбираем первый индикатор
+    OUTPUT s1, 01
+    ;CALL delay_short
+    
+    ; Старшая цифра
+    LOAD s3, s2
+    SR0 s3
+    SR0 s3
+    SR0 s3
+    SR0 s3             ; сдвигаем для получения старшей цифры
+    AND s3, 0F        ; старшая цифра
+    CALL digit_to_seg
+    OUTPUT s1, 00      ; выводим сегменты
+    LOAD s1, 0D       ; выбираем второй индикатор
+    OUTPUT s1, 01
+    ;CALL delay_short
+    
+    RETURN
+
+; Преобразование цифры (0-15) в 7-сегментный код
+digit_to_seg:
+    COMPARE s3, 00
+    JUMP Z, seg_0
+    COMPARE s3, 01
+    JUMP Z, seg_1
+    COMPARE s3, 02
+    JUMP Z, seg_2
+    COMPARE s3, 03
+    JUMP Z, seg_3
+    COMPARE s3, 04
+    JUMP Z, seg_4
+    COMPARE s3, 05
+    JUMP Z, seg_5
+    COMPARE s3, 06
+    JUMP Z, seg_6
+    COMPARE s3, 07
+    JUMP Z, seg_7
+    COMPARE s3, 08
+    JUMP Z, seg_8
+    COMPARE s3, 09
+    JUMP Z, seg_9
+    COMPARE s3, 0A
+    JUMP Z, seg_A
+    COMPARE s3, 0B
+    JUMP Z, seg_B
+    COMPARE s3, 0C
+    JUMP Z, seg_C
+    COMPARE s3, 0D
+    JUMP Z, seg_D
+    COMPARE s3, 0E
+    JUMP Z, seg_E
+    JUMP seg_F
+
+seg_0: LOAD s1, 3F
+RETURN
+seg_1: LOAD s1, 06
+RETURN
+seg_2: LOAD s1, 5B
+RETURN
+seg_3: LOAD s1, 4F
+RETURN
+seg_4: LOAD s1, 66
+RETURN
+seg_5: LOAD s1, 6D
+RETURN
+seg_6: LOAD s1, 7D
+RETURN
+seg_7: LOAD s1, 07
+RETURN
+seg_8: LOAD s1, 7F
+RETURN
+seg_9: LOAD s1, 6F
+RETURN
+seg_A: LOAD s1, 77
+RETURN
+seg_B: LOAD s1, 7C
+RETURN
+seg_C: LOAD s1, 39
+RETURN
+seg_D: LOAD s1, 5E
+RETURN
+seg_E: LOAD s1, 79
+RETURN
+seg_F: LOAD s1, 71
+RETURN
+
+; Подпрограмма задержки
+delay:
+    LOAD s3, 3F
+delay_loop:
+    SUB s3, 01
+    JUMP NZ, delay_loop
+    RETURN
+
+delay_short:
+    LOAD s3, 0F
+delay_short_loop:
+    SUB s3, 01
+    JUMP NZ, delay_short_loop
+    RETURN

@@ -1,0 +1,49 @@
+V3 52
+FL D:/CHK/lab1/lab1/embedded_kcpsm3.vhd 2010/03/22.11:05:44 J.30
+FL D:/CHK/lab1/lab1/kcpsm3.vhd 2010/03/19.16:09:28 J.30
+FL D:/CHK/lab1/lab1/PROG_ROM.VHD 2025/10/13.10:21:10 J.30
+FL D:/CHK/lab1/lab1/tb1.vhd 2025/09/29.11:14:56 J.30
+FL D:/CHK/lab1/lab1/z_picoSP36_top.vhd 2025/09/29.11:02:10 J.30
+FL Z:/xl/CHK/lab1/lab1/embedded_kcpsm3.vhd 2010/03/22.13:05:44 J.30
+FL Z:/xl/CHK/lab1/lab1/kcpsm3.vhd 2010/03/19.18:09:28 J.30
+FL Z:/xl/CHK/lab1/lab1/PROG_ROM.VHD 2025/10/21.17:07:45 J.30
+FL Z:/xl/CHK/lab1/lab1/tb1.vhd 2025/09/29.13:14:56 J.30
+FL Z:/xl/CHK/lab1/lab1/z_picoSP36_top.vhd 2025/09/29.13:02:10 J.30
+FL Z:/xl/CHK/lab21/lab1/embedded_kcpsm3.vhd 2025/10/24.17:20:49 J.30
+FL Z:/xl/CHK/lab21/lab1/kcpsm3.vhd 2025/10/24.17:20:52 J.30
+FL Z:/xl/CHK/lab21/lab1/PROG_ROM.VHD 2025/10/26.20:57:25 J.30
+FL Z:/xl/CHK/lab21/lab1/tb1.vhd 2025/10/26.21:11:36 J.30
+FL Z:/xl/CHK/lab21/lab1/z_picoSP36_top.vhd 2025/10/26.20:35:23 J.30
+FL Z:/xl/CHK/lab24/lab1/embedded_kcpsm3.vhd 2025/10/24.17:20:49 J.30
+EN isim_temp/embedded_kcpsm3 1764104652 \
+      FL Z:/xl/CHK/lab24/lab1/embedded_kcpsm3.vhd PB ieee/std_logic_1164 1164799246 \
+      PB ieee/std_logic_arith 1164799248 PB ieee/STD_LOGIC_UNSIGNED 1164799254
+AR isim_temp/embedded_kcpsm3/connectivity 1764104653 \
+      FL Z:/xl/CHK/lab24/lab1/embedded_kcpsm3.vhd EN isim_temp/embedded_kcpsm3 1764104652 \
+      CP kcpsm3 CP prog_rom
+FL Z:/xl/CHK/lab24/lab1/kcpsm3.vhd 2025/10/24.17:20:52 J.30
+EN isim_temp/kcpsm3 1764104648 FL Z:/xl/CHK/lab24/lab1/kcpsm3.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB unisim PH unisim/VCOMPONENTS 1164800548
+AR isim_temp/kcpsm3/low_level_definition 1764104649 \
+      FL Z:/xl/CHK/lab24/lab1/kcpsm3.vhd EN isim_temp/kcpsm3 1764104648 CP LUT2 \
+      CP FD CP FDS CP FDR CP LUT4 CP FDE CP LUT3 CP FDRE CP MUXCY CP XORCY CP INV CP FDRSE \
+      CP RAM16X1D CP RAM64X1S CP MUXF5 CP RAM32X1S
+FL Z:/xl/CHK/lab24/lab1/PROG_ROM.VHD 2025/11/26.01:03:56 J.30
+EN isim_temp/prog_rom 1764104650 FL Z:/xl/CHK/lab24/lab1/PROG_ROM.VHD \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB unisim PH unisim/VCOMPONENTS 1164800548
+AR isim_temp/prog_rom/low_level_definition 1764104651 \
+      FL Z:/xl/CHK/lab24/lab1/PROG_ROM.VHD EN isim_temp/prog_rom 1764104650 \
+      CP RAMB16_S18
+FL Z:/xl/CHK/lab24/lab1/tb1.vhd 2025/10/26.22:03:05 J.30
+EN isim_temp/tb1 1764104656 FL Z:/xl/CHK/lab24/lab1/tb1.vhd PB ieee/std_logic_1164 1164799246
+AR isim_temp/tb1/behavior 1764104657 \
+      FL Z:/xl/CHK/lab24/lab1/tb1.vhd EN isim_temp/tb1 1764104656 CP picoblaze_top
+FL Z:/xl/CHK/lab24/lab1/z_picoSP36_top.vhd 2025/10/26.22:14:52 J.30
+EN isim_temp/picoblaze_top 1764104654 FL Z:/xl/CHK/lab24/lab1/z_picoSP36_top.vhd \
+      PB ieee/std_logic_1164 1164799246 PB ieee/std_logic_arith 1164799248 \
+      PB ieee/STD_LOGIC_UNSIGNED 1164799254 LB unisim PH unisim/VCOMPONENTS 1164800548
+AR isim_temp/picoblaze_top/Behavioral 1764104655 \
+      FL Z:/xl/CHK/lab24/lab1/z_picoSP36_top.vhd EN isim_temp/picoblaze_top 1764104654 \
+      CP embedded_kcpsm3

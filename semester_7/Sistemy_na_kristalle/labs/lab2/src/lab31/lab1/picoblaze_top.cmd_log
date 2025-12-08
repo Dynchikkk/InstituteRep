@@ -1,0 +1,49 @@
+xst -ise "Z:/xl/CHK/lab1/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+ngdbuild -ise "Z:/xl/CHK/lab1/lab1/lab1.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-5 "picoblaze_top.ngc" picoblaze_top.ngd
+map -ise "Z:/xl/CHK/lab1/lab1/lab1.ise" -intstyle ise -p xc3s500e-fg320-5 -cm area -pr b -k 4 -c 100 -o picoblaze_top_map.ncd picoblaze_top.ngd picoblaze_top.pcf
+par -ise "Z:/xl/CHK/lab1/lab1/lab1.ise" -w -intstyle ise -ol std -t 1 picoblaze_top_map.ncd picoblaze_top.ncd picoblaze_top.pcf
+trce -ise "Z:/xl/CHK/lab1/lab1/lab1.ise" -intstyle ise -e 3 -s 5 -xml picoblaze_top picoblaze_top.ncd -o picoblaze_top.twr picoblaze_top.pcf
+xst -ise "Z:/xl/CHK/lab1/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+ngdbuild -ise "Z:/xl/CHK/lab1/lab1/lab1.ise" -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-5 "picoblaze_top.ngc" picoblaze_top.ngd
+map -ise "Z:/xl/CHK/lab1/lab1/lab1.ise" -intstyle ise -p xc3s500e-fg320-5 -cm area -pr b -k 4 -c 100 -o picoblaze_top_map.ncd picoblaze_top.ngd picoblaze_top.pcf
+par -ise "Z:/xl/CHK/lab1/lab1/lab1.ise" -w -intstyle ise -ol std -t 1 picoblaze_top_map.ncd picoblaze_top.ncd picoblaze_top.pcf
+trce -ise "Z:/xl/CHK/lab1/lab1/lab1.ise" -intstyle ise -e 3 -s 5 -xml picoblaze_top picoblaze_top.ncd -o picoblaze_top.twr picoblaze_top.pcf
+xst -ise "D:/CHK/lab1/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+ngdbuild -ise "D:/CHK/lab1/lab1/lab1.ise" -intstyle ise -dd _ngo -nt timestamp -uc "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" -p xc3s500e-fg320-5 "picoblaze_top.ngc" picoblaze_top.ngd
+ngdbuild -ise "D:/CHK/lab1/lab1/lab1.ise" -intstyle ise -dd _ngo -nt timestamp -uc "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" -p xc3s500e-fg320-5 "picoblaze_top.ngc" picoblaze_top.ngd
+xst -ise "D:/CHK/lab1/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+ngdbuild -ise "D:/CHK/lab1/lab1/lab1.ise" -intstyle ise -dd _ngo -nt timestamp -uc "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" -p xc3s500e-fg320-5 "picoblaze_top.ngc" picoblaze_top.ngd
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+ngdbuild -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -dd _ngo -nt timestamp -uc "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" -p xc3s500e-fg320-5 "picoblaze_top.ngc" picoblaze_top.ngd
+map -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -p xc3s500e-fg320-5 -cm area -pr b -k 4 -c 100 -o picoblaze_top_map.ncd picoblaze_top.ngd picoblaze_top.pcf
+par -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -w -intstyle ise -ol std -t 1 picoblaze_top_map.ncd picoblaze_top.ncd picoblaze_top.pcf
+trce -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -e 3 -s 5 -xml picoblaze_top picoblaze_top.ncd -o picoblaze_top.twr picoblaze_top.pcf -ucf Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+ngdbuild -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -dd _ngo -nt timestamp -uc "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" -p xc3s500e-fg320-5 "picoblaze_top.ngc" picoblaze_top.ngd
+map -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -p xc3s500e-fg320-5 -cm area -pr b -k 4 -c 100 -o picoblaze_top_map.ncd picoblaze_top.ngd picoblaze_top.pcf
+par -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -w -intstyle ise -ol std -t 1 picoblaze_top_map.ncd picoblaze_top.ncd picoblaze_top.pcf
+trce -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -e 3 -s 5 -xml picoblaze_top picoblaze_top.ncd -o picoblaze_top.twr picoblaze_top.pcf -ucf Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf
+bitgen -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -f picoblaze_top.ut picoblaze_top.ncd
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+ngdbuild -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -dd _ngo -nt timestamp -uc "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" -p xc3s500e-fg320-5 "picoblaze_top.ngc" picoblaze_top.ngd
+map -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -p xc3s500e-fg320-5 -cm area -pr b -k 4 -c 100 -o picoblaze_top_map.ncd picoblaze_top.ngd picoblaze_top.pcf
+par -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -w -intstyle ise -ol std -t 1 picoblaze_top_map.ncd picoblaze_top.ncd picoblaze_top.pcf
+trce -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -e 3 -s 5 -xml picoblaze_top picoblaze_top.ncd -o picoblaze_top.twr picoblaze_top.pcf -ucf Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+ngdbuild -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -dd _ngo -nt timestamp -uc "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" -p xc3s500e-fg320-5 "picoblaze_top.ngc" picoblaze_top.ngd
+map -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -p xc3s500e-fg320-5 -cm area -pr b -k 4 -c 100 -o picoblaze_top_map.ncd picoblaze_top.ngd picoblaze_top.pcf
+par -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -w -intstyle ise -ol std -t 1 picoblaze_top_map.ncd picoblaze_top.ncd picoblaze_top.pcf
+trce -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -e 3 -s 5 -xml picoblaze_top picoblaze_top.ncd -o picoblaze_top.twr picoblaze_top.pcf -ucf Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf
+bitgen -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -f picoblaze_top.ut picoblaze_top.ncd
+xst -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr
+ngdbuild -ise "Z:/xl/CHK/lab21/lab1/lab1.ise" -intstyle ise -dd _ngo -nt timestamp -uc "Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf" -p xc3s500e-fg320-5 "picoblaze_top.ngc" picoblaze_top.ngd
+xst -ise "Z:/xl/CHK/lab31/lab1/lab1.ise" -intstyle ise -ifn picoblaze_top.xst -ofn picoblaze_top.syr

@@ -1,0 +1,5 @@
+vhdl isim_temp "kcpsm3.vhd"
+vhdl isim_temp "PROG_ROM.VHD"
+vhdl isim_temp "embedded_kcpsm3.vhd"
+vhdl isim_temp "z_picoSP36_top.vhd"
+vhdl isim_temp "tb1.vhd"

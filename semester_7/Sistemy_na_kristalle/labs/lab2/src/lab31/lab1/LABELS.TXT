@@ -1,0 +1,8 @@
+Table of addresses and their specified labels.
+
+000  start
+002  main_loop
+009  check_btn3
+00E  btn3_done
+00F  check_btn1
+014  btn1_done

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLParsers" num="3607" delta="unknown" >Unit <arg fmt="%s" index="1">work/picoblaze_top</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">D:/CHK/lab1/lab1/z_picoSP36_top.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">//vboxsvr/winxptogetherfolder/xl/CHK/lab24/lab1/z_picoSP36_top.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="unknown" >Unit <arg fmt="%s" index="1">work/picoblaze_top/Behavioral</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">D:/CHK/lab1/lab1/z_picoSP36_top.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">//vboxsvr/winxptogetherfolder/xl/CHK/lab24/lab1/z_picoSP36_top.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="unknown" >Unit <arg fmt="%s" index="1">work/embedded_kcpsm3</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">D:/CHK/lab1/lab1/embedded_kcpsm3.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">//vboxsvr/winxptogetherfolder/xl/CHK/lab24/lab1/embedded_kcpsm3.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="unknown" >Unit <arg fmt="%s" index="1">work/embedded_kcpsm3/connectivity</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">D:/CHK/lab1/lab1/embedded_kcpsm3.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">//vboxsvr/winxptogetherfolder/xl/CHK/lab24/lab1/embedded_kcpsm3.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="unknown" >Unit <arg fmt="%s" index="1">work/prog_rom</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">D:/CHK/lab1/lab1/PROG_ROM.VHD</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">//vboxsvr/winxptogetherfolder/xl/CHK/lab24/lab1/PROG_ROM.VHD</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="unknown" >Unit <arg fmt="%s" index="1">work/prog_rom/low_level_definition</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">D:/CHK/lab1/lab1/PROG_ROM.VHD</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">//vboxsvr/winxptogetherfolder/xl/CHK/lab24/lab1/PROG_ROM.VHD</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="unknown" >Unit <arg fmt="%s" index="1">work/kcpsm3</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">D:/CHK/lab1/lab1/kcpsm3.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">//vboxsvr/winxptogetherfolder/xl/CHK/lab24/lab1/kcpsm3.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="unknown" >Unit <arg fmt="%s" index="1">work/kcpsm3/low_level_definition</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">D:/CHK/lab1/lab1/kcpsm3.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">//vboxsvr/winxptogetherfolder/xl/CHK/lab24/lab1/kcpsm3.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="Xst" num="1961" delta="unknown" >The length of the hex value for the attribute <arg fmt="%s" index="1">INIT</arg> on instance <arg fmt="%s" index="2">ram_1024_x_18</arg> should be <arg fmt="%d" index="3">18</arg> bits long. The current value set is <arg fmt="%d" index="4">20</arg> bits long.  Value has been truncated
+</msg>
+
+<msg type="warning" file="Xst" num="1961" delta="unknown" >The length of the hex value for the attribute <arg fmt="%s" index="1">SRVAL</arg> on instance <arg fmt="%s" index="2">ram_1024_x_18</arg> should be <arg fmt="%d" index="3">18</arg> bits long. The current value set is <arg fmt="%d" index="4">20</arg> bits long.  Value has been truncated
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">interrupt_ack</arg>&gt; is assigned but never used.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">read_strobe</arg>&gt; is assigned but never used.
+</msg>
+
+</messages>
+

@@ -1,0 +1,6 @@
+AR kcpsm3 low_level_definition Z:/xl/CHK/lab24/lab1/kcpsm3.vhd sub00/vhpl01 1761500998
+AR embedded_kcpsm3 connectivity Z:/xl/CHK/lab24/lab1/embedded_kcpsm3.vhd sub00/vhpl05 1761501002
+EN prog_rom NULL Z:/xl/CHK/lab24/lab1/PROG_ROM.VHD sub00/vhpl02 1761500999
+EN kcpsm3 NULL Z:/xl/CHK/lab24/lab1/kcpsm3.vhd sub00/vhpl00 1761500997
+AR prog_rom low_level_definition Z:/xl/CHK/lab24/lab1/PROG_ROM.VHD sub00/vhpl03 1761501000
+EN embedded_kcpsm3 NULL Z:/xl/CHK/lab24/lab1/embedded_kcpsm3.vhd sub00/vhpl04 1761501001

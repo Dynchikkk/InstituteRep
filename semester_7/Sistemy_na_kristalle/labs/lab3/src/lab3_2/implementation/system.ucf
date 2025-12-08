@@ -1,0 +1,53 @@
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<0> LOC=g18;  # for Nexys-2
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<0> IOSTANDARD = LVCMOS33;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<1> LOC=h18;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<1> IOSTANDARD = LVCMOS33;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<2> LOC=k18;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<2> IOSTANDARD = LVCMOS33;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<3> LOC=k17;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<3> IOSTANDARD = LVCMOS33;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<4> LOC=l14;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<4> IOSTANDARD = LVCMOS33;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<5> LOC=l13;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<5> IOSTANDARD = LVCMOS33;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<6> LOC=n17;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<6> IOSTANDARD = LVCMOS33;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<7> LOC=r17;
+Net fpga_0_DIP_Switches_GPIO_IO_I_pin<7> IOSTANDARD = LVCMOS33;
+ 
+Net fpga_0_LEDS_GPIO_IO_O_pin<0> LOC=j14;
+Net fpga_0_LEDS_GPIO_IO_O_pin<0> IOSTANDARD = LVCMOS33;
+Net fpga_0_LEDS_GPIO_IO_O_pin<1> LOC=j15;
+Net fpga_0_LEDS_GPIO_IO_O_pin<1> IOSTANDARD = LVCMOS33;
+Net fpga_0_LEDS_GPIO_IO_O_pin<2> LOC=k15;
+Net fpga_0_LEDS_GPIO_IO_O_pin<2> IOSTANDARD = LVCMOS33;
+Net fpga_0_LEDS_GPIO_IO_O_pin<3> LOC=k14;
+Net fpga_0_LEDS_GPIO_IO_O_pin<3> IOSTANDARD = LVCMOS33;
+Net fpga_0_LEDS_GPIO_IO_O_pin<4> LOC=e17;
+Net fpga_0_LEDS_GPIO_IO_O_pin<4> IOSTANDARD = LVCMOS33;
+Net fpga_0_LEDS_GPIO_IO_O_pin<5> LOC=p15;
+Net fpga_0_LEDS_GPIO_IO_O_pin<5> IOSTANDARD = LVCMOS33;
+Net fpga_0_LEDS_GPIO_IO_O_pin<6> LOC=f4;
+Net fpga_0_LEDS_GPIO_IO_O_pin<6> IOSTANDARD = LVCMOS33;
+Net fpga_0_LEDS_GPIO_IO_O_pin<7> LOC=r4;
+Net fpga_0_LEDS_GPIO_IO_O_pin<7> IOSTANDARD = LVCMOS33;
+ 
+Net fpga_0_Push_Buttons_GPIO_IO_I_pin<0> LOC= b18;
+Net fpga_0_Push_Buttons_GPIO_IO_I_pin<0> IOSTANDARD = LVCMOS33;
+Net fpga_0_Push_Buttons_GPIO_IO_I_pin<1> LOC= d18;
+Net fpga_0_Push_Buttons_GPIO_IO_I_pin<1> IOSTANDARD = LVCMOS33;
+Net fpga_0_Push_Buttons_GPIO_IO_I_pin<2> LOC= e18;
+Net fpga_0_Push_Buttons_GPIO_IO_I_pin<2> IOSTANDARD = LVCMOS33;
+Net fpga_0_Push_Buttons_GPIO_IO_I_pin<3> LOC= h13;
+Net fpga_0_Push_Buttons_GPIO_IO_I_pin<3> IOSTANDARD = LVCMOS33;
+
+Net fpga_0_clk_1_sys_clk_pin TNM_NET = sys_clk_pin;
+TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 50000 kHz;
+Net fpga_0_clk_1_sys_clk_pin LOC= b8;
+Net fpga_0_clk_1_sys_clk_pin IOSTANDARD = LVCMOS33;
+Net fpga_0_rst_1_sys_rst_pin TIG;
+Net fpga_0_rst_1_sys_rst_pin LOC= u4 | PULLDOWN;
+Net fpga_0_rst_1_sys_rst_pin IOSTANDARD = LVCMOS33;
+
+CONFIG PROHIBIT = n9,r14,r13,p13,t12,n11,r11,p10,r10,t15,v15,v9,v12,t16,u15,t14, v13,u13;
+CONFIG PROHIBIT = t2,n7,r6,h5,p7,r5,d3,l1,l4,l6,m4,n5,p1,p2,r2,l3,l5,m3,m6,l2,n4, r3,t1;

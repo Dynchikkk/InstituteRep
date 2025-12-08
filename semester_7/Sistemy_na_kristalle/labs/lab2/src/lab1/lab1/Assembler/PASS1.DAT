@@ -1,0 +1,50 @@
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; output <= (input(i)+input(i-1))/2
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; p0-input(i),  p1-output
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; s0-input(i),  s1-input(i-1),  s2-output
+      LABEL-
+INSTRUCTION-load
+   OPERAND1-s1
+   OPERAND2-05
+    COMMENT-;s1 <- 00
+      LABEL-beg0
+INSTRUCTION-input
+   OPERAND1-s0
+   OPERAND2-00
+    COMMENT-;s0 <- P0 (port0)
+      LABEL-
+INSTRUCTION-load
+   OPERAND1-s2
+   OPERAND2-s0
+    COMMENT-;s2 <- s0
+      LABEL-
+INSTRUCTION-add
+   OPERAND1-s2
+   OPERAND2-s1
+    COMMENT-;s2 <- s2+s1 (s1+s0)
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;       sra    s2       ;s2 <= s2/2
+      LABEL-
+INSTRUCTION-output
+   OPERAND1-s2
+   OPERAND2-01
+    COMMENT-;s2 -> port5
+      LABEL-
+INSTRUCTION-jump
+   OPERAND1-beg0
+   OPERAND2-
+    COMMENT-;

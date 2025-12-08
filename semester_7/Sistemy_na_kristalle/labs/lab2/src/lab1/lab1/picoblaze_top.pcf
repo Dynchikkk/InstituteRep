@@ -1,0 +1,203 @@
+//! **************************************************************************
+// Written by: Map J.30 on Wed Dec 03 00:38:47 2025
+//! **************************************************************************
+
+SCHEMATIC START;
+PROHIBIT = SITE "D3";
+PROHIBIT = SITE "H5";
+PROHIBIT = SITE "L2";
+PROHIBIT = SITE "L1";
+PROHIBIT = SITE "L4";
+PROHIBIT = SITE "L3";
+PROHIBIT = SITE "L5";
+PROHIBIT = SITE "L6";
+PROHIBIT = SITE "M3";
+PROHIBIT = SITE "M4";
+PROHIBIT = SITE "M6";
+PROHIBIT = SITE "N5";
+PROHIBIT = SITE "N4";
+PROHIBIT = SITE "P1";
+PROHIBIT = SITE "P2";
+PROHIBIT = SITE "R2";
+PROHIBIT = SITE "R3";
+PROHIBIT = SITE "T1";
+PROHIBIT = SITE "T2";
+PROHIBIT = SITE "R5";
+PROHIBIT = SITE "R6";
+PROHIBIT = SITE "N7";
+PROHIBIT = SITE "P7";
+PROHIBIT = SITE "N9";
+PROHIBIT = SITE "V9";
+PROHIBIT = SITE "R10";
+PROHIBIT = SITE "P10";
+PROHIBIT = SITE "N11";
+PROHIBIT = SITE "R11";
+PROHIBIT = SITE "V12";
+PROHIBIT = SITE "V13";
+PROHIBIT = SITE "T12";
+PROHIBIT = SITE "U13";
+PROHIBIT = SITE "P13";
+PROHIBIT = SITE "R13";
+PROHIBIT = SITE "T14";
+PROHIBIT = SITE "R14";
+PROHIBIT = SITE "T15";
+PROHIBIT = SITE "V15";
+PROHIBIT = SITE "U15";
+PROHIBIT = SITE "T16";
+COMP "led<0>" LOCATE = SITE "J14" LEVEL 1;
+COMP "led<1>" LOCATE = SITE "J15" LEVEL 1;
+COMP "led<2>" LOCATE = SITE "K15" LEVEL 1;
+COMP "clk" LOCATE = SITE "B8" LEVEL 1;
+COMP "led<3>" LOCATE = SITE "K14" LEVEL 1;
+COMP "led<4>" LOCATE = SITE "E17" LEVEL 1;
+COMP "led<5>" LOCATE = SITE "P15" LEVEL 1;
+COMP "led<6>" LOCATE = SITE "F4" LEVEL 1;
+COMP "led<7>" LOCATE = SITE "R4" LEVEL 1;
+COMP "sw<0>" LOCATE = SITE "G18" LEVEL 1;
+COMP "sw<1>" LOCATE = SITE "H18" LEVEL 1;
+COMP "sw<2>" LOCATE = SITE "K18" LEVEL 1;
+COMP "sw<3>" LOCATE = SITE "K17" LEVEL 1;
+COMP "sw<4>" LOCATE = SITE "L14" LEVEL 1;
+COMP "sw<5>" LOCATE = SITE "L13" LEVEL 1;
+COMP "sw<6>" LOCATE = SITE "N17" LEVEL 1;
+COMP "sw<7>" LOCATE = SITE "R17" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+TIMEGRP clk = BEL "in_port_0" BEL "in_port_1" BEL "in_port_2" BEL "in_port_3"
+        BEL "in_port_4" BEL "in_port_5" BEL "in_port_6" BEL "in_port_7" BEL
+        "led_0" BEL "led_1" BEL "led_2" BEL "led_3" BEL "led_4" BEL "led_5"
+        BEL "led_6" BEL "led_7" BEL "K1/program/ram_1024_x_18.A" BEL
+        "K1/processor/reg_loop[7].register_bit.SLICEM_F" BEL
+        "K1/processor/reg_loop[7].register_bit.SLICEM_G" BEL
+        "K1/processor/reg_loop[6].register_bit.SLICEM_F" BEL
+        "K1/processor/reg_loop[6].register_bit.SLICEM_G" BEL
+        "K1/processor/reg_loop[5].register_bit.SLICEM_F" BEL
+        "K1/processor/reg_loop[5].register_bit.SLICEM_G" BEL
+        "K1/processor/reg_loop[4].register_bit.SLICEM_F" BEL
+        "K1/processor/reg_loop[4].register_bit.SLICEM_G" BEL
+        "K1/processor/reg_loop[3].register_bit.SLICEM_F" BEL
+        "K1/processor/reg_loop[3].register_bit.SLICEM_G" BEL
+        "K1/processor/reg_loop[2].register_bit.SLICEM_F" BEL
+        "K1/processor/reg_loop[2].register_bit.SLICEM_G" BEL
+        "K1/processor/reg_loop[1].register_bit.SLICEM_F" BEL
+        "K1/processor/reg_loop[1].register_bit.SLICEM_G" BEL
+        "K1/processor/reg_loop[0].register_bit.SLICEM_F" BEL
+        "K1/processor/reg_loop[0].register_bit.SLICEM_G" BEL
+        "K1/processor/stack_count_loop[4].register_bit" BEL
+        "K1/processor/stack_count_loop[3].register_bit" BEL
+        "K1/processor/stack_count_loop[2].register_bit" BEL
+        "K1/processor/stack_count_loop[1].register_bit" BEL
+        "K1/processor/stack_count_loop[0].register_bit" BEL
+        "K1/processor/stack_ram_loop[9].stack_flop" BEL
+        "K1/processor/stack_ram_loop[8].stack_flop" BEL
+        "K1/processor/stack_ram_loop[7].stack_flop" BEL
+        "K1/processor/stack_ram_loop[6].stack_flop" BEL
+        "K1/processor/stack_ram_loop[5].stack_flop" BEL
+        "K1/processor/stack_ram_loop[4].stack_flop" BEL
+        "K1/processor/stack_ram_loop[3].stack_flop" BEL
+        "K1/processor/stack_ram_loop[2].stack_flop" BEL
+        "K1/processor/stack_ram_loop[1].stack_flop" BEL
+        "K1/processor/stack_ram_loop[0].stack_flop" BEL
+        "K1/processor/write_strobe_flop" BEL "K1/processor/sel_group_flop" BEL
+        "K1/processor/arith_loop[7].arith_flop" BEL
+        "K1/processor/arith_loop[7].msb_arith.arith_carry_flop" BEL
+        "K1/processor/arith_loop[6].arith_flop" BEL
+        "K1/processor/arith_loop[5].arith_flop" BEL
+        "K1/processor/arith_loop[4].arith_flop" BEL
+        "K1/processor/arith_loop[3].arith_flop" BEL
+        "K1/processor/arith_loop[2].arith_flop" BEL
+        "K1/processor/arith_loop[1].arith_flop" BEL
+        "K1/processor/arith_loop[0].arith_flop" BEL
+        "K1/processor/shift_loop[7].shift_flop" BEL
+        "K1/processor/shift_loop[6].shift_flop" BEL
+        "K1/processor/shift_loop[5].shift_flop" BEL
+        "K1/processor/shift_loop[4].shift_flop" BEL
+        "K1/processor/shift_loop[3].shift_flop" BEL
+        "K1/processor/shift_loop[2].shift_flop" BEL
+        "K1/processor/shift_loop[1].shift_flop" BEL
+        "K1/processor/shift_loop[0].shift_flop" BEL
+        "K1/processor/pipeline_bit" BEL
+        "K1/processor/logical_loop[7].logical_flop" BEL
+        "K1/processor/logical_loop[6].logical_flop" BEL
+        "K1/processor/logical_loop[5].logical_flop" BEL
+        "K1/processor/logical_loop[4].logical_flop" BEL
+        "K1/processor/logical_loop[3].logical_flop" BEL
+        "K1/processor/logical_loop[2].logical_flop" BEL
+        "K1/processor/logical_loop[1].logical_flop" BEL
+        "K1/processor/logical_loop[0].logical_flop" BEL
+        "K1/processor/store_loop[7].store_flop" BEL
+        "K1/processor/store_loop[6].store_flop" BEL
+        "K1/processor/store_loop[5].store_flop" BEL
+        "K1/processor/store_loop[4].store_flop" BEL
+        "K1/processor/store_loop[3].store_flop" BEL
+        "K1/processor/store_loop[2].store_flop" BEL
+        "K1/processor/store_loop[1].store_flop" BEL
+        "K1/processor/store_loop[0].store_flop" BEL
+        "K1/processor/memory_write_flop" BEL
+        "K1/processor/register_write_flop" BEL
+        "K1/processor/pc_loop[9].register_bit" BEL
+        "K1/processor/pc_loop[8].register_bit" BEL
+        "K1/processor/pc_loop[7].register_bit" BEL
+        "K1/processor/pc_loop[6].register_bit" BEL
+        "K1/processor/pc_loop[5].register_bit" BEL
+        "K1/processor/pc_loop[4].register_bit" BEL
+        "K1/processor/pc_loop[3].register_bit" BEL
+        "K1/processor/pc_loop[2].register_bit" BEL
+        "K1/processor/pc_loop[1].register_bit" BEL
+        "K1/processor/pc_loop[0].register_bit" BEL
+        "K1/processor/carry_flag_flop" BEL "K1/processor/zero_flag_flop" BEL
+        "K1/processor/flag_write_flop" BEL "K1/processor/reset_flop2" BEL
+        "K1/processor/reset_flop1" BEL "K1/processor/toggle_flop" BEL
+        "K1/processor/stack_ram_loop[9].stack_bit/G" BEL
+        "K1/processor/stack_ram_loop[9].stack_bit/F" BEL
+        "K1/processor/stack_ram_loop[8].stack_bit/G" BEL
+        "K1/processor/stack_ram_loop[8].stack_bit/F" BEL
+        "K1/processor/stack_ram_loop[7].stack_bit/G" BEL
+        "K1/processor/stack_ram_loop[7].stack_bit/F" BEL
+        "K1/processor/stack_ram_loop[6].stack_bit/G" BEL
+        "K1/processor/stack_ram_loop[6].stack_bit/F" BEL
+        "K1/processor/stack_ram_loop[5].stack_bit/G" BEL
+        "K1/processor/stack_ram_loop[5].stack_bit/F" BEL
+        "K1/processor/stack_ram_loop[4].stack_bit/G" BEL
+        "K1/processor/stack_ram_loop[4].stack_bit/F" BEL
+        "K1/processor/stack_ram_loop[3].stack_bit/G" BEL
+        "K1/processor/stack_ram_loop[3].stack_bit/F" BEL
+        "K1/processor/stack_ram_loop[2].stack_bit/G" BEL
+        "K1/processor/stack_ram_loop[2].stack_bit/F" BEL
+        "K1/processor/stack_ram_loop[1].stack_bit/G" BEL
+        "K1/processor/stack_ram_loop[1].stack_bit/F" BEL
+        "K1/processor/stack_ram_loop[0].stack_bit/G" BEL
+        "K1/processor/stack_ram_loop[0].stack_bit/F" BEL
+        "K1/processor/store_loop[7].memory_bit/G.S0" BEL
+        "K1/processor/store_loop[7].memory_bit/F.S0" BEL
+        "K1/processor/store_loop[7].memory_bit/F.S1" BEL
+        "K1/processor/store_loop[7].memory_bit/G.S1" BEL
+        "K1/processor/store_loop[6].memory_bit/G.S0" BEL
+        "K1/processor/store_loop[6].memory_bit/F.S0" BEL
+        "K1/processor/store_loop[6].memory_bit/F.S1" BEL
+        "K1/processor/store_loop[6].memory_bit/G.S1" BEL
+        "K1/processor/store_loop[5].memory_bit/G.S0" BEL
+        "K1/processor/store_loop[5].memory_bit/F.S0" BEL
+        "K1/processor/store_loop[5].memory_bit/F.S1" BEL
+        "K1/processor/store_loop[5].memory_bit/G.S1" BEL
+        "K1/processor/store_loop[4].memory_bit/G.S0" BEL
+        "K1/processor/store_loop[4].memory_bit/F.S0" BEL
+        "K1/processor/store_loop[4].memory_bit/F.S1" BEL
+        "K1/processor/store_loop[4].memory_bit/G.S1" BEL
+        "K1/processor/store_loop[3].memory_bit/G.S0" BEL
+        "K1/processor/store_loop[3].memory_bit/F.S0" BEL
+        "K1/processor/store_loop[3].memory_bit/F.S1" BEL
+        "K1/processor/store_loop[3].memory_bit/G.S1" BEL
+        "K1/processor/store_loop[2].memory_bit/G.S0" BEL
+        "K1/processor/store_loop[2].memory_bit/F.S0" BEL
+        "K1/processor/store_loop[2].memory_bit/F.S1" BEL
+        "K1/processor/store_loop[2].memory_bit/G.S1" BEL
+        "K1/processor/store_loop[1].memory_bit/G.S0" BEL
+        "K1/processor/store_loop[1].memory_bit/F.S0" BEL
+        "K1/processor/store_loop[1].memory_bit/F.S1" BEL
+        "K1/processor/store_loop[1].memory_bit/G.S1" BEL
+        "K1/processor/store_loop[0].memory_bit/G.S0" BEL
+        "K1/processor/store_loop[0].memory_bit/F.S0" BEL
+        "K1/processor/store_loop[0].memory_bit/F.S1" BEL
+        "K1/processor/store_loop[0].memory_bit/G.S1";
+TS_clk = PERIOD TIMEGRP "clk" 20 ns HIGH 50%;
+SCHEMATIC END;

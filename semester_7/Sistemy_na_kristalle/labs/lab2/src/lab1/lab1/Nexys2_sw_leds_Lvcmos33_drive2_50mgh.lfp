@@ -1,0 +1,24 @@
+# begin LFP file Z:\xl\CHK\lab1\lab1\Nexys2_sw_leds_Lvcmos33_drive2_50mgh.lfp
+designfile z_picoSP36_top.vhd
+parttype xc3s500e-5-fg320
+bus_delimiter 0;
+set_busdelim_onsave 1;
+IO_GROUP "sw" IO_GROUP="z_picoSP36_top" ;
+IO_GROUP "led" IO_GROUP="z_picoSP36_top" ;
+INST "z_picoSP36_top" COLOR=15  ;
+NET "sw<7>" IO_GROUP="sw"  ;
+NET "sw<6>" IO_GROUP="sw"  ;
+NET "sw<5>" IO_GROUP="sw"  ;
+NET "sw<4>" IO_GROUP="sw"  ;
+NET "sw<3>" IO_GROUP="sw"  ;
+NET "sw<2>" IO_GROUP="sw"  ;
+NET "sw<1>" IO_GROUP="sw"  ;
+NET "sw<0>" IO_GROUP="sw"  ;
+NET "led<7>" IO_GROUP="led"  ;
+NET "led<6>" IO_GROUP="led"  ;
+NET "led<5>" IO_GROUP="led"  ;
+NET "led<4>" IO_GROUP="led"  ;
+NET "led<3>" IO_GROUP="led"  ;
+NET "led<2>" IO_GROUP="led"  ;
+NET "led<1>" IO_GROUP="led"  ;
+NET "led<0>" IO_GROUP="led"  ;

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">13</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">led&lt;0&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">14</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">led&lt;1&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">15</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">led&lt;2&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">16</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">led&lt;3&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">17</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">led&lt;4&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">18</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">led&lt;5&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">19</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">led&lt;6&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">20</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">led&lt;7&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">23</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">sw&lt;0&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">24</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">sw&lt;1&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">25</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">sw&lt;2&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">26</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">sw&lt;3&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">27</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">sw&lt;4&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">28</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">sw&lt;5&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">29</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">sw&lt;6&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="NgdBuild" num="755" delta="unknown" >&quot;<arg fmt="%s" index="2">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot; Line <arg fmt="%i" index="1">30</arg>: Could not find net(s) &apos;<arg fmt="%s" index="3">sw&lt;7&gt;</arg>&apos; in the design.  To suppress this error specify the correct net name or remove the constraint.  The &apos;Allow Unmatched LOC Constraints&apos; ISE property can also be set ( -aul switch for command line users).
+</msg>
+
+<msg type="error" file="Parsers" num="11" delta="unknown" >Encountered unrecognized constraint while parsing.
+</msg>
+
+<msg type="error" file="NgdBuild" num="19" delta="unknown" >Errors found while parsing constraint file &quot;<arg fmt="%s" index="1">Nexys2_sw_leds_Lvcmos33_drive2_50mgh.ucf</arg>&quot;.
+</msg>
+
+</messages>
+

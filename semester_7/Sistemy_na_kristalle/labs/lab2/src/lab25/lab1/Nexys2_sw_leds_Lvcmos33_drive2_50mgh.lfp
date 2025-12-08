@@ -1,0 +1,37 @@
+# begin LFP file Z:\xl\CHK\lab25\lab1\Nexys2_sw_leds_Lvcmos33_drive2_50mgh.lfp
+designfile z_picoSP36_top.vhd
+parttype xc3s500e-5-fg320
+bus_delimiter 0;
+set_busdelim_onsave 1;
+IO_GROUP "sw" IO_GROUP="z_picoSP36_top" ;
+IO_GROUP "btn" IO_GROUP="z_picoSP36_top" ;
+IO_GROUP "seg" IO_GROUP="z_picoSP36_top" ;
+IO_GROUP "ind" IO_GROUP="z_picoSP36_top" ;
+INST "z_picoSP36_top" COLOR=15  ;
+NET "sw<7>" IO_GROUP="sw"  ;
+NET "sw<6>" IO_GROUP="sw"  ;
+NET "sw<5>" IO_GROUP="sw"  ;
+NET "sw<4>" IO_GROUP="sw"  ;
+NET "sw<3>" IO_GROUP="sw"  ;
+NET "sw<2>" IO_GROUP="sw"  ;
+NET "sw<1>" IO_GROUP="sw"  ;
+NET "sw<0>" IO_GROUP="sw"  ;
+NET "btn<7>" IO_GROUP="btn"  ;
+NET "btn<6>" IO_GROUP="btn"  ;
+NET "btn<5>" IO_GROUP="btn"  ;
+NET "btn<4>" IO_GROUP="btn"  ;
+NET "btn<3>" IO_GROUP="btn"  ;
+NET "btn<2>" IO_GROUP="btn"  ;
+NET "btn<1>" IO_GROUP="btn"  ;
+NET "btn<0>" IO_GROUP="btn"  ;
+NET "seg<6>" IO_GROUP="seg"  ;
+NET "seg<5>" IO_GROUP="seg"  ;
+NET "seg<4>" IO_GROUP="seg"  ;
+NET "seg<3>" IO_GROUP="seg"  ;
+NET "seg<2>" IO_GROUP="seg"  ;
+NET "seg<1>" IO_GROUP="seg"  ;
+NET "seg<0>" IO_GROUP="seg"  ;
+NET "ind<3>" IO_GROUP="ind"  ;
+NET "ind<2>" IO_GROUP="ind"  ;
+NET "ind<1>" IO_GROUP="ind"  ;
+NET "ind<0>" IO_GROUP="ind"  ;

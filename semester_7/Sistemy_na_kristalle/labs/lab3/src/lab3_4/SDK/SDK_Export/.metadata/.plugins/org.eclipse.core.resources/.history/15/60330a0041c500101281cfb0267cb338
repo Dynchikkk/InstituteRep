@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include "xgpio_l.h"
+#include "xparameters.h"
+
+u32 SEGMENTS[] = {
+	0xC0, //0
+	0xF9, //1
+	0xA4, //2
+	0xB0, //3
+	0x99, //4
+	0x92, //5
+	0x82, //6
+	0xF8, //7
+	0x80, //8
+	0x90, //9
+	0x88, //A
+	0x83, //B
+	0xC6, //C
+	0xA1, //D
+	0x86, //E
+	0x8E  //F
+};
+
+int main() {
+	u32 input = 0, pInput = input,
+		inputs[4] = { 0 },
+		outputs[4] = { 0 },
+		j;
+	int result = 0, output = 0, anode = 0;
+
+	XGpio_WriteReg(XPAR_GENERIC_GPIO_BASEADDR, XGPIO_TRI_OFFSET, 0);
+	XGpio_WriteReg(XPAR_GENERIC_GPIO_1_BASEADDR, XGPIO_TRI_OFFSET, 0);
+	while (1) {
+		input = Xil_In32(XPAR_DIP_SWITCHES_BASEADDR);
+		if (pInput != input) {
+			pInput = input;
+
+			result = (3 * input + 5) * 257;
+			inputs[0] = result & 0x000F;
+			inputs[1] = (result >> 4) & 0x000F;
+			inputs[2] = (result >> 8) & 0x000F;
+			inputs[3] = (result >> 12) & 0x000F;
+
+			outputs[0] = SEGMENTS[inputs[0]];
+			outputs[1] = SEGMENTS[inputs[1]];
+			outputs[2] = SEGMENTS[inputs[2]];
+			outputs[3] = SEGMENTS[inputs[3]];
+		}
+		int i, index = 0;
+		for (i = 1; i <= 8; i *= 2) {
+			output = 0b1;//outputs[index++];
+			anode = ~1;
+			Xil_Out32(XPAR_GENERIC_GPIO_BASEADDR, anode);
+			Xil_Out32(XPAR_GENERIC_GPIO_BASEADDR, output);
+			//for (j = 0; i < 25000000; i++) {
+
+			//}
+		}
+	}
+	return 0;
+}

@@ -1,0 +1,130 @@
+﻿; s0 = ввод с переключателей
+; s1 = код для 7-сегментного индикатора
+; s2 = текущая цифра
+; s3 = временный регистр
+
+start:
+    LOAD s2, 05        ; начальная цифра = 0
+    CALL display_digit ; отображаем начальную цифру
+
+main_loop:
+    INPUT s0, 01       ; s0 <- кнопки
+    
+    TEST s0, 01        ; кнопка 0 (увеличить)
+    CALL NZ, increment_digit
+    
+    TEST s0, 02        ; кнопка 1 (уменьшить)  
+    CALL NZ, decrement_digit
+    
+    TEST s0, 04        ; кнопка 2 (сброс)
+    CALL NZ, reset_digit
+    
+    ;CALL delay
+    
+    JUMP main_loop
+
+; Подпрограмма увеличения цифры
+increment_digit:
+    COMPARE s2, 09     
+    JUMP Z, inc_done   ; если уже 9, не увеличиваем
+    ADD s2, 01
+    CALL display_digit ; обновляем отображение
+inc_done:
+    RETURN
+
+; Подпрограмма уменьшения цифры  
+decrement_digit:
+    COMPARE s2, 00  
+    JUMP Z, dec_done   ; если уже 0, не уменьшаем
+    SUB s2, 01  
+    CALL display_digit ; обновляем отображение
+dec_done:
+    RETURN
+
+; Подпрограмма сброса цифры
+reset_digit:
+    LOAD s2, 00        ; сбрасываем на 0
+    CALL display_digit ; обновляем отображение
+    RETURN
+
+; Подпрограмма отображения цифры на 7-сегментном индикаторе
+display_digit:
+    ; Используем вычисленный переход через условные переходы
+    COMPARE s2, 00
+    JUMP Z, show_0
+    COMPARE s2, 01
+    JUMP Z, show_1
+    COMPARE s2, 02
+    JUMP Z, show_2
+    COMPARE s2, 03
+    JUMP Z, show_3
+    COMPARE s2, 04
+    JUMP Z, show_4
+    COMPARE s2, 05
+    JUMP Z, show_5
+    COMPARE s2, 06
+    JUMP Z, show_6
+    COMPARE s2, 07
+    JUMP Z, show_7
+    COMPARE s2, 08
+    JUMP Z, show_8
+    COMPARE s2, 09
+    JUMP Z, show_9
+    JUMP display_done
+
+show_0: 
+    LOAD s1, 3F  ; 00111111b - цифра 0
+    JUMP output_digit
+    
+show_1: 
+    LOAD s1, 06  ; 00000110b - цифра 1
+    JUMP output_digit
+    
+show_2: 
+    LOAD s1, 5B  ; 01011011b - цифра 2
+    JUMP output_digit
+    
+show_3: 
+    LOAD s1, 4F  ; 01001111b - цифра 3
+    JUMP output_digit
+    
+show_4: 
+    LOAD s1, 66  ; 01100110b - цифра 4
+    JUMP output_digit
+    
+show_5: 
+    LOAD s1, 6D  ; 01101101b - цифра 5
+    JUMP output_digit
+    
+show_6: 
+    LOAD s1, 7D  ; 01111101b - цифра 6
+    JUMP output_digit
+    
+show_7: 
+    LOAD s1, 07  ; 00000111b - цифра 7
+    JUMP output_digit
+    
+show_8: 
+    LOAD s1, 7F  ; 01111111b - цифра 8
+    JUMP output_digit
+    
+show_9: 
+    LOAD s1, 6F  ; 01101111b - цифра 9
+    JUMP output_digit
+
+output_digit:
+    ; Включение только первого индикатора
+    OUTPUT s1, 00        ; выводим сегменты
+    LOAD s1, 0E          ; 0-й индикатор включен
+    OUTPUT s1, 01   
+
+display_done:
+    RETURN
+
+; Подпрограмма задержки
+delay:
+    LOAD s3, FF
+delay_loop:
+    SUB s3, 01
+    JUMP NZ, delay_loop
+    RETURN
