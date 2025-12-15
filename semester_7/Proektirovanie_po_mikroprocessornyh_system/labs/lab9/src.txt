@@ -41,7 +41,7 @@
 ;===============================================================================
 
         MOV     R1, #47H           ; Base address of receive buffer
-        MOV     R0, #0AH           ; Expect to receive 10 bytes
+        MOV     R0, #11H           ; Expect to receive 10 bytes
 
 
 ;===============================================================================
@@ -213,8 +213,8 @@ STORE_BYTE:
 
         ; Low nibble = 0110 (S/C=0 → move cursor, R/L=1 → right)
         CLR  P1.7                ; DB3=0 → cursor shift, not display shift
-        SETB P1.6                ; DB2=1 → shift right
-        SETB P1.5                ; DB1=1 (don’t care)
+		SETB P1.6                ; DB2=1 → shift right
+		SETB P1.5                ; DB1=1 (don’t care)
         CLR  P1.4                ; DB0=0
 
         SETB P1.2
@@ -228,12 +228,26 @@ STORE_BYTE:
 
         SETB P1.3                 ; RS=1 → write character data
         MOV  R1, #47H             ; Pointer to ASCII buffer
+	  MOV  R2, #00H
+  MOV  R3, #20H
 
 DISPLAY_LOOP:
         MOV     A, @R1            ; Load byte from buffer
         JZ      FINISH            ; 0x00 → end of string
+	
+MOV A, R3
+JZ FINISH
+
+		CJNE R2, #16, SEND_CHAR
+		CALL setLine2
+		MOV R2, #00H
+
+SEND_CHAR:
+	 MOV A, @R1
         CALL    sendCharacter     ; Send ASCII to LCD
         INC     R1
+	  INC 	   R2
+        DEC     R3
         JMP     DISPLAY_LOOP
 
 
@@ -287,5 +301,29 @@ sendCharacter:
 
 delay:
         MOV R0, #50
-    DJNZ R0, $
-        RET
+    	DJNZ R0, $
+		RET
+
+setLine2:
+		CLR P1.3 ; RS = 0 (command)
+		
+		; HIGH 1100
+		SETB P1.7
+		SETB P1.6
+		CLR  P1.5
+		CLR  P1.4
+		; SEND
+		SETB P1.2
+        CLR  P1.2
+		; LOW 0000
+		CLR  P1.7
+		CLR  P1.6
+		CLR  P1.5
+		CLR  P1.4
+		; SEND
+		SETB P1.2
+        CLR  P1.2
+
+		CALL delay
+		SETB P1.3
+		RET
