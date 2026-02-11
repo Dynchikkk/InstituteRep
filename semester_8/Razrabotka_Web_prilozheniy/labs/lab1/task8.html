@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная 8</title>
+</head>
+<body>
+
+<h2>Лабораторная работа №8 (вариант 7)</h2>
+
+<script>
+    function reverseNumber(num, result = "") {
+        if (num === 0) {
+            return result;
+        }
+
+        return reverseNumber(
+            Math.floor(num / 10),
+            result + (num % 10)
+        );
+    }
+
+    const number = 12345;
+    console.log(reverseNumber(number));
+</script>
+
+</body>
+</html>

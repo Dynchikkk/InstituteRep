@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная 9</title>
+</head>
+<body>
+
+<h2>Лабораторная работа №9 (вариант 2)</h2>
+
+<script>
+    const obj1 = {
+        a: 1,
+        b: "text",
+        c: true,
+        d: null,
+        e: 5,
+        f: "hello",
+        g: false
+    };
+
+    // const obj2 = JSON.parse(JSON.stringify(obj1));
+    const obj2 = { ... obj1 };
+
+    console.log(obj1 === obj2);
+</script>
+
+</body>
+</html>
