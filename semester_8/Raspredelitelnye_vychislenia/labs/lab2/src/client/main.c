@@ -5,6 +5,8 @@
 #include <math.h>
 #include "common.h"
 
+// Networking
+
 int ConnectToServer(const char* ip, int port, SOCKET* sock) {
     *sock = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -15,6 +17,8 @@ int ConnectToServer(const char* ip, int port, SOCKET* sock) {
 
     return connect(*sock, (struct sockaddr*)&server, sizeof(server));
 }
+
+// Calculation
 
 double ComputeIntegral(Task task) {
     double sum = 0.0;
@@ -28,6 +32,7 @@ double ComputeIntegral(Task task) {
     return sum;
 }
 
+// Main
 
 int main() {
 

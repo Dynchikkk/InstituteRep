@@ -11,7 +11,7 @@ typedef struct {
     double result;
 } ClientData;
 
-/* ---------- Networking ---------- */
+// Networking
 
 SOCKET CreateServerSocket() {
     SOCKET s = socket(AF_INET, SOCK_STREAM, 0);
@@ -68,7 +68,7 @@ int AcceptClients(SOCKET serverSocket, SOCKET clients[]) {
     return count;
 }
 
-/* ---------- Thread ---------- */
+// Thread
 
 DWORD WINAPI ClientThread(LPVOID param) {
     ClientData* data = (ClientData*)param;
@@ -87,7 +87,7 @@ DWORD WINAPI ClientThread(LPVOID param) {
     return 0;
 }
 
-/* ---------- Computation ---------- */
+// Computation
 
 double StartDistributedComputation(SOCKET clients[], int count) {
     ClientData data[MAX_CLIENTS];
@@ -120,7 +120,7 @@ double StartDistributedComputation(SOCKET clients[], int count) {
     return result;
 }
 
-/* ---------- Main ---------- */
+// Main
 
 int main() {
 
