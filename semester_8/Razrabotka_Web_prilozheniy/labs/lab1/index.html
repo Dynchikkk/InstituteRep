@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторные работы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        section {
+            margin-bottom: 40px;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        #rect {
+            width: 150px;
+            height: 100px;
+            background: blue;
+            transition: transform 1s;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Лабораторные работы 4–11</h1>
+
+<!-- Лабораторная 4 -->
+<section>
+    <h2>Лабораторная 4</h2>
+    <input type="number" id="firstValue" placeholder="firstValue">
+    <input type="number" id="secondValue" placeholder="secondValue">
+    <button onclick="calc()">Посчитать</button>
+    <div id="output4" class="output"></div>
+</section>
+
+<!-- Лабораторная 5 -->
+<section>
+    <h2>Лабораторная 5</h2>
+    <button onclick="lab5()">Выполнить</button>
+    <div id="output5" class="output"></div>
+</section>
+
+<!-- Лабораторная 6 -->
+<section>
+    <h2>Лабораторная 6</h2>
+    <button onclick="lab6()">Выполнить</button>
+    <div id="output6" class="output"></div>
+</section>
+
+<!-- Лабораторная 7 -->
+<section>
+    <h2>Лабораторная 7</h2>
+    <button onclick="lab7()">Проверить число 28</button>
+    <div id="output7" class="output"></div>
+</section>
+
+<!-- Лабораторная 8 -->
+<section>
+    <h2>Лабораторная 8</h2>
+    <button onclick="lab8()">Перевернуть 12345</button>
+    <div id="output8" class="output"></div>
+</section>
+
+<!-- Лабораторная 9 -->
+<section>
+    <h2>Лабораторная 9</h2>
+    <button onclick="lab9()">Сравнить объекты</button>
+    <div id="output9" class="output"></div>
+</section>
+
+<!-- Лабораторная 10 -->
+<section>
+    <h2>Лабораторная 10</h2>
+    <button onclick="lab10()">Найти среднее</button>
+    <div id="output10" class="output"></div>
+</section>
+
+<!-- Лабораторная 11 -->
+<section>
+    <h2>Лабораторная 11</h2>
+    <p>Нажмите на прямоугольник</p>
+    <div id="rect"></div>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
