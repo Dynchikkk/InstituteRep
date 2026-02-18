@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\mazeEntities">
+      <UniqueIdentifier>{38b2fc28-28e5-448b-b653-2eee106c1878}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mazeEntities">
+      <UniqueIdentifier>{4d164aea-87e1-48ab-893c-80fadf515056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\maze">
+      <UniqueIdentifier>{82846795-f254-4ab9-b5b6-50c7badfbb6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\maze">
+      <UniqueIdentifier>{97a21806-2206-46c8-8fd9-9b53583432f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\maze\builder">
+      <UniqueIdentifier>{e096560a-c6c8-4d17-9010-57eda9f81221}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\maze\factory">
+      <UniqueIdentifier>{b44581d8-597c-4c05-8613-9729502b77ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\maze\builder">
+      <UniqueIdentifier>{aec9d62f-6fa2-4e92-9f72-74a2a10f2766}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\maze\factory">
+      <UniqueIdentifier>{4e562f68-13b8-4c30-a508-7d700ca9eba4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="standardWall.h">
+      <Filter>Header Files\mazeEntities</Filter>
+    </ClInclude>
+    <ClInclude Include="standardRoom.h">
+      <Filter>Header Files\mazeEntities</Filter>
+    </ClInclude>
+    <ClInclude Include="standardDoor.h">
+      <Filter>Header Files\mazeEntities</Filter>
+    </ClInclude>
+    <ClInclude Include="standardMaze.h">
+      <Filter>Header Files\mazeEntities</Filter>
+    </ClInclude>
+    <ClInclude Include="standardMazeBuilder.h">
+      <Filter>Header Files\maze\builder</Filter>
+    </ClInclude>
+    <ClInclude Include="countingMazeBuilder.h">
+      <Filter>Header Files\maze\builder</Filter>
+    </ClInclude>
+    <ClInclude Include="standardMazeFactory.h">
+      <Filter>Header Files\maze\factory</Filter>
+    </ClInclude>
+    <ClInclude Include="mazeGame.h">
+      <Filter>Header Files\maze</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="standardRoom.cpp">
+      <Filter>Source Files\mazeEntities</Filter>
+    </ClCompile>
+    <ClCompile Include="standardDoor.cpp">
+      <Filter>Source Files\mazeEntities</Filter>
+    </ClCompile>
+    <ClCompile Include="standardWall.cpp">
+      <Filter>Source Files\mazeEntities</Filter>
+    </ClCompile>
+    <ClCompile Include="standardMaze.cpp">
+      <Filter>Source Files\mazeEntities</Filter>
+    </ClCompile>
+    <ClCompile Include="countingMazeBuilder.cpp">
+      <Filter>Source Files\maze\builder</Filter>
+    </ClCompile>
+    <ClCompile Include="standardMazeBuilder.cpp">
+      <Filter>Source Files\maze\builder</Filter>
+    </ClCompile>
+    <ClCompile Include="standardMazeFactory.cpp">
+      <Filter>Source Files\maze\factory</Filter>
+    </ClCompile>
+    <ClCompile Include="mazeGame.cpp">
+      <Filter>Source Files\maze</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
