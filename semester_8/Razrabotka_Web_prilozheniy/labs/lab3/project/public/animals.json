@@ -1,0 +1,14 @@
+[
+  {
+    "content":"Последний раз видели во дворе",
+    "header":"Кот Барсик",
+    "email":"barsik@mail.ru",
+    "img":"cat.jpg"
+  },
+  {
+    "content":"Пропала возле парка",
+    "header":"Собака Лайма",
+    "email":"laima@mail.ru",
+    "img":"dog.jpg"
+  }
+]

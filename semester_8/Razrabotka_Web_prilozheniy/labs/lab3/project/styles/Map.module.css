@@ -1,0 +1,30 @@
+.container {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  text-align: center;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.info {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 15px;
+  display: inline-block;
+  margin-bottom: 30px;
+  backdrop-filter: blur(5px);
+}
+
+.mapWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}

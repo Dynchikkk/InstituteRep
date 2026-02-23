@@ -5,7 +5,7 @@ function useFilter(initialArray, searchTerm) {
 
   useEffect(() => {
     const filtered = initialArray.filter(item =>
-      item.toLowerCase().includes(searchTerm.toLowerCase())
+      item.content.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredArray(filtered);
   }, [initialArray, searchTerm]);

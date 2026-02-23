@@ -4,10 +4,11 @@ import Element from './Element';
 function List({ value }) {
   return (
     <ul>
-      {value.map((item, index) => (
-        <li key={index}>
-          <Element value={item} />
-        </li>
+      {value.map((elementValue) => (
+        <Element
+          key={elementValue.id}
+          value={elementValue.content}
+        />
       ))}
     </ul>
   );
