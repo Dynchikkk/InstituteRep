@@ -9,6 +9,10 @@
 #define PORT 54000
 #define MAX_CLIENTS 64
 
+// Timeout values
+#define SERVER_SOCKET_TIMEOUT 5  
+#define CLIENT_SOCKET_TIMEOUT 60 
+
 typedef struct {
     double start;
     double end;
@@ -19,8 +23,9 @@ typedef struct {
 int InitWinSock();
 void CleanupWinSock();
 
-// Send and receive
+// Send and receive with timeout support
 int SendAll(SOCKET sock, const char* buffer, int size);
 int RecvAll(SOCKET sock, char* buffer, int size);
+int SetSocketTimeouts(SOCKET sock, int timeout_seconds);
 
 #endif
