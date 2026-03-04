@@ -4,6 +4,7 @@
 #include "common.h"
 #include <windows.h>
 #include <stdio.h>
+#include <time.h>
 
 typedef struct {
     SOCKET socket;
@@ -54,7 +55,7 @@ void PrintServerInfo() {
         return;
     }
     struct in_addr addr;
-    memcpy(&addr, host->h_addr_list[0], sizeof(struct in_addr));
+    memcpy(&addr, host->h_addr_list[1], sizeof(struct in_addr));
     printf("IP: %s\n", inet_ntoa(addr));
     printf("Port: %d\n", PORT);
 }
@@ -65,7 +66,7 @@ int AcceptClients(SOCKET serverSocket, SOCKET clients[]) {
 
     while (!GetAsyncKeyState(VK_SPACE)) {
         fd_set set;
-        struct timeval timeout = { 0, 100000 }; // 0.1 sec
+        struct timeval timeout = { 0, 100000 };
         FD_ZERO(&set);
         FD_SET(serverSocket, &set);
 
@@ -215,13 +216,16 @@ int main() {
 
     printf("Starting computation...\n");
 
+    clock_t start_work_time = clock();
     double result = StartDistributedComputation(clients, count);
+    clock_t end_work_time = clock();
 
     if (computation_failed) {
         printf("Error: Computation failed due to client disconnect or timeout.\n");
     }
     else {
         printf("Final result: %.10lf\n", result);
+        printf("Work time: %f\n", (double)(end_work_time - start_work_time) / CLOCKS_PER_SEC);
     }
 
     // Clean up remaining client sockets

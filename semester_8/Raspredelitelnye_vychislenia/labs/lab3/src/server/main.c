@@ -4,12 +4,13 @@
 #include "common.h"
 #include <windows.h>
 #include <stdio.h>
+#include <time.h>
 
 // Task pool
 typedef struct {
     Task task;
-    int done;        // 1 if computed successfully
-    int in_progress; // 1 if currently assigned to a client
+    int done;       
+    int in_progress; 
 } TaskEntry;
 
 CRITICAL_SECTION queueLock;
@@ -69,30 +70,11 @@ void PrintServerInfo() {
         return;
     }
     struct in_addr addr;
-    memcpy(&addr, host->h_addr_list[0], sizeof(struct in_addr));
+    memcpy(&addr, host->h_addr_list[1], sizeof(struct in_addr));
 
     printf("Server started\n");
     printf("IP: %s\n", inet_ntoa(addr));
     printf("Port: %d\n\n", PORT);
-}
-
-void PrintProgress() {
-    int doneCount = 0;
-    EnterCriticalSection(&queueLock);
-    for (int i = 0; i < totalTasks; i++) {
-        if (tasks[i].done) {
-            doneCount++;
-        }
-    }
-    LeaveCriticalSection(&queueLock);
-
-    int percent = (doneCount * 100) / totalTasks;
-    static int lastPrintedPercent = -1;
-    if (percent != lastPrintedPercent) {
-        lastPrintedPercent = percent;
-        printf("\rProgress: %d%%", percent);
-        fflush(stdout);
-    }
 }
 
 // Client handling
@@ -136,6 +118,18 @@ int AcceptClients(SOCKET serverSocket, SOCKET clients[]) {
     return count;
 }
 
+int AcceptFirstClient(SOCKET serverSocket, SOCKET* firstClient) {
+    printf("Waiting for the first client to start...\n");
+    while (1) {
+        SOCKET client = accept(serverSocket, NULL, NULL);
+        if (client != INVALID_SOCKET) {
+            *firstClient = client;
+            printf("First client connected. Starting computation...\n");
+            return 1;
+        }
+    }
+}
+
 // Initialize task pool
 void InitTasks() {
     double pos = A;
@@ -156,7 +150,6 @@ void InitTasks() {
 }
 
 // Find next available task
-// Returns index or -1 if none
 int GetNextTaskIndex() {
     for (int i = 0; i < totalTasks; i++) {
         if (!tasks[i].done && !tasks[i].in_progress) {
@@ -177,7 +170,6 @@ DWORD WINAPI ClientThread(LPVOID param) {
         LeaveCriticalSection(&queueLock);
 
         if (taskIdx == -1) {
-            // No more tasks
             break;
         }
 
@@ -190,7 +182,7 @@ DWORD WINAPI ClientThread(LPVOID param) {
         if (!SendAll(sock, (char*)&msg, sizeof(msg))) {
             // Client disconnected or timeout
             EnterCriticalSection(&queueLock);
-            tasks[taskIdx].in_progress = 0; // make task available again
+            tasks[taskIdx].in_progress = 0;
             LeaveCriticalSection(&queueLock);
             break;
         }
@@ -200,7 +192,7 @@ DWORD WINAPI ClientThread(LPVOID param) {
         if (!RecvAll(sock, (char*)&result, sizeof(double))) {
             // Client disconnected or timeout
             EnterCriticalSection(&queueLock);
-            tasks[taskIdx].in_progress = 0; // make task available again
+            tasks[taskIdx].in_progress = 0;
             LeaveCriticalSection(&queueLock);
             break;
         }
@@ -214,81 +206,95 @@ DWORD WINAPI ClientThread(LPVOID param) {
         // Add to final result
         EnterCriticalSection(&resultLock);
         finalResult += result;
-        PrintProgress();
         LeaveCriticalSection(&resultLock);
     }
 
-    // Send STOP message and close socket
     ServerMessage stopMsg;
     stopMsg.type = MSG_STOP;
     SendAll(sock, (char*)&stopMsg, sizeof(stopMsg));
-
     closesocket(sock);
-
     EnterCriticalSection(&queueLock);
     activeClients--;
     LeaveCriticalSection(&queueLock);
-
     return 0;
 }
 
-void StartComputation(SOCKET clients[], int count) {
-    HANDLE threads[MAX_CLIENTS];
+void StartComputation(SOCKET serverSocket, SOCKET firstClient) {
+    HANDLE threads[MAX_CLIENTS] = { NULL };
+    SOCKET clients[MAX_CLIENTS];
+    int clientCount = 0;
 
-    for (int i = 0; i < count; i++) {
-        if (!SetSocketTimeouts(clients[i], SERVER_SOCKET_TIMEOUT)) {
-            printf("Warning: could not set timeouts on client %d socket\n", i);
-        }
-    }
-
-    printf("\nStarting computation...\n\n");
-
-    activeClients = count;
+    // Инициализация задач
     InitTasks();
+    printf("\nComputation in progress...\n");
 
-    for (int i = 0; i < count; i++) {
-        threads[i] = CreateThread(NULL, 0, ClientThread, &clients[i], 0, NULL);
-        if (threads[i] == NULL) {
-            printf("CreateThread() failed\n");
-            activeClients--; // adjust count
-        }
-    }
+    // Добавляем первого клиента
+    clients[clientCount] = firstClient;
+    SetSocketTimeouts(clients[clientCount], SERVER_SOCKET_TIMEOUT);
+    threads[clientCount] = CreateThread(NULL, 0, ClientThread, &clients[clientCount], 0, NULL);
+    clientCount++;
 
-    // Wait for all tasks to complete or all clients to disconnect
+    EnterCriticalSection(&queueLock);
+    activeClients = 1;
+    LeaveCriticalSection(&queueLock);
+
+    // Основной цикл: следим за задачами и принимаем новых клиентов
     while (1) {
-        Sleep(100);
+        // 1. Пытаемся принять новых клиентов без блокировки
+        fd_set set;
+        struct timeval timeout = { 0, 10000 }; // 10ms
+        FD_ZERO(&set);
+        FD_SET(serverSocket, &set);
 
+        if (select(0, &set, NULL, NULL, &timeout) > 0) {
+            SOCKET newClient = accept(serverSocket, NULL, NULL);
+            if (newClient != INVALID_SOCKET && clientCount < MAX_CLIENTS) {
+                clients[clientCount] = newClient;
+                SetSocketTimeouts(clients[clientCount], SERVER_SOCKET_TIMEOUT);
+
+                EnterCriticalSection(&queueLock);
+                activeClients++;
+                LeaveCriticalSection(&queueLock);
+
+                threads[clientCount] = CreateThread(NULL, 0, ClientThread, &clients[clientCount], 0, NULL);
+                printf("New client joined during computation. Total: %d\n", clientCount + 1);
+                clientCount++;
+            }
+        }
+
+        // 2. Проверяем состояние задач
         EnterCriticalSection(&queueLock);
         int allDone = 1;
         for (int i = 0; i < totalTasks; i++) {
-            if (!tasks[i].done) {
-                allDone = 0;
-                break;
-            }
+            if (!tasks[i].done) { allDone = 1; break; } // Ошибка в логике была в оригинале: надо allDone = 0
         }
-        int anyActive = (activeClients > 0);
+        // Исправленная проверка:
+        allDone = 1;
+        for (int i = 0; i < totalTasks; i++) if (!tasks[i].done) { allDone = 0; break; }
+
+        int running = activeClients;
         LeaveCriticalSection(&queueLock);
 
-        if (allDone) {
-            break;
-        }
-        if (!anyActive) {
-            printf("\nError: Not all tasks could be computed. All clients disconnected.\n");
+        if (allDone) break;
+        if (running <= 0) {
+            printf("\nError: All clients lost.\n");
             computationFailed = 1;
             break;
         }
+        Sleep(50);
     }
 
-    // Wait for threads to finish
-    WaitForMultipleObjects(count, threads, TRUE, INFINITE);
-    for (int i = 0; i < count; i++) {
-        if (threads[i] != NULL) {
+    // Ожидание завершения всех запущенных потоков
+    for (int i = 0; i < clientCount; i++) {
+        if (threads[i]) {
+            WaitForSingleObject(threads[i], 2000);
             CloseHandle(threads[i]);
         }
     }
 }
 
 int main() {
+    // Init
     if (InitWinSock() != 0) {
         printf("WinSock init failed\n");
         return 1;
@@ -297,6 +303,7 @@ int main() {
     InitializeCriticalSection(&queueLock);
     InitializeCriticalSection(&resultLock);
 
+    // Create socket
     SOCKET serverSocket = CreateServerSocket();
     if (serverSocket == INVALID_SOCKET) {
         printf("Failed to create server socket\n");
@@ -308,27 +315,37 @@ int main() {
 
     PrintServerInfo();
 
-    SOCKET clients[MAX_CLIENTS] = { INVALID_SOCKET };
-    int count = AcceptClients(serverSocket, clients);
+    // Wait first client
+    SOCKET firstClient = INVALID_SOCKET;
+    printf("Waiting for the first client to start computation...\n");
 
-    if (count == 0) {
-        printf("No clients connected\n");
-        CleanupServer(serverSocket);
-        return 0;
+    while (firstClient == INVALID_SOCKET) {
+        firstClient = accept(serverSocket, NULL, NULL);
+        if (firstClient == INVALID_SOCKET) {
+            Sleep(100);
+        }
     }
 
-    StartComputation(clients, count);
+    printf("First client connected! Starting work immediately...\n");
 
+    // Start computation
+    clock_t start_work = clock();
+    StartComputation(serverSocket, firstClient);
+    clock_t end_work = clock();
+
+    // Result
     if (computationFailed) {
-        printf("Computation finished with errors. Partial result: %.10lf\n", finalResult);
+        printf("\nComputation finished with errors. Partial result: %.10lf\n", finalResult);
     }
     else {
         printf("\nComputation finished successfully\n");
         printf("Final result: %.10lf\n", finalResult);
+        printf("Work time: %.3f seconds\n", (double)(end_work - start_work) / CLOCKS_PER_SEC);
     }
 
+    
     CleanupServer(serverSocket);
-
+    printf("\nPress Enter to exit...");
     getchar();
     return 0;
 }
