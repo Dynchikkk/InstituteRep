@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\core">
+      <UniqueIdentifier>{ff9b197e-5a98-49a9-b83a-13356492aa5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core\mvp">
+      <UniqueIdentifier>{b6d7b97c-12bd-48b1-bff5-7305e1c33f39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core\mvp\model">
+      <UniqueIdentifier>{561d7d61-efa9-46e3-b53c-35a1294bbca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core\mvp\view">
+      <UniqueIdentifier>{e2c01f11-1702-45f9-b92c-19ebf636dc8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core\mvp\presenter">
+      <UniqueIdentifier>{b4c6b2b0-1757-4060-abd8-8489ea41f074}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core\mvp\interface">
+      <UniqueIdentifier>{07223242-bb2d-497b-ae51-75b9a4e181f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core\service">
+      <UniqueIdentifier>{cfc3f3b7-3225-48e3-ace1-c7343abbc74d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IPresenter.h">
+      <Filter>Header Files\core\mvp\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="IView.h">
+      <Filter>Header Files\core\mvp\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="PresenterBase.h">
+      <Filter>Header Files\core\mvp\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessService.h">
+      <Filter>Header Files\core\service</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleProcessModel.h">
+      <Filter>Header Files\core\mvp\model</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiProcessModel.h">
+      <Filter>Header Files\core\mvp\model</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleProcessPresenter.h">
+      <Filter>Header Files\core\mvp\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiProcessPresenter.h">
+      <Filter>Header Files\core\mvp\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleView.h">
+      <Filter>Header Files\core\mvp\view</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
