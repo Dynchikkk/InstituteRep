@@ -8,7 +8,8 @@ class PresenterBase : public IPresenter
 {
 public:
     PresenterBase(ModelT& model, ViewT& view)
-        : model_(model), view_(view) {
+        : model_(model), view_(view)
+    {
     }
 
 protected:
@@ -16,4 +17,4 @@ protected:
     ViewT& view_;
 };
 
-#endif // PRESENTERBASE_H
+#endif

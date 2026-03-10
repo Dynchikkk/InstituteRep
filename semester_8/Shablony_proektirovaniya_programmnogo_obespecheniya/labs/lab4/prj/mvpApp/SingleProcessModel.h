@@ -13,4 +13,4 @@ struct SingleProcessModel
     int pid = -1;
 };
 
-#endif // SINGLEPROCESSMODEL_H
+#endif

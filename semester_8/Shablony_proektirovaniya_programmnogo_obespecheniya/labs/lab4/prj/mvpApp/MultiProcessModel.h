@@ -10,6 +10,7 @@ struct MultiProcessModel
     {
         std::string exePath;
         std::vector<std::string> args;
+
         bool running = false;
         int pid = -1;
     };
@@ -17,4 +18,4 @@ struct MultiProcessModel
     std::vector<Process> processes;
 };
 
-#endif // MULTIPROCESSMODEL_H
+#endif
