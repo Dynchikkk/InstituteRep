@@ -97,6 +97,10 @@ tbody tr:nth-child(even) { background: #353535; }
 .product-card h4 { margin: 0 0 12px; }
 .product-price { color: #ffc107; font-weight: bold; }
 
+/* Форма добавления товара и сообщения о неверных данных. */
+.product-form { max-width: 650px; }
+.form-errors { color: #ff8a80; }
+
 /* Миниатюра товара в каталоге, расположенная под описанием. */
 .catalog-image { display: block; width: 120px; height: auto; margin: 16px 0; }
 
