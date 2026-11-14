@@ -1,14 +1,28 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Магазин настольных игр{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
     <div class="features">
-        <h1>Магазин настольных игр</h1>
+        
+        <h1>{{ title }}</h1>
         <p class="page-intro">Добро пожаловать! Здесь можно выбрать настольные игры для семьи и друзей.</p>
         <p>Настольные игры — это <strong>живое общение</strong>, <em>интересные задачи</em> и <mark>время вместе</mark>.</p>
+        
         <p id="shop-note">Подберём игру для семейного вечера или встречи с друзьями.</p>
-        <!-- кнопка Bootstrap имеет оформительское значение -->
         <button type="button" class="btn btn-warning">Играем вместе</button>
+
+        <!-- Категории. -->
+        <h3>{{ categories_title|upper }}</h3>
+        {% if categories %}
+            <ul>
+                {% for category in categories %}
+                    <li>{{ category }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Категории пока не добавлены.</p>
+        {% endif %}
+        
     </div>
 {% endblock %}

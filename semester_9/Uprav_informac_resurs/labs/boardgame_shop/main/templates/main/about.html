@@ -1,19 +1,32 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}О магазине{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
     <div class="features">
-        <h1>О магазине</h1>
+        
+        <h1>{{ title }}</h1>
         <p class="page-intro">Наш магазин предлагает настольные игры для семейных вечеров и встреч с друзьями.</p>
 
         <!-- Маркированный список преимуществ магазина -->
         <h3>Почему выбирают нас</h3>
         <ul>
-            <li>Игры для разных возрастов.</li>
-            <li>Понятные описания и характеристики.</li>
-            <li>Помощь в выборе игры для семьи или компании.</li>
+            {% for advantage in advantages %}
+                <li>{{ advantage }}</li>
+            {% endfor %}
         </ul>
+
+        <!-- Детали -->
+        <h3>Магазин «{{ shop.name }}»</h3>
+        <ul>
+            {% for label, value in shop.details.items %}
+                <li><strong>{{ label }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+        
+        <!-- Адрес электронной почты в нижнем регистре. -->
+        <p>Почта: <a href="mailto:{{ shop.email|lower }}">{{ shop.email|lower }}</a></p>
         <p><a class="btn btn-outline-light" href="{% url 'catalog' %}">Перейти в каталог</a></p>
+
     </div>
 {% endblock %}
