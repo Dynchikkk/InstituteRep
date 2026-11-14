@@ -1,0 +1,15 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Удалить товар{% endblock %}
+
+{% block content %}
+    <h2>Удалить товар</h2>
+    <p>Удалить товар «{{ product.title }}» и все записи его галереи?</p>
+
+    <!-- Удаление выполняется только после отправки формы. -->
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Удалить товар</button>
+        <a class="btn btn-outline-light" href="{{ product.get_absolute_url }}">Отмена</a>
+    </form>
+{% endblock %}

@@ -18,6 +18,8 @@
     {% endif %}
     <p class="product-price">{{ product.price|floatformat:2 }} ₽</p>
     <p><small>Добавлено: {{ product.created_at|date:"d.m.Y H:i" }}</small></p>
+    <a class="btn btn-warning" href="{% url 'product_update' product.pk %}">Редактировать</a>
+    <a class="btn btn-danger" href="{% url 'product_delete' product.pk %}">Удалить</a>
 
     <!-- Используем загруженные картинки товара в общей галерее. -->
     {% with images=product.images.all %}

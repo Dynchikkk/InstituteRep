@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from django.urls import reverse
 from django.utils import timezone
 
 
@@ -13,6 +14,10 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
+    # Адрес страницы товара для перехода после редактирования.
+    def get_absolute_url(self):
+        return reverse('product_detail', kwargs={'pk': self.pk})
 
     class Meta:
         verbose_name = 'Товар'
