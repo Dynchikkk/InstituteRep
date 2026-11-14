@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <title>Главная</title>
+    <g fill="none" stroke="#ffc107" stroke-width="2.5" stroke-linejoin="round">
+        <path d="M3 15 16 4l13 11M7 13v15h18V13"/>
+        <path d="M13 28V18h6v10"/>
+    </g>
+</svg>

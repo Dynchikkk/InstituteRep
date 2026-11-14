@@ -15,6 +15,9 @@
           crossorigin="anonymous">
     <!-- Внешний CSS -->
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <!-- Скрипты выполняются после разбора HTML. -->
+    <script src="{% static 'main/js/main.js' %}" defer></script>
+    {% block scripts %}{% endblock %}
 
 </head>
 <body>
@@ -54,6 +57,24 @@
 
     <!-- Основной контент -->
     <main id="page-content">
+        <!-- Горизонтальное графическое меню со стрелкой над активным пунктом. -->
+        <nav class="graphic-menu" aria-label="Быстрые переходы">
+            <a href="{% url 'home' %}">
+                <span class="menu-arrow" hidden aria-hidden="true">▼</span>
+                <img src="{% static 'main/img/menu-home.svg' %}" alt="">
+                Главная
+            </a>
+            <a href="{% url 'catalog' %}">
+                <span class="menu-arrow" hidden aria-hidden="true">▼</span>
+                <img src="{% static 'main/img/menu-catalog.svg' %}" alt="">
+                Каталог
+            </a>
+            <a href="{% url 'contacts' %}">
+                <span class="menu-arrow" hidden aria-hidden="true">▼</span>
+                <img src="{% static 'main/img/menu-contacts.svg' %}" alt="">
+                Контакты
+            </a>
+        </nav>
         {% block content %}
         {% endblock %}
     </main>

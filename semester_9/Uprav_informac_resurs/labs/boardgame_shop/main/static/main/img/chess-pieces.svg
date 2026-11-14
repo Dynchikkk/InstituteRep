@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+    <title>Белая и чёрная шахматные пешки</title>
+    <rect width="480" height="480" rx="12" fill="#f0d9b5"/>
+    <g stroke="#181818" stroke-width="6" stroke-linejoin="round">
+        <g fill="#fff">
+            <circle cx="145" cy="130" r="32"/>
+            <path d="M119 166h52l22 150H97z"/>
+            <rect x="108" y="164" width="74" height="22" rx="8"/>
+            <rect x="83" y="313" width="124" height="32" rx="10"/>
+            <rect x="73" y="345" width="144" height="28" rx="10"/>
+        </g>
+        <g fill="#333">
+            <circle cx="335" cy="130" r="32"/>
+            <path d="M309 166h52l22 150H287z"/>
+            <rect x="298" y="164" width="74" height="22" rx="8"/>
+            <rect x="273" y="313" width="124" height="32" rx="10"/>
+            <rect x="263" y="345" width="144" height="28" rx="10"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <title>Каталог</title>
+    <g fill="none" stroke="#ffc107" stroke-width="2.5">
+        <rect x="4" y="4" width="9" height="9" rx="1"/>
+        <rect x="19" y="4" width="9" height="9" rx="1"/>
+        <rect x="4" y="19" width="9" height="9" rx="1"/>
+        <rect x="19" y="19" width="9" height="9" rx="1"/>
+    </g>
+</svg>

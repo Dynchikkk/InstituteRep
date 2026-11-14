@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <title>Контакты</title>
+    <g fill="none" stroke="#ffc107" stroke-width="2.5" stroke-linejoin="round">
+        <rect x="3" y="7" width="26" height="19" rx="2"/>
+        <path d="m4 9 12 10L28 9"/>
+    </g>
+</svg>
