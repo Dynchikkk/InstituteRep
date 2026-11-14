@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    # Значения и список для главной страницы.
+    # Контекст главной страницы: название магазина и категории игр.
     data = {
         'title': 'Магазин настольных игр',
         'categories_title': 'Категории игр',
@@ -12,7 +12,7 @@ def index(request):
 
 
 def about(request):
-    # Словарь со сведениями о магазине.
+    # Сведения о магазине, включая контакты и вложенный словарь характеристик.
     shop = {
         'name': 'Игры',
         'email': 'SHOP@EXAMPLE.COM',

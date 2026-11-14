@@ -15,7 +15,7 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
-    # Адрес страницы товара для перехода после редактирования.
+    # URL товара, на который UpdateView перенаправляет после сохранения изменений.
     def get_absolute_url(self):
         return reverse('product_detail', kwargs={'pk': self.pk})
 

@@ -24,18 +24,18 @@ def create(request):
     else:
         form = ProductForm()
 
-    # При ошибках возвращаем заполненную форму с пояснениями.
+    # Повторный вывод формы сохраняет введённые значения и показывает ошибки проверки.
     return render(request, 'catalog/create.html', {'form': form})
 
 
-# Получаем один товар по идентификатору из адреса страницы.
+# Представление страницы товара: находит запись по ID из URL и передаёт её в шаблон.
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'catalog/product_detail.html'
     context_object_name = 'product'
 
 
-# Заполняем существующую форму данными выбранного товара.
+# Представление редактирования товара: заполняет ProductForm текущими данными и сохраняет изменения.
 class ProductUpdateView(UpdateView):
     model = Product
     form_class = ProductForm
@@ -49,7 +49,7 @@ class ProductUpdateView(UpdateView):
         return response
 
 
-# При GET показываем подтверждение, при POST удаляем товар.
+# Представление удаления товара: выводит подтверждение и возвращает в каталог после удаления.
 class ProductDeleteView(DeleteView):
     model = Product
     template_name = 'catalog/product_delete.html'

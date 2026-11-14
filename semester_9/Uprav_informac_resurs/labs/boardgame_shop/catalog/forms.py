@@ -2,12 +2,12 @@ from django import forms
 from catalog.models import Product
 
 
-# Разрешаем выбирать несколько файлов 
+# Виджет для выбора нескольких файлов в одном поле формы.
 class MultipleImageInput(forms.ClearableFileInput):
     allow_multiple_selected = True
 
 
-# Проверяем каждую картинку.
+# Поле формы, проверяющее каждое изображение из списка загруженных файлов.
 class MultipleImageField(forms.ImageField):
     def clean(self, data, initial=None):
         clean_image = super().clean

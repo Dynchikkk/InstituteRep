@@ -57,7 +57,7 @@ class ProductUpdateView(UpdateView):
         return response
 
 
-# При GET показываем подтверждение, при POST удаляем товар.
+# Представление удаления товара: выводит подтверждение и возвращает в каталог после удаления.
 class ProductDeleteView(DeleteView):
     model = Product
     template_name = 'catalog/product_delete.html'
@@ -73,7 +73,7 @@ path('<int:pk>/delete/', views.ProductDeleteView.as_view(), name='product_delete
 
 from django.urls import reverse
 
-    # Адрес страницы товара для перехода после редактирования.
+    # URL товара, на который UpdateView перенаправляет после сохранения изменений.
     def get_absolute_url(self):
         return reverse('product_detail', kwargs={'pk': self.pk})
 

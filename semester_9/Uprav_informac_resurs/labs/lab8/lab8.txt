@@ -37,12 +37,12 @@ from django import forms
 from catalog.models import Product
 
 
-# Разрешаем выбирать несколько файлов 
+# Виджет для выбора нескольких файлов в одном поле формы.
 class MultipleImageInput(forms.ClearableFileInput):
     allow_multiple_selected = True
 
 
-# Проверяем каждую картинку.
+# Поле формы, проверяющее каждое изображение из списка загруженных файлов.
 class MultipleImageField(forms.ImageField):
     def clean(self, data, initial=None):
         clean_image = super().clean
@@ -95,7 +95,7 @@ def create(request):
     else:
         form = ProductForm()
 
-    # При ошибках возвращаем заполненную форму с пояснениями.
+    # Повторный вывод формы сохраняет введённые значения и показывает ошибки проверки.
     return render(request, 'catalog/create.html', {'form': form})
 
 Файл catalog/urls.py (изменения данного этапа)
