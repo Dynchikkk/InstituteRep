@@ -1,0 +1,138 @@
+﻿Лабораторная работа № 6
+
+Работа с базой данных и создание модели
+
+Оформление: основной текст — по ширине; код — Consolas 12, по левому краю; скриншоты — по центру.
+
+Цель работы
+
+Создать приложение каталога, модель товара и настроить панель администратора.
+
+Ход работы
+
+1. Создано приложение catalog, зарегистрированное в INSTALLED_APPS. Для него добавлены собственные urls.py, views.py и папка шаблонов. Маршрут /catalog/ подключён через include(), шаблон каталога перенесён из main.
+
+[ВСТАВИТЬ СКРИНШОТ: src/new_project.png]
+Рисунок 1 – Приложение catalog и его файлы
+
+2. В catalog/models.py создана модель Product: название, краткое и полное описание, цена и дата добавления. Метод __str__ возвращает название, а Meta задаёт русские подписи модели.
+
+3. Создана начальная миграция и применена к SQLite. Модель преобразована в таблицу базы данных.
+
+[ВСТАВИТЬ СКРИНШОТ: src/migrations.png]
+Рисунок 2 – Создание и применение миграций
+
+4. Командой createsuperuser создан администратор. В settings.py установлен русский язык, модель Product зарегистрирована в catalog/admin.py.
+
+[ВСТАВИТЬ СКРИНШОТ: src/create_superuser.png]
+Рисунок 3 – Создание суперпользователя
+
+[ВСТАВИТЬ СКРИНШОТ: src/admin_log.png]
+Рисунок 4 – Вход в панель администратора
+
+5. После входа проверено наличие раздела товаров. В форме администратора заполнены данные товара «Шахматы»; отдельно просмотрены параметры учётной записи.
+
+[ВСТАВИТЬ СКРИНШОТ: src/admin_main_page.png]
+Рисунок 5 – Раздел товаров в панели администратора
+
+[ВСТАВИТЬ СКРИНШОТ: src/add_product.png]
+Рисунок 6 – Добавление товара
+
+[ВСТАВИТЬ СКРИНШОТ: src/set_admins_param.png]
+Рисунок 7 – Параметры пользователя
+
+Листинг
+
+Команды терминала
+
+python manage.py startapp catalog
+python manage.py makemigrations catalog
+python manage.py migrate
+python manage.py createsuperuser
+
+Файл config/settings.py (изменения данного этапа)
+
+# Дополнить INSTALLED_APPS:
+'catalog',
+
+LANGUAGE_CODE = 'ru'
+
+Файл catalog/models.py (изменения данного этапа)
+
+from django.db import models
+from django.core.validators import MinValueValidator
+from django.utils import timezone
+
+
+class Product(models.Model):
+    title = models.CharField('Название', max_length=100)
+    short_description = models.CharField('Краткое описание', max_length=250)
+    description = models.TextField('Полное описание')
+    price = models.DecimalField('Цена', max_digits=10, decimal_places=2, validators=[MinValueValidator(0)])
+    created_at = models.DateTimeField('Дата добавления', default=timezone.now)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Товар'
+        verbose_name_plural = 'Товары'
+
+Файл catalog/admin.py (изменения данного этапа)
+
+from django.contrib import admin
+from catalog.models import Product
+
+admin.site.register(Product)
+
+Файл config/urls.py (изменения данного этапа)
+
+# Добавить в urlpatterns:
+path('catalog/', include('catalog.urls')),
+
+Файл catalog/urls.py (изменения данного этапа)
+
+from django.urls import path
+from catalog import views
+
+urlpatterns = [
+    path('', views.index, name='catalog'),
+]
+
+Файл catalog/views.py (изменения данного этапа)
+
+from django.shortcuts import render
+
+
+def index(request):
+    return render(request, 'catalog/catalog.html')
+
+Вывод
+
+Создана модель товара, применены миграции и настроено управление товарами через админку.
+
+Ответы на контрольные вопросы
+
+1. Какая база данных используется в Django по умолчанию?
+SQLite. Django также поддерживает другие СУБД.
+
+2. Какой класс служит основой моделей таблиц?
+django.db.models.Model.
+
+3. Что такое миграции?
+Файлы с описанием изменений структуры базы данных.
+
+4. Какие команды создают и применяют миграции?
+python manage.py makemigrations и python manage.py migrate.
+
+5. Что такое панель администратора?
+Встроенный интерфейс управления зарегистрированными моделями и пользователями.
+
+6. Как создать пользователя для админки?
+python manage.py createsuperuser.
+
+7. Где регистрируется модель для админки?
+В admin.py приложения.
+
+8. Какой метод регистрирует модель?
+admin.site.register(Product).

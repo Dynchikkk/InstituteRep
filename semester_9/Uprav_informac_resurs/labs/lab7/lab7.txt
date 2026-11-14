@@ -1,0 +1,171 @@
+﻿Лабораторная работа № 7
+
+Вывод записей из базы данных
+
+Оформление: основной текст — по ширине; код — Consolas 12, по левому краю; скриншоты — по центру.
+
+Цель работы
+
+Выбрать записи через ORM и отобразить их в каталоге.
+
+Ход работы
+
+1. В представление каталога импортирована модель Product. Товары выбираются запросом Product.objects.order_by('title')[:5]: сортируются по названию и ограничиваются первыми пятью записями.
+
+2. QuerySet передаётся в render() под ключом products. В шаблоне if проверяет наличие товаров, а for создаёт карточку для каждой записи. Для пустого каталога предусмотрено отдельное сообщение.
+
+3. В карточке показаны название, краткое описание, цена и дата добавления. Для цены применён floatformat:2, для даты — date. В CSS добавлены оформление карточки и выделение цены.
+
+4. Дополнительно предусмотрены обложка товара и связанные изображения ProductImage. Файлы загружаются через админку; для ImageField установлен Pillow. В каталоге обложка выводится только при наличии файла.
+
+5. Для загрузок заданы MEDIA_URL и MEDIA_ROOT, настроена локальная раздача media при DEBUG=True. Общий CSS перенесён в static/css проекта и подключён через STATICFILES_DIRS. Файл db.sqlite3 и загружаемые media не включаются в репозиторий.
+
+[ВСТАВИТЬ СКРИНШОТ: src/catalog.png]
+Рисунок 1 – Товары из базы данных в каталоге
+
+Листинг
+
+Файл catalog/views.py (изменения данного этапа)
+
+from django.shortcuts import render
+from catalog.models import Product
+
+def index(request):
+    # Сортируем товары по названию и выбираем первые пять записей.
+    products = Product.objects.order_by('title')[:5]
+    data = {'products': products}
+    return render(request, 'catalog/catalog.html', data)
+
+Файл catalog/templates/catalog/catalog.html (изменения данного этапа)
+
+{% extends 'main/layout.html' %}
+
+{% block title %}Каталог игр{% endblock %}
+
+{% block content %}
+    <h2>Каталог игр</h2>
+    <p>Выберите настольную игру для семьи или компании друзей.</p>
+    <h3 id="board-games">Настольные игры</h3>
+
+    <!-- Показываем записи из базы или сообщение о пустом каталоге. -->
+    {% if products %}
+        {% for product in products %}
+            <article class="product-card">
+                <h4>{{ product.title }}</h4>
+                <p>{{ product.short_description }}</p>
+                {% if product.logo %}
+                    <img class="catalog-image" src="{{ product.logo.url }}" alt="{{ product.title }}">
+                {% endif %}
+                <p class="product-price">{{ product.price|floatformat:2 }} ₽</p>
+                <p><small>Добавлено: {{ product.created_at|date:"d.m.Y H:i" }}</small></p>
+            </article>
+        {% endfor %}
+    {% else %}
+        <p>Товары пока не добавлены.</p>
+    {% endif %}
+
+    <h3>Типы настольных игр</h3>
+    <dl>
+        <dt id="strategy">Стратегические</dt>
+        <dd>Игры, в которых нужно продумывать действия наперёд.</dd>
+        <dt>Кооперативные</dt>
+        <dd>Игры, в которых участники вместе идут к общей цели.</dd>
+    </dl>
+{% endblock %}
+
+Файл catalog/models.py — дополнение к Product (изменения данного этапа)
+
+logo = models.ImageField('Лого / обложка', upload_to='products/logos/', blank=True)
+
+Файл catalog/models.py — связанные изображения (изменения данного этапа)
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField('Изображение', upload_to='products/images/')
+    caption = models.CharField('Подпись', max_length=150, blank=True)
+
+    def __str__(self):
+        return self.caption or f'Изображение товара «{self.product.title}»'
+
+    class Meta:
+        verbose_name = 'Изображение товара'
+        verbose_name_plural = 'Изображения товара'
+
+Файл catalog/admin.py (изменения данного этапа)
+
+from django.contrib import admin
+from catalog.models import Product, ProductImage
+
+
+# Картинки галереи загружаются прямо в форме товара.
+class ProductImageInline(admin.TabularInline):
+    model = ProductImage
+    extra = 1
+
+
+class ProductAdmin(admin.ModelAdmin):
+    inlines = [ProductImageInline]
+
+
+admin.site.register(Product, ProductAdmin)
+
+Файл config/settings.py (изменения данного этапа)
+
+STATICFILES_DIRS = [BASE_DIR / 'static']
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+Файл config/urls.py (изменения данного этапа)
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+# После urlpatterns:
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+Файл main/templates/main/layout.html (изменения данного этапа)
+
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+Файл static/css/main.css (изменения данного этапа)
+
+/* Товар каталога: название, краткое описание, цена и дата добавления. */
+.product-card {
+    max-width: 650px;
+    margin: 16px 0;
+    padding: 20px;
+    border: 1px solid #4d4d4d;
+    background: #181818;
+}
+.product-card h4 { margin: 0 0 12px; }
+.product-price { color: #ffc107; font-weight: bold; }
+
+.catalog-image { display: block; width: 120px; height: auto; margin: 16px 0; }
+
+Команды терминала
+
+python -m pip install Pillow
+python manage.py makemigrations catalog
+python manage.py migrate
+
+Вывод
+
+Каталог выводит отсортированные товары из базы, обрабатывает пустой список и показывает загруженные обложки.
+
+Ответы на контрольные вопросы
+
+1. Какой класс отображает список записей?
+ListView. В проекте используется обычная функция представления с QuerySet.
+
+2. Какой метод сортирует записи?
+order_by().
+
+3. Какие поля можно передать в order_by()?
+Поля модели и поля связанных моделей через __; например title или product__title.
+
+4. Как указать обратную сортировку?
+Добавить минус перед именем: order_by('-title').
+
+5. Как выбрать первые десять записей?
+Product.objects.all()[:10].
