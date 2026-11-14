@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from django.views.generic import DetailView
 from catalog.forms import ProductForm
 from catalog.models import Product, ProductImage
 
@@ -24,3 +25,10 @@ def create(request):
 
     # При ошибках возвращаем заполненную форму с пояснениями.
     return render(request, 'catalog/create.html', {'form': form})
+
+
+# Получаем один товар по идентификатору из адреса страницы.
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'catalog/product_detail.html'
+    context_object_name = 'product'

@@ -1,0 +1,47 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}{{ product.title }}{% endblock %}
+
+{% block scripts %}
+    {% if product.images.exists %}
+        <script src="{% static 'main/js/gallery.js' %}" defer></script>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.short_description }}</p>
+    <div>{{ product.description|linebreaks }}</div>
+    {% if product.logo %}
+        <img class="catalog-image" src="{{ product.logo.url }}" alt="{{ product.title }}">
+    {% endif %}
+    <p class="product-price">{{ product.price|floatformat:2 }} ₽</p>
+    <p><small>Добавлено: {{ product.created_at|date:"d.m.Y H:i" }}</small></p>
+
+    <!-- Используем загруженные картинки товара в общей галерее. -->
+    {% with images=product.images.all %}
+        {% if images %}
+            <h3>Изображения игры</h3>
+            <p>Выберите изображение. Наведите курсор на большую картинку, чтобы увеличить её.</p>
+            <div class="gallery">
+                {% for image in images %}
+                    <button type="button" class="image-choice{% if forloop.first %} selected{% endif %}"
+                            aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                            aria-label="Показать: {{ image.caption|default:product.title }}">
+                        <img src="{{ image.image.url }}" alt="{{ image.caption|default:product.title }}">
+                    </button>
+                {% endfor %}
+            </div>
+            {% with first_image=images.0 %}
+                <div class="image-preview">
+                    <img id="selected-image" class="game-photo" src="{{ first_image.image.url }}"
+                         alt="{{ first_image.caption|default:product.title }}" width="320" height="320" tabindex="0">
+                </div>
+                <p id="image-caption">{{ first_image.caption|default:product.title }}</p>
+            {% endwith %}
+        {% endif %}
+    {% endwith %}
+
+    <a class="btn btn-outline-light" href="{% url 'catalog' %}">Вернуться в каталог</a>
+{% endblock %}

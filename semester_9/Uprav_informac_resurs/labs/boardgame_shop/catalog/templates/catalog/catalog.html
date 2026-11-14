@@ -18,7 +18,8 @@
                     <img class="catalog-image" src="{{ product.logo.url }}" alt="{{ product.title }}">
                 {% endif %}
                 <p class="product-price">{{ product.price|floatformat:2 }} ₽</p>
-                <small>Добавлено: {{ product.created_at|date:"d.m.Y H:i" }}</small>
+                <p><small>Добавлено: {{ product.created_at|date:"d.m.Y H:i" }}</small></p>
+                <a class="btn btn-warning" href="{% url 'product_detail' product.pk %}">Подробнее</a>
             </article>
         {% endfor %}
     {% else %}
