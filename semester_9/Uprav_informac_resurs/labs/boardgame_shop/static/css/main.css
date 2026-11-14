@@ -86,8 +86,19 @@ tbody tr:nth-child(even) { background: #353535; }
 /* Увеличенный текст вводного абзаца. */
 .page-intro { font-size: 18px; }
 
+/* Товар каталога: название, краткое описание, цена и дата добавления. */
+.product-card {
+    max-width: 650px;
+    margin: 16px 0;
+    padding: 20px;
+    border: 1px solid #4d4d4d;
+    background: #181818;
+}
+.product-card h4 { margin: 0 0 12px; }
+.product-price { color: #ffc107; font-weight: bold; }
+
 /* Миниатюра товара в каталоге, расположенная под описанием. */
-.catalog-image { display: block; width: 120px; height: auto; margin-top: 12px; }
+.catalog-image { display: block; width: 120px; height: auto; margin: 16px 0; }
 
 /* Изображение в карточке товара: размер, тень и яркость при наведении. */
 .game-photo {

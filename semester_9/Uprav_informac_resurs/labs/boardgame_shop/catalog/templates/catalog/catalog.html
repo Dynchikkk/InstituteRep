@@ -1,5 +1,4 @@
 {% extends 'main/layout.html' %}
-{% load static %}
 
 {% block title %}Каталог игр{% endblock %}
 
@@ -7,21 +6,27 @@
     <h2>Каталог игр</h2>
     <p>Выберите настольную игру для семьи или компании друзей.</p>
     <h3 id="board-games">Настольные игры</h3>
-    <h4 id="strategy">Стратегические игры</h4>
-    <ul>
-        <!-- Относительная ссылка на карточку игры -->
-        <li>
-            <a href="../game/">Шахматы</a> — стратегическая игра для двух игроков.
-            <a href="../game/">
-                <img class="catalog-image" src="{% static 'main/img/chess-board.svg' %}"
-                     alt="Шахматная доска с фигурами">
-            </a>
-        </li>
-    </ul>
+
+    <!-- Показываем записи из базы или сообщение о пустом каталоге. -->
+    {% if products %}
+        {% for product in products %}
+            <article class="product-card">
+                <h4>{{ product.title }}</h4>
+                <p>{{ product.short_description }}</p>
+                {% if product.logo %}
+                    <img class="catalog-image" src="{{ product.logo.url }}" alt="{{ product.title }}">
+                {% endif %}
+                <p class="product-price">{{ product.price|floatformat:2 }} ₽</p>
+                <small>Добавлено: {{ product.created_at|date:"d.m.Y H:i" }}</small>
+            </article>
+        {% endfor %}
+    {% else %}
+        <p>Товары пока не добавлены.</p>
+    {% endif %}
 
     <h3>Типы настольных игр</h3>
     <dl>
-        <dt>Стратегические</dt>
+        <dt id="strategy">Стратегические</dt>
         <dd>Игры, в которых нужно продумывать действия наперёд.</dd>
         <dt>Кооперативные</dt>
         <dd>Игры, в которых участники вместе идут к общей цели.</dd>
