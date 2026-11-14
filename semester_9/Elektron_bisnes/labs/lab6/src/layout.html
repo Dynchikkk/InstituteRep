@@ -1,0 +1,83 @@
+<!-- Подключаем статические файлы-->
+{% load static %}
+<!-- Страница -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX"
+          crossorigin="anonymous">
+    <!-- Внешний CSS -->
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <!-- Скрипты выполняются после разбора HTML. -->
+    <script src="{% static 'main/js/main.js' %}" defer></script>
+    {% block scripts %}{% endblock %}
+
+</head>
+<body>
+    <!-- Общая боковая панель и именованные ссылки -->
+    <aside>
+        <a class="brand" href="{% url 'home' %}">
+            <img class="site-logo" src="{% static 'main/img/board-games-logo.svg' %}" alt="Игральная кость и игровая фишка">
+            <span class="logo">Игры</span>
+        </a>
+        
+        <h3>Навигация</h3>
+        <nav aria-label="Основная навигация">
+            <ul class="menu">
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="{% url 'about' %}">О магазине</a></li>
+                <li>
+                    <a href="{% url 'catalog' %}">Каталог</a>
+                    <ul>
+                        <li>
+                            <a href="{% url 'catalog' %}#board-games">Настольные</a>
+                            <ul>
+                                <li>
+                                    <a href="{% url 'catalog' %}#strategy">Стратегии</a>
+                                    <ul>
+                                        <li><a href="{% url 'game' %}">Шахматы</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'delivery' %}">Доставка и оплата</a></li>
+                <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                <li><a href="{% url 'buttons' %}">Варианты кнопок</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Основной контент -->
+    <main id="page-content">
+        <!-- Горизонтальное графическое меню со стрелкой над активным пунктом. -->
+        <nav class="graphic-menu" aria-label="Быстрые переходы">
+            <a href="{% url 'home' %}">
+                <span class="menu-arrow" hidden aria-hidden="true">▼</span>
+                <img src="{% static 'main/img/menu-home.svg' %}" alt="">
+                Главная
+            </a>
+            <a href="{% url 'catalog' %}">
+                <span class="menu-arrow" hidden aria-hidden="true">▼</span>
+                <img src="{% static 'main/img/menu-catalog.svg' %}" alt="">
+                Каталог
+            </a>
+            <a href="{% url 'contacts' %}">
+                <span class="menu-arrow" hidden aria-hidden="true">▼</span>
+                <img src="{% static 'main/img/menu-contacts.svg' %}" alt="">
+                Контакты
+            </a>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

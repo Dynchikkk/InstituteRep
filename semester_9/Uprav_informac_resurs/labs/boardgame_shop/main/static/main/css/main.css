@@ -113,6 +113,18 @@ tbody tr:nth-child(even) { background: #353535; }
 /* Запас высоты предотвращает смещение таблицы при увеличении картинки. */
 .image-preview { min-height: 400px; margin: 16px 0; }
 
+/* Примеры кнопок с разным содержимым. */
+.example-button { display: inline-block; padding: 12px 20px; border: 1px solid #666; border-radius: 4px; background: #fff; color: #181818; cursor: pointer; }
+.button-icon { width: 36px; height: 36px; vertical-align: middle; }
+/* Цветная таблица и горизонтальная линия внутри кнопки. */
+.button-table { width: 120px; margin: 0; }
+.button-table td { width: 60px; height: 36px; padding: 0; border: 1px solid #333; color: #181818; text-align: center; }
+.cell-red { background: #ef9a9a; }
+.cell-yellow { background: #ffe082; }
+.cell-green { background: #a5d6a7; }
+.cell-blue { background: #90caf9; }
+.button-rule { margin: 12px 0 0; border: 0; border-top: 2px solid #333; opacity: 1; }
+
 /* =============== */
 /* Идентификаторы. */
 /* =============== */

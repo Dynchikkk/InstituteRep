@@ -1,0 +1,43 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Варианты кнопок{% endblock %}
+
+{% block content %}
+    <h2>Варианты кнопок</h2>
+
+    <!-- Кнопка с обычным текстом. -->
+    <h3>Кнопка с текстом</h3>
+    <button type="button" class="example-button">Выбрать игру</button>
+
+    <!-- Кнопка, содержимое которой состоит из изображения. -->
+    <h3>Кнопка с картинкой</h3>
+    <button type="button" class="example-button" aria-label="Выбрать игру">
+        <img class="button-icon" src="{% static 'main/img/board-games-logo.svg' %}" alt="">
+    </button>
+
+    <!-- Изображение и текст находятся внутри одной кнопки. -->
+    <h3>Кнопка с текстом и картинкой</h3>
+    <button type="button" class="example-button">
+        <img class="button-icon" src="{% static 'main/img/board-games-logo.svg' %}" alt="">
+        Выбрать игру
+    </button>
+
+    <!-- Таблица из двух строк и двух столбцов и горизонтальная линия внутри кнопки. -->
+    <h3>Кнопка с таблицей</h3>
+    <button type="button" class="example-button" aria-label="Цветная таблица">
+        <table class="button-table" role="presentation">
+            <tbody>
+                <tr>
+                    <td class="cell-red">1</td>
+                    <td class="cell-yellow">2</td>
+                </tr>
+                <tr>
+                    <td class="cell-green">3</td>
+                    <td class="cell-blue">4</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr class="button-rule">
+    </button>
+{% endblock %}

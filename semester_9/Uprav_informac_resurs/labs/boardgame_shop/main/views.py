@@ -47,3 +47,7 @@ def delivery(request):
 
 def contacts(request):
     return render(request, 'main/contacts.html')
+
+
+def buttons(request):
+    return render(request, 'main/buttons.html')
