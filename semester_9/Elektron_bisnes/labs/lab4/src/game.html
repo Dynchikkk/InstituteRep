@@ -1,0 +1,44 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Шахматы{% endblock %}
+
+{% block content %}
+    <h2>Шахматы</h2>
+    <p>Классическая стратегическая настольная игра для двух игроков.</p>
+
+    <!-- Изображение с размерами и альтернативным текстом -->
+    <h3>Игровая доска</h3>
+    <img class="game-photo" src="{% static 'main/img/chess-board.svg' %}"
+         alt="Начальная расстановка шахматных фигур на доске">
+    <p><small>Начальная расстановка фигур: белые внизу, чёрные вверху.</small></p>
+
+    <!-- Таблица характеристик игры -->
+    <table>
+        <caption>Характеристики игры</caption>
+        <thead>
+            <tr>
+                <th scope="col">Характеристика</th>
+                <th scope="col">Значение</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Количество игроков</th>
+                <td>2</td>
+            </tr>
+            <tr>
+                <th scope="row">Тип игры</th>
+                <td>Стратегическая</td>
+            </tr>
+            <tr>
+                <th scope="row">Комплектация</th>
+                <td>Доска и 32 фигуры</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Абсолютная ссылка на внешний сайт -->
+    <p><a href="https://www.fide.com/">Международная шахматная федерация FIDE</a></p>
+    <a href="../catalog/">Вернуться в каталог</a>
+{% endblock %}

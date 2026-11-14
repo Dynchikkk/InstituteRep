@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+<title>Начальная расстановка шахматных фигур</title>
+<desc>Доска восемь на восемь клеток. Белые фигуры внизу, чёрные вверху.</desc>
+<rect width="480" height="480" fill="#faf8f1"/>
+<defs><pattern id="squares" width="104" height="104" patternUnits="userSpaceOnUse" x="32" y="32"><rect width="104" height="104" fill="#f0d9b5"/><rect x="52" width="52" height="52" fill="#b58863"/><rect y="52" width="52" height="52" fill="#b58863"/></pattern></defs>
+<rect x="32" y="32" width="416" height="416" fill="url(#squares)" stroke="#493829"/>
+<text x="58" y="74" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♜</text>
+<text x="110" y="74" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♞</text>
+<text x="162" y="74" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♝</text>
+<text x="214" y="74" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♛</text>
+<text x="266" y="74" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♚</text>
+<text x="318" y="74" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♝</text>
+<text x="370" y="74" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♞</text>
+<text x="422" y="74" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♜</text>
+<text x="58" y="126" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="110" y="126" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="162" y="126" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="214" y="126" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="266" y="126" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="318" y="126" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="370" y="126" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="422" y="126" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#161616" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="58" y="386" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="110" y="386" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="162" y="386" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="214" y="386" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="266" y="386" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="318" y="386" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="370" y="386" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="422" y="386" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♟</text>
+<text x="58" y="438" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♜</text>
+<text x="110" y="438" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♞</text>
+<text x="162" y="438" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♝</text>
+<text x="214" y="438" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♛</text>
+<text x="266" y="438" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♚</text>
+<text x="318" y="438" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♝</text>
+<text x="370" y="438" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♞</text>
+<text x="422" y="438" text-anchor="middle" font-family="Segoe UI Symbol, DejaVu Sans, serif" font-size="44" fill="#ffffff" stroke="#161616" stroke-width="0.7">♜</text>
+<text x="58" y="469" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">a</text>
+<text x="110" y="469" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">b</text>
+<text x="162" y="469" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">c</text>
+<text x="214" y="469" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">d</text>
+<text x="266" y="469" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">e</text>
+<text x="318" y="469" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">f</text>
+<text x="370" y="469" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">g</text>
+<text x="422" y="469" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">h</text>
+<text x="16" y="64" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">8</text>
+<text x="16" y="116" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">7</text>
+<text x="16" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">6</text>
+<text x="16" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">5</text>
+<text x="16" y="272" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">4</text>
+<text x="16" y="324" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">3</text>
+<text x="16" y="376" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">2</text>
+<text x="16" y="428" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">1</text>
+</svg>
