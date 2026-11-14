@@ -33,10 +33,6 @@ def about(request):
     return render(request, 'main/about.html', data)
 
 
-def catalog(request):
-    return render(request, 'main/catalog.html')
-
-
 def game(request):
     return render(request, 'main/game.html')
 
